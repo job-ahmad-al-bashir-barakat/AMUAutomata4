@@ -1,0 +1,13 @@
+<script>
+
+    var DIR  = "{{ $dir }}";
+    var LANG = "{{ $lang }}";
+
+    $(document).ready(function () {
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+            }
+        });
+    });
+</script>

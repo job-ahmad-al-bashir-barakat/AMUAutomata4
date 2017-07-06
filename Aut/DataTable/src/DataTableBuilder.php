@@ -1,0 +1,2017 @@
+<?php
+
+namespace Aut\DataTable;
+
+use App;
+use Aut\DataTable\Traits\JavaScript;
+use Aut\DataTable\Traits\Table;
+use Aut\DataTable\Traits\Dialog;
+use Aut\DataTable\Traits\QueryDataTable;
+use Illuminate\Support\Str;
+use Mockery\CountValidator\Exception;
+use Symfony\Component\DomCrawler\Crawler;
+
+/**
+ * Class DataTableBuilder
+ * @package Aut\DataTable
+ */
+class DataTableBuilder
+{
+    use Dialog , Table, QueryDataTable ,JavaScript;
+
+    protected $id;
+
+    protected $url;
+
+    protected $model;
+
+    protected $dataTable;
+
+    protected $columns;
+
+    protected $locale;
+
+    protected $optionDatatableConfig;
+
+    protected $tableButtons = ['choosen','code' ,'destroy' , 'print','reload','add'];
+
+    protected $globalScript = '';
+
+    protected $index = 0;
+
+    protected $groupCount = 0;
+
+    protected $rowGroup;
+
+    protected $dir;
+
+    protected $tabs = [];
+
+    protected $tab = [];
+
+    protected $relation_key;
+
+    protected $partOfContent = "";
+
+    protected $gridSystem = [];
+
+    protected $gridSystemResult = [];
+
+    protected $rowDetail = '';
+
+    protected $customResponsiveTemplete = '';
+
+    protected $componentOptions = [];
+
+    protected $customHtml = '';
+
+    protected $isCustom = false;
+
+    protected $HTab = [];
+
+    protected $HTabs = [];
+
+    protected $events = [
+        'onAdd'          => '',
+        'onUpdate'       => '',
+        'onDelete'       => '',
+        'onLoad'         => '',
+        'modalOpen'      => '',
+        'modalClose'     => '',
+        'rowDetailClick' => '',
+        'onTabClick'     => '',
+    ];
+
+    protected $langs = [];
+
+    protected $langSupportedLocales = null;
+
+    protected $blade='';
+
+    public function __construct()
+    {
+        $this->dataTable = collect();
+
+        $this->columns = [];
+
+        $this->locale = App::getLocale();
+
+        $this->dir = \LaravelLocalization::getCurrentLocaleDirection();
+
+        /*
+         * Get All Supported lang
+         */
+        $this->langs  = \LaravelLocalization::getSupportedLanguagesKeys();
+
+        $this->langSupportedLocales  = \LaravelLocalization::getSupportedLocales();
+    }
+
+    protected function defaultProp()
+    {
+        $length = array_merge($this->optionDatatableConfig['rowCount'] ,[10,25,50,100, -1]);
+        $lengthWithAll = array_merge($this->optionDatatableConfig['rowCount'] , [10,25,50,100,'All']);
+
+        if($this->optionDatatableConfig['responsive'])
+            $this->dataTable->put('responsive', ['details' => ['renderer' => 'responsive_renderer']]);
+        if($this->optionDatatableConfig['scrollX'])
+            $this->dataTable->put('scrollX', true);
+        $this->dataTable->put('autoWidth', true);
+        $this->dataTable->put('processing', true);
+        $this->dataTable->put('stateSave' , false);
+        $this->dataTable->put('serverSide', true);
+        $this->dataTable->put('deferRender', true);
+        $this->dataTable->put('paging' , true);
+        $this->dataTable->put('pagingType' , 'simple_numbers');
+        $this->dataTable->put('lengthMenu', [$length ,$lengthWithAll]);
+        $this->dataTable->put('language', $this->setLanguage());
+        $this->dataTable->put('columnDefs', $this->exceptColumn());
+        $this->dataTable->put('buttons', []);
+        $this->dataTable->put('dom', $this->setButtonPosition());
+        $this->dataTable->put('searchDelay', 900);
+    }
+
+    /**
+     * @param $option
+     * @return array
+     */
+    private function setDefaultConfig($option)
+    {
+        $optionDefault = [
+            'dialogWidth'       => '',
+            'disableDialog'     => false,
+            'removeElement'     => false,
+            'removeSomeElement' => [],
+            'responsive'        => true,
+            'scrollX'           => false,
+            'filter'            => false,
+            'sortable'          => false,
+            'fixedStart'        => 0,
+            'fixedEnd'          => 0,
+            'rowCount'          => [],
+            'withTab'           => false,
+            'gridSystem'        => false,
+            'usedComponent'     => false,
+        ];
+
+        $optionDefault = array_merge($optionDefault ,$option);
+
+        if($optionDefault['scrollX'])
+        {
+            $optionDefault['responsive'] = false;
+        }
+
+        return $optionDefault;
+    }
+
+    /**
+     * @param string $tableId
+     * @param string $caption
+     * @param array $option
+     * @return $this
+     *
+     * filterHeaderType : input,select
+     */
+    function config($tableId = 'datatable', $caption = '', $option = [
+        'dialogWidth'       => '',
+        'disableDialog'     => false,
+        'removeElement'     => false,
+        'removeSomeElement' => [],
+        'scrollX'           => false,
+        'filter'            => false,
+        'sortable'          => false,
+        'fixedStart'        => 0,
+        'fixedEnd'          => 0,
+        'rowCount'          => [],
+        'withTab'           => false,
+        'gridSystem'        => false,
+        'usedComponent'     => false,
+    ])
+    {
+        $dataTable = $this->dataTable;
+
+        $this->id = $tableId;
+
+        if(count(request()->input()) > 0)
+        {
+            $param = '?';
+
+            foreach (request()->input() as $index => $item)
+            {
+                $param .= "$index=$item&";
+            }
+        }
+        else
+        {
+            $param = '';
+        }
+
+        $model = request()->route('model');
+
+        $this->model = $model;
+
+        $this->url = "datatable/$model/table";
+
+        $this->dialogCaption = $caption;
+
+        $this->optionDatatableConfig = $this->setDefaultConfig($option);
+
+        $this->defaultProp();
+
+        $dataTable->put('ajax', [
+            'url'  =>  localizeURL("datatable/$model/get/table{$param}"),
+            'type' => 'POST',
+        ]);
+
+        $this->dataTable->put('fixedColumns', [
+            'leftColumns'  => $this->optionDatatableConfig['fixedStart'],
+            'rightColumns' => $this->optionDatatableConfig['fixedEnd']
+        ]);
+
+        $this->addIndex();
+
+        /*
+         * Grid System
+         */
+        if($this->optionDatatableConfig['gridSystem'])
+        {
+            $this->gridSystem =  config('datatable.gridSystem');
+        }
+
+        $this->gridSystemResult = gridSystemResult($this->optionDatatableConfig['gridSystem'] ,$this->gridSystem);
+
+        if($this->optionDatatableConfig['responsive'] && !config('datatable.customResponsiveTemplete')){
+
+            $removeSpaces = autConvertString(view('datatable::_responsive')->render());
+
+            $this->customResponsiveTemplete = $removeSpaces;
+        }
+
+        return $this;
+    }
+
+    function gridSystemConfig($formHorizontal = false)
+    {
+        if(!$this->optionDatatableConfig['gridSystem'])
+            throw new \Exception('Opsss o_o !!! -_- sorry this function is only enabled when you activate gridSystem property.');
+
+        $this->gridSystem['formHorizontal'] = $formHorizontal;
+
+        return $this;
+    }
+
+    function setGridNormalCol($cols = 6 ,$type = 'lg|md|sm|xs')
+    {
+        if($this->gridSystem['formHorizontal'])
+            throw new \Exception('Opsss o_o !!! -_- sorry this function is only for Normal Form.');
+
+        $this->gridSystem['global'] = [
+            'cols' => $cols,
+            'type' => $type
+        ];
+
+        $this->gridSystemResult = gridSystemResult($this->optionDatatableConfig['gridSystem'] ,$this->gridSystem);
+
+        return $this;
+    }
+
+    function setGridHorizontalTitle($cols = 3 ,$type = 'lg|md|sm|xs')
+    {
+        if(!$this->gridSystem['formHorizontal'])
+            throw new \Exception('Opsss o_o !!! -_- sorry this function is only for Horizontal Form.');
+
+        $this->gridSystem['label'] = [
+            'cols' => $cols,
+            'type' => $type
+        ];
+
+        $this->gridSystemResult = gridSystemResult($this->optionDatatableConfig['gridSystem'] ,$this->gridSystem);
+
+        return $this;
+    }
+
+    function setGridHorizontalCol($cols = 9 ,$type = 'lg|md|sm|xs')
+    {
+        if(!$this->gridSystem['formHorizontal'])
+            throw new \Exception('Opsss o_o !!! -_- sorry this function is only for Horizontal Form.');
+
+        $this->gridSystem['input'] = [
+            'cols' => $cols,
+            'type' => $type
+        ];
+
+        $this->gridSystemResult = gridSystemResult($this->optionDatatableConfig['gridSystem'] ,$this->gridSystem);
+
+        return $this;
+    }
+
+    function addCont($id = '' ,$html ='<div>Hi There</div>' ,$class ='' ,$attr ='')
+    {
+        $this->_addCont($id ,$html ,$class ,$attr);
+
+        return $this;
+    }
+
+    function startCont($id = '' ,$class = '' ,$attr = '')
+    {
+        $this->_startCont($id ,$class ,$attr);
+
+        return $this;
+    }
+
+    function endCont()
+    {
+        $this->_endCont();
+
+        return $this;
+    }
+
+    function startRelation($relation)
+    {
+        $this->relation_key = $relation;
+
+        return $this;
+    }
+
+    function endRelation()
+    {
+        $this->relation_key = '';
+
+        return $this;
+    }
+
+    function startTab($title ,$icon ='')
+    {
+        if(!$this->optionDatatableConfig['withTab'])
+            throw new \Exception('Oppps !!! you must enable withTab property');
+
+        $this->tab = ['title' => $title ,'icon' => $icon];
+
+        return $this;
+    }
+
+    function endTab()
+    {
+        if(!isset($this->tab['content']))
+            throw new \Exception('oh -_- oh !! what are you doing dont pass tab without any content >_<');
+
+        $this->tabs[] = $this->tab;
+
+        $this->partOfContent = '';
+
+        return $this;
+    }
+
+    /**
+     * @param string $data
+     * @param string $name
+     * @param string $value
+     * @param bool $primaryKey
+     * @param bool $permanent
+     * @return $this
+     */
+    function addPrimaryKey($data = '', $name = '' ,$value = '',$permanent=false)
+    {
+        $instance = config('datatableModels.'.$this->model)['model'];
+
+        $pointer = new $instance;
+
+        $this->addField([
+            "type"       => 'hidden',
+            "data"       => $data != '' ? $data : $pointer->getKeyName(),
+            "name"       => $name != '' ? $name : $pointer->getKeyName(),
+            "value"      => $value,
+            "attr"       => 'data-key=true'.' '.($permanent == true ? 'data-permanent=true' : ''),
+            "class"      => 'd:primary-key',
+            "visible"    => false,
+            "orderable"  => false,
+            "searchable" => false,
+            "choosen"    => false
+        ]);
+
+        return $this;
+    }
+
+    /**
+     * @param string $text
+     * @param string $id
+     * @param string $class
+     * @param string $attr
+     * @param string $placement
+     * @return $this
+     */
+    function addButton(
+        $text = '',
+        $id = '',
+        $class = '',
+        $attr = '',
+        $placement = 'footer'
+    )
+    {
+        $this->_Button($text ,$id ,'button' ,$class ,$attr ,false ,$placement);
+
+        return $this;
+    }
+
+    /**
+     * @param string $text
+     * @param string $id
+     * @param string $class
+     * @param string $attr
+     * @param string $placement
+     * @return $this
+     */
+    function addSubmit(
+        $text = '',
+        $id = '',
+        $class = '',
+        $attr = '',
+        $placement = 'footer'
+    )
+    {
+        $this->_Button($text ,$id ,'button' ,$class ,$attr ,false ,$placement);
+
+        return $this;
+    }
+
+    /**
+     * @param string $data
+     * @param string $name
+     * @param string $value
+     * @param bool $primaryKey
+     * @param bool $permanent
+     * @return $this
+     */
+    function addHiddenInput($data = '', $name = '', $value = '', $primaryKey = false, $permanent=false)
+    {
+        $this->addField([
+            "type"       => 'hidden',
+            "data"       => $data,
+            "name"       => $name,
+            "value"      => $value,
+            "attr"       => ($primaryKey == true ? 'data-key="true"' : '').' '.($permanent == true ? 'data-permanent=true' : ''),
+            "class"      => $primaryKey  == true ? 'd:primary-key' : '',
+            "visible"    => false,
+            "orderable"  => false,
+            "searchable" => false,
+            "choosen"    => false
+        ]);
+
+        return $this;
+    }
+
+
+    /**
+     * @return $this
+     */
+    function addIndex()
+    {
+        $this->addField([
+            "title"      => '#',
+            "type"       => 'index',
+            "data"       => 'DT_Row_Index',
+            "name"       => 'DT_Row_Index',
+            "width"      => '20px',
+            "class"      => 'index center all',
+            "visible"    => true,
+            "orderable"  => false,
+            "searchable" => false,
+            "choosen"    => false
+        ]);
+
+        // force datatable to order
+        //$this->dataTable->put('order', [[ 1, "asc" ]]);
+
+        return $this;
+    }
+
+    /**
+     * @param string $title
+     * @param string $data
+     * @param string $name
+     * @param string $colClass
+     * @param string|array $dialogAttr
+     * @param string $colWidth
+     * @param bool $visible
+     * @param bool $orderable
+     * @param bool $searchable
+     * @param bool $choosen
+     * @return $this
+     */
+    function addInputText
+    (
+        $title = '',
+        $data = '',
+        $name = '',
+        $colClass = '',
+        $dialogAttr = '',
+        $colWidth = '',
+        $visible = true,
+        $orderable = true,
+        $searchable = true,
+        $choosen = true
+    )
+    {
+        $this->addField([
+            "type"       => 'text',
+            "title"      => $title,
+            "data"       => $data,
+            "name"       => $name,
+            "class"      => $colClass,
+            "width"      => $colWidth,
+            "attr"       => $dialogAttr,
+            "visible"    => $visible,
+            "orderable"  => $orderable,
+            "searchable" => $searchable,
+            "choosen"    => $choosen
+        ]);
+
+        return $this;
+    }
+
+    function addInputTextDialog
+    (
+        $title = '',
+        $id    = '',
+        $name  = '',
+        $value = '',
+        $class = '',
+        $attr  = ''
+    )
+    {
+        $this->_InputText($title ,$id ,$name , $value,'text' ,$class ,$attr);
+
+        return $this;
+    }
+
+    /**
+     * @param array $cols
+     * @param string $type
+     * @param string $colClass
+     * @param string $colWidth
+     * @param string|array $dialogAttr
+     * @return $this
+     */
+    function addMultiInputs
+    (
+        $cols       = [],
+        $type       = 'text',
+        $colClass   = '',
+        $colWidth   = '',
+        $dialogAttr = '',
+        $visible    = true,
+        $orderable  = true,
+        $searchable = true,
+        $choosen    = true
+    )
+    {
+        foreach ($cols as $index => $col)
+        {
+            $this->startRelation("trans_$col");
+
+            $hasTab = preg_match('/\b(?<![\S])(d:tabs)(?![\S])\b/',$colClass);
+
+            if($hasTab)
+                $this->startHorizontalTab();
+
+            foreach ($this->langSupportedLocales as $index => $lang)
+            {
+                $title = trans("datatable::table.$col")." ({$lang[App::getLocale().'Lang']})";
+
+                if($hasTab)
+                    $this->openHorizontalTab("{$col}_{$index}" ,$title ,'req' ,$index == App::getLocale() ? true : false);
+
+                // under updated for lang
+                // if($this->optionDatatableConfig['withTab'])
+                //      $this->openFromGroupDynamic();
+
+                $this->addField([
+                    "type"       => $type,
+                    "title"      => $title,
+                    "data"       => "{$col}_{$index}",
+                    "name"       => "lang_$col.$index.text",
+                    "class"      => "$index $colClass",
+                    "width"      => $colWidth,
+                    "attr"       => $dialogAttr,
+                    "visible"    => $visible,
+                    "orderable"  => $orderable,
+                    "searchable" => $searchable,
+                    "choosen"    => $choosen
+                ]);
+
+                // under updated for lang
+                // if($this->optionDatatableConfig['withTab'])
+                //      $this->closeFromGroupDynamic();
+
+                if($hasTab)
+                    $this->closeHorizontalTab();
+            }
+
+            if($hasTab)
+                $this->endHorizontalTab();
+
+            $this->endRelation();
+        }
+
+        return $this;
+    }
+
+    //under updated for lang
+    protected function openFromGroupDynamic()
+    {
+        if($this->optionDatatableConfig['gridSystem'])
+
+            if(!empty($this->gridSystem))
+                if(!$this->gridSystem['formHorizontal'])
+                {
+                    $this->rowGroup = 12 / $this->gridSystem['global']['cols'];
+
+                    $this->groupCount += 1;
+
+                    if($this->groupCount == 1)
+                        $this->openFromGroup();
+                }
+    }
+
+    //under updated for lang
+    protected function closeFromGroupDynamic()
+    {
+        if($this->optionDatatableConfig['gridSystem']) {
+
+            if (!$this->gridSystem['formHorizontal']) {
+
+                if ($this->groupCount == $this->rowGroup)
+                {
+                    $this->closeFromGroup();
+
+                    $this->groupCount = 0;
+                }
+            }
+        }
+    }
+
+    function startHorizontalTab()
+    {
+        $this->HTabs = [];
+
+        return $this;
+    }
+
+    function openHorizontalTab($id ,$title ,$class = '' ,$active = false)
+    {
+        $this->isCustom = true;
+
+        $star = preg_match('/\b(?<![\S])(req)(?![\S])\b/',$class);
+
+        $this->HTab = ['id' => $id ,'title' => $title ,'class' => $class ,'star' => $star ,'active' => $active];
+
+        return $this;
+    }
+
+    function closeHorizontalTab()
+    {
+        $this->HTabs[] = array_merge(['content' => $this->customHtml] ,$this->HTab);
+
+        $this->customHtml = '';
+
+        $this->isCustom = false;
+
+        return $this;
+    }
+
+    function endHorizontalTab()
+    {
+        $this->_addComponent(view('datatable::_htab' ,['htabs' => $this->HTabs ])->render());
+
+        $this->HTabs = [];
+
+        return $this;
+    }
+
+    /**
+     * @param string $component
+     * @param string $class
+     * @return $this
+     */
+    function addChildRowDetail(
+        $component = '',
+        $class     = ''
+    )
+    {
+        $this->addField([
+            "data"           => null,
+            "title"          => '<i class="icon-layers"></i>',
+            "type"           => 'detail',
+            "defaultContent" => '', //add default content to cell
+            "className"      => "center all details-control $class",
+            "width"          => '10px',
+            "visible"        => true,
+            "choosen"        => false,
+            "orderable"      => false,
+            "searchable"     => false,
+        ]);
+
+        $removeSpaces = autConvertString($component);
+
+        $this->rowDetail = $removeSpaces;
+
+        return $this;
+    }
+
+    /**
+     * @param string $templete
+     * @return $this
+     */
+    function editResponsiveRowDetailTemplete
+    (
+        $templete = ''
+    )
+    {
+        $removeSpaces = autConvertString($templete);
+
+        $this->customResponsiveTemplete = $removeSpaces;
+
+        return $this;
+    }
+
+    /**
+     * @param string $component
+     * @param array $options = [ ['selector' => '' , 'targetAttr' => '' ,'rowVal' => ''] ,[] , ...... ,[] ]
+     * @return $this
+     */
+    function addComponent
+    (
+        $component = '',
+        $options = []
+    )
+    {
+        $this->_addComponent($component);
+
+        foreach ($options as $option)
+        {
+            $this->componentOptions[] = $option;
+        }
+
+        return $this;
+    }
+
+    function addBlade
+    (
+        $component = '',
+        $appendTo  = ''
+    )
+    {
+        $this->blade = $component;
+
+        return $this;
+    }
+
+    /**
+     * @param string $title
+     * @param string $data
+     * @param string $name
+     * @param string $colClass
+     * @param string|array $dialogAttr
+     * @param string $colWidth
+     * @param bool $visible
+     * @param bool $orderable
+     * @param bool $searchable
+     * @param bool $choosen
+     * @return $this
+     */
+    function addInputPassword
+    (
+        $title = '',
+        $data = '',
+        $name = '',
+        $colClass = '',
+        $dialogAttr = '',
+        $colWidth = '',
+        $visible = true,
+        $orderable = true,
+        $searchable = true,
+        $choosen = true
+    )
+    {
+        $this->addField([
+            "type"       => 'password',
+            "title"      => $title,
+            "data"       => $data,
+            "name"       => $name,
+            "class"      => $colClass,
+            "width"      => $colWidth,
+            "attr"       => $dialogAttr,
+            "visible"    => $visible,
+            "orderable"  => $orderable,
+            "searchable" => $searchable,
+            "choosen"    => $choosen
+        ]);
+
+        return $this;
+    }
+
+    /**
+     * @param string $title
+     * @param string $data
+     * @param string $name
+     * @param string $colClass
+     * @param string $groupIcon
+     * @param string $groupClass
+     * @param string|array $dialogAttr
+     * @param string $colWidth
+     * @param bool $visible
+     * @param bool $orderable
+     * @param bool $searchable
+     * @param bool $choosen
+     * @return $this
+     */
+    function addInputGroup
+    (
+        $title = '',
+        $data = '',
+        $name = '',
+        $colClass = '',
+        $groupIcon = '',
+        $groupClass ='',
+        $dialogAttr = '',
+        $colWidth = '',
+        $visible = true,
+        $orderable = true,
+        $searchable = true,
+        $choosen = true
+    )
+    {
+        $this->addField([
+            "type"       => 'group',
+            "title"      => $title,
+            "data"       => $data,
+            "name"       => $name,
+            "class"      => $colClass,
+            "groupIcon"  => $groupIcon,
+            "groupClass" => $groupClass,
+            "attr"       => $dialogAttr,
+            "width"      => $colWidth,
+            "visible"    => $visible,
+            "orderable"  => $orderable,
+            "searchable" => $searchable,
+            "choosen"    => $choosen
+        ]);
+
+        return $this;
+    }
+
+    /**
+     * @param string $title
+     * @param string $data
+     * @param string $name
+     * @param string $colClass
+     * @param string|array $dialogAttr
+     * @param string $colWidth
+     * @param bool $visible
+     * @param bool $orderable
+     * @param bool $searchable
+     * @param bool $choosen
+     * @return $this
+     */
+    function addTextArea
+    (
+        $title = '',
+        $data = '',
+        $name = '',
+        $colClass = '',
+        $dialogAttr = '',
+        $colWidth = '',
+        $visible = true,
+        $orderable = true,
+        $searchable = true,
+        $choosen = true
+    )
+    {
+        $this->addField([
+            "type"       => 'textarea',
+            "title"      => $title,
+            "data"       => $data,
+            "name"       => $name,
+            "class"      => $colClass,
+            "width"      => $colWidth,
+            "attr"       => $dialogAttr,
+            "visible"    => $visible,
+            "orderable"  => $orderable,
+            "searchable" => $searchable,
+            "choosen"    => $choosen
+        ]);
+
+        return $this;
+    }
+
+    /**
+     * @param string $title
+     * @param string $data
+     * @param string $name
+     * @param string $colClass
+     * @param string|array $dialogAttr
+     * @param string $colWidth
+     * @param bool $visible
+     * @param bool $orderable
+     * @param bool $searchable
+     * @param bool $choosen
+     * @return $this
+     */
+    function addInputNumber
+    (
+        $title = '',
+        $data = '',
+        $name = '',
+        $colClass = '',
+        $dialogAttr = '',
+        $colWidth = '',
+        $visible = true,
+        $orderable = true,
+        $searchable = true,
+        $choosen = true
+    )
+    {
+        $this->addField([
+            "type"       => 'number',
+            "title"      => $title,
+            "data"       => $data,
+            "name"       => $name,
+            "class"      => $colClass,
+            "width"      => $colWidth,
+            "attr"       => $dialogAttr,
+            "visible"    => $visible,
+            "orderable"  => $orderable,
+            "searchable" => $searchable,
+            "choosen"    => $choosen
+        ]);
+
+        return $this;
+    }
+
+
+    /**
+     * @param string $title
+     * @param string $data
+     * @param string $name
+     * @param string $colClass
+     * @param string $colWidth
+     * @return $this
+     */
+    function addActionButton
+    (
+        $title = '' ,
+        $data = '',
+        $name = '' ,
+        $colClass = 'center all' ,
+        $colWidth = '60px'
+    )
+    {
+        $this->addField([
+            "type"       => 'button',
+            "title"      => $title ,
+            "data"       => $data,
+            "name"       => $name ,
+            "class"      => $colClass ,
+            "width"      => $colWidth ,
+            "visible"    => true,
+            "orderable"  => false,
+            "searchable" => false,
+            "choosen"    => false
+        ]);
+
+        return $this;
+    }
+
+
+    /**
+     * @param string $url
+     * @param string $title
+     * @param string $data
+     * @param string $name
+     * @param string $colLabel
+     * @param string $colClass
+     * @param string|array $dialogAttr
+     * @param string $colWidth
+     * @param bool $visible
+     * @param bool $orderable
+     * @param bool $searchable
+     * @param bool $choosen
+     * @return $this
+     */
+    function addAutocomplete
+    (
+        $url = '',
+        $title = '' ,
+        $data = '',
+        $name = '' ,
+        $colLabel = '',
+        $colClass = '' ,
+        $dialogAttr = '',
+        $colWidth = '',
+        $visible = true,
+        $orderable = true ,
+        $searchable = true ,
+        $choosen = true
+    )
+    {
+        $this->addField([
+            "type"       => 'autocomplete',
+            "url"        => localizeURL($url),
+            "title"      => $title ,
+            "data"       => $data,
+            "name"       => $name ,
+            "colLabel"   => $colLabel,
+            "class"      => $colClass ,
+            "width"      => $colWidth ,
+            "attr"       => $dialogAttr,
+            "visible"    => $visible,
+            "orderable"  => $orderable,
+            "searchable" => $searchable,
+            "choosen"    => $choosen
+        ]);
+
+        return $this;
+    }
+
+    /**
+     * @param string $url
+     * @param string $templete
+     * @param string $title
+     * @param string $data
+     * @param string $name
+     * @param string $colLabel
+     * @param string $colClass
+     * @param string|array $dialogAttr
+     * @param string $colWidth
+     * @param bool $visible
+     * @param bool $orderable
+     * @param bool $searchable
+     * @param bool $choosen
+     * @return $this
+     */
+    function addMultiAutocomplete
+    (
+        $url = '',
+        $templete = '',
+        $title = '' ,
+        $data = '',
+        $name = '' ,
+        $colLabel = '',
+        $colClass = '' ,
+        $dialogAttr = '',
+        $colWidth = '',
+        $visible = true,
+        $orderable = false,
+        $searchable = true,
+        $choosen = true
+    )
+    {
+        $this->addField([
+            "type"       => 'autocompleteMulti',
+            "url"        => localizeURL($url),
+            "templete"   => $templete,
+            "title"      => $title ,
+            "data"       => $data,
+            "name"       => $name ,
+            "colLabel"   => $colLabel,
+            "class"      => $colClass ,
+            "width"      => $colWidth ,
+            "attr"       => $dialogAttr,
+            "visible"    => $visible,
+            "orderable"  => $orderable,
+            "searchable" => $searchable,
+            "choosen"    => $choosen
+        ]);
+
+        return $this;
+    }
+
+    /**
+     * @param array $obj
+     * @param string $title
+     * @param string $data
+     * @param string $name
+     * @param string $colLabel
+     * @param string $colClass
+     * @param string|array $dialogAttr
+     * @param string $colWidth
+     * @param bool $visible
+     * @param bool $orderable
+     * @param bool $searchable
+     * @param bool $choosen
+     * @return $this
+     */
+    function addSelect
+    (
+        $obj = [],
+        $title = '' ,
+        $data = '' ,
+        $name = '' ,
+        $colLabel = '',
+        $colClass = '' ,
+        $dialogAttr = '',
+        $colWidth = '',
+        $visible = true,
+        $orderable = true ,
+        $searchable = true ,
+        $choosen = true
+    )
+    {
+        $this->addField([
+            "obj"        => $obj,
+            "type"       => 'select',
+            "title"      => $title ,
+            "data"       => $data,
+            "name"       => $name ,
+            "colLabel"   => $colLabel,
+            "class"      => $colClass ,
+            "width"      => $colWidth ,
+            "attr"       => $dialogAttr,
+            "visible"    => $visible,
+            "orderable"  => $orderable,
+            "searchable" => $searchable,
+            "choosen"    => $choosen
+        ]);
+
+        return $this;
+    }
+
+    /**
+     * @param string $title
+     * @param string $data
+     * @param string $name
+     * @param string $colLabel
+     * @param string $colClass
+     * @param string|array $dialogAttr
+     * @param string $colWidth
+     * @param bool $visible
+     * @param bool $orderable
+     * @param bool $searchable
+     * @param bool $choosen
+     * @return $this
+     */
+    function addViewField
+    (
+        $title = '' ,
+        $data = '' ,
+        $name = '' ,
+        $colLabel = '',
+        $colClass = '' ,
+        $dialogAttr = '',
+        $colWidth = '',
+        $visible = true,
+        $orderable = true ,
+        $searchable = true ,
+        $choosen = true
+    )
+    {
+        $this->addField([
+            "type"       => '',
+            "title"      => $title,
+            "data"       => $data,
+            "name"       => $name,
+            "colLabel"   => $colLabel,
+            "class"      => $colClass,
+            "width"      => $colWidth,
+            "attr"       => $dialogAttr,
+            "visible"    => $visible,
+            "orderable"  => $orderable,
+            "searchable" => $searchable,
+            "choosen"    => $choosen
+        ]);
+
+        return $this;
+    }
+
+    /**
+     *
+     * ----------------------------------------------------------------------
+     *  Event on Add
+     *  you can add some javascript to exec on add any new record from dialog
+     * ----------------------------------------------------------------------
+     *
+     * @param $script
+     * @return $this
+     */
+    function onAdd($script){
+
+        $this->events['onAdd'] = $this->replaceScript($script);
+
+        return $this;
+    }
+
+    function onUpdate($script){
+
+        $this->events['onUpdate'] = $this->replaceScript($script);
+
+        return $this;
+    }
+
+    function onDelete($script){
+
+        $this->events['onDelete'] = $this->replaceScript($script);
+
+        return $this;
+    }
+
+    function onLoad($script){
+
+        $this->events['onLoad'] = $this->replaceScript($script);
+
+        return $this;
+    }
+
+
+    function onModalOpen($script){
+
+        $this->events['modalOpen'] = $this->replaceScript($script);
+        return $this;
+    }
+
+
+    function onModalClose($script) {
+
+        $this->events['modalClose'] = $this->replaceScript($script);
+
+        return $this;
+    }
+
+    function onRowDetailClick($script) {
+
+        $this->events['rowDetailClick'] = $this->replaceScript($script);
+
+        return $this;
+    }
+
+    function onTabClick($script) {
+
+        $this->events['onTabClick'] = $this->replaceScript($script);
+
+        return $this;
+    }
+
+    function openFromGroup($id = '',$class = '' ,$attr = '')
+    {
+        $this->startCont($id ,trim("clearfix $class"),$attr);
+
+        return $this;
+    }
+
+    function closeFromGroup()
+    {
+        $this->endCont();
+
+        return $this;
+    }
+
+    private function setDefaultAddField($param)
+    {
+        $paramDefault = [
+            "type"            => '' ,
+            "obj"             => '' ,
+            "url"             => '' ,
+            "templete"        => '' ,
+            "title"           => '' ,
+            "data"            => '' ,
+            "name"            => '' ,
+            'value'           => '' ,
+            "colLabel"        => '' ,
+            "class"           => '' ,
+            "groupIcon"       => '' ,
+            "groupClass"      => '' ,
+            "width"           => '' ,
+            "attr"            => '' ,
+            "className"       => '' ,
+            "defaultContent"  => '' ,
+            "visible"         => true,
+            "orderable"       => true,
+            "searchable"      => true,
+            "choosen"         => true
+        ];
+
+        $paramDefault = array_merge($paramDefault ,$param);
+
+        if(is_array($paramDefault['visible']))
+        {
+            if($paramDefault['visible']['visible'] == false)
+            {
+                $paramDefault['visible'] = false;
+                $paramDefault['orderable'] = false;
+                $paramDefault['searchable'] = false;
+                $paramDefault['choosen'] = false;
+            }
+        }
+
+        return $paramDefault;
+    }
+
+    /**
+     * @param array $param
+     */
+    protected function addField
+    (
+        $param = [
+            "type"            => '' ,
+            "obj"             => '' ,
+            "url"             => '' ,
+            "templete"        => '' ,
+            "title"           => '' ,
+            "data"            => '' ,
+            "name"            => '' ,
+            'value'           => '' ,
+            "colLabel"        => '' ,
+            "class"           => '' ,
+            "groupIcon"       => '' ,
+            "groupClass"      => '' ,
+            "width"           => '' ,
+            "attr"            => '' ,
+            "className"       => '' ,
+            "defaultContent"  => '' ,
+            "visible"         => true,
+            "orderable"       => true,
+            "searchable"      => true,
+            "choosen"         => true
+        ]
+    )
+    {
+        $param = $this->setDefaultAddField($param);
+
+        $column = collect();
+
+        $choosen = $this->isVisible($this->locale ,$param["visible"] ,$param["choosen"] ,$param["class"]);
+
+        $param['class_attr'] = $this->dialogClassAttr($param["class"] ,$param["attr"] ,$param["type"]);
+
+        $data = empty($param['colLabel']) ? $param["data"] : $param['colLabel'];
+
+        $data = empty($param['templete']) ? $data : $param['templete'];
+
+        $column->put('data',$data);
+        $column->put('name',$param["name"]);
+        $column->put('class',$param['class_attr']['class_table']);
+        $column->put('width',$param["width"]);
+        $column->put('visible',$choosen["visible"]);
+        $column->put('orderable',$param["orderable"]);
+        $column->put('searchable',$param["searchable"]);
+        $column->put('className',$param["className"]);
+        $column->put('defaultContent',$param["defaultContent"]);
+
+        array_push($this->columns,$column);
+
+        $this->dataTable->put('columns',$this->columns);
+
+        $configChoosen = config('datatable.choosen');
+
+        $choosen = $param["choosen"] ? '' : $configChoosen;
+
+        $this->FillTable($param ,$choosen);
+
+        $this->FillDialogDatatable($param ,$choosen);
+
+        $this->index += 1;
+    }
+
+    protected function dialogClassAttr($class ,$attr ,$type)
+    {
+        $class_dialog = '';
+
+        $attrs = '';
+        if(is_array($attr))
+        {
+            foreach ($attr as $index => $item)
+                $attrs .= "$index = $item";
+
+            $attr = $attrs;
+        }
+
+        // add en/ar class to dialog
+        $langs = implode("|", $this->langs);
+        if(preg_match('/\b(?<![\S])('.$langs.')(?![\S])\b/',$class ,$result))
+            $class_dialog = "$class_dialog {$result[0]}";
+
+        // add required class to dialog
+        if(preg_match('/\b(?<![\S])(required)(?![\S])\b/',$class))
+            $class_dialog = "$class_dialog required";
+
+        // add req class to dialog
+        if(preg_match('/\b(?<![\S])(req)(?![\S])\b/',$class))
+            $class_dialog = "$class_dialog req";
+
+        // add req class to dialog
+        if(preg_match('/\b(?<![\S])(text-editor)(?![\S])\b/',$class))
+            $class_dialog = "$class_dialog datatable-text-editor";
+
+        if($type == 'number')
+        {
+            if(preg_match('/\b(?<![\S])(spinner)(?![\S])\b/',$class))
+                $class_dialog = "$class_dialog spinner";
+            else
+                $class_dialog = "$class_dialog none-spinner";
+        }
+
+        if(preg_match('/\b(?<![\S])(number)(?![\S])\b/',$class))
+            $class_dialog = "$class_dialog number";
+
+        $replacement = '';
+        // add other class with d alias to dialog ** add this classes to replacement str
+        if(preg_match_all('/\b(?<![\S])(d:[\w\d-]+)(?![\S])\b/',$class,$results,PREG_PATTERN_ORDER)) {
+            foreach ($results as $index => $result)
+            {
+                if ($index == 0)
+                    foreach ($result as $item)
+                    {
+                        $replacement = "$replacement|$item";
+                        $item = preg_replace('/\b(?<![\S])(d:)\b/','',$item);
+                        $class_dialog = "$class_dialog $item";
+                    }
+            }
+        }
+
+        // add attr autocomplete to attr str
+        if($type == 'text' || $type == 'number' || $type == 'group')
+        {
+            if(preg_match('/\b(?<![\S])(autocomplete)(?![\S])\b/',$class))
+                $attr = "$attr autocomplete = 'on'";
+            else
+                $attr = "$attr autocomplete = 'off'";
+        }
+
+        // remove class dialog from string
+        $replacement = "req|required|number|en|ar|autocomplete|spinner{$replacement}";
+
+        // just class table
+        $class_table = trim(preg_replace("/\b(?<![\S])($replacement)(?![\S])\b/",'',$class));
+
+        //relation
+        if($this->relation_key != '')
+        {
+            $relation = $this->organizeRelation($this->relation_key);
+
+            $attr = "$attr data-relation = $relation";
+        }
+
+        // return all
+        return ['class_dialog' => trim($class_dialog) ,'class_table' => trim($class_table) ,'attr' => trim($attr)];
+    }
+
+    function organizeRelation($relationParam)
+    {
+        $rel = "";
+        foreach (explode('.' ,$relationParam) as $index => $relation)
+        {
+            if($index == 0)
+                $rel .= $relation;
+            else
+                $rel .= "[$relation]";
+        }
+
+        return $rel;
+    }
+
+    function FillTable($param ,$choosen)
+    {
+        $this->addTableColumn($param ,$choosen);
+    }
+
+    function FillDialogDatatable($param ,$choosen)
+    {
+        $class_attr = $param['class_attr'];
+
+        $id = preg_replace('/.+\./','',$param["data"]);
+
+        //form data-id ckeditor
+        $class_attr['attr'] = "{$class_attr['attr']} data-orginal-id=$id";
+
+        $array = $param["type"] == 'autocompleteMulti' ? "[]" : "";
+
+        $relation = $this->organizeRelation($this->relation_key);
+
+        $name = $this->relation_key != '' ? "{$relation}[$id]$array" : "$id{$array}";
+
+        $id = $this->relation_key != '' ? $param["data"] : $id;
+
+        switch ($param["type"]) {
+
+            case 'hidden' :
+            {
+                if(!$this->optionDatatableConfig['disableDialog'])
+                    $this->_HiddenInput($id ,$name ,$param['value'] ,'hidden' ,$class_attr['class_dialog'] ,$class_attr['attr'] ,$this->isCustom);
+            }; break;
+
+            case 'text' :
+            {
+                if(!$this->optionDatatableConfig['disableDialog'])
+                    $isCustom = $this->_InputText($param["title"] ,$id ,$name ,'', 'text', $class_attr['class_dialog'], $class_attr['attr'] ,$this->isCustom);
+            }; break;
+
+            case 'password' :
+            {
+                if(!$this->optionDatatableConfig['disableDialog'])
+                    $isCustom = $this->_InputPassword($param["title"] ,$id ,$name , 'password', $class_attr['class_dialog'], $class_attr['attr'] ,$this->isCustom);
+            }; break;
+
+            case 'group' :
+            {
+                if(!$this->optionDatatableConfig['disableDialog'])
+                    $isCustom = $this->_InputGroup($param["title"], $id,$name , 'text', $class_attr['class_dialog'], $param['groupIcon'], $param['groupClass'], $class_attr['attr'] ,$this->isCustom);
+            }; break;
+
+            case 'textarea' :
+            {
+                if(!$this->optionDatatableConfig['disableDialog'])
+                    $isCustom = $this->_TextArea($param["title"] ,$id ,$name , $class_attr['class_dialog'], $class_attr['attr'] ,$this->isCustom);
+            }; break;
+
+            case 'number' :
+            {
+                if(!$this->optionDatatableConfig['disableDialog'])
+                    $isCustom = $this->_InputNumber($param["title"],$id ,$name , 'number', $class_attr['class_dialog'], $class_attr['attr'] ,$this->isCustom);
+            }; break;
+
+            case 'select':
+            {
+                if(!$this->optionDatatableConfig['disableDialog'])
+                    $isCustom = $this->_Select($param['obj'] ,$param["title"] ,$id ,$name , $param['colLabel'], $class_attr['class_dialog'], $class_attr['attr'] ,$this->isCustom);
+            }; break;
+
+            case 'autocomplete' :
+            case 'autocompleteMulti' :
+            {
+                if(!$this->optionDatatableConfig['disableDialog'])
+                    $isCustom = $this->_Autocomplete($param['url'] ,$param["title"] ,$id ,$name ,$param['colLabel'], $class_attr['class_dialog'], $class_attr['attr'] ,'body' /* "#{$this->id}-modal" */  ,$this->isCustom);
+            }; break;
+        }
+
+        if($this->isCustom)
+            $this->customHtml .= $isCustom;
+
+    }
+
+    protected function isVisible($locale ,$visible , $choosen, $class)
+    {
+        $langs = $this->langs;
+
+        foreach ($langs as $index => $lang)
+            if($locale == $lang)
+                unset($langs[$index]);
+
+        $hiddenLang = implode("|", $langs);
+
+        if($choosen)
+        {
+            if(preg_match('/\b(?<![\S])('.$hiddenLang.')(?![\S])\b/',$class)) {
+
+                $visible = false;
+            }
+        }
+
+        return ['visible' => $visible ,'choosen' => $choosen] ;
+    }
+
+    function exceptColumn()
+    {
+        $exceptColumns = collect();
+
+        $exceptColumns->push([
+            'targets'    => 0,
+            'visible'    => false,
+            'orderable'  => false,
+            'searchable' => false
+        ]);
+
+        return $exceptColumns;
+    }
+
+    protected function setLanguage()
+    {
+        $lang = collect();
+
+        $lang->put('lengthMenu',trans('datatable::table.lengthMenu'));
+        $lang->put('emptyTable',trans('datatable::table.emptyTable'));
+        $lang->put("processing", ''); //Processing...
+        $lang->put("loadingRecords", ''); //Loading...
+        $lang->put("zeroRecords", trans('datatable::table.zeroRecords'));
+        $lang->put("info",trans('datatable::table.info'));
+        $lang->put('infoEmpty',trans('datatable::table.infoEmpty'));
+        $lang->put('infoFiltered',trans('datatable::table.infoFiltered'));
+        $lang->put('search','');
+        $lang->put('searchPlaceholder',trans('datatable::table.searchPlaceholder'));
+        $lang->put('paginate',[
+            'first'    => trans('datatable::table.paginate.first'),
+            "previous" => trans('datatable::table.paginate.previous'),
+            "next"     => trans('datatable::table.paginate.next'),
+            "last"     => trans('datatable::table.paginate.last'),
+        ]);
+        $lang->put('buttons',[
+            'copyTitle'   => trans('datatable::table.buttons.copy.copyTitle'),
+            'copySuccess' => [
+                '_' => trans('datatable::table.buttons.copy.copySuccess.all'),
+                1  => trans('datatable::table.buttons.copy.copySuccess.one')
+            ]
+        ]);
+
+        return $lang;
+    }
+
+    function addNavButton($buttons = [],$except = [])
+    {
+        $buttonResult = collect();
+
+        if(!empty($buttons))
+        {
+            $this->tableButtons = $buttons;
+        }
+
+        if(!empty($except))
+        {
+            $buttons = collect($this->tableButtons)->filter(function($button) use($except) {
+
+                foreach ($except as $exceptButton)
+                {
+                    if($exceptButton == $button)
+                    {
+                        $done =  false;
+
+                        break;
+                    }
+                    else
+                    {
+                        $done = true;
+                    }
+                }
+
+                return $done;
+            });
+
+            $this->tableButtons = $buttons;
+        }
+
+
+        foreach ($this->tableButtons as $button) {
+
+            switch ($button) {
+
+                case 'add' : {
+
+                    $addIcon = config('datatable.icon.add');
+
+                    $buttonResult->push([
+                        'text'      => "<i class='$addIcon'></i>",
+                        'titleAttr' => trans('datatable::table.new_row'),
+                        'className' => 'button-style button-plus',
+                        'action'    => 'buttons_action_plus'
+                    ]);
+
+                } break;
+
+                case 'reload' : {
+
+                    $refreshIcon = config('datatable.icon.reload');
+
+                    $buttonResult->push([
+                        'text' => "<i class='$refreshIcon'></i>",
+                        'titleAttr' => trans('datatable::table.reload'),
+                        'className' => 'button-style button-reload',
+                        'action' => 'buttons_action_reload'
+                    ]);
+
+                } break;
+
+                case 'code' : {
+
+                    if(config('datatable.isDebug')) {
+
+                        $codeIcon = config('datatable.icon.code');
+
+                        $buttonResult->push([
+                            'text' => "<i class='$codeIcon'></i>",
+                            'titleAttr' => trans('datatable::table.code'),
+                            'className' => 'button-style button-code',
+                            'action' => 'buttons_action_code'
+                        ]);
+                    }
+
+                } ; break;
+
+                case 'destroy' : {
+
+                    if(config('datatable.isDebug')) {
+
+                        $destroyIcon = config('datatable.icon.destroy');
+
+                        $buttonResult->push([
+                            'text'      => "<i class='$destroyIcon'></i>",
+                            'titleAttr' => trans('datatable::table.destroy'),
+                            'className' => 'button-style button-destroy',
+                            'action'    => 'buttons_action_destroy'
+                        ]);
+                    }
+
+                } ; break;
+
+                case 'choosen' : {
+
+                    $choosenIcon = config('datatable.icon.choosen');
+
+                    $configChoosen = config('datatable.choosen');
+
+                    $buttonResult->push([
+                        'extend'    => 'colvis',
+                        'text'      => "<i class='$choosenIcon'></i>",
+                        'titleAttr' => trans('datatable::table.column_visibility'),
+                        'className' => 'button-style',
+                        'columns'   => ":not(.$configChoosen)"
+                    ]);
+
+                } break;
+
+                case 'print' : {
+
+                    $printIcon = config('datatable.icon.print');
+
+                    $buttonResult->push([
+                        'extend'    => 'print',
+                        'text'      => "<i class='$printIcon'></i>",
+                        'titleAttr' => trans('datatable::table.print'),
+                        'className' => 'button-style'
+                    ]);
+
+                } break;
+
+                // case 'pdf' : {
+                //
+                //     $pdfIcon = config('datatable.icon.pdf');
+                //
+                //     $buttonResult->push([
+                //         'extend'    => 'pdfHtml5',
+                //         'text'      => "<i class='$pdfIcon'></i>",
+                //         'titleAttr' => trans('datatable::table.pdf'),
+                //         'className' => 'button-style hidden-xs'
+                //     ]);
+                //
+                // } break;
+
+                //case 'csv' :{
+                //
+                //    $csvIcon = config('datatable.icon.csv');
+                //
+                //    $buttonResult->push([
+                //        'extend'    => 'csvHtml5',
+                //        'text'      => "<i class='$csvIcon'></i>",
+                //        'titleAttr' => trans('datatable::table.csv'),
+                //        'className' => 'button-style hidden-xs'
+                //    ]);
+                //
+                //} break;
+
+                //case 'excel' :{
+                //
+                //    $excelIcon = config('datatable.icon.excel');
+                //
+                //    $buttonResult->push([
+                //        'extend'    => 'excelHtml5',
+                //        'text'      => "<i class='$excelIcon'></i>",
+                //        'titleAttr' => trans('datatable::table.excel'),
+                //        'className' => 'button-style hidden-xs'
+                //    ]);
+                //
+                //} break;
+
+                //case 'copy' :{
+                //
+                //    $copyIcon = config('datatable.icon.copy');
+                //
+                //    $buttonResult->push([
+                //        'extend'    => 'copyHtml5',
+                //        'text'      => "<i class='$copyIcon'></i>",
+                //        'titleAttr' => trans('datatable::table.copy'),
+                //        'className' => 'button-style hidden-xs'
+                //    ]);
+                //
+                //} break;
+            }
+        }
+
+        $this->dataTable->put('buttons',$buttonResult);
+
+        return $this;
+    }
+
+    function addCustomNavButton($title ,$icon ,$class ,$attr)
+    {
+        $this->globalScript .= $this->addCustomNavButtonScript($title ,$icon ,$class ,$attr);
+
+        return $this;
+    }
+
+    protected function setButtonPosition()
+    {
+        $ButtonPosition = config("datatable.button_position");
+
+        if($this->optionDatatableConfig['removeElement'])
+            $ButtonPosition =
+                "B tr"
+            ;
+
+        $removeSomeElement = $this->optionDatatableConfig['removeSomeElement'];
+
+        if(!empty($removeSomeElement))
+        {
+            $button = 'B';
+            $length = 'l';
+            $info   = 'i';
+            $search = 'f';
+            $paging = 'p';
+
+            foreach($removeSomeElement as $index => $item)
+            {
+                switch ($item)
+                {
+                    case 'b' : $button = '';break;
+                    case 'l' : $length = '';break;
+                    case 'i' : $info   = '';break;
+                    case 's' : $search = '';break;
+                    case 'p' : $paging = '';break;
+                }
+            }
+
+            $ButtonPosition = "$button<'row'<'col-lg-4 datatable-pull-left'$length><'col-lg-4 datatable-pull-right'$search>>tr<'row'<'col-lg-4 datatable-pull-left'$info><'col-lg-6 datatable-pull-right'$paging>>";
+        }
+
+        return $ButtonPosition;
+    }
+
+    protected function initScript($dataTable)
+    {
+        $spinners               = config("datatable.spinners");
+        $multiModal             = config('datatable.multiModel') ? 'true' : 'false';
+        $event                  = config('datatable.event');
+        $onLoadConfig           = $this->replaceScript(($event['onLoad'])());
+        $onModelCloseConfig     = $this->replaceScript(($event['modalClose'])());
+        $onTabClickConfig       = $this->replaceScript(($event['onTabClick'])());
+        $onRowDetailClickConfig = $this->replaceScript(($event['onRowDetailClick'])());
+        $onDestroyConfig        = $this->replaceScript(($event['onDestroy'])());
+
+        $dir                      = $this->dir;
+        $disableDialog            = $this->optionDatatableConfig['disableDialog'] ? 'true' : 'false';
+        $scrollX                  = $this->optionDatatableConfig['scrollX'] ? 'true' : 'false';
+        $url                      = localizeURL($this->url);
+        $dialog                   = trans('datatable::table.dialog');
+        $save                     = trans('datatable::table.save');
+        $sortable                 = $this->optionDatatableConfig['sortable'] ? 'true' : 'false';
+        $rowDetail                = $this->rowDetail != '' ? $this->rowDetail : '';
+        $customResponsiveTemplete = $this->customResponsiveTemplete;
+        $usedComponent            = $this->optionDatatableConfig['usedComponent'] ? 'true' : 'false';
+        $componentOptions         = !empty($this->componentOptions) ? collect($this->componentOptions) : collect([]);
+
+        $swal = array(
+            "ok"                => trans('datatable::table.swal.ok'),
+            "title"             => trans('datatable::table.swal.title'),
+            "text"              => trans('datatable::table.swal.text'),
+            "type"              => trans('datatable::table.swal.type'),
+            "confirmButtonText" => trans('datatable::table.swal.confirmButtonText'),
+            "cancelButtonText"  => trans('datatable::table.swal.cancelButtonText'),
+            "success"           => array(
+                "text"    => trans('datatable::table.swal.success.text'),
+                "message" => trans('datatable::table.swal.success.message'),
+            ),
+            "cancleSafe"        => array(
+                "text"    => trans('datatable::table.swal.cancleSafe.text'),
+                "message" => trans('datatable::table.swal.cancleSafe.message'),
+            )
+        );
+
+        $script  = "
+            <script class='datatable'>
+                
+                $(document).ready(function () {
+      
+                     aut_datatable_CreateNewTable({ 
+                         url : '$url',
+                         dir : '$dir',
+                         json_object : $dataTable,
+                         multi_modal : $multiModal,
+                         row_detail  : function(row) {
+                            return $rowDetail; 
+                         }, 
+                         responsive_templete: function(col) {
+                            return $customResponsiveTemplete;
+                         },
+                         component : {
+                            used    : $usedComponent,
+                            options : $componentOptions
+                         },
+                         ids : {
+                             table   : '#$this->id',
+                             modal   : '#$this->id-modal',
+                             wrapper : '#{$this->id}_wrapper'
+                         },
+                         lang : {
+                            save : '$save',
+                            swal : {
+                                ok                :  '{$swal['ok']}',
+                                title             :  '{$swal['title']}',
+                                text              :  '{$swal['text']}',
+                                confirmButtonText :  '{$swal['confirmButtonText']}',
+                                cancelButtonText  :  '{$swal['cancelButtonText']}',
+                                success           :  {
+                                    text    : '{$swal['success']['text']}',
+                                    message : '{$swal['success']['message']}',
+                                },
+                                cancleSafe : {
+                                    text    : '{$swal['cancleSafe']['text']}',
+                                    message : '{$swal['cancleSafe']['message']}',
+                                }
+                            },
+                         },
+                         spinners : {
+                             type     : '{$spinners['type']}',
+                             overlay  : '{$spinners['overlay']}',  
+                         },
+                         modal : {
+                             add_btn : '{$dialog['add']} $this->dialogCaption',
+                             update_btn :'{$dialog['update']} $this->dialogCaption',
+                         },
+                         setting : {
+                             disable_dialog : $disableDialog,
+                             sortable : $sortable,
+                             scrollX : $scrollX,
+                         },
+                         global_script : function() {
+                            {$this->globalScript}
+                         },
+                         events: {
+                             on_add : function(param) {
+                                {$this->events['onAdd']}
+                             },
+                             on_update : function(param) {
+                                {$this->events['onUpdate']}
+                             },
+                             on_delete : function(param) {
+                                 {$this->events['onDelete']}
+                             },
+                             on_load : function(modal ,param) {
+                                 
+                                 {$this->events['onLoad']}
+                                 
+                                 {$onLoadConfig}
+                             },
+                             modal_open : function(modal ,param) {
+                                 
+                                 {$this->events['modalOpen']}
+                             }, 
+                             modal_close : function(modal ,param) {
+                                 
+                                 {$this->events['modalClose']}
+                                 
+                                 {$onModelCloseConfig}
+                             },
+                             row_detail_click : function(cont ,row) {
+                                 
+                                 {$this->events['rowDetailClick']}
+                                 
+                                 {$onRowDetailClickConfig}
+                             },
+                             on_tab_click : function(cont) {
+                                 
+                                {$this->events['onTabClick']}
+                                                                
+                                {$onTabClickConfig}
+                             },
+                             'on_destroy' : function(cont) {
+                                 
+                                 {$onDestroyConfig}
+                             }
+                         }
+                     });
+                });
+            </script>";
+
+        return $script;
+    }
+
+    function renderHtml()
+    {
+        return $dialog = $this->optionDatatableConfig['disableDialog'] == true ? '' : $this->renderDialog("{$this->id}-modal");
+    }
+
+    /**
+     * @return array
+     */
+    function render()
+    {
+        $this->customHtml = '';
+
+        if($this->customResponsiveTemplete == '')
+            throw new Exception('opsss !!! sorry you must fill your custom responsive templete');
+
+        $dialog = $this->optionDatatableConfig['disableDialog'] == true ? '' : $this->renderDialog("{$this->id}-modal");
+
+        return [
+            "table"    => $this->renderTable($this->id),
+            "dialog"   => $dialog,
+            "script"   => $this->initScript($this->dataTable),
+            "blade"    => $this->blade
+        ];
+    }
+
+}

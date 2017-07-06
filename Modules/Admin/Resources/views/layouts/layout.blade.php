@@ -1,0 +1,1 @@
+@include('controle.layout' ,['module' => 'admin'])

@@ -1,0 +1,1 @@
+@include('controle._content_header',['title' ,$title])

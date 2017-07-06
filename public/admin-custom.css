@@ -1,0 +1,38 @@
+/*-----------------------------------------------------
+        Fix Autocompelte validation color border
+--------------------------------------------------------*/
+.select2-container--bootstrap.select2-container--focus .select2-selection,
+.select2-container--bootstrap.select2-container--open .select2-selection {
+
+    box-shadow: none;
+    transition: none;
+}
+
+.has-error .select2-dropdown, .has-error .select2-selection {
+
+    border-color: #f05050 !important;
+}
+
+.has-error .select2-container--focus .select2-selection, .has-error .select2-container--open .select2-selection {
+
+    border-color: #f05050 !important;
+}
+
+/*-----------------------------------------------------
+                    Set Helper Class
+--------------------------------------------------------*/
+.hand {
+
+    cursor: pointer;
+}
+
+.move {
+
+    cursor: move;
+}
+
+.star:after {
+
+    content: ' *';
+    color: #f05050;
+}

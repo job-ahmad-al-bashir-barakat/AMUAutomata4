@@ -1,0 +1,35 @@
+<?php
+
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class Create$CLASS$Table extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('$TABLE$', function (Blueprint $table) {
+            $table->increments('id')->unsigned();
+            $table->integer('$FK$')->unsigned()->nullable()->index('$FK$');
+            $table->integer('lang_id')->unsigned()->nullable()->index('lang_id');
+            $table->string('text')->nullable();
+            $table->timestamps();
+            $table->softDeletes();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('$TABLE$');
+    }
+}
