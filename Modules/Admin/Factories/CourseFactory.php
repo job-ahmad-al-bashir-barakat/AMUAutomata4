@@ -3,6 +3,7 @@
 namespace Modules\Admin\Factories;
 
 use Aut\DataTable\Factories\GlobalFactory;
+use Illuminate\Support\Facades\Input;
 use Modules\Admin\Entities\Course;
 use Modules\Admin\Entities\Faculty;
 
@@ -33,10 +34,12 @@ class CourseFactory extends GlobalFactory
      */
     public function buildDatatable($model ,$request)
     {
+        $factory = request()->input('faculty');
+
         return $this->table
             ->config('datatable-course',trans('admin::app.course'))
             ->addPrimaryKey('id','id')
-            ->addInputTextDialog(trans('admin::app.faculty') ,'faculty' ,'faculty' ,request()->input('faculty') ,'' ,'disabled')
+            ->addInputTextDialog(trans('admin::app.faculty') ,'faculty' ,'faculty' , $factory,'' ,'disabled')
             ->addAutocomplete('autocomplete/department' ,trans('admin::app.department'), "department_id" ,'department.lang_name.'.$this->lang.'.text' ,'department.lang_name.'.$this->lang.'.text')
             ->addAutocomplete('autocomplete/degree' ,trans('admin::app.degree'), "degree_id" ,'degree.lang_name.'.$this->lang.'.text' ,'degree.lang_name.'.$this->lang.'.text')
             ->addMultiInputs(['name'])

@@ -28,9 +28,13 @@ class AdminController extends Controller
 
     public function subTable($id ,$view)
     {
+        $param = '';
+        foreach (request()->except('_pjax') as $index => $value)
+            $param .=  "&$index=$value";
+
         return view('admin::page.table',[
             'table' => $view,
-            'param' => "?id=$id",
+            'param' => "?id=$id{$param}",
             'title' => trans('app.'.str_replace('-','_',$view))
         ]);
     }

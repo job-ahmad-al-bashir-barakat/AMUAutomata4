@@ -20,7 +20,7 @@ class FacultyFactory extends GlobalFactory
             ->queryUpdateButton('id')
             ->queryDeleteButton('id')
             ->queryMultiColumn(['name'])
-            ->queryCustomButton('courses' ,'id' ,'icon-book-open' ,'ajax' ,pjax(localizeURL('admin/{id}/courses?faculty={lang_name->en->text}')))
+            ->queryCustomButton('courses' ,'id' ,'icon-book-open' ,'ajax' ,pjax(localizeURL("admin/{id}/courses?faculty={faculty_name}")))
             ->queryCustomButton('labs' ,'id' ,'icon-chemistry' ,'ajax' ,pjax(localizeURL('admin/{id}/labs')))
             ->queryMultiAutocompleteTemplete('study_year_temp',"studyYear" ,"lang_name->{$this->lang}->text")
             ->queryRender();

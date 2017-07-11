@@ -45,3 +45,7 @@
 // fix mutiautocompete search datatable
 // remove formate number from datatable
 // datatable fix col filter css
+//change addMultiInputs and queryMultiColumn and queryMultiLang
+and addMultiInputsLang
+//add multiple attr to queryMultiAutocompleteTemplete
+//organizeRelation private

@@ -12,7 +12,7 @@ class Faculty extends \Eloquent
 
     protected $fillable = ['id'];
 
-    protected $appends = ['lang_name'];
+    protected $appends = ['lang_name' , 'faculty_name'];
 
     public function transName()
     {
@@ -24,9 +24,13 @@ class Faculty extends \Eloquent
         return $this->transName->keyBy('lang_code');
     }
 
+    public function getFacultyNameAttribute()
+    {
+        return $this->lang_name[\App::getLocale()]['text'];
+    }
+
     public function studyYear()
     {
         return $this->belongsToMany(StudyYear::class);
     }
-
 }
