@@ -846,6 +846,12 @@ function aut_datatable_replaceDatatableFunctionWithJPath(aut_datatable) {
             aut_datatable.events.on_destroy(aut_datatable.ids.modal);
         };
 
+    if(JSPath.apply('.buttons{.customize == "datatable_print_customize"}',aut_datatable.json_object).length != 0)
+        JSPath.apply('.buttons{.customize == "datatable_print_customize"}',aut_datatable.json_object)[0].customize = function(win) {
+
+            $(win.document.body)
+                .css( 'font-size', '10pt' );
+        };
 
     aut_datatable.json_object.createdRow =  function( row, data, dataIndex ) {
 

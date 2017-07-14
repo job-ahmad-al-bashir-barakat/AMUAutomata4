@@ -12,7 +12,9 @@ trait Table
 
     protected function addTableColumn($param ,$choosen)
     {
-        $this->header .= "<th class='$choosen' style='max-width: {$param['width']};'>{$param['title']}</th>";
+        $printable = $param['printable']  ? "printable" : '';
+
+        $this->header .= "<th class='$choosen $printable' style='max-width: {$param['width']};'>{$param['title']}</th>";
 
         if($this->optionDatatableConfig['filter'] )
         {

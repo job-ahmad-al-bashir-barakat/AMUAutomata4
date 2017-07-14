@@ -40,8 +40,8 @@ class LabFactory extends GlobalFactory
             ->endRelation()
             ->setGridNormalCol(12)
             ->addMultiInputs(['description'],'textarea' ,'req required text-editor d:tabs d:noLabel' ,'' ,'rows=10 cols=80 data-resize=false')
-            ->addActionButton(trans('gen.update'),'update','update')
-            ->addActionButton(trans('gen.delete'),'delete','delete')
+            ->addActionButton($this->update,'update','update')
+            ->addActionButton($this->delete,'delete','delete')
             ->addNavButton()
             ->render();
     }

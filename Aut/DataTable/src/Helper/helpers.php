@@ -142,3 +142,20 @@ if(! function_exists('colValue'))
             return $obj[$col];
     }
 }
+
+if(! function_exists('convertArrayToString'))
+{
+    function convertArrayToString($input ,$additional_string)
+    {
+        $result = '';
+        if(is_array($input))
+        {
+            foreach ($input as $index => $item)
+                $result .= "$index = $item";
+
+            return "$result $additional_string";
+        }
+        else
+            return "$input $additional_string";
+    }
+}

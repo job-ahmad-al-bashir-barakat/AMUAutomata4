@@ -5,6 +5,7 @@ Homestead.json
 Homestead.yaml
 
 /.idea
+/me_todo.md
 .env
 
 #storage

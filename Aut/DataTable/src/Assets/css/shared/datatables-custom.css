@@ -450,3 +450,5 @@ td.details-control:hover { cursor: pointer }
 .datatable-no-margin  { margin: 0; !important; }
 
 .hand { cursor: pointer; }
+
+.datatable-icon-hand { font-size: 16px; cursor: pointer; }

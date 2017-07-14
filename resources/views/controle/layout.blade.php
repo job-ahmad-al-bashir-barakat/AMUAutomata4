@@ -75,6 +75,7 @@
 
 <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
 <script src="{{ asset('admin-custom.js') }}"></script>
+
 @include('controle.global-js')
 <div role="footer">
     @yield('footer')

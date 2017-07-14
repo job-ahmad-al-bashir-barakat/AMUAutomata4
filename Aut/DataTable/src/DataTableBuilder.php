@@ -12,6 +12,12 @@ use Mockery\CountValidator\Exception;
 use Symfony\Component\DomCrawler\Crawler;
 
 /**
+ * yajra
+ *
+ * laravel-datatables
+ * laravel-datatables-html
+ * laravel-datatables-buttons
+ *
  * Class DataTableBuilder
  * @package Aut\DataTable
  */
@@ -33,7 +39,7 @@ class DataTableBuilder
 
     protected $optionDatatableConfig;
 
-    protected $tableButtons = ['choosen','code' ,'destroy' , 'print','reload','add'];
+    protected $tableButtons = ['choosen','code' ,'destroy' ,'csv' ,'excel' ,'copy' ,'pdf' , 'print','reload','add'];
 
     protected $globalScript = '';
 
@@ -385,7 +391,8 @@ class DataTableBuilder
             "visible"    => false,
             "orderable"  => false,
             "searchable" => false,
-            "choosen"    => false
+            "choosen"    => false,
+            "printable"  => false
         ]);
 
         return $this;
@@ -453,7 +460,8 @@ class DataTableBuilder
             "visible"    => false,
             "orderable"  => false,
             "searchable" => false,
-            "choosen"    => false
+            "choosen"    => false,
+            "printable"  => false
         ]);
 
         return $this;
@@ -475,10 +483,11 @@ class DataTableBuilder
             "visible"    => true,
             "orderable"  => false,
             "searchable" => false,
-            "choosen"    => false
+            "choosen"    => false,
+            "printable"  => true,
         ]);
 
-        // force datatable to order
+        //force datatable to order
         //$this->dataTable->put('order', [[ 1, "asc" ]]);
 
         return $this;
@@ -508,7 +517,8 @@ class DataTableBuilder
         $visible = true,
         $orderable = true,
         $searchable = true,
-        $choosen = true
+        $choosen = true,
+        $printable = true
     )
     {
         $this->addField([
@@ -522,7 +532,9 @@ class DataTableBuilder
             "visible"    => $visible,
             "orderable"  => $orderable,
             "searchable" => $searchable,
-            "choosen"    => $choosen
+            "choosen"    => $choosen,
+            "printable"  => $printable,
+
         ]);
 
         return $this;
@@ -561,7 +573,8 @@ class DataTableBuilder
         $visible    = true,
         $orderable  = true,
         $searchable = true,
-        $choosen    = true
+        $choosen    = true,
+        $printable  = true
     )
     {
         foreach ($cols as $index => $col)
@@ -595,7 +608,8 @@ class DataTableBuilder
                     "visible"    => $visible,
                     "orderable"  => $orderable,
                     "searchable" => $searchable,
-                    "choosen"    => $choosen
+                    "choosen"    => $choosen,
+                    "printable"  => $printable,
                 ]);
 
                 // under updated for lang
@@ -708,6 +722,7 @@ class DataTableBuilder
             "choosen"        => false,
             "orderable"      => false,
             "searchable"     => false,
+            "printable"      => false,
         ]);
 
         $removeSpaces = autConvertString($component);
@@ -789,7 +804,8 @@ class DataTableBuilder
         $visible = true,
         $orderable = true,
         $searchable = true,
-        $choosen = true
+        $choosen = true,
+        $printable = false
     )
     {
         $this->addField([
@@ -803,7 +819,8 @@ class DataTableBuilder
             "visible"    => $visible,
             "orderable"  => $orderable,
             "searchable" => $searchable,
-            "choosen"    => $choosen
+            "choosen"    => $choosen,
+            "printable"  => $printable
         ]);
 
         return $this;
@@ -837,7 +854,8 @@ class DataTableBuilder
         $visible = true,
         $orderable = true,
         $searchable = true,
-        $choosen = true
+        $choosen = true,
+        $printable = true
     )
     {
         $this->addField([
@@ -853,7 +871,8 @@ class DataTableBuilder
             "visible"    => $visible,
             "orderable"  => $orderable,
             "searchable" => $searchable,
-            "choosen"    => $choosen
+            "choosen"    => $choosen,
+            "printable"  => $printable,
         ]);
 
         return $this;
@@ -883,7 +902,8 @@ class DataTableBuilder
         $visible = true,
         $orderable = true,
         $searchable = true,
-        $choosen = true
+        $choosen = true,
+        $printable = true
     )
     {
         $this->addField([
@@ -897,7 +917,8 @@ class DataTableBuilder
             "visible"    => $visible,
             "orderable"  => $orderable,
             "searchable" => $searchable,
-            "choosen"    => $choosen
+            "choosen"    => $choosen,
+            "printable"  => $printable,
         ]);
 
         return $this;
@@ -927,7 +948,8 @@ class DataTableBuilder
         $visible = true,
         $orderable = true,
         $searchable = true,
-        $choosen = true
+        $choosen = true,
+        $printable = true
     )
     {
         $this->addField([
@@ -941,7 +963,8 @@ class DataTableBuilder
             "visible"    => $visible,
             "orderable"  => $orderable,
             "searchable" => $searchable,
-            "choosen"    => $choosen
+            "choosen"    => $choosen,
+            "printable"  => $printable,
         ]);
 
         return $this;
@@ -962,7 +985,7 @@ class DataTableBuilder
         $data = '',
         $name = '' ,
         $colClass = 'center all' ,
-        $colWidth = '60px'
+        $colWidth = '40px'
     )
     {
         $this->addField([
@@ -975,7 +998,8 @@ class DataTableBuilder
             "visible"    => true,
             "orderable"  => false,
             "searchable" => false,
-            "choosen"    => false
+            "choosen"    => false,
+            "printable"  => false
         ]);
 
         return $this;
@@ -1010,7 +1034,8 @@ class DataTableBuilder
         $visible = true,
         $orderable = true ,
         $searchable = true ,
-        $choosen = true
+        $choosen = true,
+        $printable = true
     )
     {
         $this->addField([
@@ -1026,7 +1051,8 @@ class DataTableBuilder
             "visible"    => $visible,
             "orderable"  => $orderable,
             "searchable" => $searchable,
-            "choosen"    => $choosen
+            "choosen"    => $choosen,
+            "printable"  => $printable,
         ]);
 
         return $this;
@@ -1062,7 +1088,8 @@ class DataTableBuilder
         $visible = true,
         $orderable = false,
         $searchable = true,
-        $choosen = true
+        $choosen = true,
+        $printable = true
     )
     {
         $this->addField([
@@ -1075,11 +1102,12 @@ class DataTableBuilder
             "colLabel"   => $colLabel,
             "class"      => $colClass ,
             "width"      => $colWidth ,
-            "attr"       => $dialogAttr,
+            "attr"       => convertArrayToString($dialogAttr ,'multiple'),
             "visible"    => $visible,
             "orderable"  => $orderable,
             "searchable" => $searchable,
-            "choosen"    => $choosen
+            "choosen"    => $choosen,
+            "printable"  => $printable,
         ]);
 
         return $this;
@@ -1113,7 +1141,8 @@ class DataTableBuilder
         $visible = true,
         $orderable = true ,
         $searchable = true ,
-        $choosen = true
+        $choosen = true,
+        $printable = true
     )
     {
         $this->addField([
@@ -1129,7 +1158,8 @@ class DataTableBuilder
             "visible"    => $visible,
             "orderable"  => $orderable,
             "searchable" => $searchable,
-            "choosen"    => $choosen
+            "choosen"    => $choosen,
+            "printable"  => $printable,
         ]);
 
         return $this;
@@ -1161,7 +1191,8 @@ class DataTableBuilder
         $visible = true,
         $orderable = true ,
         $searchable = true ,
-        $choosen = true
+        $choosen = true,
+        $printable = true
     )
     {
         $this->addField([
@@ -1176,7 +1207,9 @@ class DataTableBuilder
             "visible"    => $visible,
             "orderable"  => $orderable,
             "searchable" => $searchable,
-            "choosen"    => $choosen
+            "choosen"    => $choosen,
+            "printable"  => $printable,
+
         ]);
 
         return $this;
@@ -1285,7 +1318,8 @@ class DataTableBuilder
             "visible"         => true,
             "orderable"       => true,
             "searchable"      => true,
-            "choosen"         => true
+            "choosen"         => true,
+            "printable"       => true,
         ];
 
         $paramDefault = array_merge($paramDefault ,$param);
@@ -1453,7 +1487,7 @@ class DataTableBuilder
         return ['class_dialog' => trim($class_dialog) ,'class_table' => trim($class_table) ,'attr' => trim($attr)];
     }
 
-    function organizeRelation($relationParam)
+    private function organizeRelation($relationParam)
     {
         $rel = "";
         foreach (explode('.' ,$relationParam) as $index => $relation)
@@ -1729,65 +1763,72 @@ class DataTableBuilder
                     $printIcon = config('datatable.icon.print');
 
                     $buttonResult->push([
-                        'extend'    => 'print',
-                        'text'      => "<i class='$printIcon'></i>",
-                        'titleAttr' => trans('datatable::table.print'),
-                        'className' => 'button-style'
+                        'extend'        => 'print',
+                        'autoPrint'     => false,
+                        'exportOptions' => [
+                            'columns'   => '.printable',
+                        ],
+                        'customize'     => 'datatable_print_customize',
+                        'title'         => '',
+                        'message'       => '',
+                        'text'          => "<i class='$printIcon'></i>",
+                        'titleAttr'     => trans('datatable::table.print'),
+                        'className'     => 'button-style'
                     ]);
 
                 } break;
 
-                // case 'pdf' : {
-                //
-                //     $pdfIcon = config('datatable.icon.pdf');
-                //
-                //     $buttonResult->push([
-                //         'extend'    => 'pdfHtml5',
-                //         'text'      => "<i class='$pdfIcon'></i>",
-                //         'titleAttr' => trans('datatable::table.pdf'),
-                //         'className' => 'button-style hidden-xs'
-                //     ]);
-                //
-                // } break;
-
-                //case 'csv' :{
-                //
-                //    $csvIcon = config('datatable.icon.csv');
-                //
-                //    $buttonResult->push([
-                //        'extend'    => 'csvHtml5',
-                //        'text'      => "<i class='$csvIcon'></i>",
-                //        'titleAttr' => trans('datatable::table.csv'),
-                //        'className' => 'button-style hidden-xs'
-                //    ]);
-                //
-                //} break;
-
-                //case 'excel' :{
-                //
-                //    $excelIcon = config('datatable.icon.excel');
-                //
-                //    $buttonResult->push([
-                //        'extend'    => 'excelHtml5',
-                //        'text'      => "<i class='$excelIcon'></i>",
-                //        'titleAttr' => trans('datatable::table.excel'),
-                //        'className' => 'button-style hidden-xs'
-                //    ]);
-                //
-                //} break;
-
-                //case 'copy' :{
-                //
-                //    $copyIcon = config('datatable.icon.copy');
-                //
-                //    $buttonResult->push([
-                //        'extend'    => 'copyHtml5',
-                //        'text'      => "<i class='$copyIcon'></i>",
-                //        'titleAttr' => trans('datatable::table.copy'),
-                //        'className' => 'button-style hidden-xs'
-                //    ]);
-                //
-                //} break;
+//                 case 'pdf' : {
+//
+//                     $pdfIcon = config('datatable.icon.pdf');
+//
+//                     $buttonResult->push([
+//                         'extend'    => 'pdfHtml5',
+//                         'text'      => "<i class='$pdfIcon'></i>",
+//                         'titleAttr' => trans('datatable::table.pdf'),
+//                         'className' => 'button-style hidden-xs'
+//                     ]);
+//
+//                 } break;
+//
+//                case 'csv' :{
+//
+//                    $csvIcon = config('datatable.icon.csv');
+//
+//                    $buttonResult->push([
+//                        'extend'    => 'csvHtml5',
+//                        'text'      => "<i class='$csvIcon'></i>",
+//                        'titleAttr' => trans('datatable::table.csv'),
+//                        'className' => 'button-style hidden-xs'
+//                    ]);
+//
+//                } break;
+//
+//                case 'excel' :{
+//
+//                    $excelIcon = config('datatable.icon.excel');
+//
+//                    $buttonResult->push([
+//                        'extend'    => 'excelHtml5',
+//                        'text'      => "<i class='$excelIcon'></i>",
+//                        'titleAttr' => trans('datatable::table.excel'),
+//                        'className' => 'button-style hidden-xs'
+//                    ]);
+//
+//                } break;
+//
+//                case 'copy' :{
+//
+//                    $copyIcon = config('datatable.icon.copy');
+//
+//                    $buttonResult->push([
+//                        'extend'    => 'copyHtml5',
+//                        'text'      => "<i class='$copyIcon'></i>",
+//                        'titleAttr' => trans('datatable::table.copy'),
+//                        'className' => 'button-style hidden-xs'
+//                    ]);
+//
+//                } break;
             }
         }
 

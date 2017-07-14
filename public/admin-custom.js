@@ -126,11 +126,11 @@ var APP_AMU = {
             // after replacing HTML content loaded from the server
             $(document).on("pjax:success", function () {
 
-                // $('head [role="header"]').not(container + ' [role="header"]').remove();
-                // $('head').append($(container).find('[role="header"]'));
-                //
-                // $('body [role="footer"]').not(container + ' [role="footer"]').remove();
-                // $('body').append($(container).find('[role="footer"]'));
+                $('head [role="header"]').not(container + ' [role="header"]').remove();
+                $('head').append($(container).find('[role="header"]'));
+
+                $('body [role="footer"]').not(container + ' [role="footer"]').remove();
+                $('body').append($(container).find('[role="footer"]'));
             });
 
             // before replacing content

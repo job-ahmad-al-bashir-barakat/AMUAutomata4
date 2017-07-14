@@ -108,6 +108,11 @@ var js = [
     'Modules/Admin/Assets/vendor/custom.datatable/extensions/Buttons/js/buttons.bootstrap.js',
     'Modules/Admin/Assets/vendor/custom.datatable/extensions/Buttons/js/buttons.print.js',
     'Modules/Admin/Assets/vendor/custom.datatable/extensions/Buttons/js/buttons.colVis.js',
+
+    // test
+    //'Modules/Admin/Assets/vendor/custom.datatable/extensions/Buttons/js/buttons.html5.js',
+    //'Modules/Admin/Assets/vendor/custom.datatable/extensions/Buttons/js/buttons.flash.js',
+
     'Modules/Admin/Assets/vendor/custom.datatable/extensions/Responsive/js/dataTables.responsive.js',
     'Modules/Admin/Assets/vendor/custom.datatable/extensions/Responsive/js/responsive.bootstrap.js',
     'Modules/Admin/Assets/vendor/custom.datatable/extensions/FixedColumns/js/dataTables.fixedColumns.js',

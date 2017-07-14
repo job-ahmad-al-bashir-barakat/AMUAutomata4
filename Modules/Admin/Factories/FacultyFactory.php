@@ -36,7 +36,7 @@ class FacultyFactory extends GlobalFactory
             ->addPrimaryKey('id','id')
             ->addMultiInputs(['name'],'text' ,'req required')
             ->startRelation('study_year')
-                ->addMultiAutocomplete('autocomplete/study-year' ,'study_year_temp' ,trans('admin::app.study_year') ,'study_year.id' ,"study_year.lang_name.{$this->lang}.text" ,"study_year.lang_name.{$this->lang}.text" ,'req require' ,['multiple' => true])
+                ->addMultiAutocomplete('autocomplete/study-year' ,'study_year_temp' ,trans('admin::app.study_year') ,'study_year.id' ,"study_year.lang_name.{$this->lang}.text" ,"study_year.lang_name.{$this->lang}.text" ,'req require')
             ->endRelation()
             ->addActionButton(trans('admin::app.courses') ,'courses' ,'courses')
             ->addActionButton(trans('admin::app.labs') ,'labs' ,'labs')

@@ -17,6 +17,8 @@ trait QueryDataTable
     protected $escapeColumns = [];
 
     /**
+     * Using the Engine Factory
+     *
      * @param $query
      * @return $this
      */
@@ -29,21 +31,19 @@ trait QueryDataTable
         return $this;
     }
 
-
     /**
-     *
-     * Query Builder Extension
-     *
-     * -- Datatables instance allows you to proxy a database query call.
+     * Eloquent
      *
      * @param $model
      * @return \Yajra\Datatables\Engines\EloquentEngine
      */
     function queryDatatableEloquent($model)
     {
-        $dataTable = Datatables::eloquent($model);
+        $this->query = Datatables::eloquent($model);
 
-        return $dataTable;
+        $this->queryIndexColumn();
+
+        return $this;
     }
 
     /**
@@ -164,7 +164,7 @@ trait QueryDataTable
                 return call_user_func($func, $item);
             }
 
-            return "<a href='#' data-key='{$item->$id}' data-toggle='modal' data-target='#$this->id-modal' class='dialog-update'><i class='$updateIcon'></i></a>";
+            return "<span data-key='{$item->$id}' data-toggle='modal' data-target='#$this->id-modal' class='dialog-update datatable-icon-hand'><i class='$updateIcon'></i></span>";
         });
 
         return $this;
@@ -196,7 +196,7 @@ trait QueryDataTable
 
             $parent_id = !empty($parentKey) ? "data-parent-key='{$parent_id}'" : "";
 
-            return "<a href='#' data-key='{$item->$id}' $parent_id class='dialog-delete'><i class='$deleteIcon'></i></a>";
+            return "<span data-key='{$item->$id}' $parent_id class='dialog-delete datatable-icon-hand'><i class='$deleteIcon'></i></span>";
         });
 
         return $this;
@@ -247,7 +247,16 @@ trait QueryDataTable
                 }
             }
 
-            return "<a data-key='{$item->$rowId}' class='$class' $attr><i class='{$icon}'></i></a>";
+            if(preg_match("/href/" ,$attr)) {
+                $tag  = 'a';
+                $hand = '';
+            }
+            else {
+                $tag = 'span';
+                $hand = 'datatable-icon-hand';
+            }
+
+            return "<$tag data-key='{$item->$rowId}' class='$hand $class' $attr><i class='{$icon}'></i></span>";
         });
 
         return $this;

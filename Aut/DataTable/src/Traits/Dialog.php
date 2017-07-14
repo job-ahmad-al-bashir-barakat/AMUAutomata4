@@ -229,7 +229,7 @@ trait Dialog
 
         $star = preg_match('/\b(?<![\S])(req)(?![\S])\b/',$class);
 
-        $target = $custom == true ? $target : "#{$this->id}-modal";
+        //$target = $custom == true ? $target : "#{$this->id}-modal";
 
         $html = view('datatable::component.autocomplete' ,[
             'id'                => preg_replace('/[\._]/','-' ,$id),
