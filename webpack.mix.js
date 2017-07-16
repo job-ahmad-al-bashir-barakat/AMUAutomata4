@@ -152,7 +152,7 @@ mix.copy('Modules/Admin/Assets/vendor/jquery-ui/themes/smoothness/images', 'publ
 mix.copy('Modules/Admin/Assets/vendor/ckeditor', 'public/ckeditor' ,false);
 mix.copy('Modules/Admin/Assets/vendor/img', 'public/img' ,false);
 mix.copy('Modules/Admin/Assets/vendor/bootstrap-fileinput/img', 'public/img');
-mix.copy('resources/assets/myfont/font-jozoor/fonts', 'public/css/fonts' ,false);
+mix.copy('public/myfont/font-jozoor', 'public/fonts' ,false);
 
 
 /**

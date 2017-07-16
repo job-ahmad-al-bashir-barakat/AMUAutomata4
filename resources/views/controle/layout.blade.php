@@ -57,6 +57,15 @@
 <script>
     LTR_CSS = '{{ asset(mix('css/admin-all-ltr.css')) }}';
     RTL_CSS = '{{ asset(mix('css/admin-all-rtl.css')) }}';
+
+    {{--
+    LANG_OBJECT = {!! convertLangArrayToJsonObject([
+            'app',
+            'admin::app',
+            'utilities::app'
+    ]) !!};
+    --}}
+
     paceOptions = {
         elements: true,
         restartOnRequestAfter: false,

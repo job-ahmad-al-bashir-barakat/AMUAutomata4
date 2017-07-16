@@ -51,6 +51,7 @@ and addMultiInputsLang
 //datatable fix getting deep data with relation
 //datatable abod take about diff way of build.
 //filter for multi autocomplete and lang
+//discuss with abdo demo-rtl.js
 
 //tree
 Drag And Drop Update

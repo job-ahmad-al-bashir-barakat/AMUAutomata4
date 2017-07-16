@@ -68,3 +68,32 @@ if(! function_exists('treeUrl'))
         return localizeURL("utilities/$tree/tree");
     }
 }
+
+if(! function_exists('convertLangArrayToJsonObject'))
+{
+    function convertLangArrayToJsonObject($files = [])
+    {
+        $objects = [];
+        foreach (LaravelLocalization::getSupportedLanguagesKeys() as $key)
+        {
+            $files_merge = [];
+            foreach ($files as $file)
+            {
+                $files_merge = array_merge($files_merge , trans($file ,[] ,$key));
+            }
+
+            $init_object = [];
+            foreach ($files_merge as $index => $item)
+            {
+                $init_object[$index] = [
+                    'text'  => $item,
+                    'title' => $item,
+                ];
+            }
+
+            $objects[$key] = collect($init_object)->unique();
+        }
+
+        return collect($objects)->toJson();
+    }
+}
