@@ -15,6 +15,7 @@ const { mix } = require('laravel-mix');
  * Control css
  */
 mix.styles([
+    'resources/assets/myfont/font-jozoor/jozoor-font.css',
     'Modules/Admin/Assets/vendor/fontawesome/css/font-awesome.min.css',
     'Modules/Admin/Assets/vendor/simple-line-icons/css/simple-line-icons.css',
     'Modules/Admin/Assets/vendor/animate.css/animate.min.css',
@@ -41,6 +42,7 @@ mix.styles([
 ], 'public/css/admin-all-ltr.css').version();
 
 mix.styles([
+    'resources/assets/myfont/font-jozoor/jozoor-font.css',
     'Modules/Admin/Assets/vendor/fontawesome/css/font-awesome.min.css',
     'Modules/Admin/Assets/vendor/simple-line-icons/css/simple-line-icons.css',
     'Modules/Admin/Assets/vendor/animate.css/animate.min.css',
@@ -66,9 +68,6 @@ mix.styles([
 
 ], 'public/css/admin-all-rtl.css').version();
 
-/**
- * Public css
- */
 
 /**
  * Control Js
@@ -153,9 +152,7 @@ mix.copy('Modules/Admin/Assets/vendor/jquery-ui/themes/smoothness/images', 'publ
 mix.copy('Modules/Admin/Assets/vendor/ckeditor', 'public/ckeditor' ,false);
 mix.copy('Modules/Admin/Assets/vendor/img', 'public/img' ,false);
 mix.copy('Modules/Admin/Assets/vendor/bootstrap-fileinput/img', 'public/img');
-
-
-
+mix.copy('resources/assets/myfont/font-jozoor/fonts', 'public/css/fonts' ,false);
 
 
 /**
@@ -206,7 +203,6 @@ mix.scripts([
     'resources/assets/js/revolution-slider/js/extensions/revolution.extension.slideanims.min.js',
     'resources/assets/js/revolution-slider/js/extensions/revolution.extension.video.min.js',
 ], 'public/js/revolution-slider/js/extensions/revolution-slider-extensions.js').version();
-
 
 mix.scripts([
     'resources/assets/js/html5shiv.min.js',

@@ -6,11 +6,11 @@
     </li>
 
     <li class="">
-        <a href="#univercity" title="{{ trans('admin::app.univercity') }}" data-toggle="collapse" class="" aria-expanded="true">
+        <a href="#univercity" title="{{ trans('admin::app.univercity') }}" data-toggle="collapse" class="">
             <em class="icon-cup"></em>
             <span data-localize="sidebar.univercity">{{ trans('admin::app.univercity') }}</span>
         </a>
-        <ul id="univercity" class="nav sidebar-subnav collapse in" aria-expanded="true">
+        <ul id="univercity" class="nav sidebar-subnav collapse">
             <li class="sidebar-subnav-header" data-localize="sidebar.univercity">{{ trans('admin::app.univercity') }}</li>
 
             <li class="">
@@ -34,12 +34,12 @@
     </li>
 
     <li class="">
-        <a href="#person" title="Persons" data-toggle="collapse" class="collapsed" aria-expanded="false">
+        <a href="#person" title="Persons" data-toggle="collapse">
             <em class="icon-people"></em>
             <span data-localize="sidebar.person">{{ trans('admin::app.person') }}</span>
         </a>
 
-        <ul id="person" class="nav sidebar-subnav collapse" aria-expanded="false" style="height: 0;">
+        <ul id="person" class="nav sidebar-subnav collapse">
             <li class="sidebar-subnav-header" data-localize="sidebar.person">{{ trans('admin::app.person') }}</li>
             <li class="">
                 <a href="{{ localizeURL('admin/university-council') }}" class="ajax" title="{{ trans('admin::app.university_council') }}">

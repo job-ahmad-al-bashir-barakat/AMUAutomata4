@@ -46,11 +46,11 @@
     </li>
 
     <li class="">
-        <a href="#menus" title="{{ trans('utilities::app.menus') }}" data-toggle="collapse" class="" aria-expanded="true">
+        <a href="#menus" title="{{ trans('utilities::app.menus') }}" data-toggle="collapse" class="">
             <em class="icon-layers"></em>
             <span data-localize="sidebar.menus">{{ trans('utilities::app.menus') }}</span>
         </a>
-        <ul id="menus" class="nav sidebar-subnav collapse in" aria-expanded="true">
+        <ul id="menus" class="nav sidebar-subnav collapse">
             <li class="sidebar-subnav-header" data-localize="sidebar.menus">{{ trans('utilities::app.menus') }}</li>
 
             <li class="">
