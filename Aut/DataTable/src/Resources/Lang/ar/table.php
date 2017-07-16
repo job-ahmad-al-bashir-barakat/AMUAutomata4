@@ -23,6 +23,7 @@ return [
     "excel" => 'اكسل',
     "csv" => 'CSV',
     "pdf" => 'PDF',
+    "export" => 'تصدير',
     "print" => 'طباعة',
     'code'  => 'Code',
     'destroy' => 'إعادة بناء',

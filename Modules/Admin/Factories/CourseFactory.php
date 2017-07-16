@@ -22,10 +22,6 @@ class CourseFactory extends GlobalFactory
             ->queryUpdateButton('id')
             ->queryDeleteButton('id')
             ->queryMultiColumn(['name'])
-            ->queryAddColumn('faculty' ,function () {
-
-                return request()->input('faculty');
-            })
             ->queryRender();
     }
 
@@ -34,7 +30,7 @@ class CourseFactory extends GlobalFactory
      */
     public function buildDatatable($model ,$request)
     {
-        $factory = request()->input('faculty');
+        $factory = Faculty::findOrFail(request('id'))->lang_name['en']['text'];
 
         return $this->table
             ->config('datatable-course',trans('admin::app.course'))

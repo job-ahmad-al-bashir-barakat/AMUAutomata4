@@ -22,7 +22,7 @@ class AdminController extends Controller
         return view('admin::page.table',[
             'table' => $view,
             'param' => '',
-            'title' => trans('app.'.str_replace('-','_',$view))
+            'title' => trans('admin::app.'.str_replace('-','_',$view))
         ]);
     }
 
@@ -35,7 +35,7 @@ class AdminController extends Controller
         return view('admin::page.table',[
             'table' => $view,
             'param' => "?id=$id{$param}",
-            'title' => trans('app.'.str_replace('-','_',$view))
+            'title' => trans('admin::app.'.str_replace('-','_',$view))
         ]);
     }
 }

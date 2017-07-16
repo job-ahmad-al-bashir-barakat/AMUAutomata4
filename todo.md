@@ -18,7 +18,6 @@
 //add filemanager
 //add cropper
 //add theme
-//route api version
 //add map location
 //add Input component
 //fix drag and drop lib
@@ -47,9 +46,11 @@ and addMultiInputsLang
 //htaccess cache
 //localization session cache
 //add code cache file
+//fix get datatable query
 
 //datatable fix getting deep data with relation
-
+//datatable abod take about diff way of build.
+//filter for multi autocomplete and lang
 
 //tree
 Drag And Drop Update

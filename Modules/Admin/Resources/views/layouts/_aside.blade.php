@@ -2,63 +2,63 @@
 @section('_aside_menu_admin')
 
     <li class="nav-heading ">
-        <span data-localize="sidebar.heading.AUTOMATA4_ADMIN">Automata4 Admin</span>
+        <span data-localize="sidebar.automata4_admin">{{ trans('admin::app.automata4_admin') }}</span>
     </li>
 
     <li class="">
-        <a href="#univercity" title="Univercity" data-toggle="collapse" class="" aria-expanded="true">
+        <a href="#univercity" title="{{ trans('admin::app.univercity') }}" data-toggle="collapse" class="" aria-expanded="true">
             <em class="icon-cup"></em>
-            <span data-localize="sidebar.nav.extra.UNIVERCITY">Univercity</span>
+            <span data-localize="sidebar.univercity">{{ trans('admin::app.univercity') }}</span>
         </a>
         <ul id="univercity" class="nav sidebar-subnav collapse in" aria-expanded="true">
-            <li class="sidebar-subnav-header">Univercity</li>
+            <li class="sidebar-subnav-header" data-localize="sidebar.univercity">{{ trans('admin::app.univercity') }}</li>
 
             <li class="">
-                <a href="{{ localizeURL('admin/faculties') }}" class="ajax" title="Faculties">
-                    <span>Faculties</span>
+                <a href="{{ localizeURL('admin/faculties') }}" class="ajax" title="{{ trans('admin::app.faculties') }}">
+                    <span data-localize="sidebar.faculties">{{ trans('admin::app.faculties') }}</span>
                 </a>
             </li>
 
             <li class="">
-                <a href="{{ localizeURL('admin/degrees') }}" class="ajax" title="Degrees">
-                    <span>Degrees</span>
+                <a href="{{ localizeURL('admin/degrees') }}" class="ajax" title="{{ trans('admin::app.degrees') }}">
+                    <span data-localize="sidebar.degrees">{{ trans('admin::app.degrees') }}</span>
                 </a>
             </li>
 
             <li class="">
-                <a href="{{ localizeURL('admin/departments') }}" class="ajax" title="Departments">
-                    <span>Departments</span>
+                <a href="{{ localizeURL('admin/departments') }}" class="ajax" title="{{ trans('admin::app.departments') }}">
+                    <span data-localize="sidebar.departments">{{ trans('admin::app.departments') }}</span>
                 </a>
             </li>
         </ul>
     </li>
 
     <li class="">
-        <a href="#persons" title="Persons" data-toggle="collapse" class="collapsed" aria-expanded="false">
+        <a href="#person" title="Persons" data-toggle="collapse" class="collapsed" aria-expanded="false">
             <em class="icon-people"></em>
-            <span data-localize="sidebar.nav.form.Persons">Persons</span>
+            <span data-localize="sidebar.person">{{ trans('admin::app.person') }}</span>
         </a>
 
-        <ul id="persons" class="nav sidebar-subnav collapse" aria-expanded="false" style="height: 0;">
-            <li class="sidebar-subnav-header">Persons</li>
+        <ul id="person" class="nav sidebar-subnav collapse" aria-expanded="false" style="height: 0;">
+            <li class="sidebar-subnav-header" data-localize="sidebar.person">{{ trans('admin::app.person') }}</li>
             <li class="">
-                <a href="{{ localizeURL('admin/university-council') }}" class="ajax" title="University Council">
-                    <span data-localize="sidebar.nav.form.UNIVERSITY_COUNCIL">University Council</span>
+                <a href="{{ localizeURL('admin/university-council') }}" class="ajax" title="{{ trans('admin::app.university_council') }}">
+                    <span data-localize="sidebar.university_council">{{ trans('admin::app.university_council') }}</span>
                 </a>
             </li>
             <li class="">
-                <a href="{{ localizeURL('admin/board-of-trustees') }}" class="ajax" title="Board of Trustees">
-                    <span data-localize="sidebar.nav.form.BOARD_OF_TRUSTEES">Board of Trustees</span>
+                <a href="{{ localizeURL('admin/board-of-trustees') }}" class="ajax" title="{{ trans('admin::app.board_of_trustees') }}">
+                    <span data-localize="sidebar.board_of_trustees">{{ trans('admin::app.board_of_trustees') }}</span>
                 </a>
             </li>
         </ul>
     </li>
 
     <li class="">
-        <a href="{{ localizeURL('admin/blog') }}" class="ajax" title="Blog">
-            <div class="pull-right label label-info">3</div>
+        <a href="{{ localizeURL('admin/blog') }}" class="ajax" title="{{ trans('admin::app.blog') }}">
+            {{--<div class="pull-right label label-info">3</div>--}}
             <em class="icon-feed"></em>
-            <span data-localize="sidebar.nav.form.Blog">Blog</span>
+            <span data-localize="sidebar.blog">{{ trans('admin::app.blog') }}</span>
         </a>
     </li>
 
@@ -67,25 +67,25 @@
 @section('_aside_setting_admin')
 
     <li class="">
-        <a href="{{ localizeURL('admin/study-years') }}" class="ajax" title="Study Years">
-            <span>Study Years</span>
+        <a href="{{ localizeURL('admin/study-year') }}" class="ajax" title="{{ trans('admin::app.study_year') }}">
+            <span data-localize="sidebar.study_year">{{ trans('admin::app.study_year') }}</span>
         </a>
     </li>
 
     <li class="">
-        <a href="{{ localizeURL('admin/semesters') }}" class="ajax" title="Semesters">
-            <span>Semesters</span>
+        <a href="{{ localizeURL('admin/semester') }}" class="ajax" title="{{ trans('admin::app.semester') }}">
+            <span data-localize="sidebar.semester">{{ trans('admin::app.semester') }}</span>
         </a>
     </li>
 
     <li class="">
-        <a href="{{ localizeURL('admin/positions') }}" class="ajax" title="Position">
-            <span data-localize="sidebar.nav.form.POSITION">Position</span>
+        <a href="{{ localizeURL('admin/position') }}" class="ajax" title="{{ trans('admin::app.position') }}">
+            <span data-localize="sidebar.position">{{ trans('admin::app.position') }}</span>
         </a>
     </li>
     <li class="">
-        <a href="{{ localizeURL('admin/job-titles') }}" class="ajax" title="Job Title">
-            <span data-localize="sidebar.nav.form.JOB_TITLE">Job Title</span>
+        <a href="{{ localizeURL('admin/job-title') }}" class="ajax" title="{{  trans('admin::app.job_title') }}">
+            <span data-localize="sidebar.job_title">{{  trans('admin::app.job_title') }}</span>
         </a>
     </li>
 

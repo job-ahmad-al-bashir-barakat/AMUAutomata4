@@ -48,7 +48,8 @@ return [
         'excel'          => 'fa fa-file-excel-o',
         'copy'           => 'fa fa-files-o',
         'code'           => 'fa fa-code',
-        'destroy'        =>'fa fa-retweet'
+        'destroy'        => 'fa fa-retweet',
+        'export'         => 'fa fa-download',
     ],
 
     'routeMiddleware' => ['web', 'localeSessionRedirect', 'localizationRedirect' ],

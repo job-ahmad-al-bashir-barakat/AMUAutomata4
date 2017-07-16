@@ -31,10 +31,10 @@ class DepartmentFactory extends GlobalFactory
         return $this->table
             ->config('datatable-department',trans('admin::app.department'))
             ->addPrimaryKey('id','id')
-            ->addAutocomplete('autocomplete/faculty',trans('app.faculty') ,'faculty_id' ,'faculty.lang_name.'.$this->lang.'.text' ,'faculty.lang_name.'.$this->lang.'.text' ,'req required')
+            ->addAutocomplete('autocomplete/faculty',trans('admin::app.faculty') ,'faculty_id' ,'faculty.lang_name.'.$this->lang.'.text' ,'faculty.lang_name.'.$this->lang.'.text' ,'req required')
             ->addMultiInputs(['name'] ,'text' ,'req required')
-            ->addActionButton(trans('gen.update'),'update','update')
-            ->addActionButton(trans('gen.delete'),'delete','delete')
+            ->addActionButton($this->update,'update','update')
+            ->addActionButton($this->delete,'delete','delete')
             ->addNavButton()
             ->render();
     }

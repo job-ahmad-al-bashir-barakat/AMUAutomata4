@@ -106,12 +106,15 @@ var js = [
     'Modules/Admin/Assets/vendor/custom.datatable/media/js/dataTables.bootstrap.js',
     'Modules/Admin/Assets/vendor/custom.datatable/extensions/Buttons/js/dataTables.buttons.js',
     'Modules/Admin/Assets/vendor/custom.datatable/extensions/Buttons/js/buttons.bootstrap.js',
-    'Modules/Admin/Assets/vendor/custom.datatable/extensions/Buttons/js/buttons.print.js',
     'Modules/Admin/Assets/vendor/custom.datatable/extensions/Buttons/js/buttons.colVis.js',
 
     // test
-    //'Modules/Admin/Assets/vendor/custom.datatable/extensions/Buttons/js/buttons.html5.js',
-    //'Modules/Admin/Assets/vendor/custom.datatable/extensions/Buttons/js/buttons.flash.js',
+    // 'Modules/Admin/Assets/vendor/custom.datatable/extensions/Buttons/js/buttons.flash.js',
+    // 'Modules/Admin/Assets/vendor/jszip/jszip.min.js',
+    // 'Modules/Admin/Assets/vendor/pdfmake/pdfmake.min.js',
+    // 'Modules/Admin/Assets/vendor/pdfmake/vfs_fonts.js',
+    // 'Modules/Admin/Assets/vendor/custom.datatable/extensions/Buttons/js/buttons.print.js',
+    // 'Modules/Admin/Assets/vendor/custom.datatable/extensions/Buttons/js/buttons.html5.js',
 
     'Modules/Admin/Assets/vendor/custom.datatable/extensions/Responsive/js/dataTables.responsive.js',
     'Modules/Admin/Assets/vendor/custom.datatable/extensions/Responsive/js/responsive.bootstrap.js',

@@ -846,12 +846,33 @@ function aut_datatable_replaceDatatableFunctionWithJPath(aut_datatable) {
             aut_datatable.events.on_destroy(aut_datatable.ids.modal);
         };
 
-    if(JSPath.apply('.buttons{.customize == "datatable_print_customize"}',aut_datatable.json_object).length != 0)
-        JSPath.apply('.buttons{.customize == "datatable_print_customize"}',aut_datatable.json_object)[0].customize = function(win) {
+    // if(JSPath.apply('.buttons .buttons {.action == "event_print_button"}',aut_datatable.json_object).length != 0)
+    //     JSPath.apply('.buttons .buttons {.action == "event_print_button"}',aut_datatable.json_object)[0].action = function(e, dt, button, config) {
+    //
+    //     };
+    //
+    // if(JSPath.apply('.buttons .buttons {.action == "event_csv_button"}',aut_datatable.json_object).length != 0)
+    //     JSPath.apply('.buttons .buttons {.action == "event_csv_button"}',aut_datatable.json_object)[0].action = function(e, dt, button, config) {
+    //
+    //     };
+    //
+    // if(JSPath.apply('.buttons .buttons {.action == "event_excel_button"}',aut_datatable.json_object).length != 0)
+    //     JSPath.apply('.buttons .buttons {.action == "event_excel_button"}',aut_datatable.json_object)[0].action = function(e, dt, button, config) {
+    //
+    //     };
+    //
+    // if(JSPath.apply('.buttons .buttons {.action == "event_pdf_button"}',aut_datatable.json_object).length != 0)
+    //     JSPath.apply('.buttons .buttons {.action == "event_pdf_button"}',aut_datatable.json_object)[0].action = function(e, dt, button, config) {
+    //
+    //     };
 
-            $(win.document.body)
-                .css( 'font-size', '10pt' );
-        };
+    // remove
+    // if(JSPath.apply('.buttons{.customize == "datatable_print_customize"}',aut_datatable.json_object).length != 0)
+    //     JSPath.apply('.buttons{.customize == "datatable_print_customize"}',aut_datatable.json_object)[0].customize = function(win) {
+    //
+    //         $(win.document.body)
+    //             .css( 'font-size', '10pt' );
+    //     };
 
     aut_datatable.json_object.createdRow =  function( row, data, dataIndex ) {
 

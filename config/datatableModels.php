@@ -39,17 +39,17 @@ return [
         'factory' => Modules\Utilities\Factories\ModuleFactory::class
     ],
 
-    'social-networks' => [
+    'social-network' => [
         'model'         => Modules\Utilities\Entities\SocialNetwork::class,
         'factory'       => Modules\Utilities\Factories\SocialNetworkFactory::class,
     ],
 
-    'genders' => [
+    'gender' => [
         'model'         => Modules\Utilities\Entities\Gender::class,
         'factory'       => Modules\Utilities\Factories\GenderFactory::class,
     ],
 
-    'settings' => [
+    'general-setting' => [
         'model'         => Modules\Utilities\Entities\Setting::class,
         'factory'       => Modules\Utilities\Factories\SettingFactory::class,
     ],
@@ -99,22 +99,22 @@ return [
         'stopOperation' => ['store']
     ],
 
-    'positions' => [
+    'position' => [
         'model'         => Modules\Admin\Entities\Position::class,
         'factory'       => Modules\Admin\Factories\PositionFactory::class,
     ],
 
-    'job-titles' => [
+    'job-title' => [
         'model'         => Modules\Admin\Entities\JobTitle::class,
         'factory'       => Modules\Admin\Factories\JobTitleFactory::class,
     ],
 
-    'semesters' => [
+    'semester' => [
         'model'   => \Modules\Admin\Entities\Semester::class,
         'factory' => \Modules\Admin\Factories\SemesterFactory::class,
     ],
 
-    'study-years' => [
+    'study-year' => [
         'model'   => \Modules\Admin\Entities\StudyYear::class,
         'factory' => \Modules\Admin\Factories\StudyYearFactory::class,
     ],

@@ -13,7 +13,7 @@ class UtilitiesController extends Controller
         return view('utilities::page.table',[
             'table' => $view,
             'param' => '',
-            'title' => trans('app.'.str_replace('-','_',$view))
+            'title' => trans('utilities::app.'.str_replace('-','_',$view))
         ]);
     }
 

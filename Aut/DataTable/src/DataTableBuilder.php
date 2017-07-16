@@ -39,7 +39,7 @@ class DataTableBuilder
 
     protected $optionDatatableConfig;
 
-    protected $tableButtons = ['choosen','code' ,'destroy' ,'csv' ,'excel' ,'copy' ,'pdf' , 'print','reload','add'];
+    protected $tableButtons = ['choosen' /*,'export'*/ ,'code' ,'destroy' ,'reload','add']; //,'copy' ,'pdf' , 'print' ,'csv' ,'excel'
 
     protected $globalScript = '';
 
@@ -1363,7 +1363,8 @@ class DataTableBuilder
             "visible"         => true,
             "orderable"       => true,
             "searchable"      => true,
-            "choosen"         => true
+            "choosen"         => true,
+            "printable"       => true,
         ]
     )
     {
@@ -1379,14 +1380,15 @@ class DataTableBuilder
 
         $data = empty($param['templete']) ? $data : $param['templete'];
 
-        $column->put('data',$data);
-        $column->put('name',$param["name"]);
-        $column->put('class',$param['class_attr']['class_table']);
-        $column->put('width',$param["width"]);
-        $column->put('visible',$choosen["visible"]);
-        $column->put('orderable',$param["orderable"]);
-        $column->put('searchable',$param["searchable"]);
-        $column->put('className',$param["className"]);
+        $column->put('data'       ,$data);
+        $column->put('name'       ,$param["name"]);
+        $column->put('class'      ,$param['class_attr']['class_table']);
+        $column->put('width'      ,$param["width"]);
+        $column->put('visible'    ,$choosen["visible"]);
+        $column->put('orderable'  ,$param["orderable"]);
+        $column->put('searchable' ,$param["searchable"]);
+        $column->put('printable'  ,$param["printable"]);
+        $column->put('className'  ,$param["className"]);
         $column->put('defaultContent',$param["defaultContent"]);
 
         array_push($this->columns,$column);
@@ -1758,77 +1760,74 @@ class DataTableBuilder
 
                 } break;
 
-                case 'print' : {
+                case 'export' : {
 
-                    $printIcon = config('datatable.icon.print');
+                    $exportIcon = config('datatable.icon.export');
+
+                    $pdfIcon  = config('datatable.icon.pdf');
+                    $transPdf = trans('datatable::table.pdf');
+
+                    $printIcon  = config('datatable.icon.print');
+                    $transPrint =  trans('datatable::table.print');
+
+                    $csvIcon = config('datatable.icon.csv');
+                    $transCsv = trans('datatable::table.csv');
+
+                    $excelIcon = config('datatable.icon.excel');
+                    $transExcel = trans('datatable::table.excel');
+
+                    $copyIcon = config('datatable.icon.copy');
+                    $transCopy = trans('datatable::table.copy');
 
                     $buttonResult->push([
-                        'extend'        => 'print',
-                        'autoPrint'     => false,
-                        'exportOptions' => [
-                            'columns'   => '.printable',
-                        ],
-                        'customize'     => 'datatable_print_customize',
-                        'title'         => '',
-                        'message'       => '',
-                        'text'          => "<i class='$printIcon'></i>",
-                        'titleAttr'     => trans('datatable::table.print'),
-                        'className'     => 'button-style'
-                    ]);
+                         'extend'    => 'collection',
+                         'text'      => "<i class='$exportIcon'></i>",
+                         'titleAttr' => trans('datatable::table.export'),
+                         'className' => 'buttons-export button-style hidden-xs',
+                         'buttons'   => [
+                             [
+                                 'extend'    => 'print',
+                                 'autoPrint' => false,
+                                 'text'      => "<span><i class='$printIcon'></i> $transPrint</span>",
+                                 'className' => 'buttons-print',
+                                 'title'         => '',
+                                 'message'       => '',
+                                 'exportOptions' => [
+                                     'columns'   => '.printable',
+                                 ],
+                                 //'customize' => 'datatable_print_customize',
+                                 //'action'    => 'event_print_button'
+                             ],
+                             [
+                                 'extend'    => 'csvHtml5',
+                                 'text'      => "<span><i class='$csvIcon'></i> $transCsv</span>",
+                                 'className' => 'buttons-csv',
+                                 //'action'    => 'event_csv_button'
+
+                             ],
+                             [
+                                 'extend'    => 'excelHtml5',
+                                 'text'      => "<span><i class='$excelIcon'></i> $transExcel</span>",
+                                 'className' => 'buttons-excel',
+                                 //'action'    => 'event_excel_button'
+
+                             ],
+                             [
+                                 'extend'    => 'pdfHtml5',
+                                 'text'      => "<span><i class='$pdfIcon'></i> $transPdf</span>",
+                                 'className' => 'buttons-pdf',
+                                 //'action'    => 'event_pdf_button'
+                             ],
+                             [
+                                 'extend'    => 'copyHtml5',
+                                 'text'      => "<span><i class='$copyIcon'></i> $transCopy</span>",
+                                 'className' => 'buttons-pdf',
+                                 //'action'    => 'event_copy_button'
+                             ]
+                         ],
+                     ]);
 
                 } break;
-
-//                 case 'pdf' : {
-//
-//                     $pdfIcon = config('datatable.icon.pdf');
-//
-//                     $buttonResult->push([
-//                         'extend'    => 'pdfHtml5',
-//                         'text'      => "<i class='$pdfIcon'></i>",
-//                         'titleAttr' => trans('datatable::table.pdf'),
-//                         'className' => 'button-style hidden-xs'
-//                     ]);
-//
-//                 } break;
-//
-//                case 'csv' :{
-//
-//                    $csvIcon = config('datatable.icon.csv');
-//
-//                    $buttonResult->push([
-//                        'extend'    => 'csvHtml5',
-//                        'text'      => "<i class='$csvIcon'></i>",
-//                        'titleAttr' => trans('datatable::table.csv'),
-//                        'className' => 'button-style hidden-xs'
-//                    ]);
-//
-//                } break;
-//
-//                case 'excel' :{
-//
-//                    $excelIcon = config('datatable.icon.excel');
-//
-//                    $buttonResult->push([
-//                        'extend'    => 'excelHtml5',
-//                        'text'      => "<i class='$excelIcon'></i>",
-//                        'titleAttr' => trans('datatable::table.excel'),
-//                        'className' => 'button-style hidden-xs'
-//                    ]);
-//
-//                } break;
-//
-//                case 'copy' :{
-//
-//                    $copyIcon = config('datatable.icon.copy');
-//
-//                    $buttonResult->push([
-//                        'extend'    => 'copyHtml5',
-//                        'text'      => "<i class='$copyIcon'></i>",
-//                        'titleAttr' => trans('datatable::table.copy'),
-//                        'className' => 'button-style hidden-xs'
-//                    ]);
-//
-//                } break;
             }
         }
 
@@ -1896,6 +1895,7 @@ class DataTableBuilder
         $disableDialog            = $this->optionDatatableConfig['disableDialog'] ? 'true' : 'false';
         $scrollX                  = $this->optionDatatableConfig['scrollX'] ? 'true' : 'false';
         $url                      = localizeURL($this->url);
+        $exportUrl                = localizeURL("datatable/$this->model/export/table");
         $dialog                   = trans('datatable::table.dialog');
         $save                     = trans('datatable::table.save');
         $sortable                 = $this->optionDatatableConfig['sortable'] ? 'true' : 'false';
@@ -1928,6 +1928,7 @@ class DataTableBuilder
       
                      aut_datatable_CreateNewTable({ 
                          url : '$url',
+                         export_url : '$exportUrl',
                          dir : '$dir',
                          json_object : $dataTable,
                          multi_modal : $multiModal,

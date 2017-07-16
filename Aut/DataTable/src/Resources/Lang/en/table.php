@@ -27,6 +27,7 @@ return [
     "excel" => 'Excel',
     "csv" => 'CSV',
     "pdf" => 'PDF',
+    "export" => 'Export',
     "print" => 'Print',
     'code'  => 'Code',
     'destroy' => 'Destroy',

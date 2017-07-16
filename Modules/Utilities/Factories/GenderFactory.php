@@ -32,8 +32,8 @@ class GenderFactory extends GlobalFactory
             ->config('datatable-gender',trans('admin::app.gender'))
             ->addPrimaryKey('id','id')
             ->addMultiInputs(['name'])
-            ->addActionButton(trans('gen.update'),'update','update')
-            ->addActionButton(trans('gen.delete'),'delete','delete')
+            ->addActionButton($this->update,'update','update')
+            ->addActionButton($this->delete,'delete','delete')
             ->addNavButton()
             ->render();
     }

@@ -33,8 +33,8 @@ class PositionFactory extends GlobalFactory
             ->config('datatable-position',trans('admin::app.position'))
             ->addPrimaryKey('id','id')
             ->addMultiInputs(['name'])
-            ->addActionButton(trans('gen.update'),'update','update')
-            ->addActionButton(trans('gen.delete'),'delete','delete')
+            ->addActionButton($this->update,'update','update')
+            ->addActionButton($this->delete,'delete','delete')
             ->addNavButton()
             ->render();
     }

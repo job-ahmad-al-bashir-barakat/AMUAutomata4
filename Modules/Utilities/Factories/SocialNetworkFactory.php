@@ -34,8 +34,8 @@ class SocialNetworkFactory extends GlobalFactory
             ->addPrimaryKey('id','id')
             ->addMultiInputs(['name'])
             ->addInputText(trans('app.code'),'code' ,'code')
-            ->addActionButton(trans('gen.update'),'update','update')
-            ->addActionButton(trans('gen.delete'),'delete','delete')
+            ->addActionButton($this->update,'update','update')
+            ->addActionButton($this->delete,'delete','delete')
             ->addNavButton()
             ->render();
     }

@@ -67,7 +67,7 @@
                     </a>
                 </li>
                 <!-- START Alert menu-->
-                <li class="dropdown dropdown-list">
+                {{--<li class="dropdown dropdown-list">
                     <a href="@void()" data-toggle="dropdown">
                         <em class="icon-bell"></em>
                         <div class="label label-danger">11</div>
@@ -129,7 +129,7 @@
                         </li>
                     </ul>
                     <!-- END Dropdown menu-->
-                </li>
+                </li>--}}
                 <!-- END Alert menu-->
                 <!-- START Offsidebar button-->
                 <li>

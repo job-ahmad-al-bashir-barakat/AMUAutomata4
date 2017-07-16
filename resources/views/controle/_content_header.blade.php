@@ -20,7 +20,9 @@
     </div>
     <!-- END Language list -->
     {{ $title }}
-    <span class="text-sm hidden-xs" data-localize="dashboard.WELCOME">A complete set of notification posibilities</span>
+    {{--<span class="text-sm hidden-xs" data-localize="dashboard.WELCOME">
+        A complete set of notification posibilities
+    </span>--}}
 
     <ol class="breadcrumb">
         <li><a href="#">Home</a>

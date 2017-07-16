@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.4.21 on 2017-07-13.
+ * Generated for Laravel 5.4.21 on 2017-07-14.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -14097,9 +14097,9 @@ namespace Aut\DataTable {
          * @return $this 
          * @static 
          */
-        public static function addInputText($title = '', $data = '', $name = '', $colClass = '', $dialogAttr = '', $colWidth = '', $visible = true, $orderable = true, $searchable = true, $choosen = true)
+        public static function addInputText($title = '', $data = '', $name = '', $colClass = '', $dialogAttr = '', $colWidth = '', $visible = true, $orderable = true, $searchable = true, $choosen = true, $printable = true)
         {
-            return \Aut\DataTable\DataTableBuilder::addInputText($title, $data, $name, $colClass, $dialogAttr, $colWidth, $visible, $orderable, $searchable, $choosen);
+            return \Aut\DataTable\DataTableBuilder::addInputText($title, $data, $name, $colClass, $dialogAttr, $colWidth, $visible, $orderable, $searchable, $choosen, $printable);
         }
         
         /**
@@ -14123,9 +14123,9 @@ namespace Aut\DataTable {
          * @return $this 
          * @static 
          */
-        public static function addMultiInputs($cols = array(), $type = 'text', $colClass = '', $colWidth = '', $dialogAttr = '', $visible = true, $orderable = true, $searchable = true, $choosen = true)
+        public static function addMultiInputs($cols = array(), $type = 'text', $colClass = '', $colWidth = '', $dialogAttr = '', $visible = true, $orderable = true, $searchable = true, $choosen = true, $printable = true)
         {
-            return \Aut\DataTable\DataTableBuilder::addMultiInputs($cols, $type, $colClass, $colWidth, $dialogAttr, $visible, $orderable, $searchable, $choosen);
+            return \Aut\DataTable\DataTableBuilder::addMultiInputs($cols, $type, $colClass, $colWidth, $dialogAttr, $visible, $orderable, $searchable, $choosen, $printable);
         }
         
         /**
@@ -14232,9 +14232,9 @@ namespace Aut\DataTable {
          * @return $this 
          * @static 
          */
-        public static function addInputPassword($title = '', $data = '', $name = '', $colClass = '', $dialogAttr = '', $colWidth = '', $visible = true, $orderable = true, $searchable = true, $choosen = true)
+        public static function addInputPassword($title = '', $data = '', $name = '', $colClass = '', $dialogAttr = '', $colWidth = '', $visible = true, $orderable = true, $searchable = true, $choosen = true, $printable = false)
         {
-            return \Aut\DataTable\DataTableBuilder::addInputPassword($title, $data, $name, $colClass, $dialogAttr, $colWidth, $visible, $orderable, $searchable, $choosen);
+            return \Aut\DataTable\DataTableBuilder::addInputPassword($title, $data, $name, $colClass, $dialogAttr, $colWidth, $visible, $orderable, $searchable, $choosen, $printable);
         }
         
         /**
@@ -14255,9 +14255,9 @@ namespace Aut\DataTable {
          * @return $this 
          * @static 
          */
-        public static function addInputGroup($title = '', $data = '', $name = '', $colClass = '', $groupIcon = '', $groupClass = '', $dialogAttr = '', $colWidth = '', $visible = true, $orderable = true, $searchable = true, $choosen = true)
+        public static function addInputGroup($title = '', $data = '', $name = '', $colClass = '', $groupIcon = '', $groupClass = '', $dialogAttr = '', $colWidth = '', $visible = true, $orderable = true, $searchable = true, $choosen = true, $printable = true)
         {
-            return \Aut\DataTable\DataTableBuilder::addInputGroup($title, $data, $name, $colClass, $groupIcon, $groupClass, $dialogAttr, $colWidth, $visible, $orderable, $searchable, $choosen);
+            return \Aut\DataTable\DataTableBuilder::addInputGroup($title, $data, $name, $colClass, $groupIcon, $groupClass, $dialogAttr, $colWidth, $visible, $orderable, $searchable, $choosen, $printable);
         }
         
         /**
@@ -14276,9 +14276,9 @@ namespace Aut\DataTable {
          * @return $this 
          * @static 
          */
-        public static function addTextArea($title = '', $data = '', $name = '', $colClass = '', $dialogAttr = '', $colWidth = '', $visible = true, $orderable = true, $searchable = true, $choosen = true)
+        public static function addTextArea($title = '', $data = '', $name = '', $colClass = '', $dialogAttr = '', $colWidth = '', $visible = true, $orderable = true, $searchable = true, $choosen = true, $printable = true)
         {
-            return \Aut\DataTable\DataTableBuilder::addTextArea($title, $data, $name, $colClass, $dialogAttr, $colWidth, $visible, $orderable, $searchable, $choosen);
+            return \Aut\DataTable\DataTableBuilder::addTextArea($title, $data, $name, $colClass, $dialogAttr, $colWidth, $visible, $orderable, $searchable, $choosen, $printable);
         }
         
         /**
@@ -14297,9 +14297,9 @@ namespace Aut\DataTable {
          * @return $this 
          * @static 
          */
-        public static function addInputNumber($title = '', $data = '', $name = '', $colClass = '', $dialogAttr = '', $colWidth = '', $visible = true, $orderable = true, $searchable = true, $choosen = true)
+        public static function addInputNumber($title = '', $data = '', $name = '', $colClass = '', $dialogAttr = '', $colWidth = '', $visible = true, $orderable = true, $searchable = true, $choosen = true, $printable = true)
         {
-            return \Aut\DataTable\DataTableBuilder::addInputNumber($title, $data, $name, $colClass, $dialogAttr, $colWidth, $visible, $orderable, $searchable, $choosen);
+            return \Aut\DataTable\DataTableBuilder::addInputNumber($title, $data, $name, $colClass, $dialogAttr, $colWidth, $visible, $orderable, $searchable, $choosen, $printable);
         }
         
         /**
@@ -14336,9 +14336,9 @@ namespace Aut\DataTable {
          * @return $this 
          * @static 
          */
-        public static function addAutocomplete($url = '', $title = '', $data = '', $name = '', $colLabel = '', $colClass = '', $dialogAttr = '', $colWidth = '', $visible = true, $orderable = true, $searchable = true, $choosen = true)
+        public static function addAutocomplete($url = '', $title = '', $data = '', $name = '', $colLabel = '', $colClass = '', $dialogAttr = '', $colWidth = '', $visible = true, $orderable = true, $searchable = true, $choosen = true, $printable = true)
         {
-            return \Aut\DataTable\DataTableBuilder::addAutocomplete($url, $title, $data, $name, $colLabel, $colClass, $dialogAttr, $colWidth, $visible, $orderable, $searchable, $choosen);
+            return \Aut\DataTable\DataTableBuilder::addAutocomplete($url, $title, $data, $name, $colLabel, $colClass, $dialogAttr, $colWidth, $visible, $orderable, $searchable, $choosen, $printable);
         }
         
         /**
@@ -14360,9 +14360,9 @@ namespace Aut\DataTable {
          * @return $this 
          * @static 
          */
-        public static function addMultiAutocomplete($url = '', $templete = '', $title = '', $data = '', $name = '', $colLabel = '', $colClass = '', $dialogAttr = '', $colWidth = '', $visible = true, $orderable = false, $searchable = true, $choosen = true)
+        public static function addMultiAutocomplete($url = '', $templete = '', $title = '', $data = '', $name = '', $colLabel = '', $colClass = '', $dialogAttr = '', $colWidth = '', $visible = true, $orderable = false, $searchable = true, $choosen = true, $printable = true)
         {
-            return \Aut\DataTable\DataTableBuilder::addMultiAutocomplete($url, $templete, $title, $data, $name, $colLabel, $colClass, $dialogAttr, $colWidth, $visible, $orderable, $searchable, $choosen);
+            return \Aut\DataTable\DataTableBuilder::addMultiAutocomplete($url, $templete, $title, $data, $name, $colLabel, $colClass, $dialogAttr, $colWidth, $visible, $orderable, $searchable, $choosen, $printable);
         }
         
         /**
@@ -14383,9 +14383,9 @@ namespace Aut\DataTable {
          * @return $this 
          * @static 
          */
-        public static function addSelect($obj = array(), $title = '', $data = '', $name = '', $colLabel = '', $colClass = '', $dialogAttr = '', $colWidth = '', $visible = true, $orderable = true, $searchable = true, $choosen = true)
+        public static function addSelect($obj = array(), $title = '', $data = '', $name = '', $colLabel = '', $colClass = '', $dialogAttr = '', $colWidth = '', $visible = true, $orderable = true, $searchable = true, $choosen = true, $printable = true)
         {
-            return \Aut\DataTable\DataTableBuilder::addSelect($obj, $title, $data, $name, $colLabel, $colClass, $dialogAttr, $colWidth, $visible, $orderable, $searchable, $choosen);
+            return \Aut\DataTable\DataTableBuilder::addSelect($obj, $title, $data, $name, $colLabel, $colClass, $dialogAttr, $colWidth, $visible, $orderable, $searchable, $choosen, $printable);
         }
         
         /**
@@ -14405,9 +14405,9 @@ namespace Aut\DataTable {
          * @return $this 
          * @static 
          */
-        public static function addViewField($title = '', $data = '', $name = '', $colLabel = '', $colClass = '', $dialogAttr = '', $colWidth = '', $visible = true, $orderable = true, $searchable = true, $choosen = true)
+        public static function addViewField($title = '', $data = '', $name = '', $colLabel = '', $colClass = '', $dialogAttr = '', $colWidth = '', $visible = true, $orderable = true, $searchable = true, $choosen = true, $printable = true)
         {
-            return \Aut\DataTable\DataTableBuilder::addViewField($title, $data, $name, $colLabel, $colClass, $dialogAttr, $colWidth, $visible, $orderable, $searchable, $choosen);
+            return \Aut\DataTable\DataTableBuilder::addViewField($title, $data, $name, $colLabel, $colClass, $dialogAttr, $colWidth, $visible, $orderable, $searchable, $choosen, $printable);
         }
         
         /**
@@ -14597,7 +14597,7 @@ namespace Aut\DataTable {
         }
         
         /**
-         * 
+         * Using the Engine Factory
          *
          * @param $query
          * @return $this 
@@ -14609,9 +14609,7 @@ namespace Aut\DataTable {
         }
         
         /**
-         * Query Builder Extension
-         * 
-         * -- Datatables instance allows you to proxy a database query call.
+         * Eloquent
          *
          * @param $model
          * @return \Yajra\Datatables\Engines\EloquentEngine 
