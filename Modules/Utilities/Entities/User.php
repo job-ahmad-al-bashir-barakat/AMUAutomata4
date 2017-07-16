@@ -12,11 +12,13 @@ class User extends Model
 {
     use SoftDeletes, MultiLangs;
 
-    protected $fillable = ['user_name', 'email', 'password'];
+    protected $fillable = ['id' ,'name', 'email', 'password'];
 
     protected $hidden = [
         'password', 'remember_token'
     ];
+
+    protected $appends = ['lang_name','lang_summary'];
 
     public function transName()
     {

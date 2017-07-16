@@ -2,8 +2,8 @@
 <html lang="{{ $lang }}" dir="{{ $dir }}">
 
 <head>
-@include("$module::layouts._meta")
-<!-- =============== VENDOR STYLES ===============-->
+    @include("$module::layouts._meta")
+    <!-- =============== VENDOR STYLES ===============-->
     <link id="maincss" rel="stylesheet" href="{{ asset(mix("css/admin-all-$dir.css")) }}">
     <link id="autoloaded-stylesheet" rel="stylesheet" href="{{ isset($_COOKIE['controleThemeColorUrl']) ? asset($_COOKIE['controleThemeColorUrl']) : asset('css/theme-a.css') }}">
     <link rel="stylesheet" href="{{ asset('admin-custom.css') }}">
@@ -49,7 +49,7 @@
     </section>
     <!-- Page footer-->
     <footer>
-        <span>&copy; 2016 - Angle</span>
+        <span>&copy; {{ date('Y') }} - {{ trans('app.automata4_group') }}</span>
     </footer>
 
 </div>

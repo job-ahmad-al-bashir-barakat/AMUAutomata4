@@ -35,8 +35,8 @@ class ModuleFactory extends GlobalFactory
             ->startRelation('attributes')
                 ->addMultiAutocomplete('autocomplete/attributes' ,"attributes[ ,].lang_name.$this->lang.text",trans('utilities::app.attributes') , 'attributes.id', "attributes.lang_name.$this->lang.text", "attributes.lang_name.$this->lang.text" ,'req required' ,'multiple')
             ->endRelation()
-            ->addActionButton(trans('gen.update'),'update','update')
-            ->addActionButton(trans('gen.delete'),'delete','delete')
+            ->addActionButton($this->update,'update','update')
+            ->addActionButton($this->delete,'delete','delete')
             ->addNavButton()
             ->render();
     }

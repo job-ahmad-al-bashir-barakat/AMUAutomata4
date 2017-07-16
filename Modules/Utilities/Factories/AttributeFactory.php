@@ -31,10 +31,10 @@ class AttributeFactory extends GlobalFactory
         return $this->table
             ->config('datatable-langs',trans('admin::app.title_example'))
             ->addPrimaryKey('id','id')
-            ->addInputText(trans('lang.code'),'code','code','required req')
+            ->addInputText(trans('utilities::app.code'),'code','code','required req')
             ->addMultiInputs(['name'] ,'text' ,'req required')
-            ->addActionButton(trans('gen.update'),'update','update')
-            ->addActionButton(trans('gen.delete'),'delete','delete')
+            ->addActionButton($this->update,'update','update')
+            ->addActionButton($this->delete,'delete','delete')
             ->addNavButton()
             ->render();
     }

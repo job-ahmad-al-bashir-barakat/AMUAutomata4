@@ -19,7 +19,7 @@ class LangFactory extends GlobalFactory
             ->queryConfig('datatable-langs')
             ->queryDatatable($query)
             ->queryAddColumn('is_default_active' ,function ($item){
-                return $item->is_default ? trans('gen.yes') : trans('gen.no');
+                return $item->is_default ? trans('utilities::app.yes') : trans('utilities::app.no');
             })
             ->queryUpdateButton()
             ->queryDeleteButton()
@@ -33,14 +33,14 @@ class LangFactory extends GlobalFactory
     {
         //todo This code is repeated and can be set as default action to get the Html and the cols can be get from the fillable array, try to get the cols type form the migration
         return $this->table
-            ->config('datatable-langs',trans('admin::app.title_example'))
+            ->config('datatable-langs',trans('utilities::app.langs'))
             ->addPrimaryKey('id','id')
-            ->addInputText(trans('lang.code'),'lang_code','lang_code','required req')
-            ->addInputText(trans('lang.name'),'name','name','required req')
-            ->addInputText(trans('lang.native'),'native','native','required req')
-            ->addSelect([0 => trans('gen.no') ,1 => trans('gen.yes')],trans('gen.active') ,'is_default' ,'is_default' ,'is_default_active')
-            ->addActionButton(trans('gen.update'),'update','update')
-            ->addActionButton(trans('gen.delete'),'delete','delete')
+            ->addInputText(trans('utilities::app.code'),'lang_code','lang_code','required req')
+            ->addInputText($this->name ,'name','name','required req')
+            ->addInputText(trans('utilities::app.native'),'native','native','required req')
+            ->addSelect([0 => trans('utilities::app.no') ,1 => trans('utilities::app.yes')],trans('utilities::app.active') ,'is_default' ,'is_default' ,'is_default_active')
+            ->addActionButton($this->update,'update','update')
+            ->addActionButton($this->delete,'delete','delete')
             ->addNavButton()
             ->render();
     }

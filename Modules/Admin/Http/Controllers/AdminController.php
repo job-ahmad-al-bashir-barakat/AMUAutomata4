@@ -14,7 +14,7 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin::dashboard' ,['title' => 'Dashboard']);
+        return view('admin::dashboard' ,['title' => trans('app.dashboard')]);
     }
 
     public function table($view)

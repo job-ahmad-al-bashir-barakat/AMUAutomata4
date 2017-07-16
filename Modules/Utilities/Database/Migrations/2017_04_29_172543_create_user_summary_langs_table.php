@@ -16,7 +16,8 @@ class CreateUserSummaryLangsTable extends Migration {
 		{
             $table->increments('id')->unsigned();
 			$table->integer('user_id')->nullable()->index('user_id');
-			$table->string('text')->nullable();
+            $table->integer('lang_id')->nullable()->index('lang_id');
+            $table->string('text')->nullable();
 			$table->timestamps();
 			$table->softDeletes();
 		});

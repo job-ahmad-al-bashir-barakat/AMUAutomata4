@@ -3,12 +3,13 @@
 namespace Modules\Utilities\Entities\LangsModel;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Modules\Utilities\Traits\LangInfo;
 
 class UserNameLang extends Model
 {
-    use LangInfo;
+    use SoftDeletes ,LangInfo;
 
-    protected $fillable = ['id' ,'lang_id', 'user_id', 'text'];
+    protected $fillable = ['lang_id', 'user_id', 'text'];
 
 }

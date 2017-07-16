@@ -1,8 +1,15 @@
 <?php
 
 return [
+    'user_name'              => 'Username',
+    'email'                  => 'Email',
+    'password'               => 'Password',
     'code'                   => 'Code',
     'value'                  => 'Value',
+    'native'                 => 'Native',
+    'active'                 => 'Active',
+    'yes'                    => 'Yes',
+    'no'                     => 'No',
 
     'social_network'         => 'Social Network',
     'gender'                 => 'Gender',

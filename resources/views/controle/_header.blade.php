@@ -29,6 +29,13 @@
                         <em class="fa fa-navicon"></em>
                     </a>
                 </li>
+                <!-- go home-->
+                <li>
+                    <a href="{{ url('/') }}" title="{{ trans('app.back_to_home') }}">
+                        <em class="icon-home"></em>
+                    </a>
+                </li>
+                <!-- End go home-->
                 <!-- START User avatar toggle-->
                 <li>
                     <!-- Button used to collapse the left sidebar. Only visible on tablet and desktops-->
@@ -39,7 +46,7 @@
                 <!-- END User avatar toggle-->
                 <!-- START lock screen-->
                 <li>
-                    <a href="lock.html" title="Lock screen">
+                    <a href="{{ url('logout') }}" title="{{ trans('app.logout') }}">
                         <em class="icon-lock"></em>
                     </a>
                 </li>

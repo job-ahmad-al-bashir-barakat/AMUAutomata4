@@ -16,8 +16,7 @@ class UserFactory extends GlobalFactory
         return $this->table
             ->queryConfig('datatable-users')
             ->queryDatatable($query)
-            ->queryMultiColumn(['name'])
-            ->queryMultiColumn(['summary'])
+            ->queryMultiColumn(['name' ,'summary'])
             ->queryUpdateButton('id')
             ->queryDeleteButton('id')
             ->queryRender(true);
@@ -31,13 +30,13 @@ class UserFactory extends GlobalFactory
         return $this->table
             ->config('datatable-users',trans('utilities::app.users'))
             ->addPrimaryKey('id','id')
-            ->addInputText(trans('utilities::app.user_name'),'user_name','user_name','required req')
+            ->addInputText(trans('utilities::app.user_name'),'name','name','required req')
             ->addInputText(trans('utilities::app.email'),'email','email','required req d:email')
             ->addMultiInputs(['name'] ,'text' ,'req required')
             ->addMultiInputs(['summary'] ,'textarea' ,'req required')
             ->addInputPassword(trans('utilities::app.password'),'password','password','','','',false,false,false,false)
-            ->addActionButton(trans('gen.update'),'update','update')
-            ->addActionButton(trans('gen.delete'),'delete','delete')
+            ->addActionButton($this->update,'update','update')
+            ->addActionButton($this->delete,'delete','delete')
             ->addNavButton()
             ->render();
     }

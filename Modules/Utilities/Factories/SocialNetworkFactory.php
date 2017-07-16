@@ -30,7 +30,7 @@ class SocialNetworkFactory extends GlobalFactory
     public function buildDatatable($model ,$request)
     {
         return $this->table
-            ->config('datatable-social-network',trans('admin::app.social_network'))
+            ->config('datatable-social-network',trans('utilities::app.social_network'))
             ->addPrimaryKey('id','id')
             ->addMultiInputs(['name'])
             ->addInputText(trans('app.code'),'code' ,'code')
