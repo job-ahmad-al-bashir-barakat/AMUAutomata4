@@ -23,7 +23,7 @@ mix.styles([
     'Modules/Admin/Assets/vendor/weather-icons/css/weather-icons.min.css',
     'Modules/Admin/Assets/vendor/app/css/bootstrap.css',
     'Modules/Admin/Assets/vendor/app/css/custom-bootstrap-margin-padding.css',
-    'Modules/Admin/Assets/vendor/jquery-ui/themes/smoothness/jquery-ui.min.css',
+    // 'Modules/Admin/Assets/vendor/jquery-ui/themes/smoothness/jquery-ui.min.css',
     'Modules/Admin/Assets/vendor/select2/dist/css/select2.css',
     'Modules/Admin/Assets/vendor/select2-bootstrap-theme/dist/select2-bootstrap.css',
     'Modules/Admin/Assets/vendor/custom.datatable/media/css/dataTables.bootstrap.css',
@@ -50,7 +50,7 @@ mix.styles([
     'Modules/Admin/Assets/vendor/weather-icons/css/weather-icons.min.css',
     'Modules/Admin/Assets/vendor/app/css/bootstrap-rtl.css',
     'Modules/Admin/Assets/vendor/app/css/custom-bootstrap-margin-padding.css',
-    'Modules/Admin/Assets/vendor/jquery-ui/themes/smoothness/jquery-ui.min.css',
+    // 'Modules/Admin/Assets/vendor/jquery-ui/themes/smoothness/jquery-ui.min.css',
     'Modules/Admin/Assets/vendor/select2/dist/css/select2.css',
     'Modules/Admin/Assets/vendor/select2-bootstrap-theme/dist/select2-bootstrap.css',
     'Modules/Admin/Assets/vendor/custom.datatable/media/css/dataTables.bootstrap.css',
@@ -77,7 +77,7 @@ var js = [
     'Modules/Admin/Assets/vendor/matchMedia/matchMedia.js',
     'Modules/Admin/Assets/vendor/jquery/dist/jquery.js',
     // 'Modules/Admin/Assets/vendor/interact/interact.min.js',
-    'Modules/Admin/Assets/vendor/jquery-ui/jquery-ui.js',
+    // 'Modules/Admin/Assets/vendor/jquery-ui/jquery-ui.js',
     'Aut/DataTable/src/Assets/js/jquery-request-types.js',
     'node_modules/jquery-validation/dist/jquery.validate.js',
     'node_modules/lodash/lodash.js',
@@ -135,10 +135,13 @@ var js = [
 
 mix.scripts(js.concat([
     'Modules/Admin/Assets/vendor/bootstrap-fileinput/js/locales/en.js',
+    'Modules/Admin/Assets/vendor/select2/dist/js/i18n/en.js',
 ]), 'public/js/admin-all-ltr.js').version();
 
 mix.scripts(js.concat([
     'Modules/Admin/Assets/vendor/bootstrap-fileinput/js/locales/ar.js',
+    'Modules/Admin/Assets/vendor/select2/dist/js/i18n/ar.js',
+    'Modules/Admin/Assets/vendor/jquery-validation/dist/localization/messages_ar.js',
 ]), 'public/js/admin-all-rtl.js').version();
 
 /**
@@ -148,7 +151,7 @@ mix.copy('Modules/Admin/Assets/vendor/app/css/theme-*.css', 'public/css');
 mix.copy('Modules/Admin/Assets/vendor/simple-line-icons/fonts', 'public/fonts');
 mix.copy('Modules/Admin/Assets/vendor/fontawesome/fonts', 'public/fonts');
 mix.copy('Modules/Admin/Assets/vendor/app/i18n', 'public/i18n');
-mix.copy('Modules/Admin/Assets/vendor/jquery-ui/themes/smoothness/images', 'public/css/images');
+// mix.copy('Modules/Admin/Assets/vendor/jquery-ui/themes/smoothness/images', 'public/css/images');
 mix.copy('Modules/Admin/Assets/vendor/ckeditor', 'public/ckeditor' ,false);
 mix.copy('Modules/Admin/Assets/vendor/img', 'public/img' ,false);
 mix.copy('Modules/Admin/Assets/vendor/bootstrap-fileinput/img', 'public/img');

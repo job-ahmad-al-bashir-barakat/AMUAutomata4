@@ -3,8 +3,8 @@
 namespace Modules\Utilities\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Str;
 
 class TreeController extends Controller
@@ -37,11 +37,15 @@ class TreeController extends Controller
         $setCols = "";
         foreach ($dataAttr as $index => $col)
         {
+            $index = Str::slug($index);
             // for autocomplete
             if(is_array($col))
             {
                 $id   = colValue($col['id'] ,$control) ;
                 $name = colValue($col['name'],$control);
+
+                if(!$id)
+                    break;
 
                 $setCols = $setCols . " data-$index='{ \"id\": \"$id\",\"name\" : \"$name\" }'";
 
@@ -136,6 +140,8 @@ class TreeController extends Controller
         $factory = new $this->factory();
 
         $factory->store($request);
+
+        return Response::json(['operation_message' => trans('app.oper.success')]);
     }
 
     /**
@@ -166,6 +172,8 @@ class TreeController extends Controller
         $factory = new $this->factory();
 
         $factory->update($request ,$id);
+
+        return Response::json(['operation_message' => trans('app.oper.success')]);
     }
 
     /**
@@ -177,5 +185,7 @@ class TreeController extends Controller
         $factory = new $this->factory();
 
         $factory->destroy($id);
+
+        return Response::json(['operation_message' => trans('app.oper.success')]);
     }
 }

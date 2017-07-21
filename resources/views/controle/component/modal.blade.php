@@ -3,7 +3,7 @@
     $method = isset($method) ? $method : 'post';
 @endphp
 <div class="ajaxCont">
-    <div id='{{ $id }}' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true' class='modal fade'>
+    <div id='{{ $id }}' {{--tabindex='-1'--}} role='dialog' aria-labelledby='myModalLabel' aria-hidden='true' class='modal fade'>
         <div class='modal-dialog' role='document'>
             <div class='modal-content'>
                 {!! Form::open(['id' => 'form-dialog' ,'url' => $action, 'data-action' => $action, 'method' => $method ,'class' => 'ajax-form']) !!}

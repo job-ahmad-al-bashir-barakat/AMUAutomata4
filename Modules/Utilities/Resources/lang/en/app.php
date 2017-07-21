@@ -14,10 +14,10 @@ return [
     'social_network'         => 'Social Network',
     'gender'                 => 'Gender',
     'general_setting'        => 'General Setting',
+    'langs'                  => 'Langs',
 
     'automata4_utilities'    => 'Automata4 Utilities',
     'global'                 => 'Global',
-    'langs'                  => 'Langs',
     'users'                  => 'Users',
     'menus'                  => 'Menus',
     'general'                => 'General',
@@ -25,4 +25,14 @@ return [
     'attributes'             => 'Attributes',
     'modules'                => 'Modules',
     'custom_modules'         => 'Custom Modules',
+
+    'expand_all'             => 'Expand All',
+    'collapse_all'           => 'Collapse All',
+    'add_new_node'           => 'Add New Node',
+    'search_tree'            => 'Search Tree',
+    'drag'                   => 'Drag',
+
+    'parent'                 => 'Parent',
+    'url_path'               => 'Url Path',
+    'control_menu'           => 'Control Menu',
 ];

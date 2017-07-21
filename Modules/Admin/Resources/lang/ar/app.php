@@ -32,11 +32,6 @@ return [
     'faculty'            => 'كلية',
     'department'         => 'قسم',
     'degree'             => 'اختصاص',
-
-    'study_year'         => 'سنة دراسية',
     'semester'           => 'فصل',
-    'position'           => 'منصب',
-    'job_title'          => 'عنوان وظيفي',
-
     'automata4_admin'    => 'إدارة أتوماتا 4',
 ];

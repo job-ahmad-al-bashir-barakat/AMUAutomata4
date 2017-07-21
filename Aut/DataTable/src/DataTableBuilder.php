@@ -3,13 +3,11 @@
 namespace Aut\DataTable;
 
 use App;
-use Aut\DataTable\Traits\JavaScript;
-use Aut\DataTable\Traits\Table;
 use Aut\DataTable\Traits\Dialog;
+use Aut\DataTable\Traits\JavaScript;
 use Aut\DataTable\Traits\QueryDataTable;
-use Illuminate\Support\Str;
+use Aut\DataTable\Traits\Table;
 use Mockery\CountValidator\Exception;
-use Symfony\Component\DomCrawler\Crawler;
 
 /**
  * yajra
@@ -1885,11 +1883,11 @@ class DataTableBuilder
         $spinners               = config("datatable.spinners");
         $multiModal             = config('datatable.multiModel') ? 'true' : 'false';
         $event                  = config('datatable.event');
-        $onLoadConfig           = $this->replaceScript(($event['onLoad'])());
-        $onModelCloseConfig     = $this->replaceScript(($event['modalClose'])());
-        $onTabClickConfig       = $this->replaceScript(($event['onTabClick'])());
-        $onRowDetailClickConfig = $this->replaceScript(($event['onRowDetailClick'])());
-        $onDestroyConfig        = $this->replaceScript(($event['onDestroy'])());
+        $onLoadConfig           = $this->replaceScript($event['onLoad']());
+        $onModelCloseConfig     = $this->replaceScript($event['modalClose']());
+        $onTabClickConfig       = $this->replaceScript($event['onTabClick']());
+        $onRowDetailClickConfig = $this->replaceScript($event['onRowDetailClick']());
+        $onDestroyConfig        = $this->replaceScript($event['onDestroy']());
 
         $dir                      = $this->dir;
         $disableDialog            = $this->optionDatatableConfig['disableDialog'] ? 'true' : 'false';

@@ -1,7 +1,8 @@
 <script>
 
-    var DIR  = "{{ $dir }}";
-    var LANG = "{{ $lang }}";
+    var DIR  = "{{ $dir }}",
+        LANG = "{{ $lang }}",
+        OPERATION_MESSAGE_FAIL = "{{ trans('app.oper.error') }}";
 
     $(document).ready(function () {
         $.ajaxSetup({

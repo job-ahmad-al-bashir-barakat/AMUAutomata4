@@ -32,7 +32,6 @@ class ControlMenuFactory
 
     function store(Request $request)
     {
-
         $controlPage = ControlPage::create($request->input());
 
         if(!$request->input('parent_id'))

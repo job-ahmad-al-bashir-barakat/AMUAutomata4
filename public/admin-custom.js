@@ -38,6 +38,21 @@ var HELPER_AMU = {
         return null;
     },
 
+    /**
+     *
+     *
+     */
+    notify : function (notify) {
+
+        var icon = (typeof notify.icon !== typeof undefined) ? '<em class="fa fa-' + notify.icon +  '"></em> ' : '';
+
+        $.notify({
+            message: icon + notify.message,
+            pos: 'bottom-right',
+            status: notify.status,
+            timeout: 1000
+        });
+    }
 };
 
 var APP_AMU = {
@@ -47,11 +62,6 @@ var APP_AMU = {
         $(document).on({
 
             'shown.bs.modal': function () {
-                //comment
-                // $('.modal-dialog').draggable({
-                //     handle: ".modal-header,.modal-footer",
-                //     //revert: true
-                // });
 
                 if($(this).find('.cropper').length);
                 {
@@ -61,10 +71,7 @@ var APP_AMU = {
             },
 
             'hidden.bs.modal' : function() {
-                //comment
-                // var modalDialog = $(this).find('.modal-dialog');
-                // var minWidth = modalDialog.css('min-width');
-                // modalDialog.attr('style' ,'min-width:' + minWidth);
+                //
             }
 
         }, '.modal');
@@ -273,36 +280,30 @@ var APP_AMU = {
     },
 
     validate: {
-        //comment
-        // changeMethodAction : function ($form) {
-        //
-        //     var id     = $form.find('.primarykey').val(),
-        //         action, method;
-        //
-        //     if(id)
-        //     {
-        //         action = $form.data('action') + "/" + id;
-        //         method = 'POST';
-        //         $form.find("[name='_method']").remove();
-        //         $form.prepend('<input name="_method" type="hidden" value="PUT">');
-        //     }
-        //     else
-        //     {
-        //         action = $form.data('action');
-        //         method = 'POST';
-        //         $form.find("[name='_method']").remove();
-        //     }
-        //
-        //     $form.attr('action' ,action);
-        //     $form.attr('method' ,method);
-        // },
+
+        changeMethodAction : function ($cont) {
+
+            var $form = $($cont).find('form.ajax-form'),
+                id    = $form.find('.primarykey').val(),
+                action;
+
+            if(id)
+            {
+                action = $form.data('action') + "/" + id;
+                $form.prepend('<input name="_method" type="hidden" value="PUT">');
+            }
+            else
+            {
+                action = $form.data('action');
+                $form.find("[name='_method']").remove();
+            }
+
+            $form.attr('action' ,action);
+        },
 
         init: function ($cont) {
 
             $($cont).find('form.ajax-form').each(function ()  {
-
-                // if(!$($cont).find('.modal').length)
-                //     APP_AMU.validate.changeMethodAction($(this));
 
                 var validator = $(this).validate({
 
@@ -322,10 +323,15 @@ var APP_AMU = {
 
                         $[$method]($action, data, function(res) {
 
+                            // if form was inside modal we will close it after save
                             if(typeof $form.parents('.modal') != typeof undefined)
                                 $($form.parents('.modal')).modal('hide');
 
+                            HELPER_AMU.notify({  message : res.operation_message ,status : 'success' })
+
                         }).fail(function(res) {
+
+                            HELPER_AMU.notify({ message : OPERATION_MESSAGE_FAIL ,status : 'danger'});
 
                             $.each(JSON.parse(res.responseText).server_message,function(k ,v){
 
@@ -365,9 +371,6 @@ var APP_AMU = {
                         elem.closest('.help-block').remove();
                     }
                 });
-
-                if(!$(this).closest('.modal').hasClass('modal'))
-                    APP_AMU.validate.hideShowButtonForm($cont);
             });
 
             $($cont).find('.autocomplete').change(function(){
@@ -378,13 +381,13 @@ var APP_AMU = {
             APP_AMU.validate.clearModal($cont);
         },
 
-        hideShowButtonForm : function ($cont) {
-
-            $($cont).find("form [data-state]").hide();
-            if($($cont).find('form .primarykey').val())
-                $($cont).find("form [data-state='update']").show();
+        hideShowButtonForm : function ($cont ,$state) {
+            $cont = $($cont);
+            $cont.find("form [data-state]").hide();
+            if($state == 'update')
+                $cont.find("form [data-state='update']").show();
             else
-                $($cont).find("form [data-state='add']").show();
+                $cont.find("form [data-state='add']").show();
         },
 
         initAdditionalValidationClass : function () {
@@ -420,37 +423,49 @@ var APP_AMU = {
         clearModal : function ($cont) {
 
             $($cont).find('.modal').on('show.bs.modal', function() {
-
-                APP_AMU.validate.hideShowButtonForm(this);
-
-                //APP_AMU.validate.changeMethodAction($(this).find('form.ajax-form'));
+                //
             });
 
             $($cont).find('.modal').on('hidden.bs.modal', function() {
 
-                var form = $(this).find('form');
+                var $form = $(this).find('form');
 
-                APP_AMU.validate.clearForm(form);
+                APP_AMU.validate.clearForm($form);
+
+                APP_AMU.validate.hideShowButtonForm($cont ,'add');
+
+                APP_AMU.validate.changeMethodAction($cont);
             });
         },
 
         fillForm : function () {
 
-            $('body').on('click' ,'[data-editable-target]' ,function () {
+            $(document).on('click','[data-form-add]' ,function () {
+
+                $cont = $(this).data('target');
+
+                APP_AMU.validate.hideShowButtonForm($cont ,'add');
+
+                APP_AMU.validate.changeMethodAction($cont);
+            });
+
+            $(document).on('click' ,'[data-form-update]' ,function () {
 
                 $contData = $(this).closest($(this).data('editable-target'));
 
-                $($(this).data('target')).find('[data-json]').each(function (i ,v) {
+                $cont = $(this).data('target');
+
+                $($cont).find('[data-json]').each(function (i ,v) {
 
                     if($(v).hasClass('autocomplete'))
-                    {
                         APP_AMU.autocomplete.selectedAutocomplete($(v) ,[$contData.data($(v).data('json'))])
-                    }
                     else
-                    {
                         $(v).val($contData.data($(v).data('json')));
-                    }
                 });
+
+                APP_AMU.validate.hideShowButtonForm($cont ,'update');
+
+                APP_AMU.validate.changeMethodAction($cont);
             });
         },
     },
@@ -545,34 +560,7 @@ var APP_AMU = {
                         });
 
                         editor.on('resize',function(reEvent){
-
-                            //comment
-                            // var $ckeditor = $($cont).find($target + '[data-orginal-id="'+this.name+'"]'),
-                            //     $modal = $ckeditor.closest('.modal'),
-                            //     $modalDialog  = $modal.find('.modal-dialog');
                             //
-                            // if($modal.length)
-                            // {
-                            //     var ckEditorWidth     = reEvent.data.outerWidth,
-                            //         leftCkeditor      = $ckeditor.closest('div').offset().left,
-                            //         leftModalDialog   = $modalDialog.offset().left,
-                            //         width;
-                            //
-                            //     var tabArea = $modal.find('.tab-area');
-                            //
-                            //     if(tabArea.length)
-                            //     {
-                            //         var paddingTabContent = parseInt($modalDialog.find('.bhoechie-tab-content').css('padding-left'));
-                            //         width = ckEditorWidth + (((leftCkeditor - (tabArea.width() + paddingTabContent)) - leftModalDialog) * 2);
-                            //         width = width + tabArea.width() - paddingTabContent;
-                            //     }
-                            //     else
-                            //     {
-                            //         width = ckEditorWidth + ((leftCkeditor - leftModalDialog) * 2)
-                            //     }
-                            //
-                            //     $modal.find('.modal-content').attr('style' ,"width:" + width + "px;");
-                            // }
                         });
                     });
                 });

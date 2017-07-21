@@ -1,13 +1,13 @@
 <div class="js-nestable-action">
-    <a data-action="expand-all" class="btn btn-default btn-sm mr-sm">Expand All</a>
-    <a data-action="collapse-all" class="btn btn-default btn-sm mr-sm">CollapseAll</a>
-    <a class="btn btn-default btn-sm" data-toggle="modal" data-target="#modal-tree">Add New Node</a>
+    <a data-action="expand-all" class="btn btn-default btn-sm mr-sm">{{ trans('utilities::app.expand_all') }}</a>
+    <a data-action="collapse-all" class="btn btn-default btn-sm mr-sm">{{ trans('utilities::app.collapse_all') }}</a>
+    <a class="btn btn-default btn-sm" data-toggle="modal" data-target="#modal-tree" data-form-add>{{ trans('utilities::app.add_new_node') }}</a>
 
 </div>
 <div class="row">
     <div class="col-md-6">
         <div style="margin-top: 5px;">
-            {!!  autAutocomplete('treeAutocomp' ,'treeAutocomp' ,'' ,[] ,'' ,'Search Tree' ,1)  !!}
+            {!!  autAutocomplete('treeAutocomp' ,'treeAutocomp' ,'' ,[] ,'' ,trans('utilities::app.search_tree') ,1)  !!}
         </div>
         <div id="nestable" class="dd">
             {!! $buildTree or '' !!}

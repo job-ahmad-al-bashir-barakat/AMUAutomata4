@@ -31,12 +31,6 @@ return [
     'faculty'            => 'Faculty',
     'department'         => 'Department',
     'degree'             => 'Degree',
-
-    'study_year'         => 'Study Year',
     'semester'           => 'Semester',
-    'position'           => 'Position',
-    'job_title'          => 'Job Title',
-
     'automata4_admin'    => 'Automata4 Admin',
-
 ];
