@@ -1,4 +1,3 @@
-//custom form //tree search //drage tree item
 
 String.prototype.replaceAll = function(search, replaceAllment) {
     var target = this;

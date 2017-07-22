@@ -55,12 +55,10 @@ and addMultiInputsLang
 
 //tree
 Drag And Drop Update
-Delete Node 
 load child nodes on click parent
 search/filter node
-reload Tree after save/update/delete
 MakePackage
 save last node opend on cookie
-
 make print with js and external
-///////////
+
+//tree search //drage tree item //tree autocompelte not choose same item as parent

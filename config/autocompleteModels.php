@@ -71,7 +71,7 @@ return [
         'model' => \Modules\Admin\Entities\JobTitle::class,
     ],
 
-    'control-menu' => [
+    'control' => [
         'model' => \Modules\Utilities\Entities\ControlMenu::class,
         'has'   => [
             'page' => 'control_page_code',

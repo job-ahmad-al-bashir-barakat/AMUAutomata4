@@ -13,11 +13,15 @@ class TreeController extends Controller
 
     protected $model;
 
+    protected $tree;
+
     function __construct()
     {
         if(\Route::getCurrentRoute() !== null)
         {
             $tree = \Route::getCurrentRoute()->parameter('treeModel');
+
+            $this->tree = $tree;
 
             $config = config("tree.$tree");
 
@@ -117,7 +121,7 @@ class TreeController extends Controller
 
         //render tree
         return view("utilities::tree._tree",[
-            'model'     => $this->model,
+            'model'     => $this->tree,
             'buildTree' => $traverse($nodes)
         ])->render();
     }
