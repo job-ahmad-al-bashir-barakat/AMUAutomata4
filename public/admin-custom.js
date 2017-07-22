@@ -289,6 +289,49 @@ var APP_AMU = {
         },
     },
 
+    select : {
+
+        init: function(data) {
+
+            return  function () {
+
+                var $this = $(this);
+                var placeholder = (typeof $this.data('placeholder') !== typeof undefined) ? $this.data('placeholder') : '';
+
+                $this.select2({
+                    dir:DIR,
+                    language: LANG,
+                    placeholder: placeholder,
+                    allowClear: true,
+                    theme: "bootstrap",
+                    data: data
+                });
+            }
+        },
+
+        reloadSelect: function(selector) {
+
+            $(selector).each(initSelect());
+        },
+
+        selectedSelect: function(selector,data) {
+
+            $(selector).each(initSelect(data));
+        },
+
+        resetSelect:function(selector) {
+
+            $(selector).val('').trigger("change");
+        },
+
+        initSelect : function (selector) {
+
+            var selector = typeof selector != typeof undefined ? selector : '.select';
+
+            $(selector).each(APP_AMU.select.init());
+        },
+    },
+
     /**
      * validate classes
      *
@@ -545,7 +588,6 @@ var APP_AMU = {
             }
 
             var action = $.localStorage.get(APP_AMU.tree.storageKeyName).action;
-            console.log(action);
             if(action != null)
                 $('.dd').nestable((action).toCamelCase());
         },
@@ -700,6 +742,7 @@ var APP_AMU = {
         init : function () {
 
             APP_AMU.autocomplete.initAutocomplete();
+            APP_AMU.select.initSelect();
             APP_AMU.validate.init('.ajaxCont');
             APP_AMU.tree.init();
             APP_AMU.ckeditor.init('body' ,'text-editor');
@@ -725,6 +768,7 @@ $(function () {
      * Load
      */
     APP_AMU.autocomplete.initAutocomplete();
+    APP_AMU.select.initSelect();
     APP_AMU.validate.init('.ajaxCont');
     APP_AMU.tree.init();
     APP_AMU.ckeditor.init('body' ,'text-editor');

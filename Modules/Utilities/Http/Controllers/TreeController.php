@@ -117,6 +117,7 @@ class TreeController extends Controller
 
         //render tree
         return view("utilities::tree._tree",[
+            'model'     => $this->model,
             'buildTree' => $traverse($nodes)
         ])->render();
     }

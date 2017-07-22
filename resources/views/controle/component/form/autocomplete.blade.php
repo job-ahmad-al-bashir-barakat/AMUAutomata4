@@ -14,13 +14,17 @@
         @endunless
 
         <div {{ $inputClass ? "class=$inputClass" : ''}}>
-            {!! Form::select($name,$option,$selected,array_merge([
+            {!! Form::select($name,$option,array_keys($option),array_merge([
                  'id'                    => $id,
                  'class'                 => "form-control autocomplete $class",
+                 'data-letter'           => $letter,
                  'data-placeholder'      => $label,
+                 "data-target"           => "body",
+                 'tabindex'              => '1',
                  'style'                 => "width: 100%",
+                 'data-remote'           => url($remote)
             ],$attr)) !!}
-            <div id='error_{{preg_replace('/\[\]/','',$name)}}'></div>
+            <div id='error_{{$name}}'></div>
         </div>
     </div>
 @if($group)

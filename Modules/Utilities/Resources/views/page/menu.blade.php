@@ -21,25 +21,11 @@
         'successFunc'       => 'controlMenu',
         'deleteSerialize'   => true
     ])
-        {!! Form::hidden('id' ,'' ,['class' => 'primarykey' ,'data-json' => 'id']) !!}
-        {!! Form::hidden('control_page_id' ,'' ,['data-json' => 'control-page-id']) !!}
-
-        <div class="form-group">
-            {!! Form::label('parent-label', trans('utilities::app.parent'), ['class' => 'control-label']) !!}
-            {!! autAutocomplete('parent-id' ,'parent_id' ,'autocomplete/control-menu' ,[] ,'' , trans('utilities::app.parent') ,3 ,["data-target" => "body" ,'data-json' => 'parent']) !!}
-        </div>
-
-        <div class="form-group">
-            {!! Form::label('control-page-code-label',  trans('utilities::app.code'), ['class' => 'control-label star']) !!}
-            {!! Form::text('control_page_code','', ['class' => 'form-control required',"data-json" => "control-page-code"]) !!}
-            <div id="error_control_page_code"></div>
-        </div>
-
-        <div class="form-group">
-            {!! Form::label('url-path-label', trans('utilities::app.url_path'), ['class' => 'control-label']) !!}
-            {!! Form::text('url_path','', ['class' => 'form-control' ,"data-json" => "url-path"]) !!}
-        </div>
-
+        {{ Form::bsPrimarykey('id' ,'id' ,null ,'' ,['data-json' => 'id']) }}
+        {{ Form::bsHidden('control_page_id' ,'control_page_id' ,null ,'' ,['data-json' => 'control-page-id']) }}
+        {{ Form::bsAutocomplete(trans('utilities::app.parent') ,'parent-id' ,'parent_id','autocomplete/control-menu',[],'3' ,'group' ,['data-json' => 'parent']) }}
+        {{ Form::bsText(trans('utilities::app.code') ,'control-page-code' ,'control_page_code',null,'group required',["data-json" => "control-page-code"]) }}
+        {{ Form::bsText(trans('utilities::app.url_path') ,'url-path' ,'url_path' ,null ,'group',["data-json" => "url-path"]) }}
     @endcomponent
 
     <script>

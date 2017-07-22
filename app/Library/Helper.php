@@ -97,3 +97,69 @@ if(! function_exists('convertLangArrayToJsonObject'))
         return collect($objects)->toJson();
     }
 }
+
+if(! function_exists('formClassHelper'))
+{
+    function formClassHelper($class) {
+
+        $group       = false;
+        $no_label    = false;
+        $replacement = '';
+        $contClass   = '';
+        $labelClass  = '';
+        $inputClass  = '';
+
+        if(preg_match('/\b(?<![\S])(group)(?![\S])\b/',$class))
+            $group = true;
+
+        if(preg_match('/\b(?<![\S])(no-label)(?![\S])\b/',$class))
+            $no_label = true;
+
+        if(preg_match_all('/\b(?<![\S])(c:[\w\d-]+)(?![\S])\b/',$class,$results,PREG_PATTERN_ORDER)) {
+            foreach ($results as $index => $result)
+            {
+                if ($index == 0)
+                    foreach ($result as $item)
+                    {
+                        $replacement = "$replacement|$item";
+                        $item = preg_replace('/\b(?<![\S])(c:)\b/','',$item);
+                        $contClass = "$contClass $item";
+                    }
+            }
+        }
+
+        if(preg_match_all('/\b(?<![\S])(l:[\w\d-]+)(?![\S])\b/',$class,$results,PREG_PATTERN_ORDER)) {
+            foreach ($results as $index => $result)
+            {
+                if ($index == 0)
+                    foreach ($result as $item)
+                    {
+                        $replacement = "$replacement|$item";
+                        $item = preg_replace('/\b(?<![\S])(l:)\b/','',$item);
+                        $labelClass = "$labelClass $item";
+                    }
+            }
+        }
+
+        if(preg_match_all('/\b(?<![\S])(i:[\w\d-]+)(?![\S])\b/',$class,$results,PREG_PATTERN_ORDER)) {
+            foreach ($results as $index => $result)
+            {
+                if ($index == 0)
+                    foreach ($result as $item)
+                    {
+                        $replacement = "$replacement|$item";
+                        $item = preg_replace('/\b(?<![\S])(i:)\b/','',$item);
+                        $inputClass = "$inputClass $item";
+                    }
+            }
+        }
+
+        // remove class dialog from string
+        $replacement = "group|no-label{$replacement}";
+
+        // just class table
+        $class = preg_replace("/\b(?<![\S])($replacement)(?![\S])\b/",'',$class);
+
+        return ['noLabel' => $no_label ,'group' => $group ,'contClass' => $contClass,'labelClass' => trim($labelClass),'inputClass' => trim($inputClass) ,'class' => trim($class)];
+    }
+}

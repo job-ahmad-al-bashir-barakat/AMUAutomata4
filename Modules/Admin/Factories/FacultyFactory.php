@@ -42,6 +42,7 @@ class FacultyFactory extends GlobalFactory
             ->addActionButton(trans('admin::app.labs') ,'labs' ,'labs')
             ->addActionButton($this->update,'update','update')
             ->addActionButton($this->delete,'delete','delete')
+            ->addBlade()
             ->addNavButton()
             ->render();
     }
