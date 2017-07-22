@@ -18,8 +18,6 @@ return [
     'phone'              => 'Phone',
     'info'               => 'Info',
     'gender'             => 'Gender',
-    'position'           => 'Position',
-    'job_title'          => 'Job Title',
     'mobile'             => 'Mobile',
     'extra_info'         => 'Extra Info',
 

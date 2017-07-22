@@ -15,11 +15,14 @@
 @section('footer')
 
     @component('controle.component.modal', [
-        'id'     => 'modal-tree',
-        'title'  => trans('utilities::app.control_menu'),
-        'action' => treeUrl($view),
+        'id'                => 'modal-tree',
+        'title'             => trans('utilities::app.control_menu'),
+        'action'            => treeUrl($view),
+        'successFunc'       => 'controlMenu',
+        'deleteSerialize'   => true
     ])
         {!! Form::hidden('id' ,'' ,['class' => 'primarykey' ,'data-json' => 'id']) !!}
+        {!! Form::hidden('control_page_id' ,'' ,['data-json' => 'control-page-id']) !!}
 
         <div class="form-group">
             {!! Form::label('parent-label', trans('utilities::app.parent'), ['class' => 'control-label']) !!}
@@ -39,4 +42,10 @@
 
     @endcomponent
 
+    <script>
+        function controlMenu() {
+
+            APP_AMU.tree.load()
+        }
+    </script>
 @endsection

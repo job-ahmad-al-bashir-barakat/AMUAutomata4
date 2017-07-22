@@ -180,11 +180,11 @@ class TreeController extends Controller
      * Remove the specified resource from storage.
      * @return Response
      */
-    public function destroy($id)
+    public function destroy(Request $request ,$tree ,$id)
     {
         $factory = new $this->factory();
 
-        $factory->destroy($id);
+        $factory->destroy($request ,$id);
 
         return Response::json(['operation_message' => trans('app.oper.success')]);
     }

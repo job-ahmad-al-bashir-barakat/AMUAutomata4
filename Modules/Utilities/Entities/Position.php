@@ -1,12 +1,12 @@
 <?php
 
-namespace Modules\Admin\Entities;
+namespace Modules\Utilities\Entities;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Modules\Utilities\Traits\MultiLangs;
 
-class JobTitle extends Model
+class Position extends Model
 {
     use SoftDeletes ,MultiLangs;
 
@@ -16,7 +16,7 @@ class JobTitle extends Model
 
     public function transName()
     {
-        return $this->hasMany(JobTitleNameLang::class);
+        return $this->hasMany(PositionNameLang::class);
     }
 
     public function getLangNameAttribute()

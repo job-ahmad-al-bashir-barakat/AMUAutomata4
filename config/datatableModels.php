@@ -49,10 +49,21 @@ return [
         'factory'       => Modules\Utilities\Factories\GenderFactory::class,
     ],
 
+    'position' => [
+        'model'         => Modules\Utilities\Entities\Position::class,
+        'factory'       => Modules\Utilities\Factories\PositionFactory::class,
+    ],
+
+    'job-title' => [
+        'model'         => Modules\Utilities\Entities\JobTitle::class,
+        'factory'       => Modules\Utilities\Factories\JobTitleFactory::class,
+    ],
+
     'general-setting' => [
         'model'         => Modules\Utilities\Entities\Setting::class,
         'factory'       => Modules\Utilities\Factories\SettingFactory::class,
     ],
+
     /**
      *  Admin Module
      */
@@ -97,16 +108,6 @@ return [
         'model'         => Modules\Admin\Entities\Person::class,
         'factory'       => Modules\Admin\Factories\PersonFactory::class,
         'stopOperation' => ['store']
-    ],
-
-    'position' => [
-        'model'         => Modules\Admin\Entities\Position::class,
-        'factory'       => Modules\Admin\Factories\PositionFactory::class,
-    ],
-
-    'job-title' => [
-        'model'         => Modules\Admin\Entities\JobTitle::class,
-        'factory'       => Modules\Admin\Factories\JobTitleFactory::class,
     ],
 
     'semester' => [

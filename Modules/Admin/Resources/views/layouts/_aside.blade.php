@@ -78,15 +78,4 @@
         </a>
     </li>
 
-    <li class="">
-        <a href="{{ localizeURL('admin/position') }}" class="ajax" title="{{ trans('admin::app.position') }}">
-            <span>{{ trans('admin::app.position') }}</span>
-        </a>
-    </li>
-    <li class="">
-        <a href="{{ localizeURL('admin/job-title') }}" class="ajax" title="{{  trans('admin::app.job_title') }}">
-            <span>{{  trans('admin::app.job_title') }}</span>
-        </a>
-    </li>
-
 @endsection

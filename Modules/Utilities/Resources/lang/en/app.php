@@ -13,6 +13,8 @@ return [
 
     'social_network'         => 'Social Network',
     'gender'                 => 'Gender',
+    'position'               => 'Position',
+    'job_title'              => 'Job Title',
     'general_setting'        => 'General Setting',
     'langs'                  => 'Langs',
 

@@ -1,21 +1,22 @@
 <?php
 
-namespace Modules\Admin\Factories;
+namespace Modules\Utilities\Factories;
 
 use Aut\DataTable\Factories\GlobalFactory;
-use Modules\Admin\Entities\JobTitle;
+use Modules\Utilities\Entities\Position;
 
-class JobTitleFactory extends GlobalFactory
+class PositionFactory extends GlobalFactory
 {
+
     /**
      *  get datatable query
      */
     public function getDatatable($model ,$request)
     {
-        $query = JobTitle::allLangs();
+        $query = Position::allLangs();
 
         return $this->table
-            ->queryConfig('datatable-job-title')
+            ->queryConfig('datatable-position')
             ->queryDatatable($query)
             ->queryUpdateButton('id')
             ->queryDeleteButton('id')
@@ -29,7 +30,7 @@ class JobTitleFactory extends GlobalFactory
     public function buildDatatable($model ,$request)
     {
         return $this->table
-            ->config('datatable-job-title',trans('admin::app.job_title'))
+            ->config('datatable-position',trans('utilities::app.position'))
             ->addPrimaryKey('id','id')
             ->addMultiInputs(['name'])
             ->addActionButton($this->update,'update','update')
@@ -37,4 +38,5 @@ class JobTitleFactory extends GlobalFactory
             ->addNavButton()
             ->render();
     }
+
 }

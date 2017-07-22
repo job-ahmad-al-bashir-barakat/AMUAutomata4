@@ -13,6 +13,8 @@ return [
 
     'social_network'         => 'تواصل اجتماعي',
     'gender'                 => 'عمر',
+    'position'               => 'منصب',
+    'job_title'              => 'عنوان وظيفي',
     'general_setting'        => 'اعدادات عامة',
     'langs'                  => 'لغات',
 

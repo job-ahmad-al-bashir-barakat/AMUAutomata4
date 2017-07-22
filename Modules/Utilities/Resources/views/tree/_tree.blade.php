@@ -12,6 +12,7 @@
         <div id="nestable" class="dd">
             {!! $buildTree or '' !!}
         </div>
+        <br>
         <textarea id="nestable-output" class="form-control"></textarea>
     </div>
 </div>

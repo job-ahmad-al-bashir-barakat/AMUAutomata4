@@ -2,13 +2,13 @@
 
 namespace Modules\Utilities\Entities;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Kalnoy\Nestedset\NodeTrait;
 use Modules\Utilities\Traits\MultiLangs;
 
 class ControlMenu extends \Eloquent
 {
-    use NodeTrait ,MultiLangs;
+    use NodeTrait ,MultiLangs ,SoftDeletes;
 
     protected $with = ['page'];
 
@@ -17,5 +17,17 @@ class ControlMenu extends \Eloquent
     function page()
     {
         return $this->belongsTo(ControlPage::class ,'control_page_id');
+    }
+
+    // this is a recommended way to declare event handlers
+    protected static function boot() {
+
+        parent::boot();
+
+        //before delete() method call this
+        static::deleting(function($node) {
+
+            $node->page()->delete();
+        });
     }
 }

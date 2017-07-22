@@ -88,4 +88,14 @@
         </a>
     </li>
 
+    <li class="">
+        <a href="{{ localizeURL('utilities/position') }}" class="ajax" title="{{ trans('utilities::app.position') }}">
+            <span>{{ trans('utilities::app.position') }}</span>
+        </a>
+    </li>
+    <li class="">
+        <a href="{{ localizeURL('utilities/job-title') }}" class="ajax" title="{{  trans('utilities::app.job_title') }}">
+            <span>{{  trans('utilities::app.job_title') }}</span>
+        </a>
+    </li>
 @endsection

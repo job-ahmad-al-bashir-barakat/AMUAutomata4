@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 use Kalnoy\Nestedset\NestedSet;
 
 class CreateControlMenuTable extends Migration
@@ -18,7 +18,7 @@ class CreateControlMenuTable extends Migration
             $table->increments('id')->unsigned();
             $table->integer('control_page_id')->unsigned();
             NestedSet::columns($table);
-            $table->string('url_path');
+            $table->string('url_path')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

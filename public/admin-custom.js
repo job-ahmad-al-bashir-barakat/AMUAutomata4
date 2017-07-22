@@ -1,12 +1,15 @@
-/**
- *
- * @param search
- * @param replaceAllment
- * @returns {string}
- */
+//custom form //tree search //drage tree item
+
 String.prototype.replaceAll = function(search, replaceAllment) {
     var target = this;
     return target.replace(new RegExp(search, 'g'), replaceAllment);
+};
+
+String.prototype.toCamelCase = function() {
+    return this.replace(/^([A-Z])|[\s-_](\w)/g, function(match, p1, p2, offset) {
+        if (p2) return p2.toUpperCase();
+        return p1.toLowerCase();
+    });
 };
 
 var HELPER_AMU = {
@@ -38,10 +41,6 @@ var HELPER_AMU = {
         return null;
     },
 
-    /**
-     *
-     *
-     */
     notify : function (notify) {
 
         var icon = (typeof notify.icon !== typeof undefined) ? '<em class="fa fa-' + notify.icon +  '"></em> ' : '';
@@ -52,6 +51,17 @@ var HELPER_AMU = {
             status: notify.status,
             timeout: 1000
         });
+    },
+
+    reloadElement : function (element) {
+
+        _.each(element ,function (v ,k) {
+
+            switch (k)
+            {
+                case 'tree': APP_AMU.tree.load(v);
+            }
+        })
     }
 };
 
@@ -279,6 +289,13 @@ var APP_AMU = {
         },
     },
 
+    /**
+     * validate classes
+     *
+     * cont class .ajaxCont
+     * init class .ajax-form
+     *
+     */
     validate: {
 
         changeMethodAction : function ($cont) {
@@ -311,23 +328,65 @@ var APP_AMU = {
 
                         e.preventDefault();
 
-                        var $form = $(form);
+                        var $this   = this,
+                            $form   = $(form),
+                            $button = $($this.submitButton);
 
-                        var data = $form.serialize();
+                        var $action = $form.attr('action'),
+                            $method,$data;
 
-                        var $method = typeof $form.find('[name=_method]').val() != typeof undefined
-                            ? _.lowerCase($form.find('[name=_method]').val())
-                            : _.lowerCase($form.attr('method'));
+                        if(typeof $button.data('delete-unserialize') != typeof undefined)
+                            $data = {};
+                        else
+                            $data = $form.serialize()
 
-                        var $action = $form.attr('action');
+                        if($button.attr('id') == 'delete') {
 
-                        $[$method]($action, data, function(res) {
+                            $method = 'delete';
+                        } else {
+
+                            $method = typeof $form.find('[name=_method]').val() != typeof undefined
+                                ? _.lowerCase($form.find('[name=_method]').val())
+                                : _.lowerCase($form.attr('method'));
+                        }
+
+                        $[$method]($action, $data, function(res) {
 
                             // if form was inside modal we will close it after save
                             if(typeof $form.parents('.modal') != typeof undefined)
                                 $($form.parents('.modal')).modal('hide');
 
-                            HELPER_AMU.notify({  message : res.operation_message ,status : 'success' })
+                            // reload after success oper by enter json like {"tree" : [".aut-tree"],....}
+                            if(typeof $form.data('ajax-form-reload') != typeof undefined)
+                                HELPER_AMU.reloadElement($form.data('ajax-form-reload'));
+
+                            /**
+                             *  Success Button Function Area
+                             *
+                             *  data-ajax-form-success
+                             *  data-ajax-form-delete-success
+                             *  data-ajax-form-update-success
+                             *  data-ajax-form-add-success
+                             *
+                             */
+
+                            // callback exec after oper success
+                            if(typeof $button.data('ajax-form-success') != typeof undefined)
+                                window[$button.data('ajax-form-success')](res);
+
+                            // callback exec after add oper success
+                            if(typeof $button.data('ajax-form-add-success') != typeof undefined)
+                                window[$button.data('ajax-form-add-success')](res);
+
+                            // callback exec after update oper success
+                            if(typeof $button.data('ajax-form-update-success') != typeof undefined)
+                                window[$button.data('ajax-form-update-success')](res);
+
+                            // callback exec after delete oper success
+                            if(typeof $button.data('ajax-form-delete-success') != typeof undefined)
+                                window[$button.data('ajax-form-delete-success')](res);
+
+                            HELPER_AMU.notify({ message : res.operation_message ,status : 'success' })
 
                         }).fail(function(res) {
 
@@ -471,6 +530,7 @@ var APP_AMU = {
     },
 
     tree : {
+        storageKeyName : 'js-nestable',
 
         updateOutput : function(e)
         {
@@ -483,11 +543,18 @@ var APP_AMU = {
             } else {
                 output.val('JSON browser support required for this demo.');
             }
+
+            var action = $.localStorage.get(APP_AMU.tree.storageKeyName).action;
+            console.log(action);
+            if(action != null)
+                $('.dd').nestable((action).toCamelCase());
         },
 
-        init : function () {
+        load : function ($continer) {
 
-            $('.aut-tree').load($('.aut-tree').data('url'),function () {
+            $cont = typeof $continer != typeof undefined ? $($continer).find('.aut-tree') : $('.aut-tree');
+
+            $cont.load($cont.data('url'),function () {
 
                 // activate Nestable for list 1
                 $('#nestable').nestable({
@@ -499,20 +566,30 @@ var APP_AMU = {
                 // output initial serialised data
                 if($('#nestable').length)
                     APP_AMU.tree.updateOutput($('#nestable').data('output', $('#nestable-output')));
-
-                $('.js-nestable-action').on('click', function(e)
-                {
-                    var target = $(e.target),
-                        action = target.data('action');
-
-                    if (action === 'expand-all') {
-                        $('.dd').nestable('expandAll');
-                    }
-                    if (action === 'collapse-all') {
-                        $('.dd').nestable('collapseAll');
-                    }
-                });
             });
+        },
+
+        loadAction : function () {
+
+            $(document).on('click','.js-nestable-action [data-action]', function(e)
+            {
+                var target = $(e.target),
+                    action = target.data('action');
+
+                if (action === 'expand-all') {
+                    $('.dd').nestable('expandAll');
+                }
+                if (action === 'collapse-all') {
+                    $('.dd').nestable('collapseAll');
+                }
+
+                $.localStorage.set(APP_AMU.tree.storageKeyName, { "action" : action });
+            });
+        },
+
+        init: function () {
+            APP_AMU.tree.load();
+            APP_AMU.tree.loadAction();
         }
     },
 

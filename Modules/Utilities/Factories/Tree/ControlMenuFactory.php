@@ -12,6 +12,7 @@ class ControlMenuFactory
     {
         return [
             'id'                => 'id' ,
+            'control_page_id'   => 'control_page_id',
             'control_page_code' => 'page->control_page_code' ,
             'url_path'          => 'url_path',
             'parent'            => ['id' => 'parent_id','name' => 'parent->page->control_page_code']
@@ -60,13 +61,11 @@ class ControlMenuFactory
 
         $node->update($request->input());
 
-        $node->page()->update($request->except(['id']));
+        $node->page()->update($request->except('id'));
     }
 
-    function destroy($id)
+    function destroy(Request $request ,$id)
     {
-        $node = ControlMenu::destroy($id);
-
-        $node->page()->delete();
+        ControlMenu::destroy($id);
     }
 }
