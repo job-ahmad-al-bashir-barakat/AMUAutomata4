@@ -3,6 +3,7 @@
 namespace Modules\Utilities\Factories;
 
 use Aut\DataTable\Factories\GlobalFactory;
+use Modules\Utilities\Entities\Module;
 
 class ModuleFactory extends GlobalFactory
 {
@@ -47,6 +48,8 @@ class ModuleFactory extends GlobalFactory
     public function storeDatatable($model = null ,$request = null ,$result = null)
     {
         //
+        $attributeIds = $request->input('attributes.id');
+        $result->attributes()->sync($attributeIds);
     }
 
     /**
@@ -55,6 +58,8 @@ class ModuleFactory extends GlobalFactory
     public function updateDatatable($model = null ,$request = null ,$result = null)
     {
         //
+        $attributeIds = $request->input('attributes.id');
+        $result->attributes()->sync($attributeIds);
     }
 
     /**
@@ -63,6 +68,7 @@ class ModuleFactory extends GlobalFactory
     public function destroyDatatable($model = null ,$request = null ,$result = null)
     {
         //
+        dd($request);
     }
 
     /**
