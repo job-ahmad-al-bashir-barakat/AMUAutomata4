@@ -74,7 +74,7 @@ class TreeController extends Controller
 
         if(!request('nodeId'))
         {
-            $nodes = $model::get()->toTree();
+            $nodes = $model::orderBy('order')->get()->toTree();
         }
         else
         {
