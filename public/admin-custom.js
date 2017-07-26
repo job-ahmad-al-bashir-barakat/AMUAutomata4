@@ -1,6 +1,5 @@
 // fix autocompelte
 // fix autocompelte filter parent
-// order show tree items
 
 String.prototype.replaceAll = function(search, replaceAllment) {
     var target = this;

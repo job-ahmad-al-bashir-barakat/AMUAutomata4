@@ -205,11 +205,12 @@ class TreeController extends Controller
                 //'order'     => $request->input('order')
             ]);
 
-            $parentTitle = $factory->setTitle();
+            $parent = $factory->dataAttr();
 
-            $parentTitle = colValue($parentTitle['parent'] ,$node->parent);
+            $parentId    = colValue($parent['parent']['id']   ,$node);
+            $parentTitle = colValue($parent['parent']['name'] ,$node);
 
-            return Response::json(['operation_message' => trans('app.oper.successOrder') ,'id' => $request->input('parent') ,'name' => $parentTitle]);
+            return Response::json(['operation_message' => trans('app.oper.successOrder') ,'id' => $parentId ,'name' => $parentTitle]);
         }
         else
         {

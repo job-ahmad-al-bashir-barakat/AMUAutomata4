@@ -23,7 +23,7 @@ class ControlMenuFactory
     function setTitle()
     {
         return [
-            'parent' => 'page->control_page_code',
+            'page->control_page_code',
         ];
     }
 
