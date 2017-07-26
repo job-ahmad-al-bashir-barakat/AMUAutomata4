@@ -98,8 +98,7 @@ class AutocompleteController
         $nameFunc = function ($name ,$colName) {
 
             foreach (explode('->', $colName) as $col)
-                $name = is_object($name->$col) ? $name->$col : $name[$col];
-                //$name = is_object($name->$col) ? $name->$col->first() : $name[$col];
+                $name = isset($name->$col) ? $name->$col : $name->first()[$col];
 
             return $name;
         };
@@ -109,8 +108,11 @@ class AutocompleteController
 
             $id = $item;
             foreach (explode('->', $this->colId) as $col)
-                $id = is_object($id->$col) ? $id->$col : $id[$col];
-                //$id = is_object($id->$col) ? $id->$col->first() : $id[$col];
+                $id = isset($id->$col) ? $id->$col : $id->first()[$col];
+
+             //prev error
+            //$id = is_object($id->$col) ? $id->$col : $id[$col];
+            //$id = is_object($id->$col) ? $id->$col->first() : $id[$col];
 
             $name = $item;
             if(is_array($this->colName))
