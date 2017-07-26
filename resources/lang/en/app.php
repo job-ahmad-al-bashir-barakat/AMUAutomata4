@@ -14,7 +14,8 @@ return [
     'close'           => 'Close',
 
     'oper' => [
-        'success' => 'operation done successfuly',
-        'error'   => 'operation fails'
+        'success' => 'Operation done successfuly',
+        'error'   => 'Operation fails',
+        'successOrder' => 'Order done successfully'
     ],
 ];

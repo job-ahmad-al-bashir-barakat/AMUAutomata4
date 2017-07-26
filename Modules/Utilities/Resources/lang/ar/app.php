@@ -30,6 +30,7 @@ return [
 
     'expand_all'             => 'فتح الجميع',
     'collapse_all'           => 'اغلاق الجميع',
+    'reset_tree'             => 'تصفير الشجرة',
     'add_new_node'           => 'اضافة عقدة جديدة',
     'search_tree'            => 'البحث في الشجرة',
     'drag'                   => 'سحب',

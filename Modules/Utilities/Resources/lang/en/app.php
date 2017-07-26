@@ -30,6 +30,7 @@ return [
 
     'expand_all'             => 'Expand All',
     'collapse_all'           => 'Collapse All',
+    'reset_tree'             => 'Reset Tree',
     'add_new_node'           => 'Add New Node',
     'search_tree'            => 'Search Tree',
     'drag'                   => 'Drag',

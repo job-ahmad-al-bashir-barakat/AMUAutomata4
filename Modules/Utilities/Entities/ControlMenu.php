@@ -12,7 +12,7 @@ class ControlMenu extends \Eloquent
 
     protected $with = ['page'];
 
-    protected $fillable = ['id' ,'control_page_id' ,'parent_id' ,'url_path'];
+    protected $fillable = ['id' ,'control_page_id' ,'parent_id' ,'url_path' ,'order'];
 
     function page()
     {

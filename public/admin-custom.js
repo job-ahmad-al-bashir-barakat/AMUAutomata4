@@ -1,3 +1,6 @@
+// fix autocompelte
+// fix autocompelte filter parent
+// order show tree items
 
 String.prototype.replaceAll = function(search, replaceAllment) {
     var target = this;
@@ -12,7 +15,6 @@ String.prototype.toCamelCase = function() {
 };
 
 var HELPER_AMU = {
-
 
     /**
      *
@@ -212,6 +214,10 @@ var APP_AMU = {
                         method : "GET",
                         data: function (params) {
                             var param = (typeof $this.data('param') !== typeof undefined)?$this.data('param'):null;
+
+                            //added by basheer
+                            var remoteParam = (typeof $this.attr('data-remote-param') !== typeof undefined) ? $this.attr('data-remote-param') : null;
+
                             if(param && param.charAt(0) === '#') {
                                 var name = $(param).attr('name') || $(param).attr('id');
                                 var val = $(param).val() ? $(param).val() : 0;
@@ -221,6 +227,13 @@ var APP_AMU = {
                             if(param) {
                                 $data = $.extend($data,param);
                             }
+
+                            //added by basheer
+                            if(remoteParam)
+                                $((remoteParam).split(',')).each(function(i ,v) {
+                                    $data = $.extend($data,JSON.parse('{"' + (v).split('=')[0] + '" : "' + (v).split('=')[1] + '"}'));
+                                });
+
                             return $data;
                         },
                         processResults: function (data, params) {
@@ -414,19 +427,19 @@ var APP_AMU = {
 
                             // callback exec after oper success
                             if(typeof $button.data('ajax-form-success') != typeof undefined)
-                                window[$button.data('ajax-form-success')](res);
+                                window[$button.data('ajax-form-success')](form ,res);
 
                             // callback exec after add oper success
                             if(typeof $button.data('ajax-form-add-success') != typeof undefined)
-                                window[$button.data('ajax-form-add-success')](res);
+                                window[$button.data('ajax-form-add-success')](form ,res);
 
                             // callback exec after update oper success
                             if(typeof $button.data('ajax-form-update-success') != typeof undefined)
-                                window[$button.data('ajax-form-update-success')](res);
+                                window[$button.data('ajax-form-update-success')](form ,res);
 
                             // callback exec after delete oper success
                             if(typeof $button.data('ajax-form-delete-success') != typeof undefined)
-                                window[$button.data('ajax-form-delete-success')](res);
+                                window[$button.data('ajax-form-delete-success')](form ,res);
 
                             HELPER_AMU.notify({ message : res.operation_message ,status : 'success' })
 
@@ -558,10 +571,11 @@ var APP_AMU = {
 
                 $($cont).find('[data-json]').each(function (i ,v) {
 
-                    if($(v).hasClass('autocomplete'))
-                        APP_AMU.autocomplete.selectedAutocomplete($(v) ,[$contData.data($(v).data('json'))])
+                    var $value = $contData.attr("data-" + $(v).data('json'));
+                    if($(v).hasClass('autocomplete') && typeof $value != typeof undefined)
+                        APP_AMU.autocomplete.selectedAutocomplete($(v) ,[JSON.parse($value)]);
                     else
-                        $(v).val($contData.data($(v).data('json')));
+                        $(v).val($value);
                 });
 
                 APP_AMU.validate.hideShowButtonForm($cont ,'update');
@@ -572,7 +586,12 @@ var APP_AMU = {
     },
 
     tree : {
+
+        treeContId: '.aut-tree',
+
         storageKeyName : 'js-nestable',
+
+        storageKeyAuto : 'js-nestable-auto',
 
         updateOutput : function(e)
         {
@@ -581,7 +600,6 @@ var APP_AMU = {
 
             if (window.JSON) {
                 output.val(window.JSON.stringify(list.nestable('serialize')));//, null, 2));
-
             } else {
                 output.val('JSON browser support required for this demo.');
             }
@@ -591,28 +609,115 @@ var APP_AMU = {
                 $('.dd').nestable((action).toCamelCase());
         },
 
-        load : function ($continer) {
+        load : function ($cont ,$node) {
 
-            $cont = typeof $continer != typeof undefined ? $($continer).find('.aut-tree') : $('.aut-tree');
+            var $cont = $($cont);
+            var $treeParam = $node != null ? "?nodeId=" + $node : "";
 
-            $cont.load($cont.data('url'),function () {
+            $cont.load($cont.data('url') + $treeParam ,function () {
 
+                var $_nestable = $('#nestable'),
+                    $this      = $(this);
                 // activate Nestable for list 1
-                $('#nestable').nestable({
-                    group: 1
-                }).on('change', APP_AMU.tree.updateOutput);
+                $_nestable.nestable({
+                    group    : $this.data('group'),
+                    maxDepth : $this.data('max-depth'),
+                    // afterInit: function ( event ) { }
+                }).on('change', APP_AMU.tree.updateOutput)
+                //.on('beforeDragStart', function(handle) {})
+                //.on('dragStart', function(event, item, source) { })
+                //.on('dragMove', function(event, item, source, destination) { })
+                //.on('beforeDragEnd', function(event, item, source, destination, position, feedback) {
+                //   //If you need to persist list items order if changes, you need to comment the next line
+                //   if (source[0] === destination[0]) { feedback.abort = true; return; }
+                //   feedback.abort = !window.confirm('Continue?');
+                //})
+                    .on('dragEnd', function(event, item, source, destination, position) {
+                        // Make an ajax request to persist move on database
+                        // here you can pass item-id, source-id, destination-id and position index to the server
+                        // ....
 
-                APP_AMU.autocomplete.reloadAutocomplete($(this).find('.autocomplete'));
+                        var  item   = $(_.head(item)),
+                            id     = item.data('id'),
+                            parent = item.parents('li:first').data('id'),
+                            parent_target = item.data('parent');
+
+                        // get serialize data from tree
+                        var list   = event.length ? event : $(event.target);
+
+                        var ObjectOrderSerialize = list.nestable('serialize');
+
+                        var data;
+                        if(parent_target) {
+                            //children
+                            data = JSPath.apply('..{.parent.id == "' + parent_target.id + '"}' ,ObjectOrderSerialize);
+                        } else {
+                            //parent
+                            data = JSPath.apply('.' ,ObjectOrderSerialize);
+                        }
+
+                        //reorder html item
+                        item.parent().children('li').each(function (i ,v) {
+                            $(this).attr('data-order' ,i+1);
+                        });
+                        //reorder data
+                        _.each(data ,function (v ,k) {
+                            v.order = k + 1;
+                        });
+
+                        if(!id)
+                            console.log('please set an data-id and data-parent for every item');
+
+                        parent = typeof parent != typeof undefined ? parent : null;
+
+                        $.put($this.data('url') + "/" + id,{ "parent" : parent ,"drag" : true , "order" : position+1 ,"data" : data },function (res) {
+
+                            if(typeof res.id != typeof null)
+                                item.attr('data-parent' ,'{ "id" : "' + res.id + '","name" : "'+ res.name + '"}');
+                            else
+                                item.removeAttr('data-parent');
+
+                            HELPER_AMU.notify({ message : res.operation_message ,status : 'success'});
+                        });
+                    });
 
                 // output initial serialised data
                 if($('#nestable').length)
                     APP_AMU.tree.updateOutput($('#nestable').data('output', $('#nestable-output')));
+
+                APP_AMU.autocomplete.reloadAutocomplete($this.find('.autocomplete'));
+
+                $(document).off('change.tree').on('change.tree' ,'.tree-autocomplete-change' ,function () {
+
+                    var $this = $(this),
+                        $treeContId = $(APP_AMU.tree.treeContId),
+                        $length;
+
+                    if($this.val())
+                        $length = $treeContId
+                            .find("[data-id="+$(this).val()+"] .dd-list li:first")
+                            .parent()
+                            .children().length + 1;
+                    else
+                        $length = $treeContId.find('.dd .dd-list:first').children('li').length + 1;
+
+                        $this.closest('form')
+                            .find('#order')
+                            .val($length);
+                });
             });
         },
 
-        loadAction : function () {
+        loadAction : function ($cont) {
 
-            $(document).on('click','.js-nestable-action [data-action]', function(e)
+            $($cont).off('change').on('change' ,'#treeAutocomplete' ,function () {
+
+                var $node = $(this).val();
+
+                APP_AMU.tree.load($(this).closest($cont) ,$(this).val());
+            });
+
+            $($cont).on('click','.js-nestable-action [data-action]', function(e)
             {
                 var target = $(e.target),
                     action = target.data('action');
@@ -620,17 +725,29 @@ var APP_AMU = {
                 if (action === 'expand-all') {
                     $('.dd').nestable('expandAll');
                 }
+
                 if (action === 'collapse-all') {
                     $('.dd').nestable('collapseAll');
+                }
+
+                if (action === 'reset_tree') {
+                    APP_AMU.tree.load($(this).closest(APP_AMU.tree.treeContId) ,null);
+                }
+
+                if (action === 'add_tree_node') {
+                    $('.tree-autocomplete-change').trigger('change');
                 }
 
                 $.localStorage.set(APP_AMU.tree.storageKeyName, { "action" : action });
             });
         },
 
-        init: function () {
-            APP_AMU.tree.load();
-            APP_AMU.tree.loadAction();
+        init: function ($cont) {
+
+            $(APP_AMU.tree.treeContId).each(function () {
+                APP_AMU.tree.load(this);
+                APP_AMU.tree.loadAction(this);
+            });
         }
     },
 

@@ -96,6 +96,8 @@ function aut_datatable_initAutocomplete(Data) {
                 method : "GET",
                 data: function (params) {
                     var param = (typeof $this.data('param') !== typeof undefined)?$this.data('param'):null;
+                    //added by basheer
+                    var remoteParam = (typeof $this.attr('data-remote-param') !== typeof undefined) ? $this.attr('data-remote-param') : null;
                     if(param && param.charAt(0) === '#') {
                         var name = $(param).attr('name') || $(param).attr('id');
                         var val = $(param).val() ? $(param).val() : 0;
@@ -105,6 +107,13 @@ function aut_datatable_initAutocomplete(Data) {
                     if(param) {
                         $data = $.extend($data,param);
                     }
+
+                    //added by basheer
+                    if(remoteParam)
+                        $((remoteParam).split(',')).each(function(i ,v) {
+                            $data = $.extend($data,JSON.parse('{"' + (v).split('=')[0] + '" : "' + (v).split('=')[1] + '"}'));
+                        });
+
                     return $data;
                 },
                 processResults: function (data, params) {

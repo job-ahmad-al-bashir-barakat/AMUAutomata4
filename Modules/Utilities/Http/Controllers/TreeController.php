@@ -49,11 +49,11 @@ class TreeController extends Controller
                 $name = colValue($col['name'],$control);
 
                 if(!$id)
-                    break;
+                    continue;
 
                 $setCols = $setCols . " data-$index='{ \"id\": \"$id\",\"name\" : \"$name\" }'";
 
-                break;
+                continue;
             }
 
             // for normal
@@ -72,7 +72,15 @@ class TreeController extends Controller
     {
         $model = $this->model;
 
-        $nodes = $model::get()->toTree();
+        if(!request('nodeId'))
+        {
+            $nodes = $model::get()->toTree();
+        }
+        else
+        {
+            $node = $model::find(request('nodeId'));
+            $nodes = $model::whereAncestorOrSelf($node)->get()->toTree();
+        }
 
         $tree = '';
 
@@ -102,6 +110,7 @@ class TreeController extends Controller
 
                 //set li item for each item
                 $tree = $tree.view("utilities::tree._treeItem",[
+                    'model'     => $this->tree,
                     'title' => $title
                 ])->render();
 
@@ -176,9 +185,38 @@ class TreeController extends Controller
     {
         $factory = new $this->factory();
 
-        $factory->update($request ,$id);
+        // drag update
+        if($request->input('drag' ,''))
+        {
+            $model = $this->model;
 
-        return Response::json(['operation_message' => trans('app.oper.success')]);
+            //update self and siblings order
+            if(count($request->input('data')))
+                foreach ($request->input('data') as $index => $item) {
+
+                    $model::where('id' ,'=' ,$item['id'])->update(['order' => $item['order']]);
+                }
+
+            //update moved node
+            $node = $model::findOrFail($id);
+
+            $node->update([
+                'parent_id' => $request->input('parent')
+                //'order'     => $request->input('order')
+            ]);
+
+            $parentTitle = $factory->setTitle();
+
+            $parentTitle = colValue($parentTitle['parent'] ,$node->parent);
+
+            return Response::json(['operation_message' => trans('app.oper.successOrder') ,'id' => $request->input('parent') ,'name' => $parentTitle]);
+        }
+        else
+        {
+            $factory->update($request ,$id);
+
+            return Response::json(['operation_message' => trans('app.oper.success')]);
+        }
     }
 
     /**

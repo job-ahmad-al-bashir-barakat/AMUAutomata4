@@ -18,6 +18,7 @@ class CreateControlMenuTable extends Migration
             $table->increments('id')->unsigned();
             $table->integer('control_page_id')->unsigned();
             NestedSet::columns($table);
+            $table->integer('order')->unsigned();
             $table->string('url_path')->nullable();
             $table->timestamps();
             $table->softDeletes();

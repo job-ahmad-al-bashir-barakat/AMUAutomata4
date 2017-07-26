@@ -15,14 +15,15 @@ class ControlMenuFactory
             'control_page_id'   => 'control_page_id',
             'control_page_code' => 'page->control_page_code' ,
             'url_path'          => 'url_path',
-            'parent'            => ['id' => 'parent_id','name' => 'parent->page->control_page_code']
+            'parent'            => ['id' => 'parent_id','name' => 'parent->page->control_page_code'],
+            'order'             => 'order',
         ];
     }
 
     function setTitle()
     {
         return [
-            'page->control_page_code',
+            'parent' => 'page->control_page_code',
         ];
     }
 
@@ -40,6 +41,7 @@ class ControlMenuFactory
             /*
              * create root node
              */
+
             $node = new ControlMenu(array_merge($request->input() ,['control_page_id' => $controlPage->id]));
 
             $node->makeRoot()->save();

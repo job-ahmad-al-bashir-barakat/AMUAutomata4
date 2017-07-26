@@ -52,11 +52,11 @@ if(! function_exists('colValue'))
 if(! function_exists('tree'))
 {
     //get prob Val
-    function tree($tree)
+    function tree($tree ,$group = 1,$maxDepth = 5)
     {
         $url = localizeURL("utilities/$tree/tree");
 
-        return "<div data-url='$url' class='aut-tree'></div>";
+        return "<div data-url='$url' class='aut-tree $tree-tree' data-group='$group' data-max-depth='$maxDepth'></div>";
     }
 }
 
