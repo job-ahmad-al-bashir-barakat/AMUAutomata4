@@ -1,4 +1,3 @@
-
 table.dataTable thead .sorting:after, table.dataTable thead .sorting_asc:after,
 table.dataTable thead .sorting_desc:after, table.dataTable thead .sorting_asc_disabled:after,
 table.dataTable thead .sorting_desc_disabled:after
@@ -271,7 +270,7 @@ table.dataTable tfoot > tr > th > input.filter-Input,
 table.dataTable tfoot > tr > th > select.filter-select{
     width: 100%;
     border-radius: 0;
-    padding: 0;
+    padding: 8px !important;
 }
 
 table.dataTable tfoot th .select2-selection {

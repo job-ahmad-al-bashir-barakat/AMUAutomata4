@@ -20,7 +20,7 @@ class SocialNetworkFactory extends GlobalFactory
             ->queryDatatable($query)
             ->queryUpdateButton('id')
             ->queryDeleteButton('id')
-            ->queryMultiColumn(['name'])
+            ->queryMultiLang(['name'])
             ->queryRender(true);
     }
 
@@ -32,7 +32,7 @@ class SocialNetworkFactory extends GlobalFactory
         return $this->table
             ->config('datatable-social-network',trans('utilities::app.social_network'))
             ->addPrimaryKey('id','id')
-            ->addMultiInputs(['name'])
+            ->addMultiInputTextLangs(['name'])
             ->addInputText(trans('app.code'),'code' ,'code')
             ->addActionButton($this->update,'update','update')
             ->addActionButton($this->delete,'delete','delete')

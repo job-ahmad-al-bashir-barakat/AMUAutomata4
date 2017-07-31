@@ -19,7 +19,7 @@ class FacultyFactory extends GlobalFactory
             ->queryDatatable($query)
             ->queryUpdateButton('id')
             ->queryDeleteButton('id')
-            ->queryMultiColumn(['name'])
+            ->queryMultiLang(['name'])
             ->queryCustomButton('courses' ,'id' ,'icon-book-open' ,'ajax' ,pjax(localizeURL("admin/{id}/courses")))
             ->queryCustomButton('labs' ,'id' ,'icon-chemistry' ,'ajax' ,pjax(localizeURL('admin/{id}/labs')))
             ->queryMultiAutocompleteTemplete('study_year_temp',"studyYear" ,"lang_name->{$this->lang}->text")
@@ -34,7 +34,7 @@ class FacultyFactory extends GlobalFactory
         return $this->table
             ->config('datatable-faculty' ,trans('admin::app.faculty'))
             ->addPrimaryKey('id','id')
-            ->addMultiInputs(['name'],'text' ,'req required')
+            ->addMultiInputTextLangs(['name'], 'req required')
             ->startRelation('study_year')
                 ->addMultiAutocomplete('autocomplete/study-year' ,'study_year_temp' ,trans('admin::app.study_year') ,'study_year.id' ,"study_year.lang_name.{$this->lang}.text" ,"study_year.lang_name.{$this->lang}.text" ,'req require')
             ->endRelation()
@@ -42,7 +42,6 @@ class FacultyFactory extends GlobalFactory
             ->addActionButton(trans('admin::app.labs') ,'labs' ,'labs')
             ->addActionButton($this->update,'update','update')
             ->addActionButton($this->delete,'delete','delete')
-            ->addBlade()
             ->addNavButton()
             ->render();
     }

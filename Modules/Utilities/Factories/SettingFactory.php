@@ -17,7 +17,7 @@ class SettingFactory extends GlobalFactory
         return $this->table
             ->queryConfig('datatable-settings')
             ->queryDatatable($query)
-            ->queryMultiColumn(['name'])
+            ->queryMultiLang(['name'])
             ->queryUpdateButton('id')
             ->queryDeleteButton('id')
             ->queryRender(true);
@@ -31,7 +31,7 @@ class SettingFactory extends GlobalFactory
         return $this->table
             ->config('datatable-settings',trans('utilities::app.settings'))
             ->addPrimaryKey('id','id')
-            ->addMultiInputs(['name'] ,'text' ,'req required')
+            ->addMultiInputTextLangs(['name'] ,'req required')
             ->addInputText(trans('utilities::app.code'),'code','code','required req')
             ->addInputText(trans('utilities::app.value'),'value','value','required req')
             ->addActionButton($this->update,'update','update')

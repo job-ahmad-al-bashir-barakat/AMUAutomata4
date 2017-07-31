@@ -34,7 +34,7 @@
     <script>
         function controlMenu(form ,res) {
 
-            APP_AMU.tree.load($('.'+$(form).data('tree-target')));
+            APP_AMU.tree.load($('.' + $(form).data('tree-target')));
         }
     </script>
 @endsection

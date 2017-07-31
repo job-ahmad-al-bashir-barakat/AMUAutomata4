@@ -22,7 +22,7 @@ class PersonFactory extends GlobalFactory
             ->queryDatatable($query)
             ->queryUpdateButton('id')
             ->queryDeleteButton('id')
-            ->queryMultiColumn(['name' ,'summary'])
+            ->queryMultiLang(['name' ,'summary'])
             ->queryRender(true);
     }
 
@@ -42,10 +42,10 @@ class PersonFactory extends GlobalFactory
             ->startTab(trans('admin::app.personal_Info'),'fa fa-user fa-2x')
                 ->startHorizontalTab()
                     ->openHorizontalTab('name' ,$this->name ,'req',true)
-                        ->addMultiInputs(['name'] ,'text','req required')
+                        ->addMultiInputTextLangs(['name'] ,'req required')
                     ->closeHorizontalTab()
                     ->openHorizontalTab('summary' ,$this->summary ,'req')
-                        ->addMultiInputs(['summary'],'textarea' ,'req required')
+                        ->addMultiTextareaLangs(['summary'] ,'req required')
                     ->closeHorizontalTab()
                     ->openHorizontalTab('extra' ,trans('admin::app.extra_info') ,'req')
                         ->addAutocomplete('autocomplete/gender' ,trans('admin::app.gender') , 'gender_id', 'gender_id', "gender.lang_name.$this->lang.text" ,'req required none' ,'' , '' ,true ,false ,true ,false)

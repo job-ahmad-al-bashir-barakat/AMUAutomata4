@@ -1,5 +1,3 @@
-// fix autocompelte
-// fix autocompelte filter parent
 
 String.prototype.replaceAll = function(search, replaceAllment) {
     var target = this;
@@ -67,7 +65,7 @@ var HELPER_AMU = {
 
 var APP_AMU = {
 
-    dragResizeModal : function () {
+    initModalEvent : function () {
 
         $(document).on({
 
@@ -603,9 +601,10 @@ var APP_AMU = {
                 output.val('JSON browser support required for this demo.');
             }
 
-            var action = $.localStorage.get(APP_AMU.tree.storageKeyName).action;
-            if(action != null)
-                $('.dd').nestable((action).toCamelCase());
+
+            var treeAction = $.localStorage.get(APP_AMU.tree.storageKeyName);
+            if(treeAction != null)
+                $('.dd').nestable((treeAction.action).toCamelCase());
         },
 
         load : function ($cont ,$node) {
@@ -877,7 +876,7 @@ $(function () {
     APP_AMU.changeColorControleTheme();
     APP_AMU.initPjax('#pjax-container');
     APP_AMU.validate.fillForm();
-    APP_AMU.dragResizeModal();
+    APP_AMU.initModalEvent();
 
     /**
      * Load

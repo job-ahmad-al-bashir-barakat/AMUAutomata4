@@ -19,7 +19,7 @@ class DegreeFactory extends GlobalFactory
             ->queryDatatable($query)
             ->queryUpdateButton('id')
             ->queryDeleteButton('id')
-            ->queryMultiColumn(['name'])
+            ->queryMultiLang(['name'])
             ->queryRender(true);
     }
 
@@ -32,7 +32,7 @@ class DegreeFactory extends GlobalFactory
             ->config('datatable-degree',trans('admin::app.degree'))
             ->addPrimaryKey('id','id')
             ->addAutocomplete('autocomplete/faculty',trans('admin::app.faculty') ,'faculty_id' ,'faculty_id','faculty.lang_name.'.$this->lang.'.text' ,'req required')
-            ->addMultiInputs(['name'] ,'text' ,'req required')
+            ->addMultiInputTextLangs(['name'] ,'req required')
             ->addActionButton($this->update,'update','update')
             ->addActionButton($this->delete,'delete','delete')
             ->addNavButton()

@@ -18,7 +18,7 @@ class SemesterFactory extends GlobalFactory
         return $this->table
             ->queryConfig('datatable-semester')
             ->queryDatatable($query)
-            ->queryMultiColumn(['name'])
+            ->queryMultiLang(['name'])
             ->queryUpdateButton('id')
             ->queryDeleteButton('id')
             ->queryRender(true);
@@ -32,7 +32,7 @@ class SemesterFactory extends GlobalFactory
         return $this->table
             ->config('datatable-semester',trans('admin::app.semester'))
             ->addPrimaryKey('id','id')
-            ->addMultiInputs(['name'])
+            ->addMultiInputTextLangs(['name'])
             ->addActionButton($this->update,'update','update')
             ->addActionButton($this->delete,'delete','delete')
             ->addNavButton()

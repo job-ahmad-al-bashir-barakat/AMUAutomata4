@@ -3,7 +3,6 @@
 namespace Modules\Utilities\Factories;
 
 use Aut\DataTable\Factories\GlobalFactory;
-use Modules\Utilities\Entities\Module;
 
 class ModuleFactory extends GlobalFactory
 {
@@ -17,7 +16,7 @@ class ModuleFactory extends GlobalFactory
         return $this->table
             ->queryConfig('datatable-modules')
             ->queryDatatable($query)
-            ->queryMultiColumn(['name'])
+            ->queryMultiLang(['name'])
             ->queryUpdateButton('id')
             ->queryDeleteButton('id')
             ->queryRender(true);
@@ -32,7 +31,7 @@ class ModuleFactory extends GlobalFactory
             ->config('datatable-modules',trans('utilities::app.modules'))
             ->addPrimaryKey('id','id')
             ->addInputText(trans('utilities::app.code'),'code','code','required req')
-            ->addMultiInputs(['name'] ,'text' ,'req required')
+            ->addMultiInputTextLangs(['name'] ,'req required')
             ->startRelation('attributes')
                 ->addMultiAutocomplete('autocomplete/attributes' ,"attributes[ ,].lang_name.$this->lang.text",trans('utilities::app.attributes') , 'attributes.id', "attributes.lang_name.$this->lang.text", "attributes.lang_name.$this->lang.text" ,'req required' ,'multiple')
             ->endRelation()

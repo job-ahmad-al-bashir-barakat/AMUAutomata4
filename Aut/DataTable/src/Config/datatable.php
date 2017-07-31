@@ -2,11 +2,13 @@
 
 return [
 
-    'isDebug' => true,
+    'isDebug'    => true,
 
-    'version' => '5.4',
+    'version'    => '5.4',
 
     'multiModel' => true,
+
+    'isLangs'    => false,
 
     'customResponsiveTemplete' => false,
 

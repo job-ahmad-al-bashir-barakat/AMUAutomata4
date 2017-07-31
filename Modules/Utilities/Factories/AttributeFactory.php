@@ -17,7 +17,7 @@ class AttributeFactory extends GlobalFactory
         return $this->table
             ->queryConfig('datatable-langs')
             ->queryDatatable($query)
-            ->queryMultiColumn(['name'])
+            ->queryMultiLang(['name'])
             ->queryUpdateButton()
             ->queryDeleteButton()
             ->queryRender();
@@ -32,7 +32,7 @@ class AttributeFactory extends GlobalFactory
             ->config('datatable-langs',trans('admin::app.title_example'))
             ->addPrimaryKey('id','id')
             ->addInputText(trans('utilities::app.code'),'code','code','required req')
-            ->addMultiInputs(['name'] ,'text' ,'req required')
+            ->addMultiInputTextLangs(['name'] ,'req required')
             ->addActionButton($this->update,'update','update')
             ->addActionButton($this->delete,'delete','delete')
             ->addNavButton()

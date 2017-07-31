@@ -18,7 +18,7 @@ class StudyYearFactory extends GlobalFactory
         return $this->table
             ->queryConfig('datatable-study-year')
             ->queryDatatable($query)
-            ->queryMultiColumn(['name'])
+            ->queryMultiLang(['name'])
             ->queryUpdateButton('id')
             ->queryDeleteButton('id')
             ->queryRender(true);
@@ -32,7 +32,7 @@ class StudyYearFactory extends GlobalFactory
         return $this->table
             ->config('datatable-study-year',trans('admin::app.study_year'))
             ->addPrimaryKey('id','id')
-            ->addMultiInputs(['name'])
+            ->addMultiInputTextLangs(['name'])
             ->addActionButton($this->update,'update','update')
             ->addActionButton($this->delete,'delete','delete')
             ->addNavButton()

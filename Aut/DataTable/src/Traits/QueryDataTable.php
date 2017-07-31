@@ -17,8 +17,6 @@ trait QueryDataTable
     protected $escapeColumns = [];
 
     /**
-     * Using the Engine Factory
-     *
      * @param $query
      * @return $this
      */
@@ -32,10 +30,8 @@ trait QueryDataTable
     }
 
     /**
-     * Eloquent
-     *
      * @param $model
-     * @return \Yajra\Datatables\Engines\EloquentEngine
+     * @return $this
      */
     function queryDatatableEloquent($model)
     {
@@ -54,14 +50,14 @@ trait QueryDataTable
     {
         $this->id = $tableId;
 
-        /*
-         * Get All Supported lang
-         */
         $this->langs  = \LaravelLocalization::getSupportedLanguagesKeys();
 
         return $this;
     }
 
+    /**
+     * @return $this
+     */
     function queryIndexColumn()
     {
         $query = $this->query;
@@ -71,19 +67,16 @@ trait QueryDataTable
         return $this;
     }
 
-
     /**
-     * add new column
-     *
      * @param $colKey
-     * @param $code string|closure
+     * @param \Closure $func
      * @return $this
      */
-    function queryAddColumn($colKey, $closure)
+    function queryAddColumn($colKey, \Closure $func)
     {
         $query = $this->query;
 
-        $query->addColumn($colKey, $closure);
+        $query->addColumn($colKey, $func);
 
         return $this;
     }
@@ -91,29 +84,10 @@ trait QueryDataTable
     /**
      * @param $colKey
      * @param string $relation
-     * @param string $value
+     * @param string $target
      * @return $this
      */
-    function queryMultiAutocomplete($colKey, $relation = '', $value = '')
-    {
-        $query = $this->query;
-
-        $query->addColumn($colKey, function ($item) use ($relation, $value) {
-
-            $array = $item->{$relation}->pluck($value)->all();
-
-            return implode(' ,', $array);
-        });
-
-        return $this;
-    }
-
-    /**
-     * @param $colKey
-     * @param string $relation
-     * @return $this
-     */
-    function queryMultiAutocompleteTemplete($colKey, $relation = '' ,$target = '')
+    function queryMultiAutocompleteTemplete($colKey, $relation = '' , $target = '')
     {
         $query = $this->query;
 
@@ -131,25 +105,22 @@ trait QueryDataTable
     }
 
     /**
-     *
-     * edit column
-     *
      * @param $colKey
-     * @param $code string|closure
+     * @param \Closure $func
      * @return $this
      */
-    function queryEditColumn($colKey, $closure)
+    function queryEditColumn($colKey, \Closure $func)
     {
         $query = $this->query;
 
-        $query->editColumn($colKey, $closure);
+        $query->editColumn($colKey, $func);
 
         return $this;
     }
 
-
     /**
-     * @param $id
+     * @param string $id
+     * @param \Closure|null $func
      * @return $this
      */
     function queryUpdateButton($id = 'id', \Closure $func = null)
@@ -171,7 +142,9 @@ trait QueryDataTable
     }
 
     /**
-     * @param $id
+     * @param string $id
+     * @param array $parentKey
+     * @param \Closure|null $func
      * @return $this
      */
     function queryDeleteButton($id = 'id', $parentKey = [], \Closure $func = null)
@@ -202,7 +175,28 @@ trait QueryDataTable
         return $this;
     }
 
-    function queryMultiColumn($cols = [])
+    /**
+     * @param $cols
+     * @param \Closure $func
+     * @return $this
+     */
+    function queryMultiColumn($cols , \Closure $func)
+    {
+        $query = $this->query;
+
+        foreach ($cols as $index => $col)
+        {
+            $query->addColumn($col ,$func);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param array $cols
+     * @return $this
+     */
+    function queryMultiLang($cols = [])
     {
         $query = $this->query;
 
@@ -210,7 +204,7 @@ trait QueryDataTable
         {
             foreach ($cols as $index => $col)
             {
-                $property = snake_case("lang_$col"); //snake_case('lang_'.strtolower($col))
+                $property = snake_case("lang_$col");
 
                 $query->addColumn("{$col}_{$lang}" ,function ($item) use($property ,$lang) {
 
@@ -222,7 +216,15 @@ trait QueryDataTable
         return $this;
     }
 
-    function queryCustomButton($colKey = '', $rowId = '', $icon = '',$class = '', $attr = '')
+    /**
+     * @param string $colKey
+     * @param string $rowId
+     * @param string $icon
+     * @param string $class
+     * @param string $attr
+     * @return $this
+     */
+    function queryCustomButton($colKey = '', $rowId = '', $icon = '', $class = '', $attr = '')
     {
         $query = $this->query;
 
@@ -262,7 +264,12 @@ trait QueryDataTable
         return $this;
     }
 
-    function queryCombineColumn($alias ,$cols)
+    /**
+     * @param $alias
+     * @param $cols
+     * @return $this
+     */
+    function queryCombineColumn($alias , $cols)
     {
         $query = $this->query;
 
@@ -284,6 +291,11 @@ trait QueryDataTable
         return $this;
     }
 
+    /**
+     * @param $alias
+     * @param $dbCol
+     * @return $this
+     */
     function queryFilterColumn($alias, $dbCol)
     {
         $query = $this->query;
@@ -296,6 +308,11 @@ trait QueryDataTable
         return $this;
     }
 
+    /**
+     * @param $alias
+     * @param \Closure $func
+     * @return $this
+     */
     function queryCustomFilterColumn($alias, \Closure $func)
     {
         $query = $this->query;
@@ -305,7 +322,11 @@ trait QueryDataTable
         return $this;
     }
 
-    function queryescapeColumns($columns =[])
+    /**
+     * @param array $columns
+     * @return $this
+     */
+    function queryEscapeColumns($columns =[])
     {
         $this->escapeColumns = $columns;
 
@@ -313,7 +334,7 @@ trait QueryDataTable
     }
 
     /**
-     * @param $bool
+     * @param bool $bool
      * @return mixed
      */
     function queryRender($bool = true)

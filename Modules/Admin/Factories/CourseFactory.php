@@ -3,7 +3,6 @@
 namespace Modules\Admin\Factories;
 
 use Aut\DataTable\Factories\GlobalFactory;
-use Illuminate\Support\Facades\Input;
 use Modules\Admin\Entities\Course;
 use Modules\Admin\Entities\Faculty;
 
@@ -21,7 +20,7 @@ class CourseFactory extends GlobalFactory
             ->queryDatatable($query)
             ->queryUpdateButton('id')
             ->queryDeleteButton('id')
-            ->queryMultiColumn(['name'])
+            ->queryMultiLang(['name'])
             ->queryRender();
     }
 
@@ -38,7 +37,7 @@ class CourseFactory extends GlobalFactory
             ->addInputTextDialog(trans('admin::app.faculty') ,'faculty' ,'faculty' , $factory,'' ,'disabled')
             ->addAutocomplete('autocomplete/department' ,trans('admin::app.department'), "department_id" ,'department.lang_name.'.$this->lang.'.text' ,'department.lang_name.'.$this->lang.'.text')
             ->addAutocomplete('autocomplete/degree' ,trans('admin::app.degree'), "degree_id" ,'degree.lang_name.'.$this->lang.'.text' ,'degree.lang_name.'.$this->lang.'.text')
-            ->addMultiInputs(['name'])
+            ->addMultiInputTextLangs(['name'])
             ->addInputText(trans('admin::app.code'),'code' ,'code')
             ->addInputNumber(trans('admin::app.credit'),'credit' ,'credit')
             ->addActionButton($this->update,'update','update')
