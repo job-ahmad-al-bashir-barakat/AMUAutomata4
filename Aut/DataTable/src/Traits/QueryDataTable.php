@@ -300,7 +300,7 @@ trait QueryDataTable
     {
         $query = $this->query;
 
-        $query->filterColumn($alias, function($query, $keyword) use ($dbCol) {
+        $query->filterColumn($alias, function(\Eloquent $query, $keyword) use ($dbCol) {
 
             $query->whereRaw("$dbCol like ?", ["%{$keyword}%"]);
         });

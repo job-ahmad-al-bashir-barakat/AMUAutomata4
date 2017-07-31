@@ -25,10 +25,14 @@
     </span>--}}
 
     <ol class="breadcrumb">
-        <li><a href="#">Home</a>
-        </li>
-        <li><a href="#">Elements</a>
-        </li>
-        <li class="active">Notifications</li>
+        @foreach($path as $index => $singlePath)
+            <li @if(!$singlePath->url_path) class="active" @endif>
+                @if($singlePath->url_path)
+                    <a {{ $singlePath->url_path ? "href=$singlePath->url_path class=ajax" : "href=#" }}>{{ trans("$module::app.{$singlePath->page->control_page_code}") }}</a>
+                @else
+                    {{ trans("$module::app.{$singlePath->page->control_page_code}") }}
+                @endif
+            </li>
+        @endforeach
     </ol>
 </div>

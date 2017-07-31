@@ -14,6 +14,7 @@ class ComposerServiceProvider extends ServiceProvider
     public function boot()
     {
         view()->composer('*', 'App\Http\ViewComposer\GlobalComposer');
+        view()->composer('controle._content_header', 'App\Http\ViewComposer\GlobalComposer@path');
     }
 
     /**

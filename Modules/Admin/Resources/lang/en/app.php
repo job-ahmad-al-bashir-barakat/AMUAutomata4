@@ -1,6 +1,8 @@
 <?php
 
 return [
+    'home'               => 'Home',
+    'setting'            => 'Setting',
     'univercity'         => 'Univercity',
     'faculties'          => 'Faculties',
     'degrees'            => 'Degrees',

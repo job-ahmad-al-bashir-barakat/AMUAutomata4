@@ -1,6 +1,8 @@
 <?php
 
 return [
+    'home'               => 'الرئيسية',
+    'setting'            => 'اعدادات',
     'univercity'         => 'جامعة',
     'faculties'          => 'كليات',
     'degrees'            => 'اختصاصات',

@@ -1,6 +1,8 @@
 <?php
 
 return [
+    'home'                   => 'Home',
+    'setting'                => 'Setting',
     'user_name'              => 'Username',
     'email'                  => 'Email',
     'password'               => 'Password',

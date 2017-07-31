@@ -90,7 +90,7 @@ class DataTableBuilder
 
     protected $langSupportedLocales = null;
 
-    protected $blade='';
+    protected $blade = '';
 
     public function __construct()
     {
@@ -1349,11 +1349,10 @@ class DataTableBuilder
      */
     function addBlade
     (
-        $component = '',
-        $appendTo  = ''
+        $component = ''
     )
     {
-        $this->blade = $component;
+        $this->blade .= $component;
 
         return $this;
     }
