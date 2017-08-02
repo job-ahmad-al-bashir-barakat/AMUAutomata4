@@ -6,6 +6,8 @@ return [
 
     'isLangs' => false,
 
+    'AutocompleteHelperClass' => \App\Library\AutocompleteHelper::class,
+
     'default'   => [
 
         /*

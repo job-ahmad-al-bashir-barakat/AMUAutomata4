@@ -20,16 +20,16 @@ class ControlMenuFactory
         ];
     }
 
-    function setTitle()
+    function setContent()
     {
         return [
             'page->control_page_code',
         ];
     }
 
-    function getTitle($titles)
+    function getContent($content)
     {
-        return implode('/' ,$titles);
+        return implode('/' ,$content);
     }
 
     function store(Request $request)

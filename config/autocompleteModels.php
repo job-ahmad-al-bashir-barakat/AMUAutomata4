@@ -79,7 +79,16 @@ return [
         'colName'  => 'page->control_page_code',
     ],
 
+    'general' => [
+        'model' => \Modules\Utilities\Entities\SiteMenu::class,
+        'has'   => [
+            'page' => 'page_code',
+        ],
+        'colName'  => 'page->page_code'
+    ],
+
     'study-year' => [
         'model' => \Modules\Admin\Entities\StudyYear::class
     ],
+
 ];

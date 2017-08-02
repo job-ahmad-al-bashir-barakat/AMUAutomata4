@@ -3,6 +3,7 @@
 namespace Aut\Autocomplete\Http\Controllers;
 
 use Exception;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Route;
 
@@ -80,17 +81,26 @@ class AutocompleteController
         return $data;
     }
 
-    private function _autocompleteLangs($modal)
+    private function _autocompleteLangs(Request $request, $modal)
     {
         $object = new $modal();
-        // $has => where
 
+        // $has => where
         foreach ($this->has as $whereHas => $cond)
         {
             $object = $object->whereHas($whereHas ,function ($query) use ($cond){
 
                 $query->where($cond , 'like' , request('q','').'%');
             });
+        }
+
+        $autocompleteHelperClass = config('autocomplete.AutocompleteHelperClass');
+
+        if($autocompleteHelperClass)
+        {
+            $method = camel_case("{$this->autocomplete}Autocomplete");
+
+            $object = (new $autocompleteHelperClass())->$method($request ,$object);
         }
 
         $data = $object->get();
@@ -133,11 +143,11 @@ class AutocompleteController
         return $result;
     }
 
-    public function autocompleteLangs($modal)
+    public function autocompleteLangs(Request $request ,$modal)
     {
         $modal = $this->model;
 
-        $data = $this->_autocompleteLangs($modal);
+        $data = $this->_autocompleteLangs($request ,$modal);
 
         return array('items' => $data);
     }
@@ -166,6 +176,7 @@ class AutocompleteController
                 throw new Exception('This model not registered');
             }
 
+            $this->autocomplete  = $model;
             $this->model         = isset($tableSet['model'])          ? $tableSet['model']         : '';
 
             if(!config('autocomplete.isLangs'))

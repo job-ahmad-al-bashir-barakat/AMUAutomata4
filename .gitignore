@@ -5,7 +5,6 @@ Homestead.json
 Homestead.yaml
 
 /.idea
-/me_todo.md
 .env
 
 #storage
@@ -30,3 +29,4 @@ Homestead.yaml
 /resources/assets
 /vendor
 /node_modules
+/Temp/me_todo.md

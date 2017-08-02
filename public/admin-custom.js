@@ -601,7 +601,6 @@ var APP_AMU = {
                 output.val('JSON browser support required for this demo.');
             }
 
-
             var treeAction = $.localStorage.get(APP_AMU.tree.storageKeyName);
             if(treeAction != null)
                 $('.dd').nestable((treeAction.action).toCamelCase());
@@ -737,6 +736,19 @@ var APP_AMU = {
                 }
 
                 $.localStorage.set(APP_AMU.tree.storageKeyName, { "action" : action });
+            });
+
+            $($cont).on('click','[data-form-add]' ,function () {
+
+                $modal = $(this).data('target');
+                $($modal).find('.tree-autocomplete-change').attr('data-remote-param' ,"");
+            });
+
+            $($cont).on('click' ,'[data-form-update]' ,function () {
+
+                $contData = $(this).closest($(this).data('editable-target'));
+                $modal = $(this).data('target');
+                $($modal).find('.tree-autocomplete-change').attr('data-remote-param' ,"id="+$($contData).data('id'));
             });
         },
 

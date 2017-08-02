@@ -15,6 +15,8 @@ class TreeController extends Controller
 
     protected $tree;
 
+    protected $dir;
+
     function __construct()
     {
         if(\Route::getCurrentRoute() !== null)
@@ -28,6 +30,8 @@ class TreeController extends Controller
             $this->factory = $config['factory'];
 
             $this->model   = $config['model'];
+
+            $this->dir = \LaravelLocalization::getCurrentLocaleDirection();
         }
     }
 
@@ -100,18 +104,23 @@ class TreeController extends Controller
                 $factory      = new $this->factory();
 
                 // get Title
-                $titles = [];
-                foreach ($factory->setTitle() as $index => $itemTitle)
+                $content = []; $html = [];
+                foreach ($factory->setContent() as $index => $itemTitle)
                 {
-                    $titles[] = colValue($itemTitle ,$control);
+                    if($index !== 'html' )
+                        $content['title'][] = colValue($itemTitle ,$control);
+                    else
+                        $content['html'][] = $itemTitle;
                 }
 
-                $title = $factory->getTitle($titles);
+                $content['title'] = $factory->getContent($content['title']);
+                $content['html']  = isset($content['html']) ? implode(' ' ,$content['html']) : '';
 
+                $content = $this->dir == "ltr" ? $content : collect($content)->reverse();
                 //set li item for each item
                 $tree = $tree.view("utilities::tree._treeItem",[
-                    'model'     => $this->tree,
-                    'title' => $title
+                    'model'       => $this->tree,
+                    'content'     => $content,
                 ])->render();
 
                 // reCall func if item has children
