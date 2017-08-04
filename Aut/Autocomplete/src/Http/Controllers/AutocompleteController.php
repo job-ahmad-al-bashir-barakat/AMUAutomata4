@@ -88,7 +88,7 @@ class AutocompleteController
         // $has => where
         foreach ($this->has as $whereHas => $cond)
         {
-            $object = $object->whereHas($whereHas ,function ($query) use ($cond){
+            $object = $object->whereHas($whereHas ,function ($query) use ($cond) {
 
                 $query->where($cond , 'like' , request('q','').'%');
             });
@@ -100,7 +100,10 @@ class AutocompleteController
         {
             $method = camel_case("{$this->autocomplete}Autocomplete");
 
-            $object = (new $autocompleteHelperClass())->$method($request ,$object);
+            $factory = new $autocompleteHelperClass();
+
+            if(method_exists($factory ,$method))
+                $object = $factory->$method($request ,$object);
         }
 
         $data = $object->get();

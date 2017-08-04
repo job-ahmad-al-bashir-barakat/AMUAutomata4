@@ -13,6 +13,7 @@ return [
     'delete'          => 'Delete',
     'close'           => 'Close',
 
+
     'oper' => [
         'success' => 'Operation done successfuly',
         'error'   => 'Operation fails',

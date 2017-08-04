@@ -40,7 +40,7 @@ if(! function_exists('colValue'))
         {
             $setItem = $obj;
             foreach (explode('->' ,$col) as $item)
-                $setItem = $setItem[$item];
+               $setItem = $setItem[$item];
 
             return $setItem;
         }
@@ -161,5 +161,27 @@ if(! function_exists('formClassHelper'))
         $class = preg_replace("/\b(?<![\S])($replacement)(?![\S])\b/",'',$class);
 
         return ['noLabel' => $no_label ,'group' => $group ,'contClass' => $contClass,'labelClass' => trim($labelClass),'inputClass' => trim($inputClass) ,'class' => trim($class)];
+    }
+}
+
+if(! function_exists('lang'))
+{
+    function lang($col ,$value = '' ,$type)
+    {
+        switch ($type)
+        {
+            case 'all' : {
+
+                $allLang = LaravelLocalization::getSupportedLanguagesKeys();
+                $array = [];
+                foreach ($allLang as $index => $lang)
+                {
+                    $array["{$col}_{$lang}"] = preg_replace('/{lang}/' ,$lang ,$value);
+                }
+
+                return $array;
+
+            }; break;
+        }
     }
 }

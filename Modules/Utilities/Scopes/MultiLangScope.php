@@ -26,7 +26,8 @@ class MultiLangScope implements Scope
     protected function getLangCode($langCode = '')
     {
         // return langcode or the default
-        return 1;//app()->getLocale();
+        //updated by basheer
+        return $langCode? :app()->getLocale();//1
     }
 
     /**
@@ -43,13 +44,15 @@ class MultiLangScope implements Scope
     private function getEagerLoad($currentLangCode = false, $where = [])
     {
         $with = [];
-        $langCode = $currentLangCode;//? : $this->getLangCode();
+
+        $langCode = $currentLangCode;
         foreach ($this->transScopes as $transScope) {
             $clouser = array_get($where, $transScope, null);
             $with[$transScope] = function ($query) use ($langCode, $clouser) {
                 if($langCode)
                 {
-                    $query->where('lang_id', '=', $langCode);
+                    //update by baheer
+                    $query->whereLangCode($langCode); //$query->where('lang_id', '=', $langCode);
                 }
                 if ($clouser && $clouser instanceof \Closure)
                 {
@@ -57,6 +60,7 @@ class MultiLangScope implements Scope
                 }
             };
         }
+
         return $with;
     }
 

@@ -28,32 +28,39 @@ trait MultiLangs
 
         $supportedLocale = LaravelLocalization::getSupportedLanguagesKeys();
         $status = parent::save($input);
-        $object = static::allLangs()->where('id', '=', $this->id)->first();
-//        dd($this->allLangs()->where('id', '=', $this->id)->first(), $this);
 
-        foreach ($transMethod as $method)// each trans in the model ex:: user_name user_summary
+        //update by basheer
+        //I need this because in tree when i reorder the tree i dont need to save transName so I
+        //stoped it with request stopOper if you find onther way i will apply it.
+        if(request('stopOper' ,true))
         {
-            $inputName = camel_case(str_replace('trans', '', $method));
-            $attribute = snake_case($method);
-            $data = $input[$attribute];
-            $createArr = [];
-            $relations = $object->{$method};
+            $object = static::allLangs()->where('id', '=', $this->id)->first();
+//          dd($this->allLangs()->where('id', '=', $this->id)->first(), $this);
 
-            if($relations->count())
+            foreach ($transMethod as $method)// each trans in the model ex:: user_name user_summary
             {
-                foreach ($relations as $relation)
+                $inputName = camel_case(str_replace('trans', '', $method));
+                $attribute = snake_case($method);
+                $data = $input[$attribute];
+                $createArr = [];
+                $relations = $object->{$method};
+
+                if($relations->count())
                 {
-                    $relation->text = $data["{$inputName}_{$relation->lang_code}"];
-                    $status = $relation->save();
+                    foreach ($relations as $relation)
+                    {
+                        $relation->text = $data["{$inputName}_{$relation->lang_code}"];
+                        $status = $relation->save();
+                    }
                 }
-            }
-            else
-            {
-                foreach ($supportedLocale as $key => $lang)// each lang in current trans username -> en, ar ,...
+                else
                 {
-                    $createArr[] = ['lang_id' => $key + 1, 'text' => $data["{$inputName}_{$lang}"]];
+                    foreach ($supportedLocale as $key => $lang)// each lang in current trans username -> en, ar ,...
+                    {
+                        $createArr[] = ['lang_id' => $key + 1, 'text' => $data["{$inputName}_{$lang}"]];
+                    }
+                    $object->$method()->createMany($createArr);
                 }
-                $object->$method()->createMany($createArr);
             }
         }
     }

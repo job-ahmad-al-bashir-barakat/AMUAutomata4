@@ -10,6 +10,8 @@ function() {
 
     Route::get('/', 'AdminController@index');
 
+    Route::get('{view}/menu' ,'AdminController@menu');
+
     Route::get('{view}','AdminController@table');
 
     Route::get('{id}/{view}','AdminController@subTable');

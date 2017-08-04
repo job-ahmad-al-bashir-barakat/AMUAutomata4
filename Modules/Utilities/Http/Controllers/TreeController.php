@@ -78,12 +78,12 @@ class TreeController extends Controller
 
         if(!request('nodeId'))
         {
-            $nodes = $model::orderBy('order')->get()->toTree();
+            $nodes = $model::orderBy('order')->allLangs()->get()->toTree();
         }
         else
         {
             $node = $model::find(request('nodeId'));
-            $nodes = $model::whereAncestorOrSelf($node)->get()->toTree();
+            $nodes = $model::whereAncestorOrSelf($node)->allLangs()->get()->toTree();
         }
 
         $tree = '';
@@ -208,6 +208,8 @@ class TreeController extends Controller
 
             //update moved node
             $node = $model::findOrFail($id);
+
+            $request->request->add(['stopOper' => false]);
 
             $node->update([
                 'parent_id' => $request->input('parent')

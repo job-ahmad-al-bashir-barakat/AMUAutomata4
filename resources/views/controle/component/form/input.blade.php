@@ -8,29 +8,16 @@
         input class -> i:
     */
     extract(formClassHelper($class));
-    $star = preg_match('/\b(?<![\S])(required)(?![\S])\b/',$class) ? 'star' : '';
+    $star  = preg_match('/\b(?<![\S])(required)(?![\S])\b/',$class) ? 'star' : '';
+    $langs = preg_match('/\b(?<![\S])(langs)(?![\S])\b/',$class) ? true : false;
+    $trans = preg_match('/\b(?<![\S])(trans)(?![\S])\b/',$class) ? true : false;
 @endphp
 
-@if($group)
-<div class="form-group">
+@if($langs)
+    @foreach(LaravelLocalization::getSupportedLocales() as $_lang => $item)
+        @include('controle.component.form._input')
+    @endforeach
+@else
+    @include('controle.component.form._input')
 @endif
-    <div {{ $contClass ? "class=$contClass" : '' }}>
 
-        @unless($noLabel)
-            <label class="control-label {{ $star }} {{ $labelClass }}">
-                {{$label}}
-            </label>
-        @endunless
-
-        <div {{ $inputClass ? "class=$inputClass" : ''}}>
-            {!! Form::$type($name,$value,array_merge([
-                'id'          => $id,
-                'class'       => "form-control $class",
-                'placeholder' => $label
-            ],$attr)) !!}
-            <div id="error_{{$name}}"></div>
-        </div>
-    </div>
-@if($group)
-</div>
-@endif

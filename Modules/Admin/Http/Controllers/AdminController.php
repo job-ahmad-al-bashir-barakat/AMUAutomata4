@@ -2,7 +2,6 @@
 
 namespace Modules\Admin\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 
@@ -37,5 +36,10 @@ class AdminController extends Controller
             'param' => "?id=$id{$param}",
             'title' => trans('admin::app.'.str_replace('-','_',$view))
         ]);
+    }
+
+    public function menu($view)
+    {
+        return view("admin::page.hierarchy", compact('view'));
     }
 }

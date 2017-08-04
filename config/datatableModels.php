@@ -119,4 +119,9 @@ return [
         'model'   => \Modules\Admin\Entities\StudyYear::class,
         'factory' => \Modules\Admin\Factories\StudyYearFactory::class,
     ],
+
+    'hierarchy-type' => [
+        'model'   => \Modules\Admin\Entities\HierarchyType::class,
+        'factory' => \Modules\Admin\Factories\HierarchyTypeFactory::class,
+    ],
 ];

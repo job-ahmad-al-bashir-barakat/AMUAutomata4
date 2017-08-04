@@ -12,4 +12,8 @@ return [
         'factory'      => \Modules\Utilities\Factories\Tree\SiteMenuFactory::class,
     ],
 
+    'hierarchy' => [
+        'model'        => \Modules\Admin\Entities\Hierarchy::class,
+        'factory'      => \Modules\Admin\Factories\Tree\HierarchyFactory::class,
+    ],
 ];

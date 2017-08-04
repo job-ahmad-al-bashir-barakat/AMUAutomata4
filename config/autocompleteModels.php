@@ -91,4 +91,11 @@ return [
         'model' => \Modules\Admin\Entities\StudyYear::class
     ],
 
+    'hierarchy' => [
+        'model' => \Modules\Admin\Entities\Hierarchy::class
+    ],
+
+    'hierarchy-type' => [
+        'model' => \Modules\Admin\Entities\HierarchyType::class
+    ],
 ];
