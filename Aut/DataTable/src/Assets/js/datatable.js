@@ -401,16 +401,22 @@ function aut_datatable_fillDialogData(table ,aut_datatable) {
             {
                 if($(this).data('datavalue') != '')
                 {
-                    var found = ($(this).data('datavalue')).match(/.+\./i);
+                    var val, found = ($(this).data('datavalue')).match(/.+\./i);
 
                     if(found != null)
                     {
-                        $(this).not('[data-permanent=true]').val(JSPath.apply('.' + $(this).data('datavalue'),row)[0]);
+                        val = JSPath.apply('.' + $(this).data('datavalue'),row)[0];
+                        $(this).not('[data-permanent=true]').val(val);
                     }
                     else
                     {
-                        $(this).not('[data-permanent=true]').val(row[$(this).data('datavalue')]);
+                        val = row[$(this).data('datavalue')];
+                        $(this).not('[data-permanent=true]').val(val);
                     }
+
+                    //fill ckeditor if exists
+                    if($(this).hasClass('datatable-text-editor'))
+                        CKEDITOR.instances[this.id].setData(val);
                 }
             }
         });
@@ -609,6 +615,12 @@ function aut_datatable_setMultiModal() {
 function aut_datatable_copyModalToHisCont(aut_datatable) {
 
     var $modalCont = $('.modal-cont');
+
+    $modalCont.find('[data-table]').each(function () {
+        var item = $('.datatable[data-table=' + $(this).data('table') + ']');
+        if(!item.length)
+            $(this).remove();
+    });
 
     if(!aut_datatable_enable_multi_modal)
         $modalCont.children().remove();
@@ -936,6 +948,8 @@ function aut_datatable_replaceDatatableFunctionWithJPath(aut_datatable) {
                 // filter trow unique col row in page
             });
         });
+
+        aut_datatable.events.on_table_create(aut_datatable.ids.modal, aut_datatable_initParamEvent(aut_datatable));
     };
 }
 

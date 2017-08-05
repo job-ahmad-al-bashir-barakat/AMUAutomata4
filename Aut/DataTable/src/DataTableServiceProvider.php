@@ -2,9 +2,8 @@
 
 namespace Aut\DataTable;
 
-use Illuminate\Support\ServiceProvider;
-use Illuminate\Console\Application as Artisan;
 use Illuminate\Routing\Router;
+use Illuminate\Support\ServiceProvider;
 use LaravelLocalization;
 use Route;
 
@@ -120,7 +119,7 @@ class DataTableServiceProvider extends ServiceProvider
 
             $load = isset($param[2]) ? $param[2] : 'true';
 
-            $cont = "<div class='datatable' role='datatable' data-load='<?=$load?>' data-url='<?= localizeURL(\"datatable/$model/table/create{$data_param}\")?>'></div>";
+            $cont = "<div class='datatable' role='datatable' data-table='$model' data-load='<?=$load?>' data-url='<?= localizeURL(\"datatable/$model/table/create{$data_param}\")?>'></div>";
 
             return $cont;
         });

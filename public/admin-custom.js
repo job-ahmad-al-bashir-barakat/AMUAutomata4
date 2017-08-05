@@ -572,7 +572,12 @@ var APP_AMU = {
                     if($(v).hasClass('autocomplete') && typeof $value != typeof undefined)
                         APP_AMU.autocomplete.selectedAutocomplete($(v) ,[JSON.parse($value)]);
                     else
+                    {
                         $(v).val($value);
+                        //fill ckeditor if exists
+                        if($(v).hasClass('text-editor'))
+                            CKEDITOR.instances[v.id].setData($value);
+                    }
                 });
 
                 APP_AMU.validate.hideShowButtonForm($cont ,'update');
@@ -769,9 +774,9 @@ var APP_AMU = {
 
             if (typeof(CKEDITOR) != 'undefined')
             {
-                APP_AMU.ckeditor.reset('body' ,$target);
-
                 $cont.find($target).each(function () {
+
+                    var orginal_id = this.id;//$(this).data('original-id');
 
                     var params = {
                         /*
@@ -781,9 +786,15 @@ var APP_AMU = {
                         contentsLangDirection: $(this).hasClass('en') ? 'ltr' : $(this).hasClass('ar') ? 'rtl' : '',
                         language: LANG,
                         resize_enabled: typeof $(this).data('resize') != typeof undefined ? $(this).data('resize') : true,
+                        resize_dir: typeof $(this).data('resize-type') != typeof undefined ? $(this).data('resize-type') : 'both',
                     };
 
-                    $textarea = CKEDITOR.replace(this.name ,params);
+                    CKEDITOR.on('instanceCreated', function(ev) {
+                        // alert('Editor instance created');
+                    });
+
+                    APP_AMU.ckeditor.reset($cont ,$target ,'single' ,orginal_id);
+                    $textarea = CKEDITOR.replace(orginal_id ,params);
                     $textarea.on('fileUploadRequest', function (evt) {
                         /*  evt.data.requestData.type = 'ckeditor';
                          var xhr = evt.data.fileLoader.xhr;
@@ -804,7 +815,7 @@ var APP_AMU = {
                             this.updateElement();
                         });
 
-                        editor.on('resize',function(reEvent){
+                        editor.on('resize',function(reEvent) {
                             //
                         });
                     });
@@ -818,20 +829,38 @@ var APP_AMU = {
                 console.log('warning: ckeditor is not defined');
         },
 
-        reset : function ($cont ,$target) {
+        reset : function ($cont ,$target ,$type ,$orginal_id) {
 
             if(typeof(CKEDITOR) != 'undefined')
             {
-                for (name in CKEDITOR.instances) {
+                switch ($type)
+                {
+                    // delete only all instance
+                    case 'all'    : {
 
-                    if($($cont).find($target + '[data-orginal-id="'+name+'"]').length)
-                    {
-                        var instance = CKEDITOR.instances[name];
-                        if (instance) {
-                            CKEDITOR.remove(instance);
-                            instance.destroy(false);
+                        for (name in CKEDITOR.instances) {
+
+                            var editor = CKEDITOR.instances[name];
+                            if (editor) {
+                                delete CKEDITOR.instances[name];
+                                // CKEDITOR.remove(instance);
+                                // instance.destroy(false);
+                            }
                         }
-                    }
+
+                    };break;
+
+                    // delete only one instance
+                    case 'single' : {
+
+                        var editor = CKEDITOR.instances[$orginal_id];
+                        if (editor) {
+                            delete CKEDITOR.instances[$orginal_id];
+                            // CKEDITOR.remove(editor);
+                            // editor.destroy(true);
+                        }
+
+                    };break;
                 }
             }
         },
@@ -840,9 +869,8 @@ var APP_AMU = {
 
             if(typeof(CKEDITOR) != 'undefined')
             {
-                for (name in CKEDITOR.instances) {
-                    if($($cont).find($target + '[data-orginal-id="'+name+'"]').length)
-                        CKEDITOR.instances[name].setData('');
+                for (instance in CKEDITOR.instances) {
+                    CKEDITOR.instances[instance].setData('');
                 }
             }
         },
@@ -856,7 +884,7 @@ var APP_AMU = {
                     if (modal_this.$element[0] !== e.target && !modal_this.$element.has(e.target).length
                         && !$(e.target.parentNode).hasClass('cke_dialog_ui_input_select')
                         && !$(e.target.parentNode).hasClass('cke_dialog_ui_input_text')) {
-                        modal_this.$element.focus()
+                        modal_this.$element.focus();
                     }
                 });
             };
@@ -871,7 +899,7 @@ var APP_AMU = {
             APP_AMU.select.initSelect();
             APP_AMU.validate.init('.ajaxCont');
             APP_AMU.tree.init();
-            APP_AMU.ckeditor.init('body' ,'text-editor');
+            APP_AMU.ckeditor.init('body' ,'.text-editor');
             $('.datatable').each(loadDatatable);
         }
     }
@@ -897,6 +925,6 @@ $(function () {
     APP_AMU.select.initSelect();
     APP_AMU.validate.init('.ajaxCont');
     APP_AMU.tree.init();
-    APP_AMU.ckeditor.init('body' ,'text-editor');
+    APP_AMU.ckeditor.init('body' ,'.text-editor');
     APP_AMU.ckeditor.fixCkeditorModal();
 });

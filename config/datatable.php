@@ -58,23 +58,37 @@ return [
 
     'event' => [
 
+        'onTableCreate' => function() {
+
+            return
+            "
+                <script>
+                    APP_AMU.ckeditor.init('body' ,'.datatable-text-editor');
+                </script>
+            ";
+        },
+
         'onLoad' => function() {
 
             return
-                "
+            "
                 <script>
-                    APP_AMU.ckeditor.init('body' ,'textarea.datatable-text-editor');
                     APP.COLLAPSE_PANELS();
                 </script>
             ";
         },
 
+        'modalOpen' => function() {
+
+            return "";
+        },
+
         'modalClose' => function() {
 
             return
-                "
+            "
                 <script>
-                    APP_AMU.ckeditor.clear('body' ,'textarea.datatable-text-editor');
+                    APP_AMU.ckeditor.clear('body' ,'.datatable-text-editor');
                 </script>
             ";
         },
@@ -82,7 +96,7 @@ return [
         'onTabClick' => function() {
 
             return
-                "
+            "
                 <script>
                     if(cont.find('.cropper').length)
                     {

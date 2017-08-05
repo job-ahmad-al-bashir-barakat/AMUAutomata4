@@ -32,7 +32,7 @@ trait MultiLangs
         //update by basheer
         //I need this because in tree when i reorder the tree i dont need to save transName so I
         //stoped it with request stopOper if you find onther way i will apply it.
-        if(request('stopOper' ,true))
+        if(request('stopTransSaveOper' ,true))
         {
             $object = static::allLangs()->where('id', '=', $this->id)->first();
 //          dd($this->allLangs()->where('id', '=', $this->id)->first(), $this);

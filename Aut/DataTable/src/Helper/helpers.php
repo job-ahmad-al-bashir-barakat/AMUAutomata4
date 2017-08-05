@@ -30,7 +30,7 @@ if(! function_exists('datatable'))
     {
         $url = localizeURL("datatable/$dataModel/table/create{$dataParam}");
 
-        $cont = "<div class='datatable' role='datatable' data-load='$dataLoad' data-url='$url'></div>";
+        $cont = "<div class='datatable' data-table='$dataModel' role='datatable' data-load='$dataLoad' data-url='$url'></div>";
 
         return $cont;
     }

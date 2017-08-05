@@ -80,6 +80,7 @@ class DataTableBuilder
         'onUpdate'       => '',
         'onDelete'       => '',
         'onLoad'         => '',
+        'onTableCreate'  => '',
         'modalOpen'      => '',
         'modalClose'     => '',
         'rowDetailClick' => '',
@@ -1390,6 +1391,12 @@ class DataTableBuilder
         return $this;
     }
 
+    function onTableCreate($script) {
+
+        $this->events['onTableCreate'] = $this->replaceScript($script);
+
+        return $this;
+    }
     /**
      * @param $script
      * @return $this
@@ -1591,8 +1598,10 @@ class DataTableBuilder
             $class_dialog = "$class_dialog req";
 
         // add req class to dialog
-        if(preg_match('/\b(?<![\S])(text-editor)(?![\S])\b/',$class))
+        if(preg_match('/\b(?<![\S])(text-editor)(?![\S])\b/',$class)) {
             $class_dialog = "$class_dialog datatable-text-editor";
+            $attr = "$attr data-resize=true data-resize-type=vertical";
+        }
 
         if($type == 'number')
         {
@@ -1685,7 +1694,7 @@ class DataTableBuilder
         $id = preg_replace('/.+\./','',$param["data"]);
 
         //form data-id ckeditor
-        $class_attr['attr'] = "{$class_attr['attr']} data-orginal-id=$id";
+        //$class_attr['attr'] = "{$class_attr['attr']} data-original-id=$id";
 
         $array = $param["type"] == 'autocompleteMulti' ? "[]" : "";
 
@@ -2088,10 +2097,12 @@ class DataTableBuilder
         $multiModal             = config('datatable.multiModel') ? 'true' : 'false';
         $event                  = config('datatable.event');
         $onLoadConfig           = $this->replaceScript($event['onLoad']());
+        $onModalOpenConfig      = $this->replaceScript($event['modalOpen']());
         $onModelCloseConfig     = $this->replaceScript($event['modalClose']());
         $onTabClickConfig       = $this->replaceScript($event['onTabClick']());
         $onRowDetailClickConfig = $this->replaceScript($event['onRowDetailClick']());
         $onDestroyConfig        = $this->replaceScript($event['onDestroy']());
+        $onTableCreateConfig    = $this->replaceScript($event['onTableCreate']());
 
         $dir                      = $this->dir;
         $disableDialog            = $this->optionDatatableConfig['disableDialog'] ? 'true' : 'false';
@@ -2193,6 +2204,12 @@ class DataTableBuilder
                              on_delete : function(param) {
                                  {$this->events['onDelete']}
                              },
+                             'on_table_create' : function(modal ,param) {
+                                   
+                                 {$this->events['onTableCreate']}
+                                 
+                                 {$onTableCreateConfig}
+                             },
                              on_load : function(modal ,param) {
                                  
                                  {$this->events['onLoad']}
@@ -2202,6 +2219,8 @@ class DataTableBuilder
                              modal_open : function(modal ,param) {
                                  
                                  {$this->events['modalOpen']}
+                             
+                                 {$onModalOpenConfig}
                              }, 
                              modal_close : function(modal ,param) {
                                  
@@ -2236,7 +2255,9 @@ class DataTableBuilder
     /**
      * @return string
      */
-    function renderHtml()
+
+    //not used unti now
+    private function renderHtml()
     {
         return $dialog = $this->optionDatatableConfig['disableDialog'] == true ? '' : $this->renderDialog("{$this->id}-modal");
     }

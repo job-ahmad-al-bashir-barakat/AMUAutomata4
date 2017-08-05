@@ -209,7 +209,7 @@ class TreeController extends Controller
             //update moved node
             $node = $model::findOrFail($id);
 
-            $request->request->add(['stopOper' => false]);
+            $request->request->add(['stopTransSaveOper' => false]);
 
             $node->update([
                 'parent_id' => $request->input('parent')

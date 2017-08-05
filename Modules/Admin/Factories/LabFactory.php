@@ -13,7 +13,7 @@ class LabFactory extends GlobalFactory
      */
     public function getDatatable($model ,$request)
     {
-        $query = Lab::with(['contact'])->where('faculty_id' ,'=' ,$request->input('id'))->allLangs();
+        $query = Lab::with(['contact'])->where('faculty_id' ,'=' ,$request->input('id'))->allLangs()->get();
 
         return $this->table
             ->queryConfig('datatable-labs')
@@ -35,11 +35,11 @@ class LabFactory extends GlobalFactory
             ->addHiddenInput('faculty_id' ,'faculty_id' ,$request->input('id') ,false ,true)
             ->addMultiInputTextLangs(['name'] ,'req required')
             ->startRelation('contact')
-                ->addInputText(trans('app.phone'),'contact.phone' ,'contact.phone' ,'req required')
-                ->addInputText(trans('app.gelocation'),'contact.mobile' ,'contact.mobile' ,'req required')
+                ->addInputText(trans('admin::app.phone'),'contact.phone' ,'contact.phone' ,'req required')
+                ->addInputText(trans('admin::app.gelocation'),'contact.mobile' ,'contact.mobile' ,'req required')
             ->endRelation()
             ->setGridNormalCol(12)
-            ->addMultiTextareaLangs(['description'] ,'req required text-editor d:tabs d:noLabel' ,'' ,'rows=10 cols=80 data-resize=false')
+            ->addMultiTextareaLangs(['description'] ,'req required text-editor d:tabs d:noLabel')
             ->addActionButton($this->update,'update','update')
             ->addActionButton($this->delete,'delete','delete')
             ->addNavButton()

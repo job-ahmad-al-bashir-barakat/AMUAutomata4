@@ -1,4 +1,4 @@
-<div id='{{ $id }}' {{--tabindex='-1'--}} role='dialog' aria-labelledby='myModalLabel' aria-hidden='true' class='modal datatable-modal fade'>
+<div id='{{ $id }}' {{--tabindex='-1'--}} data-table="{{$table}}" role='dialog' aria-labelledby='myModalLabel' aria-hidden='true' class='modal datatable-modal fade'>
     <div class='modal-dialog' role='document' style='{{ $dialogWidth }}'>
         <div class='modal-content'>
             <form id='form-dialog' action='#' method='post' class='{{ $form_class }}' {{ $form_attr }}>

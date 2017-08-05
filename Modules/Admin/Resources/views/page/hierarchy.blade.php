@@ -26,7 +26,7 @@
         {{ Form::bsHidden('order' ,'order' ,null ,'' ,['data-json' => 'order']) }}
         {{ Form::bsAutocomplete(trans('utilities::app.parent') ,'parent-id' ,'parent_id','autocomplete/hierarchy',[],'3' ,'tree-autocomplete-change group' ,['data-json' => 'parent']) }}
         {{ Form::bsText(trans('admin::app.name'),'name' ,'name' ,null ,'group required langs trans' ,['data-json' => 'name-{lang}']) }}
-        {{ Form::bsAutocomplete(trans('admin::app.type') ,'hierarchy-type-id' ,'hierarchy_type_id','autocomplete/hierarchy-type',[],'3' ,'tree-autocomplete-change group' ,['data-json' => 'hierarchy-type']) }}
+        {{ Form::bsAutocomplete(trans('admin::app.type') ,'hierarchy-type-id' ,'hierarchy_type_id','autocomplete/hierarchy-type',[],'3' ,'group required' ,['data-json' => 'hierarchy-type']) }}
     @endcomponent
 
     <script>

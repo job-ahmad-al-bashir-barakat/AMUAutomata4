@@ -27,6 +27,7 @@ trait Dialog
 
         $dialog =  view('datatable::_modal',[
             'id'                => $id,
+            'table'             => $this->model,
             'dialogWidth'       => $dialogWidth,
             'form_class'        => $form_class,
             'form_attr'         => $form_attr,
