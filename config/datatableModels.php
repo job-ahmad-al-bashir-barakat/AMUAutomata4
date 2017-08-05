@@ -36,7 +36,12 @@ return [
 
     'modules' => [
         'model'         => Modules\Utilities\Entities\Module::class,
-        'factory' => Modules\Utilities\Factories\ModuleFactory::class
+        'factory'       => Modules\Utilities\Factories\ModuleFactory::class
+    ],
+
+    'custom-modules' => [
+        'model'         => Modules\Utilities\Entities\CustomModule::class,
+        'factory'       => Modules\Utilities\Factories\ModuleFactory::class
     ],
 
     'social-network' => [
