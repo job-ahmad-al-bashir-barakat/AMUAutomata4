@@ -17,9 +17,6 @@ class CustomeModuleFactory extends GlobalFactory
             ->queryConfig('datatable-custom-modules')
             ->queryDatatable($query)
             ->queryMultiLang(['name'])
-            ->startRelation('modules')
-
-            ->endRelation()
             ->queryUpdateButton('id')
             ->queryDeleteButton('id')
             ->queryRender();
