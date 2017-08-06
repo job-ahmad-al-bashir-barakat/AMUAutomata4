@@ -47,6 +47,10 @@ return [
         'model' => \Modules\Utilities\Entities\Attribute::class,
     ],
 
+    'modules' => [
+        'model' => \Modules\Utilities\Entities\Module::class,
+    ],
+
     'faculty' => [
         'model' => \Modules\Admin\Entities\Faculty::class,
     ],

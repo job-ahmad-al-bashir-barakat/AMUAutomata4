@@ -11,15 +11,18 @@ class CustomeModuleFactory extends GlobalFactory
      */
     public function getDatatable($model, $request)
     {
-        $query = $model::with(['attributes'])->allLangs()->get();
+        $query = $model::with(['modules'])->allLangs()->get();
 
         return $this->table
             ->queryConfig('datatable-custom-modules')
             ->queryDatatable($query)
             ->queryMultiLang(['name'])
+            ->startRelation('modules')
+
+            ->endRelation()
             ->queryUpdateButton('id')
             ->queryDeleteButton('id')
-            ->queryRender(true);
+            ->queryRender();
     }
 
     /**
@@ -30,11 +33,8 @@ class CustomeModuleFactory extends GlobalFactory
         return $this->table
             ->config('datatable-custom-modules',trans('utilities::app.custom-modules'))
             ->addPrimaryKey('id','id')
-            ->addInputText(trans('utilities::app.code'),'code','code','required req')
             ->addMultiInputTextLangs(['name'] ,'req required')
-            ->startRelation('attributes')
-                ->addMultiAutocomplete('autocomplete/attributes' ,"attributes[ ,].lang_name.$this->lang.text",trans('utilities::app.attributes') , 'attributes.id', "attributes.lang_name.$this->lang.text", "attributes.lang_name.$this->lang.text" ,'req required' ,'multiple')
-            ->endRelation()
+            ->addAutocomplete('autocomplete/modules' ,trans('utilities::app.modules'), 'module_id', "modules.lang_name.$this->lang.text", "modules.lang_name.$this->lang.text" ,'req required')
             ->addActionButton($this->update,'update','update')
             ->addActionButton($this->delete,'delete','delete')
             ->addNavButton()
@@ -47,8 +47,6 @@ class CustomeModuleFactory extends GlobalFactory
     public function storeDatatable($model = null ,$request = null ,$result = null)
     {
         //
-        $attributeIds = $request->input('attributes.id');
-        $result->attributes()->sync($attributeIds);
     }
 
     /**
@@ -57,8 +55,6 @@ class CustomeModuleFactory extends GlobalFactory
     public function updateDatatable($model = null ,$request = null ,$result = null)
     {
         //
-        $attributeIds = $request->input('attributes.id');
-        $result->attributes()->sync($attributeIds);
     }
 
     /**
@@ -67,7 +63,6 @@ class CustomeModuleFactory extends GlobalFactory
     public function destroyDatatable($model = null ,$request = null ,$result = null)
     {
         //
-        dd($request);
     }
 
     /**
