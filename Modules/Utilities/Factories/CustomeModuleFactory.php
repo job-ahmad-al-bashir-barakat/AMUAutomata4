@@ -20,6 +20,7 @@ class CustomeModuleFactory extends GlobalFactory
             ->queryUpdateButton('id')
             ->queryDeleteButton('id')
             ->queryRender();
+
     }
 
     /**
