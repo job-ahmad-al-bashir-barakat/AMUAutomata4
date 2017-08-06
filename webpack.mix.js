@@ -129,6 +129,7 @@ var js = [
     'Modules/Admin/Assets/vendor/cropper/dist/cropper.js',
 
     'Modules/Admin/Assets/vendor/nestable/jquery.nestable.js',
+    'Modules/Admin/Assets/vendor/jQuery-gMap/jquery.gmap.min.js',
     // 'Modules/Admin/Assets/vendor/app/js/app.js'
 
 ];

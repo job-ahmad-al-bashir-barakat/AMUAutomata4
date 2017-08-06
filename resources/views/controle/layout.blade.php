@@ -79,9 +79,9 @@
     }
 </script>
 
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyCC3X-thsM5s1FkNqwFtRKTaa1CMFctf1k&language={{$lang}}"></script>
 <script src="{{ asset(mix("js/admin-all-$dir.js")) }}"></script>
 <script src="{{ asset("app.js") }}"></script>
-
 <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
 <script src="{{ asset('admin-custom.js') }}"></script>
 

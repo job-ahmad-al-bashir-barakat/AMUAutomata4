@@ -890,6 +890,25 @@ var APP_AMU = {
             };
         }
     },
+    map : {
+
+        initGMapInputLocation : function () {
+
+            $(document).on('click' ,'.input-location',function () {
+                var $modal = '#' + $(this).find('input').data('modal');
+                $($modal).on('shown.bs.modal', function (event) {
+                    APP.GMap();
+                });
+                $($modal).modal('show');
+            });
+        },
+
+
+        init : function () {
+
+            APP_AMU.map.initGMapInputLocation();
+        }
+    },
 
     ajax : {
 
@@ -927,4 +946,5 @@ $(function () {
     APP_AMU.tree.init();
     APP_AMU.ckeditor.init('body' ,'.text-editor');
     APP_AMU.ckeditor.fixCkeditorModal();
+    APP_AMU.map.init();
 });

@@ -64,18 +64,14 @@ return [
             "
                 <script>
                     APP_AMU.ckeditor.init('body' ,'.datatable-text-editor');
+                    APP.COLLAPSE_PANELS();
                 </script>
             ";
         },
 
         'onLoad' => function() {
 
-            return
-            "
-                <script>
-                    APP.COLLAPSE_PANELS();
-                </script>
-            ";
+            return "";
         },
 
         'modalOpen' => function() {

@@ -93,6 +93,8 @@ class DataTableBuilder
 
     protected $blade = '';
 
+    protected $appendBlade = '';
+
     public function __construct()
     {
         $this->dataTable = collect();
@@ -1350,10 +1352,13 @@ class DataTableBuilder
      */
     function addBlade
     (
-        $component = ''
+        $component = '',
+        $append    = 'body'
     )
     {
         $this->blade .= $component;
+
+        $this->appendBlade = $append;
 
         return $this;
     }
@@ -2145,6 +2150,7 @@ class DataTableBuilder
                          dir : '$dir',
                          json_object : $dataTable,
                          multi_modal : $multiModal,
+                         append_blade : '$this->appendBlade', 
                          row_detail  : function(row) {
                             return $rowDetail; 
                          }, 

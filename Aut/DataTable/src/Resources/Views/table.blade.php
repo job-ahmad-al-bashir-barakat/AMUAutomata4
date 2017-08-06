@@ -4,4 +4,6 @@
 
 {!! $dataTable["script"] !!}
 
-{!! $dataTable["blade"] !!}
+<div class="bladeCont">
+    {!! $dataTable["blade"] !!}
+</div>

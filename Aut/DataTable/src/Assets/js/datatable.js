@@ -630,6 +630,14 @@ function aut_datatable_copyModalToHisCont(aut_datatable) {
     $modalCont.append($(aut_datatable.ids.modal));
 }
 
+function aut_datatable_copyBladeToHisCont(aut_datatable) {
+
+    $('.bladeCont.appended').remove();
+
+    $('.bladeCont').addClass('appended')
+        .appendTo(aut_datatable.append_blade);
+}
+
 function aut_datatable_deleteRow(table ,aut_datatable) {
 
     $('.dataTable tbody').on( 'click', 'tr .dialog-delete', function (e) {
@@ -1110,6 +1118,8 @@ function aut_datatable_CreateNewTable(TableObject)
 
         aut_datatable_passwordGenerator(aut_datatable.ids.modal);
     }
+
+    aut_datatable_copyBladeToHisCont(aut_datatable);
 
     aut_datatable_deleteRow(table ,aut_datatable);
 

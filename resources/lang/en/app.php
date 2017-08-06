@@ -12,7 +12,7 @@ return [
     'update'          => 'Update',
     'delete'          => 'Delete',
     'close'           => 'Close',
-
+    'set_location'    => 'Set Location',
 
     'oper' => [
         'success' => 'Operation done successfuly',

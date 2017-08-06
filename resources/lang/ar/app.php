@@ -12,6 +12,7 @@ return [
     'update'          => 'تعديل',
     'delete'          => 'حذف',
     'close'           => 'إغلاق',
+    'set_location'    => 'تحديد الموقع',
 
     'oper' => [
         'success' => 'تمت العملية بنجاح',
