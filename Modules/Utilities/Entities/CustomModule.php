@@ -27,7 +27,7 @@ class CustomModule extends Model
 
     public function modules()
     {
-        return $this->hasOne(Module::class, 'id');
+        return $this->belongsTo(Module::class, 'module_id');
     }
 
 }

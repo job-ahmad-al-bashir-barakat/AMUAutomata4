@@ -20,7 +20,6 @@ class CustomeModuleFactory extends GlobalFactory
             ->queryUpdateButton('id')
             ->queryDeleteButton('id')
             ->queryRender();
-
     }
 
     /**
@@ -32,10 +31,12 @@ class CustomeModuleFactory extends GlobalFactory
             ->config('datatable-custom-modules',trans('utilities::app.custom-modules'))
             ->addPrimaryKey('id','id')
             ->addMultiInputTextLangs(['name'] ,'req required')
-            ->addAutocomplete('autocomplete/modules' ,trans('utilities::app.modules'), 'module_id', "modules.lang_name.$this->lang.text", "modules.lang_name.$this->lang.text" ,'req required')
+            ->addAutocomplete('autocomplete/modules' ,trans('utilities::app.modules'), 'module_id', "modules.lang_name.$this->lang.text", "modules.lang_name.$this->lang.text" ,'req required'/*,'onChange=""'*/)
             ->addActionButton($this->update,'update','update')
             ->addActionButton($this->delete,'delete','delete')
             ->addNavButton()
+            ->onUpdate('')
+            /*->addBlade(view('module-change-script')->render())*/
             ->render();
     }
 
