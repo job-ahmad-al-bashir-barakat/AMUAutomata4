@@ -6,7 +6,7 @@
 
 @section('script')
     <script>
-        $('#module-id').on('change' ,function () {
+        $(document).on('change','#module-id' ,function () {
 
             // this when you do change
             var id = $(this).val();
