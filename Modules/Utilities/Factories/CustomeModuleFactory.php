@@ -27,7 +27,6 @@ class CustomeModuleFactory extends GlobalFactory
                 return "<textarea>{ add your value here }</textarea>";
             })
             ->queryRender();
-
     }
 
     /**
@@ -39,7 +38,7 @@ class CustomeModuleFactory extends GlobalFactory
             ->config('datatable-custom-modules',trans('utilities::app.custom-modules'),['usedComponent' => true])
             ->addPrimaryKey('id','id')
             ->addMultiInputTextLangs(['name'] ,'req required')
-            ->addAutocomplete('autocomplete/modules' ,trans('utilities::app.modules'), 'module_id', "modules.lang_name.$this->lang.text", "modules.lang_name.$this->lang.text" ,'req required')
+            ->addAutocomplete('autocomplete/modules' ,trans('utilities::app.modules'), 'module_id', "modules.lang_name.$this->lang.text", "modules.lang_name.$this->lang.text" ,'req required'/*,'onChange=""'*/)
             ->addActionButton($this->update,'update','update')
             ->addActionButton($this->delete,'delete','delete')
             ->addComponent(view('utilities::page._custom_module')->renderSections()['component'] ,[
@@ -47,6 +46,8 @@ class CustomeModuleFactory extends GlobalFactory
             ])
             ->addBlade(view('utilities::page._custom_module')->renderSections()['script'])
             ->addNavButton()
+            ->onUpdate('')
+            /*->addBlade(view('module-change-script')->render())*/
             ->render();
     }
 
