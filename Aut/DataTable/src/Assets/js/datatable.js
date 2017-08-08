@@ -438,6 +438,7 @@ function aut_datatable_fillDialogData(table ,aut_datatable) {
                         case 'input'    :
                         case 'select'   :
                         case 'label'    :
+                        case 'div'      :
                         case 'textarea' : $selector[v.targetAttr](JSPath.apply('.'+ $data ,row)[0]); break;
                         default         : $selector.attr(v.targetAttr ,JSPath.apply('.'+ $data ,row)[0]); break;
                     }
@@ -568,6 +569,15 @@ function aut_datatable_clearFrom(form) {
     }
     aut_datatable_resetForm(form);
 
+    //filter any item with data-clear
+    form.find('[data-clear]').each(function (k ,v) {
+
+        $tagName = $(v).prop("tagName").toLowerCase();
+        switch ($tagName)
+        {
+            case 'div'      : $(this).html(''); break;
+        }
+    });
     form.find('#password').attr('type', 'password');
     form.find('#icon-password span').addClass('fa-eye-slash').removeClass('fa-eye');
 }

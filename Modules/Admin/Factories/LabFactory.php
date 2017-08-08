@@ -36,7 +36,7 @@ class LabFactory extends GlobalFactory
             ->addMultiInputTextLangs(['name'] ,'req required')
             ->startRelation('contact')
                 ->addInputText(trans('admin::app.phone'),'contact.phone' ,'contact.phone' ,'req required')
-                ->addInputGroup(trans('admin::app.gelocation'),'contact.mobile' ,'contact.mobile' ,'req required' ,'icon-location-pin' ,'input-location hand' ,['data-modal' => 'modal-labs-input-location'])
+                ->addInputGroup(trans('admin::app.gelocation'),'contact.gelocation' ,'contact.gelocation' ,'req required' ,'icon-location-pin' ,'input-location hand' ,['data-modal' => 'modal-labs-input-location'])
             ->endRelation()
             ->setGridNormalCol(12)
             ->addMultiTextareaLangs(['description'] ,'req required text-editor d:tabs d:noLabel')
@@ -44,7 +44,8 @@ class LabFactory extends GlobalFactory
             ->addActionButton($this->delete,'delete','delete')
             ->addBlade(view('controle.component.location.input_location', [
                 'id'    => 'labs',
-                'title' => trans('admin::app.labs_gelocation')
+                'title' => trans('admin::app.labs_gelocation'),
+                'inputFullLocation' => '#datatable-labs-modal .input-location input'
             ]) ,'body')
             ->addNavButton()
             ->render();

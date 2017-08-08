@@ -897,12 +897,31 @@ var APP_AMU = {
             $(document).on('click' ,'.input-location',function () {
                 var $modal = '#' + $(this).find('input').data('modal');
                 $($modal).on('shown.bs.modal', function (event) {
-                    APP.GMap();
+
+                    APP.GMap.init();
                 });
                 $($modal).modal('show');
             });
-        },
 
+            $(document).on('click' ,'.set-map-location' ,function () {
+
+                $modal = $(this).closest('.modal');
+                $locationData = $modal.find('[data-gmap]').data('location');
+
+                var InputFullLocation = $(this).data('input-full-location');
+                var InputLatLocation = $(this).data('input-lat-location');
+                var InputLngLocation = $(this).data('input-lng-location');
+
+                if(InputFullLocation)
+                    $(InputFullLocation).val($($locationData.location).val());
+                if(InputLatLocation)
+                    $(InputLatLocation).val($($locationData.lat).val())
+                if(InputLngLocation)
+                    $(InputLngLocation).val($($locationData.lng).val())
+
+                $($modal).modal('hide');
+            });
+        },
 
         init : function () {
 

@@ -11,12 +11,29 @@
     'width'             => $width,
     'bodyClass'         => 'p-0',
 ])
-    <div data-gmap="" data-address="276 N TUSTIN ST, ORANGE, CA 92867" data-maptype="ROADMAP" data-styled class="gmap"></div>
+    <div class="maps-search hide">
+        <input type="text" id="component-maps-search"  class="map-autocomplete controls" type="text" placeholder="Search Box"/>
+    </div>
+    <div id="map-location"
+         data-gmap=""
+         data-address="276 N TUSTIN ST, ORANGE, CA 92867"
+         data-maptype="ROADMAP"
+         data-styled class="gmap"
+         data-click="true"
+         data-autocomplete="true"
+         data-location='{"location":"#map-full-location" ,"lat":"#map-lat-location" ,"lng":"#map-lng-location" }'   >
+    </div>
+    <input type="hidden" id="map-full-location">
+    <input type="hidden" id="map-lat-location">
+    <input type="hidden" id="map-lng-location">
 
     {{ $slot or '' }}
 
     @slot('footer')
-        <button type="button" class="btn btn-labeled btn-primary">
+        <button type="button" class="btn btn-labeled btn-primary set-map-location"
+                data-input-full-location="{{ $inputFullLocation or '' }}"
+                data-input-lat-location="{{ $inputLatLocation or '' }}"
+                data-input-lng-location="{{ $inputLngLocation or '' }}">
             {{ trans('app.set_location') }}
             <span class="btn-label btn-label-right"><i class="icon-location-pin"></i></span>
         </button>

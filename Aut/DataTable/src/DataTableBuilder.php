@@ -336,7 +336,7 @@ class DataTableBuilder
      * @param string $attr
      * @return $this
      */
-    function addCont($id = '' , $html ='<div>Hi There</div>' , $class ='' , $attr ='')
+    function addCont($id = '' , $html ='' , $class ='' , $attr ='')
     {
         $this->_addCont($id ,$html ,$class ,$attr);
 

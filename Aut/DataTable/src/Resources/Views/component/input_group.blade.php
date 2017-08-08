@@ -16,8 +16,8 @@
                    {{ $attr }}
             >
             <span class='input-group-addon'>
-                            <span class='{{ $groupIcon }}'></span>
-                        </span>
+                <span class='{{ $groupIcon }}'></span>
+            </span>
         </div>
 
         <div id='error_{{ $id }}'></div>

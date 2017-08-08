@@ -8,6 +8,8 @@
     <link id="autoloaded-stylesheet" rel="stylesheet" href="{{ isset($_COOKIE['controleThemeColorUrl']) ? asset($_COOKIE['controleThemeColorUrl']) : asset('css/theme-a.css') }}">
     <link rel="stylesheet" href="{{ asset('admin-custom.css') }}">
     @include('controle._style')
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <base href="{{ asset('/') }}">
 
@@ -79,7 +81,7 @@
     }
 </script>
 
-<script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyCC3X-thsM5s1FkNqwFtRKTaa1CMFctf1k&language={{$lang}}"></script>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyCC3X-thsM5s1FkNqwFtRKTaa1CMFctf1k&language={{$lang}}&libraries=places"></script>
 <script src="{{ asset(mix("js/admin-all-$dir.js")) }}"></script>
 <script src="{{ asset("app.js") }}"></script>
 <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>

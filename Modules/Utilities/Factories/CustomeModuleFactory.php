@@ -19,6 +19,13 @@ class CustomeModuleFactory extends GlobalFactory
             ->queryMultiLang(['name'])
             ->queryUpdateButton('id')
             ->queryDeleteButton('id')
+            ->queryAddColumn('custom_module_temp' ,function ($item) {
+                    // this property is just for test please use actual property
+                    // from madel or db that represent actual html
+
+                    //you can take html from relation and
+                return "<textarea>{ add your value here }</textarea>";
+            })
             ->queryRender();
 
     }
@@ -29,12 +36,16 @@ class CustomeModuleFactory extends GlobalFactory
     public function buildDatatable($model, $request)
     {
         return $this->table
-            ->config('datatable-custom-modules',trans('utilities::app.custom-modules'))
+            ->config('datatable-custom-modules',trans('utilities::app.custom-modules'),['usedComponent' => true])
             ->addPrimaryKey('id','id')
             ->addMultiInputTextLangs(['name'] ,'req required')
             ->addAutocomplete('autocomplete/modules' ,trans('utilities::app.modules'), 'module_id', "modules.lang_name.$this->lang.text", "modules.lang_name.$this->lang.text" ,'req required')
             ->addActionButton($this->update,'update','update')
             ->addActionButton($this->delete,'delete','delete')
+            ->addComponent(view('utilities::page._custom_module')->renderSections()['component'] ,[
+                ['selector' => '#custom-module-temp' , 'targetAttr' => 'html' ,'rowVal' => 'custom_module_temp']
+            ])
+            ->addBlade(view('utilities::page._custom_module')->renderSections()['script'])
             ->addNavButton()
             ->render();
     }

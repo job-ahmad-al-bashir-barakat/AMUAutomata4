@@ -406,81 +406,249 @@ var APP = {
         }
     },
 
-    GMap : function () {
+    GMap : {
 
-        // -------------------------
-        // Map Style definition
-        // -------------------------
+        autocompleteMap : function (map) {
 
-        // Custom core styles
-        // Get more styles from http://snazzymaps.com/style/29/light-monochrome
-        // - Just replace and assign to 'MapStyles' the new style array
-        var MapStyles = [{featureType:'water',stylers:[{visibility:'on'},{color:'#bdd1f9'}]},{featureType:'all',elementType:'labels.text.fill',stylers:[{color:'#334165'}]},{featureType:'landscape',stylers:[{color:'#e9ebf1'}]},{featureType:'road.highway',elementType:'geometry',stylers:[{color:'#c5c6c6'}]},{featureType:'road.arterial',elementType:'geometry',stylers:[{color:'#fff'}]},{featureType:'road.local',elementType:'geometry',stylers:[{color:'#fff'}]},{featureType:'transit',elementType:'geometry',stylers:[{color:'#d8dbe0'}]},{featureType:'poi',elementType:'geometry',stylers:[{color:'#cfd5e0'}]},{featureType:'administrative',stylers:[{visibility:'on'},{lightness:33}]},{featureType:'poi.park',elementType:'labels',stylers:[{visibility:'on'},{lightness:20}]},{featureType:'road',stylers:[{color:'#d8dbe0',lightness:20}]}];
+            // This example adds a search box to a map, using the Google Place Autocomplete
+            // feature. People can enter geographical searches. The search box will return a
+            // pick list containing a mix of places and predicted search terms.
+
+            // This example requires the Places library. Include the libraries=places
+            // parameter when you first load the API. For example:
+            // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+
+            // var map = new google.maps.Map(document.getElementById('map'), {
+            //     center: {lat: -33.8688, lng: 151.2195},
+            //     zoom: 13,
+            //     mapTypeId: 'roadmap'
+            // });
+            _map = map.obj;
+
+            // Create the search box and link it to the UI element.
+            var input = $(map._this).siblings('.maps-search').find('#component-maps-search').clone()[0];
+            var searchBox = new google.maps.places.SearchBox(input);
+            _map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+            // Bias the SearchBox results towards current map's viewport.
+            _map.addListener('bounds_changed', function() {
+                searchBox.setBounds(_map.getBounds());
+            });
+
+            var markers = [];
+            // Listen for the event fired when the user selects a prediction and retrieve
+            // more details for that place.
+            searchBox.addListener('places_changed', function() {
+                var places = searchBox.getPlaces();
+
+                if (places.length == 0) {
+                    return;
+                }
+
+                // Clear out the old markers.
+                markers.forEach(function(marker) {
+                    marker.setMap(null);
+                });
+                markers = [];
+
+                // For each place, get the icon, name and location.
+                var bounds = new google.maps.LatLngBounds();
+                places.forEach(function(place) {
+                    if (!place.geometry) {
+                        console.log("Returned place contains no geometry");
+                        return;
+                    }
+                    var icon = {
+                        url: place.icon,
+                        size: new google.maps.Size(71, 71),
+                        origin: new google.maps.Point(0, 0),
+                        anchor: new google.maps.Point(17, 34),
+                        scaledSize: new google.maps.Size(25, 25)
+                    };
+
+                    // Create a marker for each place.
+                    _map.clearMarkers();
+                    markers.push(new google.maps.Marker({
+                        map: _map,
+                        // icon: icon,
+                        title: place.name,
+                        position: place.geometry.location
+                    }));
+
+                    if(map.location)
+                        $(map._this).siblings(map.location).val(place.geometry.location.toUrlValue());
+
+                    if(map.lat)
+                        $(map._this).siblings(map.lat).val(place.geometry.location.lat());
+
+                    if(map.lng)
+                        $(map._this).siblings(map.lng).val(place.geometry.location.lng());
+
+                    if (place.geometry.viewport) {
+                        // Only geocodes have viewport.
+                        bounds.union(place.geometry.viewport);
+                    } else {
+                        bounds.extend(place.geometry.location);
+                    }
+                });
+                _map.fitBounds(bounds);
+            });
+        },
+
+        autocompleteMapClick : function (map) {
+
+            _map = map.obj;
+
+            google.maps.event.addListener(_map, 'click', function (event) {
+
+                // Create a marker for each place.
+                _map.clearMarkers();
+                new google.maps.Marker({
+                    map: _map,
+                    // icon: icon.image,
+                    position: new google.maps.LatLng(event.latLng.lat(), event.latLng.lng())
+                });
+
+                if(map.location)
+                    $(map._this).siblings(map.location).val(event.latLng.toUrlValue());
+
+                if(map.lat)
+                    $(map._this).siblings(map.lat).val(event.latLng.lat());
+
+                if(map.lng)
+                    $(map._this).siblings(map.lng).val(event.latLng.lng());
+            });
+        },
+
+        google_map : function () {
+
+            google.maps.Map.prototype.markers = new Array();
+
+            google.maps.Map.prototype.getMarkers = function () {
+                return this.markers
+            };
+
+            google.maps.Map.prototype.clearMarkers = function () {
+                for (var i = 0; i < this.markers.length; i++) {
+                    this.markers[i].setMap(null);
+                }
+                this.markers = new Array();
+            };
+
+            google.maps.Marker.prototype._setMap = google.maps.Marker.prototype.setMap;
+
+            google.maps.Marker.prototype.setMap = function (map) {
+                if (map) {
+                    map.markers[map.markers.length] = this;
+                }
+                this._setMap(map);
+            }
+        },
+
+        init : function () {
+
+            // -------------------------
+            // Map Style definition
+            // -------------------------
+
+            // Custom core styles
+            // Get more styles from http://snazzymaps.com/style/29/light-monochrome
+            // - Just replace and assign to 'MapStyles' the new style array
+            var MapStyles = [{featureType:'water',stylers:[{visibility:'on'},{color:'#bdd1f9'}]},{featureType:'all',elementType:'labels.text.fill',stylers:[{color:'#334165'}]},{featureType:'landscape',stylers:[{color:'#e9ebf1'}]},{featureType:'road.highway',elementType:'geometry',stylers:[{color:'#c5c6c6'}]},{featureType:'road.arterial',elementType:'geometry',stylers:[{color:'#fff'}]},{featureType:'road.local',elementType:'geometry',stylers:[{color:'#fff'}]},{featureType:'transit',elementType:'geometry',stylers:[{color:'#d8dbe0'}]},{featureType:'poi',elementType:'geometry',stylers:[{color:'#cfd5e0'}]},{featureType:'administrative',stylers:[{visibility:'on'},{lightness:33}]},{featureType:'poi.park',elementType:'labels',stylers:[{visibility:'on'},{lightness:20}]},{featureType:'road',stylers:[{color:'#d8dbe0',lightness:20}]}];
 
 
-        // -------------------------
-        // Custom Script
-        // -------------------------
+            // -------------------------
+            // Custom Script
+            // -------------------------
 
-        var mapSelector = '[data-gmap]';
+            var mapSelector = '[data-gmap]';
 
-        if($.fn.gMap) {
-            var gMapRefs = [];
+            if($.fn.gMap) {
+                var gMapRefs = [];
 
-            $(mapSelector).each(function(){
+                var icon = {
+                    image: "{{asset('/images/icons/map-icon-red.png')}}",
+                    iconsize: [32, 39],
+                    iconanchor: [13, 39]
+                };
 
-                var $this   = $(this),
-                    addresses = $this.data('address') && $this.data('address').split(';'),
-                    titles    = $this.data('title') && $this.data('title').split(';'),
-                    zoom      = $this.data('zoom') || 14,
-                    maptype   = $this.data('maptype') || 'ROADMAP', // or 'TERRAIN'
-                    markers   = [];
+                $(mapSelector).each(function(){
 
-                if(addresses) {
-                    for(var a in addresses)  {
-                        if(typeof addresses[a] == 'string') {
-                            markers.push({
-                                address:  addresses[a],
-                                html:     (titles && titles[a]) || '',
-                                popup:    true   /* Always popup */
+                    var $this             = $(this),
+                        addresses         = $this.data('address') && $this.data('address').split(';'),
+                        titles            = $this.data('title') && $this.data('title').split(';'),
+                        zoom              = $this.data('zoom') || 14,
+                        maptype           = $this.data('maptype') || 'ROADMAP', // or 'TERRAIN'
+                        onclick           = $this.data('click') || false,
+                        hasAutocomplete   = $this.data('autocomplete') || false,
+                        geoLocation       = $this.data('location') || { location:"#map-full-location " , lat: "#location" ,lng:"#map-lng-location" },
+                        markers   = [];
+
+                    if(addresses) {
+                        for(var a in addresses)  {
+                            if(typeof addresses[a] == 'string') {
+                                markers.push({
+                                    address:  addresses[a],
+                                    html:     (titles && titles[a]) || '',
+                                    popup:    true,   /* Always popup */
+                                    // icon: icon
+                                });
+                            }
+                        }
+
+                        var options = {
+                            controls: {
+                                panControl:         true,
+                                zoomControl:        true,
+                                mapTypeControl:     true,
+                                scaleControl:       true,
+                                streetViewControl:  true,
+                                overviewMapControl: true
+                            },
+                            doubleclickzoom: false,
+                            scrollwheel: true,
+                            maptype: maptype,
+                            markers: markers,
+                            zoom: zoom,
+                            // More options https://github.com/marioestrada/jQuery-gMap
+                        };
+
+                        var gMap = $this.gMap(options);
+
+                        map = gMap.data('gMap.reference').data.map;
+
+                        if(onclick)
+                            APP.GMap.autocompleteMapClick({
+                                obj : map,
+                                _this : this,
+                                location : geoLocation.location,
+                                lat : geoLocation.lat,
+                                lng : geoLocation.lng,
+                            });
+
+                        if(hasAutocomplete)
+                            APP.GMap.autocompleteMap({
+                                obj : map,
+                                _this : this,
+                                location : geoLocation.location,
+                                lat : geoLocation.lat,
+                                lng : geoLocation.lng,
+                            });
+
+                        var ref = gMap.data('gMap.reference');
+                        // save in the map references list
+                        gMapRefs.push(ref);
+
+                        // set the styles
+                        if($this.data('styled') !== undefined) {
+
+                            ref.setOptions({
+                                styles: MapStyles
                             });
                         }
                     }
-
-                    var options = {
-                        controls: {
-                            panControl:         true,
-                            zoomControl:        true,
-                            mapTypeControl:     true,
-                            scaleControl:       true,
-                            streetViewControl:  true,
-                            overviewMapControl: true
-                        },
-                        doubleclickzoom: false,
-                        scrollwheel: true,
-                        maptype: maptype,
-                        markers: markers,
-                        zoom: zoom
-                        // More options https://github.com/marioestrada/jQuery-gMap
-                    };
-
-                    var gMap = $this.gMap(options);
-
-                    var ref = gMap.data('gMap.reference');
-                    // save in the map references list
-                    gMapRefs.push(ref);
-
-                    // set the styles
-                    if($this.data('styled') !== undefined) {
-
-                        ref.setOptions({
-                            styles: MapStyles
-                        });
-
-                    }
-                }
-
-            }); //each
+                });
+            }
         }
     }
 };
@@ -1666,7 +1834,8 @@ var APP = {
 (function($, window, document) {
   'use strict';
 
- APP.GMap();
+ APP.GMap.google_map();
+ APP.GMap.init();
 
 }(jQuery, window, document));
 
