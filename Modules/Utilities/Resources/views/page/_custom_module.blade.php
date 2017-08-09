@@ -7,11 +7,11 @@
 @section('script')
     <script>
         $(document).on('change','#module-id' ,function () {
-
             // this when you do change
             var id = $(this).val();
-            if(id)
-                $('#datatable-custom-modules-modal #custom-module-temp').html('Hi There' + id); // do your post here
+            $.get("{{ RouteUrls::attributeHtml() }}", {attributeId: id}, function (res) {
+                $('#datatable-custom-modules-modal #custom-module-temp').html('Hi There' + id);
+            });
         });
     </script>
 @endsection

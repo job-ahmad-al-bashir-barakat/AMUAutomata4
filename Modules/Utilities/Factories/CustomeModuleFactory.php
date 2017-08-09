@@ -24,7 +24,7 @@ class CustomeModuleFactory extends GlobalFactory
                     // from madel or db that represent actual html
 
                     //you can take html from relation and
-                return "<textarea>{ add your value here }</textarea>";
+                return "<textarea id='module-textarea-id' class='datatable-text-editor'>{ add your value here }</textarea>";
             })
             ->queryRender();
     }
@@ -47,7 +47,11 @@ class CustomeModuleFactory extends GlobalFactory
             ->addBlade(view('utilities::page._custom_module')->renderSections()['script'])
             ->addNavButton()
             ->onUpdate('')
-            /*->addBlade(view('module-change-script')->render())*/
+            //todo reset, init must be use the selector not an id EX: sets of text area for each supported language
+            ->onModalOpen('<script>
+                            APP_AMU.ckeditor.reset(\'\' ,\'\' ,\'single\' ,\'module-textarea-id\');
+                            APP_AMU.ckeditor.init(\'body\' ,\'.datatable-text-editor\');
+                           </script>')
             ->render();
     }
 

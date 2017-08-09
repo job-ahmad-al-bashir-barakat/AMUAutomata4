@@ -43,4 +43,9 @@ class RouteUrls
     {
         return $this->localizeUrl('menus', 'utilities');
     }
+
+    public function attributeHtml()
+    {
+        return $this->localizeUrl('attribute/html', 'utilities');
+    }
 }
