@@ -10,7 +10,6 @@
 
             // this when you do change
             var id = $(this).val();
-            if(id)
                 $('#datatable-custom-modules-modal #custom-module-temp').html('Hi There' + id); // do your post here
         });
     </script>

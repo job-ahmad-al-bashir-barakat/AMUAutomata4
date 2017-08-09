@@ -77,11 +77,11 @@ trait Dialog
         return $this->checkReturnValue($html ,$custom);
     }
 
-    protected function _addComponent($component)
+    protected function _addComponent($component ,$custom = false)
     {
         $html = $component;
 
-        $this->checkReturnValue($html ,false);
+        return $this->checkReturnValue($html ,$custom);
     }
 
     protected function _InputText($title, $id, $name, $value, $type, $class, $attr , $custom = false)
@@ -184,11 +184,11 @@ trait Dialog
         return $this->checkReturnValue($html ,$custom);
     }
 
-    protected function _addCont($id ,$html ,$class ,$attr)
+    protected function _addCont($id ,$html ,$class ,$attr ,$custom = false)
     {
         $html = "<div id='$id' class='$class' $attr>$html</div>";
 
-        $this->checkReturnValue($html ,false);
+        return $this->checkReturnValue($html ,$custom);
     }
 
     protected function _startCont($id ,$class ,$attr ,$custom = false)

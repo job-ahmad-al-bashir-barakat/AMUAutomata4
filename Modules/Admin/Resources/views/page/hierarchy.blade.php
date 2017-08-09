@@ -15,12 +15,12 @@
 @section('footer')
 
     @component('controle.component.modal', [
-        'id'                => 'modal-hierarchy-tree',
-        'title'             => trans('admin::app.hierarchy'),
-        'action'            => treeUrl($view),
-        'successFunc'       => 'hierarchyMenu',
-        'deleteSerialize'   => true,
-        'attr'              => ['data-tree-target' => 'hierarchy-tree']
+        'id'                  => 'modal-hierarchy-tree',
+        'title'               => trans('admin::app.hierarchy'),
+        'action'              => treeUrl($view),
+        'successFunc'         => 'hierarchyMenu',
+        'stopDeleteSerialize' => true,
+        'attr'                => ['data-tree-target' => 'hierarchy-tree']
     ])
         {{ Form::bsPrimarykey('id' ,'id' ,null ,'' ,['data-json' => 'id']) }}
         {{ Form::bsHidden('order' ,'order' ,null ,'' ,['data-json' => 'order']) }}

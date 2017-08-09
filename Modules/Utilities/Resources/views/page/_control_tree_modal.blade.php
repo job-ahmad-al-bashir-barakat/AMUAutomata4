@@ -1,10 +1,10 @@
 @component('controle.component.modal', [
-    'id'                => 'modal-control-tree',
-    'title'             => trans('utilities::app.control_menu'),
-    'action'            => treeUrl($view),
-    'successFunc'       => 'controlMenu',
-    'deleteSerialize'   => true,
-    'attr'              => ['data-tree-target' => 'control-tree']
+    'id'                  => 'modal-control-tree',
+    'title'               => trans('utilities::app.control_menu'),
+    'action'              => treeUrl($view),
+    'successFunc'         => 'controlMenu',
+    'stopDeleteSerialize' => true,
+    'attr'                => ['data-tree-target' => 'control-tree']
 ])
     {{ Form::bsPrimarykey('id' ,'id' ,null ,'' ,['data-json' => 'id']) }}
     {{ Form::bsHidden('control_page_id' ,'control_page_id' ,null ,'' ,['data-json' => 'control-page-id']) }}
