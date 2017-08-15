@@ -20,11 +20,12 @@ class CustomeModuleFactory extends GlobalFactory
             ->queryUpdateButton('id')
             ->queryDeleteButton('id')
             ->queryAddColumn('custom_module_temp' ,function ($item) {
+
                     // this property is just for test please use actual property
                     // from madel or db that represent actual html
 
                     //you can take html from relation and
-                return "<textarea id='module-textarea-id' class='datatable-text-editor'>{ add your value here }</textarea>";
+                return "<textarea id='module-textarea-id' class='datatable-text-editor'>{$item}</textarea>";
             })
             ->queryRender();
     }

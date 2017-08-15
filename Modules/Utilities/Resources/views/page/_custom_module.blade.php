@@ -9,9 +9,18 @@
         $(document).on('change','#module-id' ,function () {
             // this when you do change
             var id = $(this).val();
-            $.get("{{ RouteUrls::attributeHtml() }}", {attributeId: id}, function (res) {
-                $('#datatable-custom-modules-modal #custom-module-temp').html('Hi There' + id);
-            });
+            if(id) {
+                $.get("{{ RouteUrls::attributeHtml() }}", {attributeId: id}, function (res) {
+                    $('#datatable-custom-modules-modal #custom-module-temp').html(res.html);
+
+                    if(res.id == 2){
+                        APP_AMU.ckeditor.reset('' ,'' ,'single' ,'module-textarea-id');
+                        APP_AMU.ckeditor.init('body' ,'.datatable-text-editor');
+                    }
+                });
+            } else {
+                $('#datatable-custom-modules-modal #custom-module-temp').html('');
+            }
         });
     </script>
 @endsection
