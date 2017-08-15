@@ -25,7 +25,13 @@ class Attribute
     public static function setAttribute($attributeId)
     {
         switch ($attributeId) {
+            case 1:
+                return new StatusAttribute();
             case 2:
+                return new WidthAttribute();
+            case 3:
+                return new LimitAttribute();
+            case 4:
                 return new TextEditorAttribute();
 
             default:

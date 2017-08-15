@@ -3,14 +3,14 @@
 namespace Modules\Utilities\WebModules\Attributes;
 
 
-class TextEditorAttribute extends Attribute
+class LimitAttribute extends Attribute
 {
 
-    public $id = '4';
+    public $id = '3';
 
-    public $code = 'text_editor';
+    public $code = 'limit';
 
-    public $viewName = 'texteditor';
+    public $viewName = 'limit';
 
     public function getAttributeHtml()
     {

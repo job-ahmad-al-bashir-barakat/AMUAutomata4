@@ -3,14 +3,14 @@
 namespace Modules\Utilities\WebModules\Attributes;
 
 
-class TextEditorAttribute extends Attribute
+class WidthAttribute extends Attribute
 {
 
-    public $id = '4';
+    public $id = '2';
 
-    public $code = 'text_editor';
+    public $code = 'width';
 
-    public $viewName = 'texteditor';
+    public $viewName = 'width';
 
     public function getAttributeHtml()
     {
