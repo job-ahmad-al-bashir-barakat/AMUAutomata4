@@ -25,7 +25,6 @@ class Attribute
     public static function setAttribute($attributeId)
     {
         switch ($attributeId) {
-            case 1:
             case 2:
                 return new TextEditorAttribute();
 
