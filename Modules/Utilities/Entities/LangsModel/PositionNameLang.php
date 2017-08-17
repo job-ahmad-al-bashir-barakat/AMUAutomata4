@@ -1,10 +1,10 @@
 <?php
 
-namespace Modules\Utilities\Entities;
+namespace Modules\Utilities\Entities\LangsModel;
 
+use Modules\Utilities\Traits\LangInfo;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Modules\Utilities\Traits\LangInfo;
 
 class PositionNameLang extends Model
 {
