@@ -3,7 +3,7 @@
     <div class="col-lg-8">
         <select name="webModule[status]" id="status" class="form-control required req">
             <option></option>
-            <option value="E">Enable</option>
+            <option selected value="E">Enable</option>
             <option value="D">Disable</option>
         </select>
         <div id="error_status"></div>

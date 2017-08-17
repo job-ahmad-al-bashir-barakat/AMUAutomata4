@@ -7,10 +7,13 @@ class Attribute
 {
     public $id;
     public $code;
+    public $viewPath;
     public $viewName;
 
+    protected $multiLang = false;
+
     private $baseViewPath = 'utilities::web-modules.attributes';
-    public $viewPath;
+
 
     public function __construct()
     {

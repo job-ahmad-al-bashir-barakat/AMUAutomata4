@@ -29,13 +29,16 @@ trait MultiLangs
         $supportedLocale = LaravelLocalization::getSupportedLanguagesKeys();
         $status = parent::save($input);
 
+//        if(class_basename($this) == 'CustomModuleAttributeValue')
+//            dd($this, array_keys($this->getGlobalScopes()), $this->removedScopes());
+//        if(in_array('Modules\Utilities\Scopes\MultiLangScope', array_keys($this->getGlobalScopes())) && !in_array('Modules\Utilities\Scopes\MultiLangScope', array_keys($this->removedScopes())))
+
         //update by basheer
         //I need this because in tree when i reorder the tree i dont need to save transName so I
         //stoped it with request stopOper if you find onther way i will apply it.
         if(request('stopTransSaveOper' ,true))
         {
             $object = static::allLangs()->where('id', '=', $this->id)->first();
-//          dd($this->allLangs()->where('id', '=', $this->id)->first(), $this);
 
             foreach ($transMethod as $method)// each trans in the model ex:: user_name user_summary
             {

@@ -2,8 +2,10 @@
 
 namespace Modules\Utilities\WebModules\Modules;
 
-
+use Modules\Utilities\Entities\CustomModule;
+use Modules\Utilities\Entities\CustomModuleAttributeValue;
 use Modules\Utilities\WebModules\Attributes\Attribute;
+use Modules\Utilities\Entities\Attribute as AttrModel;
 
 class Module
 {
@@ -20,7 +22,7 @@ class Module
     }
 
 
-    public function getModuleAttributeHtml()
+    public function getModuleAttributeHtml($id = false)
     {
         $data = \Modules\Utilities\Entities\Module::find($this->id)->with(['attributes'])->first();
         $moduleAttribute = $data->attributes;
@@ -34,11 +36,18 @@ class Module
         return $htmlResult;
     }
 
-    public function saveModuleAttributesValue($customModule, $customModuleAttributeValues)
+    public function saveModuleAttributesValue(CustomModule $customModule, $customModuleAttributeValues)
     {
-        $attributeValue = '';// object of model
+        // todo each attribute class must have save function and the module save use it
+        // todo in attribute class must Use "withoutTrans" | "stopTransSaveOper" to stop trying saving multi in none multi attributes
+        request()->merge(['stopTransSaveOper' => false]);
 
-        $customModule->attributeValue()->save($attributeValue);
+        foreach ($customModuleAttributeValues as $attCode => $customModuleAttributeValue) {
+            $att = AttrModel::where('code' ,'=', $attCode)->first();
+            $custModAttVal = new CustomModuleAttributeValue();
+            $custModAttVal->fill(['attribute_id' => $att->id, 'value' => $customModuleAttributeValue]);
+            $customModule->attributeValues()->save($custModAttVal);
+        }
     }
 
 

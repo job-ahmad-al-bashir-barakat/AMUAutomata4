@@ -2,9 +2,9 @@
 
 namespace Modules\Utilities\Entities;
 
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Kalnoy\Nestedset\NodeTrait;
 use Modules\Utilities\Traits\MultiLangs;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class ControlMenu extends \Eloquent
 {
