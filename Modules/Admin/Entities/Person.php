@@ -2,9 +2,13 @@
 
 namespace Modules\Admin\Entities;
 
-use Illuminate\Database\Eloquent\SoftDeletes;
-use Modules\Utilities\Traits\MultiLangs;
 use Illuminate\Support\Str;
+use Modules\Utilities\Entities\Gender;
+use Modules\Utilities\Entities\JobTitle;
+use Modules\Utilities\Entities\Position;
+use Modules\Utilities\Traits\MultiLangs;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Modules\Admin\Entities\LangModels\PersonNameLang;
 
 class Person extends \Eloquent
 {

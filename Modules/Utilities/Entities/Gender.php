@@ -4,7 +4,7 @@ namespace Modules\Utilities\Entities;
 
 use Modules\Utilities\Traits\MultiLangs;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Modules\Utilities\Entities\LangsModel\GenderNameLang;
+use Modules\Utilities\Entities\LangModels\GenderNameLang;
 
 class Gender extends \Eloquent
 {

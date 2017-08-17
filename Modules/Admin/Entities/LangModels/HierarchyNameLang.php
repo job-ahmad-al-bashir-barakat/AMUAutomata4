@@ -1,14 +1,14 @@
 <?php
 
-namespace Modules\Utilities\Entities\LangsModel;
+namespace Modules\Admin\Entities\LangModels;
 
 use Modules\Utilities\Traits\LangInfo;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class JobTitleNameLang extends Model
+class HierarchyNameLang extends Model
 {
     use SoftDeletes ,LangInfo;
 
-    protected $fillable = ['lang_id' ,'job_title_id' ,'text'];
+    protected $fillable = ['hierarchy_id' ,'lang_id' ,'text'];
 }

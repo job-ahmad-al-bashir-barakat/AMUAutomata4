@@ -5,8 +5,8 @@ namespace Modules\Utilities\Entities;
 use Illuminate\Database\Eloquent\Model;
 use Modules\Utilities\Traits\MultiLangs;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Modules\Utilities\Entities\LangsModel\UserNameLang;
-use Modules\Utilities\Entities\LangsModel\UserSummaryLang;
+use Modules\Utilities\Entities\LangModels\UserNameLang;
+use Modules\Utilities\Entities\LangModels\UserSummaryLang;
 
 class User extends Model
 {

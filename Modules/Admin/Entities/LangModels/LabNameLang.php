@@ -1,11 +1,11 @@
 <?php
 
-namespace Modules\Admin\Entities;
+namespace Modules\Admin\Entities\LangModels;
 
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Modules\Utilities\Traits\LangInfo;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
-class LabDescriptionLang extends \Eloquent
+class LabNameLang extends \Eloquent
 {
     use SoftDeletes ,LangInfo;
 
