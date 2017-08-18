@@ -7,10 +7,20 @@
 @section('script')
     <script>
         $(document).on('change','#module-id' ,function () {
-
             // this when you do change
             var id = $(this).val();
-                $('#datatable-custom-modules-modal #custom-module-temp').html('Hi There' + id); // do your post here
+            var $template = $('#datatable-custom-modules-modal #custom-module-temp');
+            if(id) {
+                $.get("{{ RouteUrls::moduleAttributesInputs() }}", {customModuleId: id}, function (res) {
+                    $template.html(res.html);
+                    if($template.find('.datatable-text-editor').length){
+                        APP_AMU.ckeditor.reset('' ,'' ,'single' ,'module-textarea-id');
+                        APP_AMU.ckeditor.init('body' ,'.datatable-text-editor');
+                    }
+                });
+            } else {
+                $template.html('');
+            }
         });
     </script>
 @endsection

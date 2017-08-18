@@ -43,4 +43,14 @@ class RouteUrls
     {
         return $this->localizeUrl('menus', 'utilities');
     }
+
+    public function attributeHtml()
+    {
+        return $this->localizeUrl('attribute/html', 'utilities');
+    }
+
+    public function moduleAttributesInputs()
+    {
+        return $this->localizeUrl('module/attributes', 'utilities');
+    }
 }
