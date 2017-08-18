@@ -1,14 +1,15 @@
 <?php
 
-namespace Modules\Utilities\Entities;
+namespace Modules\Utilities\Entities\LangModels;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Modules\Utilities\Traits\LangInfo;
 
-class PositionNameLang extends Model
+class UserNameLang extends Model
 {
     use SoftDeletes ,LangInfo;
 
-    protected $fillable = ['lang_id' ,'position_id' ,'text'];
+    protected $fillable = ['lang_id', 'user_id', 'text'];
+
 }

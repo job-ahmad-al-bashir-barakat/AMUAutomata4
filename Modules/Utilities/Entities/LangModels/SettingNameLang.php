@@ -1,9 +1,9 @@
 <?php
 
-namespace Modules\Utilities\Entities;
+namespace Modules\Utilities\Entities\LangModels;
 
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Modules\Utilities\Traits\LangInfo;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class SettingNameLang extends \Eloquent
 {

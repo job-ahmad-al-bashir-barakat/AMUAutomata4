@@ -1,1 +1,7 @@
-<textarea id='module-textarea-id' class='datatable-text-editor' name=""></textarea>
+<div class="form-group ">
+    <label class="col-lg-3 control-label" for="module-texteditor">Text Editor  <span class="text-danger">*</span>  </label>
+    <div class="col-lg-8">
+        <textarea id='module-texteditor' class='datatable-text-editor' name="webModule[texteditor]"></textarea>
+        {{--<div id="error_module-texteditor"></div>--}}
+    </div>
+</div>

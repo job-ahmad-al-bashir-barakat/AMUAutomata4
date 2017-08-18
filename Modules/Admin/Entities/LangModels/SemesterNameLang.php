@@ -1,9 +1,9 @@
 <?php
 
-namespace Modules\Admin\Entities;
+namespace Modules\Admin\Entities\LangModels;
 
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Modules\Utilities\Traits\LangInfo;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class SemesterNameLang extends \Eloquent
 {

@@ -5,7 +5,7 @@ namespace Modules\Utilities\Entities;
 use Modules\Admin\Entities\Contact;
 use Modules\Utilities\Traits\MultiLangs;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Modules\Utilities\Entities\LangsModel\SocialNetworkNameLang;
+use Modules\Utilities\Entities\LangModels\SocialNetworkNameLang;
 
 class SocialNetwork extends \Eloquent
 {

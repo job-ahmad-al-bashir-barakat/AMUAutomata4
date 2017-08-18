@@ -28,10 +28,17 @@ class Module
         $htmlResult = '';
 
         foreach ($moduleAttribute as $attribute) {
-            $htmlResult .= Attribute::setAttribute($attribute->id)->getAttributeHtml() . "<br>";
+            $htmlResult .= Attribute::setAttribute($attribute->id)->getAttributeHtml();
         }
 
         return $htmlResult;
+    }
+
+    public function saveModuleAttributesValue($customModule, $customModuleAttributeValues)
+    {
+        $attributeValue = '';// object of model
+
+        $customModule->attributeValue()->save($attributeValue);
     }
 
 

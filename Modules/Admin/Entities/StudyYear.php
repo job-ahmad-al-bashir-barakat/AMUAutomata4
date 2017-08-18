@@ -2,8 +2,9 @@
 
 namespace Modules\Admin\Entities;
 
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Modules\Utilities\Traits\MultiLangs;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Modules\Admin\Entities\LangModels\StudyYearNameLang;
 
 class StudyYear extends \Eloquent
 {
