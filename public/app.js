@@ -410,7 +410,6 @@ var APP = {
 
         gMapRefs : [],
 
-
         // -------------------------
         // Map Style definition
         // -------------------------
@@ -613,10 +612,11 @@ var APP = {
             _map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(controlDiv);
         },
 
-        googleMapExtraFunction : function () {
+        googleMapExtraFunction : function ($mapLoaded) {
 
-            if(typeof(google) != 'undefined' && typeof($.fn.gMap) != 'undefined')
+            if(typeof(google) != 'undefined' && typeof($.fn.gMap) != 'undefined' && !$mapLoaded)
             {
+                console.log('done');
                 google.maps.Map.prototype.markers = new Array();
 
                 google.maps.Map.prototype.getMarkers = function () {
@@ -641,17 +641,6 @@ var APP = {
             }
         },
 
-        googleMapOnLoad : function () {
-
-            if(typeof(google) != 'undefined' && typeof($.fn.gMap) != 'undefined') {
-
-                google.maps.event.addDomListener(window, 'load', function () {
-
-                    APP.GMap.googleMapExtraFunction();
-                });
-            }
-        },
-
         setMapWithMarker : function (param , options, geoLocation) {
 
             for(var current in geoLocation)  {
@@ -670,39 +659,45 @@ var APP = {
 
             var map = gMap.data('gMap.reference').data.map;
 
+            var _e = {
+                obj : map,
+                _this : param.this,
+                location : param.geoLocationInputSelector.location,
+                lat : param.geoLocationInputSelector.lat,
+                lng : param.geoLocationInputSelector.lng,
+            };
+
             if(param.onclick)
-                APP.GMap.onMapClick({
-                    obj : map,
-                    _this : param.this,
-                    location : param.geoLocationInputSelector.location,
-                    lat : param.geoLocationInputSelector.lat,
-                    lng : param.geoLocationInputSelector.lng,
-                });
+                APP.GMap.onMapClick(_e);
 
             if(param.hasAutocomplete)
-                APP.GMap.autocompleteMap({
-                    obj : map,
-                    _this : param.this,
-                    location : param.geoLocationInputSelector.location,
-                    lat : param.geoLocationInputSelector.lat,
-                    lng : param.geoLocationInputSelector.lng,
-                });
+                APP.GMap.autocompleteMap(_e);
 
             if(param.hasNavigator)
-                APP.GMap.yourLocationNavigatorGeoLocationButton({
-                    obj : map,
-                    _this : param.this,
-                    location : param.geoLocationInputSelector.location,
-                    lat : param.geoLocationInputSelector.lat,
-                    lng : param.geoLocationInputSelector.lng,
-                });
+                APP.GMap.yourLocationNavigatorGeoLocationButton(_e);
 
-            google.maps.event.addListenerOnce(map, 'idle', function(){
+            google.maps.event.addListenerOnce(map, 'idle', function() {
                 // do something only the first time the map is loaded
                 var $map = $(this.__gm.R);
+
+                //if you need no stop load map en each time open modal put an attribute data-map-reload = false
                 if(!JSON.parse($map.attr('data-map-reload')))
                     $map.attr('data-initialize' ,false);
+
+                //laod event extra when first map is loaded
+                var mapEventLoaded = $('body').attr('data-map-event-loaded');
+                    mapEventLoaded = typeof mapEventLoaded != typeof undefined
+                                  ? JSON.parse(mapEventLoaded)
+                                  : false;
+
+                APP.GMap.googleMapExtraFunction(mapEventLoaded);
+
+                //this to make sure event will not load again
+                $('body').attr('data-map-event-loaded' ,true);
             });
+
+            //google.maps.event.addDomListener(map, 'load', function () { });
+            //google.maps.event.addListenerOnce(map, 'tilesloaded', function () { });
 
             var ref = gMap.data('gMap.reference');
             // save in the map references list
@@ -1973,7 +1968,6 @@ var APP = {
 (function($, window, document) {
   'use strict';
 
-    APP.GMap.googleMapOnLoad();
     APP.GMap.init();
 
 }(jQuery, window, document));
