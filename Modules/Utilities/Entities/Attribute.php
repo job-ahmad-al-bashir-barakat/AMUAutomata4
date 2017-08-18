@@ -3,9 +3,9 @@
 namespace Modules\Utilities\Entities;
 
 use Illuminate\Database\Eloquent\Model;
-use Modules\Utilities\Traits\MultiLangs;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Modules\Utilities\Entities\LangsModel\AttributeNameLang;
+use Modules\Utilities\Entities\LangModels\AttributeNameLang;
+use Modules\Utilities\Traits\MultiLangs;
 
 class Attribute extends Model
 {

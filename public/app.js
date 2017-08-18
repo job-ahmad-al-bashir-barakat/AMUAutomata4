@@ -408,104 +408,123 @@ var APP = {
 
     GMap : {
 
+        gMapRefs : [],
+
+
+        // -------------------------
+        // Map Style definition
+        // -------------------------
+
+        // Custom core styles
+        // Get more styles from http://snazzymaps.com/style/29/light-monochrome
+        // - Just replace and assign to 'MapStyles' the new style array
+        MapStyles  : [{featureType:'water',stylers:[{visibility:'on'},{color:'#bdd1f9'}]},{featureType:'all',elementType:'labels.text.fill',stylers:[{color:'#334165'}]},{featureType:'landscape',stylers:[{color:'#e9ebf1'}]},{featureType:'road.highway',elementType:'geometry',stylers:[{color:'#c5c6c6'}]},{featureType:'road.arterial',elementType:'geometry',stylers:[{color:'#fff'}]},{featureType:'road.local',elementType:'geometry',stylers:[{color:'#fff'}]},{featureType:'transit',elementType:'geometry',stylers:[{color:'#d8dbe0'}]},{featureType:'poi',elementType:'geometry',stylers:[{color:'#cfd5e0'}]},{featureType:'administrative',stylers:[{visibility:'on'},{lightness:33}]},{featureType:'poi.park',elementType:'labels',stylers:[{visibility:'on'},{lightness:20}]},{featureType:'road',stylers:[{color:'#d8dbe0',lightness:20}]}],
+
+        // -------------------------
+        // Map Function
+        // -------------------------
+
         autocompleteMap : function (map) {
 
-            // This example adds a search box to a map, using the Google Place Autocomplete
-            // feature. People can enter geographical searches. The search box will return a
-            // pick list containing a mix of places and predicted search terms.
+                    // This example adds a search box to a map, using the Google Place Autocomplete
+                    // feature. People can enter geographical searches. The search box will return a
+                    // pick list containing a mix of places and predicted search terms.
 
-            // This example requires the Places library. Include the libraries=places
-            // parameter when you first load the API. For example:
-            // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+                    // This example requires the Places library. Include the libraries=places
+                    // parameter when you first load the API. For example:
+                    // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
 
-            // var map = new google.maps.Map(document.getElementById('map'), {
-            //     center: {lat: -33.8688, lng: 151.2195},
-            //     zoom: 13,
-            //     mapTypeId: 'roadmap'
-            // });
-            _map = map.obj;
+                    // var map = new google.maps.Map(document.getElementById('map'), {
+                    //     center: {lat: -33.8688, lng: 151.2195},
+                    //     zoom: 13,
+                    //     mapTypeId: 'roadmap'
+                    // });
 
-            // Create the search box and link it to the UI element.
-            var input = $(map._this).siblings('.maps-search').find('#component-maps-search').clone()[0];
-            var searchBox = new google.maps.places.SearchBox(input);
-            _map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+                    var _map = map.obj;
 
-            // Bias the SearchBox results towards current map's viewport.
-            _map.addListener('bounds_changed', function() {
-                searchBox.setBounds(_map.getBounds());
-            });
+                    // Create the search box and link it to the UI element.
+                    var input = $(map._this).siblings('.maps-search').find('#component-maps-search').clone()[0];
+                    var searchBox = new google.maps.places.SearchBox(input);
+                    _map.controls[google.maps.ControlPosition.TOP_RIGHT].push(input);
 
-            var markers = [];
-            // Listen for the event fired when the user selects a prediction and retrieve
-            // more details for that place.
-            searchBox.addListener('places_changed', function() {
-                var places = searchBox.getPlaces();
+                    // Bias the SearchBox results towards current map's viewport.
+                    _map.addListener('bounds_changed', function() {
+                        searchBox.setBounds(_map.getBounds());
+                    });
 
-                if (places.length == 0) {
-                    return;
-                }
+                    var markers = [];
+                    // Listen for the event fired when the user selects a prediction and retrieve
+                    // more details for that place.
+                    searchBox.addListener('places_changed', function() {
+                        var places = searchBox.getPlaces();
 
-                // Clear out the old markers.
-                markers.forEach(function(marker) {
-                    marker.setMap(null);
-                });
-                markers = [];
+                        if (places.length == 0) {
+                            return;
+                        }
 
-                // For each place, get the icon, name and location.
-                var bounds = new google.maps.LatLngBounds();
-                places.forEach(function(place) {
-                    if (!place.geometry) {
-                        console.log("Returned place contains no geometry");
-                        return;
-                    }
-                    var icon = {
-                        url: place.icon,
-                        size: new google.maps.Size(71, 71),
-                        origin: new google.maps.Point(0, 0),
-                        anchor: new google.maps.Point(17, 34),
-                        scaledSize: new google.maps.Size(25, 25)
-                    };
+                        // Clear out the old markers.
+                        markers.forEach(function(marker) {
+                            marker.setMap(null);
+                        });
+                        markers = [];
 
-                    // Create a marker for each place.
-                    _map.clearMarkers();
-                    markers.push(new google.maps.Marker({
-                        map: _map,
-                        // icon: icon,
-                        title: place.name,
-                        position: place.geometry.location
-                    }));
+                        // For each place, get the icon, name and location.
+                        var bounds = new google.maps.LatLngBounds();
+                        places.forEach(function(place) {
+                            if (!place.geometry) {
+                                console.log("Returned place contains no geometry");
+                                return;
+                            }
+                            var icon = {
+                                url: place.icon,
+                                size: new google.maps.Size(71, 71),
+                                origin: new google.maps.Point(0, 0),
+                                anchor: new google.maps.Point(17, 34),
+                                scaledSize: new google.maps.Size(25, 25)
+                            };
 
-                    if(map.location)
-                        $(map._this).siblings(map.location).val(place.geometry.location.toUrlValue());
+                            // Create a marker for each place.
+                            _map.clearMapMarkers();
+                            markers.push(new google.maps.Marker({
+                                map: _map,
+                                // icon: icon,
+                                title: place.name,
+                                position: place.geometry.location,
+                                animation: google.maps.Animation.DROP,
+                            }));
 
-                    if(map.lat)
-                        $(map._this).siblings(map.lat).val(place.geometry.location.lat());
+                            if(map.location)
+                                $(map._this).siblings(map.location).val(place.geometry.location.toUrlValue());
 
-                    if(map.lng)
-                        $(map._this).siblings(map.lng).val(place.geometry.location.lng());
+                            if(map.lat)
+                                $(map._this).siblings(map.lat).val(place.geometry.location.lat());
 
-                    if (place.geometry.viewport) {
-                        // Only geocodes have viewport.
-                        bounds.union(place.geometry.viewport);
-                    } else {
-                        bounds.extend(place.geometry.location);
-                    }
-                });
-                _map.fitBounds(bounds);
-            });
-        },
+                            if(map.lng)
+                                $(map._this).siblings(map.lng).val(place.geometry.location.lng());
 
-        autocompleteMapClick : function (map) {
+                            if (place.geometry.viewport) {
+                                // Only geocodes have viewport.
+                                bounds.union(place.geometry.viewport);
+                            } else {
+                                bounds.extend(place.geometry.location);
+                            }
+                        });
+                        _map.fitBounds(bounds);
+                    });
+                },
 
-            _map = map.obj;
+        onMapClick : function (map) {
+
+            var _map = map.obj;
 
             google.maps.event.addListener(_map, 'click', function (event) {
 
                 // Create a marker for each place.
-                _map.clearMarkers();
+                _map.clearMapMarkers();
                 new google.maps.Marker({
                     map: _map,
                     // icon: icon.image,
+                    animation: google.maps.Animation.DROP,
                     position: new google.maps.LatLng(event.latLng.lat(), event.latLng.lng())
                 });
 
@@ -520,51 +539,189 @@ var APP = {
             });
         },
 
-        google_map : function () {
+        yourLocationNavigatorGeoLocationButton :  function (map) {
+            var _map = map.obj;
 
-            google.maps.Map.prototype.markers = new Array();
+            var controlDiv = document.createElement('div');
 
-            google.maps.Map.prototype.getMarkers = function () {
-                return this.markers
-            };
+            var firstChild = document.createElement('button');
+            firstChild.style.backgroundColor = '#fff';
+            firstChild.style.border = 'none';
+            firstChild.style.outline = 'none';
+            firstChild.style.width = '28px';
+            firstChild.style.height = '28px';
+            firstChild.style.borderRadius = '2px';
+            firstChild.style.boxShadow = '0 1px 4px rgba(0,0,0,0.3)';
+            firstChild.style.cursor = 'pointer';
+            firstChild.style.marginRight = '10px';
+            firstChild.style.padding = '0';
+            firstChild.title = 'Your Location';
+            controlDiv.appendChild(firstChild);
 
-            google.maps.Map.prototype.clearMarkers = function () {
-                for (var i = 0; i < this.markers.length; i++) {
-                    this.markers[i].setMap(null);
+            var secondChild = document.createElement('div');
+            secondChild.style.margin = '5px';
+            secondChild.style.width = '18px';
+            secondChild.style.height = '18px';
+            secondChild.style.backgroundImage = 'url(https://maps.gstatic.com/tactile/mylocation/mylocation-sprite-2x.png)';
+            secondChild.style.backgroundSize = '180px 18px';
+            secondChild.style.backgroundPosition = '0 0';
+            secondChild.style.backgroundRepeat = 'no-repeat';
+            firstChild.appendChild(secondChild);
+
+            google.maps.event.addListener(_map, 'center_changed', function () {
+                secondChild.style['background-position'] = '0 0';
+            });
+
+            firstChild.addEventListener('click', function () {
+                var imgX = '0',
+                    animationInterval = setInterval(function () {
+                        imgX = imgX === '-18' ? '0' : '-18';
+                        secondChild.style['background-position'] = imgX+'px 0';
+                    }, 500);
+
+                if(navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(function(position) {
+                        var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+                        _map.clearMapMarkers();
+                        _map.setCenter(latlng);
+                        new google.maps.Marker({
+                            map: _map,
+                            // icon: icon.image,
+                            animation: google.maps.Animation.DROP,
+                            position: latlng
+                        });
+
+                        if(map.location)
+                            $(map._this).siblings(map.location).val(latlng.toUrlValue());
+
+                        if(map.lat)
+                            $(map._this).siblings(map.lat).val(position.coords.latitude);
+
+                        if(map.lng)
+                            $(map._this).siblings(map.lng).val(position.coords.longitude);
+
+                        clearInterval(animationInterval);
+                        secondChild.style['background-position'] = '-144px 0';
+                    });
+                } else {
+                    clearInterval(animationInterval);
+                    secondChild.style['background-position'] = '0 0';
                 }
-                this.markers = new Array();
-            };
+            });
 
-            google.maps.Marker.prototype._setMap = google.maps.Marker.prototype.setMap;
+            controlDiv.index = 1;
+            _map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(controlDiv);
+        },
 
-            google.maps.Marker.prototype.setMap = function (map) {
-                if (map) {
-                    map.markers[map.markers.length] = this;
+        googleMapExtraFunction : function () {
+
+            if(typeof(google) != 'undefined' && typeof($.fn.gMap) != 'undefined')
+            {
+                google.maps.Map.prototype.markers = new Array();
+
+                google.maps.Map.prototype.getMarkers = function () {
+                    return this.markers
+                };
+
+                google.maps.Map.prototype.clearMapMarkers = function () {
+                    for (var i = 0; i < this.markers.length; i++) {
+                        this.markers[i].setMap(null);
+                    }
+                    this.markers = new Array();
+                };
+
+                google.maps.Marker.prototype._setMap = google.maps.Marker.prototype.setMap;
+
+                google.maps.Marker.prototype.setMap = function (map) {
+                    if (map) {
+                        map.markers[map.markers.length] = this;
+                    }
+                    this._setMap(map);
                 }
-                this._setMap(map);
             }
         },
 
-        init : function () {
+        googleMapOnLoad : function () {
 
-            // -------------------------
-            // Map Style definition
-            // -------------------------
+            if(typeof(google) != 'undefined' && typeof($.fn.gMap) != 'undefined') {
 
-            // Custom core styles
-            // Get more styles from http://snazzymaps.com/style/29/light-monochrome
-            // - Just replace and assign to 'MapStyles' the new style array
-            var MapStyles = [{featureType:'water',stylers:[{visibility:'on'},{color:'#bdd1f9'}]},{featureType:'all',elementType:'labels.text.fill',stylers:[{color:'#334165'}]},{featureType:'landscape',stylers:[{color:'#e9ebf1'}]},{featureType:'road.highway',elementType:'geometry',stylers:[{color:'#c5c6c6'}]},{featureType:'road.arterial',elementType:'geometry',stylers:[{color:'#fff'}]},{featureType:'road.local',elementType:'geometry',stylers:[{color:'#fff'}]},{featureType:'transit',elementType:'geometry',stylers:[{color:'#d8dbe0'}]},{featureType:'poi',elementType:'geometry',stylers:[{color:'#cfd5e0'}]},{featureType:'administrative',stylers:[{visibility:'on'},{lightness:33}]},{featureType:'poi.park',elementType:'labels',stylers:[{visibility:'on'},{lightness:20}]},{featureType:'road',stylers:[{color:'#d8dbe0',lightness:20}]}];
+                google.maps.event.addDomListener(window, 'load', function () {
 
+                    APP.GMap.googleMapExtraFunction();
+                });
+            }
+        },
 
-            // -------------------------
-            // Custom Script
-            // -------------------------
+        setMapWithMarker : function (param , options, geoLocation) {
 
-            var mapSelector = '[data-gmap]';
+            for(var current in geoLocation)  {
+                if(typeof geoLocation[current] == 'string') {
+                    param.markers.push({
+                        address:  geoLocation[current],
+                        html:     (param.titles && param.titles[current]) || '',
+                        popup:    true,   /* Always popup */
+                        animation: google.maps.Animation.DROP,
+                        // icon: icon
+                    });
+                }
+            }
 
-            if($.fn.gMap) {
-                var gMapRefs = [];
+            var gMap = param.$this.gMap(options);
+
+            var map = gMap.data('gMap.reference').data.map;
+
+            if(param.onclick)
+                APP.GMap.onMapClick({
+                    obj : map,
+                    _this : param.this,
+                    location : param.geoLocationInputSelector.location,
+                    lat : param.geoLocationInputSelector.lat,
+                    lng : param.geoLocationInputSelector.lng,
+                });
+
+            if(param.hasAutocomplete)
+                APP.GMap.autocompleteMap({
+                    obj : map,
+                    _this : param.this,
+                    location : param.geoLocationInputSelector.location,
+                    lat : param.geoLocationInputSelector.lat,
+                    lng : param.geoLocationInputSelector.lng,
+                });
+
+            if(param.hasNavigator)
+                APP.GMap.yourLocationNavigatorGeoLocationButton({
+                    obj : map,
+                    _this : param.this,
+                    location : param.geoLocationInputSelector.location,
+                    lat : param.geoLocationInputSelector.lat,
+                    lng : param.geoLocationInputSelector.lng,
+                });
+
+            google.maps.event.addListenerOnce(map, 'idle', function(){
+                // do something only the first time the map is loaded
+                var $map = $(this.__gm.R);
+                if(!JSON.parse($map.attr('data-map-reload')))
+                    $map.attr('data-initialize' ,false);
+            });
+
+            var ref = gMap.data('gMap.reference');
+            // save in the map references list
+            APP.GMap.gMapRefs.push(ref);
+
+            // set the styles
+            if(param.$this.data('styled') !== undefined) {
+
+                ref.setOptions({
+                    styles: APP.GMap.MapStyles
+                });
+            }
+        },
+
+        init : function (mapSelector ,location) {
+
+            var mapSelector = typeof mapSelector != typeof undefined ? mapSelector : $('[data-gmap]');
+
+            if(typeof(google) != 'undefined' && typeof($.fn.gMap) != 'undefined') {
 
                 var icon = {
                     image: "{{asset('/images/icons/map-icon-red.png')}}",
@@ -572,37 +729,43 @@ var APP = {
                     iconanchor: [13, 39]
                 };
 
-                $(mapSelector).each(function(){
+                mapSelector.each(function() {
 
-                    var $this             = $(this),
-                        addresses         = $this.data('address') && $this.data('address').split(';'),
-                        titles            = $this.data('title') && $this.data('title').split(';'),
-                        zoom              = $this.data('zoom') || 14,
-                        maptype           = $this.data('maptype') || 'ROADMAP', // or 'TERRAIN'
-                        onclick           = $this.data('click') || false,
-                        hasAutocomplete   = $this.data('autocomplete') || false,
-                        geoLocation       = $this.data('location') || { location:"#map-full-location " , lat: "#location" ,lng:"#map-lng-location" },
-                        markers   = [];
+                    var initialize = JSON.parse($(this).attr('data-initialize'));
+                    if(typeof initialize != typeof undefined && initialize)
+                    {
+                        var $this   = $(this),
+                            zoom    = $this.data('zoom') || 14,
+                            maptype = $this.data('maptype') || 'ROADMAP' // or 'TERRAIN'
+                            markers = [];
 
-                    if(addresses) {
-                        for(var a in addresses)  {
-                            if(typeof addresses[a] == 'string') {
-                                markers.push({
-                                    address:  addresses[a],
-                                    html:     (titles && titles[a]) || '',
-                                    popup:    true,   /* Always popup */
-                                    // icon: icon
-                                });
-                            }
-                        }
+                        var param = {
+                            $this                    : $this,
+                            this                     : this,
+                            titles                   : $this.data('title') && $this.data('title').split(';'),
+                            onclick                  : $this.data('click') || false,
+                            hasAutocomplete          : $this.data('autocomplete') || false,
+                            hasNavigator             : $this.data('navigator') || false,
+                            geoLocationInputSelector : $this.data('location') || { location:"#map-full-location " , lat: "#location" ,lng:"#map-lng-location" },
+                            markers                  : markers
+                        };
 
                         var options = {
                             controls: {
                                 panControl:         true,
                                 zoomControl:        true,
                                 mapTypeControl:     true,
+                                mapTypeControlOptions: {
+                                    style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
+                                },
                                 scaleControl:       true,
                                 streetViewControl:  true,
+                                fullscreenControl:  true,
+                                fullscreenControlOptions: {
+                                    style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
+                                    position : google.maps.ControlPosition.BOTTOM_LEFT
+                                },
+                                rotateControl:      true,
                                 overviewMapControl: true
                             },
                             doubleclickzoom: false,
@@ -613,39 +776,15 @@ var APP = {
                             // More options https://github.com/marioestrada/jQuery-gMap
                         };
 
-                        var gMap = $this.gMap(options);
-
-                        map = gMap.data('gMap.reference').data.map;
-
-                        if(onclick)
-                            APP.GMap.autocompleteMapClick({
-                                obj : map,
-                                _this : this,
-                                location : geoLocation.location,
-                                lat : geoLocation.lat,
-                                lng : geoLocation.lng,
+                        if(typeof location != typeof undefined && location)
+                            APP.GMap.setMapWithMarker(param ,options ,location.split(';'));
+                        else if(typeof $this.data('address') != typeof undefined)
+                            APP.GMap.setMapWithMarker(param ,options ,$this.data('address').split(';'));
+                        else if(navigator.geolocation)
+                            navigator.geolocation.getCurrentPosition(function(position) {
+                                var geoLocationNavigator = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+                                APP.GMap.setMapWithMarker(param ,options ,latlng.toUrlValue().split(';'));
                             });
-
-                        if(hasAutocomplete)
-                            APP.GMap.autocompleteMap({
-                                obj : map,
-                                _this : this,
-                                location : geoLocation.location,
-                                lat : geoLocation.lat,
-                                lng : geoLocation.lng,
-                            });
-
-                        var ref = gMap.data('gMap.reference');
-                        // save in the map references list
-                        gMapRefs.push(ref);
-
-                        // set the styles
-                        if($this.data('styled') !== undefined) {
-
-                            ref.setOptions({
-                                styles: MapStyles
-                            });
-                        }
                     }
                 });
             }
@@ -1834,8 +1973,8 @@ var APP = {
 (function($, window, document) {
   'use strict';
 
- APP.GMap.google_map();
- APP.GMap.init();
+    APP.GMap.googleMapOnLoad();
+    APP.GMap.init();
 
 }(jQuery, window, document));
 

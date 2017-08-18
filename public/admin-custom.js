@@ -353,7 +353,6 @@ var APP_AMU = {
      * method : set method form form
      * take-action : is data attribute allow you to take action directly from form without any change from javascript
      *               this will be handy with normal form
-     *
      * ----------------form button attr-----------------
      * data-state               : this data attribute used to show/hide button with primary as helper
      * data-method              : this data attribute used to define type of request post/put/delete please type in lowercase
@@ -365,7 +364,7 @@ var APP_AMU = {
      *
      * > just type function without any braces
      * > you must declare this func in you page if you need to do something
-     * > i passed with this func form and res as param
+     * > I passed with this func form and res as param
      *
      */
     validate: {
@@ -939,11 +938,14 @@ var APP_AMU = {
 
         initGMapInputLocation : function () {
 
-            $(document).on('click' ,'.input-location',function () {
-                var $modal = '#' + $(this).find('input').data('modal');
-                $($modal).on('shown.bs.modal', function (event) {
+            $(document).on('click' ,'.input-location span:first',function () {
+                var $this  = $(this),
+                    $input = $this.prev('input'),
+                    $modal = '#' + $input.data('modal');
+                $($modal).off('shown.bs.modal').on('shown.bs.modal', function (event) {
 
-                    APP.GMap.init();
+                    var location = $input.val();
+                    APP.GMap.init($(this).find('[data-gmap]') ,location);
                 });
                 $($modal).modal('show');
             });

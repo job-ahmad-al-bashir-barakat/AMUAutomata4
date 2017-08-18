@@ -84,11 +84,11 @@ trait Dialog
         return $this->checkReturnValue($html ,$custom);
     }
 
-    protected function _InputText($title, $id, $name, $value, $type, $class, $attr , $custom = false)
+    protected function _Input($title, $id, $name, $value, $type, $class, $attr , $custom = false)
     {
         $star = preg_match('/\b(?<![\S])(req)(?![\S])\b/',$class);
 
-        $html = view('datatable::component.input_text' ,[
+        $html = view('datatable::component.input' ,[
             'id'                => preg_replace('/[\._]/','-' ,$id),
             'data'              => $id,
             'title'             => $title,
