@@ -3,12 +3,15 @@
 namespace Modules\Utilities\WebModules\Modules;
 
 use Modules\Utilities\Entities\CustomModule;
-use Modules\Utilities\Entities\CustomModuleAttributeValue;
 use Modules\Utilities\WebModules\Attributes\Attribute;
+use Modules\Utilities\Entities\Module as ModuleModel;
 use Modules\Utilities\Entities\Attribute as AttrModel;
+use Modules\Utilities\Entities\CustomModuleAttributeValue;
 
 class Module
 {
+    use ModuleTrait;
+
     public $id;
     public $code;
     public $viewName;
@@ -21,16 +24,19 @@ class Module
         $this->viewPath = "{$this->baseViewPath}.{$this->viewName}";
     }
 
-
-    public function getModuleAttributeHtml($id = false)
+    public function getModuleAttributeHtml($customModuleId = false)
     {
-        $data = \Modules\Utilities\Entities\Module::find($this->id)->with(['attributes'])->first();
+        $data = ModuleModel::find($this->id)->with(['attributes'])->first();
         $moduleAttribute = $data->attributes;
 
         $htmlResult = '';
 
         foreach ($moduleAttribute as $attribute) {
-            $htmlResult .= Attribute::setAttribute($attribute->id)->getAttributeHtml();
+            $attribute = Attribute::setAttribute($attribute->id);
+            if($customModuleId) {
+                $attribute->getAttributeValue($customModuleId);
+            }
+            $htmlResult .= $attribute->getAttributeHtml();
         }
 
         return $htmlResult;
@@ -38,31 +44,27 @@ class Module
 
     public function saveModuleAttributesValue(CustomModule $customModule, $customModuleAttributeValues)
     {
-        // todo each attribute class must have save function and the module save use it
-        // todo in attribute class must Use "withoutTrans" | "stopTransSaveOper" to stop trying saving multi in none multi attributes
-        request()->merge(['stopTransSaveOper' => false]);
+        //todo each attribute class must have save function and the module save use it
+        //todo in attribute class must Use "withoutTrans" | "stopTransSaveOper" to stop trying saving multi in none multi attributes
 
+        foreach ($customModuleAttributeValues as $attCode => $customModuleAttributeValue) {
+            $attribute = Attribute::setByAttributeCode($attCode);
+            $attribute->data = $customModuleAttributeValue;
+            //todo try to make multi insert to make one insert query
+            $attribute->saveAttributeValue($customModule);
+        }
+
+        /*request()->merge(['stopTransSaveOper' => false]);
         foreach ($customModuleAttributeValues as $attCode => $customModuleAttributeValue) {
             $att = AttrModel::where('code' ,'=', $attCode)->first();
             $custModAttVal = new CustomModuleAttributeValue();
             $custModAttVal->fill(['attribute_id' => $att->id, 'value' => $customModuleAttributeValue]);
             $customModule->attributeValues()->save($custModAttVal);
-        }
+        }*/
     }
-
 
     public function getModuleHtml()
     {
         throw new \Exception('Method [getModuleHtml] must be override');
-    }
-
-    public static function setModule($moduleId)
-    {
-        switch ($moduleId) {
-            case 2:
-                return new TextEditorModule();
-            default:
-                throw new \Exception('Undefined Web Module');
-        }
     }
 }

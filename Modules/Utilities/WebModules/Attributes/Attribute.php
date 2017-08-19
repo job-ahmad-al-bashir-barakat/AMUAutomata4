@@ -2,43 +2,89 @@
 
 namespace Modules\Utilities\WebModules\Attributes;
 
+use Modules\Utilities\Entities\CustomModule;
+use Modules\Utilities\Entities\CustomModuleAttributeValue;
 
 class Attribute
 {
+    use AttributeTrait;
+
     public $id;
     public $code;
+    public $title;
+    public $values;
     public $viewPath;
     public $viewName;
+    public $validationRules;
+    public $data;
 
     protected $multiLang = false;
 
     private $baseViewPath = 'utilities::web-modules.attributes';
-
 
     public function __construct()
     {
         $this->viewPath = "{$this->baseViewPath}.{$this->viewName}";
     }
 
+    /**
+     * This Function will render the view of the attribute
+     * will pass the $id, $code, $title, $values and $data to the view
+     *
+     * @return string Html
+     */
     public function getAttributeHtml()
     {
-        throw new \Exception('Method [getAttributeHtml] must be override');
+        return view($this->viewPath,
+            [
+                'id'=> $this->id,
+                'code' => $this->code,
+                'title' => $this->title,
+                'values' => $this->values,
+                'data' => $this->data,
+            ]
+        )->render();
     }
 
-    public static function setAttribute($attributeId)
+    /**
+     * This Function will save the attribute value|values
+     *
+     * @param CustomModule $customModule
+     * @return false|\Illuminate\Database\Eloquent\Model
+     */
+    public function saveAttributeValue(CustomModule $customModule)
     {
-        switch ($attributeId) {
-            case 1:
-                return new StatusAttribute();
-            case 2:
-                return new WidthAttribute();
-            case 3:
-                return new LimitAttribute();
-            case 4:
-                return new TextEditorAttribute();
+        //This will stop trying to Save Multi if the Attribute is not a multi lang
+        request()->merge(['stopTransSaveOper' => !$this->multiLang]);//todo update it after fixing Multilangs Trait "save function"
 
-            default:
-                throw new \Exception('Undefined Attributes');
+        $cusModAttVal = new CustomModuleAttributeValue();
+        $cusModAttVal->fill(['attribute_id' => $this->id, 'value' => $this->data]);
+        return $customModule->attributeValues()->save($cusModAttVal);
+    }
+
+    /**
+     * This Function will fill the parameter $data with its value
+     *
+     * @param $customModuleId
+     * @param bool $forceQuery used the re-fill the parameter $data with its value from the DB
+     */
+    public function getAttributeValue($customModuleId, $forceQuery = false)
+    {
+        //todo Solve in this function if the attribute is  multi values [return all the multi | return one of the multi]
+        if(!$this->data || $forceQuery){
+            $customModuleAttributeValue = CustomModuleAttributeValue::where('custom_module_id', '=', $customModuleId)->where('attribute_id', '=', $this->id)->first();
         }
+        $this->data = $customModuleAttributeValue->value;
+    }
+
+    /**
+     * @param mixed $data
+     * @return $this
+     */
+    public function setData($data)
+    {
+        $this->data = $data;
+
+        return $this;
     }
 }
