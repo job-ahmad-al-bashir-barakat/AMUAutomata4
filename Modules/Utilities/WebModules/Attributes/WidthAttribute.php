@@ -11,6 +11,7 @@ class WidthAttribute extends Attribute
     public $viewName = 'width';
     public $title = 'Width';
     public $values = [
+        '' => '',
         '1' => '1',
         '2' => '2',
         '3' => '3',
@@ -25,5 +26,5 @@ class WidthAttribute extends Attribute
         '12' => '12',
         '13' => 'Full Width',
     ];
-    public $data = '12';
+    public $data;
 }

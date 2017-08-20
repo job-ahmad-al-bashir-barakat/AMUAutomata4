@@ -14,5 +14,5 @@ class StatusAttribute extends Attribute
         'E' => 'Enable',
         'D' => 'Disable',
     ];
-    public $data = 'E';//todo Remove The default value
+    public $data;
 }

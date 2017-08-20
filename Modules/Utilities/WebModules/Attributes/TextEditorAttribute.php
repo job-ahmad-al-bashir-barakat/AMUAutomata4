@@ -9,7 +9,7 @@ class TextEditorAttribute extends Attribute
     public $code = 'text_editor';
     public $viewName = 'texteditor';
     public $title = 'Text Editor';
-    public $data = 'a';//todo remove the default val
+    public $data;
 
-    protected $multiLang = true;
+    protected $multiLang = false;//todo must be true
 }

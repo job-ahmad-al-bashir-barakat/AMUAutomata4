@@ -54,11 +54,18 @@ class Attribute
      */
     public function saveAttributeValue(CustomModule $customModule)
     {
-        //This will stop trying to Save Multi if the Attribute is not a multi lang
-        request()->merge(['stopTransSaveOper' => !$this->multiLang]);//todo update it after fixing Multilangs Trait "save function"
+        //todo in attribute class must Use "withoutTrans" | "stopTransSaveOper" to stop trying saving multi in none multi attributes
+        //todo update it after fixing Multilangs Trait "save function"
+        //todo Solve in this function if the attribute is  multi values
+        request()->merge(['transSaveOper' => $this->multiLang]);
 
-        $cusModAttVal = new CustomModuleAttributeValue();
-        $cusModAttVal->fill(['attribute_id' => $this->id, 'value' => $this->data]);
+        $cusModAttVal = $customModule->attributeValues()->where('attribute_id', '=', $this->id)->first();
+        if($cusModAttVal){
+            $cusModAttVal->value = $this->data;
+        } else {
+            $cusModAttVal = new CustomModuleAttributeValue();
+            $cusModAttVal->fill(['attribute_id' => $this->id, 'value' => $this->data]);
+        }
         return $customModule->attributeValues()->save($cusModAttVal);
     }
 
@@ -74,7 +81,7 @@ class Attribute
         if(!$this->data || $forceQuery){
             $customModuleAttributeValue = CustomModuleAttributeValue::where('custom_module_id', '=', $customModuleId)->where('attribute_id', '=', $this->id)->first();
         }
-        $this->data = $customModuleAttributeValue->value;
+        $this->data = isset($customModuleAttributeValue) ? $customModuleAttributeValue->value : $this->data;
     }
 
     /**

@@ -2,14 +2,14 @@
 
 namespace Aut\DataTable\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use Aut\DataTable\Http\Maker\BaseDataTableMaker;
-use Aut\DataTable\DataTableBuilder;
-use Illuminate\Support\Facades\Route;
-use Illuminate\Http\Request;
-use App\Http\Requests;
-use Exception;
 use Response;
+use App\Http\Requests;
+use Illuminate\Http\Request;
+use Aut\DataTable\DataTableBuilder;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Route;
+use Aut\DataTable\Http\Maker\BaseDataTableMaker;
+use Aut\DataTable\Exceptions\NotFoundDataTableException;
 
 use App\Http\Factory\DatatableMaker;
 use Aut\DataTable\Http\Requests\DatatableRequest;
@@ -237,7 +237,7 @@ class DataTableController extends Controller
             $tableSet = config('datatableModels.' . $table);
 
             if (!$tableSet) {
-                throw new Exception('This model not registered');
+                throw new NotFoundDataTableException();
             }
 
             $this->table              = $table;

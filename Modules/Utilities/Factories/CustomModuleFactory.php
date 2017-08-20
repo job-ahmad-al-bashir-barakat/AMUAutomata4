@@ -58,7 +58,6 @@ class CustomModuleFactory extends GlobalFactory
      */
     public function storeDatatable($model = null ,$request = null ,$result = null)
     {
-//        $customModuleId = $request->get('id');
         $moduleId = $request->get('module_id');
         $moduleAttributeValues = $request->get('webModule');
 
@@ -72,7 +71,6 @@ class CustomModuleFactory extends GlobalFactory
      */
     public function updateDatatable($model = null ,$request = null ,$result = null)
     {
-//        $customModuleId = $request->get('id');
         $moduleId = $request->get('module_id');
         $moduleAttributeValues = $request->get('webModule');
 
@@ -86,8 +84,7 @@ class CustomModuleFactory extends GlobalFactory
      */
     public function destroyDatatable($model = null ,$request = null ,$result = null)
     {
-        //dd($model, array_keys($request), $result);
-        $model->attributeValues()->delete();
+        $result->attributeValues()->delete();
     }
 
     /**

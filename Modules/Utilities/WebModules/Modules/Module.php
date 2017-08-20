@@ -30,7 +30,6 @@ class Module
         $moduleAttribute = $data->attributes;
 
         $htmlResult = '';
-
         foreach ($moduleAttribute as $attribute) {
             $attribute = Attribute::setAttribute($attribute->id);
             if($customModuleId) {
@@ -38,29 +37,17 @@ class Module
             }
             $htmlResult .= $attribute->getAttributeHtml();
         }
-
         return $htmlResult;
     }
 
     public function saveModuleAttributesValue(CustomModule $customModule, $customModuleAttributeValues)
     {
-        //todo each attribute class must have save function and the module save use it
-        //todo in attribute class must Use "withoutTrans" | "stopTransSaveOper" to stop trying saving multi in none multi attributes
-
         foreach ($customModuleAttributeValues as $attCode => $customModuleAttributeValue) {
             $attribute = Attribute::setByAttributeCode($attCode);
             $attribute->data = $customModuleAttributeValue;
             //todo try to make multi insert to make one insert query
             $attribute->saveAttributeValue($customModule);
         }
-
-        /*request()->merge(['stopTransSaveOper' => false]);
-        foreach ($customModuleAttributeValues as $attCode => $customModuleAttributeValue) {
-            $att = AttrModel::where('code' ,'=', $attCode)->first();
-            $custModAttVal = new CustomModuleAttributeValue();
-            $custModAttVal->fill(['attribute_id' => $att->id, 'value' => $customModuleAttributeValue]);
-            $customModule->attributeValues()->save($custModAttVal);
-        }*/
     }
 
     public function getModuleHtml()
