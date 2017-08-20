@@ -4,7 +4,7 @@ namespace Modules\Admin\Entities;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Modules\Utilities\Traits\MultiLangs;
+use Modules\Admin\Entities\LangModels\DepartmentNameLang;
 
 class Department extends Model
 {

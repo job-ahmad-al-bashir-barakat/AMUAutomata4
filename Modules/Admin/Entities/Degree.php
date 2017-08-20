@@ -4,6 +4,7 @@ namespace Modules\Admin\Entities;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Modules\Admin\Entities\LangModels\DegreeNameLang;
 use Modules\Utilities\Traits\MultiLangs;
 
 class Degree extends Model

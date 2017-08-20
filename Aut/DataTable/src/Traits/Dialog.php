@@ -77,18 +77,18 @@ trait Dialog
         return $this->checkReturnValue($html ,$custom);
     }
 
-    protected function _addComponent($component)
+    protected function _addComponent($component ,$custom = false)
     {
         $html = $component;
 
-        $this->checkReturnValue($html ,false);
+        return $this->checkReturnValue($html ,$custom);
     }
 
-    protected function _InputText($title, $id, $name, $value, $type, $class, $attr , $custom = false)
+    protected function _Input($title, $id, $name, $value, $type, $class, $attr , $custom = false)
     {
         $star = preg_match('/\b(?<![\S])(req)(?![\S])\b/',$class);
 
-        $html = view('datatable::component.input_text' ,[
+        $html = view('datatable::component.input' ,[
             'id'                => preg_replace('/[\._]/','-' ,$id),
             'data'              => $id,
             'title'             => $title,
@@ -184,11 +184,11 @@ trait Dialog
         return $this->checkReturnValue($html ,$custom);
     }
 
-    protected function _addCont($id ,$html ,$class ,$attr)
+    protected function _addCont($id ,$html ,$class ,$attr ,$custom = false)
     {
         $html = "<div id='$id' class='$class' $attr>$html</div>";
 
-        $this->checkReturnValue($html ,false);
+        return $this->checkReturnValue($html ,$custom);
     }
 
     protected function _startCont($id ,$class ,$attr ,$custom = false)

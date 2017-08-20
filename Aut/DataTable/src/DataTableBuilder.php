@@ -338,7 +338,10 @@ class DataTableBuilder
      */
     function addCont($id = '' , $html ='' , $class ='' , $attr ='')
     {
-        $this->_addCont($id ,$html ,$class ,$attr);
+        $isCustom = $this->_addCont($id ,$html ,$class ,$attr ,$this->isCustom);
+
+        if($this->isCustom)
+            $this->customHtml .= $isCustom;
 
         return $this;
     }
@@ -351,7 +354,10 @@ class DataTableBuilder
      */
     function startCont($id = '' , $class = '' , $attr = '')
     {
-        $this->_startCont($id ,$class ,$attr);
+        $isCustom = $this->_startCont($id ,$class ,$attr);
+
+        if($this->isCustom)
+            $this->customHtml .= $isCustom;
 
         return $this;
     }
@@ -361,7 +367,10 @@ class DataTableBuilder
      */
     function endCont()
     {
-        $this->_endCont();
+        $isCustom = $this->_endCont($this->isCustom);
+
+        if($this->isCustom)
+            $this->customHtml .= $isCustom;
 
         return $this;
     }
@@ -620,7 +629,382 @@ class DataTableBuilder
             "searchable" => $searchable,
             "choosen"    => $choosen,
             "printable"  => $printable,
+        ]);
 
+        return $this;
+    }
+
+    /**
+     * @param string $title
+     * @param string $data
+     * @param string $name
+     * @param string $colClass
+     * @param string $dialogAttr
+     * @param string $colWidth
+     * @param bool $visible
+     * @param bool $orderable
+     * @param bool $searchable
+     * @param bool $choosen
+     * @param bool $printable
+     * @return $this
+     */
+    function addInputDate
+    (
+        $title = '',
+        $data = '',
+        $name = '',
+        $colClass = '',
+        $dialogAttr = '',
+        $colWidth = '',
+        $visible = true,
+        $orderable = true,
+        $searchable = true,
+        $choosen = true,
+        $printable = true
+    )
+    {
+        $this->addField([
+            "type"       => 'date',
+            "title"      => $title,
+            "data"       => $data,
+            "name"       => $name,
+            "class"      => $colClass,
+            "width"      => $colWidth,
+            "attr"       => $dialogAttr,
+            "visible"    => $visible,
+            "orderable"  => $orderable,
+            "searchable" => $searchable,
+            "choosen"    => $choosen,
+            "printable"  => $printable,
+        ]);
+
+        return $this;
+    }
+
+    /**
+     * @param string $title
+     * @param string $data
+     * @param string $name
+     * @param string $colClass
+     * @param string $dialogAttr
+     * @param string $colWidth
+     * @param bool $visible
+     * @param bool $orderable
+     * @param bool $searchable
+     * @param bool $choosen
+     * @param bool $printable
+     * @return $this
+     */
+    function addInputTime
+    (
+        $title = '',
+        $data = '',
+        $name = '',
+        $colClass = '',
+        $dialogAttr = '',
+        $colWidth = '',
+        $visible = true,
+        $orderable = true,
+        $searchable = true,
+        $choosen = true,
+        $printable = true
+    )
+    {
+        $this->addField([
+            "type"       => 'time',
+            "title"      => $title,
+            "data"       => $data,
+            "name"       => $name,
+            "class"      => $colClass,
+            "width"      => $colWidth,
+            "attr"       => $dialogAttr,
+            "visible"    => $visible,
+            "orderable"  => $orderable,
+            "searchable" => $searchable,
+            "choosen"    => $choosen,
+            "printable"  => $printable,
+        ]);
+
+        return $this;
+    }
+
+    /**
+     * @param string $title
+     * @param string $data
+     * @param string $name
+     * @param string $colClass
+     * @param string $dialogAttr
+     * @param string $colWidth
+     * @param bool $visible
+     * @param bool $orderable
+     * @param bool $searchable
+     * @param bool $choosen
+     * @param bool $printable
+     * @return $this
+     */
+    function addInputDateTimeLocal
+    (
+        $title = '',
+        $data = '',
+        $name = '',
+        $colClass = '',
+        $dialogAttr = '',
+        $colWidth = '',
+        $visible = true,
+        $orderable = true,
+        $searchable = true,
+        $choosen = true,
+        $printable = true
+    )
+    {
+        $this->addField([
+            "type"       => 'datetime-local',
+            "title"      => $title,
+            "data"       => $data,
+            "name"       => $name,
+            "class"      => $colClass,
+            "width"      => $colWidth,
+            "attr"       => $dialogAttr,
+            "visible"    => $visible,
+            "orderable"  => $orderable,
+            "searchable" => $searchable,
+            "choosen"    => $choosen,
+            "printable"  => $printable,
+        ]);
+
+        return $this;
+    }
+
+    /**
+     * @param string $title
+     * @param string $data
+     * @param string $name
+     * @param string $colClass
+     * @param string $dialogAttr
+     * @param string $colWidth
+     * @param bool $visible
+     * @param bool $orderable
+     * @param bool $searchable
+     * @param bool $choosen
+     * @param bool $printable
+     * @return $this
+     */
+    function addInputDateTime
+    (
+        $title = '',
+        $data = '',
+        $name = '',
+        $colClass = '',
+        $dialogAttr = '',
+        $colWidth = '',
+        $visible = true,
+        $orderable = true,
+        $searchable = true,
+        $choosen = true,
+        $printable = true
+    )
+    {
+        $this->addField([
+            "type"       => 'datetime',
+            "title"      => $title,
+            "data"       => $data,
+            "name"       => $name,
+            "class"      => $colClass,
+            "width"      => $colWidth,
+            "attr"       => $dialogAttr,
+            "visible"    => $visible,
+            "orderable"  => $orderable,
+            "searchable" => $searchable,
+            "choosen"    => $choosen,
+            "printable"  => $printable,
+        ]);
+
+        return $this;
+    }
+
+    /**
+     * @param string $title
+     * @param string $data
+     * @param string $name
+     * @param string $colClass
+     * @param string $dialogAttr
+     * @param string $colWidth
+     * @param bool $visible
+     * @param bool $orderable
+     * @param bool $searchable
+     * @param bool $choosen
+     * @param bool $printable
+     * @return $this
+     */
+    function addInputMonth
+    (
+        $title = '',
+        $data = '',
+        $name = '',
+        $colClass = '',
+        $dialogAttr = '',
+        $colWidth = '',
+        $visible = true,
+        $orderable = true,
+        $searchable = true,
+        $choosen = true,
+        $printable = true
+    )
+    {
+        $this->addField([
+            "type"       => 'month',
+            "title"      => $title,
+            "data"       => $data,
+            "name"       => $name,
+            "class"      => $colClass,
+            "width"      => $colWidth,
+            "attr"       => $dialogAttr,
+            "visible"    => $visible,
+            "orderable"  => $orderable,
+            "searchable" => $searchable,
+            "choosen"    => $choosen,
+            "printable"  => $printable,
+        ]);
+
+        return $this;
+    }
+
+    /**
+     * @param string $title
+     * @param string $data
+     * @param string $name
+     * @param string $colClass
+     * @param string $dialogAttr
+     * @param string $colWidth
+     * @param bool $visible
+     * @param bool $orderable
+     * @param bool $searchable
+     * @param bool $choosen
+     * @param bool $printable
+     * @return $this
+     */
+    function addInputWeek
+    (
+        $title = '',
+        $data = '',
+        $name = '',
+        $colClass = '',
+        $dialogAttr = '',
+        $colWidth = '',
+        $visible = true,
+        $orderable = true,
+        $searchable = true,
+        $choosen = true,
+        $printable = true
+    )
+    {
+        $this->addField([
+            "type"       => 'week',
+            "title"      => $title,
+            "data"       => $data,
+            "name"       => $name,
+            "class"      => $colClass,
+            "width"      => $colWidth,
+            "attr"       => $dialogAttr,
+            "visible"    => $visible,
+            "orderable"  => $orderable,
+            "searchable" => $searchable,
+            "choosen"    => $choosen,
+            "printable"  => $printable,
+        ]);
+
+        return $this;
+    }
+
+    /**
+     * @param string $title
+     * @param string $data
+     * @param string $name
+     * @param string $colClass
+     * @param string $dialogAttr
+     * @param string $colWidth
+     * @param bool $visible
+     * @param bool $orderable
+     * @param bool $searchable
+     * @param bool $choosen
+     * @param bool $printable
+     * @return $this
+     */
+    function addInputEmail
+    (
+        $title = '',
+        $data = '',
+        $name = '',
+        $colClass = '',
+        $dialogAttr = '',
+        $colWidth = '',
+        $visible = true,
+        $orderable = true,
+        $searchable = true,
+        $choosen = true,
+        $printable = true
+    )
+    {
+        $this->addField([
+            "type"       => 'email',
+            "title"      => $title,
+            "data"       => $data,
+            "name"       => $name,
+            "class"      => $colClass,
+            "width"      => $colWidth,
+            "attr"       => $dialogAttr,
+            "visible"    => $visible,
+            "orderable"  => $orderable,
+            "searchable" => $searchable,
+            "choosen"    => $choosen,
+            "printable"  => $printable,
+        ]);
+
+        return $this;
+    }
+
+    /**
+     * @param string $title
+     * @param string $data
+     * @param string $name
+     * @param string $colClass
+     * @param string $dialogAttr
+     * @param string $colWidth
+     * @param bool $visible
+     * @param bool $orderable
+     * @param bool $searchable
+     * @param bool $choosen
+     * @param bool $printable
+     * @return $this
+     */
+    function addInputUrl
+    (
+        $title = '',
+        $data = '',
+        $name = '',
+        $colClass = '',
+        $dialogAttr = '',
+        $colWidth = '',
+        $visible = true,
+        $orderable = true,
+        $searchable = true,
+        $choosen = true,
+        $printable = true
+    )
+    {
+        $this->addField([
+            "type"       => 'url',
+            "title"      => $title,
+            "data"       => $data,
+            "name"       => $name,
+            "class"      => $colClass,
+            "width"      => $colWidth,
+            "attr"       => $dialogAttr,
+            "visible"    => $visible,
+            "orderable"  => $orderable,
+            "searchable" => $searchable,
+            "choosen"    => $choosen,
+            "printable"  => $printable,
         ]);
 
         return $this;
@@ -645,7 +1029,7 @@ class DataTableBuilder
         $attr  = ''
     )
     {
-        $this->_InputText($title ,$id ,$name , $value,'text' ,$class ,$attr);
+        $this->_Input($title ,$id ,$name , $value,'text' ,$class ,$attr);
 
         return $this;
     }
@@ -1332,10 +1716,13 @@ class DataTableBuilder
     function addComponent
     (
         $component = '',
-        $options = []
+        $options   = []
     )
     {
-        $this->_addComponent($component);
+        $isCustom = $this->_addComponent($component ,$this->isCustom);
+
+        if($this->isCustom)
+            $this->customHtml .= $isCustom;
 
         foreach ($options as $option)
         {
@@ -1720,7 +2107,20 @@ class DataTableBuilder
             case 'text' :
             {
                 if(!$this->optionDatatableConfig['disableDialog'])
-                    $isCustom = $this->_InputText($param["title"] ,$id ,$name ,'', 'text', $class_attr['class_dialog'], $class_attr['attr'] ,$this->isCustom);
+                    $isCustom = $this->_Input($param["title"] ,$id ,$name ,'', 'text', $class_attr['class_dialog'], $class_attr['attr'] ,$this->isCustom);
+            }; break;
+
+            case 'date' :
+            case 'time' :
+            case 'datetime-local' :
+            case 'datetime' :
+            case 'month' :
+            case 'week' :
+            case 'email' :
+            case 'url' :
+            {
+                if(!$this->optionDatatableConfig['disableDialog'])
+                    $isCustom = $this->_Input($param["title"] ,$id ,$name ,'', $param["type"], $class_attr['class_dialog'], $class_attr['attr'] ,$this->isCustom);
             }; break;
 
             case 'password' :
@@ -1763,7 +2163,6 @@ class DataTableBuilder
 
         if($this->isCustom)
             $this->customHtml .= $isCustom;
-
     }
 
     /**

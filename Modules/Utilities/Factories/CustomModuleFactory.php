@@ -5,7 +5,7 @@ namespace Modules\Utilities\Factories;
 use Aut\DataTable\Factories\GlobalFactory;
 use Modules\Utilities\WebModules\Modules\Module;
 
-class CustomeModuleFactory extends GlobalFactory
+class CustomModuleFactory extends GlobalFactory
 {
     /**
      *  get data-table query
@@ -86,8 +86,8 @@ class CustomeModuleFactory extends GlobalFactory
      */
     public function destroyDatatable($model = null ,$request = null ,$result = null)
     {
-        dd($request->input());
-        //
+        //dd($model, array_keys($request), $result);
+        $model->attributeValues()->delete();
     }
 
     /**

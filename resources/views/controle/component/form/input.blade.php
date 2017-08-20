@@ -7,6 +7,12 @@
         label class -> l:
         input class -> i:
     */
+
+    /*
+        --- classes ---
+        trans : this class mean input name must has trans like trans_name[name_en]
+        langs : this class mean input will repeat foreach lang en,ar.....et
+    */
     extract(formClassHelper($class));
     $star  = preg_match('/\b(?<![\S])(required)(?![\S])\b/',$class) ? 'star' : '';
     $langs = preg_match('/\b(?<![\S])(langs)(?![\S])\b/',$class) ? true : false;

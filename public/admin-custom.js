@@ -344,30 +344,48 @@ var APP_AMU = {
     /**
      * validate classes
      *
-     * cont class .ajaxCont
-     * init class .ajax-form
+     * cont class .ajaxCont  // class div form continer
+     * init class .ajax-form // class ajax form
+     *
+     * you must have primarykey input in you form
+     * -------------------form attrx--------------------
+     * action : set action for form
+     * method : set method form form
+     * take-action : is data attribute allow you to take action directly from form without any change from javascript
+     *               this will be handy with normal form
+     * ----------------form button attr-----------------
+     * data-state               : this data attribute used to show/hide button with primary as helper
+     * data-method              : this data attribute used to define type of request post/put/delete please type in lowercase
+     * ajax-form-success        : set success funcName after add or update or delete
+     * ajax-form-add-success    : set success funcName for add button
+     * ajax-form-update-success : set success funcName for udate button
+     * ajax-form-delete-success : set success funcName for delete button
+     * data-serialize           : true/false -- in some cases you may need to start/stop serialize data with delete/add/update
+     *
+     * > just type function without any braces
+     * > you must declare this func in you page if you need to do something
+     * > I passed with this func form and res as param
      *
      */
     validate: {
 
-        changeMethodAction : function ($cont) {
+        /**
+         *
+         * @param $form
+         * @returns {*}
+         */
+        changeAction : function ($form) {
 
-            var $form = $($cont).find('form.ajax-form'),
-                id    = $form.find('.primarykey').val(),
+            var primarykey = $form.find('.primarykey').val(),
+                takeAction = typeof $form.data('take-action') != typeof undefined ? true : false,
                 action;
 
-            if(id)
-            {
-                action = $form.data('action') + "/" + id;
-                $form.prepend('<input name="_method" type="hidden" value="PUT">');
-            }
+            if(!takeAction && primarykey)
+                action = $form.attr('action') + "/" + primarykey;
             else
-            {
-                action = $form.data('action');
-                $form.find("[name='_method']").remove();
-            }
+                action = $form.attr('action');
 
-            $form.attr('action' ,action);
+            return action;
         },
 
         init: function ($cont) {
@@ -382,27 +400,25 @@ var APP_AMU = {
 
                         var $this   = this,
                             $form   = $(form),
-                            $button = $($this.submitButton);
+                            $button = $($this.submitButton),
+                            $method = $button.data('method'),
+                            $serialize = typeof $button.data('serialize') != typeof undefined ? $button.data('serialize') : true,
+                            $data;
 
-                        var $action = $form.attr('action'),
-                            $method,$data;
-
-                        if(typeof $button.data('delete-unserialize') != typeof undefined)
-                            $data = {};
+                        if($serialize)
+                            $data = $form.serialize();
                         else
-                            $data = $form.serialize()
+                            $data = {};
 
-                        if($button.attr('id') == 'delete') {
-
-                            $method = 'delete';
+                        if(typeof $button.data('method') != typeof undefined) {
+                            $method = $button.data('method');
                         } else {
-
                             $method = typeof $form.find('[name=_method]').val() != typeof undefined
                                 ? _.lowerCase($form.find('[name=_method]').val())
                                 : _.lowerCase($form.attr('method'));
                         }
 
-                        $[$method]($action, $data, function(res) {
+                        $[$method](APP_AMU.validate.changeAction($form), $data, function(res) {
 
                             // if form was inside modal we will close it after save
                             if(typeof $form.parents('.modal') != typeof undefined)
@@ -492,15 +508,27 @@ var APP_AMU = {
             APP_AMU.validate.clearModal($cont);
         },
 
+        /**
+         *
+         * @param $cont
+         * @param $state
+         *
+         * this mothod for hide show button inside form
+         */
         hideShowButtonForm : function ($cont ,$state) {
-            $cont = $($cont);
+            $cont = $($cont),
+            $form = $cont.find('form .primarykey');
             $cont.find("form [data-state]").hide();
-            if($state == 'update')
+            if($form.val() && $state == 'update')
                 $cont.find("form [data-state='update']").show();
             else
                 $cont.find("form [data-state='add']").show();
         },
 
+        /**
+         *
+         * this function for init some class validation
+         */
         initAdditionalValidationClass : function () {
 
             jQuery.validator.addClassRules({
@@ -514,11 +542,23 @@ var APP_AMU = {
             });
         },
 
+        /**
+         *
+         * @param $cont --> you must add form cont as selector
+         *
+         * this function for reset form
+         */
         resetForm : function ($cont) {
 
             $($cont).validate().resetForm();
         },
 
+        /**
+         *
+         * @param form
+         *
+         * this function clear all items on form
+         */
         clearForm : function (form) {
 
             _.head(form).reset();
@@ -531,6 +571,12 @@ var APP_AMU = {
             APP_AMU.validate.resetForm(form);
         },
 
+        /**
+         *
+         * @param $cont
+         *
+         * clear you modal and reset form button
+         */
         clearModal : function ($cont) {
 
             $($cont).find('.modal').on('show.bs.modal', function() {
@@ -544,11 +590,13 @@ var APP_AMU = {
                 APP_AMU.validate.clearForm($form);
 
                 APP_AMU.validate.hideShowButtonForm($cont ,'add');
-
-                APP_AMU.validate.changeMethodAction($cont);
             });
         },
 
+        /**
+         *
+         * Fill Form and reset form button
+         */
         fillForm : function () {
 
             $(document).on('click','[data-form-add]' ,function () {
@@ -556,8 +604,6 @@ var APP_AMU = {
                 $cont = $(this).data('target');
 
                 APP_AMU.validate.hideShowButtonForm($cont ,'add');
-
-                APP_AMU.validate.changeMethodAction($cont);
             });
 
             $(document).on('click' ,'[data-form-update]' ,function () {
@@ -581,8 +627,6 @@ var APP_AMU = {
                 });
 
                 APP_AMU.validate.hideShowButtonForm($cont ,'update');
-
-                APP_AMU.validate.changeMethodAction($cont);
             });
         },
     },
@@ -894,11 +938,14 @@ var APP_AMU = {
 
         initGMapInputLocation : function () {
 
-            $(document).on('click' ,'.input-location',function () {
-                var $modal = '#' + $(this).find('input').data('modal');
-                $($modal).on('shown.bs.modal', function (event) {
+            $(document).on('click' ,'.input-location span:first',function () {
+                var $this  = $(this),
+                    $input = $this.prev('input'),
+                    $modal = '#' + $input.data('modal');
+                $($modal).off('shown.bs.modal').on('shown.bs.modal', function (event) {
 
-                    APP.GMap.init();
+                    var location = $input.val();
+                    APP.GMap.init($(this).find('[data-gmap]') ,location);
                 });
                 $($modal).modal('show');
             });

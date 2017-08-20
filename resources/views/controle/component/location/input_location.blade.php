@@ -16,12 +16,16 @@
     </div>
     <div id="map-location"
          data-gmap=""
-         data-address="276 N TUSTIN ST, ORANGE, CA 92867"
+         data-address="{{ $geoLocation or '' }}" {{--276 N TUSTIN ST, ORANGE, CA 92867--}}
          data-maptype="ROADMAP"
          data-styled class="gmap"
          data-click="true"
          data-autocomplete="true"
-         data-location='{"location":"#map-full-location" ,"lat":"#map-lat-location" ,"lng":"#map-lng-location" }'   >
+         data-navigator="true"
+         data-location='{"location":"#map-full-location" ,"lat":"#map-lat-location" ,"lng":"#map-lng-location" }'
+         data-initialize="true"
+         data-map-reload="true"
+    >
     </div>
     <input type="hidden" id="map-full-location">
     <input type="hidden" id="map-lat-location">

@@ -1,10 +1,11 @@
 @php
     $originalName = $name;
-    $id    = isset($_lang) ? "{$id}-{$_lang}"   : $id;
-    $name  = isset($_lang) ? "{$name}_{$_lang}" : $name;
-    if(isset($trans))
+    $_lang = isset($_lang) ? $_lang : false;
+    $id    = $_lang ? "{$id}-{$_lang}"   : $id;
+    $name  = $_lang ? "{$name}_{$_lang}" : $name;
+    if($_lang && isset($trans))
         $name    = "trans_{$originalName}[{$name}]";
-    $label = isset($_lang) ? "$label ({$item["{$_lang}Lang"]})": $label;
+    $label = $_lang ? "$label ({$item["{$_lang}Lang"]})": $label;
 @endphp
 
 @if($group)
@@ -22,8 +23,9 @@
 
             {{--for change any attr with real lang--}}
             @php
-                foreach ($attr as $index => $item)
-                    $attr[$index] = preg_replace('/{lang}/',$_lang ,$item)
+                if($_lang)
+                    foreach ($attr as $index => $item)
+                        $attr[$index] = preg_replace('/{lang}/',$_lang ,$item)
             @endphp
 
             {!! Form::$type($name,$value,array_merge([

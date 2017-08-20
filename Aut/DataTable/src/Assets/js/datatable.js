@@ -459,6 +459,7 @@ function aut_datatable_fillDialogData(table ,aut_datatable) {
                         case 'input'    :
                         case 'select'   :
                         case 'label'    :
+                        case 'div'      :
                         case 'textarea' : $this[$this.data('target-attr')](JSPath.apply('.'+ $data ,row)[0]); break;
                         default         : $this.attr($this.data('target-attr') ,JSPath.apply('.'+ $data ,row)[0]); break;
                     }

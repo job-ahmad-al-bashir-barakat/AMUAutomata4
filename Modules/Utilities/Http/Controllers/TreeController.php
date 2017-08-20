@@ -119,9 +119,9 @@ class TreeController extends Controller
                 $content = $this->dir == "ltr" ? $content : collect($content)->reverse();
                 //set li item for each item
                 $tree = $tree.view("utilities::tree._treeItem",[
-                    'model'       => $this->tree,
-                    'content'     => $content,
-                ])->render();
+                        'model'       => $this->tree,
+                        'content'     => $content,
+                    ])->render();
 
                 // reCall func if item has children
                 if($control->children->count())
@@ -209,11 +209,12 @@ class TreeController extends Controller
             //update moved node
             $node = $model::findOrFail($id);
 
-            $request->request->add(['stopTransSaveOper' => false]);
+            $request->request->add(['transSaveOper' => false]);
 
+            //$node->withoutTrans()->update
             $node->update([
                 'parent_id' => $request->input('parent')
-                //'order'     => $request->input('order')
+                //'order'     => $request->input('order') //we don't need this because we loop over order from data
             ]);
 
             $parent = $factory->dataAttr();

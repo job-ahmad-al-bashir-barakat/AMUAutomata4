@@ -4,6 +4,7 @@ namespace Modules\Admin\Entities;
 
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Kalnoy\Nestedset\NodeTrait;
+use Modules\Admin\Entities\LangModels\HierarchyNameLang;
 use Modules\Utilities\Traits\MultiLangs;
 
 class Hierarchy extends \Eloquent

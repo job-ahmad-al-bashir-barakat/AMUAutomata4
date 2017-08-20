@@ -5,6 +5,7 @@ namespace Modules\Admin\Factories;
 use Aut\DataTable\Factories\GlobalFactory;
 use Modules\Admin\Entities\Contact;
 use Modules\Admin\Entities\Lab;
+use Modules\Utilities\Entities\Setting;
 
 class LabFactory extends GlobalFactory
 {
@@ -43,9 +44,10 @@ class LabFactory extends GlobalFactory
             ->addActionButton($this->update,'update','update')
             ->addActionButton($this->delete,'delete','delete')
             ->addBlade(view('controle.component.location.input_location', [
-                'id'    => 'labs',
-                'title' => trans('admin::app.labs_gelocation'),
-                'inputFullLocation' => '#datatable-labs-modal .input-location input'
+                'id'                => 'labs',
+                'title'             => trans('admin::app.labs_gelocation'),
+                'inputFullLocation' => '#datatable-labs-modal .input-location input',
+                'geoLocation'       => Setting::whereCode('UGL')->first()->value
             ]) ,'body')
             ->addNavButton()
             ->render();
