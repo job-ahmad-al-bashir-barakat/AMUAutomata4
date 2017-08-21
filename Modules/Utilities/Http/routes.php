@@ -1,14 +1,5 @@
 <?php
 
-
-/* Route::get('users', function () {
-     return \Modules\Utilities\Entities\User::allLangs()->get();
-     return \Modules\Utilities\Entities\User::translated('1', ['transName' => function ($query){
-         $query->where('text', 'like', 'Abdulbasset');
-     }])->get();
- });*/
-
-
 Route::group(
     [
         'middleware' => ['web', 'localeSessionRedirect', 'localizationRedirect'],
