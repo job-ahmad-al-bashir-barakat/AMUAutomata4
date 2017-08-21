@@ -28,9 +28,7 @@ class DataTableServiceProvider extends ServiceProvider
 
     protected $middleware;
 
-    protected $commands = [
-        \Aut\DataTable\Commands\MakeDataTableCommand::class,
-    ];
+    protected $commands = [];
 
     public function __construct(\Illuminate\Foundation\Application $app)
     {
@@ -188,11 +186,17 @@ class DataTableServiceProvider extends ServiceProvider
         switch (config('datatable.version'))
         {
             case '5.2': {
-                return array_merge($commands ,[ \Aut\DataTable\Commands\LaravelFive\vTwo\FactoryMakeCommand::class ]);
+                return array_merge($commands ,[
+                    \Aut\DataTable\Commands\LaravelFive\vTwo\MakeDataTableCommand::class,
+                    \Aut\DataTable\Commands\LaravelFive\vTwo\FactoryMakeCommand::class
+                ]);
             } break;
 
             case '5.4' : {
-                return array_merge($commands ,[ \Aut\DataTable\Commands\LaravelFive\vFour\FactoryMakeCommand::class ]);
+                return array_merge($commands ,[
+                    \Aut\DataTable\Commands\LaravelFive\vFour\MakeDataTableCommand::class,
+                    \Aut\DataTable\Commands\LaravelFive\vFour\FactoryMakeCommand::class
+                ]);
             } break;
 
             default : {

@@ -333,6 +333,21 @@ trait QueryDataTable
         return $this;
     }
 
+    function dd()
+    {
+        dd($this->query);
+    }
+
+    function ddQuery()
+    {
+        dd($this->query->getQueryBuilder());
+    }
+
+    function ddQuerySql()
+    {
+        dd($this->query->getQueryBuilder()->toSql());
+    }
+
     /**
      * @param bool $bool
      * @return mixed

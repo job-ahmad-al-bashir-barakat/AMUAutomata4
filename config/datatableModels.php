@@ -9,7 +9,7 @@
  *  middlewaresOption : this option allow you to only make auth on on action or except action from auth by pass array
  *  request           : this is must be Form Request Class
  *  stopOperation     : for stop normal oper and add custom oper ['store','update','destroy']
- *  repository        : the default repository is  modelRepository unless you add you own repository property
+ *  factory           : the default factory is  modelFactory unless you add you own factory property
  *
  */
 

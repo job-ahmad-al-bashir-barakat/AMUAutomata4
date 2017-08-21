@@ -338,6 +338,8 @@ function aut_datatable_fillDialogData(table ,aut_datatable) {
 
     $(aut_datatable.ids.table + '.dataTable tbody').on('click', 'tr .dialog-update', function () {
 
+        aut_datatable.events.modal_update(this ,aut_datatable_initParamEvent(aut_datatable));
+
         $(aut_datatable.ids.modal + ' button[data-status=save]').hide();
 
         $(aut_datatable.ids.modal + ' .text-dialog').html(aut_datatable.modal.update_btn);
@@ -851,6 +853,8 @@ function aut_datatable_replaceDatatableFunctionWithJPath(aut_datatable) {
             $(aut_datatable.ids.modal + ' .text-dialog').html(aut_datatable.modal.add_btn);
 
             $(aut_datatable.ids.modal + ' button[data-status=save]').show();
+
+            aut_datatable.events.modal_add(aut_datatable_initParamEvent(aut_datatable));
         };
 
     if(JSPath.apply('.buttons{.action == "buttons_action_reload"}',aut_datatable.json_object).length != 0)
@@ -882,7 +886,7 @@ function aut_datatable_replaceDatatableFunctionWithJPath(aut_datatable) {
             $datatable = $($this).closest('.datatable');
             $datatable.load($datatable.attr('data-url'));
 
-            aut_datatable.events.on_destroy(aut_datatable.ids.modal);
+            aut_datatable.events.on_destroy();
         };
 
     // if(JSPath.apply('.buttons .buttons {.action == "event_print_button"}',aut_datatable.json_object).length != 0)
@@ -1096,7 +1100,7 @@ function aut_datatable_CreateNewTable(TableObject)
 
             table.search( val ).draw();
         },
-        900
+        1200
     );
 
     aut_datatable_repositionPlaceButtonsColvis(aut_datatable);
@@ -1181,7 +1185,7 @@ function aut_datatable_row_detail(table ,aut_datatable) {
 
             //event on click row detail
             var obj = _aut_datatable_getSelectedRow(table ,tr);
-            aut_datatable.events.row_detail_click(td ,obj);
+            aut_datatable.events.row_detail_click(td ,obj ,aut_datatable_initParamEvent(aut_datatable));
         }
     });
 

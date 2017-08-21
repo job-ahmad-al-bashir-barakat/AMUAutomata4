@@ -57,64 +57,57 @@ return [
     'routeMiddleware' => ['web', 'localeSessionRedirect', 'localizationRedirect' ],
 
     'event' => [
+        //you can use js parameter: (modal ,param)
+        'onTableCreate'     => function() {
 
-        'onTableCreate' => function() {
-
-            return
-            "
-                <script>
-                    //APP_AMU.ckeditor.init('body' ,'.datatable-text-editor');
-                </script>
-            ";
+            return "<script></script>";
         },
 
-        'onLoad' => function() {
+        //you can use js parameter: (modal ,param)
+        'onLoad'            => function() {
 
-            return
-            "
-                <script>
-                    //APP.COLLAPSE_PANELS();
-                </script>
-            ";
+            return "<script></script>";
         },
 
-        'modalOpen' => function() {
+        //you can use js parameter: (modal ,param)
+        'modalOpen'         => function() {
 
-            return "";
+            return "<script></script>";
         },
 
-        'modalClose' => function() {
+        //you can use js parameter: (modal ,param)
+        'modalClose'        => function() {
 
-            return
-            "
-                <script>
-                    //APP_AMU.ckeditor.clear('body' ,'textarea.datatable-text-editor');
-                </script>
-            ";
+            return "<script></script>";
         },
 
-        'onTabClick' => function() {
+        //you can use js parameter: (param)
+        'modalAdd'          => function() {
 
-            return
-            "
-                <script>
-                    //if(cont.find('.cropper').length)
-                    //{
-                    //    APP.CROPPER.destroy('.modal .cropper');
-                    //    APP.CROPPER.init();
-                    //}
-                </script>
-            ";
+            return "<script></script>";
         },
 
+        //you can use js parameter: (row ,param)
+        'modalUpdate'       => function() {
+
+            return "<script></script>";
+        },
+
+        //you can use js parameter: (cont ,param)
+        'onTabClick'        => function() {
+
+            return "<script></script>";
+        },
+
+        //you can use js parameter: (cont , row, param)
         'onRowDetailClick'  => function() {
 
-            return "";
+            return "<script></script>";
         },
 
-        'onDestroy' => function() {
+        'onDestroy'         => function() {
 
-            return "";
+            return "<script></script>";
         }
     ],
 

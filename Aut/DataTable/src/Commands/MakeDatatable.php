@@ -1,15 +1,17 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: HP
+ * Date: 8/21/2017
+ * Time: 9:15 PM
+ */
 
-namespace Aut\DataTable\Commands;
+namespace Aut\DataTable\src\Commands\LaravelFive;
 
-use Illuminate\Console\Command;
-use Illuminate\Console\DetectsApplicationNamespace;
 use Symfony\Component\Console\Input\InputArgument;
 
-class MakeDataTableCommand extends Command
+trait MakeDatatable
 {
-    use DetectsApplicationNamespace;
-
     protected $module;
     /**
      * The name and signature of the console command.
@@ -120,7 +122,7 @@ class MakeDataTableCommand extends Command
 
     protected function exportModuleFiles()
     {
-       $this->loopFiles($this->setModuleFile());
+        $this->loopFiles($this->setModuleFile());
     }
 
     protected function loopFiles($files)

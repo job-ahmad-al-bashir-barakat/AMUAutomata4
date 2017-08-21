@@ -83,6 +83,8 @@ class DataTableBuilder
         'onTableCreate'  => '',
         'modalOpen'      => '',
         'modalClose'     => '',
+        'modalAdd'       => '',
+        'modalUpdate'    => '',
         'rowDetailClick' => '',
         'onTabClick'     => '',
     ];
@@ -1034,6 +1036,18 @@ class DataTableBuilder
         return $this;
     }
 
+    /**
+     * @param array $cols
+     * @param string $colClass
+     * @param string $colWidth
+     * @param string $dialogAttr
+     * @param bool $visible
+     * @param bool $orderable
+     * @param bool $searchable
+     * @param bool $choosen
+     * @param bool $printable
+     * @return $this
+     */
     function addMultiInputTextLangs
     (
         $cols       = [],
@@ -1064,6 +1078,18 @@ class DataTableBuilder
         return $this;
     }
 
+    /**
+     * @param array $cols
+     * @param string $colClass
+     * @param string $colWidth
+     * @param string $dialogAttr
+     * @param bool $visible
+     * @param bool $orderable
+     * @param bool $searchable
+     * @param bool $choosen
+     * @param bool $printable
+     * @return $this
+     */
     function addMultiTextareaLangs
     (
         $cols       = [],
@@ -1751,8 +1777,10 @@ class DataTableBuilder
     }
 
     /**
+     * you can use js parameter: (param)
+     *
      * @param $script
-     * @return $this
+     * @return $this*
      */
     function onAdd($script){
 
@@ -1762,6 +1790,8 @@ class DataTableBuilder
     }
 
     /**
+     * you can use js parameter: (param)
+     *
      * @param $script
      * @return $this
      */
@@ -1773,6 +1803,8 @@ class DataTableBuilder
     }
 
     /**
+     * you can use js parameter: (param)
+     *
      * @param $script
      * @return $this
      */
@@ -1783,6 +1815,12 @@ class DataTableBuilder
         return $this;
     }
 
+    /**
+     * you can use js parameter: (modal ,param)
+     *
+     * @param $script
+     * @return $this
+     */
     function onTableCreate($script) {
 
         $this->events['onTableCreate'] = $this->replaceScript($script);
@@ -1790,6 +1828,8 @@ class DataTableBuilder
         return $this;
     }
     /**
+     * you can use js parameter: (modal ,param)
+     *
      * @param $script
      * @return $this
      */
@@ -1801,16 +1841,20 @@ class DataTableBuilder
     }
 
     /**
+     * you can use js parameter: (modal ,param)
+     *
      * @param $script
      * @return $this
      */
-    function onModalOpen($script){
+    function onModalOpen($script) {
 
         $this->events['modalOpen'] = $this->replaceScript($script);
         return $this;
     }
 
     /**
+     * you can use js parameter: (modal ,param)
+     *
      * @param $script
      * @return $this
      */
@@ -1822,6 +1866,34 @@ class DataTableBuilder
     }
 
     /**
+     * you can use js parameter: (param)
+     *
+     * @param $script
+     * @return $this
+     */
+    function onModalAdd($script) {
+
+        $this->events['modalAdd'] = $this->replaceScript($script);
+
+        return $this;
+    }
+
+    /**
+     * you can use js parameter: (row ,param)
+     *
+     * @param $script
+     * @return $this
+     */
+    function onModalUpdate($script) {
+
+        $this->events['modalUpdate'] = $this->replaceScript($script);
+
+        return $this;
+    }
+
+    /**
+     * you can use js parameter: (cont , row, param)
+     *
      * @param $script
      * @return $this
      */
@@ -1833,6 +1905,8 @@ class DataTableBuilder
     }
 
     /**
+     * you can use js parameter: (cont ,param)
+     *
      * @param $script
      * @return $this
      */
@@ -1971,7 +2045,10 @@ class DataTableBuilder
         if(is_array($attr))
         {
             foreach ($attr as $index => $item)
-                $attrs .= "$index = $item";
+                if(is_numeric($index))
+                    $attrs .= "{$item} ";
+                        else
+                    $attrs .= "{$index}={$item} ";
 
             $attr = $attrs;
         }
@@ -2503,6 +2580,8 @@ class DataTableBuilder
         $onLoadConfig           = $this->replaceScript($event['onLoad']());
         $onModalOpenConfig      = $this->replaceScript($event['modalOpen']());
         $onModelCloseConfig     = $this->replaceScript($event['modalClose']());
+        $onModalAddConfig       = $this->replaceScript($event['modalAdd']());
+        $onModalUpdateConfig    = $this->replaceScript($event['modalUpdate']());
         $onTabClickConfig       = $this->replaceScript($event['onTabClick']());
         $onRowDetailClickConfig = $this->replaceScript($event['onRowDetailClick']());
         $onDestroyConfig        = $this->replaceScript($event['onDestroy']());
@@ -2633,19 +2712,31 @@ class DataTableBuilder
                                  
                                  {$onModelCloseConfig}
                              },
-                             row_detail_click : function(cont ,row) {
+                             modal_add : function(param) {
+                                 
+                                 {$this->events['modalAdd']}
+                                 
+                                 {$onModalAddConfig}
+                             },
+                             modal_update : function(row ,param) {
+                                 
+                                 {$this->events['modalUpdate']}
+                                 
+                                 {$onModalUpdateConfig}
+                             },
+                             row_detail_click : function(cont ,row ,param) {
                                  
                                  {$this->events['rowDetailClick']}
                                  
                                  {$onRowDetailClickConfig}
                              },
-                             on_tab_click : function(cont) {
+                             on_tab_click : function(cont ,param) {
                                  
                                 {$this->events['onTabClick']}
                                                                 
                                 {$onTabClickConfig}
                              },
-                             'on_destroy' : function(cont) {
+                             'on_destroy' : function() {
                                  
                                  {$onDestroyConfig}
                              }

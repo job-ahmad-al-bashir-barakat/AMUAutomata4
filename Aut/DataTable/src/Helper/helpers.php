@@ -151,7 +151,10 @@ if(! function_exists('convertArrayToString'))
         if(is_array($input))
         {
             foreach ($input as $index => $item)
-                $result .= "$index = $item";
+                if(is_numeric($index))
+                    $result .= "{$item} ";
+                else
+                    $result .= "{$index} = {$item} ";
 
             return "$result $additional_string";
         }

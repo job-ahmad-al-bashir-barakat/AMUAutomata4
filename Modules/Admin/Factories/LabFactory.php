@@ -14,7 +14,7 @@ class LabFactory extends GlobalFactory
      */
     public function getDatatable($model ,$request)
     {
-        $query = Lab::with(['contact'])->where('faculty_id' ,'=' ,$request->input('id'))->allLangs()->get();
+        $query = Lab::with(['contact'])->where('faculty_id' ,'=' ,$request->input('id'))->allLangs();
 
         return $this->table
             ->queryConfig('datatable-labs')
@@ -36,7 +36,7 @@ class LabFactory extends GlobalFactory
             ->addHiddenInput('faculty_id' ,'faculty_id' ,$request->input('id') ,false ,true)
             ->addMultiInputTextLangs(['name'] ,'req required')
             ->startRelation('contact')
-                ->addInputText(trans('admin::app.phone'),'contact.phone' ,'contact.phone' ,'req required')
+                ->addInputText(trans('admin::app.phone'),'contact.phone' ,'contact.phone' ,'req required',['data-masked' , 'data-inputmask' => "'mask':'(999)999-9999'"])
                 ->addInputGroup(trans('admin::app.gelocation'),'contact.gelocation' ,'contact.gelocation' ,'req required' ,'icon-location-pin' ,'input-location hand' ,['data-modal' => 'modal-labs-input-location'])
             ->endRelation()
             ->setGridNormalCol(12)

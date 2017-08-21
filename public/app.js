@@ -410,6 +410,14 @@ var APP = {
 
         gMapRefs : [],
 
+        markers : [],
+
+        icon : {
+            image: "images/marker_red.png",
+            iconsize: [32, 39],
+            iconanchor: [13, 39]
+        },
+
         // -------------------------
         // Map Style definition
         // -------------------------
@@ -425,92 +433,91 @@ var APP = {
 
         autocompleteMap : function (map) {
 
-                    // This example adds a search box to a map, using the Google Place Autocomplete
-                    // feature. People can enter geographical searches. The search box will return a
-                    // pick list containing a mix of places and predicted search terms.
+            // This example adds a search box to a map, using the Google Place Autocomplete
+            // feature. People can enter geographical searches. The search box will return a
+            // pick list containing a mix of places and predicted search terms.
 
-                    // This example requires the Places library. Include the libraries=places
-                    // parameter when you first load the API. For example:
-                    // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+            // This example requires the Places library. Include the libraries=places
+            // parameter when you first load the API. For example:
+            // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
 
-                    // var map = new google.maps.Map(document.getElementById('map'), {
-                    //     center: {lat: -33.8688, lng: 151.2195},
-                    //     zoom: 13,
-                    //     mapTypeId: 'roadmap'
-                    // });
+            // var map = new google.maps.Map(document.getElementById('map'), {
+            //     center: {lat: -33.8688, lng: 151.2195},
+            //     zoom: 13,
+            //     mapTypeId: 'roadmap'
+            // });
 
-                    var _map = map.obj;
+            var _map = map.obj;
 
-                    // Create the search box and link it to the UI element.
-                    var input = $(map._this).siblings('.maps-search').find('#component-maps-search').clone()[0];
-                    var searchBox = new google.maps.places.SearchBox(input);
-                    _map.controls[google.maps.ControlPosition.TOP_RIGHT].push(input);
+            // Create the search box and link it to the UI element.
+            var input = $(map._this).siblings('.maps-search').find('#component-maps-search').clone()[0];
+            var searchBox = new google.maps.places.SearchBox(input);
+            _map.controls[google.maps.ControlPosition.TOP_RIGHT].push(input);
 
-                    // Bias the SearchBox results towards current map's viewport.
-                    _map.addListener('bounds_changed', function() {
-                        searchBox.setBounds(_map.getBounds());
-                    });
+            // Bias the SearchBox results towards current map's viewport.
+            _map.addListener('bounds_changed', function() {
+                searchBox.setBounds(_map.getBounds());
+            });
 
-                    var markers = [];
-                    // Listen for the event fired when the user selects a prediction and retrieve
-                    // more details for that place.
-                    searchBox.addListener('places_changed', function() {
-                        var places = searchBox.getPlaces();
+            var markers = [];
+            // Listen for the event fired when the user selects a prediction and retrieve
+            // more details for that place.
+            searchBox.addListener('places_changed', function() {
+                var places = searchBox.getPlaces();
 
-                        if (places.length == 0) {
-                            return;
-                        }
+                if (places.length == 0) {
+                    return;
+                }
 
-                        // Clear out the old markers.
-                        markers.forEach(function(marker) {
-                            marker.setMap(null);
-                        });
-                        markers = [];
+                // Clear out the old markers.
+                markers.forEach(function(marker) {
+                    marker.setMap(null);
+                });
+                markers = [];
 
-                        // For each place, get the icon, name and location.
-                        var bounds = new google.maps.LatLngBounds();
-                        places.forEach(function(place) {
-                            if (!place.geometry) {
-                                console.log("Returned place contains no geometry");
-                                return;
-                            }
-                            var icon = {
-                                url: place.icon,
-                                size: new google.maps.Size(71, 71),
-                                origin: new google.maps.Point(0, 0),
-                                anchor: new google.maps.Point(17, 34),
-                                scaledSize: new google.maps.Size(25, 25)
-                            };
+                // For each place, get the icon, name and location.
+                var bounds = new google.maps.LatLngBounds();
+                places.forEach(function(place) {
+                    if (!place.geometry) {
+                        console.log("Returned place contains no geometry");
+                        return;
+                    }
+                    var icon = {
+                        url: place.icon,
+                        size: new google.maps.Size(71, 71),
+                        origin: new google.maps.Point(0, 0),
+                        anchor: new google.maps.Point(17, 34),
+                        scaledSize: new google.maps.Size(25, 25)
+                    };
 
-                            // Create a marker for each place.
-                            _map.clearMapMarkers();
-                            markers.push(new google.maps.Marker({
-                                map: _map,
-                                // icon: icon,
-                                title: place.name,
-                                position: place.geometry.location,
-                                animation: google.maps.Animation.DROP,
-                            }));
+                    // Create a marker for each place.
+                    _map.clearMapMarkers();
+                    markers.push(new google.maps.Marker({
+                        map: _map,
+                        title: place.name,
+                        position: place.geometry.location,
+                        animation: google.maps.Animation.DROP,
+                    }));
 
-                            if(map.location)
-                                $(map._this).siblings(map.location).val(place.geometry.location.toUrlValue());
+                    if(map.location)
+                        $(map._this).siblings(map.location).val(place.geometry.location.toUrlValue());
 
-                            if(map.lat)
-                                $(map._this).siblings(map.lat).val(place.geometry.location.lat());
+                    if(map.lat)
+                        $(map._this).siblings(map.lat).val(place.geometry.location.lat());
 
-                            if(map.lng)
-                                $(map._this).siblings(map.lng).val(place.geometry.location.lng());
+                    if(map.lng)
+                        $(map._this).siblings(map.lng).val(place.geometry.location.lng());
 
-                            if (place.geometry.viewport) {
-                                // Only geocodes have viewport.
-                                bounds.union(place.geometry.viewport);
-                            } else {
-                                bounds.extend(place.geometry.location);
-                            }
-                        });
-                        _map.fitBounds(bounds);
-                    });
-                },
+                    if (place.geometry.viewport) {
+                        // Only geocodes have viewport.
+                        bounds.union(place.geometry.viewport);
+                    } else {
+                        bounds.extend(place.geometry.location);
+                    }
+                });
+                _map.fitBounds(bounds);
+            });
+        },
 
         onMapClick : function (map) {
 
@@ -522,7 +529,6 @@ var APP = {
                 _map.clearMapMarkers();
                 new google.maps.Marker({
                     map: _map,
-                    // icon: icon.image,
                     animation: google.maps.Animation.DROP,
                     position: new google.maps.LatLng(event.latLng.lat(), event.latLng.lng())
                 });
@@ -581,11 +587,10 @@ var APP = {
                 if(navigator.geolocation) {
                     navigator.geolocation.getCurrentPosition(function(position) {
                         var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-                        _map.clearMapMarkers();
                         _map.setCenter(latlng);
+                        _map.clearMapMarkers();
                         new google.maps.Marker({
                             map: _map,
-                            // icon: icon.image,
                             animation: google.maps.Animation.DROP,
                             position: latlng
                         });
@@ -616,7 +621,6 @@ var APP = {
 
             if(typeof(google) != 'undefined' && typeof($.fn.gMap) != 'undefined' && !$mapLoaded)
             {
-                console.log('done');
                 google.maps.Map.prototype.markers = new Array();
 
                 google.maps.Map.prototype.getMarkers = function () {
@@ -645,12 +649,12 @@ var APP = {
 
             for(var current in geoLocation)  {
                 if(typeof geoLocation[current] == 'string') {
-                    param.markers.push({
+                    APP.GMap.markers.push({
                         address:  geoLocation[current],
                         html:     (param.titles && param.titles[current]) || '',
                         popup:    true,   /* Always popup */
                         animation: google.maps.Animation.DROP,
-                        // icon: icon
+                        icon: APP.GMap.icon
                     });
                 }
             }
@@ -718,21 +722,16 @@ var APP = {
 
             if(typeof(google) != 'undefined' && typeof($.fn.gMap) != 'undefined') {
 
-                var icon = {
-                    image: "{{asset('/images/icons/map-icon-red.png')}}",
-                    iconsize: [32, 39],
-                    iconanchor: [13, 39]
-                };
-
                 mapSelector.each(function() {
 
                     var initialize = JSON.parse($(this).attr('data-initialize'));
                     if(typeof initialize != typeof undefined && initialize)
                     {
+                        APP.GMap.markers = [];
+
                         var $this   = $(this),
                             zoom    = $this.data('zoom') || 14,
                             maptype = $this.data('maptype') || 'ROADMAP' // or 'TERRAIN'
-                            markers = [];
 
                         var param = {
                             $this                    : $this,
@@ -742,7 +741,6 @@ var APP = {
                             hasAutocomplete          : $this.data('autocomplete') || false,
                             hasNavigator             : $this.data('navigator') || false,
                             geoLocationInputSelector : $this.data('location') || { location:"#map-full-location " , lat: "#location" ,lng:"#map-lng-location" },
-                            markers                  : markers
                         };
 
                         var options = {
@@ -766,7 +764,7 @@ var APP = {
                             doubleclickzoom: false,
                             scrollwheel: true,
                             maptype: maptype,
-                            markers: markers,
+                            markers: APP.GMap.markers,
                             zoom: zoom,
                             // More options https://github.com/marioestrada/jQuery-gMap
                         };

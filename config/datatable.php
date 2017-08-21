@@ -58,7 +58,8 @@ return [
 
     'event' => [
 
-        'onTableCreate' => function() {
+        //you can use js parameter: (modal ,param)
+        'onTableCreate'     => function() {
 
             return
             "
@@ -69,17 +70,20 @@ return [
             ";
         },
 
-        'onLoad' => function() {
+        //you can use js parameter: (modal ,param)
+        'onLoad'            => function() {
 
-            return "";
+            return "<script></script>";
         },
 
-        'modalOpen' => function() {
+        //you can use js parameter: (modal ,param)
+        'modalOpen'         => function() {
 
-            return "";
+            return "<script></script>";
         },
 
-        'modalClose' => function() {
+        //you can use js parameter: (modal ,param)
+        'modalClose'        => function() {
 
             return
             "
@@ -89,7 +93,20 @@ return [
             ";
         },
 
-        'onTabClick' => function() {
+        //you can use js parameter: (param)
+        'modalAdd'          => function() {
+
+            return "<script></script>";
+        },
+
+        //you can use js parameter: (row ,param)
+        'modalUpdate'       => function() {
+
+            return "<script></script>";
+        },
+
+        //you can use js parameter: (cont ,param)
+        'onTabClick'        => function() {
 
             return
             "
@@ -103,14 +120,15 @@ return [
             ";
         },
 
+        //you can use js parameter: (cont , row, param)
         'onRowDetailClick'  => function() {
 
-            return "";
+            return "<script></script>";
         },
 
-        'onDestroy' => function() {
+        'onDestroy'         => function() {
 
-            return "";
+            return "<script></script>";
         }
     ],
 ];
