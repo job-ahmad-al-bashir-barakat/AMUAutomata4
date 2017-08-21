@@ -5,7 +5,7 @@ namespace Modules\Utilities\Factories;
 use Aut\DataTable\Factories\GlobalFactory;
 use Modules\Utilities\WebModules\Modules\Module;
 
-class CustomeModuleFactory extends GlobalFactory
+class CustomModuleFactory extends GlobalFactory
 {
     /**
      *  get data-table query
@@ -21,12 +21,8 @@ class CustomeModuleFactory extends GlobalFactory
             ->queryUpdateButton('id')
             ->queryDeleteButton('id')
             ->queryAddColumn('custom_module_temp' ,function ($item) {
-
-                    // this property is just for test please use actual property
-                    // from madel or db that represent actual html
-
-                    //you can take html from relation and
-                return "<textarea id='module-textarea-id' class='datatable-text-editor'>{$item}</textarea>";
+                $module = Module::setModule($item->module_id);
+                return $module->getModuleAttributeHtml($item->id);
             })
             ->queryRender();
     }
@@ -62,8 +58,12 @@ class CustomeModuleFactory extends GlobalFactory
      */
     public function storeDatatable($model = null ,$request = null ,$result = null)
     {
-        dd($request->input());
-        //
+        $moduleId = $request->get('module_id');
+        $moduleAttributeValues = $request->get('webModule');
+
+        $module = Module::setModule($moduleId);
+
+        $module->saveModuleAttributesValue($result, $moduleAttributeValues);
     }
 
     /**
@@ -71,15 +71,12 @@ class CustomeModuleFactory extends GlobalFactory
      */
     public function updateDatatable($model = null ,$request = null ,$result = null)
     {
-        $customModuleId = $request->get('id');
         $moduleId = $request->get('module_id');
         $moduleAttributeValues = $request->get('webModule');
 
         $module = Module::setModule($moduleId);
 
         $module->saveModuleAttributesValue($result, $moduleAttributeValues);
-
-        dd($model, $result);
     }
 
     /**
@@ -87,8 +84,7 @@ class CustomeModuleFactory extends GlobalFactory
      */
     public function destroyDatatable($model = null ,$request = null ,$result = null)
     {
-        dd($request->input());
-        //
+        $result->attributeValues()->delete();
     }
 
     /**

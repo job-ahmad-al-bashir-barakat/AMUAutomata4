@@ -2,11 +2,16 @@
 
 namespace Modules\Utilities\WebModules\Modules;
 
-
+use Modules\Utilities\Entities\CustomModule;
 use Modules\Utilities\WebModules\Attributes\Attribute;
+use Modules\Utilities\Entities\Module as ModuleModel;
+use Modules\Utilities\Entities\Attribute as AttrModel;
+use Modules\Utilities\Entities\CustomModuleAttributeValue;
 
 class Module
 {
+    use ModuleTrait;
+
     public $id;
     public $code;
     public $viewName;
@@ -19,41 +24,34 @@ class Module
         $this->viewPath = "{$this->baseViewPath}.{$this->viewName}";
     }
 
-
-    public function getModuleAttributeHtml()
+    public function getModuleAttributeHtml($customModuleId = false)
     {
-        $data = \Modules\Utilities\Entities\Module::find($this->id)->with(['attributes'])->first();
+        $data = ModuleModel::find($this->id)->with(['attributes'])->first();
         $moduleAttribute = $data->attributes;
 
         $htmlResult = '';
-
         foreach ($moduleAttribute as $attribute) {
-            $htmlResult .= Attribute::setAttribute($attribute->id)->getAttributeHtml();
+            $attribute = Attribute::setAttribute($attribute->id);
+            if($customModuleId) {
+                $attribute->getAttributeValue($customModuleId);
+            }
+            $htmlResult .= $attribute->getAttributeHtml();
         }
-
         return $htmlResult;
     }
 
-    public function saveModuleAttributesValue($customModule, $customModuleAttributeValues)
+    public function saveModuleAttributesValue(CustomModule $customModule, $customModuleAttributeValues)
     {
-        $attributeValue = '';// object of model
-
-        $customModule->attributeValue()->save($attributeValue);
+        foreach ($customModuleAttributeValues as $attCode => $customModuleAttributeValue) {
+            $attribute = Attribute::setByAttributeCode($attCode);
+            $attribute->data = $customModuleAttributeValue;
+            //todo try to make multi insert to make one insert query
+            $attribute->saveAttributeValue($customModule);
+        }
     }
-
 
     public function getModuleHtml()
     {
         throw new \Exception('Method [getModuleHtml] must be override');
-    }
-
-    public static function setModule($moduleId)
-    {
-        switch ($moduleId) {
-            case 2:
-                return new TextEditorModule();
-            default:
-                throw new \Exception('Undefined Web Module');
-        }
     }
 }

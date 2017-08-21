@@ -6,7 +6,7 @@ use Modules\Utilities\Traits\LangInfo;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class UserNameLang extends Model
+class CustomModuleAttributeValueMultiLang extends Model
 {
     use SoftDeletes ,LangInfo;
 
