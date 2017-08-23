@@ -6,7 +6,6 @@
     </li>
     <li class=" ">
         <a href="#global" title="{{ trans('utilities::app.global') }}" data-toggle="collapse">
-            {{--<div class="pull-right label label-info">3</div>--}}
             <em class="icon-grid"></em>
             <span>{{ trans('utilities::app.global') }}</span>
         </a>
@@ -37,11 +36,11 @@
                     <span>{{ trans('utilities::app.custom_modules') }}</span>
                 </a>
             </li>
-            {{--<li class="">
-                <a href="{{ RouteUrls::menus() }}" class="ajax" title="Menus">
-                    <span>Menus</span>
+            <li class="">
+                <a href="{{ RouteUrls::pages() }}" class="ajax" title="{{ trans('utilities::app.pages') }}">
+                    <span>{{ trans('utilities::app.pages') }}</span>
                 </a>
-            </li>--}}
+            </li>
         </ul>
     </li>
 

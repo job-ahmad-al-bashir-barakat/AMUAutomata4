@@ -41,7 +41,12 @@ return [
 
     'custom-modules' => [
         'model'         => Modules\Utilities\Entities\CustomModule::class,
-        'factory'       => Modules\Utilities\Factories\CustomeModuleFactory::class
+        'factory'       => Modules\Utilities\Factories\CustomModuleFactory::class
+    ],
+
+    'pages' => [
+        'model'         => Modules\Utilities\Entities\Page::class,
+        'factory'       => Modules\Utilities\Factories\PageFactory::class
     ],
 
     'social-network' => [

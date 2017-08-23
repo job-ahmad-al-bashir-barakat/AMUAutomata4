@@ -15,15 +15,10 @@ Route::group(
             Route::get('attributes', 'ModulesController@attributeInput');
         });
 
-        Route::group([], function () {// for super admin
-
-        });
-
-        Route::group([], function () {// for admin
-
-        });
-
         Route::get('{view}', 'UtilitiesController@table');
         Route::get('{view}/menu', 'UtilitiesController@menu');
         Route::resource('{treeModel}/tree', 'TreeController');
+
+        Route::group([], function () {/*for super admin*/});
+        Route::group([], function () {/*for admin*/});
     });

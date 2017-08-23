@@ -29,6 +29,7 @@ return [
     'attributes'             => 'واصفات',
     'modules'                => 'قوالب',
     'custom_modules'         => 'قوالب خاصة',
+    'pages'                  => 'الصفحات',
 
     'expand_all'             => 'فتح الجميع',
     'collapse_all'           => 'اغلاق الجميع',

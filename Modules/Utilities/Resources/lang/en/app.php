@@ -29,6 +29,7 @@ return [
     'attributes'             => 'Attributes',
     'modules'                => 'Modules',
     'custom_modules'         => 'Custom Modules',
+    'pages'                  => 'Pages',
 
     'expand_all'             => 'Expand All',
     'collapse_all'           => 'Collapse All',
