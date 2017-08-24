@@ -34,9 +34,9 @@ class DataTableServiceProvider extends ServiceProvider
     {
         parent::__construct($app);
 
-        $this->commands = $this->registerCommandByVersion($this->commands);
-
         $this->registerConfig();
+
+        $this->commands = $this->registerCommandByVersion($this->commands);
     }
 
     /**
@@ -183,7 +183,15 @@ class DataTableServiceProvider extends ServiceProvider
 
     protected function registerCommandByVersion($commands)
     {
-        switch (config('datatable.version'))
+        $laravel = app();
+        $version = preg_match('/\d\.\d/',$laravel::VERSION ,$v);
+
+        if($version)
+            $version = $v[0];
+        else
+            $version = config('datatable.version');
+
+        switch ($version)
         {
             case '5.2': {
                 return array_merge($commands ,[

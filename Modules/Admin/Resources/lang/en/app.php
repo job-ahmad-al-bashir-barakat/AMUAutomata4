@@ -27,6 +27,7 @@ return [
     'mobile'             => 'Mobile',
     'extra_info'         => 'Extra Info',
     'gelocation'         => 'Gelocation',
+    'upload_images'      => 'Upload Images',
 
     'code'               => 'Code',
     'credit'             => 'Credit',

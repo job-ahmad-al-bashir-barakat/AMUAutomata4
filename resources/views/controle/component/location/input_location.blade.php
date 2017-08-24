@@ -19,6 +19,7 @@
          data-address="{{ $geoLocation or '' }}" {{--276 N TUSTIN ST, ORANGE, CA 92867--}}
          data-maptype="ROADMAP"
          data-styled class="gmap"
+         data-zoom={{ $zoom or 14 }}
          data-click="true"
          data-autocomplete="true"
          data-navigator="true"

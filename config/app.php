@@ -187,9 +187,10 @@ return [
         App\Providers\ComposerServiceProvider::class,
         App\Providers\CustomBladeServiceProvider::class,
         App\Providers\CustomFormServiceProvider::class,
-        Aut\DataTable\DataTableServiceProvider::class,
-        Aut\Autocomplete\AutocompleteServiceProvider::class,
         App\Library\Url\Providers\RouteUrlsServiceProvider::class,
+        Aut\Autocomplete\AutocompleteServiceProvider::class,
+        Aut\DataTable\DataTableServiceProvider::class,
+        Aut\FileManager\FileManagerServiceProvider::class,
 
     ],
 

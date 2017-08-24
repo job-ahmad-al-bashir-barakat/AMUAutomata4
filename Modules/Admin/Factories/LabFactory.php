@@ -22,6 +22,7 @@ class LabFactory extends GlobalFactory
             ->queryMultiLang(['name' ,'description'])
             ->queryUpdateButton('id')
             ->queryDeleteButton('id')
+            ->queryCustomButton('upload_image' ,'id' ,'fa fa-image' ,'' ,'data-toggle=modal data-target=#lab-image-upload')
             ->queryRender(true);
     }
 
@@ -36,11 +37,12 @@ class LabFactory extends GlobalFactory
             ->addHiddenInput('faculty_id' ,'faculty_id' ,$request->input('id') ,false ,true)
             ->addMultiInputTextLangs(['name'] ,'req required')
             ->startRelation('contact')
-                ->addInputText(trans('admin::app.phone'),'contact.phone' ,'contact.phone' ,'req required',['data-masked' , 'data-inputmask' => "'mask':'(999)999-9999'"])
+                ->addInputText(trans('admin::app.phone'),'contact.phone' ,'contact.phone' ,'req required',['data-masked' , 'data-inputmask-type' => "phone"])
                 ->addInputGroup(trans('admin::app.gelocation'),'contact.gelocation' ,'contact.gelocation' ,'req required' ,'icon-location-pin' ,'input-location hand' ,['data-modal' => 'modal-labs-input-location'])
             ->endRelation()
             ->setGridNormalCol(12)
             ->addMultiTextareaLangs(['description'] ,'req required text-editor d:tabs d:noLabel')
+            ->addActionButton(trans('admin::app.upload_images') ,'upload_image' ,'upload_image', 'center all' ,'100px')
             ->addActionButton($this->update,'update','update')
             ->addActionButton($this->delete,'delete','delete')
             ->addBlade(view('controle.component.location.input_location', [
@@ -48,7 +50,14 @@ class LabFactory extends GlobalFactory
                 'title'             => trans('admin::app.labs_gelocation'),
                 'inputFullLocation' => '#datatable-labs-modal .input-location input',
                 'geoLocation'       => Setting::whereCode('UGL')->first()->value
-            ]) ,'body')
+            ])->render())
+            ->addBlade(view('controle.component.image_upload' ,[
+                'id'         => 'lab-image-upload',
+                'title'      => trans('admin::app.upload_lab_image'),
+                'method'     => 'PUT',
+                'width'      => '700px',
+                'stopButton' => true
+            ])->render())
             ->addNavButton()
             ->render();
     }

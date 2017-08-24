@@ -10,6 +10,10 @@ trait Dialog
 
     protected $dialogFooter = "";
 
+    /**
+     * @param $id
+     * @return string
+     */
     protected function renderDialog($id)
     {
         $dialogWidth = !empty($this->optionDatatableConfig['dialogWidth'])
@@ -41,7 +45,13 @@ trait Dialog
         return $dialog;
     }
 
-    function checkReturnValue($html ,$isCustom ,$stringCont = 'dialogBody')
+    /**
+     * @param $html
+     * @param $isCustom
+     * @param string $stringCont
+     * @return mixed
+     */
+    function checkReturnValue($html , $isCustom , $stringCont = 'dialogBody')
     {
         if($isCustom)
         {
@@ -60,7 +70,17 @@ trait Dialog
         }
     }
 
-    protected function _HiddenInput($id, $name, $value, $type ,$class ,$attr ,$custom = false)
+    /**
+     * @param $id
+     * @param $name
+     * @param $value
+     * @param $type
+     * @param $class
+     * @param $attr
+     * @param bool $custom
+     * @return mixed
+     */
+    protected function _HiddenInput($id, $name, $value, $type , $class , $attr , $custom = false)
     {
         $replaceId = preg_match('/\b(?<![\S])(replace-id)(?![\S])\b/',$class);
 
@@ -77,13 +97,29 @@ trait Dialog
         return $this->checkReturnValue($html ,$custom);
     }
 
-    protected function _addComponent($component ,$custom = false)
+    /**
+     * @param $component
+     * @param bool $custom
+     * @return mixed
+     */
+    protected function _addComponent($component , $custom = false)
     {
         $html = $component;
 
         return $this->checkReturnValue($html ,$custom);
     }
 
+    /**
+     * @param $title
+     * @param $id
+     * @param $name
+     * @param $value
+     * @param $type
+     * @param $class
+     * @param $attr
+     * @param bool $custom
+     * @return mixed
+     */
     protected function _Input($title, $id, $name, $value, $type, $class, $attr , $custom = false)
     {
         $star = preg_match('/\b(?<![\S])(req)(?![\S])\b/',$class);
@@ -104,7 +140,17 @@ trait Dialog
         return $this->checkReturnValue($html ,$custom);
     }
 
-    protected function _InputPassword($title, $id, $name, $type , $class, $attr ,$custom = false)
+    /**
+     * @param $title
+     * @param $id
+     * @param $name
+     * @param $type
+     * @param $class
+     * @param $attr
+     * @param bool $custom
+     * @return mixed
+     */
+    protected function _InputPassword($title, $id, $name, $type , $class, $attr , $custom = false)
     {
         $star = preg_match('/\b(?<![\S])(req)(?![\S])\b/',$class);
 
@@ -126,7 +172,19 @@ trait Dialog
         return $this->checkReturnValue($html ,$custom);
     }
 
-    protected function _InputGroup($title, $id, $name, $type , $class, $groupIcon, $groupClass, $attr ,$custom = false)
+    /**
+     * @param $title
+     * @param $id
+     * @param $name
+     * @param $type
+     * @param $class
+     * @param $groupIcon
+     * @param $groupClass
+     * @param $attr
+     * @param bool $custom
+     * @return mixed
+     */
+    protected function _InputGroup($title, $id, $name, $type , $class, $groupIcon, $groupClass, $attr , $custom = false)
     {
         $star = preg_match('/\b(?<![\S])(req)(?![\S])\b/',$class);
 
@@ -147,7 +205,16 @@ trait Dialog
         return $this->checkReturnValue($html ,$custom);
     }
 
-    protected function _TextArea($title, $id, $name, $class, $attr ,$custom = false)
+    /**
+     * @param $title
+     * @param $id
+     * @param $name
+     * @param $class
+     * @param $attr
+     * @param bool $custom
+     * @return mixed
+     */
+    protected function _TextArea($title, $id, $name, $class, $attr , $custom = false)
     {
         $star = preg_match('/\b(?<![\S])(req)(?![\S])\b/',$class);
 
@@ -165,7 +232,17 @@ trait Dialog
         return $this->checkReturnValue($html ,$custom);
     }
 
-    protected function _InputNumber($title, $id, $name, $type, $class, $attr ,$custom = false)
+    /**
+     * @param $title
+     * @param $id
+     * @param $name
+     * @param $type
+     * @param $class
+     * @param $attr
+     * @param bool $custom
+     * @return mixed
+     */
+    protected function _InputNumber($title, $id, $name, $type, $class, $attr , $custom = false)
     {
         $star = preg_match('/\b(?<![\S])(req)(?![\S])\b/',$class);
 
@@ -184,23 +261,42 @@ trait Dialog
         return $this->checkReturnValue($html ,$custom);
     }
 
-    protected function _addCont($id ,$html ,$class ,$attr ,$custom = false)
+    /**
+     * @param $id
+     * @param $html
+     * @param $class
+     * @param $attr
+     * @param bool $custom
+     * @return mixed
+     */
+    protected function _addCont($id , $html , $class , $attr , $custom = false)
     {
         $html = "<div id='$id' class='$class' $attr>$html</div>";
 
         return $this->checkReturnValue($html ,$custom);
     }
 
-    protected function _startCont($id ,$class ,$attr ,$custom = false)
+    /**
+     * @param $id
+     * @param $class
+     * @param $attr
+     * @param bool $custom
+     * @return mixed
+     */
+    protected function _startCont($id , $class , $attr , $custom = false)
     {
-        $id   = empty($id) ? $id : '';
-        $attr = empty($attr) ? $attr : '';
+        $id   = !empty($id) ? $id : '';
+        $attr = !empty($attr) ? $attr : '';
 
-        $html = "<div $id class='$class' $attr>";
+        $html = "<div id='$id' class='$class' $attr>";
 
         return $this->checkReturnValue($html ,$custom);
     }
 
+    /**
+     * @param bool $custom
+     * @return mixed
+     */
     protected function _endCont($custom = false)
     {
         $html = '</div>';
@@ -208,7 +304,49 @@ trait Dialog
         return $this->checkReturnValue($html ,$custom);
     }
 
-    protected function _Button($text ,$id , $type, $class, $attr ,$custom = false ,$stringCont = 'body')
+    /**
+     * @param $id
+     * @param $title
+     * @param $class
+     * @param $attr
+     * @param bool $custom
+     * @return mixed
+     */
+    protected function _startFieldSet($id , $title , $class , $attr , $custom = false)
+    {
+        $id   = !empty($id) ? $id : '';
+        $attr = !empty($attr) ? $attr : '';
+
+        $html = "<fieldset id='$id' class='$class' $attr>";
+
+        if($title)
+            $html .= "<legend>$title</legend>";
+
+        return $this->checkReturnValue($html ,$custom);
+    }
+
+    /**
+     * @param bool $custom
+     * @return mixed
+     */
+    protected function _endFieldSet($custom = false)
+    {
+        $html = '</fieldset>';
+
+        return $this->checkReturnValue($html ,$custom);
+    }
+
+    /**
+     * @param $text
+     * @param $id
+     * @param $type
+     * @param $class
+     * @param $attr
+     * @param bool $custom
+     * @param string $stringCont
+     * @return mixed
+     */
+    protected function _Button($text , $id , $type, $class, $attr , $custom = false , $stringCont = 'body')
     {
         $stringCont = 'dialog'.ucfirst($stringCont);
 
@@ -224,7 +362,19 @@ trait Dialog
         return $this->checkReturnValue($html ,$custom ,$stringCont);
     }
 
-    protected function _Autocomplete($url ,$title ,$id ,$name , $colLabel = '', $class = '', $attr = '' ,$target = '' ,$custom = false)
+    /**
+     * @param $url
+     * @param $title
+     * @param $id
+     * @param $name
+     * @param string $colLabel
+     * @param string $class
+     * @param string $attr
+     * @param string $target
+     * @param bool $custom
+     * @return mixed
+     */
+    protected function _Autocomplete($url , $title , $id , $name , $colLabel = '', $class = '', $attr = '' , $target = '' , $custom = false)
     {
         //$colLabel = preg_replace('/.+\./','',$colLabel);
 
@@ -249,7 +399,18 @@ trait Dialog
         return $this->checkReturnValue($html ,$custom);
     }
 
-    protected function _Select($obj, $title, $id, $name, $colLabel, $class, $attr ,$custom = false)
+    /**
+     * @param $obj
+     * @param $title
+     * @param $id
+     * @param $name
+     * @param $colLabel
+     * @param $class
+     * @param $attr
+     * @param bool $custom
+     * @return mixed
+     */
+    protected function _Select($obj, $title, $id, $name, $colLabel, $class, $attr , $custom = false)
     {
         $star = preg_match('/\b(?<![\S])(req)(?![\S])\b/',$class);
 

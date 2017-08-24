@@ -2,8 +2,7 @@
 
 namespace Aut\DataTable\Exceptions;
 
-
-use Intervention\Image\Exception\RuntimeException;
+use RuntimeException;
 
 class NotFoundDataTableException extends RuntimeException
 {

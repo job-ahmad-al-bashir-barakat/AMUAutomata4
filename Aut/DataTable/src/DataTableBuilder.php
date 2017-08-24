@@ -356,7 +356,7 @@ class DataTableBuilder
      */
     function startCont($id = '' , $class = '' , $attr = '')
     {
-        $isCustom = $this->_startCont($id ,$class ,$attr);
+        $isCustom = $this->_startCont($id ,$class ,$attr ,$this->isCustom);
 
         if($this->isCustom)
             $this->customHtml .= $isCustom;
@@ -370,6 +370,36 @@ class DataTableBuilder
     function endCont()
     {
         $isCustom = $this->_endCont($this->isCustom);
+
+        if($this->isCustom)
+            $this->customHtml .= $isCustom;
+
+        return $this;
+    }
+
+    /**
+     * @param string $id
+     * @param string $title
+     * @param string $class
+     * @param string $attr
+     * @return $this
+     */
+    function startFieldSet($id = '' , $title = '', $class = '' , $attr = '')
+    {
+        $isCustom = $this->_startFieldSet($id ,$title ,$class ,$attr ,$this->isCustom);
+
+        if($this->isCustom)
+            $this->customHtml .= $isCustom;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    function endFieldSet()
+    {
+        $isCustom = $this->_endFieldSet($this->isCustom);
 
         if($this->isCustom)
             $this->customHtml .= $isCustom;
