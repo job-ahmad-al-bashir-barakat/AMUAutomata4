@@ -2,9 +2,8 @@
 
 namespace Aut\DataTable\Exceptions;
 
-use RuntimeException;
-
-class NotFoundDataTableException extends RuntimeException
+class NotFoundDataTableException extends \RuntimeException
 {
     protected $message = 'This model not registered';
+    protected $code = 404;
 }
