@@ -5,9 +5,17 @@
     ## if you need to map your col database use this lib 
     composer install sofa/eloquence
     
+    ##  laravel-localization is require for datatable to work 
+    -- composer require mcamara/laravel-localization
+    
+    -- add providers
+    Mcamara\LaravelLocalization\LaravelLocalizationServiceProvider::class,
+    -- aliases
+    "LaravelLocalization" => Mcamara\LaravelLocalization\Facades\LaravelLocalization::class,
+
     ## you must add this lib to make datatable working 
     -- install package
-    composer install yajra/laravel-datatables-oracle
+    composer require yajra/laravel-datatables-oracle
     -- add providers
     Yajra\Datatables\DatatablesServiceProvider::class
     -- aliases
@@ -28,13 +36,15 @@
     -- aliases
         'Datatable' => Aut\DataTable\DataTableFacade::class,
     
-    -- php artisan make:datatable (make this command for publish package file)
-    
     -- after that make this command to reload your project (composer dump-autoload)
+
+    -- php artisan make:datatable (make this command for publish package file)
     
     -- to publish your assets and config make this command 
     php artisan vendor:publish --provider="Aut\DataTable\DataTableServiceProvider"
     
+    
+    <!-- for here doc check  -->
     ##--------------------------------------------------
                       using datatable 
     ##--------------------------------------------------
@@ -271,11 +281,6 @@
     //required for arabic message -- rtl (plugin)
     jquery-validation/localization/messages_ar.js
     select2/js/i18n/ar.js
-    
-    //required -- this file has some function used inside datatable.js
-    custom.js (js)
-    
-    // 
     
     ###-----------------------------------------------------------------------------------------------------------------
     attention :: after you finish all work please make command : composer dump-autoload to make sure your project work.

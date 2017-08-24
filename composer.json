@@ -38,7 +38,8 @@
             "App\\": "app/",
             "Modules\\": "Modules/",
             "Aut\\DataTable\\": "Aut/DataTable/src",
-            "Aut\\Autocomplete\\": "Aut/Autocomplete/src"
+            "Aut\\Autocomplete\\": "Aut/Autocomplete/src",
+            "Aut\\FileManager\\": "Aut/FileManager/src"
         },
         "files": [
             "app/Library/Helper.php"

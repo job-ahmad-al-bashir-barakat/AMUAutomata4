@@ -28,6 +28,7 @@ return [
     'mobile'             => 'موبايل',
     'extra_info'         => 'معلومات اضافية',
     'gelocation'         => 'الموقع الجغرافي',
+    'upload_images'      => 'تحميل الصور',
 
     'code'               => 'ترميز',
     'credit'             => 'عدد الساعات',

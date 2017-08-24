@@ -17,6 +17,7 @@ stopDeleteSerialize : true/false -- in some cases you may need to serialize data
 > this func return res response
 -------------------------------------------
 stopForm : true/false -- for some case you may need to stop form
+stopButton : remove all button without close
 -------------------------------------------
 --}}
 @php
@@ -25,17 +26,18 @@ stopForm : true/false -- for some case you may need to stop form
     $attr   = isset($attr)   ? $attr   : [];
     $width  = isset($width)  ? $width  : false;
 
-    $successFunc          = isset($successFunc)       ? "data-ajax-form-success=$successFunc"               : '';
-    $deleteSuccessFunc    = isset($deleteSuccessFunc) ? "data-ajax-form-delete-success=$deleteSuccessFunc"  : '';
-    $updateSuccessFunc    = isset($updateSuccessFunc) ? "data-ajax-form-update-success=$updateSuccessFunc"  : '';
-    $addSuccessFunc       = isset($addSuccessFunc)    ? "data-ajax-form-add-success=$addSuccessFunc"        : '';
-    $stopDeleteSerialize  = isset($stopDeleteSerialize)   ? $stopDeleteSerialize : false;
-    $stopForm             = isset($stopForm)   ? $stopForm : false;
+    $successFunc          = isset($successFunc)         ? "data-ajax-form-success=$successFunc"               : '';
+    $deleteSuccessFunc    = isset($deleteSuccessFunc)   ? "data-ajax-form-delete-success=$deleteSuccessFunc"  : '';
+    $updateSuccessFunc    = isset($updateSuccessFunc)   ? "data-ajax-form-update-success=$updateSuccessFunc"  : '';
+    $addSuccessFunc       = isset($addSuccessFunc)      ? "data-ajax-form-add-success=$addSuccessFunc"        : '';
+    $stopDeleteSerialize  = isset($stopDeleteSerialize) ? $stopDeleteSerialize : false;
+    $stopForm             = isset($stopForm)            ? $stopForm : false;
+    $stopButton           = isset($stopButton)          ? $stopButton : false;
 @endphp
 @unless($stopForm)
 <div class="ajaxCont">
 @endunless
-    <div id='{{ $id }}' {{--tabindex='-1'--}} role='dialog' aria-labelledby='myModalLabel' aria-hidden='true' class='modal fade'>
+    <div id='{{ $id or '' }}' {{--tabindex='-1'--}} role='dialog' aria-labelledby='myModalLabel' aria-hidden='true' class='modal fade'>
         <div class='modal-dialog' role='document' style="{{ $width ? "width: $width;" : "" }};">
             <div class='modal-content'>
                 @unless($stopForm)
@@ -55,7 +57,7 @@ stopForm : true/false -- for some case you may need to stop form
                 <div class='modal-footer'>
 
                     <button type='button' data-dismiss='modal' class='btn btn-default'>{{ trans('app.close') }}</button>
-                    @unless($stopForm)
+                    @unless($stopForm || $stopButton)
                         <button type='submit' id="delete" name="delete" class='btn btn-danger delete' data-method="delete" data-state="update" {{ $deleteSuccessFunc }} {{ $successFunc }} @if($stopDeleteSerialize) data-serialize="false" @endif>{{ trans('app.delete') }}</button>
                         <button type='submit' id="update" name="update" class='btn btn-success update' data-method="put" data-state="update" {{ $updateSuccessFunc }} {{ $successFunc }}>{{ trans('app.update') }}</button>
                         <button type='submit' id="add" name="add" class='btn btn-primary add' data-method="post" data-state="add" {{ $addSuccessFunc }} {{ $successFunc }}>{{ trans('app.add') }}</button>

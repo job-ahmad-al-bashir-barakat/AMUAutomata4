@@ -823,10 +823,9 @@ var APP_AMU = {
                     var orginal_id = this.id;//$(this).data('original-id');
 
                     var params = {
-                        /*
-                         filebrowserBrowseUrl : baseUrl+lang+'/filemanager/dialog?type=2&editor=ckeditor&fldr=',
-                         filebrowserUploadUrl :  baseUrl+lang+'/filemanager/dialog?type=2&editor=ckeditor&fldr=',
-                         filebrowserImageBrowseUrl :  baseUrl+lang+'/filemanager/dialog?type=1&editor=ckeditor&fldr=',*/
+                        filebrowserBrowseUrl : BASE_URL+LANG+'/filemanager/dialog?type=2&editor=ckeditor&fldr=',
+                        filebrowserUploadUrl :  BASE_URL+LANG+'/filemanager/dialog?type=2&editor=ckeditor&fldr=',
+                        filebrowserImageBrowseUrl :  BASE_URL+LANG+'/filemanager/dialog?type=1&editor=ckeditor&fldr=',
                         contentsLangDirection: $(this).hasClass('en') ? 'ltr' : $(this).hasClass('ar') ? 'rtl' : '',
                         language: LANG,
                         resize_enabled: typeof $(this).data('resize') != typeof undefined ? $(this).data('resize') : true,
@@ -840,34 +839,35 @@ var APP_AMU = {
                     APP_AMU.ckeditor.reset($cont ,$target ,'single' ,orginal_id);
                     $textarea = CKEDITOR.replace(orginal_id ,params);
                     $textarea.on('fileUploadRequest', function (evt) {
-                        /*  evt.data.requestData.type = 'ckeditor';
+                         evt.data.requestData.type = 'ckeditor';
                          var xhr = evt.data.fileLoader.xhr;
                          xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest' );
-                         xhr.setRequestHeader('X-CSRF-TOKEN', _csrf );
-                         // xhr.setRequestHeader('Content-Type', 'application/json' );
-                         //xhr.send( this.file );*/
-                        evt.stop();
-                    });
-
-                    CKEDITOR.on('instanceReady', function(event) {
-
-                        var editor = event.editor;
-
-                        editor.on('change', function(event) {
-
-                            // Sync textarea
-                            this.updateElement();
-                        });
-
-                        editor.on('resize',function(reEvent) {
-                            //
-                        });
+                         xhr.setRequestHeader('X-CSRF-TOKEN', CSRF_TOKEN);
+                         xhr.setRequestHeader('Content-Type', 'application/json' );
+                         xhr.send( this.file );
+                         evt.stop();
                     });
                 });
 
-                // CKEDITOR.on('dialogDefinition', function (event) {
-                //     aut_filemanager_handleImageUpload(event, baseUrl, lang) // dialogDefinition
-                // });
+                CKEDITOR.on('instanceReady', function(event) {
+
+                    var editor = event.editor;
+
+                    editor.on('change', function(event) {
+
+                        // Sync textarea
+                        this.updateElement();
+                    });
+
+                    editor.on('resize',function(reEvent) {
+                        //
+                    });
+                });
+
+                CKEDITOR.on('dialogDefinition', function (event) {
+
+                    aut_filemanager_handleImageUpload(event, BASE_URL, LANG);
+                });
             }
             else
                 console.log('warning: ckeditor is not defined');
@@ -976,6 +976,40 @@ var APP_AMU = {
         }
     },
 
+    inputMask : {
+
+        init: function (selector) {
+
+            /**
+             * data param
+             *
+             * data-masked
+             * data-inputmask = 'mask':'(999)999-9999'
+             * data-inputmask-type
+             */
+
+            $(selector).each(function () {
+
+                var $this = $(this),
+                    $type = typeof $this.data('inputmask-type') != typeof undefined ? $this.data('inputmask-type') : false,
+                    $mask;
+
+                switch ($type)
+                {
+                    case 'phone': {
+                        $mask = '(9{3}) 9{3}-9{4}';
+                    }; break;
+                }
+
+                $this.attr('dir' ,'ltr');
+                $this.inputmask($mask ,{
+                    rightAlign: DIR == 'ltr' ? false : true,
+                    clearMaskOnLostFocus: true,
+                });
+            });
+        },
+    },
+
     ajax : {
 
         init : function () {
@@ -985,6 +1019,8 @@ var APP_AMU = {
             APP_AMU.validate.init('.ajaxCont');
             APP_AMU.tree.init();
             APP_AMU.ckeditor.init('body' ,'.text-editor');
+            APP_AMU.inputMask.init('[data-masked]');
+
             $('.datatable').each(loadDatatable);
         }
     }
@@ -1012,5 +1048,6 @@ $(function () {
     APP_AMU.tree.init();
     APP_AMU.ckeditor.init('body' ,'.text-editor');
     APP_AMU.ckeditor.fixCkeditorModal();
+    APP_AMU.inputMask.init('[data-masked]');
     APP_AMU.map.init();
 });

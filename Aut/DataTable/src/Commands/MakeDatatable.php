@@ -1,31 +1,12 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: HP
- * Date: 8/21/2017
- * Time: 9:15 PM
- */
 
-namespace Aut\DataTable\src\Commands\LaravelFive;
+namespace Aut\DataTable\Commands;
 
 use Symfony\Component\Console\Input\InputArgument;
 
 trait MakeDatatable
 {
     protected $module;
-    /**
-     * The name and signature of the console command.
-     *
-     * @var string
-     */
-    protected $name = 'make:datatable';
-
-    /**
-     * The console command description.
-     *
-     * @var string
-     */
-    protected $description = 'publish all content datatable';
 
     /**
      * Get the console command arguments.
@@ -102,12 +83,13 @@ trait MakeDatatable
             mkdir(base_path('app/Factories'), 0755, true);
         }
 
-        foreach (\Module::all() as $module)
-        {
-            if (! is_dir(base_path("Modules/$module->name/Factories"))) {
-                mkdir(base_path("Modules/$module->name/Factories"), 0755, true);
+        if(class_exists(\Module::class))
+            foreach (\Module::all() as $module)
+            {
+                if (! is_dir(base_path("Modules/$module->name/Factories"))) {
+                    mkdir(base_path("Modules/$module->name/Factories"), 0755, true);
+                }
             }
-        }
     }
 
     /**
