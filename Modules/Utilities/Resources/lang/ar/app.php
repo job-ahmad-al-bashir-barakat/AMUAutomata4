@@ -30,6 +30,7 @@ return [
     'modules'                => 'قوالب',
     'custom_modules'         => 'قوالب خاصة',
     'pages'                  => 'الصفحات',
+    'website_routes'         => 'روابط الموقع',
 
     'expand_all'             => 'فتح الجميع',
     'collapse_all'           => 'اغلاق الجميع',

@@ -63,6 +63,12 @@
                     <span>{{ trans('utilities::app.control') }}</span>
                 </a>
             </li>
+
+            <li class="">
+                <a href="{{ RouteUrls::websiteRoutes() }}" class="ajax" title="{{ trans('utilities::app.website_routes') }}">
+                    <span>{{ trans('utilities::app.website_routes') }}</span>
+                </a>
+            </li>
         </ul>
     </li>
 @endsection

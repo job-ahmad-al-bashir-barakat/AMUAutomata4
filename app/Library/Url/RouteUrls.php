@@ -58,4 +58,9 @@ class RouteUrls
     {
         return $this->localizeUrl('pages', 'utilities');
     }
+
+    public function websiteRoutes()
+    {
+        return $this->localizeUrl('website-routes', 'utilities');
+    }
 }
