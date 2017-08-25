@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateAttributesTable extends Migration {
+class CreatePagesTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,10 +12,11 @@ class CreateAttributesTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('attributes', function(Blueprint $table)
+		Schema::create('pages', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->string('code');
+			$table->string('page_code', 190)->nullable();
+			$table->string('route', 190);
 			$table->timestamps();
 			$table->softDeletes();
 		});
@@ -29,7 +30,7 @@ class CreateAttributesTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('attributes');
+		Schema::drop('pages');
 	}
 
 }

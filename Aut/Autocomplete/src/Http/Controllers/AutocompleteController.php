@@ -25,6 +25,8 @@ class AutocompleteController
 
     protected $colName;
 
+    public $limit = 5;
+
     public function __construct()
     {
         $this->initModel();
@@ -67,13 +69,19 @@ class AutocompleteController
         if(!empty($this->withCondition)) $result = $this->withCondition;
 
         $data = $modal::where(function($query) use($result) {
-
+            $q = explode(' ', request()->input('q', ''), $this->limit);
             foreach ($result as $index => $item)
             {
-                if($index == 0)
-                    $query->where($item, 'like', '%'.request()->input('q','').'%');
-                else
-                    $query->orWhere($item, 'like', '%'.request()->input('q','').'%');
+                if($index == 0) {
+                    for ($i = 0; $i < count($q); $i++) {
+                        $query->where($item, 'like', '%' . $q[$i] . '%');
+                    }
+                }
+                else {
+                    for ($i = 0; $i < count($q); $i++) {
+                        $query->orWhere($item, 'like', '%' . $q[$i] . '%');
+                    }
+                }
             }
 
         })->get($final);
@@ -89,8 +97,10 @@ class AutocompleteController
         foreach ($this->has as $whereHas => $cond)
         {
             $object = $object->whereHas($whereHas ,function ($query) use ($cond) {
-
-                $query->where($cond , 'like' , request('q','').'%');
+                $q = explode(' ', request()->input('q', ''), $this->limit);
+                for ($i = 0; $i < count($q); $i++) {
+                    $query->where($cond, 'like', '%' . $q[$i] . '%');
+                }
             });
         }
 
