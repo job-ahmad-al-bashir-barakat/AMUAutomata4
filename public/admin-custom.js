@@ -167,7 +167,15 @@ var APP_AMU = {
             // right before replacing HTML with content from cache
             $(document).on("pjax:beforeReplace", function (event) { });
             // on ajax error; will hard refresh unless canceled
-            $(document).on("pjax:error", function (event) { });
+            $(document).on("pjax:error", function (event, xhr, textStatus, errorThrown, options) {
+                console.log('Event', event);
+                console.log('XHR', xhr);
+                console.log('Text Status', textStatus);
+                console.log('Error Thrown', errorThrown);
+                console.log('Options', options);
+                /*options.success(xhr.responseText, textStatus, xhr);
+                return false;*/
+            });
             // fires after options.timeout; will hard refresh unless canceled
             $(document).on("pjax:timeout", function (event) {
                 event.preventDefault();
