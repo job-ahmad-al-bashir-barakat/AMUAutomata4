@@ -1,7 +1,7 @@
 @extends('utilities::layouts.layout')
 
 @section('content_header')
-    @include('utilities::layouts._content_header',['title' => $title])
+    @include('utilities::layouts._content_header', ['title' => $title])
 @endsection
 
 @section('content')

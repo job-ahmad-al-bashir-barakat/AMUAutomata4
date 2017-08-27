@@ -1,1 +1,1 @@
-@include('controle.layout' ,['module' => 'utilities'])
+@include('controle.layout', ['module' => 'utilities'])

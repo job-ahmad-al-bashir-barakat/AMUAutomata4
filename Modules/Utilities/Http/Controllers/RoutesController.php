@@ -12,7 +12,7 @@ use Illuminate\Routing\Controller;
 
 class RoutesController extends Controller
 {
-    public function index()
+    public function pages()
     {
         return view('utilities::page.website-links', [
             'title' => 'Website Links'
