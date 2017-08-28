@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateUserNameLangsTable extends Migration {
+class CreateAttributeNameLangsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,12 +12,12 @@ class CreateUserNameLangsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('user_name_langs', function(Blueprint $table)
+		Schema::create('attribute_name_langs', function(Blueprint $table)
 		{
-			$table->increments('id')->unsigned();
-			$table->integer('user_id')->nullable()->index('user_id');
+			$table->increments('id');
+			$table->integer('attribute_id')->nullable()->index('gender_id');
 			$table->integer('lang_id')->nullable()->index('lang_id');
-			$table->string('text')->nullable();
+			$table->string('text', 191)->nullable();
 			$table->timestamps();
 			$table->softDeletes();
 		});
@@ -31,7 +31,7 @@ class CreateUserNameLangsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('user_name_langs');
+		Schema::drop('attribute_name_langs');
 	}
 
 }

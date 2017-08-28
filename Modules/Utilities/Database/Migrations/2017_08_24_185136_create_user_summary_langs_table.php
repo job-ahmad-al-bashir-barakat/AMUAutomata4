@@ -14,12 +14,12 @@ class CreateUserSummaryLangsTable extends Migration {
 	{
 		Schema::create('user_summary_langs', function(Blueprint $table)
 		{
-            $table->increments('id')->unsigned();
+			$table->increments('id');
 			$table->integer('user_id')->nullable()->index('user_id');
-            $table->integer('lang_id')->nullable()->index('lang_id');
-            $table->string('text')->nullable();
+			$table->string('text', 191)->nullable();
 			$table->timestamps();
 			$table->softDeletes();
+			$table->integer('lang_id')->nullable();
 		});
 	}
 

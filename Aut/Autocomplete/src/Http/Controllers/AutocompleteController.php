@@ -2,10 +2,10 @@
 
 namespace Aut\Autocomplete\Http\Controllers;
 
+use Route;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Route;
 
 class AutocompleteController
 {
@@ -24,6 +24,8 @@ class AutocompleteController
     protected $colId;
 
     protected $colName;
+
+    public $limit = 5;
 
     public function __construct()
     {
@@ -67,13 +69,15 @@ class AutocompleteController
         if(!empty($this->withCondition)) $result = $this->withCondition;
 
         $data = $modal::where(function($query) use($result) {
-
+            $q = str_replace(' ', '%', request()->input('q', ''));
             foreach ($result as $index => $item)
             {
-                if($index == 0)
-                    $query->where($item, 'like', '%'.request()->input('q','').'%');
-                else
-                    $query->orWhere($item, 'like', '%'.request()->input('q','').'%');
+                if($index == 0) {
+                    $query->where($item, 'like', '%' . $q . '%');
+                }
+                else {
+                    $query->orWhere($item, 'like', '%' . $q . '%');
+                }
             }
 
         })->get($final);
@@ -89,8 +93,8 @@ class AutocompleteController
         foreach ($this->has as $whereHas => $cond)
         {
             $object = $object->whereHas($whereHas ,function ($query) use ($cond) {
-
-                $query->where($cond , 'like' , request('q','').'%');
+                $q = str_replace(' ', '%', request()->input('q', ''));
+                $query->where($cond, 'like', '%' . $q . '%');
             });
         }
 
