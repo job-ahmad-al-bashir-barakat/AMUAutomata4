@@ -11,7 +11,7 @@ class GlobalComposer
     public function compose(View $view)
     {
         $view->with([
-            'module' => preg_replace("/.+\//" ,'' ,\Route::getCurrentRoute()->action['prefix']),
+            //'module' => preg_replace("/.+\//" ,'' ,\Route::getCurrentRoute()->action['prefix']),
             'dir'    => LaravelLocalization::getCurrentLocaleDirection(),
             'lang'   => LaravelLocalization::getCurrentLocale(),
         ]);

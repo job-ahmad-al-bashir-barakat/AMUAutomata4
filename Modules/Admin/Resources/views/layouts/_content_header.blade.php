@@ -1,1 +1,1 @@
-@include('controle._content_header' ,['title' ,$title])
+@include('controle._content_header' ,['title' => $title ,'module' => 'admin'])
