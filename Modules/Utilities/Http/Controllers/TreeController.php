@@ -72,18 +72,26 @@ class TreeController extends Controller
      * Display a listing of the resource.
      * @return Response
      */
-    public function index($tree)
+    public function index($tree ,\Request $request)
     {
         $model = $this->model;
 
-        if(!request('nodeId'))
+        if(!method_exists($this->factory ,'getTreeQuery'))
         {
-            $nodes = $model::orderBy('order')->allLangs()->get()->toTree();
+            if(!request('nodeId'))
+            {
+                $nodes = $model::orderBy('order')->allLangs()->get()->toTree();
+            }
+            else
+            {
+                $node = $model::find(request('nodeId'));
+                $nodes = $model::whereAncestorOrSelf($node)->allLangs()->get()->toTree();
+            }
         }
         else
         {
-            $node = $model::find(request('nodeId'));
-            $nodes = $model::whereAncestorOrSelf($node)->allLangs()->get()->toTree();
+            $factory  = new $this->factory();
+            $nodes    = $factory->getTreeQuery($request);
         }
 
         $tree = '';
@@ -101,7 +109,7 @@ class TreeController extends Controller
                 //open li for child parent
                 $tree = $tree."<li $setCols class='dd-item dd3-item'>";
 
-                $factory      = new $this->factory();
+                $factory  = new $this->factory();
 
                 // get Title
                 $content = []; $html = [];

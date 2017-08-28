@@ -20,8 +20,36 @@
  */
 
 package {
+	import flash.system.Security;
+	import flash.external.ExternalInterface;
 
-public class Jplayer extends Sprite {
+	import flash.utils.Timer;
+	import flash.events.TimerEvent;
+	
+	import flash.text.TextField;
+	import flash.text.TextFormat;
+
+	import flash.events.KeyboardEvent;
+
+	import flash.display.Sprite;
+	import happyworm.jPlayer.*;
+
+	import flash.display.StageAlign;
+	import flash.display.StageScaleMode;
+	import flash.events.Event;
+	import flash.net.LocalConnection;
+	import flash.events.StatusEvent;
+
+	import flash.events.MouseEvent;
+
+	import flash.ui.ContextMenu;
+	import flash.ui.ContextMenuItem;
+	import flash.events.ContextMenuEvent;
+	import flash.net.URLRequest;
+	import flash.net.navigateToURL;
+	import flash.media.Video;
+
+	public class Jplayer extends Sprite {
 		private var jQuery:String;
 		private var sentNumberFractionDigits:uint = 2;
 

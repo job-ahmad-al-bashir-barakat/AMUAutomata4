@@ -12,8 +12,12 @@
 
 package happyworm.jPlayer
 {
+	import flash.net.LocalConnection;
+	import flash.events.StatusEvent;
+	import flash.system.Capabilities;
+	import flash.utils.getTimer;
 
-public class TraceOut
+	public class TraceOut
 	{
 
 		private var outgoing_lc:LocalConnection = new LocalConnection ();

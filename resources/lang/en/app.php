@@ -12,6 +12,8 @@ return [
     'update'          => 'Update',
     'delete'          => 'Delete',
     'close'           => 'Close',
+    'save'            => 'Save',
+    'filter'          => 'Filter',
     'set_location'    => 'Set Location',
 
     'oper' => [

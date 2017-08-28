@@ -32,8 +32,8 @@ class SocialNetworkFactory extends GlobalFactory
         return $this->table
             ->config('datatable-social-network',trans('utilities::app.social_network'))
             ->addPrimaryKey('id','id')
-            ->addMultiInputTextLangs(['name'])
-            ->addInputText(trans('app.code'),'code' ,'code')
+            ->addMultiInputTextLangs(['name'] ,'req required')
+            ->addInputText(trans('utilities::app.code'),'code' ,'code' ,'req required')
             ->addActionButton($this->update,'update','update')
             ->addActionButton($this->delete,'delete','delete')
             ->addNavButton()

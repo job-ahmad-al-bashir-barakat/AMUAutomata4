@@ -148,18 +148,20 @@ mix.scripts(js.concat([
 /**
  * control copy font,image
  */
+mix.copy('Modules/Admin/Assets/vendor/ckeditor', 'public/ckeditor' ,false);
+mix.copy('Modules/Admin/Assets/vendor/filemanager', 'public/filemanager' ,false);
 mix.copy('Modules/Admin/Assets/vendor/app/css/theme-*.css', 'public/css');
-mix.copy('Modules/Admin/Assets/vendor/simple-line-icons/fonts', 'public/fonts');
-mix.copy('Modules/Admin/Assets/vendor/fontawesome/fonts', 'public/fonts');
+
 mix.copy('Modules/Admin/Assets/vendor/jQuery-gMap/marker_red.png', 'public/images' ,false);
 mix.copy('Modules/Admin/Assets/vendor/app/i18n', 'public/i18n');
+
 // mix.copy('Modules/Admin/Assets/vendor/jquery-ui/themes/smoothness/images', 'public/css/images');
-mix.copy('Modules/Admin/Assets/vendor/ckeditor', 'public/ckeditor' ,false);
 mix.copy('Modules/Admin/Assets/vendor/img', 'public/img' ,false);
 mix.copy('Modules/Admin/Assets/vendor/bootstrap-fileinput/img', 'public/img');
-mix.copy('public/myfont/font-jozoor', 'public/fonts' ,false);
 
-
+mix.copy('Modules/Admin/Assets/vendor/simple-line-icons/fonts', 'public/fonts');
+mix.copy('Modules/Admin/Assets/vendor/fontawesome/fonts', 'public/fonts');
+mix.copy('resources/assets/myfont/font-jozoor/fonts', 'public/css/fonts' ,false);
 
 /**
  * theme css

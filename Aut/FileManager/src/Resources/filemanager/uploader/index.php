@@ -1,6 +1,6 @@
 <?php
 
-$config = include __DIR__.'/../config/config.php';
+$config = include '../config/config.php';
 //TODO switch to array
 extract($config, EXTR_OVERWRITE);
 
@@ -15,7 +15,7 @@ if ($_SESSION['RF']["verify"] != "RESPONSIVEfilemanager")
 
 //Let's load the 'interesting' stuff ...  ;-)
 include 'jupload.php';
-include __DIR__.'/../include/utils.php';
+include '../include/utils.php';
 
 $path = $current_path . $_GET['path'];
 $cycle = true;
@@ -28,9 +28,10 @@ while ($cycle && $i < $max_cycles)
 	{
 		$cycle = false;
 	}
-	if (file_exists(__DIR__.'/../config/config.php'))
+
+	if (file_exists($path . "config.php"))
 	{
-		require_once __DIR__.'/../config/config.php';
+		require_once $path . "config.php";
 		$cycle = false;
 	}
 	$path = fix_dirname($path) . "/";
@@ -98,7 +99,7 @@ $appletParameters = array(
 	//
 	//Default afterUploadURL displays the list of uploaded files above the applet (in the <!--JUPLOAD_FILES--> markers, see below)
 	//You can use any page you want, to manage the uploaded files. Here is a sample, that also only shows the list of files.
-	'afterUploadURL'        => 'success?path=' . $_GET['path'],
+	'afterUploadURL'        => 'success.php?path=' . $_GET['path'],
 	//
 	//This demo expects the md5sum to be sent by the applet. But the parameter is not mandatory
 	//This value should be set to false (or the line commented), for big files, as md5 calculation

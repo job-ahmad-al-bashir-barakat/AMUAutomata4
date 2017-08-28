@@ -824,8 +824,8 @@ var APP_AMU = {
 
                     var params = {
                         filebrowserBrowseUrl : BASE_URL+LANG+'/filemanager/dialog?type=2&editor=ckeditor&fldr=',
-                        filebrowserUploadUrl :  BASE_URL+LANG+'/filemanager/dialog?type=2&editor=ckeditor&fldr=',
-                        filebrowserImageBrowseUrl :  BASE_URL+LANG+'/filemanager/dialog?type=1&editor=ckeditor&fldr=',
+                        filebrowserUploadUrl : BASE_URL+LANG+'/filemanager/dialog?type=2&editor=ckeditor&fldr=',
+                        filebrowserImageBrowseUrl : BASE_URL+LANG+'/filemanager/dialog?type=1&editor=ckeditor&fldr=',
                         contentsLangDirection: $(this).hasClass('en') ? 'ltr' : $(this).hasClass('ar') ? 'rtl' : '',
                         language: LANG,
                         resize_enabled: typeof $(this).data('resize') != typeof undefined ? $(this).data('resize') : true,

@@ -31,7 +31,7 @@ class GenderFactory extends GlobalFactory
         return $this->table
             ->config('datatable-gender',trans('admin::app.gender'))
             ->addPrimaryKey('id','id')
-            ->addMultiInputTextLangs(['name'])
+            ->addMultiInputTextLangs(['name'] ,'req required')
             ->addActionButton($this->update,'update','update')
             ->addActionButton($this->delete,'delete','delete')
             ->addNavButton()

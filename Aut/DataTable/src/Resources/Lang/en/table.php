@@ -44,8 +44,9 @@ return [
         'save_add_new' => 'Save & Add New'
     ],
     'oper' => [
-      'success' => 'operation done successfuly',
-      'error'   => 'operation fails'
+      'success' => 'Operation done successfuly',
+      'error'   => 'Operation fails',
+      'successOrder' => 'Order done successfully'
     ],
     "filter" => 'Filter',
     "buttons" => [

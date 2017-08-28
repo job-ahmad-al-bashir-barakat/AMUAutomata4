@@ -32,7 +32,7 @@ class SemesterFactory extends GlobalFactory
         return $this->table
             ->config('datatable-semester',trans('admin::app.semester'))
             ->addPrimaryKey('id','id')
-            ->addMultiInputTextLangs(['name'])
+            ->addMultiInputTextLangs(['name'] ,'req required')
             ->addActionButton($this->update,'update','update')
             ->addActionButton($this->delete,'delete','delete')
             ->addNavButton()

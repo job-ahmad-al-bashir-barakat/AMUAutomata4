@@ -17,6 +17,9 @@ class CreateCourseTable extends Migration
             $table->increments('id')->unsigned();
             $table->string('code');
             $table->integer('credit');
+            $table->integer('faculty_id')->unsigned();
+            $table->integer('department_id')->unsigned();
+            $table->integer('degree_id')->unsigned();
             $table->timestamps();
             $table->softDeletes();
         });

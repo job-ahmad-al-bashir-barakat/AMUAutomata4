@@ -24,8 +24,10 @@ trait Dialog
 
         $form_attr = config('datatable.dialog_form_attr');
 
+        $tabAnimation = config('datatable.tabAnimation');
+
         if($this->optionDatatableConfig['withTab'])
-            $continer = view('datatable::_tab',['id' => $this->id ,'tabs' => $this->tabs])->render();
+            $continer = view('datatable::_tab',['id' => $this->id ,'tabAnimation' => $tabAnimation,'tabs' => $this->tabs])->render();
         else
             $continer = $this->dialogBody;
 

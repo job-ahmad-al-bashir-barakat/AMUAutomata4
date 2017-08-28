@@ -18,23 +18,29 @@ class AdminController extends Controller
 
     public function table($view)
     {
+        $subPage = \View::exists("admin::table.$view") ? "admin::table.$view" : false;
+
         return view('admin::page.table',[
             'table' => $view,
             'param' => '',
-            'title' => trans('admin::app.'.str_replace('-','_',$view))
+            'title' => trans('admin::app.'.str_replace('-','_',$view)),
+            'subPage' => $subPage,
         ]);
     }
 
     public function subTable($id ,$view)
     {
+        $subPage = \View::exists("admin::table.$view") ? "admin::table.$view" : false;
+
         $param = '';
         foreach (request()->except('_pjax') as $index => $value)
             $param .=  "&$index=$value";
 
         return view('admin::page.table',[
-            'table' => $view,
-            'param' => "?id=$id{$param}",
-            'title' => trans('admin::app.'.str_replace('-','_',$view))
+            'table'   => $view,
+            'param'   => "?id=$id{$param}",
+            'title'   => trans('admin::app.'.str_replace('-','_',$view)),
+            'subPage' => $subPage,
         ]);
     }
 

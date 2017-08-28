@@ -39,7 +39,7 @@ class DatatableMaker
             ->queryDatatable($query)
             ->queryUpdateButton('id')
             ->queryDeleteButton('id')
-            ->queryRender(true);
+            ->queryRender();
     }
 
     public function build_example_table($model, $request)

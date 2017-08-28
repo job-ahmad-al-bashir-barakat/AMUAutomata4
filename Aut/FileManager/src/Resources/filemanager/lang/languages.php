@@ -9,7 +9,7 @@ return array(
 	'da' => 'Dansk',
 	'de' => 'Deutsch',
 	'el_GR' => 'ελληνικά',
-	'en' => 'English',
+	'en_EN' => 'English',
 	'es' => 'Español',
 	'fa' => 'فارسی',
 	'fr_FR' => 'Français',
@@ -26,6 +26,7 @@ return array(
 	'pl' => 'Język polski, polszczyzna',
 	'pt_BR' => 'Português(Brazil)',
 	'pt_PT' => 'Português',
+	'ro' => 'Română',
 	'ru' => 'Pусский язык',
 	'sk' => 'Slovenčina',
 	'sl' => 'Slovenski jezik',
@@ -34,6 +35,6 @@ return array(
 	'uk_UA' => 'Yкраїнська мова',
 	'vi' => 'Tiếng Việt',
 	'zh_CN' => '中文 (Zhōngwén), 汉语, 漢語',
-	'ar'=>'العربية'
+
 	// source: http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
 );

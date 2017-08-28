@@ -11,7 +11,7 @@
  */
 namespace FtpClient;
 
-use Countable;
+use \Countable;
 
 /**
  * The FTP and SSL-FTP client for PHP.
