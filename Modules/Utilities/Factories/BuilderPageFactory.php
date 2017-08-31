@@ -3,22 +3,25 @@
 namespace Modules\Utilities\Factories;
 
 use Aut\DataTable\Factories\GlobalFactory;
+use Modules\Utilities\Entities\BuilderPage;
+use Modules\Utilities\Entities\Page;
 
-class PageFactory extends GlobalFactory
+class BuilderPageFactory extends GlobalFactory
 {
     /**
      *  get datatable query
      */
-    public function getDatatable($model, $request)
+    public function getDatatable($builderPage, $request)
     {
-        $query = $model::allLangs()->get();
+        $query = Page::allLangs()->get();
 
         return $this->table
-            ->queryConfig('datatable-pages')
+            ->queryConfig('datatable-builder-pages')
             ->queryDatatable($query)
             ->queryMultiLang(['name'])
-            ->queryUpdateButton('id')
-            ->queryDeleteButton('id')
+            ->queryAddColumn('modules', function ($row){
+                return "<i data-page_id='{$row->id}' data-page_name='{$row->langName[$this->lang]->text}' class='fa fa-cubes hand' data-toggle='modal' data-target='#page_modules'></i>";
+            })
             ->queryRender(true);
     }
 
@@ -28,14 +31,14 @@ class PageFactory extends GlobalFactory
     public function buildDatatable($model, $request)
     {
         return $this->table
-            ->config('datatable-pages',trans('utilities::app.pages'))
+            ->config('datatable-builder-pages',trans('utilities::app.pages'))
             ->addPrimaryKey('id','id')
             ->addMultiInputTextLangs(['name'], 'req required')
-            ->addInputText(trans('utilities::app.page_route'),'route','route','required req')
-            ->addInputText(trans('utilities::app.page_code'),'page_code','page_code')
-            ->addActionButton($this->update,'update','update')
-            ->addActionButton($this->delete,'delete','delete')
-            ->addNavButton()
+            ->addActionButton('Modules', 'modules')
+            ->addNavButton([], ['add'])
+            ->onTableCreate("
+                
+            ")
             ->render();
     }
 

@@ -49,6 +49,11 @@ return [
         'factory'       => Modules\Utilities\Factories\PageFactory::class
     ],
 
+    'builder-pages' => [
+        'model'         => Modules\Utilities\Entities\BuilderPage::class,
+        'factory'       => Modules\Utilities\Factories\BuilderPageFactory::class
+    ],
+
     'social-network' => [
         'model'         => Modules\Utilities\Entities\SocialNetwork::class,
         'factory'       => Modules\Utilities\Factories\SocialNetworkFactory::class,

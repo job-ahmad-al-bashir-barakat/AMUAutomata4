@@ -27,7 +27,7 @@ if(! function_exists('autocompleteURL'))
 {
     function autocompleteURL($url = '')
     {
-        localizeURL("autocomplete/$url");
+        return localizeURL("autocomplete/$url");
     }
 }
 
