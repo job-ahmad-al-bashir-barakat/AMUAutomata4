@@ -16,6 +16,14 @@ class Module
     public $code;
     public $viewName;
 
+    const POSITION = [
+        '' => '',
+        'T' => 'Top',
+        'B' => 'Bottom',
+        'R' => 'Right',
+        'L' => 'Left',
+    ];
+
     private $baseViewPath = 'utilities::web-modules.modules';
     public $viewPath;
 
@@ -54,4 +62,5 @@ class Module
     {
         throw new \Exception('Method [getModuleHtml] must be override');
     }
+
 }

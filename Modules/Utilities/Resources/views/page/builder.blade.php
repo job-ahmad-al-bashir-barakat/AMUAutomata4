@@ -48,11 +48,11 @@
                                     <th>Position</th>
                                     <th>Order</th>
                                 </tr>
-                                <tr id="template_row" class="hide">
+                                <tr id="template_row" class="template-row hide">
                                     <td>1</td>
-                                    <td>{{ Form::bsAutocomplete(false,'custom_module', 'custom_module[]', autocompleteURL('modules'), [''=>''],'0') }}</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
+                                    <td>{{ Form::bsSelect(false,'custom_module', 'custom_module[]',[], null,'',['table-dynamic-class' => 'autocomplete', 'data-letter' => '0', "data-remote" => autocompleteURL('custom-modules')]) }}</td>
+                                    <td>{!! Form::bsSelect(false, 'module_position' ,'module_position[]', \Modules\Utilities\WebModules\Modules\Module::POSITION, null, '', ['table-dynamic-class' => 'select']) !!}</td>
+                                    <td>{!! Form::bsNumber(false, 'order', 'order[]') !!}</td>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -95,19 +95,10 @@
                     success: function (res) {
                         console.log(res)
                     },
-                    dataType: 'json',
+                    dataType: 'json'
                 });
 
                 return false;
-            });
-            //todo should be global
-            //todo this will make duplicated clicks when reloading from pjax it will set the delegate for each pjax reload
-            $(document).on('click.table_copy_row', '[table-copy-row]', function () {
-                var $btn = $(this);
-                var $table = $($btn.attr('table-copy-row'));
-                var $templateRow = $table.find('thead #template_row');
-                var rowId = $templateRow.data('id') || null;
-                var $newRow = $templateRow.clone().removeClass('hide').attr('id', rowId).appendTo($table.find('tbody'));
             });
         });
     </script>

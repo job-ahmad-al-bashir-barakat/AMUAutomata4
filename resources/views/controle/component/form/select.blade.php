@@ -16,7 +16,7 @@
         <div {{ $inputClass ? "class=$inputClass" : ''}}>
             {!! Form::select($name,$option,$selected,array_merge([
                  'id'                    => $id,
-                 'class'                 => "form-control autocomplete $class",
+                 'class'                 => "form-control $class",
                  'data-placeholder'      => $label,
                  'style'                 => "width: 100%",
             ],$attr)) !!}

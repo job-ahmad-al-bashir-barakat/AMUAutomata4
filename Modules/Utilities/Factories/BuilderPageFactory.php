@@ -36,9 +36,6 @@ class BuilderPageFactory extends GlobalFactory
             ->addMultiInputTextLangs(['name'], 'req required')
             ->addActionButton('Modules', 'modules')
             ->addNavButton([], ['add'])
-            ->onTableCreate("
-                
-            ")
             ->render();
     }
 

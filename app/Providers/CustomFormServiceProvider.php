@@ -20,6 +20,7 @@ class CustomFormServiceProvider extends ServiceProvider
         $this->bsPrimarykey();
         $this->bsHidden();
         $this->bsInputText();
+        $this->bsInputNumber();
         $this->bsAutocomplete();
         $this->bsSelect();
     }
@@ -27,6 +28,11 @@ class CustomFormServiceProvider extends ServiceProvider
     function bsInputText()
     {
         $this->input('text');
+    }
+
+    function bsInputNumber()
+    {
+        $this->input('number');
     }
 
     function bsAutocomplete()
