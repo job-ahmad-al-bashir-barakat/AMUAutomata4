@@ -8,7 +8,7 @@
 <div class="row">
     <div class="col-md-6">
         <div style="margin-top: 5px;">
-            {{ \Form::bsAutocomplete(trans('utilities::app.search_tree'),'treeAutocomplete' ,'treeAutocomplete',"autocomplete/$model",[],'3' ,'no-label') }}
+            {{ \Form::bsAutocomplete(false,'treeAutocomplete' ,'treeAutocomplete',"autocomplete/$model",[],'3' ,'c:sss group' ,['data-placeholder' => trans('utilities::app.search_tree')]) }}
         </div>
         <div id="nestable" class="dd">
             {!! $buildTree or '' !!}

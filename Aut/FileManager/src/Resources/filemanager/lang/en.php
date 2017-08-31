@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * this file is update his name from en_EN to en
+ */
 return array(
 
 	'Select' => 'Select',

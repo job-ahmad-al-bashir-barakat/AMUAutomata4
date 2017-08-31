@@ -58,7 +58,8 @@ class JUpload {
 	var $classparams;
 	var $files;
 
-	public function JUpload($appletparams = array(), $classparams = array()) {
+    // update by basheer JUpload
+	public function __construct($appletparams = array(), $classparams = array()) {
 		if (gettype($classparams) != 'array')
 		$this->abort('Invalid type of parameter classparams: Expecting an array');
 		if (gettype($appletparams) != 'array')

@@ -57,7 +57,7 @@ stopButton : remove all button without close
                 <div class='modal-body clearfix {{ $bodyClass or '' }}' {{ $bodyAttr or '' }}>
                     {{ $slot }}
                 </div>
-                @unless(@stopFooter)
+                @unless($stopFooter)
                     <div class='modal-footer'>
 
                         <button type='button' data-dismiss='modal' class='btn btn-default'>{{ trans('app.close') }}</button>

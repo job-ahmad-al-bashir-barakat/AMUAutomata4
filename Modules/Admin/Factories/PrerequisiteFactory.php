@@ -31,13 +31,14 @@ class PrerequisiteFactory extends GlobalFactory
     public function buildDatatable($model ,$request)
     {
         $course = request('course');
+        $faculty = request('parent');
 
         return $this->table
             ->config('datatable-prerequisite',trans('admin::app.prerequisite'))
             ->addPrimaryKey('id' ,'id')
             ->addHiddenInput('course_id' ,'course_id' ,$course ,'' ,true)
             ->startRelation('courses')
-                ->addMultiAutocomplete('autocomplete/course' ,'courses_temp' ,trans('admin::app.courses') ,'courses.id' ,"courses.lang_name.$this->lang.text" ,"courses.lang_name.$this->lang.text" ,'req required' ,["data-remote-param" => "course=$course"] )
+                ->addMultiAutocomplete('autocomplete/course' ,'courses_temp' ,trans('admin::app.courses') ,'courses.id' ,"courses.lang_name.$this->lang.text" ,"courses.lang_name.$this->lang.text" ,'req required' ,["data-remote-param" => "course=$course,faculty=$faculty"])
             ->endRelation()
             ->addInputText(trans('admin::app.code') ,'code' ,'code' ,'req required')
             ->addActionButton($this->update,'update','update')

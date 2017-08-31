@@ -105,15 +105,12 @@ if(! function_exists('formClassHelper'))
         $group       = false;
         $no_label    = false;
         $replacement = '';
-        $contClass   = '';
         $labelClass  = '';
+        $contClass   = '';
         $inputClass  = '';
 
         if(preg_match('/\b(?<![\S])(group)(?![\S])\b/',$class))
             $group = true;
-
-        if(preg_match('/\b(?<![\S])(no-label)(?![\S])\b/',$class))
-            $no_label = true;
 
         if(preg_match_all('/\b(?<![\S])(c:[\w\d-]+)(?![\S])\b/',$class,$results,PREG_PATTERN_ORDER)) {
             foreach ($results as $index => $result)
@@ -155,12 +152,12 @@ if(! function_exists('formClassHelper'))
         }
 
         // remove class dialog from string
-        $replacement = "group|no-label{$replacement}";
+        $replacement = "group{$replacement}";
 
         // just class table
         $class = preg_replace("/\b(?<![\S])($replacement)(?![\S])\b/",'',$class);
 
-        return ['noLabel' => $no_label ,'group' => $group ,'contClass' => $contClass,'labelClass' => trim($labelClass),'inputClass' => trim($inputClass) ,'class' => trim($class)];
+        return ['group' => $group ,'contClass' => $contClass,'labelClass' => trim($labelClass),'inputClass' => trim($inputClass) ,'class' => trim($class)];
     }
 }
 

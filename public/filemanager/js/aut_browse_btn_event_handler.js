@@ -24,7 +24,7 @@ function aut_filemanager_handleImageUpload(event,baseURL,Lang){
                     editor._.filebrowserSe = this;
                     var iframe = $("<iframe id='fm-iframe' class='fm-modal'/>").attr({
                         src: baseURL + Lang + '/filemanager/dialog?type=2&editor=ckeditor&fldr=',
-                        style: "width:100%;min-height:400px; border: 0;"
+                        style: "width:100%;min-height:580px; border: 0;"
                     });
                     var $modal=$('.modal[data-url="'+baseURL+'"]');
                     if ($modal.length == 0) {
@@ -35,6 +35,7 @@ function aut_filemanager_handleImageUpload(event,baseURL,Lang){
                             '<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only"></span></button>' +
                             '<h4 class="modal-title">File Explorer</h4>' +
                             '</div>' +
+                            // style="min-height: 400px;overflow-y: auto;"
                             '<div class="modal-body" style="padding: 1px;">' +
                             '</div>' +
                             '</div>' +

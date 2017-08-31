@@ -12,7 +12,7 @@ $ftp = ftp_con($config);
 
 if ($_SESSION['RF']["verify"] != "RESPONSIVEfilemanager")
 {
-	response(trans('forbiden').AddErrorLocation(), 403)->send();
+	response(filemanager_trans('forbiden').AddErrorLocation(), 403)->send();
 	exit;
 }
 
@@ -27,14 +27,14 @@ if (
     || strpos($_POST['path'], '.\\') === 0
 )
 {
-	response(trans('wrong path'.AddErrorLocation()), 400)->send();
+	response(filemanager_trans('wrong path'.AddErrorLocation()), 400)->send();
 	exit;
 }
 
 
 if (strpos($_POST['name'], '/') !== false)
 {
-	response(trans('wrong path'.AddErrorLocation()), 400)->send();
+	response(filemanager_trans('wrong path'.AddErrorLocation()), 400)->send();
 	exit;
 }
 if($ftp){
@@ -49,7 +49,7 @@ $info = pathinfo($name);
 
 if ( ! in_array(fix_strtolower($info['extension']), $ext))
 {
-	response(trans('wrong extension'.AddErrorLocation()), 400)->send();
+	response(filemanager_trans('wrong extension'.AddErrorLocation()), 400)->send();
 	exit;
 }
 
@@ -70,7 +70,7 @@ if($ftp){
 {
     if ( ! file_exists($path . $name))
     {
-        response(trans('File_Not_Found'.AddErrorLocation()), 404)->send();
+        response(filemanager_trans('File_Not_Found'.AddErrorLocation()), 404)->send();
         exit;
     }
 

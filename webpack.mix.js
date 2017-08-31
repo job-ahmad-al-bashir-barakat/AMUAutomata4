@@ -149,7 +149,7 @@ mix.scripts(js.concat([
  * control copy font,image
  */
 mix.copy('Modules/Admin/Assets/vendor/ckeditor', 'public/ckeditor' ,false);
-mix.copy('Modules/Admin/Assets/vendor/filemanager', 'public/filemanager' ,false);
+mix.copy('Aut/FileManager/src/Assets', 'public/filemanager' ,false);
 mix.copy('Modules/Admin/Assets/vendor/app/css/theme-*.css', 'public/css');
 
 mix.copy('Modules/Admin/Assets/vendor/jQuery-gMap/marker_red.png', 'public/images' ,false);

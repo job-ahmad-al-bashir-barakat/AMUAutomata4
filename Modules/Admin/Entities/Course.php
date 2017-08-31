@@ -35,7 +35,7 @@ class Course extends Model
 
     function degree()
     {
-        return $this->belongsTo(Department::class);
+        return $this->belongsTo(Degree::class);
     }
 
     public function prerequisiteGroup()

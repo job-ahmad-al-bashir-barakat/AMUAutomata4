@@ -9,7 +9,8 @@ return array(
 	'da' => 'Dansk',
 	'de' => 'Deutsch',
 	'el_GR' => 'ελληνικά',
-	'en_EN' => 'English',
+	//update by basheer from en_EN to en
+    'en' => 'English',
 	'es' => 'Español',
 	'fa' => 'فارسی',
 	'fr_FR' => 'Français',
@@ -35,6 +36,8 @@ return array(
 	'uk_UA' => 'Yкраїнська мова',
 	'vi' => 'Tiếng Việt',
 	'zh_CN' => '中文 (Zhōngwén), 汉语, 漢語',
+    //add by basheer ar
+    'ar' => 'العربية'
 
-	// source: http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
+    // source: http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
 );

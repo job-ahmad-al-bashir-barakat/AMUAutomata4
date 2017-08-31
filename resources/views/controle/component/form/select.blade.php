@@ -7,11 +7,11 @@
 <div class="form-group">
 @endif
     <div {{ $contClass ? "class=$contClass" : '' }}>
-        @unless($noLabel)
+        @if($label !== false)
             <label class="control-label {{ $star }} {{ $labelClass }}">
                 {{$label}}
             </label>
-        @endunless
+        @endif
 
         <div {{ $inputClass ? "class=$inputClass" : ''}}>
             {!! Form::select($name,$option,$selected,array_merge([
