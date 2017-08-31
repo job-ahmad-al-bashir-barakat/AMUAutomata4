@@ -569,7 +569,7 @@ TEXT<y:LabelModel>
     <node id="n25">
       <data key="d6">
         <y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
-          <y:Geometry height="123.74851991442466" width="161.74851991442472" x="2469.0861403972367" y="1495.4052373770505"/>
+          <y:Geometry height="123.74851991442466" width="161.74851991442472" x="2401.8496151765025" y="1080.0410209247743"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#B7C9E3" configuration="com.yworks.entityRelationship.label.name" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="126.68359375" x="17.532463082212416" y="4.0">UNIVERSITY_OFFICE</y:NodeLabel>
@@ -2177,7 +2177,7 @@ image_id<y:LabelModel>
     <node id="n100">
       <data key="d6">
         <y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
-          <y:Geometry height="123.74851991442466" width="221.14918909753646" x="2140.2556737891655" y="1495.4052373770503"/>
+          <y:Geometry height="123.74851991442466" width="221.14918909753646" x="2073.0191485684313" y="1080.041020924774"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#B7C9E3" configuration="com.yworks.entityRelationship.label.name" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="t" textColor="#000000" verticalTextPosition="bottom" visible="true" width="207.37890625" x="6.885141423768346" y="4.0">UNIVERSITY_OFFICE_NAME_LANG</y:NodeLabel>
@@ -2200,7 +2200,7 @@ UNIVERSITY_OFFICE_ID<y:LabelModel>
     <node id="n101">
       <data key="d6">
         <y:GenericNode configuration="com.yworks.entityRelationship.small_entity">
-          <y:Geometry height="40.0" width="80.0" x="2509.960400354449" y="1680.8908535218823"/>
+          <y:Geometry height="40.0" width="80.0" x="2442.723875133715" y="1265.526637069606"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="42.689453125" x="18.6552734375" y="10.6494140625">contact<y:LabelModel>
@@ -2219,7 +2219,7 @@ UNIVERSITY_OFFICE_ID<y:LabelModel>
     <node id="n102">
       <data key="d6">
         <y:ShapeNode>
-          <y:Geometry height="48.44059011164268" width="297.61937112876103" x="2320.1137487275373" y="1212.072787406353"/>
+          <y:Geometry height="48.44059011164268" width="297.61937112876103" x="2317.9076793592485" y="969.8633345827246"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="118.6796875" x="89.46984181438074" y="14.869709118321452">UNIVERSITY_OFFIC<y:LabelModel>
@@ -2244,18 +2244,19 @@ UNIVERSITY_OFFICE_ID<y:LabelModel>
     <node id="n103">
       <data key="d6">
         <y:ShapeNode>
-          <y:Geometry height="48.44059011164268" width="297.61937112876103" x="2679.960400354449" y="1727.62046451702"/>
+          <y:Geometry height="68.09229792104315" width="297.61937112876103" x="2612.723875133715" y="1135.6972429181558"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="33.40234375" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="105.0625" x="96.27843556438074" y="7.519123180821225">address = location 
-geolocation<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="48.103515625" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="105.0625" x="96.27843556438074" y="9.994391148021577">address = location 
+geolocation
+resposible person<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
               <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
             </y:ModelParameter>
           </y:NodeLabel>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" hasText="false" height="4.0" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="4.0" x="146.80968556438074" y="22.220295055821225">
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" hasText="false" height="4.0" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="4.0" x="146.80968556438074" y="32.04614896052158">
             <y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>

@@ -20,7 +20,7 @@ class CourseFactory extends GlobalFactory
             ->queryDatatable($query)
             ->queryUpdateButton('id')
             ->queryDeleteButton('id')
-            ->queryCustomButton('btn-prerequisite' ,'id' ,'fa fa-cubes' ,'btn-prerequisite' ,"href='javascript:void(0);' onclick='prerequisiteModal(this)'")
+            ->queryCustomButton('btn-prerequisite' ,'id' ,'fa fa-cubes' ,'btn-prerequisite' ,"href='javascript:void(0);' onclick='prerequisiteModal(this)' data-parent=".$request->get('id'))
             ->queryMultiLang(['name'])
             ->queryRender();
     }
@@ -36,7 +36,7 @@ class CourseFactory extends GlobalFactory
             ->config('datatable-course',trans('admin::app.course'))
             ->addPrimaryKey('id','id')
             ->addHiddenInput('faculty_id' ,'faculty_id' ,$faculty_id ,false ,true)
-            ->addAutocomplete('autocomplete/department' ,trans('admin::app.department'), "department_id" ,'department.lang_name.'.$this->lang.'.text' ,'department.lang_name.'.$this->lang.'.text' ,'' ,['data-remote-param' => 'faculty='.$faculty_id])
+            ->addAutocomplete('autocomplete/department' ,trans('admin::app.department'), "department_id" ,'department.lang_name.'.$this->lang.'.text' ,'department.lang_name.'.$this->lang.'.text' ,'req required' ,['data-remote-param' => 'faculty='.$faculty_id])
             ->addAutocomplete('autocomplete/degree' ,trans('admin::app.degree'), "degree_id" ,'degree.lang_name.'.$this->lang.'.text' ,'degree.lang_name.'.$this->lang.'.text' ,'' ,['data-remote-param' => 'faculty='.$faculty_id])
             ->addMultiInputTextLangs(['name'] ,'req required')
             ->addInputText(trans('admin::app.code'),'code' ,'code' ,'req required')

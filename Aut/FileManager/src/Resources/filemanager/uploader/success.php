@@ -8,8 +8,9 @@
 			margin: 0px;
 		}
 	</style>
+	<!--update by basheer : index.php?path-->
 	<meta http-equiv="refresh"
-		  content="3;url=index.php?path=<?php echo strip_tags(preg_replace("/[^a-zA-Z0-9\.\[\]_| -]/", '', $_GET['path'])); ?>">
+		  content="3;url=index?path=<?php echo strip_tags(preg_replace("/[^a-zA-Z0-9\.\[\]_| -]/", '', $_GET['path'])); ?>">
 </head>
 <body>
 <center><br/><br/>

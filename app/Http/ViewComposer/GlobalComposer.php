@@ -5,16 +5,25 @@ use Illuminate\Support\Str;
 use Illuminate\View\View;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use Modules\Utilities\Entities\ControlMenu;
+use Nwidart\Modules\Exceptions\ModuleNotFoundException;
+use Nwidart\Modules\Facades\Module;
 
 class GlobalComposer
 {
     public function compose(View $view)
     {
         $view->with([
-            //'module' => preg_replace("/.+\//" ,'' ,\Route::getCurrentRoute()->action['prefix']),
+            'currentModule' => $this->getCurrentModule(),
             'dir'    => LaravelLocalization::getCurrentLocaleDirection(),
             'lang'   => LaravelLocalization::getCurrentLocale(),
         ]);
+    }
+
+    public function getCurrentModule()
+    {
+        $module = request()->segment(2);
+        if(\Module::find($module));
+            return $module;
     }
 
     public function path(View $view)

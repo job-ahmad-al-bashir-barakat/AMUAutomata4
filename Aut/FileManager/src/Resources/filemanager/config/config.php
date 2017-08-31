@@ -62,8 +62,12 @@ $config = array(
 	|
 	| without final / (DON'T TOUCH)
 	|
+	| 'base_url' => ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] && ! in_array(strtolower($_SERVER['HTTPS']), array( 'off', 'no' ))) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'],
+	|
 	*/
-	'base_url' => ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] && ! in_array(strtolower($_SERVER['HTTPS']), array( 'off', 'no' ))) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'],
+
+	// update by basheer
+	'base_url' => url(''),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -73,6 +77,8 @@ $config = array(
 	| with start and final /
 	|
 	*/
+
+	// update by basheer '/source/'
 	'upload_dir' => aut_filemanager_getConfig('upload_dir'),
 	/*
 	|--------------------------------------------------------------------------
@@ -82,6 +88,8 @@ $config = array(
 	| with final /
 	|
 	*/
+
+	// update by basheer '../source/'
 	'current_path' => aut_filemanager_getConfig('current_path'),
 
 	/*
@@ -93,6 +101,8 @@ $config = array(
 	| DO NOT put inside upload folder
 	|
 	*/
+
+	// update by basheer '../thumbs/'
 	'thumbs_base_path' => aut_filemanager_getConfig('thumbs_base_path'),
 
 
@@ -309,7 +319,7 @@ $config = array(
 	'create_text_files'                       => true, // only create files with exts. defined in $editable_text_file_exts
 
 	// you can preview these type of files if $preview_text_files is true
-	'previewable_text_file_exts'              => array( "bsh", "c","css", "cc", "cpp", "cs", "csh", "cyc", "cv", "htm", "html", "java", "js", "m", "mxml", "perl", "pl", "pm", "py", "rb", "sh", "xhtml", "xml","xsl" ),
+	'previewable_text_file_exts'              => array( 'txt', 'log', 'xml', 'css' , "bsh", "c","css", "cc", "cpp", "cs", "csh", "cyc", "cv", "htm", "html", "java", "js", "m", "mxml", "perl", "pl", "pm", "py", "rb", "sh", "xhtml", "xml","xsl" ),
 	'previewable_text_file_exts_no_prettify'  => array( 'txt', 'log' ),
 
 	// you can edit these type of files if $edit_text_files is true (only text based files)

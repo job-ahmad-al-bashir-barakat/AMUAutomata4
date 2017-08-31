@@ -34,10 +34,14 @@ class FileManagerServiceProvider extends ServiceProvider
             $routeMiddleware = aut_filemanager_getConfig($confType="middleware");
 
         $this->middleware = is_array($routeMiddleware) ? $routeMiddleware : [ 'web' ]; // 'auth'
-        
+
         $this->mapRoutes($router);
 
         $this->publishFileManager();
+
+        /* if(preg_match('/filemanager/',url()->current()))
+                 aut_filemanager_setPath();*/
+
     }
 
     protected function publishFileManager()
@@ -61,10 +65,11 @@ class FileManagerServiceProvider extends ServiceProvider
     protected function mapRoutes($router)
     {
         $router->group([
-            'prefix' => LaravelLocalization::setLocale().'/filemanager/',
-            'namespace' => $this->namespace,
+            'prefix'     => LaravelLocalization::setLocale().'/filemanager/',
+            'namespace'  => $this->namespace,
             'middleware' => $this->middleware
         ], function () {
+
             Route::get('ajax_calls', function () {
                 return aut_filemanager_getConfig() ? view('FileManager::filemanager.ajax_calls') : abort('404');
             });

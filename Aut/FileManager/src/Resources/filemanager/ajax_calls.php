@@ -8,21 +8,20 @@ require_once 'include/utils.php';
 
 if ($_SESSION['RF']["verify"] != "RESPONSIVEfilemanager")
 {
-	response(trans('forbiden').AddErrorLocation())->send();
+	response(filemanager_trans('forbiden').AddErrorLocation())->send();
 	exit;
 }
-$languages = include 'lang/languages.php';
-
-if (isset($_SESSION['RF']['language']) && file_exists('lang/' . basename($_SESSION['RF']['language']) . '.php'))
+$languages = include __DIR__.'/lang/languages.php';
+if (isset($_SESSION['RF']['language']) && file_exists(__DIR__.'/lang/' . basename($_SESSION['RF']['language']) . '.php'))
 {
 	if(array_key_exists($_SESSION['RF']['language'],$languages)){
-		include 'lang/' . basename($_SESSION['RF']['language']) . '.php';
+		include __DIR__.'/lang/' . basename($_SESSION['RF']['language']) . '.php';
 	}else{
-		response(trans('Lang_Not_Found').AddErrorLocation())->send();
+		response(filemanager_trans('Lang_Not_Found').AddErrorLocation())->send();
 		exit;
 	}
 } else {
-	response(trans('Lang_Not_Found').AddErrorLocation())->send();
+	response(filemanager_trans('Lang_Not_Found').AddErrorLocation())->send();
 	exit;
 }
 $ftp = ftp_con($config);
@@ -32,7 +31,7 @@ if(isset($_GET['action']))
 	switch($_GET['action'])
 	{
 		case 'new_file_form':
-			echo trans('Filename') . ': <input type="text" id="create_text_file_name" style="height:30px"> <select id="create_text_file_extension" style="margin:0;width:100px;">';
+			echo filemanager_trans('Filename') . ': <input type="text" id="create_text_file_name" style="height:30px"> <select id="create_text_file_extension" style="margin:0;width:100px;">';
 			foreach($config['editable_text_file_exts'] as $ext){
 				echo '<option value=".'.$ext.'">.'.$ext.'</option>';
 			}
@@ -45,7 +44,7 @@ if(isset($_GET['action']))
 			}
 			else
 			{
-				response(trans('view type number missing').AddErrorLocation())->send();
+				response(filemanager_trans('view type number missing').AddErrorLocation())->send();
 				exit;
 			}
 			break;
@@ -58,7 +57,7 @@ if(isset($_GET['action']))
 				}
 			}
 			else {
-				response(trans('view type number missing').AddErrorLocation())->send();
+				response(filemanager_trans('view type number missing').AddErrorLocation())->send();
 				exit;
 			}
 			break;
@@ -95,18 +94,18 @@ if(isset($_GET['action']))
 				|| ! in_array(strtolower($info['extension']), array( 'jpg', 'jpeg', 'png' ))
 			)
 			{
-				response(trans('wrong data').AddErrorLocation())->send();
+				response(filemanager_trans('wrong data').AddErrorLocation())->send();
 				exit;
 			}
 			$image_data = get_file_by_url($_POST['url']);
 			if ($image_data === false)
 			{
-				response(trans('Aviary_No_Save').AddErrorLocation())->send();
+				response(filemanager_trans('Aviary_No_Save').AddErrorLocation())->send();
 				exit;
 			}
 
 			if (!checkresultingsize(strlen($image_data))) {
-				response(sprintf(trans('max_size_reached'),$MaxSizeTotal).AddErrorLocation())->send();
+				response(sprintf(filemanager_trans('max_size_reached'),$MaxSizeTotal).AddErrorLocation())->send();
 				exit;
 			}
 			if($ftp){
@@ -155,7 +154,7 @@ if(isset($_GET['action']))
 				|| strpos($_POST['path'], '..\\') !== false 
 				|| strpos($_POST['path'], './') === 0)
 			{
-				response(trans('wrong path'.AddErrorLocation()))->send();
+				response(filemanager_trans('wrong path'.AddErrorLocation()))->send();
 				exit;
 			}
 
@@ -197,7 +196,7 @@ if(isset($_GET['action']))
 							$sizeTotalFinal += $aStat['size'];
 						}
 						if (!checkresultingsize($sizeTotalFinal)) {
-							response(sprintf(trans('max_size_reached'),$MaxSizeTotal).AddErrorLocation())->send();
+							response(sprintf(filemanager_trans('max_size_reached'),$MaxSizeTotal).AddErrorLocation())->send();
 							exit;
 						}
 
@@ -228,7 +227,7 @@ if(isset($_GET['action']))
 						}
 						$zip->close();
 					} else {
-						response(trans('Zip_No_Extract').AddErrorLocation())->send();
+						response(filemanager_trans('Zip_No_Extract').AddErrorLocation())->send();
 						exit;
 					}
 
@@ -253,7 +252,7 @@ if(isset($_GET['action']))
 					break;
 
 				default:
-					response(trans('Zip_Invalid').AddErrorLocation())->send();
+					response(filemanager_trans('Zip_Invalid').AddErrorLocation())->send();
 					exit;
 			}
 
@@ -324,6 +323,11 @@ if(isset($_GET['action']))
 			<?php if(in_array(strtolower($info['extension']), $ext_music)): ?>
 
 				<script type="text/javascript">
+					$.ajaxSetup({
+						headers: {
+							'X-CSRF-TOKEN': "<?=csrf_token()?>",
+						}
+					});
 					$(document).ready(function(){
 
 					$("#jquery_jplayer_1").jPlayer({
@@ -380,7 +384,7 @@ if(isset($_GET['action']))
 		case 'copy_cut':
 			if ($_POST['sub_action'] != 'copy' && $_POST['sub_action'] != 'cut')
 			{
-				response(trans('wrong sub-action').AddErrorLocation())->send();
+				response(filemanager_trans('wrong sub-action').AddErrorLocation())->send();
 				exit;
 			}
 
@@ -389,17 +393,17 @@ if(isset($_GET['action']))
 				|| strpos($_POST['path'],'..\\') !== FALSE
 				|| strpos($_POST['path'],'.\\') !== FALSE )
 			{
-				response(trans('wrong path'.AddErrorLocation()))->send();
+				response(filemanager_trans('wrong path'.AddErrorLocation()))->send();
 				exit;
 			}
 
 			if (trim($_POST['path']) == '')
 			{
-				response(trans('no path').AddErrorLocation())->send();
+				response(filemanager_trans('no path').AddErrorLocation())->send();
 				exit;
 			}
 
-			$msg_sub_action = ($_POST['sub_action'] == 'copy' ? trans('Copy') : trans('Cut'));
+			$msg_sub_action = ($_POST['sub_action'] == 'copy' ? filemanager_trans('Copy') : filemanager_trans('Cut'));
 			$path = $current_path . $_POST['path'];
 
 			if (is_dir($path))
@@ -407,7 +411,7 @@ if(isset($_GET['action']))
 				// can't copy/cut dirs
 				if ($copy_cut_dirs === false)
 				{
-					response(sprintf(trans('Copy_Cut_Not_Allowed'), $msg_sub_action, trans('Folders')).AddErrorLocation())->send();
+					response(sprintf(filemanager_trans('Copy_Cut_Not_Allowed'), $msg_sub_action, filemanager_trans('Folders')).AddErrorLocation())->send();
 					exit;
 				}
 
@@ -415,7 +419,7 @@ if(isset($_GET['action']))
 				// size over limit
 				if ($copy_cut_max_size !== false && is_int($copy_cut_max_size)) {
 					if (($copy_cut_max_size * 1024 * 1024) < $sizeFolderToCopy) {
-						response(sprintf(trans('Copy_Cut_Size_Limit'), $msg_sub_action, $copy_cut_max_size).AddErrorLocation())->send();
+						response(sprintf(filemanager_trans('Copy_Cut_Size_Limit'), $msg_sub_action, $copy_cut_max_size).AddErrorLocation())->send();
 						exit;
 					}
 				}
@@ -425,20 +429,20 @@ if(isset($_GET['action']))
 				{
 					if ($copy_cut_max_count < $fileNum)
 					{
-						response(sprintf(trans('Copy_Cut_Count_Limit'), $msg_sub_action, $copy_cut_max_count).AddErrorLocation())->send();
+						response(sprintf(filemanager_trans('Copy_Cut_Count_Limit'), $msg_sub_action, $copy_cut_max_count).AddErrorLocation())->send();
 						exit;
 					}
 				}
 
 				if (!checkresultingsize($sizeFolderToCopy)) {
-					response(sprintf(trans('max_size_reached'),$MaxSizeTotal).AddErrorLocation())->send();
+					response(sprintf(filemanager_trans('max_size_reached'),$MaxSizeTotal).AddErrorLocation())->send();
 					exit;
 				}
 			} else {
 				// can't copy/cut files
 				if ($copy_cut_files === false)
 				{
-					response(sprintf(trans('Copy_Cut_Not_Allowed'), $msg_sub_action, trans('Files')).AddErrorLocation())->send();
+					response(sprintf(filemanager_trans('Copy_Cut_Not_Allowed'), $msg_sub_action, filemanager_trans('Files')).AddErrorLocation())->send();
 					exit;
 				}
 			}
@@ -458,7 +462,7 @@ if(isset($_GET['action']))
 					|| ($_POST['folder']==0 && $chmod_files === false)
 					|| (is_function_callable("chmod") === false) )
 				{
-					response(sprintf(trans('File_Permission_Not_Allowed'), (is_dir($path) ? trans('Folders') : trans('Files')), 403).AddErrorLocation())->send();
+					response(sprintf(filemanager_trans('File_Permission_Not_Allowed'), (is_dir($path) ? filemanager_trans('Folders') : filemanager_trans('Files')), 403).AddErrorLocation())->send();
 					exit;
 				}
 				$info = $_POST['permissions'];
@@ -469,7 +473,7 @@ if(isset($_GET['action']))
 					|| (is_file($path) && $chmod_files === false)
 					|| (is_function_callable("chmod") === false) )
 				{
-					response(sprintf(trans('File_Permission_Not_Allowed'), (is_dir($path) ? trans('Folders') : trans('Files')), 403).AddErrorLocation())->send();
+					response(sprintf(filemanager_trans('File_Permission_Not_Allowed'), (is_dir($path) ? filemanager_trans('Folders') : filemanager_trans('Files')), 403).AddErrorLocation())->send();
 					exit;
 				}
 
@@ -514,19 +518,19 @@ if(isset($_GET['action']))
 					</thead>
 					<tbody>
 						<tr>
-							<td>'.trans('User').'</td>
+							<td>'.filemanager_trans('User').'</td>
 							<td><input id="u_4" type="checkbox" data-value="4" data-group="user" '.(substr($info, 1,1)=='r' ? " checked" : "").'></td>
 							<td><input id="u_2" type="checkbox" data-value="2" data-group="user" '.(substr($info, 2,1)=='w' ? " checked" : "").'></td>
 							<td><input id="u_1" type="checkbox" data-value="1" data-group="user" '.(substr($info, 3,1)=='x' ? " checked" : "").'></td>
 						</tr>
 						<tr>
-							<td>'.trans('Group').'</td>
+							<td>'.filemanager_trans('Group').'</td>
 							<td><input id="g_4" type="checkbox" data-value="4" data-group="group" '.(substr($info, 4,1)=='r' ? " checked" : "").'></td>
 							<td><input id="g_2" type="checkbox" data-value="2" data-group="group" '.(substr($info, 5,1)=='w' ? " checked" : "").'></td>
 							<td><input id="g_1" type="checkbox" data-value="1" data-group="group" '.(substr($info, 6,1)=='x' ? " checked" : "").'></td>
 						</tr>
 						<tr>
-							<td>'.trans('All').'</td>
+							<td>'.filemanager_trans('All').'</td>
 							<td><input id="a_4" type="checkbox" data-value="4" data-group="all" '.(substr($info, 7,1)=='r' ? " checked" : "").'></td>
 							<td><input id="a_2" type="checkbox" data-value="2" data-group="all" '.(substr($info, 8,1)=='w' ? " checked" : "").'></td>
 							<td><input id="a_1" type="checkbox" data-value="1" data-group="all" '.(substr($info, 9,1)=='x' ? " checked" : "").'></td>
@@ -540,12 +544,12 @@ if(isset($_GET['action']))
 
 			if ((!$ftp && is_dir($path)) )
 			{
-				$ret .= '<div class="hero-unit" style="padding:10px;">'.trans('File_Permission_Recursive').'<br/><br/>
+				$ret .= '<div class="hero-unit" style="padding:10px;">'.filemanager_trans('File_Permission_Recursive').'<br/><br/>
 						<ul class="unstyled">
-							<li><label class="radio"><input value="none" name="apply_recursive" type="radio" checked> '.trans('No').'</label></li>
-							<li><label class="radio"><input value="files" name="apply_recursive" type="radio"> '.trans('Files').'</label></li>
-							<li><label class="radio"><input value="folders" name="apply_recursive" type="radio"> '.trans('Folders').'</label></li>
-							<li><label class="radio"><input value="both" name="apply_recursive" type="radio"> '.trans('Files').' & '.trans('Folders').'</label></li>
+							<li><label class="radio"><input value="none" name="apply_recursive" type="radio" checked> '.filemanager_trans('No').'</label></li>
+							<li><label class="radio"><input value="files" name="apply_recursive" type="radio"> '.filemanager_trans('Files').'</label></li>
+							<li><label class="radio"><input value="folders" name="apply_recursive" type="radio"> '.filemanager_trans('Folders').'</label></li>
+							<li><label class="radio"><input value="both" name="apply_recursive" type="radio"> '.filemanager_trans('Files').' & '.filemanager_trans('Folders').'</label></li>
 						</ul>
 						</div>';
 			}
@@ -559,14 +563,14 @@ if(isset($_GET['action']))
 		case 'get_lang':
 			if ( ! file_exists('lang/languages.php'))
 			{
-				response(trans('Lang_Not_Found').AddErrorLocation())->send();
+				response(filemanager_trans('Lang_Not_Found').AddErrorLocation())->send();
 				exit;
 			}
 
 			$languages = include 'lang/languages.php';
 			if ( ! isset($languages) || ! is_array($languages))
 			{
-				response(trans('Lang_Not_Found').AddErrorLocation())->send();
+				response(filemanager_trans('Lang_Not_Found').AddErrorLocation())->send();
 				exit;
 			}
 
@@ -589,7 +593,7 @@ if(isset($_GET['action']))
 			if(array_key_exists($choosen_lang,$languages)){
 				if ( ! file_exists('lang/' . $choosen_lang . '.php'))
 				{
-					response(trans('Lang_Not_Found').AddErrorLocation())->send();
+					response(filemanager_trans('Lang_Not_Found').AddErrorLocation())->send();
 					exit;
 				}else{
 					$_SESSION['RF']['language'] = $choosen_lang;
@@ -605,7 +609,7 @@ if(isset($_GET['action']))
 
 				if ( ! file_exists($selected_file))
 				{
-					response(trans('File_Not_Found').AddErrorLocation())->send();
+					response(filemanager_trans('File_Not_Found').AddErrorLocation())->send();
 					exit;
 				}
 			}
@@ -626,7 +630,7 @@ if(isset($_GET['action']))
 
 			if ($sub_action != 'preview' && $sub_action != 'edit')
 			{
-				response(trans('wrong action').AddErrorLocation())->send();
+				response(filemanager_trans('wrong action').AddErrorLocation())->send();
 				exit;
 			}
 
@@ -637,7 +641,7 @@ if(isset($_GET['action']))
 
 				if ( ! file_exists($selected_file))
 				{
-					response(trans('File_Not_Found').AddErrorLocation())->send();
+					response(filemanager_trans('File_Not_Found').AddErrorLocation())->send();
 					exit;
 				}
 			}
@@ -667,7 +671,7 @@ if(isset($_GET['action']))
 				|| (!$ftp && ! is_readable($selected_file))
 			)
 			{
-				response(sprintf(trans('File_Open_Edit_Not_Allowed'), ($sub_action == 'preview' ? strtolower(trans('Open')) : strtolower(trans('Edit')))).AddErrorLocation())->send();
+				response(sprintf(filemanager_trans('File_Open_Edit_Not_Allowed'), ($sub_action == 'preview' ? strtolower(filemanager_trans('Open')) : strtolower(filemanager_trans('Edit')))).AddErrorLocation())->send();
 				exit;
 			}
 			if ($sub_action == 'preview')
@@ -709,11 +713,11 @@ if(isset($_GET['action']))
 
 			break;
 		default:
-			response(trans('no action passed').AddErrorLocation())->send();
+			response(filemanager_trans('no action passed').AddErrorLocation())->send();
 			exit;
 	}
 } else {
-	response(trans('no action passed').AddErrorLocation())->send();
+	response(filemanager_trans('no action passed').AddErrorLocation())->send();
 	exit;
 }
 ?>

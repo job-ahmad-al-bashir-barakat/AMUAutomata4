@@ -25,7 +25,8 @@ if ( ! function_exists('response'))
 	}
 }
 
-if ( ! function_exists('trans'))
+//update by basheer from trans to filemanager_trans
+if ( ! function_exists('filemanager_trans'))
 {
 	// language
 	if ( ! isset($_SESSION['RF']['language'])
@@ -33,7 +34,8 @@ if ( ! function_exists('trans'))
 		|| ! is_readable('lang/' . basename($_SESSION['RF']['language']) . '.php')
 	)
 	{
-		$lang = $default_language;
+		// update by basheer from $default_language to \App::getLocale()
+		$lang = \App::getLocale();
 
 		if (isset($_GET['lang']) && $_GET['lang'] != 'undefined' && $_GET['lang'] != '')
 		{
@@ -45,7 +47,7 @@ if ( ! function_exists('trans'))
 		{
 			$path_parts = pathinfo($lang);
 			$lang = $path_parts['basename'];
-			$languages = include 'lang/languages.php';
+			$languages = include __DIR__.'/../lang/languages.php';
 		}
 
 		// add lang file to session for easy include
@@ -56,21 +58,23 @@ if ( ! function_exists('trans'))
 		if(file_exists('lang/languages.php')){
 			$languages = include 'lang/languages.php';
 		}else{
-			$languages = include '../lang/languages.php';
+			$languages = include __DIR__.'/../lang/languages.php';
 		}
 
 		if(array_key_exists($_SESSION['RF']['language'],$languages)){
 			$lang = $_SESSION['RF']['language'];
 		}else{
-			response(trans('Lang_Not_Found').AddErrorLocation())->send();
+			response(filemanager_trans('Lang_Not_Found').AddErrorLocation())->send();
 			exit;
 		}
-
 	}
+
+	// add by basheer global $lang_vars;
+	global $lang_vars;
 	if(file_exists('lang/' . $lang . '.php')){
 		$lang_vars = include 'lang/' . $lang . '.php';
 	}else{
-		$lang_vars = include '../lang/' . $lang . '.php';
+		$lang_vars = include __DIR__.'/../lang/' . $lang . '.php';
 	}
 
 	if ( ! is_array($lang_vars))
@@ -84,7 +88,9 @@ if ( ! function_exists('trans'))
 	*
 	* @return string translated variable
 	*/
-	function trans($var)
+
+	//update by basheer from trans to filemanager_trans
+	function filemanager_trans($var)
 	{
 		global $lang_vars;
 
@@ -349,7 +355,7 @@ function makeSize($size)
 		$u++;
 	}
 
-	return (number_format($size, 0) . " " . trans($units[ $u ]));
+	return (number_format($size, 0) . " " . filemanager_trans($units[ $u ]));
 }
 
 /**
@@ -729,6 +735,8 @@ function image_check_memory_usage($img, $max_breedte, $max_hoogte)
 *
 * @return  bool
 */
+
+// update by basheer add if function_exists('endsWith')
 if ( ! function_exists('endsWith')) {
 	function endsWith($haystack, $needle)
 	{

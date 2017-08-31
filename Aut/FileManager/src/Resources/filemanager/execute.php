@@ -7,7 +7,7 @@ include 'include/utils.php';
 
 if ($_SESSION['RF']["verify"] != "RESPONSIVEfilemanager")
 {
-	response(trans('forbiden').AddErrorLocation())->send();
+	response(filemanager_trans('forbiden').AddErrorLocation())->send();
 	exit;
 }
 
@@ -17,23 +17,23 @@ if (strpos($_POST['path'],'/')===0
 	|| strpos($_POST['path'],'..\\')!==FALSE
 	|| strpos($_POST['path'],'.\\')===0)
 {
-	response(trans('wrong path'.AddErrorLocation()))->send();
+	response(filemanager_trans('wrong path'.AddErrorLocation()))->send();
 	exit;
 }
 
-if (isset($_SESSION['RF']['language']) && file_exists('lang/' . basename($_SESSION['RF']['language']) . '.php'))
+if (isset($_SESSION['RF']['language']) && file_exists(__DIR__.'/lang/' . basename($_SESSION['RF']['language']) . '.php'))
 {
-	$languages = include 'lang/languages.php';
+	$languages = include __DIR__.'/lang/languages.php';
 	if(array_key_exists($_SESSION['RF']['language'],$languages)){
-		include 'lang/' . basename($_SESSION['RF']['language']) . '.php';
+		include __DIR__.'/lang/' . basename($_SESSION['RF']['language']) . '.php';
 	}else{
-		response(trans('Lang_Not_Found').AddErrorLocation())->send();
+		response(filemanager_trans('Lang_Not_Found').AddErrorLocation())->send();
 		exit;
 	}
 }
 else
 {
-	response(trans('Lang_Not_Found').AddErrorLocation())->send();
+	response(filemanager_trans('Lang_Not_Found').AddErrorLocation())->send();
 	exit;
 }
 
@@ -70,7 +70,7 @@ if (isset($_POST['name']))
 	$name = fix_filename($_POST['name'],$config);
 	if (strpos($name,'../') !== FALSE || strpos($name,'..\\') !== FALSE)
 	{
-		response(trans('wrong name').AddErrorLocation())->send();
+		response(filemanager_trans('wrong name').AddErrorLocation())->send();
 		exit;
 	}
 }
@@ -78,7 +78,7 @@ if (isset($_POST['name']))
 $info = pathinfo($path);
 if (isset($info['extension']) && !(isset($_GET['action']) && $_GET['action']=='delete_folder') && !in_array(strtolower($info['extension']), $ext) && $_GET['action'] != 'create_file')
 {
-	response(trans('wrong extension').AddErrorLocation())->send();
+	response(filemanager_trans('wrong extension').AddErrorLocation())->send();
 	exit;
 }
 
@@ -177,7 +177,7 @@ if (isset($_GET['action']))
 				if (!empty($name)){
 					if (!rename_folder($path,$name,$ftp,$config))
 					{
-						response(trans('Rename_existing_folder').AddErrorLocation())->send();
+						response(filemanager_trans('Rename_existing_folder').AddErrorLocation())->send();
 						exit;
 					}
 					rename_folder($path_thumb,$name,$ftp,$config);
@@ -190,14 +190,14 @@ if (isset($_GET['action']))
 						}
 					}
 				} else {
-					response(trans('Empty_name').AddErrorLocation())->send();
+					response(filemanager_trans('Empty_name').AddErrorLocation())->send();
 					exit;
 				}
 			}
 			break;
 		case 'create_file':
 			if ($create_text_files === FALSE) {
-				response(sprintf(trans('File_Open_Edit_Not_Allowed'), strtolower(trans('Edit'))).AddErrorLocation())->send();
+				response(sprintf(filemanager_trans('File_Open_Edit_Not_Allowed'), strtolower(filemanager_trans('Edit'))).AddErrorLocation())->send();
 				exit;
 			}
 
@@ -207,7 +207,7 @@ if (isset($_GET['action']))
 
 			// check if user supplied extension
 			if (strpos($name, '.') === FALSE){
-				response(trans('No_Extension').' '.sprintf(trans('Valid_Extensions'), implode(', ', $editable_text_file_exts)).AddErrorLocation())->send();
+				response(filemanager_trans('No_Extension').' '.sprintf(filemanager_trans('Valid_Extensions'), implode(', ', $editable_text_file_exts)).AddErrorLocation())->send();
 				exit;
 			}
 
@@ -216,14 +216,14 @@ if (isset($_GET['action']))
 			$name=fix_filename($name,$config);
 			if (empty($name))
 			{
-				response(trans('Empty_name').AddErrorLocation())->send();
+				response(filemanager_trans('Empty_name').AddErrorLocation())->send();
 				exit;
 			}
 
 			// check extension
 			$parts = explode('.', $name);
 			if (!in_array(end($parts), $editable_text_file_exts)) {
-				response(trans('Error_extension').' '.sprintf(trans('Valid_Extensions'), implode(', ', $editable_text_file_exts)), 400)->send();
+				response(filemanager_trans('Error_extension').' '.sprintf(filemanager_trans('Valid_Extensions'), implode(', ', $editable_text_file_exts)), 400)->send();
 				exit;
 			}
 
@@ -234,26 +234,26 @@ if (isset($_GET['action']))
 				file_put_contents($tmp, $content);
 				$ftp->put("/".$path.$name, $tmp, FTP_BINARY);
 				unlink($tmp);
-				response(trans('File_Save_OK'))->send();
+				response(filemanager_trans('File_Save_OK'))->send();
 			}else{
 				if (!checkresultingsize(strlen($content))) {
-					response(sprintf(trans('max_size_reached'),$MaxSizeTotal).AddErrorLocation())->send();
+					response(sprintf(filemanager_trans('max_size_reached'),$MaxSizeTotal).AddErrorLocation())->send();
 					exit;
 				}
 				// file already exists
 				if (file_exists($path.$name)) {
-					response(trans('Rename_existing_file').AddErrorLocation())->send();
+					response(filemanager_trans('Rename_existing_file').AddErrorLocation())->send();
 					exit;
 				}
 
 				if (@file_put_contents($path.$name, $content) === FALSE) {
-					response(trans('File_Save_Error').AddErrorLocation())->send();
+					response(filemanager_trans('File_Save_Error').AddErrorLocation())->send();
 					exit;
 				} else {
 					if (is_function_callable('chmod') !== FALSE){
 						chmod($path.$name, 0644);
 					}
-					response(trans('File_Save_OK'))->send();
+					response(filemanager_trans('File_Save_OK'))->send();
 					exit;
 				}
 			}
@@ -266,7 +266,7 @@ if (isset($_GET['action']))
 				{
 					if (!rename_file($path,$name,$ftp,$config))
 					{
-						response(trans('Rename_existing_file').AddErrorLocation())->send();
+						response(filemanager_trans('Rename_existing_file').AddErrorLocation())->send();
 						exit;
 					}
 
@@ -288,7 +288,7 @@ if (isset($_GET['action']))
 						}
 					}
 				} else {
-					response(trans('Empty_name').AddErrorLocation())->send();
+					response(filemanager_trans('Empty_name').AddErrorLocation())->send();
 					exit;
 				}
 			}
@@ -300,12 +300,12 @@ if (isset($_GET['action']))
 				if (!empty($name))
 				{
 					if (!$ftp && !checkresultingsize(filesize($path))) {
-						response(sprintf(trans('max_size_reached'),$MaxSizeTotal).AddErrorLocation())->send();
+						response(sprintf(filemanager_trans('max_size_reached'),$MaxSizeTotal).AddErrorLocation())->send();
 						exit;
 					}
 					if (!duplicate_file($path,$name,$ftp,$config))
 					{
-						response(trans('Rename_existing_file').AddErrorLocation())->send();
+						response(filemanager_trans('Rename_existing_file').AddErrorLocation())->send();
 						exit;
 					}
 
@@ -327,7 +327,7 @@ if (isset($_GET['action']))
 						}
 					}
 				} else {
-					response(trans('Empty_name').AddErrorLocation())->send();
+					response(filemanager_trans('Empty_name').AddErrorLocation())->send();
 					exit;
 				}
 			}
@@ -376,7 +376,7 @@ if (isset($_GET['action']))
 
 			// something terribly gone wrong
 			if ($action != 'copy' && $action != 'cut'){
-				response(trans('wrong action').AddErrorLocation())->send();
+				response(filemanager_trans('wrong action').AddErrorLocation())->send();
 				exit;
 			}
 			if($ftp){
@@ -403,20 +403,20 @@ if (isset($_GET['action']))
 			}else{
 				// check for writability
 				if (is_really_writable($path) === FALSE || is_really_writable($path_thumb) === FALSE){
-					response(trans('Dir_No_Write').'<br/>'.str_replace('../','',$path).'<br/>'.str_replace('../','',$path_thumb).AddErrorLocation())->send();
+					response(filemanager_trans('Dir_No_Write').'<br/>'.str_replace('../','',$path).'<br/>'.str_replace('../','',$path_thumb).AddErrorLocation())->send();
 					exit;
 				}
 
 				// check if server disables copy or rename
 				if (is_function_callable(($action == 'copy' ? 'copy' : 'rename')) === FALSE){
-					response(sprintf(trans('Function_Disabled'), ($action == 'copy' ? (trans('Copy')) : (trans('Cut')))).AddErrorLocation())->send();
+					response(sprintf(filemanager_trans('Function_Disabled'), ($action == 'copy' ? (filemanager_trans('Copy')) : (filemanager_trans('Cut')))).AddErrorLocation())->send();
 					exit;
 				}
 				if ($action == 'copy')
 				{
 					list($sizeFolderToCopy,$fileNum,$foldersCount) = folder_info($path,false);
 					if (!checkresultingsize($sizeFolderToCopy)) {
-						response(sprintf(trans('max_size_reached'),$MaxSizeTotal).AddErrorLocation())->send();
+						response(sprintf(filemanager_trans('max_size_reached'),$MaxSizeTotal).AddErrorLocation())->send();
 						exit;
 					}
 					rcopy($data['path'], $path);
@@ -446,22 +446,22 @@ if (isset($_GET['action']))
 
 			// check perm
 			if ($chmod_perm === FALSE) {
-				response(sprintf(trans('File_Permission_Not_Allowed'), (is_dir($path) ? (trans('Folders')) : (trans('Files')) )).AddErrorLocation())->send();
+				response(sprintf(filemanager_trans('File_Permission_Not_Allowed'), (is_dir($path) ? (filemanager_trans('Folders')) : (filemanager_trans('Files')) )).AddErrorLocation())->send();
 				exit;
 			}
 			// check mode
 			if (!preg_match("/^[0-7]{3}$/", $mode)){
-				response(trans('File_Permission_Wrong_Mode').AddErrorLocation())->send();
+				response(filemanager_trans('File_Permission_Wrong_Mode').AddErrorLocation())->send();
 				exit;
 			}
 			// check recursive option
 			if (!in_array($rec_option, $valid_options)){
-				response(trans("wrong option").AddErrorLocation())->send();
+				response(filemanager_trans("wrong option").AddErrorLocation())->send();
 				exit;
 			}
 			// check if server disabled chmod
 			if (!$ftp && is_function_callable('chmod') === FALSE){
-				response(sprintf(trans('Function_Disabled'), 'chmod').AddErrorLocation())->send();
+				response(sprintf(filemanager_trans('Function_Disabled'), 'chmod').AddErrorLocation())->send();
 				exit;
 			}
 
@@ -488,36 +488,36 @@ if (isset($_GET['action']))
 					echo $e->getMessage();
 				}
 				unlink($tmp);
-				response(trans('File_Save_OK'))->send();
+				response(filemanager_trans('File_Save_OK'))->send();
 			}else{
 				// no file
 				if (!file_exists($path)) {
-					response(trans('File_Not_Found').AddErrorLocation())->send();
+					response(filemanager_trans('File_Not_Found').AddErrorLocation())->send();
 					exit;
 				}
 
 				// not writable or edit not allowed
 				if (!is_writable($path) || $edit_text_files === FALSE) {
-					response(sprintf(trans('File_Open_Edit_Not_Allowed'), strtolower(trans('Edit'))).AddErrorLocation())->send();
+					response(sprintf(filemanager_trans('File_Open_Edit_Not_Allowed'), strtolower(filemanager_trans('Edit'))).AddErrorLocation())->send();
 					exit;
 				}
 
 				if (!checkresultingsize(strlen($content))) {
-					response(sprintf(trans('max_size_reached'),$MaxSizeTotal).AddErrorLocation())->send();
+					response(sprintf(filemanager_trans('max_size_reached'),$MaxSizeTotal).AddErrorLocation())->send();
 					exit;
 				}
 				if (@file_put_contents($path, $content) === FALSE) {
-					response(trans('File_Save_Error').AddErrorLocation())->send();
+					response(filemanager_trans('File_Save_Error').AddErrorLocation())->send();
 					exit;
 				} else {
-					response(trans('File_Save_OK'))->send();
+					response(filemanager_trans('File_Save_OK'))->send();
 					exit;
 				}
 			}
 
 			break;
 		default:
-			response(trans('wrong action').AddErrorLocation())->send();
+			response(filemanager_trans('wrong action').AddErrorLocation())->send();
 			exit;
 	}
 }

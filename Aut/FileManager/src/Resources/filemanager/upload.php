@@ -8,7 +8,7 @@ include 'include/utils.php';
 
 if ($_SESSION['RF']["verify"] != "RESPONSIVEfilemanager")
 {
-	response(trans('forbiden').AddErrorLocation(), 403)->send();
+	response(filemanager_trans('forbiden').AddErrorLocation(), 403)->send();
 	exit;
 }
 
@@ -50,7 +50,7 @@ if ($path_pos!==0
 	|| strpos($storeFolder,'..\\',strlen($source_base)) !== FALSE
 	|| strpos($storeFolder,'.\\',strlen($source_base)) !== FALSE )
 {
-	response(trans('wrong path'.AddErrorLocation()))->send();
+	response(filemanager_trans('wrong path'.AddErrorLocation()))->send();
 	exit;
 }
 
@@ -136,7 +136,7 @@ if ( ! empty($_FILES) || isset($_POST['url']))
 		else $is_img=FALSE;
 
 		if (!checkresultingsize($_FILES['file']['size'])) {
-			response(sprintf(trans('max_size_reached'),$MaxSizeTotal).AddErrorLocation(), 406)->send();
+			response(sprintf(filemanager_trans('max_size_reached'),$MaxSizeTotal).AddErrorLocation(), 406)->send();
 			exit;
 		}
 
@@ -238,7 +238,7 @@ if ( ! empty($_FILES) || isset($_POST['url']))
 			if ($memory_error)
 			{
 				unlink($targetFile);
-				response(trans("Not enought Memory").AddErrorLocation(), 406)->send();
+				response(filemanager_trans("Not enought Memory").AddErrorLocation(), 406)->send();
 				exit();
 			}
 		}
@@ -257,14 +257,14 @@ if ( ! empty($_FILES) || isset($_POST['url']))
 	}
 	else // file ext. is not in the allowed list
 	{
-		response(trans("Error_extension").AddErrorLocation(), 406)->send();
+		response(filemanager_trans("Error_extension").AddErrorLocation(), 406)->send();
 
 		exit();
 	}
 }
 else // no files to upload
 {
-	response(trans("no file").AddErrorLocation(), 405)->send();
+	response(filemanager_trans("no file").AddErrorLocation(), 405)->send();
 	exit();
 }
 
@@ -279,5 +279,7 @@ if (isset($_POST['submit']))
 		'fldr'	  	=> $_POST['fldr'],
 	));
 
-	header("location: dialog.php?" . $query);
+    // update by basheer
+    // location: dialog.php?
+	header("location: dialog?" . $query);
 }
