@@ -1,17 +1,18 @@
 <?php
 namespace App\Http\ViewComposer;
 
-use Illuminate\Support\Str;
 use Illuminate\View\View;
-use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+use Illuminate\Support\Str;
 use Modules\Utilities\Entities\ControlMenu;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 class GlobalComposer
 {
     public function compose(View $view)
     {
+        $route = request()->segment(2);
         $view->with([
-            'module' => preg_replace("/.+\//" ,'' ,\Route::getCurrentRoute()->action['prefix']),
+            'module' => $route,
             'dir'    => LaravelLocalization::getCurrentLocaleDirection(),
             'lang'   => LaravelLocalization::getCurrentLocale(),
         ]);

@@ -7,8 +7,9 @@ Route::group(
         'namespace' => 'Modules\Utilities\Http\Controllers'
     ],
     function () {
-        Route::group(['prefix' => 'website-routes'], function () {
-            Route::get('pages', 'RoutesController@pages');
+        Route::group(['prefix' => 'builder'], function () {
+            Route::get('pages', 'BuilderController@pages');
+            Route::post('pages', 'BuilderController@storePages');
         });
 
         Route::group(['prefix' => 'attribute'], function () {

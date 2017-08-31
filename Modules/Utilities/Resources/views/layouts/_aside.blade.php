@@ -66,15 +66,15 @@
         </ul>
     </li>
     <li class="">
-        <a href="#website_routes" title="{{ trans('utilities::app.website_routes') }}" data-toggle="collapse" class="">
+        <a href="#builder" title="{{ trans('utilities::app.builder') }}" data-toggle="collapse" class="">
             <em class="icon-puzzle"></em>
-            <span>{{ trans('utilities::app.website_routes') }}</span>
+            <span>{{ trans('utilities::app.builder') }}</span>
         </a>
-        <ul id="website_routes" class="nav sidebar-subnav collapse">
-            <li class="sidebar-subnav-header">{{ trans('utilities::website_routes') }}</li>
+        <ul id="builder" class="nav sidebar-subnav collapse">
+            <li class="sidebar-subnav-header">{{ trans('utilities::builder') }}</li>
 
             <li class="">
-                <a href="{{ RouteUrls::websiteRoutePages() }}" class="ajax" title="{{ trans('utilities::app.pages') }}">
+                <a href="{{ RouteUrls::builderPages() }}" class="ajax" title="{{ trans('utilities::app.pages') }}">
                     <span>{{ trans('utilities::app.pages') }}</span>
                 </a>
             </li>

@@ -30,7 +30,7 @@ return [
     'modules'                => 'Modules',
     'custom_modules'         => 'Custom Modules',
     'pages'                  => 'Pages',
-    'website_routes'         => 'Website Links',
+    'builder'                => 'Builder',
 
     'expand_all'             => 'Expand All',
     'collapse_all'           => 'Collapse All',
