@@ -28,6 +28,11 @@ return [
     'extra_info'         => 'Extra Info',
     'gelocation'         => 'Gelocation',
     'upload_images'      => 'Upload Images',
+    'course'             => 'Course',
+    'prerequisite'       => 'Prerequisite',
+    'faculty_courses'    => 'Faculty Courses',
+    'offices'            => 'Offices',
+    'study_plan'         => 'Study Plan',
 
     'code'               => 'Code',
     'credit'             => 'Credit',

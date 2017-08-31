@@ -42,7 +42,7 @@ class CustomModuleFactory extends GlobalFactory
             ->addComponent(view('utilities::page._custom_module')->renderSections()['component'] ,[
                 ['selector' => '#custom-module-temp' , 'targetAttr' => 'html' ,'rowVal' => 'custom_module_temp']
             ])
-            ->addBlade(view('utilities::page._custom_module')->renderSections()['script'])
+            ->addBlade('custom-module-custom' , view('utilities::page._custom_module')->renderSections()['script'])
             ->addNavButton()
             ->onUpdate('')
             //todo reset, init must be use the selector not an id EX: sets of text area for each supported language

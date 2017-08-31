@@ -10,5 +10,5 @@ class CourseNameLang extends Model
 {
     use SoftDeletes ,LangInfo;
 
-    protected $fillable = [];
+    protected $fillable = ['lang_id' ,'text' ,'course_id'];
 }

@@ -36,6 +36,8 @@ return [
         'overlay' => 'spinners-overlay'
     ],
 
+    'tabAnimation' => 'animated zoomInUp',
+
     'button_position' => "B<'row'<'col-lg-4 datatable-pull-left'l><'col-lg-4 datatable-pull-right'f>>tr<'row'<'col-lg-4 datatable-pull-left'i><'col-lg-6 datatable-pull-right'p>>",
 
     'icon' => [
@@ -111,7 +113,7 @@ return [
             return
             "
                 <script>
-                    if(cont.find('.cropper').length)
+                    if($(cont).find('.cropper').length)
                     {
                         APP.CROPPER.destroy('.modal .cropper');
                         APP.CROPPER.init();

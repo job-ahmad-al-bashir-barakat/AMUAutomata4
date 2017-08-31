@@ -11,8 +11,18 @@
  */
 
 package happyworm.jPlayer {
+	import flash.display.Sprite;
 
-public class JplayerMp3 extends Sprite {
+	import flash.media.Sound;
+	import flash.media.SoundChannel;
+	import flash.media.SoundLoaderContext;
+	import flash.media.SoundTransform;
+	import flash.net.URLRequest;
+	import flash.utils.Timer;
+	import flash.errors.IOError;
+	import flash.events.*;
+
+	public class JplayerMp3 extends Sprite {
 		private var mySound:Sound = new Sound();
 		private var myChannel:SoundChannel = new SoundChannel();
 		private var myContext:SoundLoaderContext = new SoundLoaderContext(3000, false);

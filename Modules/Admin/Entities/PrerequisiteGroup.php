@@ -6,10 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class PrerequisiteGroup extends Model
 {
-    protected $fillable = [];
+    protected $fillable = ['id' , 'code' ,'course_id'];
 
-    function course()
+    function courses()
     {
-        return self::belongsToMany(Course::class);
+        return self::belongsToMany(Course::class ,'prerequisite');
     }
 }

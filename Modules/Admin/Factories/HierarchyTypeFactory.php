@@ -31,7 +31,7 @@ class HierarchyTypeFactory extends GlobalFactory
         return $this->table
             ->config('datatable-hierarchy-type',trans('admin::app.hierarchy_type'))
             ->addPrimaryKey('id','id')
-            ->addMultiInputTextLangs(['name'])
+            ->addMultiInputTextLangs(['name'] ,'req required')
             ->addActionButton($this->update,'update','update')
             ->addActionButton($this->delete,'delete','delete')
             ->addNavButton()

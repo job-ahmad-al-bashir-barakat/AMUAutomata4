@@ -3,7 +3,7 @@
  */
 
 /*-----------------------------------
-             Stack Dialog
+ Stack Dialog
  -------------------------------------*/
 
 function stackModal() {
@@ -37,7 +37,7 @@ function stackModal() {
 }
 
 /*-----------------------------------
-        password hide/show
+ password hide/show
  -------------------------------------*/
 
 function aut_datatable_passwordHideShow(selector) {
@@ -52,10 +52,10 @@ function aut_datatable_passwordHideShow(selector) {
     });
 }
 
-function aut_datatable_passwordGenerator(selector) {
+function aut_datatable_passwordGenerator(selector ,url) {
     $(selector).on('click', '.btn-refresh', function() {
         var $this = $(this);
-        $.get(aut_datatable.url + '/password/generator',function (res) {
+        $.get(url + '/password/generator',function (res) {
 
             $this.closest('div').find("input.refresh").val(res);
         });
@@ -63,7 +63,7 @@ function aut_datatable_passwordGenerator(selector) {
 }
 
 /*-----------------------------------
-        autocomplete select2
+         autocomplete select2
  -------------------------------------*/
 
 //user inside datatable
@@ -255,7 +255,7 @@ function _DataTableValidate($cont, callback) {
 
 
 /*-----------------------------------
-            select select2
+ select select2
  -------------------------------------*/
 function aut_datatable_initSelect(data) {
 
@@ -291,7 +291,7 @@ function aut_datatable_resetSelect(selector) {
 }
 
 /*-----------------------------------
-             sort function
+ sort function
  -------------------------------------*/
 
 function aut_datatable_sortRows(aut_datatable) {
@@ -317,7 +317,8 @@ function aut_datatable_sortRows(aut_datatable) {
  *
  */
 
-var aut_datatable;
+// _not
+// var aut_datatable;
 
 function _aut_datatable_getTable(selector) {
 
@@ -329,7 +330,20 @@ function _aut_datatable_getTableObjectApi(selector) {
     return $(selector).dataTable().api();
 }
 
+/**
+ * old way to get row data need to pass table api from function _aut_datatable_getTableObjectApi
+ */
 function _aut_datatable_getSelectedRow(table ,selectorRow) {
+
+    return table.row(selectorRow).data();
+}
+
+/**
+ * new way to get row data
+ */
+function _aut_datatable_getSelectedRowData(selectorTable ,selectorRow) {
+
+    var table = _aut_datatable_getTableObjectApi(selectorTable);
 
     return table.row(selectorRow).data();
 }
@@ -490,7 +504,7 @@ function aut_datatable_submitDialogFrom(table ,aut_datatable) {
             : $(form).attr('data-key');
 
         (id == '') || (typeof id == typeof undefined)
-        ? $.post(aut_datatable.url, data, function(res) {
+            ? $.post(aut_datatable.url, data, function(res) {
 
             if(status == 'add')
                 $(aut_datatable.ids.modal).modal('hide');
@@ -504,14 +518,16 @@ function aut_datatable_submitDialogFrom(table ,aut_datatable) {
 
         }).fail(function(res) {
 
-            aut_datatable_notify({ message : JSON.parse(res.responseText).operation_message ,status : 'danger'});
+            aut_datatable_notify({ message : aut_datatable.lang.oper.error ,status : 'danger'});
 
-            $.each(JSON.parse(res.responseText).server_message,function(k ,v){
+            var errors = JSON.parse(res.responseText);
+            if(errors)
+                $.each(errors ,function(k ,v){
 
-                var error = $(aut_datatable.ids.modal).find('[id="error_' + k + '"]')
-                error.children().remove();
-                error.append('<div class="validate-error validate-error-help-block validate-error-style animated fadeInDown">' + v[0] + '</div>');
-            });
+                    var error = $(aut_datatable.ids.modal).find('[id="error_' + k + '"]')
+                    error.children().remove();
+                    error.append('<div class="validate-error validate-error-help-block validate-error-style animated fadeInDown">' + v[0] + '</div>');
+                });
 
         }).done(function () {
 
@@ -527,14 +543,16 @@ function aut_datatable_submitDialogFrom(table ,aut_datatable) {
 
         }).fail(function(res) {
 
-            aut_datatable_notify({ message : JSON.parse(res.responseText).operation_message ,status : 'danger'});
+            aut_datatable_notify({ message :  aut_datatable.lang.oper.error ,status : 'danger'});
 
-            $.each(JSON.parse(res.responseText).server_message,function(k ,v){
+            var errors = JSON.parse(res.responseText);
+            if(errors)
+                $.each(errors ,function(k ,v){
 
-                var error = $(aut_datatable.ids.modal).find('[id="error_' + k + '"]')
-                error.children().remove();
-                error.append('<div class="validate-error validate-error-help-block validate-error-style animated fadeInDown">' + v[0] + '</div>');
-            });
+                    var error = $(aut_datatable.ids.modal).find('[id="error_' + k + '"]')
+                    error.children().remove();
+                    error.append('<div class="validate-error validate-error-help-block validate-error-style animated fadeInDown">' + v[0] + '</div>');
+                });
 
         }).done(function () {
 
@@ -547,7 +565,7 @@ function aut_datatable_submitDialogFrom(table ,aut_datatable) {
 
 function aut_datatable_dialogHidden(aut_datatable) {
 
-    $(aut_datatable.ids.modal).on('hidden.bs.modal', function() {
+    $(document).off('hidden.bs.modal' ,aut_datatable.ids.modal).on('hidden.bs.modal', aut_datatable.ids.modal,function() {
 
         var form = $(this).find('form');
 
@@ -587,15 +605,15 @@ function aut_datatable_clearFrom(form) {
 
 function aut_datatable_dialogOpen(aut_datatable) {
 
-    $(aut_datatable.ids.modal).on('show.bs.modal', function() {
+    $(document).off('show.bs.modal', aut_datatable.ids.modal).on('show.bs.modal', aut_datatable.ids.modal, function() {
 
         aut_datatable_reloadNumberFormat();
     });
 
-    $(aut_datatable.ids.modal).on('shown.bs.modal', function() {
+    $(document).off('shown.bs.modal', aut_datatable.ids.modal).on('shown.bs.modal', aut_datatable.ids.modal, function() {
 
         var $form = $(this).find('form'),
-        $key = $form.attr('data-key');
+            $key = $form.attr('data-key');
         if(typeof $key != typeof undefined && $key != '')
         {
             $form.find('label[for=password] span').hide();
@@ -617,7 +635,7 @@ function aut_datatable_addModalCont() {
 
 var aut_datatable_enable_multi_modal = false;
 
-function aut_datatable_setMultiModal() {
+function aut_datatable_setMultiModal(aut_datatable) {
 
     if(aut_datatable.multi_modal)
         aut_datatable_enable_multi_modal = true;
@@ -645,10 +663,18 @@ function aut_datatable_copyModalToHisCont(aut_datatable) {
 
 function aut_datatable_copyBladeToHisCont(aut_datatable) {
 
-    $('.bladeCont.appended').remove();
-
-    $('.bladeCont').addClass('appended')
-        .appendTo(aut_datatable.append_blade);
+    $('.bladeCont').not('.appended').each(function () {
+        var $this = $(this);
+        if($this.data('append-type') == 'prependTo' || $this.data('append-type') == 'appendTo') {
+            //$('#' + this.id + '.appended').remove();
+            if($('#' + this.id + '.appended').length) {
+                $this.remove();
+            } else {
+                $this[$this.data('append-type')]($this.data('append'));
+                $this.addClass('appended');
+            }
+        } else alert('type not allowed');
+    });
 }
 
 function aut_datatable_deleteRow(table ,aut_datatable) {
@@ -663,6 +689,7 @@ function aut_datatable_deleteRow(table ,aut_datatable) {
             ? { 'parent_id' : $(this).data('parent-key') }
             : {};
 
+
         aut_datatable_swal({
             title              : aut_datatable.lang.swal.title,
             text               : aut_datatable.lang.swal.text,
@@ -675,6 +702,7 @@ function aut_datatable_deleteRow(table ,aut_datatable) {
             allowOutsideClick  : true,
             confirmButtonColor : "#DD6B55",
             showLoaderOnConfirm: true,
+
         } ,function () {
 
             $.delete(aut_datatable.url + '/' + id, data, function(res) {
@@ -693,12 +721,15 @@ function aut_datatable_deleteRow(table ,aut_datatable) {
                 });
             });
 
+        } , {
+            cancleSafeTitle : aut_datatable.lang.swal.cancleSafe.text,
+            cancleSafeText : aut_datatable.lang.swal.cancleSafe.message,
+            cancleSafeConfirmText : aut_datatable.lang.swal.ok,
         });
-
     });
 }
 
-function aut_datatable_swal(param ,func) {
+function aut_datatable_swal(param ,func ,paramCancleSafe) {
 
     swal({
         title              : typeof param.title               != typeof undefined ? param.title               : null,
@@ -719,9 +750,9 @@ function aut_datatable_swal(param ,func) {
         if (dismiss === 'cancel') {
 
             aut_datatable_swal({
-                title : aut_datatable.lang.swal.cancleSafe.text,
-                text  : aut_datatable.lang.swal.cancleSafe.message,
-                confirmButtonText  : aut_datatable.lang.swal.ok,
+                title : paramCancleSafe.cancleSafeTitle,
+                text  : paramCancleSafe.cancleSafeText,
+                confirmButtonText  : paramCancleSafe.cancleSafeConfirmButtonText,
                 type : "error",
             });
         }
@@ -839,14 +870,14 @@ function aut_datatable_replaceDatatableFunctionWithJPath(aut_datatable) {
 
         var data = $.map( columns, function ( col, i ) {
             return col.hidden ? aut_datatable.responsive_templete(col) :
-            '';
+                '';
         } ).join('');
 
         return data ?
             $('<div/>').append( data ) :
             false;
     }
-    
+
     if(JSPath.apply('.buttons{.action == "buttons_action_plus"}',aut_datatable.json_object).length != 0)
         JSPath.apply('.buttons{.action == "buttons_action_plus"}',aut_datatable.json_object)[0].action = function(){
 
@@ -1088,7 +1119,8 @@ var searchDelay;
 
 function aut_datatable_CreateNewTable(TableObject)
 {
-    aut_datatable = TableObject;
+    // _not global
+    var aut_datatable = TableObject;
 
     aut_datatable_replaceDatatableFunctionWithJPath(aut_datatable);
 
@@ -1127,11 +1159,11 @@ function aut_datatable_CreateNewTable(TableObject)
 
         aut_datatable_copyModalToHisCont(aut_datatable);
 
-        aut_datatable_setMultiModal();
+        aut_datatable_setMultiModal(aut_datatable);
 
         aut_datatable_passwordHideShow(aut_datatable.ids.modal);
 
-        aut_datatable_passwordGenerator(aut_datatable.ids.modal);
+        aut_datatable_passwordGenerator(aut_datatable.ids.modal ,aut_datatable.url);
     }
 
     aut_datatable_copyBladeToHisCont(aut_datatable);
@@ -1202,6 +1234,7 @@ function aut_datatable_row_detail(table ,aut_datatable) {
 
     });
 }
+
 function aut_datatable_reload(selector) {
 
     aut_datatable_reloadTable(_aut_datatable_getTableObjectApi(selector))
@@ -1218,6 +1251,22 @@ function aut_datatable_refresh(selector ,forceload) {
     });
 }
 
+/**
+ *
+ * @param cont
+ * @param param
+ *
+ * this function for change url inside modal and open modal and refresh datatable
+ */
+function _aut_datatable_custom_merge_datatable_url_open_modal_refresh_datatable(cont ,param) {
+
+    var table = $(cont + ' .datatable');
+    table.attr('data-url' ,table.data('url') + param);
+    table.html('');
+    $(cont).modal('show');
+    aut_datatable_refresh(cont ,true);
+}
+
 function aut_datatable_initTabs(aut_datatable)
 {
     $(aut_datatable.ids.modal + " div.bhoechie-tab-menu > div.list-group > a").click(function(e) {
@@ -1230,9 +1279,9 @@ function aut_datatable_initTabs(aut_datatable)
         $this.siblings('a.active').removeClass("active");
         $this.addClass("active");
         $tabContent.removeClass("active");
-        $tabContent.eq(index).addClass("active animated zoomInUp");
+        $tabContent.eq(index).addClass("active " + aut_datatable.tab_animation);
 
-        var $tabContentActive = $(aut_datatable.ids.modal + " div.bhoechie-tab>div.bhoechie-tab-content.bhoechie-tab-content.active");
+        var $tabContentActive = aut_datatable.ids.modal + " .bhoechie-tab-content.active";
         aut_datatable.events.on_tab_click($tabContentActive);
     });
 }
@@ -1247,7 +1296,7 @@ var loadDatatable = function () {
             url: $(this).data('url'),
             dataType: 'html',
             success: function(res){
-               $this.append(res);
+                $this.append(res);
             }
         });
 

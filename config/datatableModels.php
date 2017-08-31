@@ -108,8 +108,8 @@ return [
         'factory'       => Modules\Admin\Factories\CourseFactory::class,
     ],
 
-    'prerequisite-courses' => [
-        'model'         => Modules\Admin\Entities\Course::class,
+    'prerequisite' => [
+        'model'         => Modules\Admin\Entities\PrerequisiteGroup::class,
         'factory'       => Modules\Admin\Factories\PrerequisiteFactory::class,
     ],
 

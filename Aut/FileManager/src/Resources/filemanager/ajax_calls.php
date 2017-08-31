@@ -8,21 +8,21 @@ require_once 'include/utils.php';
 
 if ($_SESSION['RF']["verify"] != "RESPONSIVEfilemanager")
 {
-	response(filemanager_trans('forbiden').AddErrorLocation())->send();
+	response(trans('forbiden').AddErrorLocation())->send();
 	exit;
 }
-$languages = include __DIR__.'\lang\languages.php';
+$languages = include 'lang/languages.php';
 
-if (isset($_SESSION['RF']['language']) && file_exists(__DIR__.'\lang\\' . basename($_SESSION['RF']['language']) . '.php'))
+if (isset($_SESSION['RF']['language']) && file_exists('lang/' . basename($_SESSION['RF']['language']) . '.php'))
 {
 	if(array_key_exists($_SESSION['RF']['language'],$languages)){
-		include __DIR__.'\lang\\' . basename($_SESSION['RF']['language']) . '.php';
+		include 'lang/' . basename($_SESSION['RF']['language']) . '.php';
 	}else{
-		response(filemanager_trans('Lang_Not_Found').AddErrorLocation())->send();
+		response(trans('Lang_Not_Found').AddErrorLocation())->send();
 		exit;
 	}
 } else {
-	response(filemanager_trans('Lang_Not_Found').AddErrorLocation())->send();
+	response(trans('Lang_Not_Found').AddErrorLocation())->send();
 	exit;
 }
 $ftp = ftp_con($config);
@@ -32,7 +32,7 @@ if(isset($_GET['action']))
 	switch($_GET['action'])
 	{
 		case 'new_file_form':
-			echo filemanager_trans('Filename') . ': <input type="text" id="create_text_file_name" style="height:30px"> <select id="create_text_file_extension" style="margin:0;width:100px;">';
+			echo trans('Filename') . ': <input type="text" id="create_text_file_name" style="height:30px"> <select id="create_text_file_extension" style="margin:0;width:100px;">';
 			foreach($config['editable_text_file_exts'] as $ext){
 				echo '<option value=".'.$ext.'">.'.$ext.'</option>';
 			}
@@ -45,7 +45,7 @@ if(isset($_GET['action']))
 			}
 			else
 			{
-				response(filemanager_trans('view type number missing').AddErrorLocation())->send();
+				response(trans('view type number missing').AddErrorLocation())->send();
 				exit;
 			}
 			break;
@@ -58,7 +58,7 @@ if(isset($_GET['action']))
 				}
 			}
 			else {
-				response(filemanager_trans('view type number missing').AddErrorLocation())->send();
+				response(trans('view type number missing').AddErrorLocation())->send();
 				exit;
 			}
 			break;
@@ -88,25 +88,25 @@ if(isset($_GET['action']))
 			if (
 				strpos($_POST['path'], '/') === 0
 				|| strpos($_POST['path'], '../') !== false
+				|| strpos($_POST['path'], '..\\') !== false
 				|| strpos($_POST['path'], './') === 0
-				|| (strpos($_POST['url'], 'http://s3.amazonaws.com/feather') !== 0
-				&& strpos($_POST['url'], 'https://s3.amazonaws.com/feather') !== 0)
+				|| (strpos($_POST['url'], 'http://s3.amazonaws.com/feather') !== 0 && strpos($_POST['url'], 'https://s3.amazonaws.com/feather') !== 0)
 				|| $_POST['name'] != fix_filename($_POST['name'], $config)
 				|| ! in_array(strtolower($info['extension']), array( 'jpg', 'jpeg', 'png' ))
 			)
 			{
-				response(filemanager_trans('wrong data').AddErrorLocation())->send();
+				response(trans('wrong data').AddErrorLocation())->send();
 				exit;
 			}
 			$image_data = get_file_by_url($_POST['url']);
 			if ($image_data === false)
 			{
-				response(filemanager_trans('Aviary_No_Save').AddErrorLocation())->send();
+				response(trans('Aviary_No_Save').AddErrorLocation())->send();
 				exit;
 			}
 
 			if (!checkresultingsize(strlen($image_data))) {
-				response(sprintf(filemanager_trans('max_size_reached'),$MaxSizeTotal).AddErrorLocation())->send();
+				response(sprintf(trans('max_size_reached'),$MaxSizeTotal).AddErrorLocation())->send();
 				exit;
 			}
 			if($ftp){
@@ -150,9 +150,12 @@ if(isset($_GET['action']))
 			}
 			break;
 		case 'extract':
-			if (strpos($_POST['path'], '/') === 0 || strpos($_POST['path'], '../') !== false || strpos($_POST['path'], './') === 0)
+			if (	strpos($_POST['path'], '/') === 0 
+				|| strpos($_POST['path'], '../') !== false 
+				|| strpos($_POST['path'], '..\\') !== false 
+				|| strpos($_POST['path'], './') === 0)
 			{
-				response(filemanager_trans('wrong path'.AddErrorLocation()))->send();
+				response(trans('wrong path'.AddErrorLocation()))->send();
 				exit;
 			}
 
@@ -194,7 +197,7 @@ if(isset($_GET['action']))
 							$sizeTotalFinal += $aStat['size'];
 						}
 						if (!checkresultingsize($sizeTotalFinal)) {
-							response(sprintf(filemanager_trans('max_size_reached'),$MaxSizeTotal).AddErrorLocation())->send();
+							response(sprintf(trans('max_size_reached'),$MaxSizeTotal).AddErrorLocation())->send();
 							exit;
 						}
 
@@ -225,7 +228,7 @@ if(isset($_GET['action']))
 						}
 						$zip->close();
 					} else {
-						response(filemanager_trans('Zip_No_Extract').AddErrorLocation())->send();
+						response(trans('Zip_No_Extract').AddErrorLocation())->send();
 						exit;
 					}
 
@@ -250,7 +253,7 @@ if(isset($_GET['action']))
 					break;
 
 				default:
-					response(filemanager_trans('Zip_Invalid').AddErrorLocation())->send();
+					response(trans('Zip_Invalid').AddErrorLocation())->send();
 					exit;
 			}
 
@@ -314,18 +317,13 @@ if(isset($_GET['action']))
 				</div>
 				<div class="jp-no-solution">
 					<span>Update Required</span>
-					To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
+					To play the media you will need to either update your browser to a recent version or update your <a href="https://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
 				</div>
 				</div>
 			</div>
 			<?php if(in_array(strtolower($info['extension']), $ext_music)): ?>
 
 				<script type="text/javascript">
-					$.ajaxSetup({
-						headers: {
-							'X-CSRF-TOKEN': "<?=csrf_token()?>",
-						}
-					});
 					$(document).ready(function(){
 
 					$("#jquery_jplayer_1").jPlayer({
@@ -382,17 +380,26 @@ if(isset($_GET['action']))
 		case 'copy_cut':
 			if ($_POST['sub_action'] != 'copy' && $_POST['sub_action'] != 'cut')
 			{
-				response(filemanager_trans('wrong sub-action').AddErrorLocation())->send();
+				response(trans('wrong sub-action').AddErrorLocation())->send();
+				exit;
+			}
+
+			if (strpos($_POST['path'],'../') !== FALSE
+				|| strpos($_POST['path'],'./') !== FALSE 
+				|| strpos($_POST['path'],'..\\') !== FALSE
+				|| strpos($_POST['path'],'.\\') !== FALSE )
+			{
+				response(trans('wrong path'.AddErrorLocation()))->send();
 				exit;
 			}
 
 			if (trim($_POST['path']) == '')
 			{
-				response(filemanager_trans('no path').AddErrorLocation())->send();
+				response(trans('no path').AddErrorLocation())->send();
 				exit;
 			}
 
-			$msg_sub_action = ($_POST['sub_action'] == 'copy' ? filemanager_trans('Copy') : filemanager_trans('Cut'));
+			$msg_sub_action = ($_POST['sub_action'] == 'copy' ? trans('Copy') : trans('Cut'));
 			$path = $current_path . $_POST['path'];
 
 			if (is_dir($path))
@@ -400,7 +407,7 @@ if(isset($_GET['action']))
 				// can't copy/cut dirs
 				if ($copy_cut_dirs === false)
 				{
-					response(sprintf(filemanager_trans('Copy_Cut_Not_Allowed'), $msg_sub_action, filemanager_trans('Folders')).AddErrorLocation())->send();
+					response(sprintf(trans('Copy_Cut_Not_Allowed'), $msg_sub_action, trans('Folders')).AddErrorLocation())->send();
 					exit;
 				}
 
@@ -408,7 +415,7 @@ if(isset($_GET['action']))
 				// size over limit
 				if ($copy_cut_max_size !== false && is_int($copy_cut_max_size)) {
 					if (($copy_cut_max_size * 1024 * 1024) < $sizeFolderToCopy) {
-						response(sprintf(filemanager_trans('Copy_Cut_Size_Limit'), $msg_sub_action, $copy_cut_max_size).AddErrorLocation())->send();
+						response(sprintf(trans('Copy_Cut_Size_Limit'), $msg_sub_action, $copy_cut_max_size).AddErrorLocation())->send();
 						exit;
 					}
 				}
@@ -418,20 +425,20 @@ if(isset($_GET['action']))
 				{
 					if ($copy_cut_max_count < $fileNum)
 					{
-						response(sprintf(filemanager_trans('Copy_Cut_Count_Limit'), $msg_sub_action, $copy_cut_max_count).AddErrorLocation())->send();
+						response(sprintf(trans('Copy_Cut_Count_Limit'), $msg_sub_action, $copy_cut_max_count).AddErrorLocation())->send();
 						exit;
 					}
 				}
 
 				if (!checkresultingsize($sizeFolderToCopy)) {
-					response(sprintf(filemanager_trans('max_size_reached'),$MaxSizeTotal).AddErrorLocation())->send();
+					response(sprintf(trans('max_size_reached'),$MaxSizeTotal).AddErrorLocation())->send();
 					exit;
 				}
 			} else {
 				// can't copy/cut files
 				if ($copy_cut_files === false)
 				{
-					response(sprintf(filemanager_trans('Copy_Cut_Not_Allowed'), $msg_sub_action, filemanager_trans('Files')).AddErrorLocation())->send();
+					response(sprintf(trans('Copy_Cut_Not_Allowed'), $msg_sub_action, trans('Files')).AddErrorLocation())->send();
 					exit;
 				}
 			}
@@ -451,7 +458,7 @@ if(isset($_GET['action']))
 					|| ($_POST['folder']==0 && $chmod_files === false)
 					|| (is_function_callable("chmod") === false) )
 				{
-					response(sprintf(filemanager_trans('File_Permission_Not_Allowed'), (is_dir($path) ? filemanager_trans('Folders') : filemanager_trans('Files')), 403).AddErrorLocation())->send();
+					response(sprintf(trans('File_Permission_Not_Allowed'), (is_dir($path) ? trans('Folders') : trans('Files')), 403).AddErrorLocation())->send();
 					exit;
 				}
 				$info = $_POST['permissions'];
@@ -462,7 +469,7 @@ if(isset($_GET['action']))
 					|| (is_file($path) && $chmod_files === false)
 					|| (is_function_callable("chmod") === false) )
 				{
-					response(sprintf(filemanager_trans('File_Permission_Not_Allowed'), (is_dir($path) ? filemanager_trans('Folders') : filemanager_trans('Files')), 403).AddErrorLocation())->send();
+					response(sprintf(trans('File_Permission_Not_Allowed'), (is_dir($path) ? trans('Folders') : trans('Files')), 403).AddErrorLocation())->send();
 					exit;
 				}
 
@@ -507,19 +514,19 @@ if(isset($_GET['action']))
 					</thead>
 					<tbody>
 						<tr>
-							<td>'.filemanager_trans('User').'</td>
+							<td>'.trans('User').'</td>
 							<td><input id="u_4" type="checkbox" data-value="4" data-group="user" '.(substr($info, 1,1)=='r' ? " checked" : "").'></td>
 							<td><input id="u_2" type="checkbox" data-value="2" data-group="user" '.(substr($info, 2,1)=='w' ? " checked" : "").'></td>
 							<td><input id="u_1" type="checkbox" data-value="1" data-group="user" '.(substr($info, 3,1)=='x' ? " checked" : "").'></td>
 						</tr>
 						<tr>
-							<td>'.filemanager_trans('Group').'</td>
+							<td>'.trans('Group').'</td>
 							<td><input id="g_4" type="checkbox" data-value="4" data-group="group" '.(substr($info, 4,1)=='r' ? " checked" : "").'></td>
 							<td><input id="g_2" type="checkbox" data-value="2" data-group="group" '.(substr($info, 5,1)=='w' ? " checked" : "").'></td>
 							<td><input id="g_1" type="checkbox" data-value="1" data-group="group" '.(substr($info, 6,1)=='x' ? " checked" : "").'></td>
 						</tr>
 						<tr>
-							<td>'.filemanager_trans('All').'</td>
+							<td>'.trans('All').'</td>
 							<td><input id="a_4" type="checkbox" data-value="4" data-group="all" '.(substr($info, 7,1)=='r' ? " checked" : "").'></td>
 							<td><input id="a_2" type="checkbox" data-value="2" data-group="all" '.(substr($info, 8,1)=='w' ? " checked" : "").'></td>
 							<td><input id="a_1" type="checkbox" data-value="1" data-group="all" '.(substr($info, 9,1)=='x' ? " checked" : "").'></td>
@@ -533,12 +540,12 @@ if(isset($_GET['action']))
 
 			if ((!$ftp && is_dir($path)) )
 			{
-				$ret .= '<div class="hero-unit" style="padding:10px;">'.filemanager_trans('File_Permission_Recursive').'<br/><br/>
+				$ret .= '<div class="hero-unit" style="padding:10px;">'.trans('File_Permission_Recursive').'<br/><br/>
 						<ul class="unstyled">
-							<li><label class="radio"><input value="none" name="apply_recursive" type="radio" checked> '.filemanager_trans('No').'</label></li>
-							<li><label class="radio"><input value="files" name="apply_recursive" type="radio"> '.filemanager_trans('Files').'</label></li>
-							<li><label class="radio"><input value="folders" name="apply_recursive" type="radio"> '.filemanager_trans('Folders').'</label></li>
-							<li><label class="radio"><input value="both" name="apply_recursive" type="radio"> '.filemanager_trans('Files').' & '.filemanager_trans('Folders').'</label></li>
+							<li><label class="radio"><input value="none" name="apply_recursive" type="radio" checked> '.trans('No').'</label></li>
+							<li><label class="radio"><input value="files" name="apply_recursive" type="radio"> '.trans('Files').'</label></li>
+							<li><label class="radio"><input value="folders" name="apply_recursive" type="radio"> '.trans('Folders').'</label></li>
+							<li><label class="radio"><input value="both" name="apply_recursive" type="radio"> '.trans('Files').' & '.trans('Folders').'</label></li>
 						</ul>
 						</div>';
 			}
@@ -552,14 +559,14 @@ if(isset($_GET['action']))
 		case 'get_lang':
 			if ( ! file_exists('lang/languages.php'))
 			{
-				response(filemanager_trans('Lang_Not_Found').AddErrorLocation())->send();
+				response(trans('Lang_Not_Found').AddErrorLocation())->send();
 				exit;
 			}
 
 			$languages = include 'lang/languages.php';
 			if ( ! isset($languages) || ! is_array($languages))
 			{
-				response(filemanager_trans('Lang_Not_Found').AddErrorLocation())->send();
+				response(trans('Lang_Not_Found').AddErrorLocation())->send();
 				exit;
 			}
 
@@ -582,7 +589,7 @@ if(isset($_GET['action']))
 			if(array_key_exists($choosen_lang,$languages)){
 				if ( ! file_exists('lang/' . $choosen_lang . '.php'))
 				{
-					response(filemanager_trans('Lang_Not_Found').AddErrorLocation())->send();
+					response(trans('Lang_Not_Found').AddErrorLocation())->send();
 					exit;
 				}else{
 					$_SESSION['RF']['language'] = $choosen_lang;
@@ -590,13 +597,36 @@ if(isset($_GET['action']))
 			}
 
 			break;
+		case 'cad_preview':
+			if($ftp){
+				$selected_file = $ftp_base_url.$upload_dir . $_GET['file'];
+			}else{
+				$selected_file = $current_path . $_GET['file'];
+
+				if ( ! file_exists($selected_file))
+				{
+					response(trans('File_Not_Found').AddErrorLocation())->send();
+					exit;
+				}
+			}
+			if($ftp){
+				$url_file = $selected_file;
+			}else{
+				$url_file = $base_url . $upload_dir . str_replace($current_path, '', $_GET["file"]);
+			}
+
+			$cad_url = urlencode($url_file);
+			$cad_html = "<iframe src=\"//sharecad.org/cadframe/load?url=" . $url_file . "\" class=\"google-iframe\" scrolling=\"no\"></iframe>";
+			$ret = $cad_html;
+			response($ret)->send();
+			break;
 		case 'get_file': // preview or edit
 			$sub_action = $_GET['sub_action'];
 			$preview_mode = $_GET["preview_mode"];
 
 			if ($sub_action != 'preview' && $sub_action != 'edit')
 			{
-				response(filemanager_trans('wrong action').AddErrorLocation())->send();
+				response(trans('wrong action').AddErrorLocation())->send();
 				exit;
 			}
 
@@ -607,7 +637,7 @@ if(isset($_GET['action']))
 
 				if ( ! file_exists($selected_file))
 				{
-					response(filemanager_trans('File_Not_Found').AddErrorLocation())->send();
+					response(trans('File_Not_Found').AddErrorLocation())->send();
 					exit;
 				}
 			}
@@ -637,7 +667,7 @@ if(isset($_GET['action']))
 				|| (!$ftp && ! is_readable($selected_file))
 			)
 			{
-				response(sprintf(filemanager_trans('File_Open_Edit_Not_Allowed'), ($sub_action == 'preview' ? strtolower(filemanager_trans('Open')) : strtolower(filemanager_trans('Edit')))).AddErrorLocation())->send();
+				response(sprintf(trans('File_Open_Edit_Not_Allowed'), ($sub_action == 'preview' ? strtolower(trans('Open')) : strtolower(trans('Edit')))).AddErrorLocation())->send();
 				exit;
 			}
 			if ($sub_action == 'preview')
@@ -645,27 +675,19 @@ if(isset($_GET['action']))
 				if ($preview_mode == 'text')
 				{
 					// get and sanities
-					$data = stripslashes(htmlspecialchars(file_get_contents($selected_file)));
-
+					$data = file_get_contents($selected_file);
+					$data = htmlspecialchars(htmlspecialchars_decode($data));
 					$ret = '';
 
 					if ( ! in_array($info['extension'],$previewable_text_file_exts_no_prettify))
 					{
-						$ret .= '<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang='.$info['extension'].'&skin=sunburst"></script>';
-						$ret .= '<pre class="prettyprint">'.$data.'</pre>';
+						$ret .= '<script src="https://rawgit.com/google/code-prettify/master/loader/run_prettify.js?autoload=true&skin=sunburst"></script>';
+						$ret .= '<?prettify lang='.$info['extension'].' linenums=true?><pre class="prettyprint"><code class="language-'.$info['extension'].'">'.$data.'</code></pre>';
 					} else {
 						$ret .= '<pre class="no-prettify">'.$data.'</pre>';
 					}
 
-				} 
-				// elseif ($preview_mode == 'viewerjs') {
-				// 	if($ftp){
-				// 		$ret = '<iframe id="viewer" src="'.$selected_file.'" allowfullscreen="" webkitallowfullscreen="" class="viewer-iframe"></iframe>';
-				// 	}else{
-				// 		$ret = '<iframe id="viewer" src="js/ViewerJS/#../../'.$selected_file.'" allowfullscreen="" webkitallowfullscreen="" class="viewer-iframe"></iframe>';
-				// 	}
-
-				// } 
+				}
 				elseif ($preview_mode == 'google' || $preview_mode == 'viewerjs') {
 					if($ftp){
 						$url_file = $selected_file;
@@ -674,7 +696,7 @@ if(isset($_GET['action']))
 					}
 
 					$googledoc_url = urlencode($url_file);
-					$googledoc_html = "<iframe src=\"http://docs.google.com/viewer?url=" . $url_file . "&embedded=true\" class=\"google-iframe\"></iframe>";
+					$googledoc_html = "<iframe src=\"https://docs.google.com/viewer?url=" . $url_file . "&embedded=true\" class=\"google-iframe\"></iframe>";
 					$ret = $googledoc_html;
 				}
 			} else {
@@ -687,11 +709,11 @@ if(isset($_GET['action']))
 
 			break;
 		default:
-			response(filemanager_trans('no action passed').AddErrorLocation())->send();
+			response(trans('no action passed').AddErrorLocation())->send();
 			exit;
 	}
 } else {
-	response(filemanager_trans('no action passed').AddErrorLocation())->send();
+	response(trans('no action passed').AddErrorLocation())->send();
 	exit;
 }
 ?>

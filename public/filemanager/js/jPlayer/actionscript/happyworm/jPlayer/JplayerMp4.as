@@ -11,8 +11,21 @@
  */
 
 package happyworm.jPlayer {
+	import flash.display.Sprite;
 
-public class JplayerMp4 extends Sprite {
+	import flash.media.Video;
+	import flash.media.SoundTransform;
+
+	import flash.net.NetConnection;
+	import flash.net.NetStream;
+
+	import flash.utils.Timer;
+
+	import flash.events.NetStatusEvent;
+	import flash.events.SecurityErrorEvent;
+	import flash.events.TimerEvent;
+
+	public class JplayerMp4 extends Sprite {
 		
 		public var myVideo:Video = new Video();
 		private var myConnection:NetConnection;

@@ -63,6 +63,10 @@ return [
         'model' => \Modules\Admin\Entities\Department::class,
     ],
 
+    'course' => [
+        'model' => \Modules\Admin\Entities\Course::class,
+    ],
+
     'gender' => [
         'model' => \Modules\Admin\Entities\Gender::class,
     ],

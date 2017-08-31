@@ -31,7 +31,7 @@ class JobTitleFactory extends GlobalFactory
         return $this->table
             ->config('datatable-job-title',trans('utilities::app.job_title'))
             ->addPrimaryKey('id','id')
-            ->addMultiInputTextLangs(['name'])
+            ->addMultiInputTextLangs(['name'] ,'req required')
             ->addActionButton($this->update,'update','update')
             ->addActionButton($this->delete,'delete','delete')
             ->addNavButton()

@@ -20,14 +20,20 @@
             </li>
 
             <li class="">
+                <a href="{{ localizeURL('admin/departments') }}" class="ajax" title="{{ trans('admin::app.departments') }}">
+                    <span>{{ trans('admin::app.departments') }}</span>
+                </a>
+            </li>
+
+            <li class="">
                 <a href="{{ localizeURL('admin/degrees') }}" class="ajax" title="{{ trans('admin::app.degrees') }}">
                     <span>{{ trans('admin::app.degrees') }}</span>
                 </a>
             </li>
 
             <li class="">
-                <a href="{{ localizeURL('admin/departments') }}" class="ajax" title="{{ trans('admin::app.departments') }}">
-                    <span>{{ trans('admin::app.departments') }}</span>
+                <a href="{{ localizeURL('admin/study-plan') }}" class="ajax" title="{{ trans('admin::app.study_plan') }}">
+                    <span>{{ trans('admin::app.study_plan') }}</span>
                 </a>
             </li>
 
@@ -36,6 +42,13 @@
                     <span>{{ trans('admin::app.hierarchy') }}</span>
                 </a>
             </li>
+
+            <li class="">
+                <a href="{{ localizeURL('admin/offices') }}" class="ajax" title="{{ trans('admin::app.offices') }}">
+                    <span>{{ trans('admin::app.offices') }}</span>
+                </a>
+            </li>
+
         </ul>
     </li>
 

@@ -13,8 +13,28 @@
 
 package happyworm.jPlayer
 {
+	import flash.display.Sprite;
 
-public class JplayerRtmp extends Sprite
+	import flash.media.Video;
+	import flash.media.SoundTransform;
+
+	import flash.net.NetConnection;
+	import flash.net.NetStream;
+	import flash.net.Responder;
+
+	import flash.utils.Timer;
+	import flash.utils.getTimer;
+
+	import flash.events.NetStatusEvent;
+	import flash.events.SecurityErrorEvent;
+	import flash.events.TimerEvent;
+	import flash.events.ErrorEvent;
+	import flash.events.UncaughtErrorEvent;
+	import flash.utils.clearInterval;
+	import flash.utils.setInterval;
+	import happyworm.jPlayer.ConnectManager;
+
+	public class JplayerRtmp extends Sprite
 	{
 
 		public var myVideo:Video = new Video;

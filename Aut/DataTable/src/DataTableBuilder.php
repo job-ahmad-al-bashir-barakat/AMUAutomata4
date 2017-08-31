@@ -93,9 +93,7 @@ class DataTableBuilder
 
     protected $langSupportedLocales = null;
 
-    protected $blade = '';
-
-    protected $appendBlade = '';
+    protected $blade = [];
 
     public function __construct()
     {
@@ -434,12 +432,12 @@ class DataTableBuilder
      * @return $this
      * @throws \Exception
      */
-    function startTab($title , $icon ='')
+    function startTab($title , $icon ='' , $class = '', $attr = '')
     {
         if(!$this->optionDatatableConfig['withTab'])
             throw new \Exception('Oppps !!! you must enable withTab property');
 
-        $this->tab = ['title' => $title ,'icon' => $icon];
+        $this->tab = ['title' => $title ,'icon' => $icon , 'class' => $class, 'attr' => $attr];
 
         return $this;
     }
@@ -1790,18 +1788,23 @@ class DataTableBuilder
 
     /**
      * @param string $component
-     * @param string $appendTo
+     * @param string $appendLocation
+     * @param string $appendType => prependTo || appendTo
      * @return $this
      */
     function addBlade
     (
-        $component = '',
-        $append    = 'body'
+        $id,
+        $component      = '',
+        $appendLocation = 'body',
+        $appendType     = 'appendTo'
     )
     {
-        $this->blade .= $component;
-
-        $this->appendBlade = $append;
+        $this->blade[$id] = [
+            'content'        => $component ,
+            'appendLocation' => $appendLocation,
+            'appendType'     => $appendType
+        ];
 
         return $this;
     }
@@ -2606,6 +2609,7 @@ class DataTableBuilder
     {
         $spinners               = config("datatable.spinners");
         $multiModal             = config('datatable.multiModel') ? 'true' : 'false';
+        $tabAnimation           = config('datatable.tabAnimation');
         $event                  = config('datatable.event');
         $onLoadConfig           = $this->replaceScript($event['onLoad']());
         $onModalOpenConfig      = $this->replaceScript($event['modalOpen']());
@@ -2647,6 +2651,8 @@ class DataTableBuilder
             )
         );
 
+        $oper = trans('datatable::table.oper');
+
         $script  = "
             <script class='datatable'>
                 
@@ -2656,10 +2662,10 @@ class DataTableBuilder
                          url : '$url',
                          export_url : '$exportUrl',
                          dir : '$dir',
-                         json_object : $dataTable,
-                         multi_modal : $multiModal,
-                         append_blade : '$this->appendBlade', 
-                         row_detail  : function(row) {
+                         json_object   : $dataTable,
+                         tab_animation : '$tabAnimation',
+                         multi_modal   : $multiModal,
+                         row_detail    : function(row) {
                             return $rowDetail; 
                          }, 
                          responsive_templete: function(col) {
@@ -2676,6 +2682,11 @@ class DataTableBuilder
                          },
                          lang : {
                             save : '$save',
+                            oper : {
+                                success : '{$oper['success']}',
+                                error   : '{$oper['error']}',
+                                successOrder    : '{$oper['successOrder']}',
+                            },
                             swal : {
                                 ok                :  '{$swal['ok']}',
                                 title             :  '{$swal['title']}',

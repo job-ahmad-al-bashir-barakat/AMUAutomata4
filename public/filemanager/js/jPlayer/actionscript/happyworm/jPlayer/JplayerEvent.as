@@ -11,8 +11,9 @@
  */
 
 package happyworm.jPlayer {
-
-public class JplayerEvent extends Event {
+	import flash.events.Event;
+	
+	public class JplayerEvent extends Event {
 		
 		// The event strings must match those in the JavaScript's $.jPlayer.event object
 

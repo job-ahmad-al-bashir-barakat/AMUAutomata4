@@ -17,6 +17,7 @@ return [
     'social_media'       => 'تواصل اجتماعي',
     'hierarchy'          => 'التسلسل الهرمي',
     'hierarchy_type'     => 'نوع التسلسل الهرمي',
+    'offices'            => 'مكاتب الجامعة',
 
     'name'               => 'الاسم',
     'type'               => 'النوع',
@@ -29,6 +30,10 @@ return [
     'extra_info'         => 'معلومات اضافية',
     'gelocation'         => 'الموقع الجغرافي',
     'upload_images'      => 'تحميل الصور',
+    'course'             => 'مادة',
+    'prerequisite'       => 'المتطلبات المسبقة',
+    'faculty_courses'    => 'مواد الكلية',
+    'study_plan'         => 'الخطة الدراسية',
 
     'code'               => 'ترميز',
     'credit'             => 'عدد الساعات',

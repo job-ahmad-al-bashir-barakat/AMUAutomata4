@@ -25,7 +25,7 @@ if ( ! function_exists('response'))
 	}
 }
 
-if ( ! function_exists('filemanager_trans'))
+if ( ! function_exists('trans'))
 {
 	// language
 	if ( ! isset($_SESSION['RF']['language'])
@@ -33,7 +33,7 @@ if ( ! function_exists('filemanager_trans'))
 		|| ! is_readable('lang/' . basename($_SESSION['RF']['language']) . '.php')
 	)
 	{
-		$lang = App::getLocale();
+		$lang = $default_language;
 
 		if (isset($_GET['lang']) && $_GET['lang'] != 'undefined' && $_GET['lang'] != '')
 		{
@@ -45,7 +45,7 @@ if ( ! function_exists('filemanager_trans'))
 		{
 			$path_parts = pathinfo($lang);
 			$lang = $path_parts['basename'];
-			$languages = include __DIR__.'\..\lang\languages.php';
+			$languages = include 'lang/languages.php';
 		}
 
 		// add lang file to session for easy include
@@ -56,7 +56,7 @@ if ( ! function_exists('filemanager_trans'))
 		if(file_exists('lang/languages.php')){
 			$languages = include 'lang/languages.php';
 		}else{
-			$languages = include __DIR__.'\..\lang\languages.php';
+			$languages = include '../lang/languages.php';
 		}
 
 		if(array_key_exists($_SESSION['RF']['language'],$languages)){
@@ -67,15 +67,15 @@ if ( ! function_exists('filemanager_trans'))
 		}
 
 	}
-	global $lang_vars;
 	if(file_exists('lang/' . $lang . '.php')){
 		$lang_vars = include 'lang/' . $lang . '.php';
 	}else{
-		$lang_vars = include __DIR__.'\..\lang\\' . $lang . '.php';
+		$lang_vars = include '../lang/' . $lang . '.php';
 	}
+
 	if ( ! is_array($lang_vars))
 	{
-		$lang_vars=array();
+		$lang_vars = array();
 	}
 	/**
 	* Translate language variable
@@ -84,9 +84,10 @@ if ( ! function_exists('filemanager_trans'))
 	*
 	* @return string translated variable
 	*/
-	function filemanager_trans($var)
+	function trans($var)
 	{
 		global $lang_vars;
+
 		return (array_key_exists($var, $lang_vars)) ? $lang_vars[ $var ] : $var;
 	}
 }
@@ -734,7 +735,6 @@ if ( ! function_exists('endsWith')) {
 		return $needle === "" || substr($haystack, -strlen($needle)) === $needle;
 	}
 }
-
 /**
 * TODO REFACTOR THIS!
 *

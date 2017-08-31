@@ -25,9 +25,16 @@
  */
 
 package happyworm.jPlayer {
+	
+	import flash.events.*;
+	import flash.net.*;
+	
+	import flash.utils.Timer;
+	import flash.utils.getTimer;
+	import flash.utils.clearInterval;
+	import flash.utils.setInterval;
 
-
-public class ConnectManager extends Object {
+	public class ConnectManager extends Object {
 		
 		private var protocols_arr:Array = new Array("rtmp","rtmpt","rtmpe","rtmpte","rtmps");
 		private var ports_arr:Array = new Array("",":1935",":80",":443");

@@ -65,20 +65,20 @@ var HELPER_AMU = {
 
 var APP_AMU = {
 
-    initModalEvent: function () {
+    initModalEvent : function () {
 
         $(document).on({
 
             'shown.bs.modal': function () {
 
-                if ($(this).find('.cropper').length);
+                if($(this).find('.cropper').length);
                 {
                     APP.CROPPER.destroy('.modal .cropper');
                     APP.CROPPER.init();
                 }
             },
 
-            'hidden.bs.modal': function () {
+            'hidden.bs.modal' : function() {
                 //
             }
 
@@ -89,14 +89,14 @@ var APP_AMU = {
     changeColorControleTheme: function () {
 
         // store theme color on click
-        $('body').on('click', '[data-load-css]', function () {
+        $('body').on('click' ,'[data-load-css]' ,function() {
 
-            var $this = $(this),
+            var $this  = $(this),
                 $color = $this.find('.color');
 
-            HELPER_AMU.setCookie('controleThemeColorUrl', $this.data('load-css'));
-            HELPER_AMU.setCookie('controleThemeColorRGB', $color.first().css('background-color').replaceAll(/ /, ''));
-            HELPER_AMU.setCookie('controleThemeColorColorClass', $color.first().attr('class'));
+            HELPER_AMU.setCookie('controleThemeColorUrl' ,$this.data('load-css'));
+            HELPER_AMU.setCookie('controleThemeColorRGB' ,$color.first().css('background-color').replaceAll(/ /,''));
+            HELPER_AMU.setCookie('controleThemeColorColorClass' ,$color.first().attr('class'));
 
             //change pace loader color
             $('#dynamic-style').remove();
@@ -124,21 +124,20 @@ var APP_AMU = {
             // maxCacheLength
             $.pjax.defaults.maxCacheLength = 0;
 
-            $(document).on('click', 'a.ajax', function (event) {
+            $(document).on('click', 'a.ajax', function(event) {
 
                 if ($(container).length == 0 || $(this).hasClass('no-ajax')) {
                     return;
                 }
 
                 $.pjax.click(event, {
-                    container: container,
+                    container: container ,
                     timeout: 1000,
                 });
             });
 
             // always fires after ajax, regardless of result
-            $(document).on("pjax:complete", function () {
-            });
+            $(document).on("pjax:complete", function () { });
             // after replacing HTML content loaded from the server
             $(document).on("pjax:success", function () {
 
@@ -164,11 +163,9 @@ var APP_AMU = {
             });
 
             // event direction property: "back"/"forward"
-            $(document).on("pjax:popstate", function (event) {
-            });
+            $(document).on("pjax:popstate", function (event) { });
             // right before replacing HTML with content from cache
-            $(document).on("pjax:beforeReplace", function (event) {
-            });
+            $(document).on("pjax:beforeReplace", function (event) { });
             // on ajax error; will hard refresh unless canceled
             $(document).on("pjax:error", function (event, xhr, textStatus, errorThrown, options) {
                 console.log('Event', event);
@@ -177,14 +174,14 @@ var APP_AMU = {
                 console.log('Error Thrown', errorThrown);
                 console.log('Options', options);
                 /*options.success(xhr.responseText, textStatus, xhr);
-                 return false;*/
+                return false;*/
             });
             // fires after options.timeout; will hard refresh unless canceled
             $(document).on("pjax:timeout", function (event) {
                 event.preventDefault();
             });
 
-            $(document).on('click', '[data-reload]', function () {
+            $(document).on('click','[data-reload]',function () {
 
                 $.pjax({url: window.location.href, container: container, timeout: 1000});
             });
@@ -192,25 +189,25 @@ var APP_AMU = {
     },
 
     // autocomplete select2
-    autocomplete: {
+    autocomplete : {
 
-        init: function (Data) {
+        init : function (Data) {
 
             return function () {
                 var $this = $(this);
                 var data = (typeof Data !== typeof undefined) ? Data : [];
-                $this.find('option:selected').each(function (i) {
+                $this.find('option:selected').each(function(i){
                     var $this = $(this);
-                    data[i] = {id: $this.val(), name: $this.text()};
+                    data[i] = {id:$this.val(),name:$this.text()};
                 });
                 var url = $this.data('remote');
                 var required = (typeof $this.data('required') !== typeof undefined) ? $this.data('required') : null;
                 var placeholder = (typeof $this.data('placeholder') !== typeof undefined) ? $this.data('placeholder') : '';
                 var target = (typeof $this.data('target') !== typeof undefined) ? $($this.data('target')) : '';
-                var letters = (typeof $this.data('letter') !== typeof undefined) ? $this.data('letter') : 3;
+                var letters = (typeof $this.data('letter') !== typeof undefined) ? $this.data('letter'):3;
                 var linkWith = $this.data('param') || '';
-                if (linkWith.charAt(0) == '#') {
-                    $(linkWith).change(function () {
+                if(linkWith.charAt(0) == '#') {
+                    $(linkWith).change(function() {
                         $this.val('').change();
                     });
                 }
@@ -219,27 +216,27 @@ var APP_AMU = {
                         url: url,
                         dataType: 'json',
                         delay: 400,
-                        method: "GET",
+                        method : "GET",
                         data: function (params) {
-                            var param = (typeof $this.data('param') !== typeof undefined) ? $this.data('param') : null;
+                            var param = (typeof $this.data('param') !== typeof undefined)?$this.data('param'):null;
 
                             //added by basheer
                             var remoteParam = (typeof $this.attr('data-remote-param') !== typeof undefined) ? $this.attr('data-remote-param') : null;
 
-                            if (param && param.charAt(0) === '#') {
+                            if(param && param.charAt(0) === '#') {
                                 var name = $(param).attr('name') || $(param).attr('id');
                                 var val = $(param).val() ? $(param).val() : 0;
-                                param = JSON.parse('{"' + name + '":"' + val + '"}');
+                                param = JSON.parse('{"'+name+'":"'+val+'"}');
                             }
-                            var $data = {q: params.term, page: params.page};
-                            if (param) {
-                                $data = $.extend($data, param);
+                            var $data = {q: params.term,page: params.page};
+                            if(param) {
+                                $data = $.extend($data,param);
                             }
 
                             //added by basheer
-                            if (remoteParam)
-                                $((remoteParam).split(',')).each(function (i, v) {
-                                    $data = $.extend($data, JSON.parse('{"' + (v).split('=')[0] + '" : "' + (v).split('=')[1] + '"}'));
+                            if(remoteParam)
+                                $((remoteParam).split(',')).each(function(i ,v) {
+                                    $data = $.extend($data,JSON.parse('{"' + (v).split('=')[0] + '" : "' + (v).split('=')[1] + '"}'));
                                 });
 
                             return $data;
@@ -256,10 +253,8 @@ var APP_AMU = {
                         },
                         cache: true
                     },
-                    escapeMarkup: function (markup) {
-                        return markup;
-                    },
-                    dir: DIR,
+                    escapeMarkup: function (markup) { return markup; },
+                    dir:DIR,
                     language: LANG,
                     minimumInputLength: letters,
                     placeholder: placeholder,
@@ -273,37 +268,37 @@ var APP_AMU = {
             }
         },
 
-        formatRepo: function (repo) {
+        formatRepo : function (repo) {
 
             if (repo.loading)
                 return repo.text;
             return repo.name;
         },
 
-        formatRepoSelection: function (repo) {
+        formatRepoSelection : function (repo) {
 
-            if (typeof repo.selected === typeof undefined)
+            if(typeof repo.selected === typeof undefined)
                 return repo.text;
             return repo.name;
         },
 
-        selectedAutocomplete: function (selector, data) {
+        selectedAutocomplete : function (selector ,data) {
 
             $(selector).each(APP_AMU.autocomplete.init(data));
         },
 
-        reloadAutocomplete: function (selector) {
+        reloadAutocomplete : function (selector) {
 
             $(selector).each(APP_AMU.autocomplete.init());
         },
 
-        resetAutocomplete: function (selector) {
+        resetAutocomplete : function (selector) {
 
             //$('.autocomplete').val(null).trigger("change");
             $(selector).empty().trigger('change');
         },
 
-        initAutocomplete: function (selector) {
+        initAutocomplete : function (selector) {
 
             var selector = typeof selector != typeof undefined ? selector : '.autocomplete';
 
@@ -311,17 +306,17 @@ var APP_AMU = {
         },
     },
 
-    select: {
+    select : {
 
-        init: function (data) {
+        init: function(data) {
 
-            return function () {
+            return  function () {
 
                 var $this = $(this);
                 var placeholder = (typeof $this.data('placeholder') !== typeof undefined) ? $this.data('placeholder') : '';
 
                 $this.select2({
-                    dir: DIR,
+                    dir:DIR,
                     language: LANG,
                     placeholder: placeholder,
                     allowClear: true,
@@ -331,22 +326,22 @@ var APP_AMU = {
             }
         },
 
-        reloadSelect: function (selector) {
+        reloadSelect: function(selector) {
 
             $(selector).each(initSelect());
         },
 
-        selectedSelect: function (selector, data) {
+        selectedSelect: function(selector,data) {
 
             $(selector).each(initSelect(data));
         },
 
-        resetSelect: function (selector) {
+        resetSelect:function(selector) {
 
             $(selector).val('').trigger("change");
         },
 
-        initSelect: function (selector) {
+        initSelect : function (selector) {
 
             var selector = typeof selector != typeof undefined ? selector : '.select';
 
@@ -387,13 +382,13 @@ var APP_AMU = {
          * @param $form
          * @returns {*}
          */
-        changeAction: function ($form) {
+        changeAction : function ($form) {
 
             var primarykey = $form.find('.primarykey').val(),
                 takeAction = typeof $form.data('take-action') != typeof undefined ? true : false,
                 action;
 
-            if (!takeAction && primarykey)
+            if(!takeAction && primarykey)
                 action = $form.attr('action') + "/" + primarykey;
             else
                 action = $form.attr('action');
@@ -403,7 +398,7 @@ var APP_AMU = {
 
         init: function ($cont) {
 
-            $($cont).find('form.ajax-form').each(function () {
+            $($cont).find('form.ajax-form').each(function ()  {
 
                 var validator = $(this).validate({
 
@@ -411,19 +406,19 @@ var APP_AMU = {
 
                         e.preventDefault();
 
-                        var $this = this,
-                            $form = $(form),
+                        var $this   = this,
+                            $form   = $(form),
                             $button = $($this.submitButton),
                             $method = $button.data('method'),
                             $serialize = typeof $button.data('serialize') != typeof undefined ? $button.data('serialize') : true,
                             $data;
 
-                        if ($serialize)
+                        if($serialize)
                             $data = $form.serialize();
                         else
                             $data = {};
 
-                        if (typeof $button.data('method') != typeof undefined) {
+                        if(typeof $button.data('method') != typeof undefined) {
                             $method = $button.data('method');
                         } else {
                             $method = typeof $form.find('[name=_method]').val() != typeof undefined
@@ -431,14 +426,14 @@ var APP_AMU = {
                                 : _.lowerCase($form.attr('method'));
                         }
 
-                        $[$method](APP_AMU.validate.changeAction($form), $data, function (res) {
+                        $[$method](APP_AMU.validate.changeAction($form), $data, function(res) {
 
                             // if form was inside modal we will close it after save
-                            if (typeof $form.parents('.modal') != typeof undefined)
+                            if(typeof $form.parents('.modal') != typeof undefined)
                                 $($form.parents('.modal')).modal('hide');
 
                             // reload after success oper by enter json like {"tree" : [".aut-tree"],....}
-                            if (typeof $form.data('ajax-form-reload') != typeof undefined)
+                            if(typeof $form.data('ajax-form-reload') != typeof undefined)
                                 HELPER_AMU.reloadElement($form.data('ajax-form-reload'));
 
                             /**
@@ -452,28 +447,28 @@ var APP_AMU = {
                              */
 
                             // callback exec after oper success
-                            if (typeof $button.data('ajax-form-success') != typeof undefined)
-                                window[$button.data('ajax-form-success')](form, res);
+                            if(typeof $button.data('ajax-form-success') != typeof undefined)
+                                window[$button.data('ajax-form-success')](form ,res);
 
                             // callback exec after add oper success
-                            if (typeof $button.data('ajax-form-add-success') != typeof undefined)
-                                window[$button.data('ajax-form-add-success')](form, res);
+                            if(typeof $button.data('ajax-form-add-success') != typeof undefined)
+                                window[$button.data('ajax-form-add-success')](form ,res);
 
                             // callback exec after update oper success
-                            if (typeof $button.data('ajax-form-update-success') != typeof undefined)
-                                window[$button.data('ajax-form-update-success')](form, res);
+                            if(typeof $button.data('ajax-form-update-success') != typeof undefined)
+                                window[$button.data('ajax-form-update-success')](form ,res);
 
                             // callback exec after delete oper success
-                            if (typeof $button.data('ajax-form-delete-success') != typeof undefined)
-                                window[$button.data('ajax-form-delete-success')](form, res);
+                            if(typeof $button.data('ajax-form-delete-success') != typeof undefined)
+                                window[$button.data('ajax-form-delete-success')](form ,res);
 
-                            HELPER_AMU.notify({message: res.operation_message, status: 'success'})
+                            HELPER_AMU.notify({ message : res.operation_message ,status : 'success' })
 
-                        }).fail(function (res) {
+                        }).fail(function(res) {
 
-                            HELPER_AMU.notify({message: OPERATION_MESSAGE_FAIL, status: 'danger'});
+                            HELPER_AMU.notify({ message : OPERATION_MESSAGE_FAIL ,status : 'danger'});
 
-                            $.each(JSON.parse(res.responseText).server_message, function (k, v) {
+                            $.each(JSON.parse(res.responseText).server_message,function(k ,v){
 
                                 var error = $form.find('#error_' + k);
                                 error.children().remove();
@@ -484,27 +479,27 @@ var APP_AMU = {
                     ignore: [],
                     errorClass: 'validate-error validate-error-help-block validate-error-style animated fadeInDown',
                     errorElement: 'div',
-                    invalidHandler: function (event, validator) {
-                        if (validator.errorList.length)
+                    invalidHandler: function(event, validator) {
+                        if(validator.errorList.length)
                             $('[data-tab=' + $(validator.errorList[0].element).closest('[data-tab]').data('tab') + ']').trigger('click');
                     },
-                    errorPlacement: function (error, e) {
+                    errorPlacement: function(error, e) {
 
                         jQuery(e).closest('.form-group').find('div[id*=error_]').append(error);
                     },
-                    highlight: function (e, errorClass, validClass) {
+                    highlight: function(e, errorClass, validClass) {
 
                         var elem = jQuery(e);
                         elem.closest('.form-group > div').removeClass('has-error').addClass('has-error');
                         elem.closest('.help-block').remove();
                     },
-                    unhighlight: function (e, errorClass, validClass) {
+                    unhighlight: function(e, errorClass, validClass) {
 
                         var elem = jQuery(e);
                         elem.closest('.form-group > div').removeClass('has-error');
                         elem.closest('.help-block').remove();
                     },
-                    success: function (e) {
+                    success: function(e) {
 
                         var elem = jQuery(e);
                         elem.closest('.form-group  > div').removeClass('has-error');
@@ -513,7 +508,7 @@ var APP_AMU = {
                 });
             });
 
-            $($cont).find('.autocomplete').change(function () {
+            $($cont).find('.autocomplete').change(function(){
                 $(this).valid();
             });
 
@@ -528,11 +523,11 @@ var APP_AMU = {
          *
          * this mothod for hide show button inside form
          */
-        hideShowButtonForm: function ($cont, $state) {
+        hideShowButtonForm : function ($cont ,$state) {
             $cont = $($cont),
-                $form = $cont.find('form .primarykey');
+            $form = $cont.find('form .primarykey');
             $cont.find("form [data-state]").hide();
-            if ($form.val() && $state == 'update')
+            if($form.val() && $state == 'update')
                 $cont.find("form [data-state='update']").show();
             else
                 $cont.find("form [data-state='add']").show();
@@ -542,14 +537,14 @@ var APP_AMU = {
          *
          * this function for init some class validation
          */
-        initAdditionalValidationClass: function () {
+        initAdditionalValidationClass : function () {
 
             jQuery.validator.addClassRules({
-                number: {
+                number : {
                     required: true,
                     number: true
                 },
-                email: {
+                email : {
                     email: true,
                 }
             });
@@ -561,7 +556,7 @@ var APP_AMU = {
          *
          * this function for reset form
          */
-        resetForm: function ($cont) {
+        resetForm : function ($cont) {
 
             $($cont).validate().resetForm();
         },
@@ -572,13 +567,13 @@ var APP_AMU = {
          *
          * this function clear all items on form
          */
-        clearForm: function (form) {
+        clearForm : function (form) {
 
             _.head(form).reset();
             //re drew validation for each submit
             form.find('[id^=error_]').children().remove();
             form.find('input[type=hidden]').not('[data-permanent=true],[name="_token"]').val('');
-            if (form.find('.autocomplete').length != 0) {
+            if(form.find('.autocomplete').length != 0) {
                 APP_AMU.autocomplete.resetAutocomplete(form.find('.autocomplete'));
             }
             APP_AMU.validate.resetForm(form);
@@ -590,19 +585,19 @@ var APP_AMU = {
          *
          * clear you modal and reset form button
          */
-        clearModal: function ($cont) {
+        clearModal : function ($cont) {
 
-            $($cont).find('.modal').on('show.bs.modal', function () {
+            $($cont).find('.modal').on('show.bs.modal', function() {
                 //
             });
 
-            $($cont).find('.modal').on('hidden.bs.modal', function () {
+            $($cont).find('.modal').on('hidden.bs.modal', function() {
 
                 var $form = $(this).find('form');
 
                 APP_AMU.validate.clearForm($form);
 
-                APP_AMU.validate.hideShowButtonForm($cont, 'add');
+                APP_AMU.validate.hideShowButtonForm($cont ,'add');
             });
         },
 
@@ -610,49 +605,51 @@ var APP_AMU = {
          *
          * Fill Form and reset form button
          */
-        fillForm: function () {
+        fillForm : function () {
 
-            $(document).on('click', '[data-form-add]', function () {
+            $(document).on('click','[data-form-add]' ,function () {
 
                 $cont = $(this).data('target');
 
-                APP_AMU.validate.hideShowButtonForm($cont, 'add');
+                APP_AMU.validate.hideShowButtonForm($cont ,'add');
             });
 
-            $(document).on('click', '[data-form-update]', function () {
+            $(document).on('click' ,'[data-form-update]' ,function () {
 
                 $contData = $(this).closest($(this).data('editable-target'));
 
                 $cont = $(this).data('target');
 
-                $($cont).find('[data-json]').each(function (i, v) {
+                $($cont).find('[data-json]').each(function (i ,v) {
 
                     var $value = $contData.attr("data-" + $(v).data('json'));
-                    if ($(v).hasClass('autocomplete') && typeof $value != typeof undefined)
-                        APP_AMU.autocomplete.selectedAutocomplete($(v), [JSON.parse($value)]);
-                    else {
+                    if($(v).hasClass('autocomplete') && typeof $value != typeof undefined)
+                        APP_AMU.autocomplete.selectedAutocomplete($(v) ,[JSON.parse($value)]);
+                    else
+                    {
                         $(v).val($value);
                         //fill ckeditor if exists
-                        if ($(v).hasClass('text-editor'))
+                        if($(v).hasClass('text-editor'))
                             CKEDITOR.instances[v.id].setData($value);
                     }
                 });
 
-                APP_AMU.validate.hideShowButtonForm($cont, 'update');
+                APP_AMU.validate.hideShowButtonForm($cont ,'update');
             });
         },
     },
 
-    tree: {
+    tree : {
 
         treeContId: '.aut-tree',
 
-        storageKeyName: 'js-nestable',
+        storageKeyName : 'js-nestable',
 
-        storageKeyAuto: 'js-nestable-auto',
+        storageKeyAuto : 'js-nestable-auto',
 
-        updateOutput: function (e) {
-            var list = e.length ? e : $(e.target),
+        updateOutput : function(e)
+        {
+            var list   = e.length ? e : $(e.target),
                 output = list.data('output');
 
             if (window.JSON) {
@@ -662,23 +659,23 @@ var APP_AMU = {
             }
 
             var treeAction = $.localStorage.get(APP_AMU.tree.storageKeyName);
-            if (treeAction != null)
+            if(treeAction != null)
                 $('.dd').nestable((treeAction.action).toCamelCase());
         },
 
-        load: function ($cont, $node) {
+        load : function ($cont ,$node) {
 
             var $cont = $($cont);
             var $treeParam = $node != null ? "?nodeId=" + $node : "";
 
-            $cont.load($cont.data('url') + $treeParam, function () {
+            $cont.load($cont.data('url') + $treeParam ,function () {
 
                 var $_nestable = $('#nestable'),
-                    $this = $(this);
+                    $this      = $(this);
                 // activate Nestable for list 1
                 $_nestable.nestable({
-                    group: $this.data('group'),
-                    maxDepth: $this.data('max-depth'),
+                    group    : $this.data('group'),
+                    maxDepth : $this.data('max-depth'),
                     // afterInit: function ( event ) { }
                 }).on('change', APP_AMU.tree.updateOutput)
                 //.on('beforeDragStart', function(handle) {})
@@ -689,97 +686,93 @@ var APP_AMU = {
                 //   if (source[0] === destination[0]) { feedback.abort = true; return; }
                 //   feedback.abort = !window.confirm('Continue?');
                 //})
-                    .on('dragEnd', function (event, item, source, destination, position) {
+                    .on('dragEnd', function(event, item, source, destination, position) {
                         // Make an ajax request to persist move on database
                         // here you can pass item-id, source-id, destination-id and position index to the server
                         // ....
 
-                        var item = $(_.head(item)),
-                            id = item.data('id'),
+                        var  item   = $(_.head(item)),
+                            id     = item.data('id'),
                             parent = item.parents('li:first').data('id'),
                             parent_target = item.data('parent');
 
                         // get serialize data from tree
-                        var list = event.length ? event : $(event.target);
+                        var list   = event.length ? event : $(event.target);
 
                         var ObjectOrderSerialize = list.nestable('serialize');
 
                         var data;
-                        if (parent_target) {
+                        if(parent_target) {
                             //children
-                            data = JSPath.apply('..{.parent.id == "' + parent_target.id + '"}', ObjectOrderSerialize);
+                            data = JSPath.apply('..{.parent.id == "' + parent_target.id + '"}' ,ObjectOrderSerialize);
                         } else {
                             //parent
-                            data = JSPath.apply('.', ObjectOrderSerialize);
+                            data = JSPath.apply('.' ,ObjectOrderSerialize);
                         }
 
                         //reorder html item
-                        item.parent().children('li').each(function (i, v) {
-                            $(this).attr('data-order', i + 1);
+                        item.parent().children('li').each(function (i ,v) {
+                            $(this).attr('data-order' ,i+1);
                         });
                         //reorder data
-                        _.each(data, function (v, k) {
+                        _.each(data ,function (v ,k) {
                             v.order = k + 1;
                         });
 
-                        if (!id)
+                        if(!id)
                             console.log('please set an data-id and data-parent for every item');
 
                         parent = typeof parent != typeof undefined ? parent : null;
 
-                        $.put($this.data('url') + "/" + id, {
-                            "parent": parent,
-                            "drag": true,
-                            "order": position + 1,
-                            "data": data
-                        }, function (res) {
+                        $.put($this.data('url') + "/" + id,{ "parent" : parent ,"drag" : true , "order" : position+1 ,"data" : data },function (res) {
 
-                            if (typeof res.id != typeof null)
-                                item.attr('data-parent', '{ "id" : "' + res.id + '","name" : "' + res.name + '"}');
+                            if(typeof res.id != typeof null)
+                                item.attr('data-parent' ,'{ "id" : "' + res.id + '","name" : "'+ res.name + '"}');
                             else
                                 item.removeAttr('data-parent');
 
-                            HELPER_AMU.notify({message: res.operation_message, status: 'success'});
+                            HELPER_AMU.notify({ message : res.operation_message ,status : 'success'});
                         });
                     });
 
                 // output initial serialised data
-                if ($('#nestable').length)
+                if($('#nestable').length)
                     APP_AMU.tree.updateOutput($('#nestable').data('output', $('#nestable-output')));
 
                 APP_AMU.autocomplete.reloadAutocomplete($this.find('.autocomplete'));
 
-                $(document).off('change.tree').on('change.tree', '.tree-autocomplete-change', function () {
+                $(document).off('change.tree').on('change.tree' ,'.tree-autocomplete-change' ,function () {
 
                     var $this = $(this),
                         $treeContId = $(APP_AMU.tree.treeContId),
                         $length;
 
-                    if ($this.val())
+                    if($this.val())
                         $length = $treeContId
-                                .find("[data-id=" + $(this).val() + "] .dd-list li:first")
-                                .parent()
-                                .children().length + 1;
+                            .find("[data-id="+$(this).val()+"] .dd-list li:first")
+                            .parent()
+                            .children().length + 1;
                     else
                         $length = $treeContId.find('.dd .dd-list:first').children('li').length + 1;
 
-                    $this.closest('form')
-                        .find('#order')
-                        .val($length);
+                        $this.closest('form')
+                            .find('#order')
+                            .val($length);
                 });
             });
         },
 
-        loadAction: function ($cont) {
+        loadAction : function ($cont) {
 
-            $($cont).off('change').on('change', '#treeAutocomplete', function () {
+            $($cont).off('change').on('change' ,'#treeAutocomplete' ,function () {
 
                 var $node = $(this).val();
 
-                APP_AMU.tree.load($(this).closest($cont), $(this).val());
+                APP_AMU.tree.load($(this).closest($cont) ,$(this).val());
             });
 
-            $($cont).on('click', '.js-nestable-action [data-action]', function (e) {
+            $($cont).on('click','.js-nestable-action [data-action]', function(e)
+            {
                 var target = $(e.target),
                     action = target.data('action');
 
@@ -792,27 +785,27 @@ var APP_AMU = {
                 }
 
                 if (action === 'reset_tree') {
-                    APP_AMU.tree.load($(this).closest(APP_AMU.tree.treeContId), null);
+                    APP_AMU.tree.load($(this).closest(APP_AMU.tree.treeContId) ,null);
                 }
 
                 if (action === 'add_tree_node') {
                     $('.tree-autocomplete-change').trigger('change');
                 }
 
-                $.localStorage.set(APP_AMU.tree.storageKeyName, {"action": action});
+                $.localStorage.set(APP_AMU.tree.storageKeyName, { "action" : action });
             });
 
-            $($cont).on('click', '[data-form-add]', function () {
+            $($cont).on('click','[data-form-add]' ,function () {
 
                 $modal = $(this).data('target');
-                $($modal).find('.tree-autocomplete-change').attr('data-remote-param', "");
+                $($modal).find('.tree-autocomplete-change').attr('data-remote-param' ,"");
             });
 
-            $($cont).on('click', '[data-form-update]', function () {
+            $($cont).on('click' ,'[data-form-update]' ,function () {
 
                 $contData = $(this).closest($(this).data('editable-target'));
                 $modal = $(this).data('target');
-                $($modal).find('.tree-autocomplete-change').attr('data-remote-param', "id=" + $($contData).data('id'));
+                $($modal).find('.tree-autocomplete-change').attr('data-remote-param' ,"id="+$($contData).data('id'));
             });
         },
 
@@ -825,55 +818,56 @@ var APP_AMU = {
         }
     },
 
-    ckeditor: {
+    ckeditor : {
 
-        init: function ($cont, $target) {
+        init : function ($cont ,$target) {
 
             $cont = $($cont);
 
-            if (typeof(CKEDITOR) != 'undefined') {
+            if (typeof(CKEDITOR) != 'undefined')
+            {
                 $cont.find($target).each(function () {
 
                     var orginal_id = this.id;//$(this).data('original-id');
 
                     var params = {
-                        filebrowserBrowseUrl: BASE_URL + LANG + '/filemanager/dialog?type=2&editor=ckeditor&fldr=',
-                        filebrowserUploadUrl: BASE_URL + LANG + '/filemanager/dialog?type=2&editor=ckeditor&fldr=',
-                        filebrowserImageBrowseUrl: BASE_URL + LANG + '/filemanager/dialog?type=1&editor=ckeditor&fldr=',
+                        filebrowserBrowseUrl : BASE_URL+LANG+'/filemanager/dialog?type=2&editor=ckeditor&fldr=',
+                        filebrowserUploadUrl : BASE_URL+LANG+'/filemanager/dialog?type=2&editor=ckeditor&fldr=',
+                        filebrowserImageBrowseUrl : BASE_URL+LANG+'/filemanager/dialog?type=1&editor=ckeditor&fldr=',
                         contentsLangDirection: $(this).hasClass('en') ? 'ltr' : $(this).hasClass('ar') ? 'rtl' : '',
                         language: LANG,
                         resize_enabled: typeof $(this).data('resize') != typeof undefined ? $(this).data('resize') : true,
                         resize_dir: typeof $(this).data('resize-type') != typeof undefined ? $(this).data('resize-type') : 'both',
                     };
 
-                    CKEDITOR.on('instanceCreated', function (ev) {
+                    CKEDITOR.on('instanceCreated', function(ev) {
                         // alert('Editor instance created');
                     });
 
-                    APP_AMU.ckeditor.reset($cont, $target, 'single', orginal_id);
-                    $textarea = CKEDITOR.replace(orginal_id, params);
+                    APP_AMU.ckeditor.reset($cont ,$target ,'single' ,orginal_id);
+                    $textarea = CKEDITOR.replace(orginal_id ,params);
                     $textarea.on('fileUploadRequest', function (evt) {
-                        evt.data.requestData.type = 'ckeditor';
-                        var xhr = evt.data.fileLoader.xhr;
-                        xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-                        xhr.setRequestHeader('X-CSRF-TOKEN', CSRF_TOKEN);
-                        xhr.setRequestHeader('Content-Type', 'application/json');
-                        xhr.send(this.file);
-                        evt.stop();
+                         evt.data.requestData.type = 'ckeditor';
+                         var xhr = evt.data.fileLoader.xhr;
+                         xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest' );
+                         xhr.setRequestHeader('X-CSRF-TOKEN', CSRF_TOKEN);
+                         xhr.setRequestHeader('Content-Type', 'application/json' );
+                         xhr.send( this.file );
+                         evt.stop();
                     });
                 });
 
-                CKEDITOR.on('instanceReady', function (event) {
+                CKEDITOR.on('instanceReady', function(event) {
 
                     var editor = event.editor;
 
-                    editor.on('change', function (event) {
+                    editor.on('change', function(event) {
 
                         // Sync textarea
                         this.updateElement();
                     });
 
-                    editor.on('resize', function (reEvent) {
+                    editor.on('resize',function(reEvent) {
                         //
                     });
                 });
@@ -887,10 +881,12 @@ var APP_AMU = {
                 console.log('warning: ckeditor is not defined');
         },
 
-        reset: function ($cont, $target, $type, $orginal_id) {
+        reset : function ($cont ,$target ,$type ,$orginal_id) {
 
-            if (typeof(CKEDITOR) != 'undefined') {
-                switch ($type) {
+            if(typeof(CKEDITOR) != 'undefined')
+            {
+                switch ($type)
+                {
                     // delete only all instance
                     case 'all'    : {
 
@@ -904,9 +900,7 @@ var APP_AMU = {
                             }
                         }
 
-                    }
-                        ;
-                        break;
+                    };break;
 
                     // delete only one instance
                     case 'single' : {
@@ -918,26 +912,25 @@ var APP_AMU = {
                             // editor.destroy(true);
                         }
 
-                    }
-                        ;
-                        break;
+                    };break;
                 }
             }
         },
 
-        clear: function ($cont, $target) {
+        clear : function ($cont ,$target) {
 
-            if (typeof(CKEDITOR) != 'undefined') {
+            if(typeof(CKEDITOR) != 'undefined')
+            {
                 for (instance in CKEDITOR.instances) {
                     CKEDITOR.instances[instance].setData('');
                 }
             }
         },
 
-        fixCkeditorModal: function () {
+        fixCkeditorModal : function () {
 
             //fix ckeditor modal
-            $.fn.modal.Constructor.prototype.enforceFocus = function () {
+            $.fn.modal.Constructor.prototype.enforceFocus = function() {
                 var modal_this = this;
                 $(document).on('focusin.modal', function (e) {
                     if (modal_this.$element[0] !== e.target && !modal_this.$element.has(e.target).length
@@ -949,23 +942,23 @@ var APP_AMU = {
             };
         }
     },
-    map: {
+    map : {
 
-        initGMapInputLocation: function () {
+        initGMapInputLocation : function () {
 
-            $(document).on('click', '.input-location span:first', function () {
-                var $this = $(this),
+            $(document).on('click' ,'.input-location span:first',function () {
+                var $this  = $(this),
                     $input = $this.prev('input'),
                     $modal = '#' + $input.data('modal');
                 $($modal).off('shown.bs.modal').on('shown.bs.modal', function (event) {
 
                     var location = $input.val();
-                    APP.GMap.init($(this).find('[data-gmap]'), location);
+                    APP.GMap.init($(this).find('[data-gmap]') ,location);
                 });
                 $($modal).modal('show');
             });
 
-            $(document).on('click', '.set-map-location', function () {
+            $(document).on('click' ,'.set-map-location' ,function () {
 
                 $modal = $(this).closest('.modal');
                 $locationData = $modal.find('[data-gmap]').data('location');
@@ -974,24 +967,24 @@ var APP_AMU = {
                 var InputLatLocation = $(this).data('input-lat-location');
                 var InputLngLocation = $(this).data('input-lng-location');
 
-                if (InputFullLocation)
+                if(InputFullLocation)
                     $(InputFullLocation).val($($locationData.location).val());
-                if (InputLatLocation)
+                if(InputLatLocation)
                     $(InputLatLocation).val($($locationData.lat).val())
-                if (InputLngLocation)
+                if(InputLngLocation)
                     $(InputLngLocation).val($($locationData.lng).val())
 
                 $($modal).modal('hide');
             });
         },
 
-        init: function () {
+        init : function () {
 
             APP_AMU.map.initGMapInputLocation();
         }
     },
 
-    inputMask: {
+    inputMask : {
 
         init: function (selector) {
 
@@ -1009,16 +1002,15 @@ var APP_AMU = {
                     $type = typeof $this.data('inputmask-type') != typeof undefined ? $this.data('inputmask-type') : false,
                     $mask;
 
-                switch ($type) {
+                switch ($type)
+                {
                     case 'phone': {
                         $mask = '(9{3}) 9{3}-9{4}';
-                    }
-                        ;
-                        break;
+                    }; break;
                 }
 
-                $this.attr('dir', 'ltr');
-                $this.inputmask($mask, {
+                $this.attr('dir' ,'ltr');
+                $this.inputmask($mask ,{
                     rightAlign: DIR == 'ltr' ? false : true,
                     clearMaskOnLostFocus: true,
                 });
@@ -1026,21 +1018,21 @@ var APP_AMU = {
         },
     },
 
-    ajax: {
+    ajax : {
 
-        init: function () {
+        init : function () {
 
             APP_AMU.autocomplete.initAutocomplete();
             APP_AMU.select.initSelect();
             APP_AMU.validate.init('.ajaxCont');
             APP_AMU.tree.init();
-            APP_AMU.ckeditor.init('body', '.text-editor');
+            APP_AMU.ckeditor.init('body' ,'.text-editor');
             APP_AMU.inputMask.init('[data-masked]');
 
             $('.datatable').each(loadDatatable);
         }
     }
-};
+}
 
 /**
  * init App

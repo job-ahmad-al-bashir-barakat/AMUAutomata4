@@ -22,6 +22,11 @@ Homestead.yaml
 /public/video
 /public/fonts
 /public/ckeditor
+/public/vender
+/public/myfont
+/public/vendor
+/public/filemanager
+
 /public/mix-manifest.json
 
 #big folder

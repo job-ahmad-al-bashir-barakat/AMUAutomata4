@@ -32,7 +32,7 @@ class DummyClass extends GlobalFactory
     }
 
     /**
-     *  store action for update relation
+     *  update action for update relation
      */
     public function updateDatatable($model = null, $request = null, $result = null)
     {
@@ -40,7 +40,7 @@ class DummyClass extends GlobalFactory
     }
 
     /**
-     *  store action for destroy relation
+     *  destroy action for destroy relation
      */
     public function destroyDatatable($model = null, $request = null, $result = null)
     {

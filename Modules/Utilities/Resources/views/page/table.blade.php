@@ -14,7 +14,8 @@
 
                 @component('controle.component.panel', [
                     'id'    => 'panel-pages',
-                    'title' => $title
+                    'title' => $title,
+                    'class' => 'p0'
                 ])
                 {!! datatable($table ,$param) !!}
                 @endcomponent

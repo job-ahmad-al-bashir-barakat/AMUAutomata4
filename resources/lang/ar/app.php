@@ -12,6 +12,8 @@ return [
     'update'          => 'تعديل',
     'delete'          => 'حذف',
     'close'           => 'إغلاق',
+    'save'            => 'حفظ',
+    'filter'          => 'بحث',
     'set_location'    => 'تحديد الموقع',
 
     'oper' => [
