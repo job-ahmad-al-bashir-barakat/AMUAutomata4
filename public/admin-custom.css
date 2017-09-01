@@ -67,3 +67,32 @@ h1,h2,h3,h4,h5,h6,
 
     z-index: 999999;
 }
+
+.table-dynamic .delete-action{
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    cursor: pointer;
+    color: #f05050;
+}
+
+.table-dynamic .delete-action:before{
+    content: "\f00d";
+}
+
+.table-dynamic .row-for-delete .delete-action:before {
+    color: #27c24c;
+}
+.table-dynamic .row-for-delete .delete-action:before {
+    content: "\f112";
+}
+.table-dynamic .row-for-delete{
+    background-color: rgba(240, 80, 80, 0.13) !important;
+}
+
+td.center {
+    text-align: center;
+}

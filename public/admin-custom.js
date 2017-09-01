@@ -1109,6 +1109,28 @@ var APP_AMU = {
                 var $table = $($btn.attr('table-copy-row'));
                 APP_AMU.htmlTable.cloneTr($table);
             });
+            $(document).on('click.table_delte_row', '.delete-action', function () {
+                var $this = $(this);
+                var $table = $this.closest('table');
+                var isNew = $this.hasClass('new');
+                var $tr = $this.closest('tr');
+                var inputName = $table.attr('table-dynamic-input');
+                if(isNew) {
+                    $tr.remove();
+                } else {
+                    var isForDelete = $tr.hasClass('row-for-delete');
+                    if(isForDelete){
+                        $tr.removeClass('row-for-delete');
+                        // $tr.attr('table-dynamic-temp-val', val);
+                        $tr.find('#delete_' + inputName).remove();
+                    } else {
+                        $tr.addClass('row-for-delete');
+                        var val = $tr.find('#' + inputName).val();
+                        $tr.find(':has(.delete-action)')
+                            .append("<input type='hidden' table-dynamic-modal='"+inputName+"' name='delete_"+inputName+"[]' id='delete_"+inputName+"' value='"+val+"' />");
+                    }
+                }
+            })
         },
 
         initHtmlTable: function (){
@@ -1151,6 +1173,9 @@ var APP_AMU = {
                 }
                 $this.addClass(classes);
             });
+            if(!$rowData) {
+                $newRow.find('.delete-action').addClass('new');
+            }
             APP_AMU.autocomplete.initAutocomplete(false, $newRow);
             APP_AMU.select.initSelect(false, $newRow);
 

@@ -41,13 +41,14 @@
                     </div>
                     <div class="modal-body clearfix">
                         <div class="table-responsive">
-                            <table id="page_modules_table" class="table table-striped table-dynamic" >
+                            <table id="page_modules_table" class="table table-striped table-dynamic" table-dynamic-input="id">
                                 <thead>
                                 <tr>
                                     <th>#</th>
                                     <th>Custom Modules</th>
                                     <th>Position</th>
                                     <th>Order</th>
+                                    <th>Delete</th>
                                 </tr>
                                 <tr id="template_row" class="template-row hide">
                                     <td>1</td>
@@ -57,6 +58,7 @@
                                     </td>
                                     <td>{!! Form::bsSelect(false, 'module_position' ,'module_position[]', \Modules\Utilities\WebModules\Modules\Module::POSITION, null, '', ['table-dynamic-class' => 'select', 'table-dynamic-modal' => 'position']) !!}</td>
                                     <td>{!! Form::bsNumber(false, 'order', 'order[]', null, '', ['table-dynamic-modal' => 'order']) !!}</td>
+                                    <td class="center"><span class="delete-action"></span></td>
                                 </tr>
                                 </thead>
                                 <tbody>

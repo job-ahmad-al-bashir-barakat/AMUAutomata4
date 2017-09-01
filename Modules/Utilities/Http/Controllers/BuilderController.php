@@ -24,7 +24,6 @@ class BuilderController extends Controller
 
     public function getPages($pageId)
     {
-//        return array_dot(BuilderPage::wherePageId($pageId)->with(['customModule'])->get()->toArray());
         return BuilderPage::wherePageId($pageId)->with(['customModule'])->get();
     }
 
@@ -36,6 +35,7 @@ class BuilderController extends Controller
         $customModule = $request->get('custom_module');
         $order = $request->get('order');
         $id = $request->get('id');
+        $deleteIds = $request->get('delete_id');
 
         $oldPageBuilders = $page->builder()->whereIn('id', $id)->get()->keyBy('id');
 
@@ -46,8 +46,12 @@ class BuilderController extends Controller
                 'position' => $modulePosition[$i],
                 'order' => $order[$i],
             ];
-            if($id[$i]){
-                $builderPages[] = $oldPageBuilders[$id[$i]]->fill($data);
+            if($id[$i]) {
+                if (in_array($id[$i], $deleteIds)) {
+                    $oldPageBuilders[$id[$i]]->delete();
+                } else {
+                    $builderPages[] = $oldPageBuilders[$id[$i]]->fill($data);
+                }
             } else {
                 $builderPages[] = new BuilderPage($data);
             }
