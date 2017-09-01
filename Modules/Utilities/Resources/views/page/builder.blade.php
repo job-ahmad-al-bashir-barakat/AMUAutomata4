@@ -30,6 +30,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 {{ Form::open(['class' => 'ajax-form']) }}
+                    {!! Form::bsHidden('page_id', 'page_id') !!}
                     <div class="modal-header">
                         <button type="button" data-dismiss="modal" aria-label="Close" class="close">
                             <span aria-hidden="true">×</span>
@@ -50,9 +51,12 @@
                                 </tr>
                                 <tr id="template_row" class="template-row hide">
                                     <td>1</td>
-                                    <td>{{ Form::bsSelect(false,'custom_module', 'custom_module[]',[], null,'',['table-dynamic-class' => 'autocomplete', 'data-letter' => '0', "data-remote" => autocompleteURL('custom-modules')]) }}</td>
-                                    <td>{!! Form::bsSelect(false, 'module_position' ,'module_position[]', \Modules\Utilities\WebModules\Modules\Module::POSITION, null, '', ['table-dynamic-class' => 'select']) !!}</td>
-                                    <td>{!! Form::bsNumber(false, 'order', 'order[]') !!}</td>
+                                    <td>
+                                        {!! Form::bsHidden('id', 'id[]', null, '', ['table-dynamic-modal' => 'id']) !!}
+                                        {{ Form::bsSelect(false,'custom_module', 'custom_module[]',[], null,'',['table-dynamic-class' => 'autocomplete', 'data-letter' => '0', "data-remote" => autocompleteURL('custom-modules'), 'table-dynamic-modal-option' => "custom_module_id:custom_module.lang_name.{$lang}.text"]) }}
+                                    </td>
+                                    <td>{!! Form::bsSelect(false, 'module_position' ,'module_position[]', \Modules\Utilities\WebModules\Modules\Module::POSITION, null, '', ['table-dynamic-class' => 'select', 'table-dynamic-modal' => 'position']) !!}</td>
+                                    <td>{!! Form::bsNumber(false, 'order', 'order[]', null, '', ['table-dynamic-modal' => 'order']) !!}</td>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -79,6 +83,10 @@
                 var pageName = $btn.data('page_name');
                 $modal.find('[name="page_id"]').val(pageId);
                 $modal.find('#page_name').html(pageName);
+                $.get('{{ RouteUrls::getBuilderPageModules() }}' + '/' + pageId, function (res) {
+                    APP_AMU.htmlTable.clearRows($('#page_modules_table'));
+                    APP_AMU.htmlTable.fillTableData($('#page_modules_table'), res);
+                });
             });
             //todo should be global
             $('form.ajax-form').submit(function (e) {
@@ -93,7 +101,12 @@
                     type: method,
                     data: inputs,
                     success: function (res) {
-                        console.log(res)
+                        HELPER_AMU.notify({
+                            message: OPERATION_MESSAGE_SUCCESS,
+                            status: 'success',
+                            icon: 'check'
+                        });
+                        $pageModulesModal.modal('toggle');
                     },
                     dataType: 'json'
                 });

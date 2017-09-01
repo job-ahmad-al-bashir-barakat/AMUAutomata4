@@ -64,5 +64,10 @@ class RouteUrls
         return $this->localizeUrl('builder/pages', 'utilities');
     }
 
+    public function getBuilderPageModules()
+    {
+        return $this->localizeUrl('builder/modules', 'utilities');
+    }
+
 
 }

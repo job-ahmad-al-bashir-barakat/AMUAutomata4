@@ -1107,27 +1107,14 @@ var APP_AMU = {
             $(document).on('click.table_copy_row', '[table-copy-row]', function () {
                 var $btn = $(this);
                 var $table = $($btn.attr('table-copy-row'));
-                var $templateRow = $table.find('thead #template_row');
-                var rowId = $templateRow.attr('dynamic-table-id') || null;
-                var $newRow = $templateRow.clone();
-                $newRow.removeClass('template-row hide').attr('id', rowId).appendTo($table.find('tbody'));
-                $newRow.find(':input').each(function (){
-                    var $this = $(this);
-                    var classes = $this.attr('table-dynamic-class');
-                    $this.attr('table-dynamic-class', null);
-
-                    var disabled = $this.attr('table-dynamic-disabled') || false;
-                    $this.attr('disabled', disabled);
-
-                    $this.addClass(classes);
-                });
-                APP_AMU.autocomplete.initAutocomplete(false, $newRow);
-                APP_AMU.select.initSelect(false, $newRow);
+                APP_AMU.htmlTable.cloneTr($table);
             });
         },
+
         initHtmlTable: function (){
             APP_AMU.htmlTable.init();
         },
+
         initInputs: function () {
             $('.table-dynamic .template-row :input').each(function (){
                 var $this = $(this);
@@ -1138,6 +1125,56 @@ var APP_AMU = {
                     $this.attr('disabled', 'disabled');
                 }
             });
+        },
+
+        cloneTr: function ($table, $rowData) {
+            var $templateRow = $table.find('thead #template_row');
+            var rowId = $templateRow.attr('dynamic-table-id') || null;
+            var $newRow = $templateRow.clone();
+            $newRow.removeClass('template-row hide').attr('id', rowId).appendTo($table.find('tbody'));
+            $newRow.find(':input').each(function () {
+                var $this = $(this);
+                var classes = $this.attr('table-dynamic-class');
+                var disabled = $this.attr('table-dynamic-disabled') || false;
+                $this.attr('table-dynamic-class', null);
+                $this.attr('disabled', disabled);
+
+                if($rowData) {
+                    var key = $this.attr('table-dynamic-modal') || $this.attr('table-dynamic-modal-option');
+                    var option = key.split(':');
+                    if (option.length > 1) {
+                        var htmloption = "<option selected value='" + APP_AMU.htmlTable.getValue($rowData, option[0]) + "'>" + APP_AMU.htmlTable.getValue($rowData, option[1]) + "</option>";
+                        $this.html(htmloption);
+                    } else if (option.length) {
+                        $this.val(APP_AMU.htmlTable.getValue($rowData, option[0]));
+                    }
+                }
+                $this.addClass(classes);
+            });
+            APP_AMU.autocomplete.initAutocomplete(false, $newRow);
+            APP_AMU.select.initSelect(false, $newRow);
+
+            return true;
+        },
+
+        fillTableData: function ($table, $tableData) {
+            APP_AMU.htmlTable.clearRows($table);
+            for(var i = 0; i < $tableData.length; i++) {
+                APP_AMU.htmlTable.cloneTr($table, $tableData[i]);
+            }
+        },
+
+        clearRows: function ($table){
+            $table.find('tbody tr').remove();
+        },
+
+        getValue: function (arr, key){
+            var keys = key.split('.');
+            var val = arr;
+            for(var i = 0; i < keys.length; i++) {
+                val = val[keys[i]];
+            }
+            return val;
         }
     }
 };
@@ -1169,13 +1206,13 @@ var onPageLoad = {
         APP_AMU.map.init
     ],
     loadPjax: function (){
-        for(i = 0; i < this.pjax.length; i++){
+        for(var i = 0; i < this.pjax.length; i++){
             var func = this.pjax[i];
             func();
         }
     },
     loadOnLoad: function (){
-        for(i = 0; i < this.onLoad.length; i++){
+        for(var i = 0; i < this.onLoad.length; i++){
             var func = this.onLoad[i];
             func();
         }

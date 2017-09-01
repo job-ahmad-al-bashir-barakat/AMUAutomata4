@@ -63,8 +63,8 @@ class Attribute
         if($cusModAttVal){
             $cusModAttVal->value = $this->data;
         } else {
-            $cusModAttVal = new CustomModuleAttributeValue();
-            $cusModAttVal->fill(['attribute_id' => $this->id, 'value' => $this->data]);
+            $cusModAttVal = new CustomModuleAttributeValue(['attribute_id' => $this->id, 'value' => $this->data]);
+//            $cusModAttVal->fill(['attribute_id' => $this->id, 'value' => $this->data]);
         }
         return $customModule->attributeValues()->save($cusModAttVal);
     }

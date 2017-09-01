@@ -24,4 +24,9 @@ class Page extends Model
     {
         return $this->transName->keyBy('lang_code');
     }
+
+    public function builder()
+    {
+        return $this->hasMany(BuilderPage::class);
+    }
 }

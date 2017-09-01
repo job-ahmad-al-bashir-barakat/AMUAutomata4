@@ -10,6 +10,7 @@ Route::group(
         Route::group(['prefix' => 'builder'], function () {
             Route::get('pages', 'BuilderController@pages');
             Route::post('pages', 'BuilderController@storePages');
+            Route::get('modules/{pageId}', 'BuilderController@getPages');
         });
 
         Route::group(['prefix' => 'attribute'], function () {
