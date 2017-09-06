@@ -96,3 +96,17 @@ h1,h2,h3,h4,h5,h6,
 td.center {
     text-align: center;
 }
+
+.sortable-placeholder-dot
+{
+    border-style: dotted;
+    height: 1.5em;
+    line-height: 1.2em;
+}
+
+.sortable-placeholder-dashed
+{
+    border-style: dashed;
+    height: 1.5em;
+    line-height: 1.2em;
+}

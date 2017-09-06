@@ -523,7 +523,7 @@ var APP_AMU = {
                             if (typeof $button.data('ajax-form-delete-success') != typeof undefined)
                                 window[$button.data('ajax-form-delete-success')](form, res);
 
-                            HELPER_AMU.notify({message: res.operation_message, status: 'success'})
+                            HELPER_AMU.notify({message: res.operation_message || OPERATION_MESSAGE_SUCCESS, status: 'success'})
 
                         }).fail(function (res) {
 

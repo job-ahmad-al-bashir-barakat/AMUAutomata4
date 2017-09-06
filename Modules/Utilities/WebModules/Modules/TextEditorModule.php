@@ -12,9 +12,4 @@ class TextEditorModule extends Module
 
     public $viewName = 'texteditor';
 
-    public function getModuleHtml()
-    {
-        return view($this->viewPath)->render();
-    }
-
 }

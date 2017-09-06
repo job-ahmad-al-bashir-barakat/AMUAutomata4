@@ -26,6 +26,7 @@ Homestead.yaml
 /public/myfont
 /public/vendor
 /public/filemanager
+/public/formBuilder
 
 /public/mix-manifest.json
 
