@@ -50,9 +50,15 @@ return [
     'modules' => [
         'model' => \Modules\Utilities\Entities\Module::class,
     ],
+
     'custom-modules' => [
         'model' => \Modules\Utilities\Entities\CustomModule::class,
     ],
+
+    'pages' => [
+        'model' => \Modules\Utilities\Entities\Page::class,
+    ],
+
     'faculty' => [
         'model' => \Modules\Admin\Entities\Faculty::class,
     ],

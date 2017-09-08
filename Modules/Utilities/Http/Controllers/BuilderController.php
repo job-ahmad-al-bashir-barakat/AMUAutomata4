@@ -15,6 +15,11 @@ use Modules\Utilities\Entities\Page;
 
 class BuilderController extends Controller
 {
+    /**
+     * Pages
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function pages()
     {
         return view('utilities::page.builder', [
@@ -60,5 +65,29 @@ class BuilderController extends Controller
         $page->builder()->saveMany($builderPages);
 
         return ['success' => true];
+    }
+
+
+
+    /**
+     * Sliders
+     */
+    public function sliders()
+    {
+        return view('utilities::page.table',[
+            'table' => 'sliders',
+            'param' => '',
+            'title' => trans('utilities::app.sliders')
+        ]);
+    }
+
+    public function slider($sliderId)
+    {
+        //todo get slider name and show it in slider details
+        return view('utilities::page.table',[
+            'table' => 'slider',
+            'param' => "sliderId={$sliderId}",
+            'title' => trans('utilities::app.slider')
+        ]);
     }
 }

@@ -32,11 +32,6 @@
                 </a>
             </li>
             <li class="">
-                <a href="{{ RouteUrls::customModules() }}" class="ajax" title="{{ trans('utilities::app.custom_modules') }}">
-                    <span>{{ trans('utilities::app.custom_modules') }}</span>
-                </a>
-            </li>
-            <li class="">
                 <a href="{{ RouteUrls::pages() }}" class="ajax" title="{{ trans('utilities::app.pages') }}">
                     <span>{{ trans('utilities::app.pages') }}</span>
                 </a>
@@ -72,6 +67,18 @@
         </a>
         <ul id="builder" class="nav sidebar-subnav collapse">
             <li class="sidebar-subnav-header">{{ trans('utilities::builder') }}</li>
+
+            <li class="">
+                <a href="{{ RouteUrls::customModules() }}" class="ajax" title="{{ trans('utilities::app.custom_modules') }}">
+                    <span>{{ trans('utilities::app.custom_modules') }}</span>
+                </a>
+            </li>
+
+            <li class="">
+                <a href="{{ RouteUrls::sliders() }}" class="ajax" title="{{ trans('utilities::app.sliders') }}">
+                    <span>{{ trans('utilities::app.sliders') }}</span>
+                </a>
+            </li>
 
             <li class="">
                 <a href="{{ RouteUrls::builderPages() }}" class="ajax" title="{{ trans('utilities::app.pages') }}">

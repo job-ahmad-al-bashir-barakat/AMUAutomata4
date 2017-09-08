@@ -17,7 +17,7 @@
                     'title' => $title,
                     'class' => 'p0'
                 ])
-                {!! datatable($table ,$param) !!}
+                {!! datatable($table ,"?$param") !!}
                 @endcomponent
 
             </div>

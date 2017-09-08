@@ -49,6 +49,16 @@ return [
         'factory'       => Modules\Utilities\Factories\PageFactory::class
     ],
 
+    'sliders' => [
+        'model'         => Modules\Utilities\Entities\Slider::class,
+        'factory'       => Modules\Utilities\Factories\SliderFactory::class
+    ],
+
+    'slider' => [
+        'model'         => Modules\Utilities\Entities\SliderDetail::class,
+        'factory'       => Modules\Utilities\Factories\SliderDetailFactory::class
+    ],
+
     'builder-pages' => [
         'model'         => Modules\Utilities\Entities\BuilderPage::class,
         'factory'       => Modules\Utilities\Factories\BuilderPageFactory::class

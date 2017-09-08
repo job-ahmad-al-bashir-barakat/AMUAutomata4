@@ -11,6 +11,9 @@ Route::group(
             Route::get('pages', 'BuilderController@pages');
             Route::post('pages', 'BuilderController@storePages');
             Route::get('modules/{pageId}', 'BuilderController@getPages');
+
+            Route::get('sliders', 'BuilderController@sliders');
+            Route::get('sliders/{sliderId}', 'BuilderController@slider');
         });
 
         Route::group(['prefix' => 'attribute'], function () {
@@ -25,6 +28,6 @@ Route::group(
         Route::get('{view}/menu', 'UtilitiesController@menu');
         Route::resource('{treeModel}/tree', 'TreeController');
 
-        Route::group([], function () {/*for super admin*/});
-        Route::group([], function () {/*for admin*/});
+//        Route::group([], function () {/*for super admin*/});
+//        Route::group([], function () {/*for admin*/});
     });
