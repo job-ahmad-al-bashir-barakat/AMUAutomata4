@@ -19,6 +19,10 @@ return [
     'job_title'              => 'عنوان وظيفي',
     'general_setting'        => 'اعدادات عامة',
     'langs'                  => 'لغات',
+    'title'                  => 'عنوان',
+    'head'                   => 'عنوان رئيسي',
+    'text'                   => 'نص',
+    'btn'                    => 'زر',
 
     'automata4_utilities'    => 'أدوات أتوماتا 4',
     'global'                 => 'أدوات شاملة',
@@ -31,6 +35,8 @@ return [
     'custom_modules'         => 'قوالب خاصة',
     'pages'                  => 'الصفحات',
     'builder'                => 'الباني',
+    'sliders'                => 'مجموعات الشرائح',
+    'slider'                 => 'شرائح',
 
     'expand_all'             => 'فتح الجميع',
     'collapse_all'           => 'اغلاق الجميع',

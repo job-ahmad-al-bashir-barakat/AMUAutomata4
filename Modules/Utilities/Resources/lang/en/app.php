@@ -19,6 +19,10 @@ return [
     'job_title'              => 'Job Title',
     'general_setting'        => 'General Setting',
     'langs'                  => 'Langs',
+    'title'                  => 'Title',
+    'head'                   => 'Head',
+    'text'                   => 'Text',
+    'btn'                    => 'Button',
 
     'automata4_utilities'    => 'Automata4 Utilities',
     'global'                 => 'Global',
@@ -31,6 +35,8 @@ return [
     'custom_modules'         => 'Custom Modules',
     'pages'                  => 'Pages',
     'builder'                => 'Builder',
+    'sliders'                => 'Sliders',
+    'slider'                 => 'Slider',
 
     'expand_all'             => 'Expand All',
     'collapse_all'           => 'Collapse All',

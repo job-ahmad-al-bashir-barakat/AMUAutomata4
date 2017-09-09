@@ -17,6 +17,9 @@
                         APP_AMU.ckeditor.reset('' ,'' ,'single' ,'module-textarea-id');
                         APP_AMU.ckeditor.init('body' ,'.datatable-text-editor');
                     }
+                    if($template.find('.autocomplete').length){
+                        APP_AMU.autocomplete.initAutocomplete($template.find('.autocomplete'));
+                    }
                 });
             } else {
                 $template.html('');

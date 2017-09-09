@@ -59,6 +59,13 @@ return [
         'model' => \Modules\Utilities\Entities\Page::class,
     ],
 
+    'sliders' => [
+        'model' => \Modules\Utilities\Entities\Slider::class,
+        'has'   => [
+            'sliderDetails' => 'id',
+        ],
+    ],
+
     'faculty' => [
         'model' => \Modules\Admin\Entities\Faculty::class,
     ],
@@ -76,15 +83,15 @@ return [
     ],
 
     'gender' => [
-        'model' => \Modules\Admin\Entities\Gender::class,
+        'model' => \Modules\Utilities\Entities\Gender::class,
     ],
 
     'position' => [
-        'model' => \Modules\Admin\Entities\Position::class,
+        'model' => \Modules\Utilities\Entities\Position::class,
     ],
 
     'job-title' => [
-        'model' => \Modules\Admin\Entities\JobTitle::class,
+        'model' => \Modules\Utilities\Entities\JobTitle::class,
     ],
 
     'control' => [

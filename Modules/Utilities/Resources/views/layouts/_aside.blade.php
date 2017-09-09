@@ -69,14 +69,14 @@
             <li class="sidebar-subnav-header">{{ trans('utilities::builder') }}</li>
 
             <li class="">
-                <a href="{{ RouteUrls::customModules() }}" class="ajax" title="{{ trans('utilities::app.custom_modules') }}">
-                    <span>{{ trans('utilities::app.custom_modules') }}</span>
+                <a href="{{ RouteUrls::sliders() }}" class="ajax" title="{{ trans('utilities::app.sliders') }}">
+                    <span>{{ trans('utilities::app.sliders') }}</span>
                 </a>
             </li>
 
             <li class="">
-                <a href="{{ RouteUrls::sliders() }}" class="ajax" title="{{ trans('utilities::app.sliders') }}">
-                    <span>{{ trans('utilities::app.sliders') }}</span>
+                <a href="{{ RouteUrls::customModules() }}" class="ajax" title="{{ trans('utilities::app.custom_modules') }}">
+                    <span>{{ trans('utilities::app.custom_modules') }}</span>
                 </a>
             </li>
 

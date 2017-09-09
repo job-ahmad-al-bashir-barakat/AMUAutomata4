@@ -13,7 +13,7 @@ Route::group(
             Route::get('modules/{pageId}', 'BuilderController@getPages');
 
             Route::get('sliders', 'BuilderController@sliders');
-            Route::get('sliders/{sliderId}', 'BuilderController@slider');
+            Route::get('sliders/{slider}', 'BuilderController@slider');
         });
 
         Route::group(['prefix' => 'attribute'], function () {

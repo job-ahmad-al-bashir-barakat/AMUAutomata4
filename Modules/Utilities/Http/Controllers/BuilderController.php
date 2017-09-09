@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Modules\Utilities\Entities\BuilderPage;
 use Modules\Utilities\Entities\Page;
+use Modules\Utilities\Entities\Slider;
 
 class BuilderController extends Controller
 {
@@ -38,7 +39,6 @@ class BuilderController extends Controller
         $page = Page::find($pageId);
         $modulePosition = $request->get('module_position');
         $customModule = $request->get('custom_module');
-//        $order = $request->get('order');
         $id = $request->get('id');
         $deleteIds = $request->get('delete_id', []);
 
@@ -68,7 +68,6 @@ class BuilderController extends Controller
     }
 
 
-
     /**
      * Sliders
      */
@@ -81,13 +80,12 @@ class BuilderController extends Controller
         ]);
     }
 
-    public function slider($sliderId)
+    public function slider(Slider $slider)
     {
-        //todo get slider name and show it in slider details
         return view('utilities::page.table',[
             'table' => 'slider',
-            'param' => "sliderId={$sliderId}",
-            'title' => trans('utilities::app.slider')
+            'param' => "sliderId={$slider->id}",
+            'title' => trans('utilities::app.slider') . " [{$slider->transName->first()->text}]",
         ]);
     }
 }
