@@ -14,6 +14,9 @@ Route::group(
 
             Route::get('sliders', 'BuilderController@sliders');
             Route::get('sliders/{slider}', 'BuilderController@slider');
+
+            Route::get('blocks', 'BuilderController@blocks');
+            Route::get('blocks/{block}', 'BuilderController@block');
         });
 
         Route::group(['prefix' => 'attribute'], function () {

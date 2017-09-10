@@ -75,6 +75,12 @@
             </li>
 
             <li class="">
+                <a href="{{ RouteUrls::blocks() }}" class="ajax" title="{{ trans('utilities::app.blocks') }}">
+                    <span>{{ trans('utilities::app.blocks') }}</span>
+                </a>
+            </li>
+
+            <li class="">
                 <a href="{{ RouteUrls::customModules() }}" class="ajax" title="{{ trans('utilities::app.custom_modules') }}">
                     <span>{{ trans('utilities::app.custom_modules') }}</span>
                 </a>

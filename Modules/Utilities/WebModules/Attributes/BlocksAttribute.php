@@ -3,15 +3,15 @@
 namespace Modules\Utilities\WebModules\Attributes;
 
 
-use Modules\Utilities\Entities\Slider;
+use Modules\Utilities\Entities\Block;
 
-class SlidersAttribute extends Attribute
+class BlocksAttribute extends Attribute
 {
 
-    public $id = '5';
-    public $code = 'sliders';
-    public $viewName = 'sliders';
-    public $title = 'Slider';
+    public $id = '6';
+    public $code = 'blocks';
+    public $viewName = 'blocks';
+    public $title = 'Block';
     public $values = [];
     public $data = [];
 
@@ -25,7 +25,7 @@ class SlidersAttribute extends Attribute
     {
         parent::getAttributeValue($customModuleId, $forceQuery);
 
-        $data = Slider::findOrFail($this->data);
+        $data = Block::findOrFail($this->data);
 
         $this->data = [
             [$data->id => $data->transName->first()->text],

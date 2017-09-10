@@ -1,0 +1,1 @@
+{!! Form::bsAutocomplete($title, 'blocks', "webModule[{$code}]", 'autocomplete/blocks', $data, 0, 'group required l:col-lg-3 l:control-label i:col-lg-8') !!}

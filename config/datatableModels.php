@@ -59,6 +59,16 @@ return [
         'factory'       => Modules\Utilities\Factories\SliderDetailFactory::class
     ],
 
+    'blocks' => [
+        'model'         => Modules\Utilities\Entities\Block::class,
+        'factory'       => Modules\Utilities\Factories\BlockFactory::class
+    ],
+
+    'block' => [
+        'model'         => Modules\Utilities\Entities\BlockDetail::class,
+        'factory'       => Modules\Utilities\Factories\BlockDetailFactory::class
+    ],
+
     'builder-pages' => [
         'model'         => Modules\Utilities\Entities\BuilderPage::class,
         'factory'       => Modules\Utilities\Factories\BuilderPageFactory::class

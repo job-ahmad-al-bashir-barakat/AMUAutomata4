@@ -66,6 +66,13 @@ return [
         ],
     ],
 
+    'blocks' => [
+        'model' => \Modules\Utilities\Entities\Block::class,
+        'has'   => [
+            'blockDetails' => 'id',
+        ],
+    ],
+
     'faculty' => [
         'model' => \Modules\Admin\Entities\Faculty::class,
     ],

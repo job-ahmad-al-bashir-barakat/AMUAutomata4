@@ -14,7 +14,7 @@ trait AttributeTrait
      * This Function will determined the Attribute Class by Attribute id
      *
      * @param $attributeId
-     * @return LimitAttribute|StatusAttribute|TextEditorAttribute|WidthAttribute/SlidersAttribute
+     * @return LimitAttribute|StatusAttribute|TextEditorAttribute|WidthAttribute|SlidersAttribute|BlocksAttribute
      * @throws \Exception
      */
     public static function setAttribute($attributeId)
@@ -30,6 +30,8 @@ trait AttributeTrait
                 return new TextEditorAttribute();
             case 5:
                 return new SlidersAttribute();
+            case 6:
+                return new BlocksAttribute();
             default:
                 throw new \Exception('Undefined Attributes');
         }
@@ -39,7 +41,7 @@ trait AttributeTrait
      * This Function will determined the Attribute Class by Attribute Code
      *
      * @param $attributeCode
-     * @return LimitAttribute|StatusAttribute|TextEditorAttribute|WidthAttribute/SlidersAttribute
+     * @return LimitAttribute|StatusAttribute|TextEditorAttribute|WidthAttribute|SlidersAttribute|BlocksAttribute
      * @throws \Exception
      */
     public static function setByAttributeCode($attributeCode)
@@ -55,6 +57,8 @@ trait AttributeTrait
                 return new TextEditorAttribute();
             case 'sliders':
                 return new SlidersAttribute();
+            case 'blocks':
+                return new BlocksAttribute();
             default:
                 throw new \Exception('Undefined Attributes');
         }

@@ -3,13 +3,12 @@
 namespace Modules\Utilities\Entities;
 
 use Illuminate\Database\Eloquent\Model;
+use Modules\Utilities\Traits\MultiLangs;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Modules\Utilities\Entities\LangModels\SliderDetailBtnLang;
 use Modules\Utilities\Entities\LangModels\SliderDetailHeadLang;
 use Modules\Utilities\Entities\LangModels\SliderDetailTextLang;
 use Modules\Utilities\Entities\LangModels\SliderDetailTitleLang;
-use Modules\Utilities\Traits\MultiLangs;
-use Illuminate\Database\Eloquent\SoftDeletes;
-use Modules\Utilities\Entities\LangModels\SliderNameLang;
 
 class SliderDetail extends Model
 {

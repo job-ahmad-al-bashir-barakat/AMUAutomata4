@@ -13,6 +13,7 @@ use Illuminate\Routing\Controller;
 use Modules\Utilities\Entities\BuilderPage;
 use Modules\Utilities\Entities\Page;
 use Modules\Utilities\Entities\Slider;
+use Modules\Utilities\Entities\Block;
 
 class BuilderController extends Controller
 {
@@ -86,6 +87,27 @@ class BuilderController extends Controller
             'table' => 'slider',
             'param' => "sliderId={$slider->id}",
             'title' => trans('utilities::app.slider') . " [{$slider->transName->first()->text}]",
+        ]);
+    }
+
+    /**
+     * Blocks
+     */
+    public function blocks()
+    {
+        return view('utilities::page.table',[
+            'table' => 'blocks',
+            'param' => '',
+            'title' => trans('utilities::app.blocks')
+        ]);
+    }
+
+    public function block(Block $block)
+    {
+        return view('utilities::page.table',[
+            'table' => 'block',
+            'param' => "blockId={$block->id}",
+            'title' => trans('utilities::app.block') . " [{$block->transName->first()->text}]",
         ]);
     }
 }

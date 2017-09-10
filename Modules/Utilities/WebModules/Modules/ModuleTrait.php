@@ -15,7 +15,7 @@ trait ModuleTrait
      * This Function will determined the Module Class by Module id
      *
      * @param $moduleId
-     * @return SectionEndModule|SectionStartModule|TextEditorModule|SliderModule
+     * @return SectionEndModule|SectionStartModule|TextEditorModule|SliderModule|BlockModule
      * @throws \Exception
      */
     public static function setModule($moduleId)
@@ -29,6 +29,8 @@ trait ModuleTrait
                 return new SectionEndModule();
             case 5:
                 return new SliderModule();
+            case 6:
+                return new BlockModule();
             default:
                 throw new \Exception('Undefined Web Module');
         }
@@ -38,7 +40,7 @@ trait ModuleTrait
      * This Function will determined the Module Class by Module Code
      *
      * @param $moduleCode
-     * @return SectionEndModule|SectionStartModule|TextEditorModule|SliderModule
+     * @return SectionEndModule|SectionStartModule|TextEditorModule|SliderModule|BlockModule
      * @throws \Exception
      */
     public static function setModuleByCode($moduleCode)
@@ -51,6 +53,8 @@ trait ModuleTrait
             case 'section_end':
                 return new SectionEndModule();
             case 'sliders':
+                return new SliderModule();
+            case 'blocks':
                 return new SliderModule();
             default:
                 throw new \Exception('Undefined Web Module');
