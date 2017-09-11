@@ -11,7 +11,7 @@ class BlocksAttribute extends Attribute
     public $id = '6';
     public $code = 'blocks';
     public $viewName = 'blocks';
-    public $title = 'Block';
+    public $title = 'block';
     public $values = [];
     public $data = [];
 

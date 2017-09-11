@@ -19,17 +19,23 @@ class Attribute
     public $data;
 
     protected $multiLang = false;
+    protected $supportedLangs = [];
+    protected $lang;
 
     private $baseViewPath = 'utilities::web-modules.attributes';
 
     public function __construct()
     {
         $this->viewPath = "{$this->baseViewPath}.{$this->viewName}";
+        $this->supportedLangs = \LaravelLocalization::getSupportedLocales();
+        $this->lang = \LaravelLocalization::getCurrentLocale();
+        $this->title = trans("utilities::web-modules.{$this->title}");
     }
 
-    /**
+
+        /**
      * This Function will render the view of the attribute
-     * will pass the $id, $code, $title, $values and $data to the view
+     * will pass the $id, $code, $title, $values, $data, supportedLangs and Lang to the view
      *
      * @return string Html
      */
@@ -42,6 +48,8 @@ class Attribute
                 'title' => $this->title,
                 'values' => $this->values,
                 'data' => $this->data,
+                'supportedLangs' => $this->supportedLangs,
+                'lang' => $this->lang
             ]
         )->render();
     }
@@ -58,13 +66,19 @@ class Attribute
         //todo update it after fixing Multilangs Trait "save function"
         //todo Solve in this function if the attribute is  multi values
         request()->merge(['transSaveOper' => $this->multiLang]);
-
+        if ($this->multiLang) {
+            $req = [];
+            foreach ($this->supportedLangs as $langCode => $lang) {
+                $req["multi_{$langCode}"] = $this->data[$langCode];
+            }
+            request()->merge(['trans_multi' => $req]);
+            $this->data = '';
+        }
         $cusModAttVal = $customModule->attributeValues()->where('attribute_id', '=', $this->id)->first();
         if($cusModAttVal){
             $cusModAttVal->value = $this->data;
         } else {
             $cusModAttVal = new CustomModuleAttributeValue(['attribute_id' => $this->id, 'value' => $this->data]);
-//            $cusModAttVal->fill(['attribute_id' => $this->id, 'value' => $this->data]);
         }
         return $customModule->attributeValues()->save($cusModAttVal);
     }
@@ -80,6 +94,12 @@ class Attribute
         //todo Solve in this function if the attribute is  multi values [return all the multi | return one of the multi]
         if(!$this->data || $forceQuery){
             $customModuleAttributeValue = CustomModuleAttributeValue::where('custom_module_id', '=', $customModuleId)->where('attribute_id', '=', $this->id)->first();
+            if ($this->multiLang) {
+                foreach ($customModuleAttributeValue->lang_multi as $langCode => $multi) {
+                    $this->data[$langCode] = $multi->text;
+                }
+                return;
+            }
         }
 
         $this->data = isset($customModuleAttributeValue) ? $customModuleAttributeValue->value : $this->data;

@@ -11,7 +11,7 @@ class SlidersAttribute extends Attribute
     public $id = '5';
     public $code = 'sliders';
     public $viewName = 'sliders';
-    public $title = 'Slider';
+    public $title = 'slider';
     public $values = [];
     public $data = [];
 

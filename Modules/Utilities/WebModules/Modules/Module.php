@@ -49,7 +49,6 @@ class Module
         foreach ($customModuleAttributeValues as $attCode => $customModuleAttributeValue) {
             $attribute = Attribute::setByAttributeCode($attCode);
             $attribute->data = $customModuleAttributeValue;
-            //todo try to make multi insert to make one insert query
             $attribute->saveAttributeValue($customModule);
         }
     }

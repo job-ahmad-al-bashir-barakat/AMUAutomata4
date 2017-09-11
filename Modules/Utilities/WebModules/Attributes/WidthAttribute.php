@@ -5,11 +5,10 @@ namespace Modules\Utilities\WebModules\Attributes;
 
 class WidthAttribute extends Attribute
 {
-
     public $id = '2';
     public $code = 'width';
     public $viewName = 'width';
-    public $title = 'Width';
+    public $title = 'width';
     public $values = [
         '' => '',
         '1' => '1',
@@ -24,7 +23,7 @@ class WidthAttribute extends Attribute
         '10' => '10',
         '11' => '11',
         '12' => '12',
-        '13' => 'Full Width',
+//        '13' => 'Full Width',
     ];
     public $data;
 }

@@ -8,7 +8,7 @@ class StatusAttribute extends Attribute
     public $id = '1';
     public $code = 'status';
     public $viewName = 'status';
-    public $title = 'Status';
+    public $title = 'status';
     public $values = [
         '' => '',
         'E' => 'Enable',
