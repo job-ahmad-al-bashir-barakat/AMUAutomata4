@@ -10,4 +10,6 @@ return [
     'slider' => 'Slider',
     'limit' => 'Limit',
     'block' => 'Block',
+    'courses' => 'Courses',
+    'show' => 'Show',
 ];

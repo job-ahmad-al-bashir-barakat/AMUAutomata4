@@ -19,6 +19,7 @@ class Attribute
     public $data;
 
     protected $multiLang = false;
+    protected $multiVal = false;
     protected $supportedLangs = [];
     protected $lang;
 
