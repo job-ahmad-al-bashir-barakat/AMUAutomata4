@@ -115,8 +115,7 @@ return [
                 <script>
                     if($(cont).find('.cropper').length)
                     {
-                        APP.CROPPER.destroy('.modal .cropper');
-                        APP.CROPPER.init();
+                        APP.CROPPER.init('.aut-cropper-datatable');
                     }
                 </script>
             ";

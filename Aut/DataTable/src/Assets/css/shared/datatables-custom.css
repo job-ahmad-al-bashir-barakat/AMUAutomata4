@@ -347,6 +347,7 @@ html[lang=en] .modal input ,select {
 /*------------------------------------
             popover style
 --------------------------------------*/
+/*
 .datatable-popover {
     font-family: "Source Sans Pro" ,"JF Flat Regular";
     width: 200px;
@@ -386,6 +387,7 @@ table.dataTable .table-inline {
 .dataTables_scrollFootInner .table.dataTable {
      margin-bottom: 0 !important;
 }
+*/
 
 /*------------------------------------
                  Modal

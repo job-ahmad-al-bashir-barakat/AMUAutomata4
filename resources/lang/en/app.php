@@ -21,4 +21,22 @@ return [
         'error'   => 'Operation fails',
         'successOrder' => 'Order done successfully'
     ],
+
+    /*
+     * cropper
+     */
+
+    'crop_detail'               => 'Crop Detail',
+    'crop_type'                 => 'Crop Type',
+    'personal_image'            => 'Personal Image',
+    'post_thumbnail'            => 'Post Thumbnail',
+    'post_main_image'           => 'Post Main Image',
+    'slider_image'              => 'Slider Image',
+    'crop'                      => 'Crop',
+    'upload'                    => 'Upload',
+    'file_manager'              => 'File Manager',
+    'open_manager'              => 'Open Manager',
+    'apply_file_to_cropper'     => 'Apply File To Cropper',
+    'toggle_options'            => 'Toggle Options',
+    'image_name'                => 'Image Name',
 ];

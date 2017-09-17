@@ -1,0 +1,20 @@
+{{ Form::bsImageUpload('lab' ,'lab' ,'' ,'' ,'1366' ,'768' ,[
+    'modalId'    => 'lab-image-upload',
+    'modalTitle' => trans('admin::app.upload_lab_image')
+] ,'#crop-image' ,'#datatable-labs') }}
+
+{{ Form::bsImageUploadCropper() }}
+
+<script>
+    function showFileUploadModal($this) {
+
+        var inputFile = $('#lab-image-upload').find('.upload-file'),
+            datatableRaw = _aut_datatable_getSelectedRowData('#datatable-labs' ,$($this).closest('tr'));
+
+        inputFile.attr('data-param' ,'id=' + $($this).data('key'));
+
+        APP_AMU.fileUpload.load(inputFile ,datatableRaw);
+
+        $('#lab-image-upload').modal('show');
+    }
+</script>

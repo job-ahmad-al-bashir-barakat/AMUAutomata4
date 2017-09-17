@@ -14,7 +14,7 @@ class LabFactory extends GlobalFactory
      */
     public function getDatatable($model ,$request)
     {
-        $query = Lab::with(['contact'])->where('faculty_id' ,'=' ,$request->input('id'))->allLangs();
+        $query = Lab::with(['image','contact'])->where('faculty_id' ,'=' ,$request->input('id'))->allLangs();
 
         return $this->table
             ->queryConfig('datatable-labs')
@@ -22,7 +22,7 @@ class LabFactory extends GlobalFactory
             ->queryMultiLang(['name' ,'description'])
             ->queryUpdateButton('id')
             ->queryDeleteButton('id')
-            ->queryCustomButton('upload_image' ,'id' ,'fa fa-image' ,'' ,'data-toggle=modal data-target=#lab-image-upload')
+            ->queryCustomButton('upload_image' ,'id' ,'fa fa-image' ,'' ,'onclick="showFileUploadModal(this)"')
             ->queryRender(true);
     }
 
@@ -50,13 +50,6 @@ class LabFactory extends GlobalFactory
                 'title'             => trans('admin::app.labs_gelocation'),
                 'inputFullLocation' => '#datatable-labs-modal .input-location input',
                 'geoLocation'       => Setting::whereCode('UGL')->first()->value
-            ])->render())
-            ->addBlade('lab-image-upload-custom' ,view('controle.component.image_upload' ,[
-                'id'         => 'lab-image-upload',
-                'title'      => trans('admin::app.upload_lab_image'),
-                'method'     => 'PUT',
-                'width'      => '700px',
-                'stopButton' => true
             ])->render())
             ->addNavButton()
             ->render();

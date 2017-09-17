@@ -23,6 +23,7 @@ class CustomFormServiceProvider extends ServiceProvider
         $this->bsInputNumber();
         $this->bsAutocomplete();
         $this->bsSelect();
+        $this->bsImageUpload();
     }
 
     function bsInputText()
@@ -96,6 +97,47 @@ class CustomFormServiceProvider extends ServiceProvider
             'class'          => '',
             'attr'           => [],
             'type'           => $type,
+        ]);
+    }
+
+    function bsImageUpload()
+    {
+        Form::component('bsImageUpload','controle.component.form.image_upload',[
+            'id'                                 => '',
+            'name'                               => '',
+            'class'                              => '',
+            'param'                              => '',
+            'imageWidth'                         => '',
+            'imageHeight'                        => '',
+            'targetModel'                        => [
+                'modalId'        => '',
+                'modalTitle'     => '',
+                'modalWidth'     => '700px',
+            ],
+            'datatable'                          => '',
+            'datatableInitialize'                => true,
+            'datatableInitializeProperty'        => '.image',
+            'extraParameter'                     => [
+                'maxFileCount'                       => '0',
+                'minFileCount'                       => '0',
+                'minImageWidth'                      => null,
+                'minImageHeight'                     => null,
+                'maxImageWidth'                      => null,
+                'maxImageHeight'                     => null,
+                'allowedFileExtensions'              => 'jpeg,jpg,bmp,png',
+            ],
+        ]);
+    }
+
+    function bsImageUploadCropper()
+    {
+        Form::component('bsImageUploadCropper','controle.component.form.image_cropper',[
+            'width'             => '90%',
+            'single'            => false,
+            'showName'          => true,
+            'showOption'        => false,
+            'showToggleOption'  => false,
+            'showPreview'       => false,
         ]);
     }
 

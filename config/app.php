@@ -180,6 +180,7 @@ return [
         Mcamara\LaravelLocalization\LaravelLocalizationServiceProvider::class,
         Yajra\Datatables\DatatablesServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
 
         /**
          * Our Service Provider
@@ -188,6 +189,7 @@ return [
         App\Providers\CustomBladeServiceProvider::class,
         App\Providers\CustomFormServiceProvider::class,
         App\Library\Url\Providers\RouteUrlsServiceProvider::class,
+        App\Providers\CustomValidationServiceProvider::class,
         Aut\Autocomplete\AutocompleteServiceProvider::class,
         Aut\DataTable\DataTableServiceProvider::class,
         Aut\FileManager\FileManagerServiceProvider::class,
@@ -250,9 +252,9 @@ return [
         'Debugbar'   => Barryvdh\Debugbar\Facade::class,
         "LaravelLocalization" => Mcamara\LaravelLocalization\Facades\LaravelLocalization::class,
         'Datatables' => Yajra\Datatables\Facades\Datatables::class,
-        "Datatable" => Aut\DataTable\DataTableFacade::class,
-        'Debugbar' => Barryvdh\Debugbar\Facade::class,
-
+        "Datatable"  => Aut\DataTable\DataTableFacade::class,
+        'Debugbar'   => Barryvdh\Debugbar\Facade::class,
+        'Image' => Intervention\Image\Facades\Image::class,
 		 /*
           * Project Facades
           */

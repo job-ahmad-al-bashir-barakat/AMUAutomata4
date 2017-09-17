@@ -47,6 +47,7 @@
     },
     "autoload-dev": {
         "psr-4": {
+            "Aut\\FileManager\\": "packages/Aut/FileManager/src",
             "Tests\\": "tests/"
         }
     },

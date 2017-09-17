@@ -1193,6 +1193,9 @@ function aut_datatable_row_detail(table ,aut_datatable) {
         var tr = $this.closest('tr');
         var row = table.row( tr );
 
+        if($this.hasClass('toggle'))
+            $this.closest('[role=row]').siblings('[role=row].shown').find('.toggle').click();
+
         if(tr.hasClass('parent'))
         {
             tr.removeClass('parent');

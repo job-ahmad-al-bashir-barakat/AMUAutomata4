@@ -41,7 +41,7 @@ stopButton : remove all button without close
 <div class="ajaxCont">
 @endunless
     <div id='{{ $id or '' }}' {{--tabindex='-1'--}} role='dialog' aria-labelledby='myModalLabel' aria-hidden='true' class='modal fade'>
-        <div class='modal-dialog' role='document' style="{{ $width ? "width: $width;" : "" }};">
+        <div class='modal-dialog' role='document' style="{{ $width ? "width: $width" : "" }};">
             <div class='modal-content'>
                 @unless($stopForm)
                     {!! Form::open(array_merge(['id' => 'form-dialog' ,'url' => $action, 'method' => $method ,'class' => 'ajax-form'] ,$attr)) !!}
