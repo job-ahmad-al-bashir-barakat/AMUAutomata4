@@ -64,5 +64,30 @@ class RouteUrls
         return $this->localizeUrl('builder/pages', 'utilities');
     }
 
+    public function sliders()
+    {
+        return $this->localizeUrl('builder/sliders', 'utilities');
+    }
+
+    public function slider($id)
+    {
+        return $this->localizeUrl("builder/sliders/{$id}", "utilities");
+    }
+
+    public function blocks()
+    {
+        return $this->localizeUrl('builder/blocks', 'utilities');
+    }
+
+    public function block($id)
+    {
+        return $this->localizeUrl("builder/blocks/{$id}", 'utilities');
+    }
+
+    public function getBuilderPageModules()
+    {
+        return $this->localizeUrl('builder/modules', 'utilities');
+    }
+
 
 }

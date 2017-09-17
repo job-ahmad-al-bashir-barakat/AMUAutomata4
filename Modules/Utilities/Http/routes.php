@@ -10,6 +10,13 @@ Route::group(
         Route::group(['prefix' => 'builder'], function () {
             Route::get('pages', 'BuilderController@pages');
             Route::post('pages', 'BuilderController@storePages');
+            Route::get('modules/{pageId}', 'BuilderController@getPages');
+
+            Route::get('sliders', 'BuilderController@sliders');
+            Route::get('sliders/{slider}', 'BuilderController@slider');
+
+            Route::get('blocks', 'BuilderController@blocks');
+            Route::get('blocks/{block}', 'BuilderController@block');
         });
 
         Route::group(['prefix' => 'attribute'], function () {
@@ -27,6 +34,6 @@ Route::group(
         Route::post('{model}/{type}/destroy' ,'UploadController@destroy');
         Route::get('{model}/{type}/upload' ,'UploadController@index');
 
-        Route::group([], function () {/*for super admin*/});
-        Route::group([], function () {/*for admin*/});
+//        Route::group([], function () {/*for super admin*/});
+//        Route::group([], function () {/*for admin*/});
     });

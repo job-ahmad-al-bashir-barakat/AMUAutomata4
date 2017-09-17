@@ -13,4 +13,9 @@ class BuilderPage extends Model
 
     protected $fillable = ['page_id', 'custom_module_id', 'position', 'order'];
 
+    public function customModule()
+    {
+        return $this->belongsTo(CustomModule::class);
+    }
+
 }

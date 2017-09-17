@@ -49,6 +49,7 @@ class CustomModuleFactory extends GlobalFactory
             ->onModalOpen('<script>
                             APP_AMU.ckeditor.reset(\'\' ,\'\' ,\'single\' ,\'module-textarea-id\');
                             APP_AMU.ckeditor.init(\'body\' ,\'.datatable-text-editor\');
+                            APP_AMU.autocomplete.initAutocomplete($("#custom-module-temp").find(\'.autocomplete\'));
                            </script>')
             ->render();
     }

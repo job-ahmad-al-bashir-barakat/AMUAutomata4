@@ -1,0 +1,1 @@
+{!! Form::bsAutocomplete($title, 'courses', "webModule[{$code}]", 'autocomplete/course', $data, 0, 'group required l:col-lg-3 i:col-lg-8', ['multiple']) !!}

@@ -3,10 +3,8 @@
 namespace Modules\Utilities\WebModules\Modules;
 
 use Modules\Utilities\Entities\CustomModule;
-use Modules\Utilities\WebModules\Attributes\Attribute;
 use Modules\Utilities\Entities\Module as ModuleModel;
-use Modules\Utilities\Entities\Attribute as AttrModel;
-use Modules\Utilities\Entities\CustomModuleAttributeValue;
+use Modules\Utilities\WebModules\Attributes\Attribute;
 
 class Module
 {
@@ -15,6 +13,7 @@ class Module
     public $id;
     public $code;
     public $viewName;
+    public $viewPath;
 
     const POSITION = [
         '' => '',
@@ -25,7 +24,6 @@ class Module
     ];
 
     private $baseViewPath = 'utilities::web-modules.modules';
-    public $viewPath;
 
     public function __construct()
     {
@@ -34,9 +32,7 @@ class Module
 
     public function getModuleAttributeHtml($customModuleId = false)
     {
-        $data = ModuleModel::find($this->id)->with(['attributes'])->first();
-        $moduleAttribute = $data->attributes;
-
+        $moduleAttribute = ModuleModel::find($this->id)->attributes()->get();
         $htmlResult = '';
         foreach ($moduleAttribute as $attribute) {
             $attribute = Attribute::setAttribute($attribute->id);
@@ -53,14 +49,13 @@ class Module
         foreach ($customModuleAttributeValues as $attCode => $customModuleAttributeValue) {
             $attribute = Attribute::setByAttributeCode($attCode);
             $attribute->data = $customModuleAttributeValue;
-            //todo try to make multi insert to make one insert query
             $attribute->saveAttributeValue($customModule);
         }
     }
 
     public function getModuleHtml()
     {
-        throw new \Exception('Method [getModuleHtml] must be override');
+        return view($this->viewPath)->render();
     }
 
 }
