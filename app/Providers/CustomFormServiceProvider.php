@@ -24,6 +24,7 @@ class CustomFormServiceProvider extends ServiceProvider
         $this->bsAutocomplete();
         $this->bsSelect();
         $this->bsImageUpload();
+        $this->bsImageUploadCropper();
     }
 
     function bsInputText()
@@ -135,9 +136,11 @@ class CustomFormServiceProvider extends ServiceProvider
             'width'             => '90%',
             'single'            => false,
             'showName'          => true,
+            'showType'          => false,
             'showOption'        => false,
             'showToggleOption'  => false,
             'showPreview'       => false,
+            'previewType'       => ['lg' ,'md' ,'sm' ,'xs']
         ]);
     }
 

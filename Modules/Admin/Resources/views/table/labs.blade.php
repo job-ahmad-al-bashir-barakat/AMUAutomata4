@@ -1,9 +1,9 @@
 {{ Form::bsImageUpload('lab' ,'lab' ,'' ,'' ,'1366' ,'768' ,[
     'modalId'    => 'lab-image-upload',
     'modalTitle' => trans('admin::app.upload_lab_image')
-] ,'#crop-image' ,'#datatable-labs') }}
+] ,'#datatable-labs') }}
 
-{{ Form::bsImageUploadCropper() }}
+{{ Form::bsImageUploadCropper('90%' ,false ,true,false ,false ,false ,true) }}
 
 <script>
     function showFileUploadModal($this) {

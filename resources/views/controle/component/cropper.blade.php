@@ -1,7 +1,3 @@
-@php
-    $preview = isset($preview) ? $preview : false;
-    $previewType = isset($previewType) ? $previewType : ['lg' ,'md' ,'sm' ,'xs'];
-@endphp
 <div class="cropper {{ $cropperClass or '' }}">
     <div>
         <div class="row">
@@ -50,7 +46,7 @@
                         </div>
                     @endcomponent
                 </div>
-                @if($cropType)
+                @if($showType)
                     <div>
                         @component('controle.component.panel' ,['title' => trans('app.crop_type') ,'active' => false])
                             <div class="form-group">
