@@ -55,20 +55,15 @@ class AutocompleteServiceProvider extends ServiceProvider
 
     private function registerRoute(Router $router)
     {
-        if(config('autocomplete.isLangs'))
-            $action = 'autocompleteLangs';
-        else
-            $action = 'autocomplete';
-
         $router->group(
             [
                 'prefix'     => LaravelLocalization::setLocale(),
                 'namespace'  => $this->namespace,
                 'middleware' => $this->middleware
             ],
-            function () use($action) {
+            function () {
 
-                Route::get('autocomplete/{model}', "AutocompleteController@{$action}");
+                Route::get('autocomplete/{model}', "AutocompleteController@autocomplete");
             });
     }
 

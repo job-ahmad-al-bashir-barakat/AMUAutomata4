@@ -4,19 +4,29 @@ return [
 
     'routeMiddleware' => ['web', 'localeSessionRedirect', 'localizationRedirect' ],
 
-    'isLangs' => false,
+    'isLangs' => true,
 
     'AutocompleteHelperClass' => \App\Library\AutocompleteHelper::class,
 
     'default'   => [
 
+        'withoutLang' => [
+            'colId'     => 'id',
+            'colName'   => 'name_{lang}',
+            'condition' => [
+                'name_{langs}',
+            ],
+        ],
+
         /*
          * Langs Way
          */
-        'colId'   => 'id',
-        'colName' => 'transName->text',
-        'has'   => [
-            'transName' => 'text',
-        ],
+        'withLang' => [
+            'colId'     => 'id',
+            'colName'   => 'transName->text',
+            'condition' => [
+                'transName' => 'text',
+            ],
+        ]
     ],
 ];

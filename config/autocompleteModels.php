@@ -2,44 +2,66 @@
 
 /**
  *
- *                                   Autocompelte Doc ----- >>>  ^_^
- * /////////////////
- * Without Lang ////
- * /////////////////
+ *                             Autocompelte Doc ----- >>>  ^_^
+ *
+ *
+ *  |  ------------------------------   |  -----------------------------
+ *  |       default withoutLang         |       default withLang
+ *  |  ------------------------------   |  -----------------------------
+ *  |  'colId'     => 'id',             |  'colId'     => 'id',
+ *  |  'colName'   => 'name_{lang}',    |  'colName'   => 'transName->text',
+ *  |  'condition' => [                 |  'condition' => [
+ *  |      'name_{langs}',              |      'transName' => 'text',
+ *  |  ]                                |  ]
+ *
  * ----------------------------------------------------------------------------------------------------
- * model           : define model for fetch data from it
+ * model     : define model for fetch data from it
  * ----------------------------------------------------------------------------------------------------
- * cols            : define id:key,name:lang col or just name name:value used to get data on select
- *                   [condition will be on all name lang like name_en , name_ar .... ex]
+ * condition : is array of relation => condition
+ *
+ * -- (just withLang) type {langs} with col this will loop over all lang to add them as condition
+ * -- if you add condition as item key\value in array this will be  $wheteHas => $col condition
+ *
+ *| 'condition' => [
+ *|      //ps: whereHas page => filter on code col
+ *|      'page' => 'code',
+ *|  ],
+ *
+ * -- if you add condition as item just value in array this will be traditional where condition
+ *
+ *| 'condition' => [
+ *|      //ps: where code col
+ *|      'code',
+ *|  ],
+ *
+ * ps : if you need to make extra custom condition there is class AutocompleteHelperClass inside app/Library you can use it
+ *
+ *|  this class has function name of tow part
+ *|  1: general model route param and
+ *|  2: Autocomplete
+ *|
+ *|  'general' => [
+ *|      'model' => APP\Entities\General::class,
+ *|  ]
+ *|
+ *|  function generalAutocomplete(Request $request ,$query) {
+ *|
+ *|      return $query->where('id' ,'<>' ,$request->input('id'));
+ *|  }
+ *
  * ----------------------------------------------------------------------------------------------------
- * withCondition   : define custom condtion for all col this prop will exit all prev condition prop
+ * colId     : id string for autocompelte
+ * ----------------------------------------------------------------------------------------------------
+ * colName   : is string|array of cols that will display on autocompelte
+ * | (just withLang) type {lang} with col this will replace with current lang
+ * | you can pass array to show as name title ['name' ,'code']
+ * | you can pass custom complex property make on model
  * ----------------------------------------------------------------------------------------------------
  *
- * Example :
- *
- * 'example' => [
- *     'model'          => Example::class,
- *     'cols'           => ['id:key', 'name:lang']
- * ],
- *
- * //////////////////
- *  With Langs //////
- * //////////////////
- * ----------------------------------------------------------------------------------------------------
- * model   : define model for fetch data from it
- * ----------------------------------------------------------------------------------------------------
- * has     : is array of relation => condition
- * ----------------------------------------------------------------------------------------------------
- * colId   : id string for autocompelte
- * ----------------------------------------------------------------------------------------------------
- * colName : is string|array of cols that will display on autocompelte
- * ----------------------------------------------------------------------------------------------------
- * attention : any col you need to display you must type him in this way
- * if it isn't relation type him normally
- * if it is relation type him like this model->id or modal->code ...et
- * ----------------------------------------------------------------------------------------------------
- *
+ * ps : anywhere you need to get name from relation or make condition on col inside relation
+ *      just type your col like this model->relation->name
  */
+
 
 return [
 
@@ -61,14 +83,14 @@ return [
 
     'sliders' => [
         'model' => \Modules\Utilities\Entities\Slider::class,
-        'has'   => [
+        'condition'   => [
             'sliderDetails' => 'id',
         ],
     ],
 
     'blocks' => [
         'model' => \Modules\Utilities\Entities\Block::class,
-        'has'   => [
+        'condition'   => [
             'blockDetails' => 'id',
         ],
     ],
@@ -103,7 +125,7 @@ return [
 
     'control' => [
         'model' => \Modules\Utilities\Entities\ControlMenu::class,
-        'has'   => [
+        'condition'   => [
             'page' => 'control_page_code',
         ],
         'colName'  => 'page->control_page_code',
@@ -111,7 +133,7 @@ return [
 
     'general' => [
         'model' => \Modules\Utilities\Entities\SiteMenu::class,
-        'has'   => [
+        'condition'   => [
             'page' => 'page_code',
         ],
         'colName'  => 'page->page_code'

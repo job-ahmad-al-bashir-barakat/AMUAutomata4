@@ -179,10 +179,6 @@ if(! function_exists('lang'))
                 return $array;
 
             }; break;
-
-            default: {
-
-            }
         }
     }
 }
