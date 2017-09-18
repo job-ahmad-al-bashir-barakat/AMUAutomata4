@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateLabDescriptionLangTable extends Migration
+class CreateImageAltLangsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateLabDescriptionLangTable extends Migration
      */
     public function up()
     {
-        Schema::create('lab_description_langs', function (Blueprint $table) {
-            $table->increments('id')->unsigned();
-            $table->integer('lab_id')->nullable()->index('lap_id');
+        Schema::create('image_alt_langs', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('image_id')->nullable()->index('image_id');
             $table->integer('lang_id')->nullable()->index('lang_id');
-            $table->longText('text')->nullable();
+            $table->string('text', 191)->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
@@ -30,6 +30,6 @@ class CreateLabDescriptionLangTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('lab_description_langs');
+        Schema::dropIfExists('image_alt_langs');
     }
 }

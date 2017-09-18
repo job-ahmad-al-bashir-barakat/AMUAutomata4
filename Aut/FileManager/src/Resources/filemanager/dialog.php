@@ -973,6 +973,7 @@ $files=$sorted;
 				$mini_src="";
 				$src_thumb="";
 				if(in_array($file_array['extension'], $ext_img)){
+					// update by basheer
 					$src = url($file_path);
 					$is_img=true;
 

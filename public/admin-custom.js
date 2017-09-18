@@ -11,6 +11,15 @@ String.prototype.toCamelCase = function() {
     });
 };
 
+window.open_popup = function(url) {
+
+    var w = 880;
+    var h = 570;
+    var l = Math.floor((screen.width - w) / 2);
+    var t = Math.floor((screen.height - h) / 2);
+    var win = window.open(url, 'ResponsiveFilemanager', "scrollbars=1,width=" + w + ",height=" + h + ",top=" + t + ",left=" + l);
+};
+
 var HELPER_AMU = {
 
     /**
@@ -60,8 +69,9 @@ var HELPER_AMU = {
                 case 'tree': APP_AMU.tree.load(v);
             }
         })
-    }
+    },
 };
+
 
 var APP_AMU = {
 
@@ -73,8 +83,8 @@ var APP_AMU = {
 
                 if ($(this).find('.cropper').length);
                 {
-                    APP.CROPPER.destroy('.modal .cropper');
-                    APP.CROPPER.init();
+                    APP.CROPPER.destroy('.aut-cropper-modal');
+                    APP.CROPPER.init('.aut-cropper-modal');
                 }
             },
 
@@ -813,9 +823,9 @@ var APP_AMU = {
 
                     if ($this.val())
                         $length = $treeContId
-                                .find("[data-id=" + $(this).val() + "] .dd-list li:first")
-                                .parent()
-                                .children().length + 1;
+                            .find("[data-id=" + $(this).val() + "] .dd-list li:first")
+                            .parent()
+                            .children().length + 1;
                     else
                         $length = $treeContId.find('.dd .dd-list:first').children('li').length + 1;
 
@@ -885,12 +895,35 @@ var APP_AMU = {
 
         init: function ($cont, $target) {
 
-            $cont = $($cont);
+            var $cont   = $($cont),
+                _editor = [];
 
             if (typeof(CKEDITOR) != 'undefined') {
-                $cont.find($target).each(function () {
+                $cont.find($target).each(function (i ,v) {
 
                     var orginal_id = this.id;//$(this).data('original-id');
+
+                    // Only open filemanager(type=0 and not set field_id):
+                    // path to filemanager../filemanager/dialog.php?type=0&fldr=
+                    //
+                    // Select Image: (type=1 and set id of input text in field_id variable):
+                    // path to filemanager../filemanager/dialog.php?type=1&field_id=fieldID
+                    //
+                    // Select Video: (type=3 and set id of input text in field_id variable):
+                    // path to filemanager../filemanager/dialog.php?type=3&field_id=fieldID
+                    //
+                    // Select File: (type=2 and set id of input text in field_id variable):
+                    // path to filemanager../filemanager/dialog.php?type=2&field_id=fieldID
+
+                    // Get Variables list
+                    // type: the type of filemanager (1:images files 2:all files 3:video files)
+                    // fldr: the folder where i enter (the root folder remains the same). default=""
+                    // sort_by: the element to sorting (values: name,size,extension,date) default=""
+                    // descending: descending? or ascending (values=1 or 0) default="0"
+                    // lang: the language code (ex: &lang=en_EN). default="en_EN"
+                    // relative_url: should be	added to the request with a value of "1" when opening RFM.
+                    // Otherwise returned URL-s will be absolute.
+                    // extensions: a json encoded array of available files extensions (ex: &extensions=["pdf",'doc'])
 
                     var params = {
                         filebrowserBrowseUrl: BASE_URL + LANG + '/filemanager/dialog?type=2&editor=ckeditor&fldr=',
@@ -902,12 +935,8 @@ var APP_AMU = {
                         resize_dir: typeof $(this).data('resize-type') != typeof undefined ? $(this).data('resize-type') : 'both',
                     };
 
-                    CKEDITOR.on('instanceCreated', function (ev) {
-                        // alert('Editor instance created');
-                    });
-
                     APP_AMU.ckeditor.reset($cont, $target, 'single', orginal_id);
-                    $textarea = CKEDITOR.replace(orginal_id, params);
+                    var $textarea = CKEDITOR.replace(orginal_id, params);
                     $textarea.on('fileUploadRequest', function (evt) {
                         evt.data.requestData.type = 'ckeditor';
                         var xhr = evt.data.fileLoader.xhr;
@@ -919,6 +948,17 @@ var APP_AMU = {
                     });
                 });
 
+                // CKEDITOR.on('instanceCreated', function (event) {
+                //     alert('Editor instance created');
+                // });
+
+                // CKEDITOR.on('currentInstance', function(event) {
+                //     Removes the current listener.
+                //     ev.removeListener();
+                //
+                //     CKEDITOR.instances[element_id].checkDirty()
+                // });
+
                 CKEDITOR.on('instanceReady', function (event) {
 
                     var editor = event.editor;
@@ -929,14 +969,21 @@ var APP_AMU = {
                         this.updateElement();
                     });
 
-                    editor.on('resize', function (reEvent) {
+                    editor.on('resize', function (event) {
                         //
                     });
+
+                    //Indicates that no further listeners are to be called.
+                    event.stop();
                 });
 
                 CKEDITOR.on('dialogDefinition', function (event) {
 
+                    var editor = event.editor;
+
                     aut_filemanager_handleImageUpload(event, BASE_URL, LANG);
+
+                    event.stop();
                 });
             }
             else
@@ -955,14 +1002,12 @@ var APP_AMU = {
                             var editor = CKEDITOR.instances[name];
                             if (editor) {
                                 delete CKEDITOR.instances[name];
-                                // CKEDITOR.remove(instance);
-                                // instance.destroy(false);
+                                // CKEDITOR.remove(editor);
+                                // editor.destroy(false);
                             }
                         }
 
-                    }
-                        ;
-                        break;
+                    } ;break;
 
                     // delete only one instance
                     case 'single' : {
@@ -974,9 +1019,7 @@ var APP_AMU = {
                             // editor.destroy(true);
                         }
 
-                    }
-                        ;
-                        break;
+                    }; break;
                 }
             }
         },
@@ -1004,6 +1047,339 @@ var APP_AMU = {
                 });
             };
         }
+    },
+
+    // added by basheer
+    fileUpload: {
+
+        formatBytes : function(bytes,decimals) {
+            if(bytes == 0) return '0 Bytes';
+            var k = 1024,
+                dm = decimals || 2,
+                sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'],
+                i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
+        },
+
+        /**
+         *
+         * @param file
+         * @param typeObject | fileToUrlBlob,fileToDataUrl
+         * @returns {{}}
+         */
+        convertFileToObject : function (file ,returnPlace) {
+
+            var retutnObject = {};
+
+            /**
+             *  fileToDataUrl
+             */
+            if(returnPlace == 'fileToDataUrl')
+            {
+                var reader = new FileReader();
+                reader.readAsDataURL(file);
+                reader.onload = function () {
+
+                    var fileToDataUrl = reader.result;
+
+                    retutnObject = $.extend(retutnObject, { fileToDataUrl : fileToDataUrl });
+                };
+
+                reader.onerror = function (error) {
+
+                    console.log('error: ', error);
+                };
+
+                return retutnObject;
+            }
+
+            /**
+             *  fileToUrlBlob
+             */
+            if(returnPlace == 'fileToUrlBlob')
+            {
+                var fileToUrlBlob = URL.createObjectURL(file)
+
+                retutnObject = $.extend(retutnObject, { fileToUrlBlob : fileToUrlBlob });
+
+                return retutnObject;
+            }
+        },
+
+        /**
+         *
+         * @param imageUrl
+         * @param typeObject | canvasToUrlBlob,blobToDataUrl,imageWithBlob
+         * @returns {{}}
+         */
+        convertImageToObject : function (imageUrl ,callback) {
+
+            var retutnObject = {};
+
+            // like image.png
+            var img = new Image()
+            img.src = imageUrl;
+            img.onload = function () {
+
+                var imageToCanvas = document.createElement('canvas'), context = imageToCanvas.getContext('2d');
+                imageToCanvas.width = img.width;
+                imageToCanvas.height = img.height;
+                context.drawImage(img, 0, 0, img.width, img.height);
+                $.extend(retutnObject, { imageToCanvas : imageToCanvas });
+
+                var canvasToDataUrl = imageToCanvas.toDataURL('image/png');
+                $.extend(retutnObject, { canvasToDataUrl : canvasToDataUrl});
+
+                imageToCanvas.toBlob(function (blob) {
+
+                    /**
+                     *  canvasToUrlBlob
+                     */
+                    var canvasToUrlBlob = URL.createObjectURL(blob);
+                    $.extend(retutnObject, { canvasToUrlBlob : canvasToUrlBlob });
+
+                    /**
+                     *  blobToDataUrl
+                     */
+                    var reader = new window.FileReader();
+                    reader.readAsDataURL(blob);
+                    reader.onloadend = function () {
+
+                        var base64data    = reader.result;
+                        $.extend(retutnObject, { blobToDataUrl : base64data });
+                    }
+
+                    /**
+                     *  imageWithBlob
+                     */
+                    var imageWithBlob = document.createElement('img'),
+                        urlBlob       = URL.createObjectURL(blob);
+
+                    imageWithBlob.onload = function () {
+                        // no longer need to read the blob so it's revoked
+                        URL.revokeObjectURL(urlBlob);
+                    };
+
+                    imageWithBlob.src = urlBlob;
+                    $.extend(retutnObject, { imageWithBlob : imageWithBlob });
+
+                    callback(retutnObject);
+                });
+            };
+        },
+
+        load: function(selector ,datatableRaw) {
+
+            if (typeof($.fn.fileinput) != 'undefined') {
+
+                $selector = $(selector);
+
+                $selector.each(function () {
+
+                    var _this = this,
+                        $this = $(_this);
+
+                    var btns, cropperTemplete, infoTemplete, downloadTemplete,
+                        previewFileType       = $this.data('preview-file-type'),
+                        allowedFileTypes      = typeof $this.data('allowed-file-types') != typeof undefined ? $this.data('allowed-file-types').split(',') : null,
+                        allowedFileExtensions = typeof $this.data('allowed-file-extensions') != typeof undefined ? $this.data('allowed-file-extensions') : null,
+                        uploadUrl       = $this.data('upload-url'),
+                        deleteUrl       = $this.data('delete-url'),
+                        maxFileSize     = $this.data('max-file-size') || 0,
+                        maxFileCount    = $this.data('max-file-count') || 0,
+                        minFileCount    = $this.data('min-file-count') || 0,
+                        showCaption     = typeof $this.data('show-caption') != typeof undefined ? JSON.parse($this.data('show-caption')) : false,
+                        imageWidth      = $this.data('image-width') || null,
+                        imageHeight     = $this.data('image-height') || null,
+                        minImageHeight  = $this.data('min-image-height') || null,
+                        maxImageHeight  = $this.data('max-image-height') || null,
+                        minImageWidth   = $this.data('min-image-width')  || null,
+                        maxImageWidth   = $this.data('max-image-width')  || null,
+                        param           = $this.attr('data-param')       || '',
+                        multiple        = typeof $this.attr('multiple') != typeof undefined ? true : false,
+                        target          = $this.data('target'),
+                        cropper         = typeof $this.data('cropper') != typeof undefined ? JSON.parse($this.data('cropper')) : true,
+                        cropperSelector = $this.data('cropper-selector') || '.aut-cropper-file-upload',
+                        cropperModal    = $this.data('cropper-modal') || '',
+                        datatable                   = $this.data('datatable'),
+                        datatableInitialize         = typeof $this.data('datatable-initialize') != typeof undefined ? JSON.parse($this.data('datatable-initialize')) : true,
+                        datatableInitializeProperty = $this.data('datatable-initialize-property') || '.image';
+
+                    if(cropper)
+                        cropperTemplete = '<button type="button" class="kv-cust-btn btn-crop-image btn btn-xs btn-default" title="Crop"><i class="fa fa-crop"></i></button>';
+                    infoTemplete = '<button type="button" class="kv-cust-btn btn-attr-image btn btn-xs btn-default" title="Attribute" {dataKey}><i class="fa fa-question-circle"></i></button>'
+                    downloadTemplete = '<a href="{downloadUrl}" class="kv-cust-btn btn-download btn btn-xs btn-default" title="Download file" download="{caption}"><i class="fa fa-download"></i></a>';
+
+                    var params = {
+                        language: LANG,
+                        theme : "fa",
+                        uploadUrl: uploadUrl,
+                        deleteUrl: deleteUrl,
+                        uploadExtraData: {},
+                        deleteExtraData: {},
+                        minFileCount: minFileCount,
+                        maxFileCount: maxFileCount,
+                        showCaption: showCaption,
+                        maxFileSize: maxFileSize,
+                        allowedFileTypes: allowedFileTypes,
+                        allowedFileExtensions : allowedFileExtensions.split(','),
+                        previewFileType: previewFileType,
+                        minImageHeight: minImageHeight,
+                        maxImageHeight: maxImageHeight,
+                        minImageWidth: minImageWidth,
+                        maxImageWidth: maxImageWidth,
+                        elErrorContainer: '.kv-fileinput-error',
+                        otherActionButtons: '',
+                        showUpload: true,
+                        showDownload: true,
+                        // autoReplace: true,
+                        required: true,
+
+                        overwriteInitial: false,
+                        layoutTemplates : {
+                            actions: '<div class="file-actions">' +
+                                     '    <div class="file-footer-buttons">' +
+                                     '        {upload} {download} {delete} {cropper} {info} {zoom} {other}' +
+                                     '    </div>' +
+                                     '</div>',
+                        },
+                        fileActionSettings: {
+                            uploadRetryIcon: '<i class="fa fa-refresh"></i>',
+                        },
+                        previewThumbTags : {
+                            '{cropper}': cropperTemplete || '',
+                            '{info}' : infoTemplete,
+                            '{download}': '',
+                        },
+                        initialPreviewShowDelete: true,
+                        initialPreview: [],
+                        initialPreviewAsData: true,
+                        initialPreviewFileType: 'image',
+                        initialPreviewConfig: [],
+                        initialPreviewThumbTags : [],
+                    };
+
+                    if(param != '')
+                        _.each(param.split('&') , function(v ,i) {
+                            var extra = JSON.parse('{"' + v.split('=')[0] + '" : "' + v.split('=')[1] + '"}');
+                            $.extend(params.uploadExtraData ,extra);
+                            $.extend(params.deleteExtraData ,extra);
+                        });
+
+                    if(datatableInitialize == true && datatableRaw) {
+
+                        var images = JSPath.apply(datatableInitializeProperty ,datatableRaw);
+                        _.each(images ,function (row ,index) {
+
+                            params.initialPreview.push(row.image_url);
+
+                            params.initialPreviewConfig.push({
+                                previewAsData: true,
+                                type: row.type,
+                                url: deleteUrl,
+                                caption: row.name,
+                                size: row.size,
+                                key: row.id,
+                                extra: $.extend(params.deleteExtraData , {file_name: row.hash_name})
+                            });
+
+                            params.initialPreviewThumbTags.push({
+                                '{cropper}': '',
+                                '{info}' : infoTemplete,
+                                '{download}': downloadTemplete,
+                                '{downloadUrl}': row.image_url,
+                                '{caption}': row.name,
+                            });
+                        });
+
+                    } else if (datatableInitialize == false) {
+
+                        $.get(uploadUrl ,params.uploadExtraData ,function (res) {
+
+                            alert('oppps not ready yet !!! coming soon :(');
+                            console.log(res);
+                        });
+                    }
+
+                    $this.fileinput('destroy');
+                    $this.fileinput(params).off('fileloaded').on('fileloaded', function(event, file, previewId, index, reader) {
+                        // this event trigger after select new file from browse
+                    }).off('fileuploaded').on('fileuploaded', function(event, data, previewId, index) {
+
+                        var response  = data.response,
+                            inputFile = $this.closest('.file-input');
+
+                        // add hidden id foreach image uploaded
+                        inputFile.before('<input type="hidden" name="' + _this.id + '[]" value="' + response[_this.id]['id'] + '"/>');
+
+                        // reload datatable after upload success
+                        if(datatableInitialize == true && datatableRaw)
+                            aut_datatable_reload(datatable);
+
+                        // hide modal after upload success
+                        if($(target).hasClass('modal'))
+                            $(target).modal('hide');
+
+                    }).off('fileuploaderror').on('fileuploaderror', function(event, data, msg) {
+
+                        if(data) {
+                            var errorUl = $('.file-error-message').find('ul');
+                            errorUl.html('');
+                            _.each(data.jqXHR.responseJSON ,function (v ,i) {
+                                var message = "<li data-file-id='" + data.id + "'><b>" + data.filenames[data.index] + " </b>" + data.jqXHR.statusText + "<pre>" + v[0] + "</pre></li>";
+                                errorUl.append(message);
+                            });
+                        }
+                    }).off('filedeleted').on('filedeleted', function(event, key, jqXHR, data) {
+
+                        // reload datatable after upload success
+                        if(datatableInitialize == true && datatableRaw)
+                            aut_datatable_reload(datatable);
+                    });
+
+                    // temp solution for remove crop on update
+                    $this.closest('.file-input').find('.file-preview-initial .btn-crop-image').remove();
+
+                    $this.closest('.file-input').on('click' ,'.btn-attr-image' ,function () {
+                        //info button
+                    });
+
+                    if(cropper) {
+
+                        $this.closest('.file-input').on('click' ,'.btn-crop-image', function() {
+
+                            var $thisBtn   = $(this),
+                                $fileindex = $thisBtn.closest('div.kv-preview-thumb').data('fileindex');
+                            // prev command
+                            //$fileindex = $thisBtn.closest('tr').data('fileindex');
+
+                            // var $btn = $(this), key = $btn.data('key');
+
+                            var id = '#' + _this.id,
+                                files = $(id).fileinput('getFileStack'),
+                                file = files[$fileindex];
+
+                            $(cropperModal).off('shown.bs.modal').on('shown.bs.modal', function (event) {
+
+                                $(cropperModal).find(cropperSelector)
+                                    .attr('data-fileindex' ,$fileindex)
+                                    .attr('data-target'    ,id)
+                                    .attr('data-width'     ,imageWidth)
+                                    .attr('data-height'    ,imageHeight)
+                                    .attr('data-maxWidth'  ,maxImageWidth)
+                                    .attr('data-maxHeight' ,maxImageHeight)
+                                    .attr('data-minHeight' ,minImageHeight)
+                                    .attr('data-minWidth'  ,minImageWidth);
+
+                                APP.CROPPER.init(cropperSelector ,file);
+                            });
+
+                            $(cropperModal).modal('show');
+                        });
+                    }
+                });
+            }
+        },
     },
 
     map: {
@@ -1093,6 +1469,7 @@ var APP_AMU = {
             APP_AMU.tree.init();
             APP_AMU.ckeditor.init('body', '.text-editor');
             APP_AMU.inputMask.init('[data-masked]');
+            APP_AMU.fileUpload.load('.upload-file');
 
             $('.datatable').each(loadDatatable);
             //Added By AA1992
@@ -1228,7 +1605,8 @@ var onPageLoad = {
         function (){APP_AMU.ckeditor.init('body' ,'.text-editor')},
         APP_AMU.ckeditor.fixCkeditorModal,
         function (){APP_AMU.inputMask.init('[data-masked]')},
-        APP_AMU.map.init
+        APP_AMU.map.init,
+        function () { APP_AMU.fileUpload.load('.upload-file') }
     ],
     loadPjax: function (){
         for(var i = 0; i < this.pjax.length; i++){

@@ -2141,7 +2141,7 @@ class DataTableBuilder
         }
 
         // remove class dialog from string
-        $replacement = "req|required|number|en|ar|autocomplete|spinner{$replacement}";
+        $replacement = "req|required|number|en|ar|autocomplete|spinner|text-editor{$replacement}";
 
         // just class table
         $class_table = trim(preg_replace("/\b(?<![\S])($replacement)(?![\S])\b/",'',$class));

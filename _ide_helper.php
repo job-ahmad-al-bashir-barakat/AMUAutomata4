@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.4.21 on 2017-07-14.
+ * Generated for Laravel 5.4.21 on 2017-09-15.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -11975,6 +11975,8 @@ namespace Collective\Html {
         public static function bsNumber($label = '', $id = '', $name =  '', $value = null, $class = '', $attr = []){}
         public static function bsAutocomplete($label = '', $id = '', $name = '', $remote = '', $option = [], $letter = '3', $class  = '', $attr   = []){}
         public static function bsSelect($label = '', $id = '', $name = '', $option = [], $selected = null, $class = '', $attr = []){}
+        public static function bsImageUpload($id = '', $name = '', $class = '', $param = '', $imageWidth = '', $imageHeight = '', $targetModel =  ['modalId' => '', 'modalTitle' => '', 'modalWidth' => '700px',], $datatable = '', $datatableInitialize = true, $datatableInitializeProperty = '.image', $extraParameter = ['maxFileCount' => '0', 'minFileCount' => '0', 'minImageWidth' => null, 'minImageHeight' => null, 'maxImageWidth' => null, 'maxImageHeight' => null, 'allowedFileExtensions' => 'jpeg,jpg,bmp,png']){}
+        public static function bsImageUploadCropper($width = '90%', $single = false, $showName = true ,$showType = false, $showOption = false, $showToggleOption = false, $showPreview = false ,$previewType = ['lg' ,'md' ,'sm' ,'xs']){}
 
         /**
          * Open up a new HTML form.
@@ -13895,7 +13897,7 @@ namespace Aut\DataTable {
          * @param string $tableId
          * @param string $caption
          * @param array $option
-         * @return $this filterHeaderType : input,select
+         * @return $this 
          * @static 
          */
         public static function config($tableId = 'datatable', $caption = '', $option = array())
@@ -13906,6 +13908,9 @@ namespace Aut\DataTable {
         /**
          * 
          *
+         * @param bool $formHorizontal
+         * @return $this 
+         * @throws \Exception
          * @static 
          */
         public static function gridSystemConfig($formHorizontal = false)
@@ -13916,6 +13921,10 @@ namespace Aut\DataTable {
         /**
          * 
          *
+         * @param int $cols
+         * @param string $type
+         * @return $this 
+         * @throws \Exception
          * @static 
          */
         public static function setGridNormalCol($cols = 6, $type = 'lg|md|sm|xs')
@@ -13926,6 +13935,10 @@ namespace Aut\DataTable {
         /**
          * 
          *
+         * @param int $cols
+         * @param string $type
+         * @return $this 
+         * @throws \Exception
          * @static 
          */
         public static function setGridHorizontalTitle($cols = 3, $type = 'lg|md|sm|xs')
@@ -13936,6 +13949,10 @@ namespace Aut\DataTable {
         /**
          * 
          *
+         * @param int $cols
+         * @param string $type
+         * @return $this 
+         * @throws \Exception
          * @static 
          */
         public static function setGridHorizontalCol($cols = 9, $type = 'lg|md|sm|xs')
@@ -13946,9 +13963,14 @@ namespace Aut\DataTable {
         /**
          * 
          *
+         * @param string $id
+         * @param string $html
+         * @param string $class
+         * @param string $attr
+         * @return $this 
          * @static 
          */
-        public static function addCont($id = '', $html = '<div>Hi There</div>', $class = '', $attr = '')
+        public static function addCont($id = '', $html = '', $class = '', $attr = '')
         {
             return \Aut\DataTable\DataTableBuilder::addCont($id, $html, $class, $attr);
         }
@@ -13956,6 +13978,10 @@ namespace Aut\DataTable {
         /**
          * 
          *
+         * @param string $id
+         * @param string $class
+         * @param string $attr
+         * @return $this 
          * @static 
          */
         public static function startCont($id = '', $class = '', $attr = '')
@@ -13966,6 +13992,7 @@ namespace Aut\DataTable {
         /**
          * 
          *
+         * @return $this 
          * @static 
          */
         public static function endCont()
@@ -13976,6 +14003,34 @@ namespace Aut\DataTable {
         /**
          * 
          *
+         * @param string $id
+         * @param string $title
+         * @param string $class
+         * @param string $attr
+         * @return $this 
+         * @static 
+         */
+        public static function startFieldSet($id = '', $title = '', $class = '', $attr = '')
+        {
+            return \Aut\DataTable\DataTableBuilder::startFieldSet($id, $title, $class, $attr);
+        }
+        
+        /**
+         * 
+         *
+         * @return $this 
+         * @static 
+         */
+        public static function endFieldSet()
+        {
+            return \Aut\DataTable\DataTableBuilder::endFieldSet();
+        }
+        
+        /**
+         * 
+         *
+         * @param $relation
+         * @return $this 
          * @static 
          */
         public static function startRelation($relation)
@@ -13986,6 +14041,7 @@ namespace Aut\DataTable {
         /**
          * 
          *
+         * @return $this 
          * @static 
          */
         public static function endRelation()
@@ -13996,21 +14052,115 @@ namespace Aut\DataTable {
         /**
          * 
          *
+         * @param $title
+         * @param string $icon
+         * @return $this 
+         * @throws \Exception
          * @static 
          */
-        public static function startTab($title, $icon = '')
+        public static function startTab($title, $icon = '', $class = '', $attr = '')
         {
-            return \Aut\DataTable\DataTableBuilder::startTab($title, $icon);
+            return \Aut\DataTable\DataTableBuilder::startTab($title, $icon, $class, $attr);
         }
         
         /**
          * 
          *
+         * @return $this 
+         * @throws \Exception
          * @static 
          */
         public static function endTab()
         {
             return \Aut\DataTable\DataTableBuilder::endTab();
+        }
+        
+        /**
+         * 
+         *
+         * @param string $id
+         * @param string $class
+         * @param string $attr
+         * @return $this 
+         * @static 
+         */
+        public static function openFromGroup($id = '', $class = '', $attr = '')
+        {
+            return \Aut\DataTable\DataTableBuilder::openFromGroup($id, $class, $attr);
+        }
+        
+        /**
+         * 
+         *
+         * @return $this 
+         * @static 
+         */
+        public static function closeFromGroup()
+        {
+            return \Aut\DataTable\DataTableBuilder::closeFromGroup();
+        }
+        
+        /**
+         * 
+         *
+         * @return $this 
+         * @static 
+         */
+        public static function startHorizontalTab()
+        {
+            return \Aut\DataTable\DataTableBuilder::startHorizontalTab();
+        }
+        
+        /**
+         * 
+         *
+         * @param $id
+         * @param $title
+         * @param string $class
+         * @param bool $active
+         * @return $this 
+         * @static 
+         */
+        public static function openHorizontalTab($id, $title, $class = '', $active = false)
+        {
+            return \Aut\DataTable\DataTableBuilder::openHorizontalTab($id, $title, $class, $active);
+        }
+        
+        /**
+         * 
+         *
+         * @return $this 
+         * @static 
+         */
+        public static function closeHorizontalTab()
+        {
+            return \Aut\DataTable\DataTableBuilder::closeHorizontalTab();
+        }
+        
+        /**
+         * 
+         *
+         * @return $this 
+         * @static 
+         */
+        public static function endHorizontalTab()
+        {
+            return \Aut\DataTable\DataTableBuilder::endHorizontalTab();
+        }
+        
+        /**
+         * 
+         *
+         * @param string $data
+         * @param string $name
+         * @param string $value
+         * @param bool $permanent
+         * @return $this 
+         * @static 
+         */
+        public static function addPrimaryKey($data = '', $name = '', $value = '', $permanent = false)
+        {
+            return \Aut\DataTable\DataTableBuilder::addPrimaryKey($data, $name, $value, $permanent);
         }
         
         /**
@@ -14024,9 +14174,477 @@ namespace Aut\DataTable {
          * @return $this 
          * @static 
          */
-        public static function addPrimaryKey($data = '', $name = '', $value = '', $permanent = false)
+        public static function addHiddenInput($data = '', $name = '', $value = '', $primaryKey = false, $permanent = false)
         {
-            return \Aut\DataTable\DataTableBuilder::addPrimaryKey($data, $name, $value, $permanent);
+            return \Aut\DataTable\DataTableBuilder::addHiddenInput($data, $name, $value, $primaryKey, $permanent);
+        }
+        
+        /**
+         * 
+         *
+         * @return $this 
+         * @static 
+         */
+        public static function addIndex()
+        {
+            return \Aut\DataTable\DataTableBuilder::addIndex();
+        }
+        
+        /**
+         * 
+         *
+         * @param string $title
+         * @param string $data
+         * @param string $name
+         * @param string $colClass
+         * @param string $dialogAttr
+         * @param string $colWidth
+         * @param bool $visible
+         * @param bool $orderable
+         * @param bool $searchable
+         * @param bool $choosen
+         * @param bool $printable
+         * @return $this 
+         * @static 
+         */
+        public static function addInputText($title = '', $data = '', $name = '', $colClass = '', $dialogAttr = '', $colWidth = '', $visible = true, $orderable = true, $searchable = true, $choosen = true, $printable = true)
+        {
+            return \Aut\DataTable\DataTableBuilder::addInputText($title, $data, $name, $colClass, $dialogAttr, $colWidth, $visible, $orderable, $searchable, $choosen, $printable);
+        }
+        
+        /**
+         * 
+         *
+         * @param string $title
+         * @param string $data
+         * @param string $name
+         * @param string $colClass
+         * @param string $dialogAttr
+         * @param string $colWidth
+         * @param bool $visible
+         * @param bool $orderable
+         * @param bool $searchable
+         * @param bool $choosen
+         * @param bool $printable
+         * @return $this 
+         * @static 
+         */
+        public static function addInputDate($title = '', $data = '', $name = '', $colClass = '', $dialogAttr = '', $colWidth = '', $visible = true, $orderable = true, $searchable = true, $choosen = true, $printable = true)
+        {
+            return \Aut\DataTable\DataTableBuilder::addInputDate($title, $data, $name, $colClass, $dialogAttr, $colWidth, $visible, $orderable, $searchable, $choosen, $printable);
+        }
+        
+        /**
+         * 
+         *
+         * @param string $title
+         * @param string $data
+         * @param string $name
+         * @param string $colClass
+         * @param string $dialogAttr
+         * @param string $colWidth
+         * @param bool $visible
+         * @param bool $orderable
+         * @param bool $searchable
+         * @param bool $choosen
+         * @param bool $printable
+         * @return $this 
+         * @static 
+         */
+        public static function addInputTime($title = '', $data = '', $name = '', $colClass = '', $dialogAttr = '', $colWidth = '', $visible = true, $orderable = true, $searchable = true, $choosen = true, $printable = true)
+        {
+            return \Aut\DataTable\DataTableBuilder::addInputTime($title, $data, $name, $colClass, $dialogAttr, $colWidth, $visible, $orderable, $searchable, $choosen, $printable);
+        }
+        
+        /**
+         * 
+         *
+         * @param string $title
+         * @param string $data
+         * @param string $name
+         * @param string $colClass
+         * @param string $dialogAttr
+         * @param string $colWidth
+         * @param bool $visible
+         * @param bool $orderable
+         * @param bool $searchable
+         * @param bool $choosen
+         * @param bool $printable
+         * @return $this 
+         * @static 
+         */
+        public static function addInputDateTimeLocal($title = '', $data = '', $name = '', $colClass = '', $dialogAttr = '', $colWidth = '', $visible = true, $orderable = true, $searchable = true, $choosen = true, $printable = true)
+        {
+            return \Aut\DataTable\DataTableBuilder::addInputDateTimeLocal($title, $data, $name, $colClass, $dialogAttr, $colWidth, $visible, $orderable, $searchable, $choosen, $printable);
+        }
+        
+        /**
+         * 
+         *
+         * @param string $title
+         * @param string $data
+         * @param string $name
+         * @param string $colClass
+         * @param string $dialogAttr
+         * @param string $colWidth
+         * @param bool $visible
+         * @param bool $orderable
+         * @param bool $searchable
+         * @param bool $choosen
+         * @param bool $printable
+         * @return $this 
+         * @static 
+         */
+        public static function addInputDateTime($title = '', $data = '', $name = '', $colClass = '', $dialogAttr = '', $colWidth = '', $visible = true, $orderable = true, $searchable = true, $choosen = true, $printable = true)
+        {
+            return \Aut\DataTable\DataTableBuilder::addInputDateTime($title, $data, $name, $colClass, $dialogAttr, $colWidth, $visible, $orderable, $searchable, $choosen, $printable);
+        }
+        
+        /**
+         * 
+         *
+         * @param string $title
+         * @param string $data
+         * @param string $name
+         * @param string $colClass
+         * @param string $dialogAttr
+         * @param string $colWidth
+         * @param bool $visible
+         * @param bool $orderable
+         * @param bool $searchable
+         * @param bool $choosen
+         * @param bool $printable
+         * @return $this 
+         * @static 
+         */
+        public static function addInputMonth($title = '', $data = '', $name = '', $colClass = '', $dialogAttr = '', $colWidth = '', $visible = true, $orderable = true, $searchable = true, $choosen = true, $printable = true)
+        {
+            return \Aut\DataTable\DataTableBuilder::addInputMonth($title, $data, $name, $colClass, $dialogAttr, $colWidth, $visible, $orderable, $searchable, $choosen, $printable);
+        }
+        
+        /**
+         * 
+         *
+         * @param string $title
+         * @param string $data
+         * @param string $name
+         * @param string $colClass
+         * @param string $dialogAttr
+         * @param string $colWidth
+         * @param bool $visible
+         * @param bool $orderable
+         * @param bool $searchable
+         * @param bool $choosen
+         * @param bool $printable
+         * @return $this 
+         * @static 
+         */
+        public static function addInputWeek($title = '', $data = '', $name = '', $colClass = '', $dialogAttr = '', $colWidth = '', $visible = true, $orderable = true, $searchable = true, $choosen = true, $printable = true)
+        {
+            return \Aut\DataTable\DataTableBuilder::addInputWeek($title, $data, $name, $colClass, $dialogAttr, $colWidth, $visible, $orderable, $searchable, $choosen, $printable);
+        }
+        
+        /**
+         * 
+         *
+         * @param string $title
+         * @param string $data
+         * @param string $name
+         * @param string $colClass
+         * @param string $dialogAttr
+         * @param string $colWidth
+         * @param bool $visible
+         * @param bool $orderable
+         * @param bool $searchable
+         * @param bool $choosen
+         * @param bool $printable
+         * @return $this 
+         * @static 
+         */
+        public static function addInputEmail($title = '', $data = '', $name = '', $colClass = '', $dialogAttr = '', $colWidth = '', $visible = true, $orderable = true, $searchable = true, $choosen = true, $printable = true)
+        {
+            return \Aut\DataTable\DataTableBuilder::addInputEmail($title, $data, $name, $colClass, $dialogAttr, $colWidth, $visible, $orderable, $searchable, $choosen, $printable);
+        }
+        
+        /**
+         * 
+         *
+         * @param string $title
+         * @param string $data
+         * @param string $name
+         * @param string $colClass
+         * @param string $dialogAttr
+         * @param string $colWidth
+         * @param bool $visible
+         * @param bool $orderable
+         * @param bool $searchable
+         * @param bool $choosen
+         * @param bool $printable
+         * @return $this 
+         * @static 
+         */
+        public static function addInputUrl($title = '', $data = '', $name = '', $colClass = '', $dialogAttr = '', $colWidth = '', $visible = true, $orderable = true, $searchable = true, $choosen = true, $printable = true)
+        {
+            return \Aut\DataTable\DataTableBuilder::addInputUrl($title, $data, $name, $colClass, $dialogAttr, $colWidth, $visible, $orderable, $searchable, $choosen, $printable);
+        }
+        
+        /**
+         * 
+         *
+         * @param string $title
+         * @param string $id
+         * @param string $name
+         * @param string $value
+         * @param string $class
+         * @param string $attr
+         * @return $this 
+         * @static 
+         */
+        public static function addInputTextDialog($title = '', $id = '', $name = '', $value = '', $class = '', $attr = '')
+        {
+            return \Aut\DataTable\DataTableBuilder::addInputTextDialog($title, $id, $name, $value, $class, $attr);
+        }
+        
+        /**
+         * 
+         *
+         * @param array $cols
+         * @param string $colClass
+         * @param string $colWidth
+         * @param string $dialogAttr
+         * @param bool $visible
+         * @param bool $orderable
+         * @param bool $searchable
+         * @param bool $choosen
+         * @param bool $printable
+         * @return $this 
+         * @static 
+         */
+        public static function addMultiInputTextLangs($cols = array(), $colClass = '', $colWidth = '', $dialogAttr = '', $visible = true, $orderable = true, $searchable = true, $choosen = true, $printable = true)
+        {
+            return \Aut\DataTable\DataTableBuilder::addMultiInputTextLangs($cols, $colClass, $colWidth, $dialogAttr, $visible, $orderable, $searchable, $choosen, $printable);
+        }
+        
+        /**
+         * 
+         *
+         * @param array $cols
+         * @param string $colClass
+         * @param string $colWidth
+         * @param string $dialogAttr
+         * @param bool $visible
+         * @param bool $orderable
+         * @param bool $searchable
+         * @param bool $choosen
+         * @param bool $printable
+         * @return $this 
+         * @static 
+         */
+        public static function addMultiTextareaLangs($cols = array(), $colClass = '', $colWidth = '', $dialogAttr = '', $visible = true, $orderable = true, $searchable = true, $choosen = true, $printable = true)
+        {
+            return \Aut\DataTable\DataTableBuilder::addMultiTextareaLangs($cols, $colClass, $colWidth, $dialogAttr, $visible, $orderable, $searchable, $choosen, $printable);
+        }
+        
+        /**
+         * 
+         *
+         * @param string $title
+         * @param string $data
+         * @param string $name
+         * @param string $colClass
+         * @param string $dialogAttr
+         * @param string $colWidth
+         * @param bool $visible
+         * @param bool $orderable
+         * @param bool $searchable
+         * @param bool $choosen
+         * @param bool $printable
+         * @return $this 
+         * @static 
+         */
+        public static function addInputPassword($title = '', $data = '', $name = '', $colClass = '', $dialogAttr = '', $colWidth = '', $visible = true, $orderable = true, $searchable = true, $choosen = true, $printable = false)
+        {
+            return \Aut\DataTable\DataTableBuilder::addInputPassword($title, $data, $name, $colClass, $dialogAttr, $colWidth, $visible, $orderable, $searchable, $choosen, $printable);
+        }
+        
+        /**
+         * 
+         *
+         * @param string $title
+         * @param string $data
+         * @param string $name
+         * @param string $colClass
+         * @param string $groupIcon
+         * @param string $groupClass
+         * @param string $dialogAttr
+         * @param string $colWidth
+         * @param bool $visible
+         * @param bool $orderable
+         * @param bool $searchable
+         * @param bool $choosen
+         * @param bool $printable
+         * @return $this 
+         * @static 
+         */
+        public static function addInputGroup($title = '', $data = '', $name = '', $colClass = '', $groupIcon = '', $groupClass = '', $dialogAttr = '', $colWidth = '', $visible = true, $orderable = true, $searchable = true, $choosen = true, $printable = true)
+        {
+            return \Aut\DataTable\DataTableBuilder::addInputGroup($title, $data, $name, $colClass, $groupIcon, $groupClass, $dialogAttr, $colWidth, $visible, $orderable, $searchable, $choosen, $printable);
+        }
+        
+        /**
+         * 
+         *
+         * @param string $title
+         * @param string $data
+         * @param string $name
+         * @param string $colClass
+         * @param string $dialogAttr
+         * @param string $colWidth
+         * @param bool $visible
+         * @param bool $orderable
+         * @param bool $searchable
+         * @param bool $choosen
+         * @param bool $printable
+         * @return $this 
+         * @static 
+         */
+        public static function addTextArea($title = '', $data = '', $name = '', $colClass = '', $dialogAttr = '', $colWidth = '', $visible = true, $orderable = true, $searchable = true, $choosen = true, $printable = true)
+        {
+            return \Aut\DataTable\DataTableBuilder::addTextArea($title, $data, $name, $colClass, $dialogAttr, $colWidth, $visible, $orderable, $searchable, $choosen, $printable);
+        }
+        
+        /**
+         * 
+         *
+         * @param string $title
+         * @param string $data
+         * @param string $name
+         * @param string $colClass
+         * @param string $dialogAttr
+         * @param string $colWidth
+         * @param bool $visible
+         * @param bool $orderable
+         * @param bool $searchable
+         * @param bool $choosen
+         * @param bool $printable
+         * @return $this 
+         * @static 
+         */
+        public static function addInputNumber($title = '', $data = '', $name = '', $colClass = '', $dialogAttr = '', $colWidth = '', $visible = true, $orderable = true, $searchable = true, $choosen = true, $printable = true)
+        {
+            return \Aut\DataTable\DataTableBuilder::addInputNumber($title, $data, $name, $colClass, $dialogAttr, $colWidth, $visible, $orderable, $searchable, $choosen, $printable);
+        }
+        
+        /**
+         * 
+         *
+         * @param string $url
+         * @param string $title
+         * @param string $data
+         * @param string $name
+         * @param string $colLabel
+         * @param string $colClass
+         * @param string $dialogAttr
+         * @param string $colWidth
+         * @param bool $visible
+         * @param bool $orderable
+         * @param bool $searchable
+         * @param bool $choosen
+         * @param bool $printable
+         * @return $this 
+         * @static 
+         */
+        public static function addAutocomplete($url = '', $title = '', $data = '', $name = '', $colLabel = '', $colClass = '', $dialogAttr = '', $colWidth = '', $visible = true, $orderable = true, $searchable = true, $choosen = true, $printable = true)
+        {
+            return \Aut\DataTable\DataTableBuilder::addAutocomplete($url, $title, $data, $name, $colLabel, $colClass, $dialogAttr, $colWidth, $visible, $orderable, $searchable, $choosen, $printable);
+        }
+        
+        /**
+         * 
+         *
+         * @param string $url
+         * @param string $templete
+         * @param string $title
+         * @param string $data
+         * @param string $name
+         * @param string $colLabel
+         * @param string $colClass
+         * @param string $dialogAttr
+         * @param string $colWidth
+         * @param bool $visible
+         * @param bool $orderable
+         * @param bool $searchable
+         * @param bool $choosen
+         * @param bool $printable
+         * @return $this 
+         * @static 
+         */
+        public static function addMultiAutocomplete($url = '', $templete = '', $title = '', $data = '', $name = '', $colLabel = '', $colClass = '', $dialogAttr = '', $colWidth = '', $visible = true, $orderable = false, $searchable = true, $choosen = true, $printable = true)
+        {
+            return \Aut\DataTable\DataTableBuilder::addMultiAutocomplete($url, $templete, $title, $data, $name, $colLabel, $colClass, $dialogAttr, $colWidth, $visible, $orderable, $searchable, $choosen, $printable);
+        }
+        
+        /**
+         * 
+         *
+         * @param array $obj
+         * @param string $title
+         * @param string $data
+         * @param string $name
+         * @param string $colLabel
+         * @param string $colClass
+         * @param string $dialogAttr
+         * @param string $colWidth
+         * @param bool $visible
+         * @param bool $orderable
+         * @param bool $searchable
+         * @param bool $choosen
+         * @param bool $printable
+         * @return $this 
+         * @static 
+         */
+        public static function addSelect($obj = array(), $title = '', $data = '', $name = '', $colLabel = '', $colClass = '', $dialogAttr = '', $colWidth = '', $visible = true, $orderable = true, $searchable = true, $choosen = true, $printable = true)
+        {
+            return \Aut\DataTable\DataTableBuilder::addSelect($obj, $title, $data, $name, $colLabel, $colClass, $dialogAttr, $colWidth, $visible, $orderable, $searchable, $choosen, $printable);
+        }
+        
+        /**
+         * 
+         *
+         * @param string $title
+         * @param string $data
+         * @param string $name
+         * @param string $colLabel
+         * @param string $colClass
+         * @param string $dialogAttr
+         * @param string $colWidth
+         * @param bool $visible
+         * @param bool $orderable
+         * @param bool $searchable
+         * @param bool $choosen
+         * @param bool $printable
+         * @return $this 
+         * @static 
+         */
+        public static function addViewField($title = '', $data = '', $name = '', $colLabel = '', $colClass = '', $dialogAttr = '', $colWidth = '', $visible = true, $orderable = true, $searchable = true, $choosen = true, $printable = true)
+        {
+            return \Aut\DataTable\DataTableBuilder::addViewField($title, $data, $name, $colLabel, $colClass, $dialogAttr, $colWidth, $visible, $orderable, $searchable, $choosen, $printable);
+        }
+        
+        /**
+         * 
+         *
+         * @param string $title
+         * @param string $data
+         * @param string $name
+         * @param string $colClass
+         * @param string $colWidth
+         * @return $this 
+         * @static 
+         */
+        public static function addActionButton($title = '', $data = '', $name = '', $colClass = 'center all', $colWidth = '40px')
+        {
+            return \Aut\DataTable\DataTableBuilder::addActionButton($title, $data, $name, $colClass, $colWidth);
         }
         
         /**
@@ -14064,120 +14682,6 @@ namespace Aut\DataTable {
         /**
          * 
          *
-         * @param string $data
-         * @param string $name
-         * @param string $value
-         * @param bool $primaryKey
-         * @param bool $permanent
-         * @return $this 
-         * @static 
-         */
-        public static function addHiddenInput($data = '', $name = '', $value = '', $primaryKey = false, $permanent = false)
-        {
-            return \Aut\DataTable\DataTableBuilder::addHiddenInput($data, $name, $value, $primaryKey, $permanent);
-        }
-        
-        /**
-         * 
-         *
-         * @return $this 
-         * @static 
-         */
-        public static function addIndex()
-        {
-            return \Aut\DataTable\DataTableBuilder::addIndex();
-        }
-        
-        /**
-         * 
-         *
-         * @param string $title
-         * @param string $data
-         * @param string $name
-         * @param string $colClass
-         * @param string|array $dialogAttr
-         * @param string $colWidth
-         * @param bool $visible
-         * @param bool $orderable
-         * @param bool $searchable
-         * @param bool $choosen
-         * @return $this 
-         * @static 
-         */
-        public static function addInputText($title = '', $data = '', $name = '', $colClass = '', $dialogAttr = '', $colWidth = '', $visible = true, $orderable = true, $searchable = true, $choosen = true, $printable = true)
-        {
-            return \Aut\DataTable\DataTableBuilder::addInputText($title, $data, $name, $colClass, $dialogAttr, $colWidth, $visible, $orderable, $searchable, $choosen, $printable);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function addInputTextDialog($title = '', $id = '', $name = '', $value = '', $class = '', $attr = '')
-        {
-            return \Aut\DataTable\DataTableBuilder::addInputTextDialog($title, $id, $name, $value, $class, $attr);
-        }
-        
-        /**
-         * 
-         *
-         * @param array $cols
-         * @param string $type
-         * @param string $colClass
-         * @param string $colWidth
-         * @param string|array $dialogAttr
-         * @return $this 
-         * @static 
-         */
-        public static function addMultiInputs($cols = array(), $type = 'text', $colClass = '', $colWidth = '', $dialogAttr = '', $visible = true, $orderable = true, $searchable = true, $choosen = true, $printable = true)
-        {
-            return \Aut\DataTable\DataTableBuilder::addMultiInputs($cols, $type, $colClass, $colWidth, $dialogAttr, $visible, $orderable, $searchable, $choosen, $printable);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function startHorizontalTab()
-        {
-            return \Aut\DataTable\DataTableBuilder::startHorizontalTab();
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function openHorizontalTab($id, $title, $class = '', $active = false)
-        {
-            return \Aut\DataTable\DataTableBuilder::openHorizontalTab($id, $title, $class, $active);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function closeHorizontalTab()
-        {
-            return \Aut\DataTable\DataTableBuilder::closeHorizontalTab();
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function endHorizontalTab()
-        {
-            return \Aut\DataTable\DataTableBuilder::endHorizontalTab();
-        }
-        
-        /**
-         * 
-         *
          * @param string $component
          * @param string $class
          * @return $this 
@@ -14204,8 +14708,14 @@ namespace Aut\DataTable {
          * 
          *
          * @param string $component
-         * @param array $options = [ ['selector' => '' , 'targetAttr' => '' ,'rowVal' => ''] ,[] , ...... ,[] ]
-         * @return $this 
+         * @param array $options
+         * @return $this ---------
+         *   desc
+         * ---------
+         * 
+         * $options = [
+         *      ['selector' => '' , 'targetAttr' => '' ,'rowVal' => ''] ,[] , ...... ,[]
+         * ]
          * @static 
          */
         public static function addComponent($component = '', $options = array())
@@ -14216,215 +14726,22 @@ namespace Aut\DataTable {
         /**
          * 
          *
-         * @static 
-         */
-        public static function addBlade($component = '', $appendTo = '')
-        {
-            return \Aut\DataTable\DataTableBuilder::addBlade($component, $appendTo);
-        }
-        
-        /**
-         * 
-         *
-         * @param string $title
-         * @param string $data
-         * @param string $name
-         * @param string $colClass
-         * @param string|array $dialogAttr
-         * @param string $colWidth
-         * @param bool $visible
-         * @param bool $orderable
-         * @param bool $searchable
-         * @param bool $choosen
+         * @param string $component
+         * @param string $appendLocation
+         * @param string $appendType => prependTo || appendTo
          * @return $this 
          * @static 
          */
-        public static function addInputPassword($title = '', $data = '', $name = '', $colClass = '', $dialogAttr = '', $colWidth = '', $visible = true, $orderable = true, $searchable = true, $choosen = true, $printable = false)
+        public static function addBlade($id, $component = '', $appendLocation = 'body', $appendType = 'appendTo')
         {
-            return \Aut\DataTable\DataTableBuilder::addInputPassword($title, $data, $name, $colClass, $dialogAttr, $colWidth, $visible, $orderable, $searchable, $choosen, $printable);
+            return \Aut\DataTable\DataTableBuilder::addBlade($id, $component, $appendLocation, $appendType);
         }
         
         /**
-         * 
-         *
-         * @param string $title
-         * @param string $data
-         * @param string $name
-         * @param string $colClass
-         * @param string $groupIcon
-         * @param string $groupClass
-         * @param string|array $dialogAttr
-         * @param string $colWidth
-         * @param bool $visible
-         * @param bool $orderable
-         * @param bool $searchable
-         * @param bool $choosen
-         * @return $this 
-         * @static 
-         */
-        public static function addInputGroup($title = '', $data = '', $name = '', $colClass = '', $groupIcon = '', $groupClass = '', $dialogAttr = '', $colWidth = '', $visible = true, $orderable = true, $searchable = true, $choosen = true, $printable = true)
-        {
-            return \Aut\DataTable\DataTableBuilder::addInputGroup($title, $data, $name, $colClass, $groupIcon, $groupClass, $dialogAttr, $colWidth, $visible, $orderable, $searchable, $choosen, $printable);
-        }
-        
-        /**
-         * 
-         *
-         * @param string $title
-         * @param string $data
-         * @param string $name
-         * @param string $colClass
-         * @param string|array $dialogAttr
-         * @param string $colWidth
-         * @param bool $visible
-         * @param bool $orderable
-         * @param bool $searchable
-         * @param bool $choosen
-         * @return $this 
-         * @static 
-         */
-        public static function addTextArea($title = '', $data = '', $name = '', $colClass = '', $dialogAttr = '', $colWidth = '', $visible = true, $orderable = true, $searchable = true, $choosen = true, $printable = true)
-        {
-            return \Aut\DataTable\DataTableBuilder::addTextArea($title, $data, $name, $colClass, $dialogAttr, $colWidth, $visible, $orderable, $searchable, $choosen, $printable);
-        }
-        
-        /**
-         * 
-         *
-         * @param string $title
-         * @param string $data
-         * @param string $name
-         * @param string $colClass
-         * @param string|array $dialogAttr
-         * @param string $colWidth
-         * @param bool $visible
-         * @param bool $orderable
-         * @param bool $searchable
-         * @param bool $choosen
-         * @return $this 
-         * @static 
-         */
-        public static function addInputNumber($title = '', $data = '', $name = '', $colClass = '', $dialogAttr = '', $colWidth = '', $visible = true, $orderable = true, $searchable = true, $choosen = true, $printable = true)
-        {
-            return \Aut\DataTable\DataTableBuilder::addInputNumber($title, $data, $name, $colClass, $dialogAttr, $colWidth, $visible, $orderable, $searchable, $choosen, $printable);
-        }
-        
-        /**
-         * 
-         *
-         * @param string $title
-         * @param string $data
-         * @param string $name
-         * @param string $colClass
-         * @param string $colWidth
-         * @return $this 
-         * @static 
-         */
-        public static function addActionButton($title = '', $data = '', $name = '', $colClass = 'center all', $colWidth = '40px')
-        {
-            return \Aut\DataTable\DataTableBuilder::addActionButton($title, $data, $name, $colClass, $colWidth);
-        }
-        
-        /**
-         * 
-         *
-         * @param string $url
-         * @param string $title
-         * @param string $data
-         * @param string $name
-         * @param string $colLabel
-         * @param string $colClass
-         * @param string|array $dialogAttr
-         * @param string $colWidth
-         * @param bool $visible
-         * @param bool $orderable
-         * @param bool $searchable
-         * @param bool $choosen
-         * @return $this 
-         * @static 
-         */
-        public static function addAutocomplete($url = '', $title = '', $data = '', $name = '', $colLabel = '', $colClass = '', $dialogAttr = '', $colWidth = '', $visible = true, $orderable = true, $searchable = true, $choosen = true, $printable = true)
-        {
-            return \Aut\DataTable\DataTableBuilder::addAutocomplete($url, $title, $data, $name, $colLabel, $colClass, $dialogAttr, $colWidth, $visible, $orderable, $searchable, $choosen, $printable);
-        }
-        
-        /**
-         * 
-         *
-         * @param string $url
-         * @param string $templete
-         * @param string $title
-         * @param string $data
-         * @param string $name
-         * @param string $colLabel
-         * @param string $colClass
-         * @param string|array $dialogAttr
-         * @param string $colWidth
-         * @param bool $visible
-         * @param bool $orderable
-         * @param bool $searchable
-         * @param bool $choosen
-         * @return $this 
-         * @static 
-         */
-        public static function addMultiAutocomplete($url = '', $templete = '', $title = '', $data = '', $name = '', $colLabel = '', $colClass = '', $dialogAttr = '', $colWidth = '', $visible = true, $orderable = false, $searchable = true, $choosen = true, $printable = true)
-        {
-            return \Aut\DataTable\DataTableBuilder::addMultiAutocomplete($url, $templete, $title, $data, $name, $colLabel, $colClass, $dialogAttr, $colWidth, $visible, $orderable, $searchable, $choosen, $printable);
-        }
-        
-        /**
-         * 
-         *
-         * @param array $obj
-         * @param string $title
-         * @param string $data
-         * @param string $name
-         * @param string $colLabel
-         * @param string $colClass
-         * @param string|array $dialogAttr
-         * @param string $colWidth
-         * @param bool $visible
-         * @param bool $orderable
-         * @param bool $searchable
-         * @param bool $choosen
-         * @return $this 
-         * @static 
-         */
-        public static function addSelect($obj = array(), $title = '', $data = '', $name = '', $colLabel = '', $colClass = '', $dialogAttr = '', $colWidth = '', $visible = true, $orderable = true, $searchable = true, $choosen = true, $printable = true)
-        {
-            return \Aut\DataTable\DataTableBuilder::addSelect($obj, $title, $data, $name, $colLabel, $colClass, $dialogAttr, $colWidth, $visible, $orderable, $searchable, $choosen, $printable);
-        }
-        
-        /**
-         * 
-         *
-         * @param string $title
-         * @param string $data
-         * @param string $name
-         * @param string $colLabel
-         * @param string $colClass
-         * @param string|array $dialogAttr
-         * @param string $colWidth
-         * @param bool $visible
-         * @param bool $orderable
-         * @param bool $searchable
-         * @param bool $choosen
-         * @return $this 
-         * @static 
-         */
-        public static function addViewField($title = '', $data = '', $name = '', $colLabel = '', $colClass = '', $dialogAttr = '', $colWidth = '', $visible = true, $orderable = true, $searchable = true, $choosen = true, $printable = true)
-        {
-            return \Aut\DataTable\DataTableBuilder::addViewField($title, $data, $name, $colLabel, $colClass, $dialogAttr, $colWidth, $visible, $orderable, $searchable, $choosen, $printable);
-        }
-        
-        /**
-         * ----------------------------------------------------------------------
-         *  Event on Add
-         *  you can add some javascript to exec on add any new record from dialog
-         * ----------------------------------------------------------------------
+         * you can use js parameter: (param)
          *
          * @param $script
-         * @return $this 
+         * @return \Aut\DataTable\$this* 
          * @static 
          */
         public static function onAdd($script)
@@ -14433,8 +14750,10 @@ namespace Aut\DataTable {
         }
         
         /**
-         * 
+         * you can use js parameter: (param)
          *
+         * @param $script
+         * @return $this 
          * @static 
          */
         public static function onUpdate($script)
@@ -14443,8 +14762,10 @@ namespace Aut\DataTable {
         }
         
         /**
-         * 
+         * you can use js parameter: (param)
          *
+         * @param $script
+         * @return $this 
          * @static 
          */
         public static function onDelete($script)
@@ -14453,8 +14774,22 @@ namespace Aut\DataTable {
         }
         
         /**
-         * 
+         * you can use js parameter: (modal ,param)
          *
+         * @param $script
+         * @return $this 
+         * @static 
+         */
+        public static function onTableCreate($script)
+        {
+            return \Aut\DataTable\DataTableBuilder::onTableCreate($script);
+        }
+        
+        /**
+         * you can use js parameter: (modal ,param)
+         *
+         * @param $script
+         * @return $this 
          * @static 
          */
         public static function onLoad($script)
@@ -14463,8 +14798,10 @@ namespace Aut\DataTable {
         }
         
         /**
-         * 
+         * you can use js parameter: (modal ,param)
          *
+         * @param $script
+         * @return $this 
          * @static 
          */
         public static function onModalOpen($script)
@@ -14473,8 +14810,10 @@ namespace Aut\DataTable {
         }
         
         /**
-         * 
+         * you can use js parameter: (modal ,param)
          *
+         * @param $script
+         * @return $this 
          * @static 
          */
         public static function onModalClose($script)
@@ -14483,8 +14822,34 @@ namespace Aut\DataTable {
         }
         
         /**
-         * 
+         * you can use js parameter: (param)
          *
+         * @param $script
+         * @return $this 
+         * @static 
+         */
+        public static function onModalAdd($script)
+        {
+            return \Aut\DataTable\DataTableBuilder::onModalAdd($script);
+        }
+        
+        /**
+         * you can use js parameter: (row ,param)
+         *
+         * @param $script
+         * @return $this 
+         * @static 
+         */
+        public static function onModalUpdate($script)
+        {
+            return \Aut\DataTable\DataTableBuilder::onModalUpdate($script);
+        }
+        
+        /**
+         * you can use js parameter: (cont , row, param)
+         *
+         * @param $script
+         * @return $this 
          * @static 
          */
         public static function onRowDetailClick($script)
@@ -14493,8 +14858,10 @@ namespace Aut\DataTable {
         }
         
         /**
-         * 
+         * you can use js parameter: (cont ,param)
          *
+         * @param $script
+         * @return $this 
          * @static 
          */
         public static function onTabClick($script)
@@ -14505,26 +14872,8 @@ namespace Aut\DataTable {
         /**
          * 
          *
-         * @static 
-         */
-        public static function openFromGroup($id = '', $class = '', $attr = '')
-        {
-            return \Aut\DataTable\DataTableBuilder::openFromGroup($id, $class, $attr);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function closeFromGroup()
-        {
-            return \Aut\DataTable\DataTableBuilder::closeFromGroup();
-        }
-        
-        /**
-         * 
-         *
+         * @param $param
+         * @param $choosen
          * @static 
          */
         public static function FillTable($param, $choosen)
@@ -14535,6 +14884,8 @@ namespace Aut\DataTable {
         /**
          * 
          *
+         * @param $param
+         * @param $choosen
          * @static 
          */
         public static function FillDialogDatatable($param, $choosen)
@@ -14545,6 +14896,7 @@ namespace Aut\DataTable {
         /**
          * 
          *
+         * @return \Illuminate\Support\Collection 
          * @static 
          */
         public static function exceptColumn()
@@ -14555,6 +14907,9 @@ namespace Aut\DataTable {
         /**
          * 
          *
+         * @param array $buttons
+         * @param array $except
+         * @return $this 
          * @static 
          */
         public static function addNavButton($buttons = array(), $except = array())
@@ -14565,21 +14920,16 @@ namespace Aut\DataTable {
         /**
          * 
          *
+         * @param $title
+         * @param $icon
+         * @param $class
+         * @param $attr
+         * @return $this 
          * @static 
          */
         public static function addCustomNavButton($title, $icon, $class, $attr)
         {
             return \Aut\DataTable\DataTableBuilder::addCustomNavButton($title, $icon, $class, $attr);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function renderHtml()
-        {
-            return \Aut\DataTable\DataTableBuilder::renderHtml();
         }
         
         /**
@@ -14596,6 +14946,10 @@ namespace Aut\DataTable {
         /**
          * 
          *
+         * @param $html
+         * @param $isCustom
+         * @param string $stringCont
+         * @return mixed 
          * @static 
          */
         public static function checkReturnValue($html, $isCustom, $stringCont = 'dialogBody')
@@ -14604,7 +14958,7 @@ namespace Aut\DataTable {
         }
         
         /**
-         * Using the Engine Factory
+         * 
          *
          * @param $query
          * @return $this 
@@ -14616,10 +14970,10 @@ namespace Aut\DataTable {
         }
         
         /**
-         * Eloquent
+         * 
          *
          * @param $model
-         * @return \Yajra\Datatables\Engines\EloquentEngine 
+         * @return $this 
          * @static 
          */
         public static function queryDatatableEloquent($model)
@@ -14642,6 +14996,7 @@ namespace Aut\DataTable {
         /**
          * 
          *
+         * @return $this 
          * @static 
          */
         public static function queryIndexColumn()
@@ -14650,16 +15005,16 @@ namespace Aut\DataTable {
         }
         
         /**
-         * add new column
+         * 
          *
          * @param $colKey
-         * @param $code string|closure
+         * @param \Closure $func
          * @return $this 
          * @static 
          */
-        public static function queryAddColumn($colKey, $closure)
+        public static function queryAddColumn($colKey, $func)
         {
-            return \Aut\DataTable\DataTableBuilder::queryAddColumn($colKey, $closure);
+            return \Aut\DataTable\DataTableBuilder::queryAddColumn($colKey, $func);
         }
         
         /**
@@ -14667,20 +15022,7 @@ namespace Aut\DataTable {
          *
          * @param $colKey
          * @param string $relation
-         * @param string $value
-         * @return $this 
-         * @static 
-         */
-        public static function queryMultiAutocomplete($colKey, $relation = '', $value = '')
-        {
-            return \Aut\DataTable\DataTableBuilder::queryMultiAutocomplete($colKey, $relation, $value);
-        }
-        
-        /**
-         * 
-         *
-         * @param $colKey
-         * @param string $relation
+         * @param string $target
          * @return $this 
          * @static 
          */
@@ -14690,22 +15032,23 @@ namespace Aut\DataTable {
         }
         
         /**
-         * edit column
+         * 
          *
          * @param $colKey
-         * @param $code string|closure
+         * @param \Closure $func
          * @return $this 
          * @static 
          */
-        public static function queryEditColumn($colKey, $closure)
+        public static function queryEditColumn($colKey, $func)
         {
-            return \Aut\DataTable\DataTableBuilder::queryEditColumn($colKey, $closure);
+            return \Aut\DataTable\DataTableBuilder::queryEditColumn($colKey, $func);
         }
         
         /**
          * 
          *
-         * @param $id
+         * @param string $id
+         * @param \Closure|null $func
          * @return $this 
          * @static 
          */
@@ -14717,7 +15060,9 @@ namespace Aut\DataTable {
         /**
          * 
          *
-         * @param $id
+         * @param string $id
+         * @param array $parentKey
+         * @param \Closure|null $func
          * @return $this 
          * @static 
          */
@@ -14729,16 +15074,37 @@ namespace Aut\DataTable {
         /**
          * 
          *
+         * @param $cols
+         * @param \Closure $func
+         * @return $this 
          * @static 
          */
-        public static function queryMultiColumn($cols = array())
+        public static function queryMultiColumn($cols, $func)
         {
-            return \Aut\DataTable\DataTableBuilder::queryMultiColumn($cols);
+            return \Aut\DataTable\DataTableBuilder::queryMultiColumn($cols, $func);
         }
         
         /**
          * 
          *
+         * @param array $cols
+         * @return $this 
+         * @static 
+         */
+        public static function queryMultiLang($cols = array())
+        {
+            return \Aut\DataTable\DataTableBuilder::queryMultiLang($cols);
+        }
+        
+        /**
+         * 
+         *
+         * @param string $colKey
+         * @param string $rowId
+         * @param string $icon
+         * @param string $class
+         * @param string $attr
+         * @return $this 
          * @static 
          */
         public static function queryCustomButton($colKey = '', $rowId = '', $icon = '', $class = '', $attr = '')
@@ -14749,6 +15115,9 @@ namespace Aut\DataTable {
         /**
          * 
          *
+         * @param $alias
+         * @param $cols
+         * @return $this 
          * @static 
          */
         public static function queryCombineColumn($alias, $cols)
@@ -14759,6 +15128,9 @@ namespace Aut\DataTable {
         /**
          * 
          *
+         * @param $alias
+         * @param $dbCol
+         * @return $this 
          * @static 
          */
         public static function queryFilterColumn($alias, $dbCol)
@@ -14769,6 +15141,9 @@ namespace Aut\DataTable {
         /**
          * 
          *
+         * @param $alias
+         * @param \Closure $func
+         * @return $this 
          * @static 
          */
         public static function queryCustomFilterColumn($alias, $func)
@@ -14779,23 +15154,114 @@ namespace Aut\DataTable {
         /**
          * 
          *
+         * @param array $columns
+         * @return $this 
          * @static 
          */
-        public static function queryescapeColumns($columns = array())
+        public static function queryEscapeColumns($columns = array())
         {
-            return \Aut\DataTable\DataTableBuilder::queryescapeColumns($columns);
+            return \Aut\DataTable\DataTableBuilder::queryEscapeColumns($columns);
         }
         
         /**
          * 
          *
-         * @param $bool
+         * @static 
+         */
+        public static function dd()
+        {
+            return \Aut\DataTable\DataTableBuilder::dd();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function ddQuery()
+        {
+            return \Aut\DataTable\DataTableBuilder::ddQuery();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function ddQuerySql()
+        {
+            return \Aut\DataTable\DataTableBuilder::ddQuerySql();
+        }
+        
+        /**
+         * 
+         *
+         * @param bool $bool
          * @return mixed 
          * @static 
          */
         public static function queryRender($bool = true)
         {
             return \Aut\DataTable\DataTableBuilder::queryRender($bool);
+        }
+        
+    }         
+}
+    
+namespace Intervention\Image\Facades {
+
+    class Image {
+        
+        /**
+         * Overrides configuration settings
+         *
+         * @param array $config
+         * @static 
+         */
+        public static function configure($config = array())
+        {
+            return \Intervention\Image\ImageManager::configure($config);
+        }
+        
+        /**
+         * Initiates an Image instance from different input types
+         *
+         * @param mixed $data
+         * @return \Intervention\Image\Image 
+         * @static 
+         */
+        public static function make($data)
+        {
+            return \Intervention\Image\ImageManager::make($data);
+        }
+        
+        /**
+         * Creates an empty image canvas
+         *
+         * @param integer $width
+         * @param integer $height
+         * @param mixed $background
+         * @return \Intervention\Image\Image 
+         * @static 
+         */
+        public static function canvas($width, $height, $background = null)
+        {
+            return \Intervention\Image\ImageManager::canvas($width, $height, $background);
+        }
+        
+        /**
+         * Create new cached image and run callback
+         * (requires additional package intervention/imagecache)
+         *
+         * @param \Closure $callback
+         * @param integer $lifetime
+         * @param boolean $returnObj
+         * @return \Image 
+         * @static 
+         */
+        public static function cache($callback, $lifetime = null, $returnObj = false)
+        {
+            return \Intervention\Image\ImageManager::cache($callback, $lifetime, $returnObj);
         }
         
     }         
@@ -14873,6 +15339,46 @@ namespace App\Library\Url\Facades {
         public static function menus()
         {
             return \App\Library\Url\RouteUrls::menus();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function attributeHtml()
+        {
+            return \App\Library\Url\RouteUrls::attributeHtml();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function moduleAttributesInputs()
+        {
+            return \App\Library\Url\RouteUrls::moduleAttributesInputs();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function pages()
+        {
+            return \App\Library\Url\RouteUrls::pages();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function builderPages()
+        {
+            return \App\Library\Url\RouteUrls::builderPages();
         }
         
     }         
@@ -17087,6 +17593,8 @@ namespace {
     class Datatables extends \Yajra\Datatables\Facades\Datatables {}
     
     class Datatable extends \Aut\DataTable\DataTableFacade {}
+    
+    class Image extends \Intervention\Image\Facades\Image {}
     
     class RouteUrls extends \App\Library\Url\Facades\RouteUrls {}
     

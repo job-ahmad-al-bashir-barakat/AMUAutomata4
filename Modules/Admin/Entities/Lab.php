@@ -2,6 +2,7 @@
 
 namespace Modules\Admin\Entities;
 
+use Modules\Utilities\Entities\Image;
 use Modules\Utilities\Traits\MultiLangs;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Modules\Admin\Entities\LangModels\LabNameLang;
@@ -46,5 +47,10 @@ class Lab extends \Eloquent
     function contact()
     {
         return $this->belongsTo(Contact::class);
+    }
+
+    function image()
+    {
+        return $this->belongsToMany(Image::class);
     }
 }

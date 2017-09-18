@@ -73,6 +73,9 @@ class FileManagerServiceProvider extends ServiceProvider
             Route::get('ajax_calls', function () {
                 return aut_filemanager_getConfig() ? view('FileManager::filemanager.ajax_calls') : abort('404');
             });
+            Route::post('ajax_calls', function () {
+                return aut_filemanager_getConfig() ? view('FileManager::filemanager.ajax_calls') : abort('404');
+            });
             Route::post('execute', function () {
                 return aut_filemanager_getConfig() ? view('FileManager::filemanager.execute') : abort('404');
             });

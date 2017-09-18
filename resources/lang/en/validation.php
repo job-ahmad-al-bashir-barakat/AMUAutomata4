@@ -85,6 +85,12 @@ return [
     'url'                  => 'The :attribute format is invalid.',
 
     /*
+     * Our Validation
+     */
+
+    'ratio' => 'The :attribute image ratio is not set correctly.',
+
+    /*
     |--------------------------------------------------------------------------
     | Custom Validation Language Lines
     |--------------------------------------------------------------------------
