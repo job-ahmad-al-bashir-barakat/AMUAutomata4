@@ -21,7 +21,7 @@
                  "data-target"           => "body",
                  'tabindex'              => '1',
                  'style'                 => "width: 100%",
-                 'data-remote'           => url($remote)
+                 'data-remote'           => localizeURL($remote)
             ],$attr)) !!}
             <div id='error_{{$name}}'></div>
         </div>

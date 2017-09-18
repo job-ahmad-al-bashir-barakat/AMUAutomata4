@@ -25,7 +25,7 @@ return [
     /*
      * cropper
      */
-
+    'image_cropper'             => 'Image Cropper Tool',
     'crop_detail'               => 'Crop Detail',
     'crop_type'                 => 'Crop Type',
     'personal_image'            => 'Personal Image',
