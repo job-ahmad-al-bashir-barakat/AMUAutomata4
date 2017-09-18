@@ -49,6 +49,11 @@ return [
         'factory'       => Modules\Utilities\Factories\PageFactory::class
     ],
 
+    'icons' => [
+        'model'         => Modules\Utilities\Entities\Icon::class,
+        'factory'       => Modules\Utilities\Factories\IconFactory::class
+    ],
+
     'sliders' => [
         'model'         => Modules\Utilities\Entities\Slider::class,
         'factory'       => Modules\Utilities\Factories\SliderFactory::class
