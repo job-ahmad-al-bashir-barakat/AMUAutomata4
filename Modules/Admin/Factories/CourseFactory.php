@@ -30,14 +30,14 @@ class CourseFactory extends GlobalFactory
      */
     public function buildDatatable($model ,$request)
     {
-        $faculty_id = $request->get('id');
+        $facultyId = $request->get('id');
 
         return $this->table
             ->config('datatable-course',trans('admin::app.course'))
             ->addPrimaryKey('id','id')
-            ->addHiddenInput('faculty_id' ,'faculty_id' ,$faculty_id ,false ,true)
-            ->addAutocomplete('autocomplete/department' ,trans('admin::app.department'), "department_id" ,'department.lang_name.'.$this->lang.'.text' ,'department.lang_name.'.$this->lang.'.text' ,'req required' ,['data-remote-param' => 'faculty='.$faculty_id])
-            ->addAutocomplete('autocomplete/degree' ,trans('admin::app.degree'), "degree_id" ,'degree.lang_name.'.$this->lang.'.text' ,'degree.lang_name.'.$this->lang.'.text' ,'' ,['data-remote-param' => 'faculty='.$faculty_id])
+            ->addHiddenInput('faculty_id', 'faculty_id', $facultyId, false, true)
+            ->addAutocomplete('autocomplete/department' ,trans('admin::app.department'), "department_id" ,'department.lang_name.'.$this->lang.'.text' ,'department.lang_name.'.$this->lang.'.text' ,'req required' ,['data-remote-param' => 'faculty='.$facultyId])
+            ->addAutocomplete('autocomplete/degree' ,trans('admin::app.degree'), "degree_id" ,'degree.lang_name.'.$this->lang.'.text' ,'degree.lang_name.'.$this->lang.'.text' ,'' ,['data-remote-param' => 'faculty='.$facultyId])
             ->addMultiInputTextLangs(['name'] ,'req required')
             ->addInputText(trans('admin::app.code'),'code' ,'code' ,'req required')
             ->addInputNumber(trans('admin::app.credit'),'credit' ,'credit' ,'req required')

@@ -16,7 +16,7 @@ class SlidersAttribute extends Attribute
     public $data = [];
 
     /**
-     * @override This Function will fill the parameter $data with its value
+     * @override This Function will fill the parameter $data with its value(s)
      *
      * @param $customModuleId
      * @param bool $forceQuery used the re-fill the parameter $data with its value from the DB
