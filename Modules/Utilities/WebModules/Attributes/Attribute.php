@@ -66,6 +66,7 @@ class Attribute
         //todo in attribute class must Use "withoutTrans" | "stopTransSaveOper" to stop trying saving multi in none multi attributes
         //todo update it after fixing Multilangs Trait "save function"
         //todo Solve in this function if the attribute is  multi values
+
         request()->merge(['transSaveOper' => $this->multiLang]);
         if ($this->multiLang) {
             $req = [];
@@ -74,6 +75,9 @@ class Attribute
             }
             request()->merge(['trans_multi' => $req]);
             $this->data = '';
+        }
+        if($this->multiVal){
+            $this->data = json_encode($this->data);
         }
         $cusModAttVal = $customModule->attributeValues()->where('attribute_id', '=', $this->id)->first();
         if($cusModAttVal){
@@ -85,20 +89,23 @@ class Attribute
     }
 
     /**
-     * This Function will fill the parameter $data with its value
+     * This Function will fill the parameter $data with its value(s)
      *
      * @param $customModuleId
      * @param bool $forceQuery used the re-fill the parameter $data with its value from the DB
      */
     public function getAttributeValue($customModuleId, $forceQuery = false)
     {
-        //todo Solve in this function if the attribute is  multi values [return all the multi | return one of the multi]
         if(!$this->data || $forceQuery){
             $customModuleAttributeValue = CustomModuleAttributeValue::where('custom_module_id', '=', $customModuleId)->where('attribute_id', '=', $this->id)->first();
             if ($this->multiLang) {
                 foreach ($customModuleAttributeValue->lang_multi as $langCode => $multi) {
                     $this->data[$langCode] = $multi->text;
                 }
+                return;
+            }
+            if($this->multiVal){
+                $this->data = json_decode($customModuleAttributeValue->value);
                 return;
             }
         }
