@@ -10,13 +10,13 @@ class SiteMenuFactory
 {
     function dataAttr()
     {
-        return [
+        return array_merge([
             'id'                => 'id' ,
             'page_id'           => 'page_id',
             'page_code'         => 'page->page_code' ,
-            'parent'            => ['id' => 'parent_id','name' => 'parent->page->page_code'],
+            'parent'            => ['id' => 'parent_id','name' => 'parent->lang_name->'.\App::getLocale().'->text'],
             'order'             => 'order',
-        ];
+        ],lang('name' ,"lang_name->{lang}->text",'all'));
     }
 
     function setContent()
