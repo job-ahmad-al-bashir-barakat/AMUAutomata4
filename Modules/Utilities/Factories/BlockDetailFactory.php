@@ -38,7 +38,7 @@ class BlockDetailFactory extends GlobalFactory
             ->addHiddenInput('block_id','block_id', $blockId, false, true)
             ->addMultiInputTextLangs(['title', 'text'], 'req required')
             ->addMultiInputTextLangs(['btn'])
-            ->addSelect(['1' => 'fa fa-cubs', '2' => 'fa fa-plus', '3' => 'fa fa-users'], 'Icon', 'icon_id', 'icon_id', '', 'req required')
+            ->addAutocomplete('autocomplete/icons', 'Icon', 'icon_id', 'icon_id', '', 'req required')
             ->addAutocomplete('autocomplete/pages', 'Page', 'page_id', 'page_id')
             ->addActionButton($this->update,'update','update')
             ->addActionButton($this->delete,'delete','delete')

@@ -9,7 +9,10 @@ class BaseDataTableMaker
 
     public function callTable($factory ,$method ,$model = null ,$request = null)
     {
-        return method_exists($factory ,$method) ? $factory->$method($model,$request) : new UndefinedMethodCallException("method $method not registered");
+        if(!method_exists($factory ,$method)) {
+            throw new UndefinedMethodCallException("method $method not registered");
+        }
+        return $factory->$method($model, $request);
     }
 
     public function callOperation($factory ,$method ,$model = null ,$request = null ,$result = null)

@@ -17,6 +17,9 @@ class IconFactory extends GlobalFactory
         return $this->table
             ->queryConfig('datatable-icons')
             ->queryDatatable($query)
+            ->queryAddColumn('icon_preview', function ($item){
+                return "<i class='{$item->code}'></i>";
+            })
             ->queryUpdateButton()
             ->queryDeleteButton()
             ->queryRender();
@@ -30,6 +33,7 @@ class IconFactory extends GlobalFactory
         return $this->table
             ->config('datatable-icons',trans('utilities::app.icons'))
             ->addPrimaryKey('id','id')
+            ->addActionButton(trans('utilities::app.preview'), 'icon_preview', '', 'center all', '100px')
             ->addInputText(trans('utilities::app.code'),'code','code','required req')
             ->addActionButton($this->update,'update','update')
             ->addActionButton($this->delete,'delete','delete')
