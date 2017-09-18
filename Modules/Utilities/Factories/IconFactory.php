@@ -3,43 +3,38 @@
 namespace Modules\Utilities\Factories;
 
 use Aut\DataTable\Factories\GlobalFactory;
-use Modules\Utilities\Entities\Block;
 
-class BlockDetailFactory extends GlobalFactory
+class IconFactory extends GlobalFactory
 {
+
     /**
      *  get datatable query
      */
-    public function getDatatable($model, $request)
+    public function getDatatable($model ,$request)
     {
-        $blockId = request('blockId');
-        $block = Block::findOrFail($blockId);
-        $query = $block->blockDetails()->allLangs()->get();
+        $query = $model::all();
 
         return $this->table
-            ->queryConfig('datatable-block')
+            ->queryConfig('datatable-icons')
             ->queryDatatable($query)
-            ->queryMultiLang(['title', 'text', 'btn'])
-            ->queryUpdateButton('id')
-            ->queryDeleteButton('id')
-            ->queryRender(true);
+            ->queryAddColumn('icon_preview', function ($item){
+                return "<i class='{$item->code}'></i>";
+            })
+            ->queryUpdateButton()
+            ->queryDeleteButton()
+            ->queryRender();
     }
 
     /**
      *  build datatable modal and table
      */
-    public function buildDatatable($model, $request)
+    public function buildDatatable($lang ,$request)
     {
-        $blockId = request('blockId');
-
         return $this->table
-            ->config('datatable-block',trans('utilities::app.block'))
+            ->config('datatable-icons',trans('utilities::app.icons'))
             ->addPrimaryKey('id','id')
-            ->addHiddenInput('block_id','block_id', $blockId, false, true)
-            ->addMultiInputTextLangs(['title', 'text'], 'req required')
-            ->addMultiInputTextLangs(['btn'])
-            ->addAutocomplete('autocomplete/icons', 'Icon', 'icon_id', 'icon_id', '', 'req required')
-            ->addAutocomplete('autocomplete/pages', 'Page', 'page_id', 'page_id')
+            ->addActionButton(trans('utilities::app.preview'), 'icon_preview', '', 'center all', '100px')
+            ->addInputText(trans('utilities::app.code'),'code','code','required req')
             ->addActionButton($this->update,'update','update')
             ->addActionButton($this->delete,'delete','delete')
             ->addNavButton()

@@ -81,6 +81,11 @@ return [
         'model' => \Modules\Utilities\Entities\Page::class,
     ],
 
+    'icons' => [
+        'model' => \Modules\Utilities\Entities\Icon::class,
+        'cols'  => ['id:id', 'name:code']
+    ],
+
     'sliders' => [
         'model' => \Modules\Utilities\Entities\Slider::class,
         'condition'   => [
