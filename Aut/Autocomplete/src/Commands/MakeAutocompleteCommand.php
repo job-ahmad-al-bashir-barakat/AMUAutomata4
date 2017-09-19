@@ -20,7 +20,7 @@ class MakeAutocompleteCommand extends Command
      *
      * @var string
      */
-    protected $name = 'make:autocompelte';
+    protected $name = 'make:autocomplete';
 
     /**
      * The console command description.
@@ -37,6 +37,7 @@ class MakeAutocompleteCommand extends Command
     protected $files = [
         //---------------------------------------config--------------------------------------//
         'config/autocompleteModels.stub'               => 'config/autocompleteModels.php',
+        'helper/AutocompleteHelper.stub'               => 'app/Library/AutocompleteHelper.php',
     ];
 
     /**

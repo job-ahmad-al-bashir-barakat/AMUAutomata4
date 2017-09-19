@@ -2,6 +2,8 @@
 
 namespace Aut\Autocomplete\Http\Controllers;
 
+use function foo\func;
+use Illuminate\Support\Str;
 use Route;
 use Exception;
 use Illuminate\Http\Request;
@@ -9,93 +11,57 @@ use Illuminate\Support\Facades\DB;
 
 class AutocompleteController
 {
-    protected  $model;
-
-    protected  $cols;
+    protected $model;
 
     protected $langs;
 
-    protected $extraColValue;
+    protected $isLang;
 
-    protected $withCondition;
-
-    protected $has;
+    protected $condition;
 
     protected $colId;
 
     protected $colName;
-
-    public $limit = 5;
 
     public function __construct()
     {
         $this->initModel();
     }
 
-    private function _autocomplete($modal ,$cols)
+    function autocomplete(Request $request, $model)
     {
-        $result   = [];
+        $model = $this->model;
 
-        $colsShow = [];
+        $object = new $model();
 
-        foreach ($cols as $index => $col)
+        // $condition
+        foreach ($this->condition as $whereHasOrIndex => $col)
         {
-            if(preg_match('/:.+[^\']/',$col ,$match))
+            $q = str_replace(' ', '%', request()->input('q', ''));
+
+            if(!is_numeric($whereHasOrIndex))
             {
-                $col  = preg_replace('/:.+[^\']/','',$col);
+                $object = $object->whereHas($whereHasOrIndex ,function ($query) use ($col ,$q) {
 
-                if($match[0] == ':key')
-                {
-                    $final['id'] = $col;
-
-                    continue;
-                }
-
-                foreach ($this->langs as $lang)
-                {
-                    $result[] = "{$col}_{$lang}";
-                }
-
-                $colsShow[] = autAutocompleteLang($col);
+                    if(!$this->isLang && Str::contains($col ,'{langs}'))
+                    {
+                        foreach ($this->langs as $lang)
+                            $query->where("{$col}_{$lang}", 'like', '%' . $q . '%');
+                    }
+                    else
+                        $query->where($col, 'like', '%' . $q . '%');
+                });
             }
             else
-                $result[] = $col;
-        }
-
-        $final['name'] = DB::raw("CONCAT(".implode(', " ," ,' ,$colsShow).") As name");
-
-        if(!array_has($final , 'id'))  {  $modalInstance = new $modal(); $final['id'] = $modalInstance->getKeyName(); }
-
-        if(!empty($this->withCondition)) $result = $this->withCondition;
-
-        $data = $modal::where(function($query) use($result) {
-            $q = str_replace(' ', '%', request()->input('q', ''));
-            foreach ($result as $index => $item)
             {
-                if($index == 0) {
-                    $query->where($item, 'like', '%' . $q . '%');
+                if(!$this->isLang && Str::contains($col ,'{langs}'))
+                {
+                    foreach ($this->langs as $lang)
+                        $object = $object->where($col, 'like', '%' . $q . '%');
                 }
-                else {
-                    $query->orWhere($item, 'like', '%' . $q . '%');
-                }
+                else
+                    $object = $object->where($col, 'like', '%' . $q . '%');
             }
-
-        })->get($final);
-
-        return $data;
-    }
-
-    private function _autocompleteLangs(Request $request, $modal)
-    {
-        $object = new $modal();
-
-        // $has => where
-        foreach ($this->has as $whereHas => $cond)
-        {
-            $object = $object->whereHas($whereHas ,function ($query) use ($cond) {
-                $q = str_replace(' ', '%', request()->input('q', ''));
-                $query->where($cond, 'like', '%' . $q . '%');
-            });
         }
 
         $autocompleteHelperClass = config('autocomplete.AutocompleteHelperClass');
@@ -120,85 +86,56 @@ class AutocompleteController
             return $name;
         };
 
+        $replaceColName = function ($colName) {
+
+            return str_replace('{lang}' ,\App::getLocale() ,$colName);
+        };
+
         $result = [];
-        $data->each(function ($item ,$index) use (&$result ,$nameFunc) {
+        $data->each(function ($item ,$index) use (&$result ,$nameFunc ,$replaceColName) {
 
             $id = $item;
             foreach (explode('->', $this->colId) as $col)
                 $id = isset($id->$col) ? $id->$col : $id->first()[$col];
-
-             //prev error
-            //$id = is_object($id->$col) ? $id->$col : $id[$col];
-            //$id = is_object($id->$col) ? $id->$col->first() : $id[$col];
 
             $name = $item;
             if(is_array($this->colName))
             {
                 $nameResult = [];
                 foreach ($this->colName as $col)
-                    $nameResult[] = $nameFunc($name ,$col);
+                    $nameResult[] = $nameFunc($name ,$replaceColName($col));
 
                 $nameResult = implode(' ,' ,$nameResult);
             }
             else
-                $nameResult = $nameFunc($name ,$this->colName);
+                $nameResult = $nameFunc($name ,$replaceColName($this->colName));
 
             $result[$index]['id']   = $id;
             $result[$index]['name'] = $nameResult;
         });
 
-        return $result;
+        return array('items' => $result);
     }
-
-    public function autocompleteLangs(Request $request ,$modal)
-    {
-        $modal = $this->model;
-
-        $data = $this->_autocompleteLangs($request ,$modal);
-
-        return array('items' => $data);
-    }
-
-    public function autocomplete($model)
-    {
-        $modal = $this->model;
-
-        $cols = $this->cols;
-
-        $data = $this->_autocomplete($modal ,$cols);
-
-        return array('items' => $data);
-    }
-
 
     private function initModel()
     {
         if(Route::getCurrentRoute() !== null)
         {
-            $model = Route::getCurrentRoute()->parameter('model');
+            $this->autocomplete = Route::getCurrentRoute()->parameter('model');
 
-            $tableSet = config('autocompleteModels.' . $model);
+            $tableSet = config('autocompleteModels.' . $this->autocomplete);
 
             if (!$tableSet) {
                 throw new Exception('This model not registered');
             }
 
-            $this->autocomplete  = $model;
-            $this->model         = isset($tableSet['model'])          ? $tableSet['model']         : '';
-
-            if(!config('autocomplete.isLangs'))
-            {
-                $this->cols          = isset($tableSet['cols'])           ? $tableSet['cols']          : [];
-                $this->extraColValue = isset($tableSet['extraColValue'])  ? $tableSet['extraColValue'] : [];
-                $this->withCondition = isset($tableSet['withCondition'])  ? $tableSet['withCondition'] : [];
-                $this->langs = \LaravelLocalization::getSupportedLanguagesKeys();
-            }
-            else
-            {
-                $this->has           = isset($tableSet['has'])     ? $tableSet['has']     : config('autocomplete.default.has');
-                $this->colId         = isset($tableSet['colId'])   ? $tableSet['colId']   : config('autocomplete.default.colId');
-                $this->colName       = isset($tableSet['colName']) ? $tableSet['colName'] : config('autocomplete.default.colName');
-            }
+            $this->isLang    = config('autocomplete.isLangs');
+            $this->langs     = \LaravelLocalization::getSupportedLanguagesKeys();
+            $withOrNot       = $this->isLang ? 'withLang' : 'withoutLang';
+            $this->model     = isset($tableSet['model']) ? $tableSet['model'] : '';
+            $this->condition = isset($tableSet['condition']) ? $tableSet['condition'] : config("autocomplete.default.$withOrNot.condition");
+            $this->colId     = isset($tableSet['colId'])   ? $tableSet['colId']   : config("autocomplete.default.$withOrNot.colId");
+            $this->colName   = isset($tableSet['colName']) ? $tableSet['colName'] : config("autocomplete.default.$withOrNot.colName");
         }
     }
 }
