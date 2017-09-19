@@ -61,7 +61,9 @@ return [
 
     'icons' => [
         'model' => \Modules\Utilities\Entities\Icon::class,
-        'cols'  => ['id:id', 'name:code']
+        'colId' => 'id',
+        'colName' => 'code',
+
     ],
 
     'sliders' => [
