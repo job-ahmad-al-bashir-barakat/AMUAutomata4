@@ -84,7 +84,7 @@ return [
     'icons' => [
         'model' => \Modules\Utilities\Entities\Icon::class,
         'condition' => ['code'],
-        'colName'  => 'code'
+        'colName'  => 'icon_html'
     ],
 
     'sliders' => [
@@ -115,6 +115,10 @@ return [
 
     'course' => [
         'model' => \Modules\Admin\Entities\Course::class,
+    ],
+
+    'person' => [
+        'model' => \Modules\Admin\Entities\Person::class,
     ],
 
     'gender' => [

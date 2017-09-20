@@ -20,9 +20,6 @@ class BlockDetailFactory extends GlobalFactory
             ->queryConfig('datatable-block')
             ->queryDatatable($query)
             ->queryMultiLang(['title', 'text', 'btn'])
-            ->queryAddColumn('icon_id', function ($row){
-                return "<i class='{$row->icon->code}'></i>";
-            })
             ->queryUpdateButton('id')
             ->queryDeleteButton('id')
             ->queryRender(true);
@@ -41,7 +38,8 @@ class BlockDetailFactory extends GlobalFactory
             ->addHiddenInput('block_id','block_id', $blockId, false, true)
             ->addMultiInputTextLangs(['title', 'text'], 'req required')
             ->addMultiInputTextLangs(['btn'])
-            ->addAutocomplete('autocomplete/icons', 'Icon', 'icon_id', 'icon.code', 'icon.code', 'req required')
+            ->addViewField()
+            ->addAutocomplete('autocomplete/icons', 'Icon', 'icon_id', 'icon.code', 'icon.icon_html', 'req required')
             ->addAutocomplete('autocomplete/pages', 'Page', 'page_id', "page.lang_name.{$this->lang}.text", "page.lang_name.{$this->lang}.text")
             ->addActionButton($this->update,'update','update')
             ->addActionButton($this->delete,'delete','delete')
