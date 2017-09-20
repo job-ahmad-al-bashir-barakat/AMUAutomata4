@@ -16,14 +16,14 @@ class SiteMenuFactory
             'page_code'         => 'page->page_code' ,
             'parent'            => ['id' => 'parent_id','name' => 'parent->page->lang_name->'.\App::getLocale().'->text'],
             'order'             => 'order',
-        ],lang('name' ,"lang_name->{lang}->text",'all'));
+        ],lang('name' ,"page->lang_name->{lang}->text",'all'));
     }
 
     function setContent()
     {
         return [
-            'html' => '<span style="padding: 5px;" class="tags"><i class="icon-tag"></i></span>',
-            'page->page_code',
+            //'html' => '<span style="padding: 5px;" class="tags"><i class="icon-tag"></i></span>',
+            'page->lang_name->'.\App::getLocale().'->text',
         ];
     }
 
@@ -34,6 +34,9 @@ class SiteMenuFactory
 
     function store(Request $request)
     {
+        $request->request->add(['transSaveOper' => false]);
+
+        dd($request->input());
         $page = Page::create($request->input());
 
         if(!$request->input('parent_id'))
@@ -59,6 +62,8 @@ class SiteMenuFactory
 
     function update(Request $request ,$id)
     {
+        $request->request->add(['transSaveOper' => false]);
+
         $node = SiteMenu::findOrFail($id);
 
         $node->update($request->input());

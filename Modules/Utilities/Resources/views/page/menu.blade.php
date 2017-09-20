@@ -8,7 +8,17 @@
 
 @section('content')
 
-    {!! tree($view) !!}
+    <div class="row">
+        <div class="col-md-6">
+            {!! tree($view) !!}
+        </div>
+
+        @if(view()->exists("utilities::page._{$view}_sub_section"))
+            <div class="col-md-6">
+                @include("utilities::page._{$view}_sub_section")
+            </div>
+        @endif
+    </div>
 
 @endsection
 

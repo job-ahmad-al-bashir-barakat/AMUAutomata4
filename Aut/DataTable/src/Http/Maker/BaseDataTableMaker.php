@@ -12,6 +12,7 @@ class BaseDataTableMaker
         if(!method_exists($factory ,$method)) {
             throw new UndefinedMethodCallException("method $method not registered");
         }
+
         return $factory->$method($model, $request);
     }
 
