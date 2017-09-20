@@ -17,6 +17,11 @@
                 </a>
             </li>
             <li class="">
+                <a href="{{ RouteUrls::icons() }}" class="ajax" title="{{ trans('utilities::app.icons') }}">
+                    <span>{{ trans('utilities::app.icons') }}</span>
+                </a>
+            </li>
+            <li class="">
                 <a href="{{ RouteUrls::users() }}" class="ajax" title="{{ trans('utilities::app.users') }}">
                     <span>{{ trans('utilities::app.users') }}</span>
                 </a>

@@ -83,9 +83,8 @@ return [
 
     'icons' => [
         'model' => \Modules\Utilities\Entities\Icon::class,
-        'colId' => 'id',
-        'colName' => 'code',
-
+        'condition' => ['code'],
+        'colName'  => 'code'
     ],
 
     'sliders' => [

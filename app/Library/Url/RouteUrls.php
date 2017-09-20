@@ -59,6 +59,11 @@ class RouteUrls
         return $this->localizeUrl('pages', 'utilities');
     }
 
+    public function icons()
+    {
+        return $this->localizeUrl('icons', 'utilities');
+    }
+
     public function builderPages()
     {
         return $this->localizeUrl('builder/pages', 'utilities');
