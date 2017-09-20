@@ -104,6 +104,11 @@ return [
         'factory'       => Modules\Utilities\Factories\SettingFactory::class,
     ],
 
+    'menu-tables' => [
+        'model'         => Modules\Utilities\Entities\MenuTables::class,
+        'factory'       => Modules\Utilities\Factories\MenuTablesFactory::class,
+    ],
+
     /**
      *  Admin Module
      */

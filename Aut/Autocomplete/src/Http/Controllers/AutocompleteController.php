@@ -4,6 +4,7 @@ namespace Aut\Autocomplete\Http\Controllers;
 
 use function foo\func;
 use Illuminate\Support\Str;
+use Modules\Admin\Entities\Department;
 use Route;
 use Exception;
 use Illuminate\Http\Request;

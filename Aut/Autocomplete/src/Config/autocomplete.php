@@ -4,7 +4,7 @@ return [
 
     'routeMiddleware' => ['web', 'localeSessionRedirect', 'localizationRedirect' ],
 
-    'isLangs' => true,
+    'isLangs' => false,
 
     'AutocompleteHelperClass' => \App\Library\AutocompleteHelper::class,
 

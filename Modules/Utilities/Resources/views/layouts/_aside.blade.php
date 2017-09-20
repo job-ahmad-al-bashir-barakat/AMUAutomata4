@@ -58,6 +58,12 @@
                     <span>{{ trans('utilities::app.control') }}</span>
                 </a>
             </li>
+
+            <li class="">
+                <a href="{{ RouteUrls::menuTables()  }}" class="ajax" title="{{ trans('utilities::app.menu_tables') }}">
+                    <span>{{ trans('utilities::app.menu_tables') }}</span>
+                </a>
+            </li>
         </ul>
     </li>
     <li class="">
