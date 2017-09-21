@@ -56,7 +56,7 @@ if(! function_exists('tree'))
     {
         $url = localizeURL("utilities/$tree/tree");
 
-        return "<div data-url='$url' class='aut-tree $tree-tree' data-group='$group' data-max-depth='$maxDepth'></div>";
+        return "<div data-url='$url' class='aut-tree $tree-tree' data-group='$group' data-max-depth='$maxDepth' data-storage-key='$tree-key'></div>";
     }
 }
 

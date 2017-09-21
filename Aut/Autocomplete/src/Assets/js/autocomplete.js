@@ -10,6 +10,7 @@
  * DIR  = "{{ $dir }}",
  * LANG = "{{ $lang }}",
  */
+
 var APP = {
 
     // autocomplete select2

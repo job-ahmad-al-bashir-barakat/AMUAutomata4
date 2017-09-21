@@ -11,24 +11,8 @@ namespace Aut\Autocomplete\Commands;
 use Illuminate\Console\DetectsApplicationNamespace;
 use Illuminate\Console\Command;
 
-class MakeAutocompleteCommand extends Command
+trait MakeAutocomplete
 {
-    use DetectsApplicationNamespace;
-
-    /**
-     * The name and signature of the console command.
-     *
-     * @var string
-     */
-    protected $name = 'make:autocomplete';
-
-    /**
-     * The console command description.
-     *
-     * @var string
-     */
-    protected $description = 'publish all content autocompelte';
-
     /**
      * The views that need to be exported.
      *
@@ -47,11 +31,25 @@ class MakeAutocompleteCommand extends Command
      */
     public function fire()
     {
+        $this->createDirectories();
+
         $this->exportFiles();
 
         $this->comment('Autocompelte scaffolding generated successfully!');
     }
 
+    /**
+     * Create the directories for the files.
+     *
+     * @return void
+     */
+    protected function createDirectories()
+    {
+        // Dir Files
+        if (! is_dir(base_path('app/Library'))) {
+            mkdir(base_path('app/Library'), 0755, true);
+        }
+    }
     /**
      * Export the authentication views.
      *

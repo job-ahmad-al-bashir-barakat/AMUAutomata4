@@ -23,13 +23,20 @@ class AutocompleteServiceProvider extends ServiceProvider
      */
     protected $package  = 'autocomplete';
 
-    protected $commands = [
-        \Aut\Autocomplete\Commands\MakeAutocompleteCommand::class,
-    ];
+    protected $commands = [];
 
     protected $namespace = 'Aut\Autocomplete\Http\Controllers';
 
     protected $middleware;
+
+    function __construct(\Illuminate\Foundation\Application $app)
+    {
+        parent::__construct($app);
+
+        $this->registerConfig();
+
+        $this->commands = $this->registerCommandByVersion($this->commands);
+    }
 
     public function boot(Router $router)
     {
@@ -38,6 +45,36 @@ class AutocompleteServiceProvider extends ServiceProvider
         $this->registerRoute($router);
 
         $this->publishAutocomplete();
+    }
+
+    protected function registerCommandByVersion($commands)
+    {
+        $laravel = app();
+        $version = preg_match('/\d\.\d/',$laravel::VERSION ,$v);
+
+        if($version)
+            $version = $v[0];
+        else
+            $version = config('autocomplete.version');
+
+        switch ($version)
+        {
+            case '5.2': {
+                return array_merge($commands ,[
+                    \Aut\Autocomplete\Commands\LaravelVersion\vTwo\MakeAutocompleteCommand::class,
+                ]);
+            } break;
+
+            case '5.4' : {
+                return array_merge($commands ,[
+                    \Aut\Autocomplete\Commands\LaravelVersion\vFour\MakeAutocompleteCommand::class,
+                ]);
+            } break;
+
+            default : {
+                return $commands;
+            }; break;
+        }
     }
 
     private function publishAutocomplete()
@@ -49,7 +86,7 @@ class AutocompleteServiceProvider extends ServiceProvider
 
         // publish assets
         $this->publishes([
-            __DIR__.'/Assets' => public_path('vendor/autocompelte'),
+            __DIR__.'/Assets' => public_path('vendor/autocomplete'),
         ], 'public');
     }
 
@@ -112,6 +149,5 @@ class AutocompleteServiceProvider extends ServiceProvider
         $this->registerHelper();
         $this->registerCommands();
         $this->registerViews();
-        $this->registerConfig();
     }
 }

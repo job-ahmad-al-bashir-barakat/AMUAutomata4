@@ -14,6 +14,20 @@
     {{ Form::bsText(trans('utilities::app.code') ,'page-code' ,'page_code',null,'group required',["data-json" => "page-code"]) }}
 @endcomponent
 
+@if(view()->exists("utilities::page._{$view}_sub_section")) {
+
+    @component('controle.component.modal', [
+        'id'                  => 'drag-general-tree',
+        'title'               => trans('utilities::app.general_menu'),
+        'action'              => treeUrl($view),
+        'successFunc'         => 'generalMenu',
+        'stopDeleteSerialize' => true,
+        'attr'                => ['data-tree-target' => 'general-tree']
+    ])
+        @include("utilities::page._{$view}_sub_section")
+    @endcomponent
+@endif
+
 <script>
 
     function generalMenu(form ,res) {
@@ -21,3 +35,5 @@
         APP_AMU.tree.load($('.' + $(form).data('tree-target')));
     }
 </script>
+
+

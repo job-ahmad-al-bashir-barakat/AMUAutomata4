@@ -66,7 +66,7 @@ var HELPER_AMU = {
 
             switch (k)
             {
-                case 'tree': APP_AMU.tree.load(v);
+                case 'tree': APP_AMU.tree.ajaxLoad(v);
             }
         })
     },
@@ -718,8 +718,9 @@ var APP_AMU = {
         storageKeyAuto: 'js-nestable-auto',
 
         updateOutput: function (e) {
-            var list = e.length ? e : $(e.target),
-                output = list.data('output');
+            var list     = e.length ? e : $(e.target),
+                output   = list.data('output'),
+                treeCont = list.closest(APP_AMU.tree.treeContId);
 
             if (window.JSON) {
                 output.val(window.JSON.stringify(list.nestable('serialize')));//, null, 2));
@@ -727,26 +728,88 @@ var APP_AMU = {
                 output.val('JSON browser support required for this demo.');
             }
 
-            var treeAction = $.localStorage.get(APP_AMU.tree.storageKeyName);
+            var treeAction = $.localStorage.get(treeCont.data('storage-key') || APP_AMU.tree.storageKeyName);
             if (treeAction != null)
-                $('.dd').nestable((treeAction.action).toCamelCase());
+                list.nestable((treeAction.action).toCamelCase());
         },
 
-        load: function ($cont, $node) {
+        normalLoad : function (selector) {
+
+            var $this = $(this);
+
+            $this.nestable({
+                group: $this.data('group'),
+                maxDepth: $this.data('max-depth'),
+            });
+        },
+
+        ajaxLoad: function ($cont, $node) {
 
             var $cont = $($cont);
             var $treeParam = $node != null ? "?nodeId=" + $node : "";
 
             $cont.load($cont.data('url') + $treeParam, function () {
 
-                var $_nestable = $('#nestable'),
-                    $this = $(this);
+                var $this = $(this),
+                    $_nestable = $this.find('.ajax-nestable');
+
                 // activate Nestable for list 1
                 $_nestable.nestable({
                     group: $this.data('group'),
                     maxDepth: $this.data('max-depth'),
                     // afterInit: function ( event ) { }
-                }).on('change', APP_AMU.tree.updateOutput)
+                }).on('change', APP_AMU.tree.updateOutput).on('dragEnd', function (event, item, source, destination, position) {
+                    // Make an ajax request to persist move on database
+                    // here you can pass item-id, source-id, destination-id and position index to the server
+                    var item = $(_.head(item)),
+                        id = item.data('id'),
+                        parent = item.parents('li:first').data('id'),
+                        parent_target = item.data('parent');
+
+                    // get serialize data from tree
+                    var list = event.length ? event : $(event.target);
+
+                    var ObjectOrderSerialize = list.nestable('serialize');
+
+                    var data;
+                    if (parent_target) {
+                        //children
+                        data = JSPath.apply('..{.parent.id == "' + parent_target.id + '"}', ObjectOrderSerialize);
+                    } else {
+                        //parent
+                        data = JSPath.apply('.', ObjectOrderSerialize);
+                    }
+
+                    //reorder html item
+                    item.parent().children('li').each(function (i, v) {
+                        $(this).attr('data-order', i + 1);
+                    });
+
+                    //reorder data
+                    _.each(data, function (v, k) {
+                        v.order = k + 1;
+                    });
+
+                    if (!id)
+                        console.log('please set an data-id and data-parent for every item');
+
+                    parent = typeof parent != typeof undefined ? parent : null;
+
+                    $.put($this.data('url') + "/" + id, {
+                        "parent": parent,
+                        "drag": true,
+                        "order": position + 1,
+                        "data": data
+                    }, function (res) {
+
+                        if (typeof res.id != typeof null)
+                            item.attr('data-parent', '{ "id" : "' + res.id + '","name" : "' + res.name + '"}');
+                        else
+                            item.removeAttr('data-parent');
+
+                        HELPER_AMU.notify({message: res.operation_message, status: 'success'});
+                    });
+                })
                 //.on('beforeDragStart', function(handle) {})
                 //.on('dragStart', function(event, item, source) { })
                 //.on('dragMove', function(event, item, source, destination) { })
@@ -754,118 +817,68 @@ var APP_AMU = {
                 //   //If you need to persist list items order if changes, you need to comment the next line
                 //   if (source[0] === destination[0]) { feedback.abort = true; return; }
                 //   feedback.abort = !window.confirm('Continue?');
-                //})
-                    .on('dragEnd', function (event, item, source, destination, position) {
-                        // Make an ajax request to persist move on database
-                        // here you can pass item-id, source-id, destination-id and position index to the server
-                        // ....
-
-                        var item = $(_.head(item)),
-                            id = item.data('id'),
-                            parent = item.parents('li:first').data('id'),
-                            parent_target = item.data('parent');
-
-                        // get serialize data from tree
-                        var list = event.length ? event : $(event.target);
-
-                        var ObjectOrderSerialize = list.nestable('serialize');
-
-                        var data;
-                        if (parent_target) {
-                            //children
-                            data = JSPath.apply('..{.parent.id == "' + parent_target.id + '"}', ObjectOrderSerialize);
-                        } else {
-                            //parent
-                            data = JSPath.apply('.', ObjectOrderSerialize);
-                        }
-
-                        //reorder html item
-                        item.parent().children('li').each(function (i, v) {
-                            $(this).attr('data-order', i + 1);
-                        });
-                        //reorder data
-                        _.each(data, function (v, k) {
-                            v.order = k + 1;
-                        });
-
-                        if (!id)
-                            console.log('please set an data-id and data-parent for every item');
-
-                        parent = typeof parent != typeof undefined ? parent : null;
-
-                        $.put($this.data('url') + "/" + id, {
-                            "parent": parent,
-                            "drag": true,
-                            "order": position + 1,
-                            "data": data
-                        }, function (res) {
-
-                            if (typeof res.id != typeof null)
-                                item.attr('data-parent', '{ "id" : "' + res.id + '","name" : "' + res.name + '"}');
-                            else
-                                item.removeAttr('data-parent');
-
-                            HELPER_AMU.notify({message: res.operation_message, status: 'success'});
-                        });
-                    });
+                //});
 
                 // output initial serialised data
-                if ($('#nestable').length)
-                    APP_AMU.tree.updateOutput($('#nestable').data('output', $('#nestable-output')));
+                if ($this.find('.ajax-nestable').length)
+                    APP_AMU.tree.updateOutput($this.find('.ajax-nestable').data('output', $this.find('.ajax-nestable-output')));
 
                 APP_AMU.autocomplete.reloadAutocomplete($this.find('.autocomplete'));
-
-                $(document).off('change.tree').on('change.tree', '.tree-autocomplete-change', function () {
-
-                    var $this = $(this),
-                        $treeContId = $(APP_AMU.tree.treeContId),
-                        $length;
-
-                    if ($this.val())
-                        $length = $treeContId
-                            .find("[data-id=" + $(this).val() + "] .dd-list li:first")
-                            .parent()
-                            .children().length + 1;
-                    else
-                        $length = $treeContId.find('.dd .dd-list:first').children('li').length + 1;
-
-                    $this.closest('form')
-                        .find('#order')
-                        .val($length);
-                });
             });
         },
 
-        loadAction: function ($cont) {
+        loadAjaxAction: function ($cont) {
+
+            $(document).off('change.tree').on('change.tree', '.tree-autocomplete-change', function () {
+
+                var $this = $(this),
+                    $treeContId = $(APP_AMU.tree.treeContId),
+                    $length;
+
+                if ($this.val())
+                    $length = $treeContId
+                        .find("[data-id=" + $this.val() + "] .dd-list li:first")
+                        .parent()
+                        .children().length + 1;
+                else
+                    $length = $treeContId.find('.dd .dd-list:first').children('li').length + 1;
+
+                $this.closest('form')
+                    .find('#order')
+                    .val($length);
+            });
 
             $($cont).off('change').on('change', '#treeAutocomplete', function () {
 
                 var $node = $(this).val();
 
-                APP_AMU.tree.load($(this).closest($cont), $(this).val());
+                APP_AMU.tree.ajaxLoad($(this).closest($cont), $(this).val());
             });
 
             $($cont).on('click', '.js-nestable-action [data-action]', function (e) {
-                var target = $(e.target),
-                    action = target.data('action');
+                var target   = $(e.target),
+                    action   = target.data('action'),
+                    treeCont = target.closest(APP_AMU.tree.treeContId),
+                    list     = treeCont.find('.ajax-nestable'),
+                    modal    = target.data('target');
 
                 if (action === 'expand-all') {
-                    $('.dd').nestable('expandAll');
+                    list.nestable('expandAll');
                 }
 
                 if (action === 'collapse-all') {
-                    $('.dd').nestable('collapseAll');
+                    list.nestable('collapseAll');
                 }
 
                 if (action === 'reset_tree') {
-                    APP_AMU.tree.load($(this).closest(APP_AMU.tree.treeContId), null);
+                    APP_AMU.tree.ajaxLoad($(this).closest(APP_AMU.tree.treeContId), null);
                 }
 
                 if (action === 'add_tree_node') {
-                    $('.tree-autocomplete-change').trigger('change');
+                    $(modal).find('.tree-autocomplete-change').trigger('change');
                 }
 
-                $.localStorage.set(APP_AMU.tree.storageKeyName, {"action": action});
+                $.localStorage.set(treeCont.data('storage-key') || APP_AMU.tree.storageKeyName, {"action": action});
             });
 
             $($cont).on('click', '[data-form-add]', function () {
@@ -882,12 +895,19 @@ var APP_AMU = {
             });
         },
 
-        init: function ($cont) {
+        initTreeAjax: function ($cont) {
 
             $(APP_AMU.tree.treeContId).each(function () {
-                APP_AMU.tree.load(this);
-                APP_AMU.tree.loadAction(this);
+                APP_AMU.tree.ajaxLoad(this);
+                APP_AMU.tree.loadAjaxAction(this);
             });
+        },
+
+        initTreeNormal: function ($cont) {
+
+            $cont = $cont || '.nestable';
+
+            $($cont).each(APP_AMU.tree.normalLoad);
         }
     },
 
@@ -1466,7 +1486,8 @@ var APP_AMU = {
             APP_AMU.autocomplete.initAutocomplete();
             APP_AMU.select.initSelect();
             APP_AMU.validate.init('.ajaxCont');
-            APP_AMU.tree.init();
+            APP_AMU.tree.initTreeAjax();
+            APP_AMU.tree.initTreeNormal();
             APP_AMU.ckeditor.init('body', '.text-editor');
             APP_AMU.inputMask.init('[data-masked]');
             APP_AMU.fileUpload.load('.upload-file');
@@ -1601,7 +1622,8 @@ var onPageLoad = {
         APP_AMU.autocomplete.initAutocomplete,
         APP_AMU.select.initSelect,
         function (){APP_AMU.validate.init('.ajaxCont')},
-        APP_AMU.tree.init,
+        APP_AMU.tree.initTreeAjax,
+        APP_AMU.tree.initTreeNormal,
         function (){APP_AMU.ckeditor.init('body' ,'.text-editor')},
         APP_AMU.ckeditor.fixCkeditorModal,
         function (){APP_AMU.inputMask.init('[data-masked]')},

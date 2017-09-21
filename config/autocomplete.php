@@ -6,6 +6,8 @@ return [
 
     'isLangs' => true,
 
+    'version'    => '5.4',
+
     'AutocompleteHelperClass' => \App\Library\AutocompleteHelper::class,
 
     'default'   => [
