@@ -91,6 +91,27 @@ class BuilderController extends Controller
     }
 
     /**
+     * Vertical Sliders
+     */
+    public function verticalSliders()
+    {
+        return view('utilities::page.table',[
+            'table' => 'vertical-sliders',
+            'param' => '',
+            'title' => trans('utilities::app.vertical-sliders')
+        ]);
+    }
+
+    public function verticalSlider(Slider $slider)
+    {
+        return view('utilities::page.table',[
+            'table' => 'slider',
+            'param' => "sliderId={$slider->id}",
+            'title' => trans('utilities::app.slider') . " [{$slider->transName->first()->text}]",
+        ]);
+    }
+
+    /**
      * Blocks
      */
     public function blocks()

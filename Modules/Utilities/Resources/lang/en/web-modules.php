@@ -12,4 +12,6 @@ return [
     'block' => 'Block',
     'courses' => 'Courses',
     'show' => 'Show',
+    'title' => 'Title',
+    'icon' => 'Icon',
 ];

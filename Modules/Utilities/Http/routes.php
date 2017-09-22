@@ -15,6 +15,9 @@ Route::group(
             Route::get('sliders', 'BuilderController@sliders');
             Route::get('sliders/{slider}', 'BuilderController@slider');
 
+            Route::get('vertical-sliders', 'BuilderController@verticalSliders');
+            Route::get('vertical-sliders/{verticalSlider}', 'BuilderController@verticalSlider');
+
             Route::get('blocks', 'BuilderController@blocks');
             Route::get('blocks/{block}', 'BuilderController@block');
         });
