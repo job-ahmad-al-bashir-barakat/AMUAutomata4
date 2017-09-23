@@ -90,6 +90,7 @@ class BuilderController extends Controller
         ]);
     }
 
+
     /**
      * Vertical Sliders
      */
@@ -110,6 +111,7 @@ class BuilderController extends Controller
             'title' => trans('utilities::app.slider') . " [{$slider->transName->first()->text}]",
         ]);
     }
+
 
     /**
      * Blocks

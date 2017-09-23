@@ -86,6 +86,12 @@
             </li>
 
             <li class="">
+                <a href="{{ RouteUrls::verticalSliders() }}" class="ajax" title="{{ trans('utilities::app.vertical-sliders') }}">
+                    <span>{{ trans('utilities::app.vertical-sliders') }}</span>
+                </a>
+            </li>
+
+            <li class="">
                 <a href="{{ RouteUrls::blocks() }}" class="ajax" title="{{ trans('utilities::app.blocks') }}">
                     <span>{{ trans('utilities::app.blocks') }}</span>
                 </a>

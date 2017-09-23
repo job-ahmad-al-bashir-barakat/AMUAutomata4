@@ -84,6 +84,11 @@ class RouteUrls
         return $this->localizeUrl("builder/sliders/{$id}", "utilities");
     }
 
+    public function verticalSlider($id)
+    {
+        return $this->localizeUrl("builder/vertical-sliders/{$id}", 'utilities');
+    }
+
     public function blocks()
     {
         return $this->localizeUrl('builder/blocks', 'utilities');
