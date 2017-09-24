@@ -14,6 +14,7 @@ use Modules\Utilities\Entities\BuilderPage;
 use Modules\Utilities\Entities\Page;
 use Modules\Utilities\Entities\Slider;
 use Modules\Utilities\Entities\Block;
+use Modules\Utilities\Entities\VerticalSlider;
 
 class BuilderController extends Controller
 {
@@ -103,12 +104,12 @@ class BuilderController extends Controller
         ]);
     }
 
-    public function verticalSlider(Slider $slider)
+    public function verticalSlider(VerticalSlider $verticalSlider)
     {
         return view('utilities::page.table',[
-            'table' => 'slider',
-            'param' => "sliderId={$slider->id}",
-            'title' => trans('utilities::app.slider') . " [{$slider->transName->first()->text}]",
+            'table' => 'vertical-slider',
+            'param' => "verticalSliderId={$verticalSlider->id}",
+            'title' => trans('utilities::app.vertical-slider') . " [{$verticalSlider->transName->first()->text}]",
         ]);
     }
 

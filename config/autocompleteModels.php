@@ -94,6 +94,13 @@ return [
         ],
     ],
 
+    'vertical-sliders' => [
+        'model' => \Modules\Utilities\Entities\VerticalSlider::class,
+        'condition'   => [
+            'verticalSliderDetails' => 'id',
+        ],
+    ],
+
     'blocks' => [
         'model' => \Modules\Utilities\Entities\Block::class,
         'condition'   => [

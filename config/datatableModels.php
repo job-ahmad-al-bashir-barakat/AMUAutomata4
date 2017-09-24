@@ -59,9 +59,19 @@ return [
         'factory'       => Modules\Utilities\Factories\SliderFactory::class
     ],
 
+    'vertical-sliders' => [
+        'model'         => Modules\Utilities\Entities\VerticalSlider::class,
+        'factory'       => Modules\Utilities\Factories\VerticalSliderFactory::class
+    ],
+
     'slider' => [
         'model'         => Modules\Utilities\Entities\SliderDetail::class,
         'factory'       => Modules\Utilities\Factories\SliderDetailFactory::class
+    ],
+
+    'vertical-slider' => [
+        'model'         => Modules\Utilities\Entities\VerticalSliderDetail::class,
+        'factory'       => Modules\Utilities\Factories\VerticalSliderDetailFactory::class
     ],
 
     'blocks' => [

@@ -14,7 +14,7 @@ trait AttributeTrait
      * This Function will determined the Attribute Class by Attribute id
      *
      * @param $attributeId
-     * @return LimitAttribute|StatusAttribute|TextEditorAttribute|WidthAttribute|SlidersAttribute|BlocksAttribute|CoursesAttribute|ShowAttribute|PersonsAttribute|TitleAttribute|IconAttribute
+     * @return LimitAttribute|StatusAttribute|TextEditorAttribute|WidthAttribute|SlidersAttribute|BlocksAttribute|CoursesAttribute|ShowAttribute|PersonsAttribute|TitleAttribute|IconAttribute|VerticalSlidersAttribute
      * @throws \Exception
      */
     public static function setAttribute($attributeId)
@@ -42,6 +42,8 @@ trait AttributeTrait
                 return new TitleAttribute();
             case '11':
                 return new IconAttribute();
+            case '12':
+                return new VerticalSlidersAttribute();
             default:
                 throw new \Exception('Undefined Attributes');
         }
@@ -51,7 +53,7 @@ trait AttributeTrait
      * This Function will determined the Attribute Class by Attribute Code
      *
      * @param $attributeCode
-     * @return LimitAttribute|StatusAttribute|TextEditorAttribute|WidthAttribute|SlidersAttribute|BlocksAttribute|CoursesAttribute|ShowAttribute|PersonsAttribute|TitleAttribute|IconAttribute
+     * @return LimitAttribute|StatusAttribute|TextEditorAttribute|WidthAttribute|SlidersAttribute|BlocksAttribute|CoursesAttribute|ShowAttribute|PersonsAttribute|TitleAttribute|IconAttribute|VerticalSlidersAttribute
      * @throws \Exception
      */
     public static function setByAttributeCode($attributeCode)
@@ -79,6 +81,8 @@ trait AttributeTrait
                 return new TitleAttribute();
             case 'icon':
                 return new IconAttribute();
+            case 'vertical_sliders':
+                return new VerticalSlidersAttribute();
             default:
                 throw new \Exception('Undefined Attributes');
         }

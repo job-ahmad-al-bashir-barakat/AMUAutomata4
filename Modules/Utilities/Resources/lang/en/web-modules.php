@@ -8,6 +8,7 @@ return [
     'width' => 'Width',
     'status' => 'Status',
     'slider' => 'Slider',
+    'vertical-slider' => 'Vertical Slider',
     'limit' => 'Limit',
     'block' => 'Block',
     'courses' => 'Courses',
