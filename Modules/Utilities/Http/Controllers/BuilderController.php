@@ -84,10 +84,14 @@ class BuilderController extends Controller
 
     public function slider(Slider $slider)
     {
+        $view = 'slider';
+        $subPage = \View::exists("utilities::page.table-sub.$view") ? "utilities::page.table-sub.$view" : false;
+
         return view('utilities::page.table',[
             'table' => 'slider',
             'param' => "sliderId={$slider->id}",
             'title' => trans('utilities::app.slider') . " [{$slider->transName->first()->text}]",
+            'subPage' => $subPage,
         ]);
     }
 

@@ -25,3 +25,6 @@
     </div>
 
 @stop
+@section('footer')
+    @includeWhen($subPage, $subPage)
+@endsection

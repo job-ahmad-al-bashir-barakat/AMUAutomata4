@@ -15,7 +15,7 @@ class SliderDetailFactory extends GlobalFactory
     {
         $sliderId = request('sliderId');
         $slider = Slider::findOrFail($sliderId);
-        $query = $slider->sliderDetails()->allLangs()->get();
+        $query = $slider->sliderDetails()->with(['image'])->allLangs()->get();
 
         return $this->table
             ->queryConfig('datatable-slider')
@@ -23,6 +23,7 @@ class SliderDetailFactory extends GlobalFactory
             ->queryMultiLang(['head', 'title', 'text', 'btn'])
             ->queryUpdateButton('id')
             ->queryDeleteButton('id')
+            ->queryCustomButton('upload_image' ,'id' ,'fa fa-image' ,'' ,'onclick="showFileUploadModal(this)"')
             ->queryRender(true);
     }
 
@@ -41,6 +42,7 @@ class SliderDetailFactory extends GlobalFactory
             ->addMultiInputTextLangs(['btn'])
             ->addSelect(['R' => 'Right', 'C' => 'Center', 'L' => 'Left'], 'Position', 'position', 'position', '', 'req required')
             ->addAutocomplete('autocomplete/pages', 'Page', 'page_id', 'page_id')
+            ->addActionButton(trans('utilities::app.upload_images') ,'upload_image' ,'upload_image', 'center all' ,'100px')
             ->addActionButton($this->update,'update','update')
             ->addActionButton($this->delete,'delete','delete')
             ->addNavButton()
