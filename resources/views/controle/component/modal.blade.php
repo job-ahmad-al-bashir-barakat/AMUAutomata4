@@ -32,6 +32,7 @@ stopButton : remove all button without close
     $deleteSuccessFunc    = isset($deleteSuccessFunc)   ? "data-ajax-form-delete-success=$deleteSuccessFunc"  : '';
     $updateSuccessFunc    = isset($updateSuccessFunc)   ? "data-ajax-form-update-success=$updateSuccessFunc"  : '';
     $addSuccessFunc       = isset($addSuccessFunc)      ? "data-ajax-form-add-success=$addSuccessFunc"        : '';
+    $extraSerialize       = isset($extraSerialize)      ? "data-extra-serialize=$extraSerialize"              : '';
     $stopDeleteSerialize  = isset($stopDeleteSerialize) ? $stopDeleteSerialize : false;
     $stopForm             = isset($stopForm)            ? $stopForm : false;
     $stopButton           = isset($stopButton)          ? $stopButton : false;
@@ -41,7 +42,7 @@ stopButton : remove all button without close
 <div class="ajaxCont">
 @endunless
     <div id='{{ $id or '' }}' {{--tabindex='-1'--}} role='dialog' aria-labelledby='myModalLabel' aria-hidden='true' class='modal fade'>
-        <div class='modal-dialog' role='document' style="{{ $width ? "width: $width" : "" }};">
+        <div class='modal-dialog' role='document' style="{{ $width ? "min-width: $width" : "" }};">
             <div class='modal-content'>
                 @unless($stopForm)
                     {!! Form::open(array_merge(['id' => 'form-dialog' ,'url' => $action, 'method' => $method ,'class' => 'ajax-form'] ,$attr)) !!}
@@ -62,9 +63,9 @@ stopButton : remove all button without close
 
                         <button type='button' data-dismiss='modal' class='btn btn-default'>{{ trans('app.close') }}</button>
                         @unless($stopForm || $stopButton)
-                            <button type='submit' id="delete" name="delete" class='btn btn-danger delete' data-method="delete" data-state="update" {{ $deleteSuccessFunc }} {{ $successFunc }} @if($stopDeleteSerialize) data-serialize="false" @endif>{{ trans('app.delete') }}</button>
-                            <button type='submit' id="update" name="update" class='btn btn-success update' data-method="put" data-state="update" {{ $updateSuccessFunc }} {{ $successFunc }}>{{ trans('app.update') }}</button>
-                            <button type='submit' id="add" name="add" class='btn btn-primary add' data-method="post" data-state="add" {{ $addSuccessFunc }} {{ $successFunc }}>{{ trans('app.add') }}</button>
+                            <button type='submit' id="delete" name="delete" class='btn btn-danger delete' data-method="delete" data-state="update" {{ $deleteSuccessFunc }} {{ $successFunc }} {{ $extraSerialize }} @if($stopDeleteSerialize) data-serialize="false" @endif>{{ trans('app.delete') }}</button>
+                            <button type='submit' id="update" name="update" class='btn btn-success update' data-method="put" data-state="update" {{ $updateSuccessFunc }} {{ $successFunc }} {{ $extraSerialize }}>{{ trans('app.update') }}</button>
+                            <button type='submit' id="add" name="add" class='btn btn-primary add' data-method="post" data-state="add" {{ $addSuccessFunc }} {{ $successFunc }} {{ $extraSerialize }}>{{ trans('app.add') }}</button>
                         @endunless
                         {{ $footer or '' }}
                     </div>

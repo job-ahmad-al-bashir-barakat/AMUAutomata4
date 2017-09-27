@@ -110,3 +110,12 @@ td.center {
     height: 1.5em;
     line-height: 1.2em;
 }
+
+/*
+ *  Jquery Nestable
+ */
+.dd-empty {
+
+    padding: 15%;
+    text-align: center;
+}

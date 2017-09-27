@@ -63,3 +63,31 @@ fix withoutTrans lang on treeController and UploadController
 -----------
 fix ckeditor file link and upload button
 change file input upload path for show well orginize in file manager
+
+------------
+//  Abdo  //
+------------
+
+شلونك بشير
+في شغلة بالحذف ب datatable
+مافي داعي تسكر ال alert تبعت التاكيد خليها ظاهرة وبس تعمل alert نجاح العملية هو لحالو بيعمل animation مشان يغير
+
+-----------
+
+بشير فكر بهي الشغلة وقلي شو رايك
+جداول اللغات كلها متل بعضها الفرق بس ال id للجدول المرتبط معو
+ليش ما منعمل جدول واحد object_id مع object_type وهاد مرتبط ب كل الجداول
+بعرف انو نحن حكينا فيها بس فكر فيها على رواق وبعد ما نسلم ممكن نعمل مقارنة بالاداء للحالتين
+
+-----------
+هام جدا  
+-----------
+
+// save / update / delete / order
+// destroy tree 
+// work on unfinish tables
+// fill public menu
+// rtl issue
+// fix datatable icon tabs responsive
+// fix pjax page load
+// add trash for each item on tree

@@ -1,38 +1,50 @@
 @component('controle.component.modal', [
     'id'                  => 'modal-general-tree',
-    'title'               => trans('utilities::app.general_menu'),
+    'title'               => trans('utilities::app.general_item'),
     'action'              => treeUrl($view),
     'successFunc'         => 'generalMenu',
+    'extraSerialize'      => 'serializeTree',
     'stopDeleteSerialize' => true,
-    'attr'                => ['data-tree-target' => 'general-tree']
+    'attr'                => ['data-tree-target' => 'general-tree'],
+    'width'               => '60%'
 ])
-    {{ Form::bsPrimarykey('id' ,'id' ,null ,'' ,['data-json' => 'id']) }}
-    {{ Form::bsHidden('page_id' ,'page_id' ,null ,'' ,['data-json' => 'page-id']) }}
-    {{ Form::bsHidden('order' ,'order' ,null ,'' ,['data-json' => 'order']) }}
-    {{--tree-autocomplete-change is class for change event to fill order with its value--}}
-    {{ Form::bsAutocomplete(trans('utilities::app.parent') ,'parent-id' ,'parent_id','autocomplete/general',[],'3' ,'tree-autocomplete-change group' ,['data-json' => 'parent' ,'data-placeholder' => trans('utilities::app.parent')]) }}
-    {{ Form::bsText(trans('utilities::app.code') ,'page-code' ,'page_code',null,'group required',["data-json" => "page-code"]) }}
-@endcomponent
 
-@if(view()->exists("utilities::page._{$view}_sub_section")) {
+    @component('controle.component.tabpanel' ,['tabs' => ['make_link' ,'drag_menu']])
 
-    @component('controle.component.modal', [
-        'id'                  => 'drag-general-tree',
-        'title'               => trans('utilities::app.general_menu'),
-        'action'              => treeUrl($view),
-        'successFunc'         => 'generalMenu',
-        'stopDeleteSerialize' => true,
-        'attr'                => ['data-tree-target' => 'general-tree']
-    ])
-        @include("utilities::page._{$view}_sub_section")
+        @slot('make_link')
+            {{ Form::bsPrimarykey('id' ,'id' ,null ,'' ,['data-json' => 'id']) }}
+            {{--tree-autocomplete-change is class for change event to fill order with its value--}}
+            {{ Form::bsAutocomplete(trans('utilities::app.parent') ,'parent-id' ,'parent_id','autocomplete/general',[],'3' ,'tree-autocomplete-change group' ,['data-json' => 'parent' , 'data-placeholder' => trans('utilities::app.parent')]) }}
+            {{ Form::bsText(trans('utilities::app.name'),'name' ,'name' ,null ,'group langs trans' ,['data-json' => 'name-{lang}']) }}
+            {{ Form::bsText(trans('utilities::app.name_route') ,'name-route' ,'name_route','#' ,'group required',["data-json" => "name-route"]) }}
+            {{ Form::bsHidden('order' ,'order' ,null ,'' ,['data-json' => 'order']) }}
+        @endslot
+
+        @slot('drag_menu')
+            @include("utilities::page._general_sub_section")
+        @endslot
+
     @endcomponent
-@endif
+
+@endcomponent
 
 <script>
 
+    $('#modal-general-tree').on('hidden.bs.modal' ,function () {
+
+        APP_AMU.tree.clear('#nestable-menu' ,'{{ trans("utilities::app.drag_item_here") }}');
+    });
+
     function generalMenu(form ,res) {
 
-        APP_AMU.tree.load($('.' + $(form).data('tree-target')));
+        APP_AMU.tree.ajaxLoad($('.' + $(form).data('tree-target')));
+    }
+
+    function serializeTree(form) {
+
+        return {
+            'tree_menu' : $('#nestable-menu').nestable('serialize'),
+        };
     }
 </script>
 

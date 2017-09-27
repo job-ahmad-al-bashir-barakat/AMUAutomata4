@@ -140,10 +140,10 @@ return [
 
     'general' => [
         'model' => \Modules\Utilities\Entities\SiteMenu::class,
-        'condition'   => [
-            'page' => 'page_code',
-        ],
-        'colName'  => 'page->page_code'
+        //todo: fix this condition for menu autocompelte
+        'condition' => false,
+        'colName' => 'title',
+        'colId' => 'id',
     ],
 
     'study-year' => [

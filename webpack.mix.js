@@ -130,7 +130,7 @@ var js = [
     'Modules/Admin/Assets/vendor/bootstrap-fileinput/js/fileinput.js',
     'Modules/Admin/Assets/vendor/cropper/dist/cropper.js',
 
-    'Modules/Admin/Assets/vendor/nestable/jquery.nestable.js',
+    // 'Modules/Admin/Assets/vendor/nestable/jquery.nestable.js',
     'Modules/Admin/Assets/vendor/jquery.inputmask/dist/jquery.inputmask.bundle.js',
     'Modules/Admin/Assets/vendor/jQuery-gMap/jquery.gmap.min.js',
     // 'Modules/Admin/Assets/vendor/app/js/app.js',

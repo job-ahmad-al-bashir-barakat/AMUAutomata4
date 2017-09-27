@@ -81,7 +81,7 @@ var APP_AMU = {
 
             'shown.bs.modal': function () {
 
-                if ($(this).find('.cropper').length);
+                if ($(this).find('.cropper').length)
                 {
                     APP.CROPPER.destroy('.aut-cropper-modal');
                     APP.CROPPER.init('.aut-cropper-modal');
@@ -125,7 +125,7 @@ var APP_AMU = {
             $.fn.initializeMyPlugin = function () {
 
                 APP.TRANSLATION();
-                APP.COLLAPSE_PANELS();
+                APP_AMU.COLLAPSE_PANELS();
                 APP_AMU.ajax.init();
             };
 
@@ -449,6 +449,21 @@ var APP_AMU = {
     validate: {
 
         /**
+         * serialize data function
+         *
+         * @param formArray
+         * @returns {{}}
+         */
+        serializeObject: function (formArray) {
+
+            var returnArray = {};
+            for (var i = 0; i < formArray.length; i++){
+                returnArray[formArray[i]['name']] = formArray[i]['value'];
+            }
+            return returnArray;
+        },
+
+        /**
          *
          * @param $form
          * @returns {*}
@@ -484,10 +499,14 @@ var APP_AMU = {
                             $serialize = typeof $button.data('serialize') != typeof undefined ? $button.data('serialize') : true,
                             $data;
 
+                        // here
                         if ($serialize)
-                            $data = $form.serialize();
+                            $data = APP_AMU.validate.serializeObject($form.serializeArray());
                         else
                             $data = {};
+
+                        if ($serialize && typeof $button.data('extra-serialize') != typeof undefined)
+                            $data = $.extend($data ,window[$button.data('extra-serialize')](form));
 
                         if (typeof $button.data('method') != typeof undefined) {
                             $method = $button.data('method');
@@ -713,6 +732,8 @@ var APP_AMU = {
 
         treeContId: '.aut-tree',
 
+        treenormalLoadClass: '.nestable',
+
         storageKeyName: 'js-nestable',
 
         storageKeyAuto: 'js-nestable-auto',
@@ -733,13 +754,87 @@ var APP_AMU = {
                 list.nestable((treeAction.action).toCamelCase());
         },
 
-        normalLoad : function (selector) {
+        clear: function (selector ,text) {
 
-            var $this = $(this);
+            var tree = $(selector)
+            tree.find('ol:first').remove();
+            tree.find('.dd-empty').remove();
+            tree.append('<div class="dd-empty">' + text + '</div>');
+        },
 
-            $this.nestable({
-                group: $this.data('group'),
+        normalLoad : function () {
+
+            var $this        = $(this),
+                clone        = typeof $this.data('clone') != typeof undefined ? JSON.parse($this.data('clone')) : false,
+                groupSource  = typeof $this.data('group-source') != typeof undefined ? $this.data('group-source') : undefined,
+                reject       = typeof $this.data('reject') != typeof undefined ? JSON.parse($this.data('reject')) : false,
+                init         = typeof $this.data('init') != typeof undefined ? JSON.parse($this.data('init')) : false,
+                drop         = typeof $this.data('drop') != typeof undefined ? JSON.parse($this.data('drop')) : false,
+                drop_exists  = typeof $this.data('drop-exists') != typeof undefined ? JSON.parse($this.data('drop-exists')) : false,
+                emptyText    = typeof $this.data('empty-text') !=  typeof undefined ? $this.data('empty-text') : 'Drag Here';
+
+            var optionsObj = {
                 maxDepth: $this.data('max-depth'),
+                group: $this.data('group'),
+                clone: clone,
+                emptyText: emptyText
+            };
+
+            if(groupSource) {
+
+                var groupSource = (groupSource.toString()).split(',').map(Number);
+
+                optionsObj.group_source = groupSource;
+            }
+
+            // this it is just allow for the same list not between lists
+            if(reject)
+                optionsObj.reject = [{
+
+                    rule: function(draggedElement) {
+
+                        // The this object refers to dragRootEl i.e. the nestable root element. The drag action is cancelled if this function returns true
+                        // The rule here is that it is forbidden drag elements to first-level children
+                        return true;
+                    },
+
+                    action: function(draggedElement) {
+
+                        // This optional function defines what to do when such a rule applies
+                        alert('You can\'t do that !');
+                    }
+                }];
+
+            if(init)
+                optionsObj.afterInit = function ( event ) {
+                }
+
+            if(drop)
+                optionsObj.dropCallback = function (details) {
+                };
+
+            $this.nestable(optionsObj).on('dragEnd', function(event, item, source, destination, position) {
+
+                if(drop_exists) {
+
+                    var destinationExists = destination.find('[data-exists=' + item.data('exists') + ']');
+                    if(destinationExists.length > 1)
+                        $.each(destinationExists ,function (i ,v) {
+                            if(i == (destinationExists.length - 1))
+                                $(this).remove();
+                        });
+
+                    if(item.data('type') != destination.closest(APP_AMU.tree.treenormalLoadClass).data('type'))
+                        item.remove();
+                }
+
+                if($this.hasClass('order')) {
+
+                    item.parent().children('li').each(function (i, v) {
+
+                        $(this).attr('data-order', i + 1);
+                    });
+                }
             });
         },
 
@@ -905,7 +1000,7 @@ var APP_AMU = {
 
         initTreeNormal: function ($cont) {
 
-            $cont = $cont || '.nestable';
+            $cont = $cont || APP_AMU.tree.treenormalLoadClass;
 
             $($cont).each(APP_AMU.tree.normalLoad);
         }
@@ -1599,6 +1694,95 @@ var APP_AMU = {
             }
             return val;
         }
+    },
+
+    COLLAPSE_PANELS : function () {
+
+        var panelSelector = '[data-tool="panel-collapse"]',
+            storageKeyName = 'jq-panelState';
+
+        // Prepare the panel to be collapsable and its events
+        $(panelSelector).each(function() {
+            // find the first parent panel
+            var $this        = $(this),
+                parent       = $this.closest('.panel'),
+                state        = typeof $this.data('save-state') != typeof undefined ? JSON.parse($this.data('save-state')) : false,
+                wrapper      = parent.find('.panel-wrapper'),
+                collapseOpts = {toggle: false},
+                iconElement  = $this.children('em'),
+                panelId      = parent.attr('id');
+
+            // if wrapper not added, add it
+            // we need a wrapper to avoid jumping due to the paddings
+            if( ! wrapper.length) {
+                wrapper =
+                    parent.children('.panel-heading').nextAll() //find('.panel-body, .panel-footer')
+                        .wrapAll('<div/>')
+                        .parent()
+                        .addClass('panel-wrapper');
+                collapseOpts = {};
+            }
+
+            // Init collapse and bind events to switch icons
+            wrapper
+                .collapse(collapseOpts)
+                .on('hide.bs.collapse', function() {
+                    setIconHide( iconElement );
+                    if(state)
+                        savePanelState( panelId, 'hide' );
+                    wrapper.prev('.panel-heading').addClass('panel-heading-collapsed');
+                })
+                .on('show.bs.collapse', function() {
+                    setIconShow( iconElement );
+                    if(state)
+                        savePanelState( panelId, 'show' );
+                    wrapper.prev('.panel-heading').removeClass('panel-heading-collapsed');
+                });
+
+            // Load the saved state if exists
+            if(state) {
+                var currentState = loadPanelState( panelId );
+                if(currentState) {
+                    setTimeout(function() { wrapper.collapse( currentState ); }, 50);
+                    savePanelState( panelId, currentState );
+                }
+            }
+        });
+
+        // finally catch clicks to toggle panel collapse
+        $(document).on('click', panelSelector, function () {
+
+            var parent = $(this).closest('.panel');
+            var wrapper = parent.find('.panel-wrapper');
+
+            wrapper.collapse('toggle');
+
+        });
+
+        /////////////////////////////////////////////
+        // Common use functions for panel collapse //
+        /////////////////////////////////////////////
+        function setIconShow(iconEl) {
+            iconEl.removeClass('fa-plus').addClass('fa-minus');
+        }
+
+        function setIconHide(iconEl) {
+            iconEl.removeClass('fa-minus').addClass('fa-plus');
+        }
+
+        function savePanelState(id, state) {
+            var data = $.localStorage.get(storageKeyName);
+            if(!data) { data = {}; }
+            data[id] = state;
+            $.localStorage.set(storageKeyName, data);
+        }
+
+        function loadPanelState(id) {
+            var data = $.localStorage.get(storageKeyName);
+            if(data) {
+                return data[id] || false;
+            }
+        }
     }
 };
 
@@ -1611,6 +1795,7 @@ var onPageLoad = {
         /**
          * Delegate Load
          */
+        APP_AMU.COLLAPSE_PANELS,
         APP_AMU.changeColorControleTheme,
         function (){APP_AMU.initPjax('#pjax-container')},
         APP_AMU.validate.fillForm,

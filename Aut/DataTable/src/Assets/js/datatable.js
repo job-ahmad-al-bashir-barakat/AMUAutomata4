@@ -874,7 +874,7 @@ function aut_datatable_replaceDatatableFunctionWithJPath(aut_datatable) {
         } ).join('');
 
         return data ?
-            $('<div/>').append( data ) :
+            $('<div/>').append( "<div class='form-horizontal'>" + data + "</div>" ) :
             false;
     }
 

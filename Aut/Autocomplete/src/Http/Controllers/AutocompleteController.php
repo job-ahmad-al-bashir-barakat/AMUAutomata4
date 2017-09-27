@@ -36,46 +36,55 @@ class AutocompleteController
         $object = new $model();
 
         // $condition
-        foreach ($this->condition as $whereHasOrIndex => $col)
-        {
-            $q = str_replace(' ', '%', request()->input('q', ''));
-
-            if(!is_numeric($whereHasOrIndex))
+        if($this->condition)
+            foreach ($this->condition as $whereHasOrIndex => $col)
             {
-                $object = $object->whereHas($whereHasOrIndex ,function ($query) use ($col ,$q) {
+                $q = str_replace(' ', '%', request()->input('q', ''));
 
+                if(!is_numeric($whereHasOrIndex))
+                {
+                    $object = $object->whereHas($whereHasOrIndex ,function ($query) use ($col ,$q) {
+
+                        if(!$this->isLang && Str::contains($col ,'{langs}'))
+                        {
+                            foreach ($this->langs as $lang)
+                                $query->where("{$col}_{$lang}", 'like', '%' . $q . '%');
+                        }
+                        else
+                            $query->where($col, 'like', '%' . $q . '%');
+                    });
+                }
+                else
+                {
                     if(!$this->isLang && Str::contains($col ,'{langs}'))
                     {
                         foreach ($this->langs as $lang)
-                            $query->where("{$col}_{$lang}", 'like', '%' . $q . '%');
+                            $object = $object->where($col, 'like', '%' . $q . '%');
                     }
                     else
-                        $query->where($col, 'like', '%' . $q . '%');
-                });
-            }
-            else
-            {
-                if(!$this->isLang && Str::contains($col ,'{langs}'))
-                {
-                    foreach ($this->langs as $lang)
                         $object = $object->where($col, 'like', '%' . $q . '%');
                 }
-                else
-                    $object = $object->where($col, 'like', '%' . $q . '%');
             }
-        }
 
-        $autocompleteHelperClass = config('autocomplete.AutocompleteHelperClass');
 
-        if($autocompleteHelperClass)
-        {
-            $method = camel_case("{$this->autocomplete}Autocomplete");
+        $helper = function ($request ,$object ,$prefix = 'Autocomplete') {
 
-            $factory = new $autocompleteHelperClass();
+            $autocompleteHelperClass = config('autocomplete.AutocompleteHelperClass');
 
-            if(method_exists($factory ,$method))
-                $object = $factory->$method($request ,$object);
-        }
+            if($autocompleteHelperClass)
+            {
+                $method = camel_case("{$this->autocomplete}$prefix");
+
+                $factory = new $autocompleteHelperClass();
+
+                if(method_exists($factory ,$method))
+                    $object = $factory->$method($request ,$object);
+            }
+
+            return $object;
+        };
+
+        $object = $helper($request ,$object);
 
         $data = $object->get();
 

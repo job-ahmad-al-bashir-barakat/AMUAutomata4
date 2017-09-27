@@ -4,31 +4,84 @@ namespace Modules\Utilities\Entities;
 
 use Kalnoy\Nestedset\NodeTrait;
 use Illuminate\Database\Eloquent\Model;
+use Modules\Admin\Entities\Degree;
+use Modules\Admin\Entities\Department;
+use Modules\Admin\Entities\Faculty;
+use Modules\Utilities\Entities\LangModels\SiteMenuNameLang;
 use Modules\Utilities\Traits\MultiLangs;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class SiteMenu extends Model
+class SiteMenu extends \Eloquent
 {
     use NodeTrait ,MultiLangs ,SoftDeletes;
 
-    protected $with = ['page'];
+    protected $fillable = ['id' ,'parent_id' ,'name_route' ,'order' ,'menuable_id' ,'menuable_type'];
 
-    protected $fillable = ['id' ,'page_id' ,'parent_id' ,'order'];
+    protected $appends = ['lang_name' ,'title'];
 
-    function page()
+    public function getTitleAttribute()
     {
-        return $this->belongsTo(Page::class ,'page_id');
+        $lang = \App::getLocale();
+
+        $menuable = $this->menuable;
+
+        if($menuable != null && $menuable->count())
+            $title = $menuable->lang_name[$lang]['text'];
+        else
+            $title = $this->lang_name[$lang]['text'];
+
+        return $title;
     }
 
-    // this is a recommended way to declare event handlers
-    protected static function boot() {
+    public function scopeTypegeneralCondition($query) {
 
-        parent::boot();
+        $q = str_replace(' ', '%', request()->input('q', ''));
 
-        //before delete() method call this
-        static::deleting(function($node) {
+        $type = request()->input('menuable_type');
 
-            $node->page()->delete();
+        dd($type);
+
+        MenuTables::all();
+
+        return $query->orWhereHas('faculty.transName', function ($query) use($q) {
+
+            $query->where('text', 'like', '%' . $q . '%');
         });
     }
+
+    public function transName()
+    {
+        return $this->hasMany(SiteMenuNameLang::class);
+    }
+
+    public function getLangNameAttribute()
+    {
+        return $this->transName->keyBy('lang_code');
+    }
+
+    public function menuable()
+    {
+        return $this->morphTo();
+    }
+
+    function page() {
+
+        return $this->belongsTo(Page::class ,'menuable_id');
+    }
+
+    function faculty() {
+
+        return $this->belongsTo(Faculty::class ,'menuable_id');
+    }
+
+    function degree() {
+
+        return $this->belongsTo(Degree::class ,'menuable_id');
+    }
+
+    function department() {
+
+        return $this->belongsTo(Department::class ,'menuable_id');
+    }
+
 }
