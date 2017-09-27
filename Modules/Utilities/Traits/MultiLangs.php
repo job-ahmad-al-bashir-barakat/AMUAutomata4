@@ -42,7 +42,7 @@ trait MultiLangs
 
             foreach ($transMethod as $method)// each trans in the model ex:: user_name user_summary
             {
-                $inputName = camel_case(str_replace('trans', '', $method));
+                $inputName = snake_case(str_replace('trans', '', $method));
                 $attribute = snake_case($method);
                 $data = $input[$attribute];
                 $createArr = [];

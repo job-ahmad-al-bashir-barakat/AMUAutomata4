@@ -83,15 +83,21 @@ return [
 
     'icons' => [
         'model' => \Modules\Utilities\Entities\Icon::class,
-        'colId' => 'id',
-        'colName' => 'code',
-
+        'condition' => ['code'],
+        'colName'  => 'icon_html'
     ],
 
     'sliders' => [
         'model' => \Modules\Utilities\Entities\Slider::class,
         'condition'   => [
             'sliderDetails' => 'id',
+        ],
+    ],
+
+    'vertical-sliders' => [
+        'model' => \Modules\Utilities\Entities\VerticalSlider::class,
+        'condition'   => [
+            'verticalSliderDetails' => 'id',
         ],
     ],
 
@@ -116,6 +122,10 @@ return [
 
     'course' => [
         'model' => \Modules\Admin\Entities\Course::class,
+    ],
+
+    'person' => [
+        'model' => \Modules\Admin\Entities\Person::class,
     ],
 
     'gender' => [

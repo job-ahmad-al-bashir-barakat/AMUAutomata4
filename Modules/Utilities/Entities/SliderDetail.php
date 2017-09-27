@@ -57,4 +57,9 @@ class SliderDetail extends Model
     {
         return $this->transBtn->keyBy('lang_code');
     }
+
+    public function image()
+    {
+        return $this->belongsTo(Image::class);
+    }
 }

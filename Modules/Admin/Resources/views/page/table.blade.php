@@ -26,7 +26,5 @@
 @stop
 
 @section('footer')
-    @if($subPage)
-        @include($subPage)
-    @endif
+    @includeWhen($subPage, $subPage)
 @endsection

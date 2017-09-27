@@ -134,7 +134,7 @@ var js = [
     'Modules/Admin/Assets/vendor/jquery.inputmask/dist/jquery.inputmask.bundle.js',
     'Modules/Admin/Assets/vendor/jQuery-gMap/jquery.gmap.min.js',
     // 'Modules/Admin/Assets/vendor/app/js/app.js',
-    'public/formBuilder/dist/form-builder.min.js',
+    //'public/formBuilder/dist/form-builder.min.js',
     // 'public/formBuilder/dist/form-render.min.js'
     'Modules/Admin/Assets/vendor/bootstrap-fileinput/js/fileinput.js',
     'Modules/Admin/Assets/vendor/bootstrap-fileinput/themes/fa/theme.min.js',

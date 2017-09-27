@@ -1,0 +1,1 @@
+{!! Form::bsAutocomplete($title, 'icon', "webModule[{$code}]", 'autocomplete/icons', $data, 0, 'group required l:col-lg-3 l:control-label i:col-lg-8') !!}

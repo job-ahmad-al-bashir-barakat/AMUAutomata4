@@ -2,28 +2,26 @@
 
 namespace Modules\Utilities\Factories;
 
-use App\Library\Url\Facades\RouteUrls;
 use Aut\DataTable\Factories\GlobalFactory;
-use Modules\Utilities\Entities\Slider;
+use Modules\Utilities\Entities\VerticalSlider;
 
-class SliderDetailFactory extends GlobalFactory
+class VerticalSliderDetailFactory extends GlobalFactory
 {
     /**
      *  get datatable query
      */
     public function getDatatable($model, $request)
     {
-        $sliderId = request('sliderId');
-        $slider = Slider::findOrFail($sliderId);
-        $query = $slider->sliderDetails()->with(['image'])->allLangs()->get();
+        $sliderId = request('verticalSliderId');
+        $slider = VerticalSlider::findOrFail($sliderId);
+        $query = $slider->verticalSliderDetails()->allLangs()->get();
 
         return $this->table
-            ->queryConfig('datatable-slider')
+            ->queryConfig('datatable-vertical-slider')
             ->queryDatatable($query)
-            ->queryMultiLang(['head', 'title', 'text', 'btn'])
+            ->queryMultiLang(['text', 'sub_text', 'small_text'])
             ->queryUpdateButton('id')
             ->queryDeleteButton('id')
-            ->queryCustomButton('upload_image' ,'id' ,'fa fa-image' ,'' ,'onclick="showFileUploadModal(this)"')
             ->queryRender(true);
     }
 
@@ -32,17 +30,13 @@ class SliderDetailFactory extends GlobalFactory
      */
     public function buildDatatable($model, $request)
     {
-        $sliderId = request('sliderId');
+        $sliderId = request('verticalSliderId');
 
         return $this->table
-            ->config('datatable-slider',trans('utilities::app.slider'))
+            ->config('datatable-vertical-slider',trans('utilities::app.slider'))
             ->addPrimaryKey('id','id')
-            ->addHiddenInput('slider_id','slider_id', $sliderId, false, true)
-            ->addMultiInputTextLangs(['head', 'title', 'text'], 'req required')
-            ->addMultiInputTextLangs(['btn'])
-            ->addSelect(['R' => 'Right', 'C' => 'Center', 'L' => 'Left'], 'Position', 'position', 'position', '', 'req required')
-            ->addAutocomplete('autocomplete/pages', 'Page', 'page_id', 'page_id')
-            ->addActionButton(trans('utilities::app.upload_images') ,'upload_image' ,'upload_image', 'center all' ,'100px')
+            ->addHiddenInput('vertical_slider_id','vertical_slider_id', $sliderId, false, true)
+            ->addMultiInputTextLangs(['text', 'sub_text', 'small_text'], 'req required')
             ->addActionButton($this->update,'update','update')
             ->addActionButton($this->delete,'delete','delete')
             ->addNavButton()

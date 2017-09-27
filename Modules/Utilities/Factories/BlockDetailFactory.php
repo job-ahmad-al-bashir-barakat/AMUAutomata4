@@ -14,7 +14,7 @@ class BlockDetailFactory extends GlobalFactory
     {
         $blockId = request('blockId');
         $block = Block::findOrFail($blockId);
-        $query = $block->blockDetails()->allLangs()->get();
+        $query = $block->blockDetails()->with(['page', 'icon'])->allLangs()->get();
 
         return $this->table
             ->queryConfig('datatable-block')
@@ -38,8 +38,9 @@ class BlockDetailFactory extends GlobalFactory
             ->addHiddenInput('block_id','block_id', $blockId, false, true)
             ->addMultiInputTextLangs(['title', 'text'], 'req required')
             ->addMultiInputTextLangs(['btn'])
-            ->addAutocomplete('autocomplete/icons', 'Icon', 'icon_id', 'icon_id', '', 'req required')
-            ->addAutocomplete('autocomplete/pages', 'Page', 'page_id', 'page_id')
+            ->addViewField()
+            ->addAutocomplete('autocomplete/icons', 'Icon', 'icon_id', 'icon.code', 'icon.icon_html', 'req required')
+            ->addAutocomplete('autocomplete/pages', 'Page', 'page_id', "page.lang_name.{$this->lang}.text", "page.lang_name.{$this->lang}.text")
             ->addActionButton($this->update,'update','update')
             ->addActionButton($this->delete,'delete','delete')
             ->addNavButton()

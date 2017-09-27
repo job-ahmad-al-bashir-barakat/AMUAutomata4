@@ -13,10 +13,13 @@ class UtilitiesController extends Controller
 {
     public function table($view)
     {
+        $subPage = \View::exists("utilities::page.table-sub.$view") ? "utilities::page.table-sub.$view" : false;
+
         return view('utilities::page.table',[
             'table' => $view,
             'param' => '',
-            'title' => trans('utilities::app.'.str_replace('-','_',$view))
+            'title' => trans('utilities::app.' . str_replace('-', '_', $view)),
+            'subPage' => $subPage,
         ]);
     }
 

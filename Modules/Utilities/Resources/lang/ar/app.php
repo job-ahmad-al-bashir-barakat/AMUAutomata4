@@ -44,7 +44,10 @@ return [
     'pages'                  => 'الصفحات',
     'builder'                => 'الباني',
     'sliders'                => 'مجموعات الشرائح',
+    'vertical-sliders'       => 'مجموعات الشرائح الافقية',
     'slider'                 => 'شرائح',
+    'blocks'                 => 'كتل',
+    'icons'                  => 'الايقونات',
 
     'expand_all'             => 'فتح الجميع',
     'collapse_all'           => 'اغلاق الجميع',

@@ -44,7 +44,10 @@ return [
     'pages'                  => 'Pages',
     'builder'                => 'Builder',
     'sliders'                => 'Sliders',
+    'vertical-sliders'       => 'Vertical Sliders',
     'slider'                 => 'Slider',
+    'blocks'                 => 'Blocks',
+    'icons'                  => 'Icons',
 
     'expand_all'             => 'Expand All',
     'collapse_all'           => 'Collapse All',

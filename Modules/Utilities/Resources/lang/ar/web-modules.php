@@ -8,7 +8,10 @@ return [
     'width' => 'العرض',
     'status' => 'الحالة',
     'slider' => 'شرائح',
+    'vertical-slider' => 'شرائح افقية',
     'limit' => 'حدود',
     'courses' => 'المقررات',
     'show' => 'اظهار',
+    'title' => 'عنوان',
+    'icon' => 'ايقونه',
 ];

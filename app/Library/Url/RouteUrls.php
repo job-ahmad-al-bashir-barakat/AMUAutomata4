@@ -59,6 +59,11 @@ class RouteUrls
         return $this->localizeUrl('pages', 'utilities');
     }
 
+    public function icons()
+    {
+        return $this->localizeUrl('icons', 'utilities');
+    }
+
     public function builderPages()
     {
         return $this->localizeUrl('builder/pages', 'utilities');
@@ -69,9 +74,19 @@ class RouteUrls
         return $this->localizeUrl('builder/sliders', 'utilities');
     }
 
+    public function verticalSliders()
+    {
+        return $this->localizeUrl('builder/vertical-sliders', 'utilities');
+    }
+
     public function slider($id)
     {
         return $this->localizeUrl("builder/sliders/{$id}", "utilities");
+    }
+
+    public function verticalSlider($id)
+    {
+        return $this->localizeUrl("builder/vertical-sliders/{$id}", 'utilities');
     }
 
     public function blocks()

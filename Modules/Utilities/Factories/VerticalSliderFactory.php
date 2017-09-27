@@ -4,26 +4,25 @@ namespace Modules\Utilities\Factories;
 
 use App\Library\Url\Facades\RouteUrls;
 use Aut\DataTable\Factories\GlobalFactory;
-use Modules\Utilities\Entities\Slider;
 
-class SliderDetailFactory extends GlobalFactory
+class VerticalSliderFactory extends GlobalFactory
 {
     /**
      *  get datatable query
      */
     public function getDatatable($model, $request)
     {
-        $sliderId = request('sliderId');
-        $slider = Slider::findOrFail($sliderId);
-        $query = $slider->sliderDetails()->with(['image'])->allLangs()->get();
+        $query = $model::allLangs()->get();
 
         return $this->table
-            ->queryConfig('datatable-slider')
+            ->queryConfig('datatable-vertical-sliders')
             ->queryDatatable($query)
-            ->queryMultiLang(['head', 'title', 'text', 'btn'])
+            ->queryMultiLang(['name'])
             ->queryUpdateButton('id')
             ->queryDeleteButton('id')
-            ->queryCustomButton('upload_image' ,'id' ,'fa fa-image' ,'' ,'onclick="showFileUploadModal(this)"')
+            ->queryAddColumn('slider_detail', function ($row) {
+                return "<a href='" . RouteUrls::verticalSlider($row->id) . "' class='ajax'><i class='fa fa-sliders'></i></a>";
+            })
             ->queryRender(true);
     }
 
@@ -32,19 +31,13 @@ class SliderDetailFactory extends GlobalFactory
      */
     public function buildDatatable($model, $request)
     {
-        $sliderId = request('sliderId');
-
         return $this->table
-            ->config('datatable-slider',trans('utilities::app.slider'))
+            ->config('datatable-vertical-sliders',trans('utilities::app.vertical-sliders'))
             ->addPrimaryKey('id','id')
-            ->addHiddenInput('slider_id','slider_id', $sliderId, false, true)
-            ->addMultiInputTextLangs(['head', 'title', 'text'], 'req required')
-            ->addMultiInputTextLangs(['btn'])
-            ->addSelect(['R' => 'Right', 'C' => 'Center', 'L' => 'Left'], 'Position', 'position', 'position', '', 'req required')
-            ->addAutocomplete('autocomplete/pages', 'Page', 'page_id', 'page_id')
-            ->addActionButton(trans('utilities::app.upload_images') ,'upload_image' ,'upload_image', 'center all' ,'100px')
+            ->addMultiInputTextLangs(['name'], 'req required')
             ->addActionButton($this->update,'update','update')
             ->addActionButton($this->delete,'delete','delete')
+            ->addActionButton('Details', 'slider_detail', 'slider_detail')
             ->addNavButton()
             ->render();
     }

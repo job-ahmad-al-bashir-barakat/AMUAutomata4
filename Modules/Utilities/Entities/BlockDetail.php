@@ -46,4 +46,14 @@ class BlockDetail extends Model
     {
         return $this->transBtn->keyBy('lang_code');
     }
+
+    public function page()
+    {
+        return $this->belongsTo(Page::class);
+    }
+
+    public function icon()
+    {
+        return $this->belongsTo(Icon::class);
+    }
 }
