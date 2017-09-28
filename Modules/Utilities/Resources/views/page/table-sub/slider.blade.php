@@ -1,7 +1,7 @@
 {{ Form::bsImageUpload('slider' ,'slider' ,'' ,'' ,'1920' ,'1280' ,[
     'modalId'    => 'slider-image-upload',
     'modalTitle' => trans('admin::app.upload_lab_image')
-] ,'#datatable-slider') }}
+] ,'#datatable-slider', true, '.image', ['maxFileCount' => 1]) }}
 
 {{ Form::bsImageUploadCropper('90%' ,false ,true,false ,false ,false ,true) }}
 
@@ -15,6 +15,6 @@
 
         APP_AMU.fileUpload.load(inputFile ,datatableRaw);
 
-        $('#lab-image-upload').modal('show');
+        $('#slider-image-upload').modal('show');
     }
 </script>

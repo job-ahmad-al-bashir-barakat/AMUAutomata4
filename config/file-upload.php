@@ -22,5 +22,7 @@ return [
         'model' => \Modules\Utilities\Entities\SliderDetail::class,
         'width' => '1920',
         'height' => '1280',
+        'relationType' => 'one',
+//        'folderName' => 'sliders',
     ],
 ];

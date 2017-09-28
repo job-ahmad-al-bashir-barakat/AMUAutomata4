@@ -78,7 +78,8 @@ class BuilderController extends Controller
         return view('utilities::page.table',[
             'table' => 'sliders',
             'param' => '',
-            'title' => trans('utilities::app.sliders')
+            'title' => trans('utilities::app.sliders'),
+            'subPage' => false,
         ]);
     }
 
@@ -105,6 +106,7 @@ class BuilderController extends Controller
             'table' => 'vertical-sliders',
             'param' => '',
             'title' => trans('utilities::app.vertical-sliders')
+            'subPage' => false,
         ]);
     }
 
@@ -114,6 +116,7 @@ class BuilderController extends Controller
             'table' => 'vertical-slider',
             'param' => "verticalSliderId={$verticalSlider->id}",
             'title' => trans('utilities::app.vertical-slider') . " [{$verticalSlider->transName->first()->text}]",
+            'subPage' => false,
         ]);
     }
 
@@ -126,7 +129,8 @@ class BuilderController extends Controller
         return view('utilities::page.table',[
             'table' => 'blocks',
             'param' => '',
-            'title' => trans('utilities::app.blocks')
+            'title' => trans('utilities::app.blocks'),
+            'subPage' => false,
         ]);
     }
 
@@ -136,6 +140,7 @@ class BuilderController extends Controller
             'table' => 'block',
             'param' => "blockId={$block->id}",
             'title' => trans('utilities::app.block') . " [{$block->transName->first()->text}]",
+            'subPage' => false,
         ]);
     }
 }
