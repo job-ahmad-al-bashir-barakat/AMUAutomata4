@@ -105,7 +105,7 @@ class BuilderController extends Controller
         return view('utilities::page.table',[
             'table' => 'vertical-sliders',
             'param' => '',
-            'title' => trans('utilities::app.vertical-sliders')
+            'title' => trans('utilities::app.vertical-sliders'),
             'subPage' => false,
         ]);
     }
