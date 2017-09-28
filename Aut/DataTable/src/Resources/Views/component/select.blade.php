@@ -15,7 +15,11 @@
         >
             <option></option>
             @foreach($options as $key => $item)
-                <option value='{{ $key }}'>{{ $item }}</option>
+                @if(is_array($item))
+                    <option value='{{ $key }}' selected="{{ $item['selected'] }}">{{ $item['title'] }}</option>
+                @else
+                    <option value='{{ $key }}'>{{ $item }}</option>
+                @endif
             @endforeach
         </select>
         <div id='error_{{ $id }}'></div>

@@ -1,26 +1,56 @@
-@foreach($modules as $moduleIndex => $moduleItems )
+@php
+    $group_count = $group['count'] + 1;
+    $group_sourse = implode(',', array_except($group ,['count']));
+@endphp
+<div class="col-md-6 p-xs-0 p-sm-0 mb-10">
 
-    @foreach($moduleItems as $index => $items)
+    @component('controle.component.normal_panel' ,[
+        'id'        => 'items',
+        'title'     => trans("$currentModule::app.drag_item_here"),
+        'panelType' => 'default',
+        'panelAttr' => 'style=margin-bottom:2px;',
+    ])
 
-        @if($items->count())
-        <div>
-            <label>{{ trans("$moduleIndex::app.$index") }}</label>
+        <div id="nestable-menu" class="nestable dd order" data-group="{{ $group_count }}" data-group-source="{{ $group_sourse }}" data-max-depth="1" data-drop="true" data-empty-text="{{ trans('utilities::app.drag_item_here') }}">
+            <div class="dd-empty">{{ trans('utilities::app.drag_item_here') }}</div>
         </div>
-        @endif
 
-        @if($items->count())
-        <div id="nestable" class="dd items">
-            <ol class="dd-list">
-        @endif
-                @foreach($items as $link)
-                    <li data-id="1" class="dd-item" data-type="root">
-                        <div class="dd-handle">{{ $link->lang_name[App::getLocale()]['text'] or $link->code }}</div>
-                    </li>
-                @endforeach
-        @if($items->count())
-            </ol>
-        </div>
-        @endif
+    @endcomponent
+
+</div>
+@php($i = 0)
+<div class="col-md-6 p0">
+    @foreach($modules as $moduleIndex => $moduleItems )
+
+        @foreach($moduleItems as $index => $items)
+
+            @if($items->count())
+
+                @php(++$i)
+                @component('controle.component.panel' ,[
+                    'id'        => "menu-$index",
+                    'title'     => trans("$moduleIndex::app.$index"),
+                    'panelType' => 'primary',
+                    'active'    => false,
+                    'panelAttr' => "data-save-state=false style=margin-bottom:2px;",
+                ])
+
+                    <div id="nestable-{{$index}}" class="nestable dd" data-group="{{ $i }}" data-group-source="{{$group_count}}"  data-max-depth="1" data-clone="true" data-drop-exists="true" data-type="{{ $index }}">
+                        <ol class="dd-list">
+                            @foreach($items as $link)
+                                @php($text = $link->lang_name[App::getLocale()]['text'])
+                                <li data-id="{{ $link->id }}" data-order="" class="dd-item" data-exists="{{ \Illuminate\Support\Str::slug($text) }}" data-type="{{ $index }}">
+                                    <div class="dd-handle">{{ $text or $link->code }}</div>
+                                </li>
+                            @endforeach
+                        </ol>
+                    </div>
+
+                @endcomponent
+
+            @endif
+
+        @endforeach
+
     @endforeach
-
-@endforeach
+</div>

@@ -36,7 +36,7 @@
     <script>
         function hierarchyMenu(form ,res) {
 
-            APP_AMU.tree.load($('.' + $(form).data('tree-target')));
+            APP_AMU.tree.ajaxLoad($('.' + $(form).data('tree-target')));
         }
     </script>
 @endsection

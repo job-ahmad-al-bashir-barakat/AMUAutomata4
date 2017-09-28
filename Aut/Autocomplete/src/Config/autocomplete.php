@@ -8,6 +8,8 @@ return [
 
     'AutocompleteHelperClass' => \App\Library\AutocompleteHelper::class,
 
+    'version'    => '5.4',
+
     'default'   => [
 
         'withoutLang' => [

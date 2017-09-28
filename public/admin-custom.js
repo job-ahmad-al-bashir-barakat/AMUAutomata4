@@ -66,7 +66,7 @@ var HELPER_AMU = {
 
             switch (k)
             {
-                case 'tree': APP_AMU.tree.load(v);
+                case 'tree': APP_AMU.tree.ajaxLoad(v);
             }
         })
     },
@@ -81,7 +81,7 @@ var APP_AMU = {
 
             'shown.bs.modal': function () {
 
-                if ($(this).find('.cropper').length);
+                if ($(this).find('.cropper').length)
                 {
                     APP.CROPPER.destroy('.aut-cropper-modal');
                     APP.CROPPER.init('.aut-cropper-modal');
@@ -125,7 +125,7 @@ var APP_AMU = {
             $.fn.initializeMyPlugin = function () {
 
                 APP.TRANSLATION();
-                APP.COLLAPSE_PANELS();
+                APP_AMU.COLLAPSE_PANELS();
                 APP_AMU.ajax.init();
             };
 
@@ -449,6 +449,21 @@ var APP_AMU = {
     validate: {
 
         /**
+         * serialize data function
+         *
+         * @param formArray
+         * @returns {{}}
+         */
+        serializeObject: function (formArray) {
+
+            var returnArray = {};
+            for (var i = 0; i < formArray.length; i++){
+                returnArray[formArray[i]['name']] = formArray[i]['value'];
+            }
+            return returnArray;
+        },
+
+        /**
          *
          * @param $form
          * @returns {*}
@@ -484,10 +499,14 @@ var APP_AMU = {
                             $serialize = typeof $button.data('serialize') != typeof undefined ? $button.data('serialize') : true,
                             $data;
 
+                        // here
                         if ($serialize)
-                            $data = $form.serialize();
+                            $data = APP_AMU.validate.serializeObject($form.serializeArray());
                         else
                             $data = {};
+
+                        if ($serialize && typeof $button.data('extra-serialize') != typeof undefined)
+                            $data = $.extend($data ,window[$button.data('extra-serialize')](form));
 
                         if (typeof $button.data('method') != typeof undefined) {
                             $method = $button.data('method');
@@ -713,13 +732,16 @@ var APP_AMU = {
 
         treeContId: '.aut-tree',
 
+        treenormalLoadClass: '.nestable',
+
         storageKeyName: 'js-nestable',
 
         storageKeyAuto: 'js-nestable-auto',
 
         updateOutput: function (e) {
-            var list = e.length ? e : $(e.target),
-                output = list.data('output');
+            var list     = e.length ? e : $(e.target),
+                output   = list.data('output'),
+                treeCont = list.closest(APP_AMU.tree.treeContId);
 
             if (window.JSON) {
                 output.val(window.JSON.stringify(list.nestable('serialize')));//, null, 2));
@@ -727,26 +749,162 @@ var APP_AMU = {
                 output.val('JSON browser support required for this demo.');
             }
 
-            var treeAction = $.localStorage.get(APP_AMU.tree.storageKeyName);
+            var treeAction = $.localStorage.get(treeCont.data('storage-key') || APP_AMU.tree.storageKeyName);
             if (treeAction != null)
-                $('.dd').nestable((treeAction.action).toCamelCase());
+                list.nestable((treeAction.action).toCamelCase());
         },
 
-        load: function ($cont, $node) {
+        clear: function (selector ,text) {
+
+            var tree = $(selector)
+            tree.find('ol:first').remove();
+            tree.find('.dd-empty').remove();
+            tree.append('<div class="dd-empty">' + text + '</div>');
+        },
+
+        normalLoad : function () {
+
+            var $this        = $(this),
+                clone        = typeof $this.data('clone') != typeof undefined ? JSON.parse($this.data('clone')) : false,
+                groupSource  = typeof $this.data('group-source') != typeof undefined ? $this.data('group-source') : undefined,
+                reject       = typeof $this.data('reject') != typeof undefined ? JSON.parse($this.data('reject')) : false,
+                init         = typeof $this.data('init') != typeof undefined ? JSON.parse($this.data('init')) : false,
+                drop         = typeof $this.data('drop') != typeof undefined ? JSON.parse($this.data('drop')) : false,
+                drop_exists  = typeof $this.data('drop-exists') != typeof undefined ? JSON.parse($this.data('drop-exists')) : false,
+                emptyText    = typeof $this.data('empty-text') !=  typeof undefined ? $this.data('empty-text') : 'Drag Here';
+
+            var optionsObj = {
+                maxDepth: $this.data('max-depth'),
+                group: $this.data('group'),
+                clone: clone,
+                emptyText: emptyText
+            };
+
+            if(groupSource) {
+
+                var groupSource = (groupSource.toString()).split(',').map(Number);
+
+                optionsObj.group_source = groupSource;
+            }
+
+            // this it is just allow for the same list not between lists
+            if(reject)
+                optionsObj.reject = [{
+
+                    rule: function(draggedElement) {
+
+                        // The this object refers to dragRootEl i.e. the nestable root element. The drag action is cancelled if this function returns true
+                        // The rule here is that it is forbidden drag elements to first-level children
+                        return true;
+                    },
+
+                    action: function(draggedElement) {
+
+                        // This optional function defines what to do when such a rule applies
+                        alert('You can\'t do that !');
+                    }
+                }];
+
+            if(init)
+                optionsObj.afterInit = function ( event ) {
+                }
+
+            if(drop)
+                optionsObj.dropCallback = function (details) {
+                };
+
+            $this.nestable(optionsObj).on('dragEnd', function(event, item, source, destination, position) {
+
+                if(drop_exists) {
+
+                    var destinationExists = destination.find('[data-exists=' + item.data('exists') + ']');
+                    if(destinationExists.length > 1)
+                        $.each(destinationExists ,function (i ,v) {
+                            if(i == (destinationExists.length - 1))
+                                $(this).remove();
+                        });
+
+                    if(item.data('type') != destination.closest(APP_AMU.tree.treenormalLoadClass).data('type'))
+                        item.remove();
+                }
+
+                if($this.hasClass('order')) {
+
+                    item.parent().children('li').each(function (i, v) {
+
+                        $(this).attr('data-order', i + 1);
+                    });
+                }
+            });
+        },
+
+        ajaxLoad: function ($cont, $node) {
 
             var $cont = $($cont);
             var $treeParam = $node != null ? "?nodeId=" + $node : "";
 
             $cont.load($cont.data('url') + $treeParam, function () {
 
-                var $_nestable = $('#nestable'),
-                    $this = $(this);
+                var $this = $(this),
+                    $_nestable = $this.find('.ajax-nestable');
+
                 // activate Nestable for list 1
                 $_nestable.nestable({
                     group: $this.data('group'),
                     maxDepth: $this.data('max-depth'),
                     // afterInit: function ( event ) { }
-                }).on('change', APP_AMU.tree.updateOutput)
+                }).on('change', APP_AMU.tree.updateOutput).on('dragEnd', function (event, item, source, destination, position) {
+                    // Make an ajax request to persist move on database
+                    // here you can pass item-id, source-id, destination-id and position index to the server
+                    var item = $(_.head(item)),
+                        id = item.data('id'),
+                        parent = item.parents('li:first').data('id'),
+                        parent_target = item.data('parent');
+
+                    // get serialize data from tree
+                    var list = event.length ? event : $(event.target);
+
+                    var ObjectOrderSerialize = list.nestable('serialize');
+
+                    var data;
+                    if (parent_target) {
+                        //children
+                        data = JSPath.apply('..{.parent.id == "' + parent_target.id + '"}', ObjectOrderSerialize);
+                    } else {
+                        //parent
+                        data = JSPath.apply('.', ObjectOrderSerialize);
+                    }
+
+                    //reorder html item
+                    item.parent().children('li').each(function (i, v) {
+                        $(this).attr('data-order', i + 1);
+                    });
+
+                    //reorder data
+                    _.each(data, function (v, k) {
+                        v.order = k + 1;
+                    });
+
+                    if (!id)
+                        console.log('please set an data-id and data-parent for every item');
+
+                    parent = typeof parent != typeof undefined ? parent : null;
+
+                    $.put($this.data('url') + "/" + id, {
+                        "parent": parent,
+                        "drag": true,
+                        "order": position + 1,
+                        "data": data
+                    }, function (res) {
+
+                        if (typeof res.id != typeof null)
+                            item.attr('data-parent', '{ "id" : "' + res.id + '","name" : "' + res.name + '"}');
+                        else
+                            item.removeAttr('data-parent');
+
+                        HELPER_AMU.notify({message: res.operation_message, status: 'success'});
+                    });
+                })
                 //.on('beforeDragStart', function(handle) {})
                 //.on('dragStart', function(event, item, source) { })
                 //.on('dragMove', function(event, item, source, destination) { })
@@ -754,118 +912,68 @@ var APP_AMU = {
                 //   //If you need to persist list items order if changes, you need to comment the next line
                 //   if (source[0] === destination[0]) { feedback.abort = true; return; }
                 //   feedback.abort = !window.confirm('Continue?');
-                //})
-                    .on('dragEnd', function (event, item, source, destination, position) {
-                        // Make an ajax request to persist move on database
-                        // here you can pass item-id, source-id, destination-id and position index to the server
-                        // ....
-
-                        var item = $(_.head(item)),
-                            id = item.data('id'),
-                            parent = item.parents('li:first').data('id'),
-                            parent_target = item.data('parent');
-
-                        // get serialize data from tree
-                        var list = event.length ? event : $(event.target);
-
-                        var ObjectOrderSerialize = list.nestable('serialize');
-
-                        var data;
-                        if (parent_target) {
-                            //children
-                            data = JSPath.apply('..{.parent.id == "' + parent_target.id + '"}', ObjectOrderSerialize);
-                        } else {
-                            //parent
-                            data = JSPath.apply('.', ObjectOrderSerialize);
-                        }
-
-                        //reorder html item
-                        item.parent().children('li').each(function (i, v) {
-                            $(this).attr('data-order', i + 1);
-                        });
-                        //reorder data
-                        _.each(data, function (v, k) {
-                            v.order = k + 1;
-                        });
-
-                        if (!id)
-                            console.log('please set an data-id and data-parent for every item');
-
-                        parent = typeof parent != typeof undefined ? parent : null;
-
-                        $.put($this.data('url') + "/" + id, {
-                            "parent": parent,
-                            "drag": true,
-                            "order": position + 1,
-                            "data": data
-                        }, function (res) {
-
-                            if (typeof res.id != typeof null)
-                                item.attr('data-parent', '{ "id" : "' + res.id + '","name" : "' + res.name + '"}');
-                            else
-                                item.removeAttr('data-parent');
-
-                            HELPER_AMU.notify({message: res.operation_message, status: 'success'});
-                        });
-                    });
+                //});
 
                 // output initial serialised data
-                if ($('#nestable').length)
-                    APP_AMU.tree.updateOutput($('#nestable').data('output', $('#nestable-output')));
+                if ($this.find('.ajax-nestable').length)
+                    APP_AMU.tree.updateOutput($this.find('.ajax-nestable').data('output', $this.find('.ajax-nestable-output')));
 
                 APP_AMU.autocomplete.reloadAutocomplete($this.find('.autocomplete'));
-
-                $(document).off('change.tree').on('change.tree', '.tree-autocomplete-change', function () {
-
-                    var $this = $(this),
-                        $treeContId = $(APP_AMU.tree.treeContId),
-                        $length;
-
-                    if ($this.val())
-                        $length = $treeContId
-                            .find("[data-id=" + $(this).val() + "] .dd-list li:first")
-                            .parent()
-                            .children().length + 1;
-                    else
-                        $length = $treeContId.find('.dd .dd-list:first').children('li').length + 1;
-
-                    $this.closest('form')
-                        .find('#order')
-                        .val($length);
-                });
             });
         },
 
-        loadAction: function ($cont) {
+        loadAjaxAction: function ($cont) {
+
+            $(document).off('change.tree').on('change.tree', '.tree-autocomplete-change', function () {
+
+                var $this = $(this),
+                    $treeContId = $(APP_AMU.tree.treeContId),
+                    $length;
+
+                if ($this.val())
+                    $length = $treeContId
+                        .find("[data-id=" + $this.val() + "] .dd-list li:first")
+                        .parent()
+                        .children().length + 1;
+                else
+                    $length = $treeContId.find('.dd .dd-list:first').children('li').length + 1;
+
+                $this.closest('form')
+                    .find('#order')
+                    .val($length);
+            });
 
             $($cont).off('change').on('change', '#treeAutocomplete', function () {
 
                 var $node = $(this).val();
 
-                APP_AMU.tree.load($(this).closest($cont), $(this).val());
+                APP_AMU.tree.ajaxLoad($(this).closest($cont), $(this).val());
             });
 
             $($cont).on('click', '.js-nestable-action [data-action]', function (e) {
-                var target = $(e.target),
-                    action = target.data('action');
+                var target   = $(e.target),
+                    action   = target.data('action'),
+                    treeCont = target.closest(APP_AMU.tree.treeContId),
+                    list     = treeCont.find('.ajax-nestable'),
+                    modal    = target.data('target');
 
                 if (action === 'expand-all') {
-                    $('.dd').nestable('expandAll');
+                    list.nestable('expandAll');
                 }
 
                 if (action === 'collapse-all') {
-                    $('.dd').nestable('collapseAll');
+                    list.nestable('collapseAll');
                 }
 
                 if (action === 'reset_tree') {
-                    APP_AMU.tree.load($(this).closest(APP_AMU.tree.treeContId), null);
+                    APP_AMU.tree.ajaxLoad($(this).closest(APP_AMU.tree.treeContId), null);
                 }
 
                 if (action === 'add_tree_node') {
-                    $('.tree-autocomplete-change').trigger('change');
+                    $(modal).find('.tree-autocomplete-change').trigger('change');
                 }
 
-                $.localStorage.set(APP_AMU.tree.storageKeyName, {"action": action});
+                $.localStorage.set(treeCont.data('storage-key') || APP_AMU.tree.storageKeyName, {"action": action});
             });
 
             $($cont).on('click', '[data-form-add]', function () {
@@ -882,12 +990,19 @@ var APP_AMU = {
             });
         },
 
-        init: function ($cont) {
+        initTreeAjax: function ($cont) {
 
             $(APP_AMU.tree.treeContId).each(function () {
-                APP_AMU.tree.load(this);
-                APP_AMU.tree.loadAction(this);
+                APP_AMU.tree.ajaxLoad(this);
+                APP_AMU.tree.loadAjaxAction(this);
             });
+        },
+
+        initTreeNormal: function ($cont) {
+
+            $cont = $cont || APP_AMU.tree.treenormalLoadClass;
+
+            $($cont).each(APP_AMU.tree.normalLoad);
         }
     },
 
@@ -1466,7 +1581,8 @@ var APP_AMU = {
             APP_AMU.autocomplete.initAutocomplete();
             APP_AMU.select.initSelect();
             APP_AMU.validate.init('.ajaxCont');
-            APP_AMU.tree.init();
+            APP_AMU.tree.initTreeAjax();
+            APP_AMU.tree.initTreeNormal();
             APP_AMU.ckeditor.init('body', '.text-editor');
             APP_AMU.inputMask.init('[data-masked]');
             APP_AMU.fileUpload.load('.upload-file');
@@ -1578,6 +1694,95 @@ var APP_AMU = {
             }
             return val;
         }
+    },
+
+    COLLAPSE_PANELS : function () {
+
+        var panelSelector = '[data-tool="panel-collapse"]',
+            storageKeyName = 'jq-panelState';
+
+        // Prepare the panel to be collapsable and its events
+        $(panelSelector).each(function() {
+            // find the first parent panel
+            var $this        = $(this),
+                parent       = $this.closest('.panel'),
+                state        = typeof $this.data('save-state') != typeof undefined ? JSON.parse($this.data('save-state')) : false,
+                wrapper      = parent.find('.panel-wrapper'),
+                collapseOpts = {toggle: false},
+                iconElement  = $this.children('em'),
+                panelId      = parent.attr('id');
+
+            // if wrapper not added, add it
+            // we need a wrapper to avoid jumping due to the paddings
+            if( ! wrapper.length) {
+                wrapper =
+                    parent.children('.panel-heading').nextAll() //find('.panel-body, .panel-footer')
+                        .wrapAll('<div/>')
+                        .parent()
+                        .addClass('panel-wrapper');
+                collapseOpts = {};
+            }
+
+            // Init collapse and bind events to switch icons
+            wrapper
+                .collapse(collapseOpts)
+                .on('hide.bs.collapse', function() {
+                    setIconHide( iconElement );
+                    if(state)
+                        savePanelState( panelId, 'hide' );
+                    wrapper.prev('.panel-heading').addClass('panel-heading-collapsed');
+                })
+                .on('show.bs.collapse', function() {
+                    setIconShow( iconElement );
+                    if(state)
+                        savePanelState( panelId, 'show' );
+                    wrapper.prev('.panel-heading').removeClass('panel-heading-collapsed');
+                });
+
+            // Load the saved state if exists
+            if(state) {
+                var currentState = loadPanelState( panelId );
+                if(currentState) {
+                    setTimeout(function() { wrapper.collapse( currentState ); }, 50);
+                    savePanelState( panelId, currentState );
+                }
+            }
+        });
+
+        // finally catch clicks to toggle panel collapse
+        $(document).on('click', panelSelector, function () {
+
+            var parent = $(this).closest('.panel');
+            var wrapper = parent.find('.panel-wrapper');
+
+            wrapper.collapse('toggle');
+
+        });
+
+        /////////////////////////////////////////////
+        // Common use functions for panel collapse //
+        /////////////////////////////////////////////
+        function setIconShow(iconEl) {
+            iconEl.removeClass('fa-plus').addClass('fa-minus');
+        }
+
+        function setIconHide(iconEl) {
+            iconEl.removeClass('fa-minus').addClass('fa-plus');
+        }
+
+        function savePanelState(id, state) {
+            var data = $.localStorage.get(storageKeyName);
+            if(!data) { data = {}; }
+            data[id] = state;
+            $.localStorage.set(storageKeyName, data);
+        }
+
+        function loadPanelState(id) {
+            var data = $.localStorage.get(storageKeyName);
+            if(data) {
+                return data[id] || false;
+            }
+        }
     }
 };
 
@@ -1590,6 +1795,7 @@ var onPageLoad = {
         /**
          * Delegate Load
          */
+        APP_AMU.COLLAPSE_PANELS,
         APP_AMU.changeColorControleTheme,
         function (){APP_AMU.initPjax('#pjax-container')},
         APP_AMU.validate.fillForm,
@@ -1601,7 +1807,8 @@ var onPageLoad = {
         APP_AMU.autocomplete.initAutocomplete,
         APP_AMU.select.initSelect,
         function (){APP_AMU.validate.init('.ajaxCont')},
-        APP_AMU.tree.init,
+        APP_AMU.tree.initTreeAjax,
+        APP_AMU.tree.initTreeNormal,
         function (){APP_AMU.ckeditor.init('body' ,'.text-editor')},
         APP_AMU.ckeditor.fixCkeditorModal,
         function (){APP_AMU.inputMask.init('[data-masked]')},

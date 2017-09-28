@@ -12,18 +12,17 @@ class SiteMenuFactory
     {
         return array_merge([
             'id'                => 'id' ,
-            'page_id'           => 'page_id',
-            'page_code'         => 'page->page_code' ,
-            'parent'            => ['id' => 'parent_id','name' => 'parent->page->lang_name->'.\App::getLocale().'->text'],
+                'name-route'        => 'name_route',
+            'parent'            => ['id' => 'parent_id','name' => 'parent->lang_name->'.\App::getLocale().'->text'],
             'order'             => 'order',
-        ],lang('name' ,"page->lang_name->{lang}->text",'all'));
+        ],lang('name' ,"lang_name->{lang}->text",'all'));
     }
 
     function setContent()
     {
         return [
             //'html' => '<span style="padding: 5px;" class="tags"><i class="icon-tag"></i></span>',
-            'page->lang_name->'.\App::getLocale().'->text',
+            'title',
         ];
     }
 
@@ -34,30 +33,55 @@ class SiteMenuFactory
 
     function store(Request $request)
     {
-        $request->request->add(['transSaveOper' => false]);
 
-        dd($request->input());
-        $page = Page::create($request->input());
+        /**
+         *
+         * create function
+         *
+         * @param $parent
+         * @param $data
+         */
+        $create = function ($parent ,$data) {
 
-        if(!$request->input('parent_id'))
+            if(!$parent)
+            {
+                /*
+                 * create root node
+                 */
+
+                $node = new SiteMenu($data);
+
+                $node->makeRoot()->save();
+            }
+            else
+            {
+                /*
+                 * create child node
+                 */
+
+                $parent = SiteMenu::findOrFail($parent);
+
+                $parent->children()->create($data);
+            }
+        };
+
+        if($request->input('tree_menu' ,''))
         {
-            /*
-             * create root node
-             */
+            foreach ($request->input('tree_menu') as $item)
+            {
+                $create($request->input('parent_id') ,[
+                    'parent_id'     => $request->input('parent_id'),
+                    'name_route'    => $request->input('name_route'),
+                    'order'         => $item['order'],
+                    'menuable_id'   => $item['id'],
+                    'menuable_type' => $item['type'],
+                ]);
+            }
 
-            $node = new SiteMenu(array_merge($request->input() ,['page_id' => $page->id]));
-
-            $node->makeRoot()->save();
+            return;
         }
-        else
-        {
-            /*
-             * create child node
-             */
-            $parent = SiteMenu::findOrFail($request->input('parent_id'));
 
-            $parent->children()->create(array_merge($request->input() ,['page_id' => $page->id]));
-        }
+        $create($request->input('parent_id') ,$request->input());
     }
 
     function update(Request $request ,$id)

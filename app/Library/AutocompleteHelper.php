@@ -8,7 +8,9 @@ class AutocompleteHelper
 {
     function generalAutocomplete(Request $request ,$query)
     {
-        return $this->whereNotNodeAndChildren($query);
+        $query = $this->whereNotNodeAndChildren($query);
+
+        return $query->TypegeneralCondition();
     }
 
     function controlAutocomplete(Request $request ,$query)

@@ -89,6 +89,7 @@
 <script src="{{ asset("app.js") }}"></script>
 <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
 <script src="{{ asset('filemanager/js/aut_browse_btn_event_handler.js') }}"></script>
+<script src="{{ asset('jquery.nestable.js') }}"></script>
 
 <script src="{{ asset('admin-custom.js') }}"></script>
 

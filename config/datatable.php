@@ -67,7 +67,7 @@ return [
             "
                 <script>
                     APP_AMU.ckeditor.init('body' ,'.datatable-text-editor');
-                    APP.COLLAPSE_PANELS();
+                    APP_AMU.COLLAPSE_PANELS();
                 </script>
             ";
         },
@@ -127,7 +127,7 @@ return [
             return "<script></script>";
         },
 
-        'onDestroy'         => function() {
+        'onDestroy' => function() {
 
             return "<script></script>";
         }
