@@ -26,7 +26,7 @@ class UtilitiesController extends Controller
     public function menu($view)
     {
         $modules = [];
-        if(view()->exists("utilities::page._{$view}_sub_section")) {
+        if($view === 'general') {
 
             $classes = function($name) {
 

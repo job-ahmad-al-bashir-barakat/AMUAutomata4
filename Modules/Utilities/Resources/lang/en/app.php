@@ -42,6 +42,7 @@ return [
     'modules'                => 'Modules',
     'custom_modules'         => 'Custom Modules',
     'pages'                  => 'Pages',
+    'page'                   => 'Page',
     'builder'                => 'Builder',
     'sliders'                => 'Sliders',
     'vertical-sliders'       => 'Vertical Sliders',

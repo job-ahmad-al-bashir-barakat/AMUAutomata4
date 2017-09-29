@@ -664,7 +664,10 @@ var APP = {
                 secondChild.style['background-position'] = '0 0';
             });
 
-            firstChild.addEventListener('click', function () {
+            firstChild.addEventListener('click', function (event) {
+
+                event.preventDefault();
+
                 var imgX = '0',
                     animationInterval = setInterval(function () {
                         imgX = imgX === '-18' ? '0' : '-18';

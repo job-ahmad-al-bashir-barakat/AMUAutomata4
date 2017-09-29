@@ -18,7 +18,6 @@ class CreateSiteMenuTable extends Migration
             $table->integer('_lft')->unsigned()->default(0);
             $table->integer('_rgt')->unsigned()->default(0);
             $table->integer('parent_id')->unsigned()->nullable();
-            $table->string('name_route', 191);
             $table->integer('order')->unsigned();
             $table->nullableMorphs('menuable');
             $table->timestamps();

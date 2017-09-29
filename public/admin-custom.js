@@ -846,14 +846,25 @@ var APP_AMU = {
             $cont.load($cont.data('url') + $treeParam, function () {
 
                 var $this = $(this),
-                    $_nestable = $this.find('.ajax-nestable');
+                    $_nestable = $this.find('.ajax-nestable'),
+                    groupSource  = typeof $this.data('group-source') != typeof undefined ? $this.data('group-source') : undefined,
+                    emptyText    = typeof $this.data('empty-text') !=  typeof undefined ? $this.data('empty-text') : 'Drag Here';
 
-                // activate Nestable for list 1
-                $_nestable.nestable({
-                    group: $this.data('group'),
+                var optionsObj = {
                     maxDepth: $this.data('max-depth'),
+                    group: $this.data('group'),
+                    emptyText: emptyText
                     // afterInit: function ( event ) { }
-                }).on('change', APP_AMU.tree.updateOutput).on('dragEnd', function (event, item, source, destination, position) {
+                };
+
+                if(groupSource) {
+
+                    var groupSource = (groupSource.toString()).split(',').map(Number);
+
+                    optionsObj.group_source = groupSource;
+                }
+
+                $_nestable.nestable(optionsObj).on('change', APP_AMU.tree.updateOutput).on('dragEnd', function (event, item, source, destination, position) {
                     // Make an ajax request to persist move on database
                     // here you can pass item-id, source-id, destination-id and position index to the server
                     var item = $(_.head(item)),
@@ -1502,9 +1513,11 @@ var APP_AMU = {
         initGMapInputLocation: function () {
 
             $(document).on('click', '.input-location span:first', function () {
+
                 var $this = $(this),
                     $input = $this.prev('input'),
-                    $modal = '#' + $input.data('modal');
+                    $modal = $input.data('modal');
+
                 $($modal).off('shown.bs.modal').on('shown.bs.modal', function (event) {
 
                     var location = $input.val();
@@ -1525,9 +1538,9 @@ var APP_AMU = {
                 if (InputFullLocation)
                     $(InputFullLocation).val($($locationData.location).val());
                 if (InputLatLocation)
-                    $(InputLatLocation).val($($locationData.lat).val())
+                    $(InputLatLocation).val($($locationData.lat).val());
                 if (InputLngLocation)
-                    $(InputLngLocation).val($($locationData.lng).val())
+                    $(InputLngLocation).val($($locationData.lng).val());
 
                 $($modal).modal('hide');
             });

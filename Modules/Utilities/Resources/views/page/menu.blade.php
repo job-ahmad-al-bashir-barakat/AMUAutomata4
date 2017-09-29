@@ -8,11 +8,7 @@
 
 @section('content')
 
-    <div class="row">
-        <div class="col-md-6">
-            {!! tree($view) !!}
-        </div>
-    </div>
+    @include("utilities::page._{$view}_tree")
 
 @endsection
 

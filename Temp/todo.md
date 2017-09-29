@@ -83,8 +83,6 @@ change file input upload path for show well orginize in file manager
 هام جدا  
 -----------
 
-// save / update / delete / order
-// destroy tree 
 // work on unfinish tables
 // fill public menu
 // rtl issue

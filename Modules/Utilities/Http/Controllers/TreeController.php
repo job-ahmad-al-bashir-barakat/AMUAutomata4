@@ -98,6 +98,9 @@ class TreeController extends Controller
 
         $traverse = function ($controls) use (&$traverse ,&$tree) {
 
+            if(count($controls) == 0)
+                return "<div class='dd-empty'>". trans('utilities::app.drag_item_here') ."</div>";
+
             //open ol for child parent
             $tree = "$tree <ol class='dd-list'>";
 

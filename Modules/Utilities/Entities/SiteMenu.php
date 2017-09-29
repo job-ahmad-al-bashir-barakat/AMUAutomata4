@@ -37,16 +37,18 @@ class SiteMenu extends \Eloquent
 
         $q = str_replace(' ', '%', request()->input('q', ''));
 
-        $type = request()->input('menuable_type');
-
-        dd($type);
-
-        MenuTables::all();
-
-        return $query->orWhereHas('faculty.transName', function ($query) use($q) {
+        $query->whereHas('transName' ,function ($query) use($q) {
 
             $query->where('text', 'like', '%' . $q . '%');
         });
+
+        foreach (MenuTables::all() as $item)
+            $query = $query->orWhereHas("{$item->code}.transName", function ($query) use($q) {
+
+                $query->where('text', 'like', '%' . $q . '%');
+            });
+
+        return $query;
     }
 
     public function transName()

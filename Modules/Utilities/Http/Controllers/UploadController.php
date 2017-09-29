@@ -43,12 +43,12 @@ class UploadController extends Controller
         return 'done';
     }
 
-    function upload(UploadFormRequest $request ,$model ,$type){
+    function upload(UploadFormRequest $request ,$model ,$type) {
 
         $file = $request->file($model);
         $file = is_array($file) ? $file[0] : $file;
 
-        // to do : from this we will know what type of image is original or cropped or thumpnail
+        // todo : from this we will know what type of image is original or cropped or thumpnail
         // imageType this must stored in db
         $imageType = 'original';
 
