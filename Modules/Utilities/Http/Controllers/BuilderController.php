@@ -112,11 +112,14 @@ class BuilderController extends Controller
 
     public function verticalSlider(VerticalSlider $verticalSlider)
     {
+        $view = 'vertical-slider';
+        $subPage = \View::exists("utilities::page.table-sub.$view") ? "utilities::page.table-sub.$view" : false;
+
         return view('utilities::page.table',[
             'table' => 'vertical-slider',
             'param' => "verticalSliderId={$verticalSlider->id}",
             'title' => trans('utilities::app.vertical-slider') . " [{$verticalSlider->transName->first()->text}]",
-            'subPage' => false,
+            'subPage' => $subPage,
         ]);
     }
 

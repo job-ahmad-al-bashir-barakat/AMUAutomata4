@@ -14,12 +14,13 @@ class VerticalSliderDetailFactory extends GlobalFactory
     {
         $sliderId = request('verticalSliderId');
         $slider = VerticalSlider::findOrFail($sliderId);
-        $query = $slider->verticalSliderDetails()->allLangs()->get();
+        $query = $slider->verticalSliderDetails()->with(['image'])->allLangs()->get();
 
         return $this->table
             ->queryConfig('datatable-vertical-slider')
             ->queryDatatable($query)
             ->queryMultiLang(['text', 'sub_text', 'small_text'])
+            ->queryCustomButton('upload_image', 'id', 'fa fa-image', '', 'onclick="showFileUploadModal(this)"')
             ->queryUpdateButton('id')
             ->queryDeleteButton('id')
             ->queryRender(true);
@@ -37,6 +38,7 @@ class VerticalSliderDetailFactory extends GlobalFactory
             ->addPrimaryKey('id','id')
             ->addHiddenInput('vertical_slider_id','vertical_slider_id', $sliderId, false, true)
             ->addMultiInputTextLangs(['text', 'sub_text', 'small_text'], 'req required')
+            ->addActionButton(trans('utilities::app.upload_images'), 'upload_image', 'id', 'center all' ,'100px')
             ->addActionButton($this->update,'update','update')
             ->addActionButton($this->delete,'delete','delete')
             ->addNavButton()

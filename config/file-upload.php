@@ -25,4 +25,12 @@ return [
         'relationType' => 'one',
 //        'folderName' => 'sliders',
     ],
+
+    'vertical_slider' => [
+        'model' => \Modules\Utilities\Entities\VerticalSliderDetail::class,
+        'width' => '100',
+        'height' => '100',
+        'relationType' => 'one',
+//        'folderName' => 'sliders',
+    ],
 ];

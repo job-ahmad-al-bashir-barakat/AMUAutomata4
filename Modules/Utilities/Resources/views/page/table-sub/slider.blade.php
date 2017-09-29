@@ -1,6 +1,6 @@
 {{ Form::bsImageUpload('slider' ,'slider' ,'' ,'' ,'1920' ,'1280' ,[
     'modalId'    => 'slider-image-upload',
-    'modalTitle' => trans('admin::app.upload_lab_image')
+    'modalTitle' => trans('utilities::app.upload_slider_image')
 ] ,'#datatable-slider', true, '.image', ['maxFileCount' => 1]) }}
 
 {{ Form::bsImageUploadCropper('90%' ,false ,true,false ,false ,false ,true) }}
