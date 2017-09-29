@@ -32,10 +32,20 @@ class UploadController extends Controller
             ? $this->imageLocalConfig['relationType']
             : $this->imageGeneralConfig['relationType'];
 
-        // get path directory storage
-        $this->uploadDirectory = isset($this->imageLocalConfig['upload_directory'])
+        // get path upload directory storage
+        $mainDirectory = isset($this->imageGeneralConfig[$routeParam['type']]['main_directory'])
+            ? $this->imageGeneralConfig[$routeParam['type']]['main_directory']
+            : 'app';
+
+        // get path upload directory storage
+        $uploadDirectory = isset($this->imageLocalConfig['upload_directory'])
             ? $this->imageLocalConfig['upload_directory']
             : $this->imageGeneralConfig[$routeParam['type']]['upload_directory'];
+
+        $folderUpload = Str::plural($routeParam['model']);
+
+        $this->targetDirectory = "$uploadDirectory\\$folderUpload";
+        $this->uploadDirectory = "$mainDirectory\\$uploadDirectory\\$folderUpload";
     }
 
     function index(Request $request ,$model ,$type) {
@@ -54,6 +64,9 @@ class UploadController extends Controller
 
         $path       = storage_path($this->uploadDirectory);
         $hashName   = strtolower(str_random(12))."_{$imageType}_". $file->getClientOriginalName();
+
+        // make directory if not exists
+        Storage::makeDirectory($this->targetDirectory);
 
         // move with intervention
         $imgRezise = \Image::make($file->getRealPath());
@@ -91,6 +104,8 @@ class UploadController extends Controller
 
     function destroy(Request $request ,$model ,$type) {
 
+        request()->request->add(['transSaveOper' => false]);
+
         // get config model
         $dbModel = $this->imageLocalConfig['model'];
 
@@ -107,9 +122,9 @@ class UploadController extends Controller
         $partFunc = Str::studly($type);
         $this->{"destroyUpload{$partFunc}Db"}($request->get('key'));
 
-        // set
+        // set storage path for file delete
         $path = storage_path($this->uploadDirectory."\\".$request->get('file_name'));
-        // delete image from storage .. ps: this accept just file name bust i pass full path.
+        // delete image from storage .. ps: this accept just file name but i pass full path.
         Storage::delete($path);
         // remove symbolic link from image
         if(is_file($path))

@@ -49,6 +49,7 @@ class LabFactory extends GlobalFactory
                 'id'                => 'labs',
                 'title'             => trans('admin::app.labs_gelocation'),
                 'inputFullLocation' => '#datatable-labs-modal .input-location input',
+                'zoom'              => 10,
                 'geoLocation'       => Setting::whereCode('UGL')->first()->value
             ])->render())
             ->addNavButton()

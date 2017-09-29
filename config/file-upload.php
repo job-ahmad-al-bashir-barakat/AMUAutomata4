@@ -6,7 +6,7 @@ return [
 
         'image' => [
             'validate'         => 'mimes:jpeg,jpg,png|ratio',
-            'upload_directory' => 'app\public\upload\image',
+            'upload_directory' => 'public\upload\image',
         ],
 
         'relationType' => 'many', //one
@@ -23,6 +23,5 @@ return [
         'width' => '1920',
         'height' => '1280',
         'relationType' => 'one',
-        'folderName' => 'sliders',
     ],
 ];

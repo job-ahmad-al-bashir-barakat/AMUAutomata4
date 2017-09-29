@@ -23,7 +23,7 @@ class SliderDetailFactory extends GlobalFactory
             ->queryMultiLang(['head', 'title', 'text', 'btn'])
             ->queryUpdateButton('id')
             ->queryDeleteButton('id')
-            ->queryCustomButton('upload_image', 'image_id', 'fa fa-image', '', 'onclick="showFileUploadModal(this)"')
+            ->queryCustomButton('upload_image', 'id', 'fa fa-image', '', 'onclick="showFileUploadModal(this)"')
             ->queryRender(true);
     }
 

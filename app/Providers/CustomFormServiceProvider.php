@@ -126,6 +126,7 @@ class CustomFormServiceProvider extends ServiceProvider
                 'maxImageWidth'                      => null,
                 'maxImageHeight'                     => null,
                 'allowedFileExtensions'              => 'jpeg,jpg,bmp,png',
+                'appendLocation'                     => '',
             ],
         ]);
     }
