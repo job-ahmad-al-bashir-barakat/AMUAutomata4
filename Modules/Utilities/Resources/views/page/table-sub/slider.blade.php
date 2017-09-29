@@ -8,8 +8,8 @@
 <script>
     function showFileUploadModal($this) {
 
-        var inputFile = $('#slider-image-upload').find('.upload-file'),
-            datatableRaw = _aut_datatable_getSelectedRowData('#datatable-slider' ,$($this).closest('tr'));
+        var inputFile = $('#slider-image-upload').find('.upload-file');
+        var datatableRaw = _aut_datatable_getSelectedRowData('#datatable-slider' ,$($this).closest('tr'));
 
         inputFile.attr('data-param' ,'id=' + $($this).data('key'));
 
