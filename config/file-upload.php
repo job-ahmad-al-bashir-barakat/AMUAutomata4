@@ -16,6 +16,7 @@ return [
         'model' => \Modules\Admin\Entities\Lab::class,
         'width' => '1366',
         'height' => '768',
+        'stopRelationSave' => true
     ],
 
     'slider' => [

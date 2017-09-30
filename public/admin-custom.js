@@ -1334,6 +1334,7 @@ var APP_AMU = {
                         cropperSelector = $this.data('cropper-selector') || '.aut-cropper-file-upload',
                         cropperModal    = $this.data('cropper-modal') || '',
                         datatable                   = $this.data('datatable'),
+                        reloadDatatable             = typeof $this.data('reload-datatable') != typeof undefined ? JSON.parse($this.data('reload-datatable')) : true,
                         datatableInitialize         = typeof $this.data('datatable-initialize') != typeof undefined ? JSON.parse($this.data('datatable-initialize')) : true,
                         datatableInitializeProperty = $this.data('datatable-initialize-property') || '.image',
                         appendLocation              = typeof $this.data('append-location') != typeof undefined ? $this.data('append-location') : '';
@@ -1461,8 +1462,11 @@ var APP_AMU = {
                             inputFile.before(hidden);
 
                         // reload datatable after upload success
-                        if(datatableInitialize == true && datatableRaw)
+                        if(datatableInitialize == true && datatableRaw && reloadDatatable)
                             aut_datatable_reload(datatable);
+
+                        if ((typeof $this.data('fileuploaded') != typeof undefined) && $this.data('fileuploaded'))
+                            window[$this.data('fileuploaded')](event, data, previewId, index);
 
                         // hide modal after upload success
                         if($(target).hasClass('modal'))
@@ -1481,8 +1485,11 @@ var APP_AMU = {
                     }).off('filedeleted').on('filedeleted', function(event, key, jqXHR, data) {
 
                         // reload datatable after upload success
-                        if(datatableInitialize == true && datatableRaw)
+                        if(datatableInitialize == true && datatableRaw && reloadDatatable)
                             aut_datatable_reload(datatable);
+
+                        if ((typeof $this.data('filedeleted') != typeof undefined) && $this.data('filedeleted'))
+                            window[$this.data('filedeleted')](event, key, jqXHR, data)  ;
                     });
 
                     // temp solution for remove crop on update

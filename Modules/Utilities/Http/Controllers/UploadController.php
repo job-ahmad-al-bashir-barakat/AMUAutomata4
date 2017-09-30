@@ -18,6 +18,8 @@ class UploadController extends Controller
 
     public $uploadDirectory = '';
 
+    public $stopRelationSave = false;
+
     public $relationType = '';
 
     function __construct()
@@ -41,6 +43,11 @@ class UploadController extends Controller
         $uploadDirectory = isset($this->imageLocalConfig['upload_directory'])
             ? $this->imageLocalConfig['upload_directory']
             : $this->imageGeneralConfig[$routeParam['type']]['upload_directory'];
+
+        // stop all relation oper
+        $this->stopRelationSave = isset($this->imageLocalConfig['stopRelationSave'])
+            ? $this->imageLocalConfig['stopRelationSave']
+            : false;
 
         $folderUpload = Str::plural($routeParam['model']);
 
@@ -88,16 +95,19 @@ class UploadController extends Controller
         $partFunc = Str::studly($type);
         $returnParam = $this->{"saveUpload{$partFunc}Db"}($extraParams);
 
-        // get config model
-        $dbModel = $this->imageLocalConfig['model'];
+        if(!$this->stopRelationSave)
+        {
+            // get config model
+            $dbModel = $this->imageLocalConfig['model'];
 
-        // save relation file
-        $dbModel = $dbModel::findOrFail($request->get('id'));
-        // relationType has to be many or one
-        if($this->relationType == 'many')
-            $dbModel->image()->attach($returnParam->id);
-        else
-            $dbModel->update(["{$type}_id" => $returnParam->id]);
+            // save relation file
+            $dbModel = $dbModel::findOrFail($request->get('id'));
+            // relationType has to be many or one
+            if($this->relationType == 'many')
+                $dbModel->image()->attach($returnParam->id);
+            else
+                $dbModel->update(["{$type}_id" => $returnParam->id]);
+        }
 
         return array_merge(["success" => true], [$model => $returnParam]);
     }
@@ -106,17 +116,20 @@ class UploadController extends Controller
 
         request()->request->add(['transSaveOper' => false]);
 
-        // get config model
-        $dbModel = $this->imageLocalConfig['model'];
+        if(!$this->stopRelationSave)
+        {
+            // get config model
+            $dbModel = $this->imageLocalConfig['model'];
 
-        // save relation file
-        $dbModel = $dbModel::findOrFail($request->get('id'));
+            // save relation file
+            $dbModel = $dbModel::findOrFail($request->get('id'));
 
-        // relationType has to be many or one
-        if($this->relationType == 'many')
-            $dbModel->image()->detach($request->get('key'));
-        else
-            $dbModel->update(["{$type}_id" => null]);
+            // relationType has to be many or one
+            if($this->relationType == 'many')
+                $dbModel->image()->detach($request->get('key'));
+            else
+                $dbModel->update(["{$type}_id" => null]);
+        }
 
         //delete file from db
         $partFunc = Str::studly($type);

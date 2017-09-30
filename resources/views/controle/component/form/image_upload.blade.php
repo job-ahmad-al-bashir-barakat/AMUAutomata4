@@ -36,6 +36,11 @@
            data-cropper-modal="{{ $cropperModal or '#crop-image' }}"
            data-show-caption="{{ $showCaption or 'false' }}"
            data-datatable="{{ $datatable or ''}}"
+           data-reload-datatable="{{ $reloadDatatable or 'true' }}"
+           {{--(event, data, previewId, index)--}}
+           data-fileuploaded="{{ $fileuploadedEvent or '' }}"
+           data-filedeleted="{{ $filedeletedEvent or '' }}"
+           {{--('filedeleted')](event, key, jqXHR, data)--}}
            data-datatable-initialize="{{ $datatableInitialize or 'true' }}"
            data-datatable-initialize-property="{{ $datatableInitializeProperty or '.image' }}"
            data-remove-label="{{ $removeLabel or trans('app.clear') }}"
