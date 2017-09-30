@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePrerequisiteGroupTable extends Migration
+class CreateLabsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreatePrerequisiteGroupTable extends Migration
      */
     public function up()
     {
-        Schema::create('prerequisite_group', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('code');
-            $table->integer('course_id')->unsigned();
+        Schema::create('labs', function (Blueprint $table) {
+            $table->increments('id')->unsigned();
+            $table->integer('faculty_id');
+            $table->integer('contact_id');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -29,6 +29,6 @@ class CreatePrerequisiteGroupTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('prerequisite_group');
+        Schema::dropIfExists('labs');
     }
 }

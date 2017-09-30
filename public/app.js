@@ -317,7 +317,7 @@ var APP = {
 
                                      target.closest('.file-input').find("[data-fileindex=" + cropper.attr('data-fileindex') + "] img").attr('src' ,object);
 
-                                     target.closest('.file-input').find("[data-fileindex=" + cropper.attr('data-fileindex') + "] .file-footer-caption").html(name + "</br><samp>(" + APP_AMU.fileUpload.formatBytes(blob.size) + " KB)</samp>");
+                                     target.closest('.file-input').find("[data-fileindex=" + cropper.attr('data-fileindex') + "] .file-footer-caption").html(name + "</br><samp>(" + APP_AMU.fileUpload.formatBytes(blob.size) + ")</samp>");
 
                                      var modal = $this.closest('.modal');
 
@@ -578,7 +578,7 @@ var APP = {
                     };
 
                     // Create a marker for each place.
-                    _map.clearMapMarkers();
+                    APP.GMap.clearMapMarkers(map._this ,_map);
                     markers.push(new google.maps.Marker({
                         map: _map,
                         title: place.name,
@@ -586,14 +586,11 @@ var APP = {
                         animation: google.maps.Animation.DROP,
                     }));
 
-                    if(map.location)
-                        $(map._this).siblings(map.location).val(place.geometry.location.toUrlValue());
-
-                    if(map.lat)
-                        $(map._this).siblings(map.lat).val(place.geometry.location.lat());
-
-                    if(map.lng)
-                        $(map._this).siblings(map.lng).val(place.geometry.location.lng());
+                    APP.GMap.fillInputLocation(map , {
+                        location : place.geometry.location.toUrlValue(),
+                        lat : place.geometry.location.lat(),
+                        lng : place.geometry.location.lng(),
+                    });
 
                     if (place.geometry.viewport) {
                         // Only geocodes have viewport.
@@ -613,25 +610,23 @@ var APP = {
             google.maps.event.addListener(_map, 'click', function (event) {
 
                 // Create a marker for each place.
-                _map.clearMapMarkers();
+                APP.GMap.clearMapMarkers(map._this ,_map);
                 new google.maps.Marker({
                     map: _map,
                     animation: google.maps.Animation.DROP,
                     position: new google.maps.LatLng(event.latLng.lat(), event.latLng.lng())
                 });
 
-                if(map.location)
-                    $(map._this).siblings(map.location).val(event.latLng.toUrlValue());
-
-                if(map.lat)
-                    $(map._this).siblings(map.lat).val(event.latLng.lat());
-
-                if(map.lng)
-                    $(map._this).siblings(map.lng).val(event.latLng.lng());
+                APP.GMap.fillInputLocation(map , {
+                    location : event.latLng.toUrlValue(),
+                    lat : event.latLng.lat(),
+                    lng :  event.latLng.lng(),
+                });
             });
         },
 
         yourLocationNavigatorGeoLocationButton :  function (map) {
+
             var _map = map.obj;
 
             var controlDiv = document.createElement('div');
@@ -664,7 +659,10 @@ var APP = {
                 secondChild.style['background-position'] = '0 0';
             });
 
-            firstChild.addEventListener('click', function () {
+            firstChild.addEventListener('click', function (event) {
+
+                event.preventDefault();
+
                 var imgX = '0',
                     animationInterval = setInterval(function () {
                         imgX = imgX === '-18' ? '0' : '-18';
@@ -673,23 +671,22 @@ var APP = {
 
                 if(navigator.geolocation) {
                     navigator.geolocation.getCurrentPosition(function(position) {
+
                         var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
                         _map.setCenter(latlng);
-                        _map.clearMapMarkers();
+
+                        APP.GMap.clearMapMarkers(map._this ,_map);
                         new google.maps.Marker({
                             map: _map,
                             animation: google.maps.Animation.DROP,
                             position: latlng
                         });
 
-                        if(map.location)
-                            $(map._this).siblings(map.location).val(latlng.toUrlValue());
-
-                        if(map.lat)
-                            $(map._this).siblings(map.lat).val(position.coords.latitude);
-
-                        if(map.lng)
-                            $(map._this).siblings(map.lng).val(position.coords.longitude);
+                        APP.GMap.fillInputLocation(map , {
+                            location : latlng.toUrlValue(),
+                            lat : position.coords.latitude,
+                            lng : position.coords.longitude,
+                        });
 
                         clearInterval(animationInterval);
                         secondChild.style['background-position'] = '-144px 0';
@@ -732,6 +729,24 @@ var APP = {
             }
         },
 
+        fillInputLocation : function (param ,LatLng) {
+
+            if(param.location)
+                $(param._this).siblings(param.location).val(LatLng.location);
+
+            if(param.lat)
+                $(param._this).siblings(param.lat).val(LatLng.lat);
+
+            if(param.lng)
+                $(param._this).siblings(param.lng).val(LatLng.lng);
+        },
+
+        clearMapMarkers : function(_this ,_map) {
+
+            $(_this).gMap('clearMarkers');
+            _map.clearMapMarkers();
+        },
+
         setMapWithMarker : function (param , options, geoLocation) {
 
             for(var current in geoLocation)  {
@@ -770,6 +785,12 @@ var APP = {
             google.maps.event.addListenerOnce(map, 'idle', function() {
                 // do something only the first time the map is loaded
                 var $map = $(this.__gm.R);
+
+                APP.GMap.fillInputLocation(_e ,{
+                    location : map.center.toUrlValue(),
+                    lat : map.center.lat(),
+                    lng : map.center.lng(),
+                });
 
                 //if you need no stop load map en each time open modal put an attribute data-map-reload = false
                 if(!JSON.parse($map.attr('data-map-reload')))
@@ -865,6 +886,8 @@ var APP = {
                                 var geoLocationNavigator = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
                                 APP.GMap.setMapWithMarker(param ,options ,latlng.toUrlValue().split(';'));
                             });
+                        else
+                            console.log('you must define at least one location ?!!!');
                     }
                 });
             }

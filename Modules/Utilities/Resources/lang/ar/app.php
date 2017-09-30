@@ -42,6 +42,7 @@ return [
     'modules'                => 'قوالب',
     'custom_modules'         => 'قوالب خاصة',
     'pages'                  => 'الصفحات',
+    'page'                   => 'صفحة',
     'builder'                => 'الباني',
     'sliders'                => 'مجموعات الشرائح',
     'vertical-sliders'       => 'مجموعات الشرائح الافقية',

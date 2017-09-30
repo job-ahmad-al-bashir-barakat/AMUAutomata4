@@ -38,7 +38,7 @@ class LabFactory extends GlobalFactory
             ->addMultiInputTextLangs(['name'] ,'req required')
             ->startRelation('contact')
             ->addInputText(trans('admin::app.phone'),'contact.phone' ,'contact.phone' ,'req required',['data-masked' , 'data-inputmask-type' => "phone"])
-            ->addInputGroup(trans('admin::app.gelocation'),'contact.gelocation' ,'contact.gelocation' ,'req required' ,'icon-location-pin' ,'input-location hand' ,['data-modal' => 'modal-labs-input-location'])
+            ->addInputGroup(trans('admin::app.gelocation'),'contact.gelocation' ,'contact.gelocation' ,'req required' ,'icon-location-pin' ,'input-location hand' ,['data-modal' => '#modal-labs-input-location'])
             ->endRelation()
             ->setGridNormalCol(12)
             ->addMultiTextareaLangs(['description'] ,'req required text-editor d:tabs d:noLabel')
@@ -49,6 +49,7 @@ class LabFactory extends GlobalFactory
                 'id'                => 'labs',
                 'title'             => trans('admin::app.labs_gelocation'),
                 'inputFullLocation' => '#datatable-labs-modal .input-location input',
+                'zoom'              => 10,
                 'geoLocation'       => Setting::whereCode('UGL')->first()->value
             ])->render())
             ->addNavButton()

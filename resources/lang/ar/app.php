@@ -39,4 +39,13 @@ return [
     'apply_file_to_cropper'     => 'قبول الملف',
     'toggle_options'            => 'التلاعب بالاعدادات',
     'image_name'                => 'اسم الصورة',
+
+    /*
+     * upload file
+     */
+    'upload_retry_title'        => 'إعادة محاولة الرفع',
+    'crop_title'                => 'قص',
+    'attribute_title'           => 'خصائص',
+    'download_title'            => 'تنزيل الملف',
+    'clear'                     => 'إزالة',
 ];

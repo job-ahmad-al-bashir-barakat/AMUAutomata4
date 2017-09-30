@@ -12,7 +12,6 @@ class CustomValidator
             $route = \Route::getCurrentRoute()->parameters();
             $model = $route['model'];
 
-            $imageGeneralConfig = config("file-upload.setting.{$route['type']}");
             $imageLocalConfig   = config("file-upload.{$model}");
 
             $file = \Request::file($model);

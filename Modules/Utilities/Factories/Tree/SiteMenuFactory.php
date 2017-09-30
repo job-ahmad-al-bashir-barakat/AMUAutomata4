@@ -12,9 +12,9 @@ class SiteMenuFactory
     {
         return array_merge([
             'id'                => 'id' ,
-                'name-route'        => 'name_route',
             'parent'            => ['id' => 'parent_id','name' => 'parent->lang_name->'.\App::getLocale().'->text'],
             'order'             => 'order',
+            'type'              => 'menuable_type',
         ],lang('name' ,"lang_name->{lang}->text",'all'));
     }
 
@@ -31,45 +31,44 @@ class SiteMenuFactory
         return implode(' ' ,$content);
     }
 
+    /**
+     *
+     * create function
+     *
+     * @param $parent
+     * @param $data
+     */
+    function create ($parent ,$data) {
+
+        if(!$parent)
+        {
+            /*
+             * create root node
+             */
+
+            $node = new SiteMenu($data);
+
+            $node->makeRoot()->save();
+        }
+        else
+        {
+            /*
+             * create child node
+             */
+
+            $parent = SiteMenu::findOrFail($parent);
+
+            $parent->children()->create($data);
+        }
+    }
+
     function store(Request $request)
     {
-
-        /**
-         *
-         * create function
-         *
-         * @param $parent
-         * @param $data
-         */
-        $create = function ($parent ,$data) {
-
-            if(!$parent)
-            {
-                /*
-                 * create root node
-                 */
-
-                $node = new SiteMenu($data);
-
-                $node->makeRoot()->save();
-            }
-            else
-            {
-                /*
-                 * create child node
-                 */
-
-                $parent = SiteMenu::findOrFail($parent);
-
-                $parent->children()->create($data);
-            }
-        };
-
         if($request->input('tree_menu' ,''))
         {
             foreach ($request->input('tree_menu') as $item)
             {
-                $create($request->input('parent_id') ,[
+                $this->create($request->input('parent_id') ,[
                     'parent_id'     => $request->input('parent_id'),
                     'name_route'    => $request->input('name_route'),
                     'order'         => $item['order'],
@@ -81,18 +80,30 @@ class SiteMenuFactory
             return;
         }
 
-        $create($request->input('parent_id') ,$request->input());
+        $this->create($request->input('parent_id') ,$request->input());
     }
 
     function update(Request $request ,$id)
     {
-        $request->request->add(['transSaveOper' => false]);
+        if($request->input('tree_menu' ,''))
+        {
+            foreach ($request->input('tree_menu') as $item)
+            {
+                $this->create($request->input('parent_id') ,[
+                    'parent_id'     => $request->input('parent_id'),
+                    'name_route'    => $request->input('name_route'),
+                    'order'         => $item['order'],
+                    'menuable_id'   => $item['id'],
+                    'menuable_type' => $item['type'],
+                ]);
+            }
+
+            return;
+        }
 
         $node = SiteMenu::findOrFail($id);
 
         $node->update($request->input());
-
-        $node->page()->update($request->except('id'));
     }
 
     function destroy(Request $request ,$id)

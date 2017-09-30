@@ -6,7 +6,7 @@ return [
 
         'image' => [
             'validate'         => 'mimes:jpeg,jpg,png|ratio',
-            'upload_directory' => 'app\public\upload\image',
+            'upload_directory' => 'public\upload\image',
         ],
 
         'relationType' => 'many', //one
@@ -16,6 +16,7 @@ return [
         'model' => \Modules\Admin\Entities\Lab::class,
         'width' => '1366',
         'height' => '768',
+        'stopRelationSave' => true
     ],
 
     'slider' => [
@@ -23,7 +24,6 @@ return [
         'width' => '1920',
         'height' => '1280',
         'relationType' => 'one',
-//        'folderName' => 'sliders',
     ],
 
     'vertical_slider' => [

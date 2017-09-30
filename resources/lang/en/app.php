@@ -39,4 +39,13 @@ return [
     'apply_file_to_cropper'     => 'Apply File To Cropper',
     'toggle_options'            => 'Toggle Options',
     'image_name'                => 'Image Name',
+
+    /*
+     * upload file
+     */
+    'upload_retry_title'        => 'Upload Retry',
+    'crop_title'                => 'Crop',
+    'attribute_title'           => 'Attribute',
+    'download_title'            => 'Download file',
+    'clear'                     => 'Clear',
 ];

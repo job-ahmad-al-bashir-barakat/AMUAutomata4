@@ -67,6 +67,7 @@ return [
             "
                 <script>
                     APP_AMU.ckeditor.init('body' ,'.datatable-text-editor');
+                    APP_AMU.inputMask.init('[data-masked]');
                     APP_AMU.COLLAPSE_PANELS();
                 </script>
             ";

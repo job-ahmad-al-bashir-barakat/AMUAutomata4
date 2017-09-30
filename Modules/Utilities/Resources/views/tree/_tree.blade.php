@@ -12,6 +12,8 @@
     <div class="ajax-nestable dd">
         {!! $buildTree or '' !!}
     </div>
-    <br>
-    <textarea class="ajax-nestable-output form-control"></textarea>
+    @if(app()->environment() == 'local')
+        <br>
+        <textarea class="ajax-nestable-output form-control"></textarea>
+    @endif
 </div>

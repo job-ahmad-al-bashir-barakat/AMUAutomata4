@@ -846,14 +846,25 @@ var APP_AMU = {
             $cont.load($cont.data('url') + $treeParam, function () {
 
                 var $this = $(this),
-                    $_nestable = $this.find('.ajax-nestable');
+                    $_nestable = $this.find('.ajax-nestable'),
+                    groupSource  = typeof $this.data('group-source') != typeof undefined ? $this.data('group-source') : undefined,
+                    emptyText    = typeof $this.data('empty-text') !=  typeof undefined ? $this.data('empty-text') : 'Drag Here';
 
-                // activate Nestable for list 1
-                $_nestable.nestable({
-                    group: $this.data('group'),
+                var optionsObj = {
                     maxDepth: $this.data('max-depth'),
+                    group: $this.data('group'),
+                    emptyText: emptyText
                     // afterInit: function ( event ) { }
-                }).on('change', APP_AMU.tree.updateOutput).on('dragEnd', function (event, item, source, destination, position) {
+                };
+
+                if(groupSource) {
+
+                    var groupSource = (groupSource.toString()).split(',').map(Number);
+
+                    optionsObj.group_source = groupSource;
+                }
+
+                $_nestable.nestable(optionsObj).on('change', APP_AMU.tree.updateOutput).on('dragEnd', function (event, item, source, destination, position) {
                     // Make an ajax request to persist move on database
                     // here you can pass item-id, source-id, destination-id and position index to the server
                     var item = $(_.head(item)),
@@ -1300,9 +1311,15 @@ var APP_AMU = {
                         allowedFileExtensions = typeof $this.data('allowed-file-extensions') != typeof undefined ? $this.data('allowed-file-extensions') : null,
                         uploadUrl       = $this.data('upload-url'),
                         deleteUrl       = $this.data('delete-url'),
+                        downloadFolder  = $this.data('download-folder'),
                         maxFileSize     = $this.data('max-file-size') || 0,
                         maxFileCount    = $this.data('max-file-count') || 0,
                         minFileCount    = $this.data('min-file-count') || 0,
+                        removeLabel     = $this.data('remove-label'),
+                        uploadRetryTitle= $this.data('upload-retry-title'),
+                        cropTitle       = $this.data('crop-title'),
+                        attributeTitle  = $this.data('attribute-title'),
+                        downloadTitle   = $this.data('download-title'),
                         showCaption     = typeof $this.data('show-caption') != typeof undefined ? JSON.parse($this.data('show-caption')) : false,
                         imageWidth      = $this.data('image-width') || null,
                         imageHeight     = $this.data('image-height') || null,
@@ -1312,26 +1329,30 @@ var APP_AMU = {
                         maxImageWidth   = $this.data('max-image-width')  || null,
                         param           = $this.attr('data-param')       || '',
                         multiple        = typeof $this.attr('multiple') != typeof undefined ? true : false,
-                        target          = $this.data('target'),
+                        target          = typeof $this.data('target') != typeof undefined ? $this.data('target') : '',
                         cropper         = typeof $this.data('cropper') != typeof undefined ? JSON.parse($this.data('cropper')) : true,
                         cropperSelector = $this.data('cropper-selector') || '.aut-cropper-file-upload',
                         cropperModal    = $this.data('cropper-modal') || '',
                         datatable                   = $this.data('datatable'),
+                        reloadDatatable             = typeof $this.data('reload-datatable') != typeof undefined ? JSON.parse($this.data('reload-datatable')) : true,
                         datatableInitialize         = typeof $this.data('datatable-initialize') != typeof undefined ? JSON.parse($this.data('datatable-initialize')) : true,
-                        datatableInitializeProperty = $this.data('datatable-initialize-property') || '.image';
+                        datatableInitializeProperty = $this.data('datatable-initialize-property') || '.image',
+                        appendLocation              = typeof $this.data('append-location') != typeof undefined ? $this.data('append-location') : '';
 
                     if(cropper)
-                        cropperTemplete = '<button type="button" class="kv-cust-btn btn-crop-image btn btn-xs btn-default" title="Crop"><i class="fa fa-crop"></i></button>';
-                    infoTemplete = '<button type="button" class="kv-cust-btn btn-attr-image btn btn-xs btn-default" title="Attribute" {dataKey}><i class="fa fa-question-circle"></i></button>'
-                    downloadTemplete = '<a href="{downloadUrl}" class="kv-cust-btn btn-download btn btn-xs btn-default" title="Download file" download="{caption}"><i class="fa fa-download"></i></a>';
+                        cropperTemplete = '<button type="button" class="kv-cust-btn btn-crop-image btn btn-xs btn-default" title="' + cropTitle + '"><i class="fa fa-crop"></i></button>';
+                    infoTemplete = '<button type="button" class="kv-cust-btn btn-attr-image btn btn-xs btn-default" title="' + attributeTitle + '" {dataKey}><i class="fa fa-question-circle"></i></button>';
+                    downloadTemplete = '<a href="{downloadUrl}" class="kv-cust-btn btn-download btn btn-xs btn-default" title="' + downloadTitle + '" download="{caption}"><i class="fa fa-download"></i></a>';
 
                     var params = {
+                        rtl: DIR == 'rtl' ? true : false,
                         language: LANG,
                         theme : "fa",
                         uploadUrl: uploadUrl,
                         deleteUrl: deleteUrl,
                         uploadExtraData: {},
                         deleteExtraData: {},
+                        validateInitialCount: true,
                         minFileCount: minFileCount,
                         maxFileCount: maxFileCount,
                         showCaption: showCaption,
@@ -1361,10 +1382,12 @@ var APP_AMU = {
                         fileActionSettings: {
                             uploadRetryIcon: '<i class="fa fa-refresh"></i>',
                         },
+                        removeLabel: removeLabel,
+                        uploadRetryTitle: uploadRetryTitle,
                         previewThumbTags : {
-                            '{cropper}': cropperTemplete || '',
-                            '{info}' : infoTemplete,
-                            '{download}': '',
+                            '{cropper}'  : cropperTemplete || '',
+                            '{info}'     : infoTemplete,
+                            '{download}' : '',
                         },
                         initialPreviewShowDelete: true,
                         initialPreview: [],
@@ -1386,7 +1409,9 @@ var APP_AMU = {
                         var images = JSPath.apply(datatableInitializeProperty ,datatableRaw);
                         _.each(images ,function (row ,index) {
 
-                            params.initialPreview.push(row.image_url);
+                            var url = (row.image_url).replaceAll('{folder}', downloadFolder);
+
+                            params.initialPreview.push(url);
 
                             params.initialPreviewConfig.push({
                                 previewAsData: true,
@@ -1402,7 +1427,7 @@ var APP_AMU = {
                                 '{cropper}': '',
                                 '{info}' : infoTemplete,
                                 '{download}': downloadTemplete,
-                                '{downloadUrl}': row.image_url,
+                                '{downloadUrl}': url,
                                 '{caption}': row.name,
                             });
                         });
@@ -1417,19 +1442,31 @@ var APP_AMU = {
                     }
 
                     $this.fileinput('destroy');
-                    $this.fileinput(params).off('fileloaded').on('fileloaded', function(event, file, previewId, index, reader) {
+                    $this.fileinput(params).off('fileimagesloaded').on('fileimagesloaded', function(event) {
+                        // This event is triggered when all file images are fully loaded in the preview window.
+                        // This is only applicable for image file previews and if showPreview is set to true.
+                    }).off('fileloaded').on('fileloaded', function(event, file, previewId, index, reader) {
                         // this event trigger after select new file from browse
                     }).off('fileuploaded').on('fileuploaded', function(event, data, previewId, index) {
 
                         var response  = data.response,
                             inputFile = $this.closest('.file-input');
+                            appendLocation = $(appendLocation);
+
+                        var hidden = '<input class="file-uploaded" type="hidden" name="' + _this.id + '[]" value="' + response[_this.id]['id'] + '"/>';
 
                         // add hidden id foreach image uploaded
-                        inputFile.before('<input type="hidden" name="' + _this.id + '[]" value="' + response[_this.id]['id'] + '"/>');
+                        if(appendLocation.length)
+                            appendLocation.append(hidden);
+                        else
+                            inputFile.before(hidden);
 
                         // reload datatable after upload success
-                        if(datatableInitialize == true && datatableRaw)
+                        if(datatableInitialize == true && datatableRaw && reloadDatatable)
                             aut_datatable_reload(datatable);
+
+                        if ((typeof $this.data('fileuploaded') != typeof undefined) && $this.data('fileuploaded'))
+                            window[$this.data('fileuploaded')](event, data, previewId, index);
 
                         // hide modal after upload success
                         if($(target).hasClass('modal'))
@@ -1437,7 +1474,7 @@ var APP_AMU = {
 
                     }).off('fileuploaderror').on('fileuploaderror', function(event, data, msg) {
 
-                        if(data) {
+                        if(data.jqXHR.responseJSON) {
                             var errorUl = $('.file-error-message').find('ul');
                             errorUl.html('');
                             _.each(data.jqXHR.responseJSON ,function (v ,i) {
@@ -1448,8 +1485,11 @@ var APP_AMU = {
                     }).off('filedeleted').on('filedeleted', function(event, key, jqXHR, data) {
 
                         // reload datatable after upload success
-                        if(datatableInitialize == true && datatableRaw)
+                        if(datatableInitialize == true && datatableRaw && reloadDatatable)
                             aut_datatable_reload(datatable);
+
+                        if ((typeof $this.data('filedeleted') != typeof undefined) && $this.data('filedeleted'))
+                            window[$this.data('filedeleted')](event, key, jqXHR, data)  ;
                     });
 
                     // temp solution for remove crop on update
@@ -1502,9 +1542,11 @@ var APP_AMU = {
         initGMapInputLocation: function () {
 
             $(document).on('click', '.input-location span:first', function () {
+
                 var $this = $(this),
                     $input = $this.prev('input'),
-                    $modal = '#' + $input.data('modal');
+                    $modal = $input.data('modal');
+
                 $($modal).off('shown.bs.modal').on('shown.bs.modal', function (event) {
 
                     var location = $input.val();
@@ -1525,9 +1567,9 @@ var APP_AMU = {
                 if (InputFullLocation)
                     $(InputFullLocation).val($($locationData.location).val());
                 if (InputLatLocation)
-                    $(InputLatLocation).val($($locationData.lat).val())
+                    $(InputLatLocation).val($($locationData.lat).val());
                 if (InputLngLocation)
-                    $(InputLngLocation).val($($locationData.lng).val())
+                    $(InputLngLocation).val($($locationData.lng).val());
 
                 $($modal).modal('hide');
             });
@@ -1558,11 +1600,10 @@ var APP_AMU = {
                     $mask;
 
                 switch ($type) {
+
                     case 'phone': {
                         $mask = '(9{3}) 9{3}-9{4}';
-                    }
-                        ;
-                        break;
+                    }; break;
                 }
 
                 $this.attr('dir', 'ltr');

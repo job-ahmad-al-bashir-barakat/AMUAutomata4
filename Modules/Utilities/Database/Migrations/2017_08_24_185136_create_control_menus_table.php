@@ -19,7 +19,7 @@ class CreateControlMenusTable extends Migration {
 			$table->integer('_lft')->unsigned()->default(0);
 			$table->integer('_rgt')->unsigned()->default(0);
 			$table->integer('parent_id')->unsigned()->nullable();
-			$table->string('url_path', 191);
+			$table->string('url_path', 191)->nullable();
 			$table->integer('order')->unsigned();
 			$table->timestamps();
 			$table->softDeletes();

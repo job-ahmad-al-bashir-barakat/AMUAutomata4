@@ -12,7 +12,7 @@ class Image extends \Eloquent
 {
     use SoftDeletes ,MultiLangs;
 
-    const folderStoragePath = 'upload/image';
+    const FOLDER_STORAGE_PATH = 'upload/image/{folder}';
 
     protected $fillable = ['id' ,'name' ,'hash_name' ,'ext' , 'size','width' ,'height'];
 
@@ -20,7 +20,7 @@ class Image extends \Eloquent
 
     public function getImageUrlAttribute()
     {
-        $imagePath = self::folderStoragePath;
+        $imagePath = self::FOLDER_STORAGE_PATH;
 
         return url(Storage::url("$imagePath/$this->hash_name"));
     }

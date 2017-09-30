@@ -28,7 +28,6 @@ class Department extends Model
     /*
      * relation
      */
-
     function faculty()
     {
         return $this->belongsTo(Faculty::class);
