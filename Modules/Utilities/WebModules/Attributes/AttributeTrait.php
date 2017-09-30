@@ -14,7 +14,7 @@ trait AttributeTrait
      * This Function will determined the Attribute Class by Attribute id
      *
      * @param $attributeId
-     * @return LimitAttribute|StatusAttribute|TextEditorAttribute|WidthAttribute|SlidersAttribute|BlocksAttribute|CoursesAttribute|ShowAttribute|PersonsAttribute|TitleAttribute|IconAttribute|VerticalSlidersAttribute|ImagesAttribute|LinkTextAttribute|UrlAttribute
+     * @return LimitAttribute|StatusAttribute|TextEditorAttribute|WidthAttribute|SlidersAttribute|BlocksAttribute|CoursesAttribute|ShowAttribute|PersonsAttribute|TitleAttribute|IconAttribute|VerticalSlidersAttribute|ImagesAttribute|LinkTextAttribute|UrlAttribute|PageAttribute
      * @throws \Exception
      */
     public static function setAttribute($attributeId)
@@ -50,6 +50,8 @@ trait AttributeTrait
                 return new LinkTextAttribute();
             case '15':
                 return new UrlAttribute();
+            case '16':
+                return new PageAttribute();
             default:
                 throw new \Exception('Undefined Attributes');
         }
@@ -59,7 +61,7 @@ trait AttributeTrait
      * This Function will determined the Attribute Class by Attribute Code
      *
      * @param $attributeCode
-     * @return LimitAttribute|StatusAttribute|TextEditorAttribute|WidthAttribute|SlidersAttribute|BlocksAttribute|CoursesAttribute|ShowAttribute|PersonsAttribute|TitleAttribute|IconAttribute|VerticalSlidersAttribute|ImagesAttribute|LinkTextAttribute|UrlAttribute
+     * @return LimitAttribute|StatusAttribute|TextEditorAttribute|WidthAttribute|SlidersAttribute|BlocksAttribute|CoursesAttribute|ShowAttribute|PersonsAttribute|TitleAttribute|IconAttribute|VerticalSlidersAttribute|ImagesAttribute|LinkTextAttribute|UrlAttribute|PageAttribute
      * @throws \Exception
      */
     public static function setByAttributeCode($attributeCode)
@@ -95,6 +97,8 @@ trait AttributeTrait
                 return new LinkTextAttribute();
             case 'url':
                 return new UrlAttribute();
+            case 'page':
+                return new PageAttribute();
             default:
                 throw new \Exception('Undefined Attributes');
         }

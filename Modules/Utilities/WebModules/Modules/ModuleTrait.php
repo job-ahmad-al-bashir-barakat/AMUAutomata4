@@ -15,7 +15,7 @@ trait ModuleTrait
      * This Function will determined the Module Class by Module id
      *
      * @param $moduleId
-     * @return SectionEndModule|SectionStartModule|TextEditorModule|SliderModule|BlockModule|CoursesOneModule|PersonsOneModule|VerticalSliderModule|GalleryModule
+     * @return SectionEndModule|SectionStartModule|TextEditorModule|SliderModule|BlockModule|CoursesOneModule|PersonsOneModule|VerticalSliderModule|GalleryModule|ShortInfoModule
      * @throws \Exception
      */
     public static function setModule($moduleId)
@@ -39,8 +39,10 @@ trait ModuleTrait
                 return new VerticalSliderModule();
             case 10:
                 return new GalleryModule();
+            case 11:
+                return new ShortInfoModule();
             default:
-                throw new \Exception('Undefined Web Module');
+                throw new \Exception("Undefined Web Module [id:$moduleId]");
         }
     }
 
@@ -48,7 +50,7 @@ trait ModuleTrait
      * This Function will determined the Module Class by Module Code
      *
      * @param $moduleCode
-     * @return SectionEndModule|SectionStartModule|TextEditorModule|SliderModule|BlockModule|CoursesOneModule|PersonsOneModule|VerticalSliderModule|GalleryModule
+     * @return SectionEndModule|SectionStartModule|TextEditorModule|SliderModule|BlockModule|CoursesOneModule|PersonsOneModule|VerticalSliderModule|GalleryModule|ShortInfoModule
      * @throws \Exception
      */
     public static function setModuleByCode($moduleCode)
@@ -72,8 +74,10 @@ trait ModuleTrait
                 return new VerticalSliderModule();
             case 'gallery':
                 return new GalleryModule();
+            case 'short_info':
+                return new ShortInfoModule();
             default:
-                throw new \Exception('Undefined Web Module');
+                throw new \Exception("Undefined Web Module [$moduleCode]");
         }
     }
 }

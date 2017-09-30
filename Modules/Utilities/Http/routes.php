@@ -7,6 +7,14 @@ Route::group(
         'namespace' => 'Modules\Utilities\Http\Controllers'
     ],
 function () {
+
+    Route::get('test', function (){
+//        $data = [];
+//        DB::table('icons')->insert($data);
+        return \Modules\Utilities\Entities\Icon::all();
+    });
+
+
     Route::group(['prefix' => 'builder'], function () {
         Route::get('pages', 'BuilderController@pages');
         Route::post('pages', 'BuilderController@storePages');
