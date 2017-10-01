@@ -1,6 +1,6 @@
 {{ Form::bsImageUpload('slider' ,'slider' ,'' ,'' ,'1920' ,'1280' ,[
     'modalId'    => 'slider-image-upload',
-    'modalTitle' => trans('utilites::app.upload_slider_image')
+    'modalTitle' => trans('utilities::app.upload_slider_image')
 ] ,'#datatable-slider', true, '.image', ['maxFileCount' => 1]) }}
 
 {{ Form::bsImageUploadCropper('90%' ,false ,true,false ,false ,false ,true) }}
@@ -8,8 +8,8 @@
 <script>
     function showFileUploadModal($this) {
 
-        var inputFile = $('#slider-image-upload').find('.upload-file'),
-            datatableRaw = _aut_datatable_getSelectedRowData('#datatable-slider' ,$($this).closest('tr'));
+        var inputFile = $('#slider-image-upload').find('.upload-file');
+        var datatableRaw = _aut_datatable_getSelectedRowData('#datatable-slider' ,$($this).closest('tr'));
 
         inputFile.attr('data-param' ,'id=' + $($this).data('key'));
 

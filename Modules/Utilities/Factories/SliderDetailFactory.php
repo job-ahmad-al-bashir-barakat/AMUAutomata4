@@ -42,7 +42,7 @@ class SliderDetailFactory extends GlobalFactory
             ->addMultiInputTextLangs(['btn'])
             ->addSelect(['R' => 'Right', 'C' => 'Center', 'L' => 'Left'], 'Position', 'position', 'position', '', 'req required')
             ->addAutocomplete('autocomplete/pages', 'Page', 'page_id', 'page_id')
-            ->addActionButton(trans('utilities::app.upload_images'), 'upload_image', 'upload_image', 'center all' ,'100px')
+            ->addActionButton(trans('utilities::app.upload_images'), 'upload_image', 'id', 'center all' ,'100px')
             ->addActionButton($this->update,'update','update')
             ->addActionButton($this->delete,'delete','delete')
             ->addNavButton()

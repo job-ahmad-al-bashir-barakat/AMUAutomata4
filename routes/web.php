@@ -11,4 +11,10 @@ Route::group(
 
             return view('welcome');
         });
+
+        Route::get('home', function () {
+            $modules = \Modules\Utilities\Entities\BuilderPage::pageModules()->get()->pluck('module');
+//            return $modules;
+            return view('web-module.modules')->withModules($modules);
+        })->name('home');
     });

@@ -46,4 +46,9 @@ class VerticalSliderDetail extends Model
     {
         return $this->transSmallText->keyBy('lang_code');
     }
+
+    public function image()
+    {
+        return $this->belongsTo(Image::class);
+    }
 }

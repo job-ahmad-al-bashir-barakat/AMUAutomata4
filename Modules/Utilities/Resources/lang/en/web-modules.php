@@ -15,4 +15,5 @@ return [
     'show' => 'Show',
     'title' => 'Title',
     'icon' => 'Icon',
+    'images' => 'Images',
 ];

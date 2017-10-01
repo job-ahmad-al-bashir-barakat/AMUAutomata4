@@ -25,4 +25,20 @@ return [
         'height' => '1280',
         'relationType' => 'one',
     ],
+
+    'vertical_slider' => [
+        'model' => \Modules\Utilities\Entities\VerticalSliderDetail::class,
+        'width' => '100',
+        'height' => '100',
+        'relationType' => 'one',
+//        'folderName' => 'sliders',
+    ],
+
+    'gallery' => [
+//        'model' => \Modules\Utilities\Entities\SliderDetail::class,
+        'width' => '100',
+        'height' => '100',
+        'stopRelationSave' => true,
+    ],
+
 ];
