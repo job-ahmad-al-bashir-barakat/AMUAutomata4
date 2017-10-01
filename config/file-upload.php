@@ -33,4 +33,12 @@ return [
         'relationType' => 'one',
 //        'folderName' => 'sliders',
     ],
+
+    'gallery' => [
+//        'model' => \Modules\Utilities\Entities\SliderDetail::class,
+        'width' => '100',
+        'height' => '100',
+        'stopRelationSave' => true,
+    ],
+
 ];
