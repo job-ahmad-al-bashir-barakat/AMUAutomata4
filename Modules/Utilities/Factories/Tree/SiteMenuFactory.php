@@ -8,6 +8,20 @@ use Modules\Utilities\Entities\SiteMenu;
 
 class SiteMenuFactory
 {
+
+    // id , parent_id , order , is_link ,menuable_id , menuable_type , trans_name
+
+    // save link on link not right
+    // make save list and update from modal
+    // make save on drag link
+    // autocompelte must has list item on link
+    // you can add and order list on list and link on list
+    // you can not add or order list on link
+    // add delete button on item and notify
+
+    // offices is list and add it on menusTables
+    // faculties is list and department  is link
+
     function dataAttr()
     {
         return array_merge([
@@ -15,6 +29,7 @@ class SiteMenuFactory
             'parent'            => ['id' => 'parent_id','name' => 'parent->lang_name->'.\App::getLocale().'->text'],
             'order'             => 'order',
             'type'              => 'menuable_type',
+            'link'              => 'is_link',
         ],lang('name' ,"lang_name->{lang}->text",'all'));
     }
 
@@ -70,7 +85,6 @@ class SiteMenuFactory
             {
                 $this->create($request->input('parent_id') ,[
                     'parent_id'     => $request->input('parent_id'),
-                    'name_route'    => $request->input('name_route'),
                     'order'         => $item['order'],
                     'menuable_id'   => $item['id'],
                     'menuable_type' => $item['type'],
@@ -91,7 +105,6 @@ class SiteMenuFactory
             {
                 $this->create($request->input('parent_id') ,[
                     'parent_id'     => $request->input('parent_id'),
-                    'name_route'    => $request->input('name_route'),
                     'order'         => $item['order'],
                     'menuable_id'   => $item['id'],
                     'menuable_type' => $item['type'],

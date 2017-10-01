@@ -771,13 +771,15 @@ var APP_AMU = {
                 init         = typeof $this.data('init') != typeof undefined ? JSON.parse($this.data('init')) : false,
                 drop         = typeof $this.data('drop') != typeof undefined ? JSON.parse($this.data('drop')) : false,
                 drop_exists  = typeof $this.data('drop-exists') != typeof undefined ? JSON.parse($this.data('drop-exists')) : false,
+                disableNest  = typeof $this.data('disable-nest') != typeof undefined ? JSON.parse($this.data('disable-nest')) : false,
                 emptyText    = typeof $this.data('empty-text') !=  typeof undefined ? $this.data('empty-text') : 'Drag Here';
 
             var optionsObj = {
                 maxDepth: $this.data('max-depth'),
                 group: $this.data('group'),
                 clone: clone,
-                emptyText: emptyText
+                emptyText: emptyText,
+                disableNest : disableNest,
             };
 
             if(groupSource) {
@@ -789,21 +791,23 @@ var APP_AMU = {
 
             // this it is just allow for the same list not between lists
             if(reject)
-                optionsObj.reject = [{
+                optionsObj.reject = typeof $this.data('reject-callback') != typeof undefined
+                    ? window[$this.data('reject-callback')]()
+                    : [{
+                        rule: function(draggedElement) {
 
-                    rule: function(draggedElement) {
+                            // The this object refers to dragRootEl i.e. the nestable root element. The drag action is cancelled if this function returns true
+                            // The rule here is that it is forbidden drag elements to first-level children
 
-                        // The this object refers to dragRootEl i.e. the nestable root element. The drag action is cancelled if this function returns true
-                        // The rule here is that it is forbidden drag elements to first-level children
-                        return true;
-                    },
+                            return true;
+                        },
 
-                    action: function(draggedElement) {
+                        action: function(draggedElement) {
 
-                        // This optional function defines what to do when such a rule applies
-                        alert('You can\'t do that !');
-                    }
-                }];
+                            // This optional function defines what to do when such a rule applies
+                            // alert('You can\'t do that !');
+                        }
+                    }];
 
             if(init)
                 optionsObj.afterInit = function ( event ) {
@@ -848,6 +852,7 @@ var APP_AMU = {
                 var $this = $(this),
                     $_nestable = $this.find('.ajax-nestable'),
                     groupSource  = typeof $this.data('group-source') != typeof undefined ? $this.data('group-source') : undefined,
+                    reject       = typeof $this.data('reject') != typeof undefined ? JSON.parse($this.data('reject')) : false,
                     emptyText    = typeof $this.data('empty-text') !=  typeof undefined ? $this.data('empty-text') : 'Drag Here';
 
                 var optionsObj = {
@@ -863,6 +868,26 @@ var APP_AMU = {
 
                     optionsObj.group_source = groupSource;
                 }
+
+                // this it is just allow for the same list not between lists
+                if(reject)
+                    optionsObj.reject = typeof $this.data('reject-callback') != typeof undefined
+                        ? window[$this.data('reject-callback')]()
+                        : [{
+                            rule: function(draggedElement) {
+
+                                // The this object refers to dragRootEl i.e. the nestable root element. The drag action is cancelled if this function returns true
+                                // The rule here is that it is forbidden drag elements to first-level children
+
+                                return true;
+                            },
+
+                            action: function(draggedElement) {
+
+                                // This optional function defines what to do when such a rule applies
+                                // alert('You can\'t do that !');
+                            }
+                        }];
 
                 $_nestable.nestable(optionsObj).on('change', APP_AMU.tree.updateOutput).on('dragEnd', function (event, item, source, destination, position) {
                     // Make an ajax request to persist move on database
@@ -919,11 +944,13 @@ var APP_AMU = {
                 //.on('beforeDragStart', function(handle) {})
                 //.on('dragStart', function(event, item, source) { })
                 //.on('dragMove', function(event, item, source, destination) { })
-                //.on('beforeDragEnd', function(event, item, source, destination, position, feedback) {
-                //   //If you need to persist list items order if changes, you need to comment the next line
-                //   if (source[0] === destination[0]) { feedback.abort = true; return; }
-                //   feedback.abort = !window.confirm('Continue?');
-                //});
+                .on('beforeDragEnd', function(event, item, source, destination, position, feedback) {
+                    console.log(item);
+
+                 //If you need to persist list items order if changes, you need to comment the next line
+                 //   if (source[0] === destination[0]) { feedback.abort = true; return; }
+                 //   feedback.abort = !window.confirm('Continue?');
+                });
 
                 // output initial serialised data
                 if ($this.find('.ajax-nestable').length)
@@ -1374,10 +1401,10 @@ var APP_AMU = {
                         overwriteInitial: false,
                         layoutTemplates : {
                             actions: '<div class="file-actions">' +
-                                     '    <div class="file-footer-buttons">' +
-                                     '        {upload} {download} {delete} {cropper} {info} {zoom} {other}' +
-                                     '    </div>' +
-                                     '</div>',
+                            '    <div class="file-footer-buttons">' +
+                            '        {upload} {download} {delete} {cropper} {info} {zoom} {other}' +
+                            '    </div>' +
+                            '</div>',
                         },
                         fileActionSettings: {
                             uploadRetryIcon: '<i class="fa fa-refresh"></i>',
@@ -1451,7 +1478,7 @@ var APP_AMU = {
 
                         var response  = data.response,
                             inputFile = $this.closest('.file-input');
-                            appendLocation = $(appendLocation);
+                        appendLocation = $(appendLocation);
 
                         var hidden = '<input class="file-uploaded" type="hidden" name="' + _this.id + '[]" value="' + response[_this.id]['id'] + '"/>';
 

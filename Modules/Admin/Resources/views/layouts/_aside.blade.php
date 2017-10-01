@@ -70,6 +70,11 @@
                     <span>{{ trans('admin::app.board_of_trustees') }}</span>
                 </a>
             </li>
+            <li class="">
+                <a href="{{ localizeURL('admin/staff') }}" class="ajax" title="{{ trans('admin::app.staff') }}">
+                    <span>{{ trans('admin::app.staff') }}</span>
+                </a>
+            </li>
         </ul>
     </li>
 

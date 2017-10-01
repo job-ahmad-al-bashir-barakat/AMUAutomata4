@@ -10,6 +10,7 @@ return [
     'person'             => 'قائمة الأشخاص',
     'university_council' => 'مجلس الجامعة',
     'board_of_trustees'  => 'مجلس الأمناء',
+    'staff'              => 'الكادر التدريبي',
     'blog'               => 'مقالات',
     'personal_Info'      => 'معلومات',
     'personal_image'     => 'صورة',
