@@ -165,6 +165,12 @@ return [
         'stopOperation' => ['store']
     ],
 
+    'staff' => [
+        'model'         => Modules\Admin\Entities\Person::class,
+        'factory'       => Modules\Admin\Factories\PersonFactory::class,
+        'stopOperation' => ['store']
+    ],
+
     'semester' => [
         'model'   => \Modules\Admin\Entities\Semester::class,
         'factory' => \Modules\Admin\Factories\SemesterFactory::class,

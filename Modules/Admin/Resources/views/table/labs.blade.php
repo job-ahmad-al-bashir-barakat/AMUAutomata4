@@ -1,7 +1,7 @@
 {{ Form::bsImageUpload('lab' ,'lab' ,'' ,'' ,'1366' ,'768' ,[
     'modalId'    => 'lab-image-upload',
     'modalTitle' => trans('admin::app.upload_lab_image')
-] ,'#datatable-labs' ,'true' ,'.image' ,['filedeletedEvent' => 'ahmed']) }}
+] ,'#datatable-labs') }}
 
 {{ Form::bsImageUploadCropper('90%' ,false ,true,false ,false ,false ,true) }}
 

@@ -49,6 +49,7 @@
            data-attribute-title="{{ $attributeTitle or trans('app.attribute_title') }}"
            data-download-title="{{ $downloadTitle or trans('app.download_title') }}"
            data-append-location="{{ $appendLocation or '' }}"
+           data-append-name="{{ $appendName or '' }}"
            multiple
     >
 @unless(empty($targetModel))

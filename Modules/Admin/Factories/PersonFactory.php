@@ -54,9 +54,9 @@ class PersonFactory extends GlobalFactory
                     ->closeHorizontalTab()
                 ->endHorizontalTab()
             ->endTab()
-            ->startTab(trans('admin::app.personal_image'),'fa fa-picture-o fa-2x')
-                ->addComponent(view('controle.component.cropper' ,['preview' => true])->render())
-            ->endTab()
+//            ->startTab(trans('admin::app.personal_image'),'fa fa-picture-o fa-2x')
+//                ->addComponent(view('controle.component.cropper' ,['preview' => true])->render())
+//            ->endTab()
             ->startTab(trans('admin::app.contact'),'fa fa-phone fa-2x')
                 ->startRelation('contact')
                     ->addInputText(trans('admin::app.email'),'contact.email','contact.email' ,'req required')
@@ -84,9 +84,9 @@ class PersonFactory extends GlobalFactory
     {
         $contact = Contact::create($request->input('contact'));
 
-        Person::create(array_merge($request->input(),['contact_id' => $contact->id]));
-
         $contact->socialNetwork()->sync($request->input('contact.social'));
+
+        Person::create(array_merge($request->input(),['contact_id' => $contact->id]));
     }
 
     public function updateDatatable($model ,$request ,$result)

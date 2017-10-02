@@ -6,7 +6,7 @@ return [
 
         'image' => [
             'validate'         => 'mimes:jpeg,jpg,png|ratio',
-            'upload_directory' => 'public\upload\image',
+            'upload_directory' => 'upload\image',
         ],
 
         'relationType' => 'many', //one

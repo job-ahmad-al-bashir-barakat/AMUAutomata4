@@ -1364,7 +1364,8 @@ var APP_AMU = {
                         reloadDatatable             = typeof $this.data('reload-datatable') != typeof undefined ? JSON.parse($this.data('reload-datatable')) : true,
                         datatableInitialize         = typeof $this.data('datatable-initialize') != typeof undefined ? JSON.parse($this.data('datatable-initialize')) : true,
                         datatableInitializeProperty = $this.data('datatable-initialize-property') || '.image',
-                        appendLocation              = typeof $this.data('append-location') != typeof undefined ? $this.data('append-location') : '';
+                        appendLocation              = typeof $this.data('append-location') != typeof undefined ? $this.data('append-location') : '',
+                        appendName                  = typeof $this.data('append-name') != typeof undefined ? $this.data('append-name') : '';
 
                     if(cropper)
                         cropperTemplete = '<button type="button" class="kv-cust-btn btn-crop-image btn btn-xs btn-default" title="' + cropTitle + '"><i class="fa fa-crop"></i></button>';
@@ -1480,7 +1481,7 @@ var APP_AMU = {
                             inputFile = $this.closest('.file-input');
                         appendLocation = $(appendLocation);
 
-                        var hidden = '<input class="file-uploaded" type="hidden" name="' + _this.id + '[]" value="' + response[_this.id]['id'] + '"/>';
+                        var hidden = '<input class="file-uploaded" type="hidden" name="' + (appendName || _this.id + '[]') + '" value="' + response[_this.id]['id'] + '"/>';
 
                         // add hidden id foreach image uploaded
                         if(appendLocation.length)
