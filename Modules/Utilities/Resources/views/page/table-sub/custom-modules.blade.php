@@ -1,7 +1,7 @@
-{{ Form::bsImageUpload('webModule[images]' ,'webModule[images]' ,'' ,'' ,'100', '100' ,[
+{{ Form::bsImageUpload('gallery' ,'gallery' ,'' ,'' ,'100', '100' ,[
     'modalId'    => 'slider-image-upload',
     'modalTitle' => trans('utilities::app.upload_slider_image')
-] ,'#datatable-slider', true, '.image', ['maxFileCount' => 1, 'appendLocation' => '#images']) }}
+] ,'#datatable-slider', true, '.image', ['appendLocation' => '#images', 'appendName' => 'webModule[images][]']) }}
 
 {{ Form::bsImageUploadCropper('90%' ,false ,true,false ,false ,false ,true) }}
 
@@ -11,7 +11,7 @@
         var inputFile = $('#slider-image-upload').find('.upload-file');
         var datatableRaw = _aut_datatable_getSelectedRowData('#datatable-slider' ,$($this).closest('tr'));
 
-        inputFile.attr('data-param' ,'id=' + $($this).data('key'));
+//        inputFile.attr('data-param' ,'id=' + $($this).data('key'));
 
         APP_AMU.fileUpload.load(inputFile ,datatableRaw);
 
