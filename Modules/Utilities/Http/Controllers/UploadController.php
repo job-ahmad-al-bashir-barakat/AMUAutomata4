@@ -18,6 +18,8 @@ class UploadController extends Controller
 
     public $uploadDirectory = '';
 
+    public $targetDirectory = '';
+
     public $stopRelationSave = false;
 
     public $relationType = '';
@@ -35,11 +37,6 @@ class UploadController extends Controller
             : $this->imageGeneralConfig['relationType'];
 
         // get path upload directory storage
-        $mainDirectory = isset($this->imageGeneralConfig[$routeParam['type']]['main_directory'])
-            ? $this->imageGeneralConfig[$routeParam['type']]['main_directory']
-            : 'app';
-
-        // get path upload directory storage
         $uploadDirectory = isset($this->imageLocalConfig['upload_directory'])
             ? $this->imageLocalConfig['upload_directory']
             : $this->imageGeneralConfig[$routeParam['type']]['upload_directory'];
@@ -51,8 +48,8 @@ class UploadController extends Controller
 
         $folderUpload = Str::plural($routeParam['model']);
 
-        $this->targetDirectory = "$uploadDirectory\\$folderUpload";
-        $this->uploadDirectory = "$mainDirectory\\$uploadDirectory\\$folderUpload";
+        $this->targetDirectory = "public\\$uploadDirectory\\$folderUpload";
+        $this->uploadDirectory = "app\\public\\$uploadDirectory\\$folderUpload";
     }
 
     function index(Request $request ,$model ,$type) {
@@ -159,6 +156,4 @@ class UploadController extends Controller
 
         Image::destroy($id);
     }
-
-    //arrang image code //trans cropper
 }

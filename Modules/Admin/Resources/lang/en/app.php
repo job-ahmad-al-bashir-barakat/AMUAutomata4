@@ -10,6 +10,7 @@ return [
     'person'             => 'Person list',
     'university_council' => 'University Council',
     'board_of_trustees'  => 'Board Of Trustees',
+    'staff'              => 'Teaching Staff',
     'blog'               => 'Blog',
     'personal_Info'      => 'Personal Info',
     'personal_image'     => 'Personal Image',

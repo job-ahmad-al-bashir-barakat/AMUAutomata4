@@ -127,6 +127,7 @@ class CustomFormServiceProvider extends ServiceProvider
                 'maxImageHeight'                 => null,
                 'allowedFileExtensions'          => 'jpeg,jpg,bmp,png',
                 'appendLocation'                 => '',
+                'appendName'                     => '',
                 'reloadDatatable'                => 'true',
                 'fileuploadedEvent'              => '',
                 'filedeletedEvent'               => '',

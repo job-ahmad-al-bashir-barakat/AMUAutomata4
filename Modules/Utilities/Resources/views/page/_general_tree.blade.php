@@ -22,12 +22,15 @@
                         'panelAttr' => "data-save-state=false style=margin-bottom:2px;",
                     ])
 
-                        <div id="nestable-{{$index}}" class="nestable dd" data-group="{{ $i }}" data-max-depth="1" data-clone="true" data-drop-exists="true" data-type="{{ $index }}">
+                        <div id="nestable-{{$index}}" class="nestable dd" data-group="{{ $i }}" data-max-depth="10" data-clone="true" data-reject="true" data-drop-exists="true" data-reject-callback="rejectLinks" data-type="{{ $index }}">
                             <ol class="dd-list">
                                 @foreach($items as $link)
                                     @php($text = $link->lang_name[App::getLocale()]['text'])
-                                    <li data-id="{{ $link->id }}" data-order="" class="dd-item" data-exists="{{ \Illuminate\Support\Str::slug($text) }}" data-type="{{ $index }}">
-                                        <div class="dd-handle">{{ $text or $link->code }}</div>
+                                    <li data-id="{{ $link->id }}" data-order="" class="dd-item" data-link="1" data-exists="{{ \Illuminate\Support\Str::slug($text) }}" data-type="{{ $index }}">
+                                        <div class='dd-handle dd3-handle move'>{{ $text or $link->code }}</div>
+                                        <div class='dd3-content'>
+                                           <span class="hand">{{ $text or $link->code }}</span>
+                                        </div>
                                     </li>
                                 @endforeach
                             </ol>
@@ -43,7 +46,7 @@
     </div>
 
     <div class="col-lg-6 col-md-6 col-xs-12 mt-sm-10 pull-left">
-        {!! tree($view ,$group_count ,$group_sourse ,10) !!}
+        {!! tree($view ,$group_count ,$group_sourse ,10 ,'data-reject="true" data-reject-callback="rejectMainTree"') !!}
     </div>
 </div>
 
