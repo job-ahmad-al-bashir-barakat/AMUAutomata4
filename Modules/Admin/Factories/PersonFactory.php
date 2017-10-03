@@ -15,7 +15,7 @@ class PersonFactory extends GlobalFactory
      */
     public function getDatatable($model ,$request)
     {
-        $query = Person::Type();
+        $query = Person::with(['image'])->allLangs()->Type();
 
         return $this->table
             ->queryConfig('datatable-persons')
@@ -23,7 +23,8 @@ class PersonFactory extends GlobalFactory
             ->queryUpdateButton('id')
             ->queryDeleteButton('id')
             ->queryMultiLang(['name' ,'summary'])
-            ->queryRender(true);
+            ->queryCustomButton('upload_image' ,'id' ,'fa fa-image' ,'' ,'onclick="showFileUploadModal(this)"')
+            ->queryRender();
     }
 
     /**
@@ -54,14 +55,11 @@ class PersonFactory extends GlobalFactory
                     ->closeHorizontalTab()
                 ->endHorizontalTab()
             ->endTab()
-//            ->startTab(trans('admin::app.personal_image'),'fa fa-picture-o fa-2x')
-//                ->addComponent(view('controle.component.cropper' ,['preview' => true])->render())
-//            ->endTab()
             ->startTab(trans('admin::app.contact'),'fa fa-phone fa-2x')
                 ->startRelation('contact')
-                    ->addInputText(trans('admin::app.email'),'contact.email','contact.email' ,'req required')
-                    ->addInputText(trans('admin::app.phone'),'contact.phone' ,'contact.phone' ,'req required')
-                    ->addInputText(trans('admin::app.mobile'),'contact.mobile' ,'contact.mobile' ,'req required')
+                    ->addInputEmail(trans('admin::app.email'),'contact.email','contact.email' ,'req required')
+                    ->addInputText(trans('admin::app.phone'),'contact.phone' ,'contact.phone' ,'req required' ,['data-masked' , 'data-inputmask-type' => "phone"])
+                    ->addInputText(trans('admin::app.mobile'),'contact.mobile' ,'contact.mobile' ,'req required' ,['data-masked' , 'data-inputmask-type' => "mobile"])
                 ->endRelation()
             ->endTab()
             ->startTab(trans('admin::app.social_media'),'fa fa-facebook fa-2x');
@@ -72,6 +70,7 @@ class PersonFactory extends GlobalFactory
                                ->endRelation();
 
             $table = $table->endTab()
+                      ->addActionButton(trans('admin::app.upload_images') ,'upload_image' ,'upload_image', 'center all' ,'100px')
                       ->addActionButton($this->update,'update','update')
                       ->addActionButton($this->delete,'delete','delete')
                       ->addNavButton()

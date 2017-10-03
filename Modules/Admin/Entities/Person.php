@@ -7,6 +7,7 @@ use Illuminate\Support\Str;
 use Modules\Admin\Entities\LangModels\PersonNameLang;
 use Modules\Admin\Entities\LangModels\PersonSummaryLang;
 use Modules\Utilities\Entities\Gender;
+use Modules\Utilities\Entities\Image;
 use Modules\Utilities\Entities\JobTitle;
 use Modules\Utilities\Entities\Position;
 use Modules\Utilities\Traits\MultiLangs;
@@ -19,7 +20,7 @@ class Person extends \Eloquent
 
     protected $fillable = ['type' ,'image_id' ,'gender_id' ,'position_id' ,'job_title_id' ,'contact_id'];
 
-    protected $appends = ['lang_name'];
+    protected $appends = ['lang_name' ,'lang_summary'];
 
     protected $with = ['gender' ,'position' ,'jobTitle' ,'contact'];
 
@@ -72,5 +73,10 @@ class Person extends \Eloquent
     function contact()
     {
         return $this->belongsTo(Contact::class);
+    }
+
+    function image()
+    {
+        return $this->belongsTo(Image::class);
     }
 }
