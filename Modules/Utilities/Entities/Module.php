@@ -11,7 +11,7 @@ class Module extends Model
 {
     use SoftDeletes, MultiLangs;
 
-    protected $fillable = ['code'];
+    protected $fillable = ['code', 'customized'];
 
     protected $appends  = ['lang_name'];
 
