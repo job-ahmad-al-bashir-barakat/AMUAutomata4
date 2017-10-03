@@ -13,6 +13,6 @@ Route::group(
 
         Route::get('home', function () {
             $modules = \Modules\Utilities\Entities\BuilderPage::pageModules()->get()->pluck('module');
-            return view('web-module.modules')->withModules($modules);
+            return view('modules')->withModules($modules);
         })->name('home');
     });

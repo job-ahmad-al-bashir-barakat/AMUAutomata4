@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html dir="ltr" lang="en">
+<html dir="ltr" lang="9en">
 <head>
 
     <!-- Meta Tags -->
@@ -43,16 +43,18 @@
 <body class="">
 <div id="wrapper" class="clearfix">
     <!-- preloader -->
-@include('theme.preloader')
+    @include('theme.preloader')
 
-<!-- Header -->
-@include('theme.header')
+    <!-- Header -->
+    @include('theme.header')
 
-<!-- Start main-content -->
+    <!-- Start main-content -->
     <div class="main-content">
-        @foreach($modules as $module)
-        {!! $module->getModuleHtml() !!}
-        @endforeach
+
+        @include('utilities::web-modules.modules.modules')
+
+        @include('theme.component.module.map')
+
     </div>
 
     <!-- Footer -->
