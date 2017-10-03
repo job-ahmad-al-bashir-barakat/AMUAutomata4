@@ -54,7 +54,17 @@ class UploadController extends Controller
 
     function index(Request $request ,$model ,$type) {
 
-        return 'done';
+        $ids = $request->input('images_id');
+
+        $images = [];
+
+        if(!empty($ids)) {
+            $images = Image::whereIn('id' ,$ids)->get();
+        } else {
+            // get from config model if is there isn't ids
+        }
+
+        return $images;
     }
 
     function upload(UploadFormRequest $request ,$model ,$type) {
@@ -133,12 +143,9 @@ class UploadController extends Controller
         $this->{"destroyUpload{$partFunc}Db"}($request->get('key'));
 
         // set storage path for file delete
-        $path = storage_path($this->uploadDirectory."\\".$request->get('file_name'));
+        $path = "$this->targetDirectory\\{$request->get('file_name')}";
         // delete image from storage .. ps: this accept just file name but i pass full path.
         Storage::delete($path);
-        // remove symbolic link from image
-        if(is_file($path))
-            @unlink($path);
 
         return ["success" => true];
     }

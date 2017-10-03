@@ -1205,6 +1205,8 @@ var APP_AMU = {
     // added by basheer
     fileUpload: {
 
+        selector : '.upload-file',
+
         formatBytes : function(bytes,decimals) {
             if(bytes == 0) return '0 Bytes';
             var k = 1024,
@@ -1321,13 +1323,13 @@ var APP_AMU = {
             };
         },
 
-        load: function(selector ,datatableRaw) {
+        load: function(selector ,data) {
 
             if (typeof($.fn.fileinput) != 'undefined') {
 
-                $selector = $(selector);
+                var $selector = selector || APP_AMU.fileUpload.selector;
 
-                $selector.each(function () {
+                $($selector).each(function () {
 
                     var _this = this,
                         $this = $(_this);
@@ -1365,7 +1367,9 @@ var APP_AMU = {
                         datatableInitialize         = typeof $this.data('datatable-initialize') != typeof undefined ? JSON.parse($this.data('datatable-initialize')) : true,
                         datatableInitializeProperty = $this.data('datatable-initialize-property') || '.image',
                         appendLocation              = typeof $this.data('append-location') != typeof undefined ? $this.data('append-location') : '',
-                        appendName                  = typeof $this.data('append-name') != typeof undefined ? $this.data('append-name') : '';
+                        appendName                  = typeof $this.data('append-name') != typeof undefined ? $this.data('append-name') : '',
+                        contCapture                 = typeof $this.data('cont-capture') != typeof undefined ? $this.data('cont-capture') : '',
+                        itemCapture                 = typeof $this.data('item-capture') != typeof undefined ? $this.data('item-capture') : '';
 
                     if(cropper)
                         cropperTemplete = '<button type="button" class="kv-cust-btn btn-crop-image btn btn-xs btn-default" title="' + cropTitle + '"><i class="fa fa-crop"></i></button>';
@@ -1373,6 +1377,9 @@ var APP_AMU = {
                     downloadTemplete = '<a href="{downloadUrl}" class="kv-cust-btn btn-download btn btn-xs btn-default" title="' + downloadTitle + '" download="{caption}"><i class="fa fa-download"></i></a>';
 
                     var params = {
+                        // fix upload / delete hidden file
+                        // required: true,
+                        // autoReplace: true,
                         rtl: DIR == 'rtl' ? true : false,
                         language: LANG,
                         theme : "fa",
@@ -1402,10 +1409,10 @@ var APP_AMU = {
                         overwriteInitial: false,
                         layoutTemplates : {
                             actions: '<div class="file-actions">' +
-                            '    <div class="file-footer-buttons">' +
-                            '        {upload} {download} {delete} {cropper} {info} {zoom} {other}' +
-                            '    </div>' +
-                            '</div>',
+                                     '    <div class="file-footer-buttons">' +
+                                     '        {upload} {download} {delete} {cropper} {info} {zoom} {other}' +
+                                     '    </div>' +
+                                     '</div>',
                         },
                         fileActionSettings: {
                             uploadRetryIcon: '<i class="fa fa-refresh"></i>',
@@ -1432,132 +1439,185 @@ var APP_AMU = {
                             $.extend(params.deleteExtraData ,extra);
                         });
 
-                    if(datatableInitialize == true && datatableRaw) {
+                    var initialPreviewFunc = function ($params) {
 
-                        var images = JSPath.apply(datatableInitializeProperty ,datatableRaw);
-                        _.each(images ,function (row ,index) {
+                        var url = ($params.url).replaceAll('{folder}', downloadFolder);
 
-                            var url = (row.image_url).replaceAll('{folder}', downloadFolder);
+                        params.initialPreview.push(url);
 
-                            params.initialPreview.push(url);
-
-                            params.initialPreviewConfig.push({
-                                previewAsData: true,
-                                type: row.type,
-                                url: deleteUrl,
-                                caption: row.name,
-                                size: row.size,
-                                key: row.id,
-                                extra: $.extend(params.deleteExtraData , {file_name: row.hash_name})
-                            });
-
-                            params.initialPreviewThumbTags.push({
-                                '{cropper}': '',
-                                '{info}' : infoTemplete,
-                                '{download}': downloadTemplete,
-                                '{downloadUrl}': url,
-                                '{caption}': row.name,
-                            });
+                        params.initialPreviewConfig.push({
+                            previewAsData: true,
+                            type: $params.type,
+                            url: deleteUrl,
+                            caption: $params.caption,
+                            size: $params.size,
+                            key: $params.key,
+                            extra: $.extend(params.deleteExtraData , $params.extra)
                         });
 
-                    } else if (datatableInitialize == false) {
-
-                        $.get(uploadUrl ,params.uploadExtraData ,function (res) {
-
-                            alert('oppps not ready yet !!! coming soon :(');
-                            console.log(res);
+                        params.initialPreviewThumbTags.push({
+                            '{cropper}': '',
+                            '{info}' : infoTemplete,
+                            '{download}': downloadTemplete,
+                            '{downloadUrl}': url,
+                            '{caption}': $params.caption,
                         });
-                    }
+                    };
 
-                    $this.fileinput('destroy');
-                    $this.fileinput(params).off('fileimagesloaded').on('fileimagesloaded', function(event) {
-                        // This event is triggered when all file images are fully loaded in the preview window.
-                        // This is only applicable for image file previews and if showPreview is set to true.
-                    }).off('fileloaded').on('fileloaded', function(event, file, previewId, index, reader) {
-                        // this event trigger after select new file from browse
-                    }).off('fileuploaded').on('fileuploaded', function(event, data, previewId, index) {
+                    var appendHiddenFunc = function (name ,value ,state) {
 
-                        var response  = data.response,
+                        var appendLocation = $(appendLocation),
                             inputFile = $this.closest('.file-input');
-                        appendLocation = $(appendLocation);
 
-                        var hidden = '<input class="file-uploaded" type="hidden" name="' + (appendName || _this.id + '[]') + '" value="' + response[_this.id]['id'] + '"/>';
+                        var hidden = '<input class="file-' + state + '" type="hidden" name="' + name + '" value="' + value + '"/>';
 
                         // add hidden id foreach image uploaded
                         if(appendLocation.length)
                             appendLocation.append(hidden);
                         else
                             inputFile.before(hidden);
+                    };
 
-                        // reload datatable after upload success
-                        if(datatableInitialize == true && datatableRaw && reloadDatatable)
-                            aut_datatable_reload(datatable);
+                    var initFileUpload = function (params) {
 
-                        if ((typeof $this.data('fileuploaded') != typeof undefined) && $this.data('fileuploaded'))
-                            window[$this.data('fileuploaded')](event, data, previewId, index);
+                        $this.fileinput('destroy');
+                        $this.fileinput(params).off('fileimagesloaded').on('fileimagesloaded', function(event) {
+                            // This event is triggered when all file images are fully loaded in the preview window.
+                            // This is only applicable for image file previews and if showPreview is set to true.
+                        }).off('fileloaded').on('fileloaded', function(event, file, previewId, index, reader) {
+                            // this event trigger after select new file from browse
+                        }).off('fileuploaded').on('fileuploaded', function(event, data, previewId, index) {
 
-                        // hide modal after upload success
-                        if($(target).hasClass('modal'))
-                            $(target).modal('hide');
+                            var response  = data.response;
 
-                    }).off('fileuploaderror').on('fileuploaderror', function(event, data, msg) {
+                            appendHiddenFunc((appendName || _this.id + '[]') ,response[_this.id]['id'] ,'uploaded');
 
-                        if(data.jqXHR.responseJSON) {
-                            var errorUl = $('.file-error-message').find('ul');
-                            errorUl.html('');
-                            _.each(data.jqXHR.responseJSON ,function (v ,i) {
-                                var message = "<li data-file-id='" + data.id + "'><b>" + data.filenames[data.index] + " </b>" + data.jqXHR.statusText + "<pre>" + v[0] + "</pre></li>";
-                                errorUl.append(message);
+                            // reload datatable after upload success
+                            if(datatableInitialize == true && data && reloadDatatable)
+                                aut_datatable_reload(datatable);
+
+                            if ((typeof $this.data('fileuploaded') != typeof undefined) && $this.data('fileuploaded'))
+                                window[$this.data('fileuploaded')](event, data, previewId, index);
+
+                            // hide modal after upload success
+                            if($(target).hasClass('modal'))
+                                $(target).modal('hide');
+
+                        }).off('fileuploaderror').on('fileuploaderror', function(event, data, msg) {
+
+                            if(data.jqXHR.responseJSON) {
+                                var errorUl = $('.file-error-message').find('ul');
+                                errorUl.html('');
+                                _.each(data.jqXHR.responseJSON ,function (v ,i) {
+                                    var message = "<li data-file-id='" + data.id + "'><b>" + data.filenames[data.index] + " </b>" + data.jqXHR.statusText + "<pre>" + v[0] + "</pre></li>";
+                                    errorUl.append(message);
+                                });
+                            }
+                        }).off('filedeleted').on('filedeleted', function(event, key, jqXHR, data) {
+
+                            appendHiddenFunc('delete_' + (appendName || _this.id + '[]') ,key ,'deleted');
+
+                            // reload datatable after upload success
+                            if(datatableInitialize == true && data && reloadDatatable)
+                                aut_datatable_reload(datatable);
+
+                            if ((typeof $this.data('filedeleted') != typeof undefined) && $this.data('filedeleted'))
+                                window[$this.data('filedeleted')](event, key, jqXHR, data)  ;
+                        }).on('fileclear', function(event) {
+                            console.log("fileclear");
+                        }).on('filecleared', function(event) {
+                            console.log("filecleared");
+                        }).on('filereset', function(event) {
+                            console.log("filereset");
+                        }).on('fileselectnone', function(event) {
+                            console.log("Huh! No files were selected.");
+                        }).on('change', function(event) {
+                            console.log("change");
+                        });
+
+                        $this.closest('.file-input').on('click' ,'.btn-attr-image' ,function () {
+                            //info button
+                        });
+
+                        if(cropper) {
+
+                            $this.closest('.file-input').on('click' ,'.btn-crop-image', function() {
+
+                                var $thisBtn   = $(this),
+                                    $fileindex = $thisBtn.closest('div.kv-preview-thumb').data('fileindex');
+                                // prev command
+                                //$fileindex = $thisBtn.closest('tr').data('fileindex');
+
+                                // var $btn = $(this), key = $btn.data('key');
+                                var id = '#' + _this.id + APP_AMU.fileUpload.selector,
+                                    files = $(id).fileinput('getFileStack'),
+                                    file = files[$fileindex];
+
+                                $(cropperModal).off('shown.bs.modal').on('shown.bs.modal', function (event) {
+
+                                    $(cropperModal).find(cropperSelector)
+                                        .attr('data-fileindex' ,$fileindex)
+                                        .attr('data-target'    ,id)
+                                        .attr('data-width'     ,imageWidth)
+                                        .attr('data-height'    ,imageHeight)
+                                        .attr('data-maxWidth'  ,maxImageWidth)
+                                        .attr('data-maxHeight' ,maxImageHeight)
+                                        .attr('data-minHeight' ,minImageHeight)
+                                        .attr('data-minWidth'  ,minImageWidth);
+
+                                    APP.CROPPER.init(cropperSelector ,file);
+                                });
+
+                                $(cropperModal).modal('show');
                             });
                         }
-                    }).off('filedeleted').on('filedeleted', function(event, key, jqXHR, data) {
+                    };
 
-                        // reload datatable after upload success
-                        if(datatableInitialize == true && datatableRaw && reloadDatatable)
-                            aut_datatable_reload(datatable);
+                    if(datatableInitialize == true && data) {
 
-                        if ((typeof $this.data('filedeleted') != typeof undefined) && $this.data('filedeleted'))
-                            window[$this.data('filedeleted')](event, key, jqXHR, data)  ;
-                    });
+                        var images = JSPath.apply(datatableInitializeProperty ,data);
+                        _.each(images ,function (row ,index) {
 
-                    // temp solution for remove crop on update
-                    $this.closest('.file-input').find('.file-preview-initial .btn-crop-image').remove();
+                            initialPreviewFunc({
+                                url : row.image_url,
+                                type : row.type,
+                                caption : row.name,
+                                size: row.size,
+                                key: row.id,
+                                extra : {file_name: row.hash_name }
+                            });
+                        });
 
-                    $this.closest('.file-input').on('click' ,'.btn-attr-image' ,function () {
-                        //info button
-                    });
+                        initFileUpload(params);
 
-                    if(cropper) {
+                    } else if (datatableInitialize == false) {
 
-                        $this.closest('.file-input').on('click' ,'.btn-crop-image', function() {
+                        var ids = [],
+                            capture = $(contCapture).find(itemCapture);
 
-                            var $thisBtn   = $(this),
-                                $fileindex = $thisBtn.closest('div.kv-preview-thumb').data('fileindex');
-                            // prev command
-                            //$fileindex = $thisBtn.closest('tr').data('fileindex');
+                        if(capture.length) {
 
-                            // var $btn = $(this), key = $btn.data('key');
+                            capture.each(function (i ,v) {
 
-                            var id = '#' + _this.id,
-                                files = $(id).fileinput('getFileStack'),
-                                file = files[$fileindex];
+                                ids.push($(v).val());
+                            });
+                        }
 
-                            $(cropperModal).off('shown.bs.modal').on('shown.bs.modal', function (event) {
+                        $.get(uploadUrl , $.extend(params.uploadExtraData ,{ images_id : ids }) ,function (data) {
 
-                                $(cropperModal).find(cropperSelector)
-                                    .attr('data-fileindex' ,$fileindex)
-                                    .attr('data-target'    ,id)
-                                    .attr('data-width'     ,imageWidth)
-                                    .attr('data-height'    ,imageHeight)
-                                    .attr('data-maxWidth'  ,maxImageWidth)
-                                    .attr('data-maxHeight' ,maxImageHeight)
-                                    .attr('data-minHeight' ,minImageHeight)
-                                    .attr('data-minWidth'  ,minImageWidth);
+                            _.each(data ,function (row ,index) {
 
-                                APP.CROPPER.init(cropperSelector ,file);
+                                initialPreviewFunc({
+                                    url : row.image_url,
+                                    type : row.type,
+                                    caption : row.name,
+                                    size: row.size,
+                                    key: row.id,
+                                    extra : {file_name: row.hash_name }
+                                });
                             });
 
-                            $(cropperModal).modal('show');
+                            initFileUpload(params);
                         });
                     }
                 });
@@ -1630,7 +1690,15 @@ var APP_AMU = {
                 switch ($type) {
 
                     case 'phone': {
+                        $mask = '(9{3}) 9{7}';
+                    }; break;
+
+                    case 'mobile': {
                         $mask = '(9{3}) 9{3}-9{4}';
+                    }; break;
+
+                    case 'fax': {
+                        $mask = '+\\963 (9{2}) 9{3}-9{4}';
                     }; break;
                 }
 
@@ -1654,7 +1722,7 @@ var APP_AMU = {
             APP_AMU.tree.initTreeNormal();
             APP_AMU.ckeditor.init('body', '.text-editor');
             APP_AMU.inputMask.init('[data-masked]');
-            APP_AMU.fileUpload.load('.upload-file');
+            APP_AMU.fileUpload.load('.upload-file.load-file');
 
             $('.datatable').each(loadDatatable);
             //Added By AA1992
@@ -1882,7 +1950,7 @@ var onPageLoad = {
         APP_AMU.ckeditor.fixCkeditorModal,
         function (){APP_AMU.inputMask.init('[data-masked]')},
         APP_AMU.map.init,
-        function () { APP_AMU.fileUpload.load('.upload-file') }
+        function () { APP_AMU.fileUpload.load('.upload-file.load-file') }
     ],
     loadPjax: function (){
         for(var i = 0; i < this.pjax.length; i++){

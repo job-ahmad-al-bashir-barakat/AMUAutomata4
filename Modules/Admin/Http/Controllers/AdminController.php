@@ -4,6 +4,7 @@ namespace Modules\Admin\Http\Controllers;
 
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Str;
 
 class AdminController extends Controller
 {
@@ -18,7 +19,8 @@ class AdminController extends Controller
 
     public function table($view)
     {
-        $subPage = \View::exists("admin::table.$view") ? "admin::table.$view" : false;
+        $subPage = Str::slug($view ,'_');
+        $subPage = \View::exists("admin::table.$subPage") ? "admin::table.$subPage" : false;
 
         return view('admin::page.table',[
             'table' => $view,

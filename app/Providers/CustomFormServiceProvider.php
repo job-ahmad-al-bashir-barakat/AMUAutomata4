@@ -128,6 +128,8 @@ class CustomFormServiceProvider extends ServiceProvider
                 'allowedFileExtensions'          => 'jpeg,jpg,bmp,png',
                 'appendLocation'                 => '',
                 'appendName'                     => '',
+                'contCapture'                    => '.cont-uploaded',
+                'itemCapture'                    => '.file-uploaded',
                 'reloadDatatable'                => 'true',
                 'fileuploadedEvent'              => '',
                 'filedeletedEvent'               => '',

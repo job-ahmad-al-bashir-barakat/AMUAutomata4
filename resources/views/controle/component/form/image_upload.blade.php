@@ -13,7 +13,7 @@
     <input id="{{$id}}"
            name="{{$name}}"
            type="file"
-           class="upload-file file-loading {{ $class or '' }}"
+           class="file-loading upload-file @if($class) {{ $class }} @else load-file @endif"
            data-upload-url="{{ localizeURL("utilities/$id/image/upload") }}"
            data-delete-url="{{ localizeURL("utilities/$id/image/destroy") }}"
            data-download-folder="{{ \Illuminate\Support\Str::plural($id) }}"
@@ -39,8 +39,8 @@
            data-reload-datatable="{{ $reloadDatatable or 'true' }}"
            {{--(event, data, previewId, index)--}}
            data-fileuploaded="{{ $fileuploadedEvent or '' }}"
+           {{--(event, key, jqXHR, data)--}}
            data-filedeleted="{{ $filedeletedEvent or '' }}"
-           {{--('filedeleted')](event, key, jqXHR, data)--}}
            data-datatable-initialize="{{ $datatableInitialize or 'true' }}"
            data-datatable-initialize-property="{{ $datatableInitializeProperty or '.image' }}"
            data-remove-label="{{ $removeLabel or trans('app.clear') }}"
@@ -50,6 +50,8 @@
            data-download-title="{{ $downloadTitle or trans('app.download_title') }}"
            data-append-location="{{ $appendLocation or '' }}"
            data-append-name="{{ $appendName or '' }}"
+           data-cont-capture="{{ $contCapture or '.cont-uploaded' }}"
+           data-item-capture="{{ $itemCapture or '.file-uploaded' }}"
            multiple
     >
 @unless(empty($targetModel))

@@ -35,6 +35,10 @@ return [
     'offices'            => 'Offices',
     'study_plan'         => 'Study Plan',
 
+    'responsible_person' => 'Responsible Person',
+    'address1'           => 'First Address',
+    'address2'           => 'Second Address',
+    'fax'                => 'Fax',
     'code'               => 'Code',
     'credit'             => 'Credit',
     'study_year'         => 'Study year',

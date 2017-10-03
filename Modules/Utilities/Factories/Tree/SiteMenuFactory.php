@@ -22,6 +22,11 @@ class SiteMenuFactory
     // offices is list and add it on menusTables
     // faculties is list and department  is link
 
+    // change font-icon lib and file upload lib
+    // work on tree and arrange code
+    // fix upload file save delete get
+    // work on rest of tables
+
     function dataAttr()
     {
         return array_merge([
