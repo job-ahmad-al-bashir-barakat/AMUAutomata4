@@ -15,12 +15,14 @@ class UnivercityOfficeFactory extends GlobalFactory
      */
     public function getDatatable($model, $request)
     {
-        $query = UnivercityOffice::with(['contact' ,'person'])->allLangs();
+        $query = UnivercityOffice::with(['contact' => function($query){
+            $query->allLangs();
+        } ,'person'])->allLangs()->get();
 
         return $this->table
             ->queryConfig('datatable-univercity-office')
             ->queryDatatable($query)
-            ->queryMultiLang(['name'])
+            ->queryMultiLang(['name' ,'contact' => 'address'])
             ->queryUpdateButton('id')
             ->queryDeleteButton('id')
             ->queryRender(true);
@@ -34,19 +36,22 @@ class UnivercityOfficeFactory extends GlobalFactory
         return $this->table
             ->config('datatable-univercity-office',trans('admin::app.univercity_office') ,['dialogWidth' => '650px'])
             ->addPrimaryKey('id' ,'id')
-            ->addAutocomplete('autocomplete/person' ,trans('admin::app.responsible_person') ,'person_id' ,"person.lang_name.{$this->lang}.text" ,"person.lang_name.{$this->lang}.text" ,'req required')
+            ->addHiddenInput('contact_id' ,'contact_id')
+            ->addAutocomplete('autocomplete/person' ,trans('admin::app.responsible_person') ,'person_id' ,"lang_name.{$this->lang}.text" ,"lang_name.{$this->lang}.text" ,'req required')
             ->addMultiInputTextLangs(['name'] ,'req required')
             ->startRelation('contact')
-                ->addInputEmail(trans('admin::app.email') ,'email' ,'email' ,'required req')
-                ->addInputText(trans('admin::app.phone') ,'phone' ,'phone' ,'required req' ,['data-masked' , 'data-inputmask-type' => "phone"])
-                ->addInputText(trans('admin::app.mobile') ,'mobile' ,'mobile' ,'required req',['data-masked' , 'data-inputmask-type' => "mobile"])
-                ->addInputText(trans('admin::app.address1') ,'address1' ,'address1' ,'req required')
-                ->addInputText(trans('admin::app.address2') ,'address2' ,'address2')
-                ->addInputText(trans('admin::app.fax') ,'fax' ,'fax' ,'' ,['data-masked' , 'data-inputmask-type' => "fax"])
-                ->addInputGroup(trans('admin::app.gelocation'),'gelocation' ,'gelocation' ,'req required' ,'icon-location-pin' ,'input-location hand' ,['data-modal' => '#modal-univercity-office-input-location'])
+                ->addInputEmail(trans('admin::app.email') ,'contact.email' ,'contact.email' ,'required req')
+                ->addInputText(trans('admin::app.phone') ,'contact.phone' ,'contact.phone' ,'required req' ,['data-masked' , 'data-inputmask-type' => "phone"])
+                ->addInputText(trans('admin::app.mobile') ,'contact.mobile' ,'contact.mobile' ,'required req',['data-masked' , 'data-inputmask-type' => "mobile"])
+                ->addInputText(trans('admin::app.fax') ,'contact.fax' ,'contact.fax' ,'' ,['data-masked' , 'data-inputmask-type' => "fax"])
+                ->addMultiTextareaLangs(['address'] ,'req required')
+            ->endRelation()
+            ->startRelation('contact')
+                ->addInputGroup(trans('admin::app.gelocation'),'contact.gelocation' ,'contact.gelocation' ,'req required none' ,'icon-location-pin' ,'input-location hand' ,['data-modal' => '#modal-univercity-office-input-location'] ,'' ,true ,false ,false ,false ,false)
             ->endRelation()
             ->addActionButton($this->update,'update','update')
             ->addActionButton($this->delete,'delete','delete')
+            ->editResponsiveRowDetailTemplete()
             ->addBlade('univercity-office-input-location-custom' ,view('controle.component.location.input_location', [
                 'id'                => 'univercity-office',
                 'title'             => trans('admin::app.nivercity_office_gelocation'),
@@ -65,7 +70,7 @@ class UnivercityOfficeFactory extends GlobalFactory
     {
         $contact = Contact::create($request->input('contact'));
 
-        UnivercityOffice::create(['contact_id' => $contact->id ,'person_id' => $request->input('person_id')]);
+        //UnivercityOffice::create(array_merge($request->input(), ['contact_id' => $contact->id]));
     }
 
     /**
@@ -73,7 +78,11 @@ class UnivercityOfficeFactory extends GlobalFactory
      */
     public function updateDatatable($model = null, $request = null, $result = null)
     {
-        //
+        $find = UnivercityOffice::findOrFail($request->input('id'))->first();
+
+        $find->update($request->input());
+
+        $find->contact->update($request->input('contact'));
     }
 
     /**

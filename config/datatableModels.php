@@ -174,7 +174,7 @@ return [
     'offices' => [
       'model'   => \Modules\Admin\Entities\UnivercityOffice::class,
       'factory' => \Modules\Admin\Factories\UnivercityOfficeFactory::class,
-      'stopOperation' => ['store']
+      'stopOperation' => ['store' ,'update']
     ],
 
     'semester' => [

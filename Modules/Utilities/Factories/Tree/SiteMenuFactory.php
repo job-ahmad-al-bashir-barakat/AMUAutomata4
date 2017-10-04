@@ -26,6 +26,7 @@ class SiteMenuFactory
     // work on tree and arrange code
     // fix upload file save delete get
     // work on rest of tables
+    // fix datatable responsive
 
     function dataAttr()
     {

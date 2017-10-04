@@ -204,11 +204,15 @@ trait QueryDataTable
         {
             foreach ($cols as $index => $col)
             {
-                $property = snake_case("lang_$col");
+                $query->addColumn("{$col}_{$lang}" ,function ($item) use($index ,$col ,$lang) {
 
-                $query->addColumn("{$col}_{$lang}" ,function ($item) use($property ,$lang) {
+                    $property = snake_case("lang_$col");
+                    $relation = snake_case($index).'->'.$property;
 
-                    return isset($item->$property[$lang]) ? $item->$property[$lang]->text : '';
+                    if (is_numeric($index))
+                        return isset($item->$property[$lang]) ? $item->$property[$lang]->text : '';
+                    else
+                        return isset(colValue($relation ,$item)[$lang]) ? colValue($relation ,$item)[$lang]->text : '';
                 });
             }
         }
