@@ -4,17 +4,29 @@ namespace Modules\Admin\Entities;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Modules\Admin\Entities\LangModels\ContactAddressLang;
 use Modules\Utilities\Entities\SocialNetwork;
+use Modules\Utilities\Traits\MultiLangs;
 
 class Contact extends \Eloquent
 {
-    use SoftDeletes;
+    use SoftDeletes ,MultiLangs;
 
     protected $fillable = ['email' ,'phone' ,'mobile' ,'fax' ,'gelocation'];
 
     protected $with = ['socialNetwork'];
 
-    protected $appends = ['social'];
+    protected $appends = ['social' ,'lang_address'];
+
+    public function transAddress()
+    {
+        return $this->hasMany(ContactAddressLang::class);
+    }
+
+    public function getLangAddressAttribute()
+    {
+        return $this->transAddress->keyBy("lang_code");
+    }
 
     function socialNetwork()
     {

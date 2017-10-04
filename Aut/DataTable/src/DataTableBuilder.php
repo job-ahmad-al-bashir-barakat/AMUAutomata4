@@ -1177,7 +1177,13 @@ class DataTableBuilder
     {
         foreach ($cols as $index => $col)
         {
-            $this->startRelation("trans_$col");
+            $relation_key = $this->relation_key;
+
+            $relation = $relation_key
+                ? $relation_key.".trans_$col"
+                : "trans_$col";
+
+            $this->startRelation($relation);
 
             // use this tabs when you need to add textarea ckeditor
             $hasTab = preg_match('/\b(?<![\S])(d:tabs)(?![\S])\b/',$colClass);
@@ -1187,7 +1193,6 @@ class DataTableBuilder
 
             foreach ($this->langSupportedLocales as $index => $lang)
             {
-
                 $title = trans("datatable::table.$col");
 
                 $title = preg_match('/datatable::/',$title) ? "app.$col" : "datatable::table.$col";
@@ -1201,7 +1206,9 @@ class DataTableBuilder
                     "type"       => $type,
                     "title"      => $title,
                     "data"       => "{$col}_{$index}" ,
-                    "name"       => config('datatable.isLangs') ? "lang_$col.$index.text" : "{$col}_{$index}",
+                    "name"       => config('datatable.isLangs')
+                        ? $relation_key ? $relation_key.".lang_$col.$index.text" : "lang_$col.$index.text"
+                        : $relation_key ? $relation_key.".{$col}_{$index}" : "{$col}_{$index}",
                     "class"      => "$index $colClass",
                     "width"      => $colWidth,
                     "attr"       => $dialogAttr,
