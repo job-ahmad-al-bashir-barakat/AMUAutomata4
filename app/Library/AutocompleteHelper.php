@@ -65,4 +65,9 @@ class AutocompleteHelper
 
         return $query;
     }
+
+    public function modulesAutocomplete(Request $request, $query)
+    {
+        return  $query->where('customized', '=', '1');
+    }
 }

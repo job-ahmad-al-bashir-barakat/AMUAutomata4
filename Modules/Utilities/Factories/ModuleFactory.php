@@ -17,6 +17,9 @@ class ModuleFactory extends GlobalFactory
             ->queryConfig('datatable-modules')
             ->queryDatatable($query)
             ->queryMultiLang(['name'])
+            ->queryAddColumn('customized_show', function ($row) {
+                return $row->customized ? trans('utilities::app.yes') : trans('utilities::app.no');
+            })
             ->queryUpdateButton('id')
             ->queryDeleteButton('id')
             ->queryRender(true);
@@ -32,6 +35,7 @@ class ModuleFactory extends GlobalFactory
             ->addPrimaryKey('id','id')
             ->addInputText(trans('utilities::app.code'),'code','code','required req')
             ->addMultiInputTextLangs(['name'] ,'req required')
+            ->addSelect(['1' => trans('utilities::app.yes'), 0 => trans('utilities::app.no')], trans('utilities::app.customized'), 'customized', 'customized', 'customized_show')
             ->startRelation('attributes')
                 ->addMultiAutocomplete('autocomplete/attributes' ,"attributes[ ,].lang_name.$this->lang.text",trans('utilities::app.attributes') , 'attributes.id', "attributes.lang_name.$this->lang.text", "attributes.lang_name.$this->lang.text" ,'req required' ,'multiple')
             ->endRelation()
