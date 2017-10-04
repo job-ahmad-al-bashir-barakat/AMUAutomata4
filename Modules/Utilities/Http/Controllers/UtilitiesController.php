@@ -2,12 +2,9 @@
 
 namespace Modules\Utilities\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
-use Illuminate\Routing\Controller;
 use Illuminate\Support\Str;
+use Illuminate\Routing\Controller;
 use Modules\Utilities\Entities\MenuTables;
-use Modules\Utilities\Entities\SiteMenu;
 
 class UtilitiesController extends Controller
 {
