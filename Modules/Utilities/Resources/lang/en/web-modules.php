@@ -16,4 +16,5 @@ return [
     'title' => 'Title',
     'icon' => 'Icon',
     'images' => 'Images',
+    'steps' => 'Steps',
 ];

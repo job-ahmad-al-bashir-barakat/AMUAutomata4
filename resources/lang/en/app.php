@@ -15,6 +15,8 @@ return [
     'save'            => 'Save',
     'filter'          => 'Filter',
     'set_location'    => 'Set Location',
+    'title'           => 'Title',
+    'text'            => 'Text',
 
     'oper' => [
         'success' => 'Operation done successfuly',

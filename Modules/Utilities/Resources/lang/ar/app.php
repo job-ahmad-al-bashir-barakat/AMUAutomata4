@@ -50,6 +50,7 @@ return [
     'blocks'                 => 'كتل',
     'icons'                  => 'الايقونات',
     'customized'             => 'Customized',
+    'steps'                  => 'خطوات',
 
     'expand_all'             => 'فتح الجميع',
     'collapse_all'           => 'اغلاق الجميع',

@@ -15,6 +15,8 @@ return [
     'save'            => 'حفظ',
     'filter'          => 'بحث',
     'set_location'    => 'تحديد الموقع',
+    'title'           => 'عنوان',
+    'text'            => 'نص',
 
     'oper' => [
         'success' => 'تمت العملية بنجاح',

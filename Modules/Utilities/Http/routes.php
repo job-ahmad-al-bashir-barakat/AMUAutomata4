@@ -28,6 +28,8 @@ function () {
 
         Route::get('blocks', 'BuilderController@blocks');
         Route::get('blocks/{block}', 'BuilderController@block');
+
+        Route::get('steps', 'BuilderController@steps');
     });
 
     Route::group(['prefix' => 'attribute'], function () {

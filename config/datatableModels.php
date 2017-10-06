@@ -84,6 +84,11 @@ return [
         'factory'       => Modules\Utilities\Factories\BlockDetailFactory::class
     ],
 
+    'steps' => [
+        'model'         => Modules\Utilities\Entities\Step::class,
+        'factory'       => Modules\Utilities\Factories\StepFactory::class
+    ],
+
     'builder-pages' => [
         'model'         => Modules\Utilities\Entities\BuilderPage::class,
         'factory'       => Modules\Utilities\Factories\BuilderPageFactory::class
