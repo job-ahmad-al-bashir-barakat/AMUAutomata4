@@ -49,6 +49,7 @@ return [
     'slider'                 => 'Slider',
     'blocks'                 => 'Blocks',
     'icons'                  => 'Icons',
+    'customized'             => 'Customized',
 
     'expand_all'             => 'Expand All',
     'collapse_all'           => 'Collapse All',

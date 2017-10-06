@@ -21,12 +21,15 @@ trait MultiLangs
     public function save(array $options = [])
     {
         $input = request()->input();
+//        print_r($input);
+//        throw new \HttpException('test');
 
         $methods = get_class_methods($this);
-
+//        dd(class_basename($this), $options, $this, request('*.trans_address'));
         $transMethod = preg_grep('/^trans/', $methods);
 
         $supportedLocale = LaravelLocalization::getSupportedLanguagesKeys();
+//        dd($this);
         $status = parent::save($input);
 
 //        if(class_basename($this) == 'CustomModuleAttributeValue')

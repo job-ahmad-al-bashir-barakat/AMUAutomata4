@@ -49,6 +49,7 @@ return [
     'slider'                 => 'شرائح',
     'blocks'                 => 'كتل',
     'icons'                  => 'الايقونات',
+    'customized'             => 'Customized',
 
     'expand_all'             => 'فتح الجميع',
     'collapse_all'           => 'اغلاق الجميع',
