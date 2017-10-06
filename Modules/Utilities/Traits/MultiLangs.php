@@ -25,7 +25,8 @@ trait MultiLangs
 //        throw new \HttpException('test');
 
         $methods = get_class_methods($this);
-//        dd(class_basename($this), $options, $this, request('*.trans_address'));
+//        print_r([$input, $this->transInputs, class_basename($this), $options, $this, request('*.trans_address')]);
+//        throw new \Exception();
         $transMethod = preg_grep('/^trans/', $methods);
 
         $supportedLocale = LaravelLocalization::getSupportedLanguagesKeys();
@@ -47,7 +48,11 @@ trait MultiLangs
             {
                 $inputName = snake_case(str_replace('trans', '', $method));
                 $attribute = snake_case($method);
-                $data = $input[$attribute];
+                if(property_exists($this, 'transInputs')){
+                    $data = $input[$this->transInputs[$method]][$attribute];
+                } else {
+                    $data = $input[$attribute];
+                }
                 $createArr = [];
                 $relations = $object->{$method};
 

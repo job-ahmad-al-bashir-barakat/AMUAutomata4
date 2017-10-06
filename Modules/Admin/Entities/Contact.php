@@ -12,6 +12,10 @@ class Contact extends \Eloquent
 {
     use SoftDeletes ,MultiLangs;
 
+    protected $transInputs = [
+        'transAddress' => 'contact',
+    ];
+
     protected $fillable = ['email' ,'phone' ,'mobile' ,'fax' ,'gelocation'];
 
     protected $with = ['socialNetwork'];
