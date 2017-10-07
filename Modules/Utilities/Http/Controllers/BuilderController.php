@@ -146,4 +146,17 @@ class BuilderController extends Controller
             'subPage' => false,
         ]);
     }
+
+    /**
+     * Lists
+     */
+    public function steps()
+    {
+        return view('utilities::page.table',[
+            'table' => 'steps',
+            'param' => '',
+            'title' => trans('utilities::app.steps'),
+            'subPage' => false,
+        ]);
+    }
 }

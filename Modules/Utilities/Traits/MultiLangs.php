@@ -21,12 +21,16 @@ trait MultiLangs
     public function save(array $options = [])
     {
         $input = request()->input();
+//        print_r($input);
+//        throw new \HttpException('test');
 
         $methods = get_class_methods($this);
-
+//        print_r([$input, $this->transInputs, class_basename($this), $options, $this, request('*.trans_address')]);
+//        throw new \Exception();
         $transMethod = preg_grep('/^trans/', $methods);
 
         $supportedLocale = LaravelLocalization::getSupportedLanguagesKeys();
+//        dd($this);
         $status = parent::save($input);
 
 //        if(class_basename($this) == 'CustomModuleAttributeValue')
@@ -44,7 +48,11 @@ trait MultiLangs
             {
                 $inputName = snake_case(str_replace('trans', '', $method));
                 $attribute = snake_case($method);
-                $data = $input[$attribute];
+                if(property_exists($this, 'transInputs')){
+                    $data = $input[$this->transInputs[$method]][$attribute];
+                } else {
+                    $data = $input[$attribute];
+                }
                 $createArr = [];
                 $relations = $object->{$method};
 

@@ -108,6 +108,14 @@ return [
         ],
     ],
 
+    'steps' => [
+        'model' => \Modules\Utilities\Entities\Step::class,
+        'colName'  => 'transTitle->text',
+        'condition' => [
+            'transTitle' => 'text',
+        ],
+    ],
+
     'faculty' => [
         'model' => \Modules\Admin\Entities\Faculty::class,
     ],
