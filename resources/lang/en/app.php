@@ -46,6 +46,5 @@ return [
     'upload_retry_title'        => 'Upload Retry',
     'crop_title'                => 'Crop',
     'attribute_title'           => 'Attribute',
-    'download_title'            => 'Download file',
     'clear'                     => 'Clear',
 ];

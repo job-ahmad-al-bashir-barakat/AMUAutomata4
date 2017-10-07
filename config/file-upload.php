@@ -5,7 +5,7 @@ return [
     'setting' => [
 
         'image' => [
-            'validate'         => 'mimes:jpeg,jpg,png|ratio',
+            'validate'         => 'required|mimes:jpeg,jpg,png|ratio',
             'upload_directory' => 'upload\image',
         ],
 

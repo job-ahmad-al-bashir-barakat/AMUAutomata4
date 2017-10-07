@@ -32,7 +32,7 @@ class LabFactory extends GlobalFactory
     public function buildDatatable($model ,$request)
     {
         return $this->table
-            ->config('datatable-labs',trans('admin::app.labs') ,['gridSystem' => true ,'dialogWidth' => '70%'])
+            ->config('datatable-labs',trans('admin::app.labs') ,['gridSystem' => true ,'dialogWidth' => '70%' ,'formClass' => 'dsad'])
             ->addPrimaryKey('id' ,'id')
             ->addHiddenInput('faculty_id' ,'faculty_id' ,$request->input('id') ,false ,true)
             ->addMultiInputTextLangs(['name'] ,'req required')

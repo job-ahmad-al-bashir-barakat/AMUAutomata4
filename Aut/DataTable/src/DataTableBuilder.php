@@ -141,6 +141,8 @@ class DataTableBuilder
     private function setDefaultConfig($option)
     {
         $optionDefault = [
+            'formClass'         => '',
+            'formAttr'          => '',
             'dialogWidth'       => '',
             'disableDialog'     => false,
             'removeElement'     => false,
@@ -174,6 +176,8 @@ class DataTableBuilder
      * @return $this
      */
     function config($tableId = 'datatable', $caption = '', $option = [
+        'formClass'         => '',
+        'formAttr'          => '',
         'dialogWidth'       => '',
         'disableDialog'     => false,
         'removeElement'     => false,
@@ -1134,7 +1138,7 @@ class DataTableBuilder
         $this->addMultiInputLangs
         (
             $cols       ,
-            'textarea'  ,
+            'textarea',
             $colClass   ,
             $colWidth   ,
             $dialogAttr ,

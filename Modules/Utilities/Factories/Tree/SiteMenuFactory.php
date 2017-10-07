@@ -27,6 +27,11 @@ class SiteMenuFactory
     // fix upload file save delete get
     // work on rest of tables
     // fix datatable responsive
+    // upadte univercity office name
+    // fix map open
+    // file input auto replace and upload pdf
+    // fix datatable load over ajax and pjax
+    // add email task to list
 
     function dataAttr()
     {

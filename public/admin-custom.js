@@ -1334,7 +1334,7 @@ var APP_AMU = {
                     var _this = this,
                         $this = $(_this);
 
-                    var btns, cropperTemplete, infoTemplete, downloadTemplete,
+                    var btns, cropperTemplete, infoTemplete, replacedFile = [],
                         previewFileType       = $this.data('preview-file-type'),
                         allowedFileTypes      = typeof $this.data('allowed-file-types') != typeof undefined ? $this.data('allowed-file-types').split(',') : null,
                         allowedFileExtensions = typeof $this.data('allowed-file-extensions') != typeof undefined ? $this.data('allowed-file-extensions') : null,
@@ -1348,7 +1348,6 @@ var APP_AMU = {
                         uploadRetryTitle= $this.data('upload-retry-title'),
                         cropTitle       = $this.data('crop-title'),
                         attributeTitle  = $this.data('attribute-title'),
-                        downloadTitle   = $this.data('download-title'),
                         showCaption     = typeof $this.data('show-caption') != typeof undefined ? JSON.parse($this.data('show-caption')) : false,
                         imageWidth      = $this.data('image-width') || null,
                         imageHeight     = $this.data('image-height') || null,
@@ -1368,18 +1367,15 @@ var APP_AMU = {
                         datatableInitializeProperty = $this.data('datatable-initialize-property') || '.image',
                         appendLocation              = typeof $this.data('append-location') != typeof undefined ? $this.data('append-location') : '',
                         appendName                  = typeof $this.data('append-name') != typeof undefined ? $this.data('append-name') : '',
-                        contCapture                 = typeof $this.data('cont-capture') != typeof undefined ? $this.data('cont-capture') : '',
-                        itemCapture                 = typeof $this.data('item-capture') != typeof undefined ? $this.data('item-capture') : '';
+                        appendName                  = (appendName || _this.id + '[]'),
+                        allowedPreviewIcons         = typeof $this.data('allowed-preview-icons') != typeof undefined ? JSON.parse($this.data('allowed-preview-icons')) : false,
+                        autoReplace                 = typeof $this.data('auto-replace') != typeof undefined ? JSON.parse($this.data('auto-replace')) : false;
 
                     if(cropper)
-                        cropperTemplete = '<button type="button" class="kv-cust-btn btn-crop-image btn btn-xs btn-default" title="' + cropTitle + '"><i class="fa fa-crop"></i></button>';
-                    infoTemplete = '<button type="button" class="kv-cust-btn btn-attr-image btn btn-xs btn-default" title="' + attributeTitle + '" {dataKey}><i class="fa fa-question-circle"></i></button>';
-                    downloadTemplete = '<a href="{downloadUrl}" class="kv-cust-btn btn-download btn btn-xs btn-default" title="' + downloadTitle + '" download="{caption}"><i class="fa fa-download"></i></a>';
+                        cropperTemplete = '<button type="button" class="btn-crop-image btn btn-kv btn-default btn-outline-secondary" title="' + cropTitle + '"><i class="fa fa-crop"></i></button>';
+                    infoTemplete = '<button type="button" class="btn-attr-image btn btn-kv btn-default btn-outline-secondary" title="' + attributeTitle + '" {dataKey}><i class="fa fa-question-circle"></i></button>';
 
                     var params = {
-                        // fix upload / delete hidden file
-                        // required: true,
-                        // autoReplace: true,
                         rtl: DIR == 'rtl' ? true : false,
                         language: LANG,
                         theme : "fa",
@@ -1403,9 +1399,8 @@ var APP_AMU = {
                         otherActionButtons: '',
                         showUpload: true,
                         showDownload: true,
-                        // autoReplace: true,
-                        required: true,
-
+                        autoReplace: autoReplace,
+                        // required: true,
                         overwriteInitial: false,
                         layoutTemplates : {
                             actions: '<div class="file-actions">' +
@@ -1416,21 +1411,78 @@ var APP_AMU = {
                         },
                         fileActionSettings: {
                             uploadRetryIcon: '<i class="fa fa-refresh"></i>',
+                            downloadIcon:'<i class="fa fa-download"></i>'
                         },
                         removeLabel: removeLabel,
                         uploadRetryTitle: uploadRetryTitle,
                         previewThumbTags : {
                             '{cropper}'  : cropperTemplete || '',
                             '{info}'     : infoTemplete,
-                            '{download}' : '',
                         },
                         initialPreviewShowDelete: true,
                         initialPreview: [],
                         initialPreviewAsData: true,
                         initialPreviewFileType: 'image',
                         initialPreviewConfig: [],
-                        initialPreviewThumbTags : [],
+                        initialPreviewThumbTags : []
                     };
+
+                    if(allowedPreviewIcons)
+                        $.extend(params ,{
+
+                            // set to empty, null or false to disable preview for all types
+                            // allow only preview of image & text files
+                            allowedPreviewTypes: null,
+                            //allowedPreviewTypes: ['image', 'text'],
+                            // allow content to be shown only for certain mime types
+                            //allowedPreviewMimeTypes: ['image/jpeg', 'text/javascript'],
+                            previewFileIcon: '<i class="fa fa-file"></i>',
+                            // this will force thumbnails to display icons for following file extensions
+                            preferIconicPreview: true,
+                            // configure your icon file extensions
+                            previewFileIconSettings: {
+                                'doc': '<i class="fa fa-file-word-o text-primary"></i>',
+                                'xls': '<i class="fa fa-file-excel-o text-success"></i>',
+                                'ppt': '<i class="fa fa-file-powerpoint-o text-danger"></i>',
+                                'pdf': '<i class="fa fa-file-pdf-o text-danger"></i>',
+                                'zip': '<i class="fa fa-file-archive-o text-muted"></i>',
+                                'htm': '<i class="fa fa-file-code-o text-info"></i>',
+                                'txt': '<i class="fa fa-file-text-o text-info"></i>',
+                                'mov': '<i class="fa fa-file-movie-o text-warning"></i>',
+                                'mp3': '<i class="fa fa-file-audio-o text-warning"></i>',
+                                // note for these file types below no extension determination logic
+                                // has been configured (the keys itself will be used as extensions)
+                                'jpg': '<i class="fa fa-file-photo-o text-danger"></i>',
+                                'gif': '<i class="fa fa-file-photo-o text-warning"></i>',
+                                'png': '<i class="fa fa-file-photo-o text-primary"></i>'
+                            },
+                            previewFileExtSettings: { // configure the logic for determining icon file extensions
+                                'doc': function(ext) {
+                                    return ext.match(/(doc|docx)$/i);
+                                },
+                                'xls': function(ext) {
+                                    return ext.match(/(xls|xlsx)$/i);
+                                },
+                                'ppt': function(ext) {
+                                    return ext.match(/(ppt|pptx)$/i);
+                                },
+                                'zip': function(ext) {
+                                    return ext.match(/(zip|rar|tar|gzip|gz|7z)$/i);
+                                },
+                                'htm': function(ext) {
+                                    return ext.match(/(htm|html)$/i);
+                                },
+                                'txt': function(ext) {
+                                    return ext.match(/(txt|ini|csv|java|php|js|css)$/i);
+                                },
+                                'mov': function(ext) {
+                                    return ext.match(/(avi|mpg|mkv|mov|mp4|3gp|webm|wmv)$/i);
+                                },
+                                'mp3': function(ext) {
+                                    return ext.match(/(mp3|wav)$/i);
+                                },
+                            }
+                        });
 
                     if(param != '')
                         _.each(param.split('&') , function(v ,i) {
@@ -1445,6 +1497,9 @@ var APP_AMU = {
 
                         params.initialPreview.push(url);
 
+                        // deep clone object
+                        var extra = jQuery.extend(true, {}, params.deleteExtraData , $params.extra);
+
                         params.initialPreviewConfig.push({
                             previewAsData: true,
                             type: $params.type,
@@ -1452,30 +1507,60 @@ var APP_AMU = {
                             caption: $params.caption,
                             size: $params.size,
                             key: $params.key,
-                            extra: $.extend(params.deleteExtraData , $params.extra)
+                            downloadUrl: url,
+                            extra: extra,
                         });
 
                         params.initialPreviewThumbTags.push({
                             '{cropper}': '',
                             '{info}' : infoTemplete,
-                            '{download}': downloadTemplete,
-                            '{downloadUrl}': url,
                             '{caption}': $params.caption,
                         });
                     };
 
-                    var appendHiddenFunc = function (name ,value ,state) {
+                    var appendHiddenFunc = function (name ,value ,status) {
 
-                        var appendLocation = $(appendLocation),
-                            inputFile = $this.closest('.file-input');
+                        var _appendLocation = $(appendLocation),
+                            inputFile = $this.closest('.file-input'),
+                            selector  = function (name ,extraClass) {
 
-                        var hidden = '<input class="file-' + state + '" type="hidden" name="' + name + '" value="' + value + '"/>';
+                                var select = 'input[type=hidden][name="' + name + '"][value="' + value + '"]';
+
+                                if(extraClass)
+                                    select = select + extraClass;
+
+                                return select;
+                            },
+                            hidden    = '<input class="'+ status +'" type="hidden" name="' + name + '" value="' + value + '"/>';
+
+                        if(status == 'delete' && $(selector(name.replace('delete_' ,''))).hasClass('new'))
+                            return;
+
+                        if(status == 'replaced' && $(selector(name ,'.replaced')).length > 0)
+                            return;
 
                         // add hidden id foreach image uploaded
-                        if(appendLocation.length)
-                            appendLocation.append(hidden);
+                        if(_appendLocation.length)
+                            _appendLocation.append(hidden);
                         else
                             inputFile.before(hidden);
+                    };
+
+                    var deleteHiddenFunc = function (name ,value ,status) {
+
+                        var _appendLocation = $(appendLocation),
+                            selector       = 'input[type=hidden][name="' + name + '"]';
+
+                        if(value != null)
+                            selector += '[value="' + value + '"]';
+
+                        if(status != null ,status == 'replaced')
+                            selector += '.replaced';
+
+                        if(_appendLocation.length)
+                            _appendLocation.find(selector).remove();
+                        else
+                            $(selector).remove();
                     };
 
                     var initFileUpload = function (params) {
@@ -1485,12 +1570,54 @@ var APP_AMU = {
                             // This event is triggered when all file images are fully loaded in the preview window.
                             // This is only applicable for image file previews and if showPreview is set to true.
                         }).off('fileloaded').on('fileloaded', function(event, file, previewId, index, reader) {
+
                             // this event trigger after select new file from browse
-                        }).off('fileuploaded').on('fileuploaded', function(event, data, previewId, index) {
+                            if(autoReplace)
+                                if($this.fileinput('getFilesCount') > params.maxFileCount)
+                                    $.each($this.fileinput('getPreview').config , function(i ,v) {
+
+                                        //replaced file
+                                        appendHiddenFunc('delete_' + appendName ,v.key ,'replaced');
+                                        //push replaced item to array
+                                        replacedFile.push($.extend(v.extra ,{ key : v.key }));
+                                    });
+
+                        }).off('filepreupload').on('filepreupload', function(event, data, previewId, index) {
+                            // pre upload
+                        })
+                        .off('fileclear').on('fileclear', function(event) {
+
+                            if(autoReplace)
+                                if($this.fileinput('getFilesCount') > params.maxFileCount)
+                                {
+                                    // remove replaced hidden ..
+                                    deleteHiddenFunc('delete_' + appendName ,null ,'replaced');
+                                    // reset replaced file from replaced items
+                                    replacedFile = [];
+                                }
+                        })
+                        .off('fileuploaded').on('fileuploaded', function(event, data, previewId, index) {
 
                             var response  = data.response;
 
-                            appendHiddenFunc((appendName || _this.id + '[]') ,response[_this.id]['id'] ,'uploaded');
+                            appendHiddenFunc(appendName ,response[_this.id]['id'] ,'new');
+
+                            if(autoReplace)
+                                if($this.fileinput('getFilesCount') > params.maxFileCount)
+                                {
+                                    // delete delete_repaced hidden
+                                    $.each(replacedFile ,function (i ,v) {
+
+                                        // send post for delete replaced files
+                                        $.post(params.deleteUrl , v);
+
+                                        // delete new and uploaded
+                                        deleteHiddenFunc(appendName ,v.key ,null);
+                                    });
+
+                                    // reset replaced file from replaced items
+                                    replacedFile = [];
+                                }
 
                             // reload datatable after upload success
                             if(datatableInitialize == true && data && reloadDatatable)
@@ -1513,9 +1640,23 @@ var APP_AMU = {
                                     errorUl.append(message);
                                 });
                             }
+
+                        }).off('filebatchuploaderror').on('filebatchuploaderror', function(event, data, msg) {
+
+                            if(data.jqXHR.responseJSON) {
+                                var errorUl = $('.file-error-message').find('ul');
+                                errorUl.html('');
+                                _.each(data.jqXHR.responseJSON ,function (v ,i) {
+                                    var message = "<li data-file-id='" + data.id + "'>" + data.jqXHR.statusText + "<pre>" + v[0] + "</pre></li>";
+                                    errorUl.append(message);
+                                });
+                            }
+
                         }).off('filedeleted').on('filedeleted', function(event, key, jqXHR, data) {
 
-                            appendHiddenFunc('delete_' + (appendName || _this.id + '[]') ,key ,'deleted');
+                            appendHiddenFunc('delete_' + appendName ,key ,'delete');
+
+                            deleteHiddenFunc(appendName ,key);
 
                             // reload datatable after upload success
                             if(datatableInitialize == true && data && reloadDatatable)
@@ -1523,17 +1664,23 @@ var APP_AMU = {
 
                             if ((typeof $this.data('filedeleted') != typeof undefined) && $this.data('filedeleted'))
                                 window[$this.data('filedeleted')](event, key, jqXHR, data)  ;
-                        }).on('fileclear', function(event) {
-                            console.log("fileclear");
-                        }).on('filecleared', function(event) {
-                            console.log("filecleared");
-                        }).on('filereset', function(event) {
-                            console.log("filereset");
-                        }).on('fileselectnone', function(event) {
-                            console.log("Huh! No files were selected.");
-                        }).on('change', function(event) {
-                            console.log("change");
                         });
+                        /*
+                        .on('filecleared', function(event){ })
+                        .on('filereset', function(event){ })
+                        .on('fileselectnone', function(event) { })
+                        .on('fileselect', function(event, numFiles, label) { })
+                        .on('filebatchselected', function(event, files) { })
+                        .on('filebrowse', function(event) { })
+                        .on('filepreremove', function(event, id, index) { })
+                        .on('fileremoved', function(event, id, index) { })
+                        .on('filebeforedelete', function(event, key, data) { })
+                        .on('filepredelete', function(event, key, jqXHR, data) { })
+                        .on('filedeleted', function(event, key, jqXHR, data) { })
+                        .on('filepreupload', function(event, data, previewId, index) { })
+                        .on('filesuccessremove', function(event, id) {  });
+                        .on('fileclear', function(event) { }).on('filecleared', function(event) { })
+                        .on('change', function(event) { });*/
 
                         $this.closest('.file-input').on('click' ,'.btn-attr-image' ,function () {
                             //info button
@@ -1593,7 +1740,7 @@ var APP_AMU = {
                     } else if (datatableInitialize == false) {
 
                         var ids = [],
-                            capture = $(contCapture).find(itemCapture);
+                            capture = $(appendLocation).find('[name="' + appendName + '"]');
 
                         if(capture.length) {
 

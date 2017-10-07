@@ -38,7 +38,6 @@ mix.styles([
     'Aut/DataTable/src/Assets/css/shared/datatables-custom.css',
     'Modules/Admin/Assets/vendor/app/css/app.css',
     'Modules/Admin/Assets/vendor/preloader/preloader.scss',
-    'Modules/Admin/Assets/vendor/bootstrap-fileinput/css/fileinput.min.css',
 
 ], 'public/css/admin-all-ltr.css').version();
 
@@ -60,13 +59,13 @@ mix.styles([
     'Modules/Admin/Assets/vendor/custom.datatable/extensions/Buttons/css/buttons.bootstrap.css',
     'Modules/Admin/Assets/vendor/sweetalert/dist/sweetalert2.min.css',
     'Modules/Admin/Assets/vendor/bootstrap-fileinput/css/fileinput.css',
+    'Modules/Admin/Assets/vendor/bootstrap-fileinput/css/fileinput-rtl.css',
     'Modules/Admin/Assets/vendor/cropper/dist/cropper.css',
     'node_modules/loaders.css/loaders.css',
     'Aut/DataTable/src/Assets/css/rtl/datatables-custom-rtl.css',
     'Aut/DataTable/src/Assets/css/shared/datatables-custom.css',
     'Modules/Admin/Assets/vendor/app/css/app-rtl.css',
     'Modules/Admin/Assets/vendor/preloader/preloader.scss',
-    'Modules/Admin/Assets/vendor/bootstrap-fileinput/css/fileinput-rtl.css',
 
 ], 'public/css/admin-all-rtl.css').version();
 
@@ -128,6 +127,7 @@ var js = [
     'Modules/Admin/Assets/vendor/preloader/preloader.js',
 
     'Modules/Admin/Assets/vendor/bootstrap-fileinput/js/fileinput.js',
+    'Modules/Admin/Assets/vendor/bootstrap-fileinput/themes/fa/theme.js',
     'Modules/Admin/Assets/vendor/cropper/dist/cropper.js',
 
     // 'Modules/Admin/Assets/vendor/nestable/jquery.nestable.js',
@@ -136,8 +136,6 @@ var js = [
     // 'Modules/Admin/Assets/vendor/app/js/app.js',
     //'public/formBuilder/dist/form-builder.min.js',
     // 'public/formBuilder/dist/form-render.min.js'
-    'Modules/Admin/Assets/vendor/bootstrap-fileinput/js/fileinput.js',
-    'Modules/Admin/Assets/vendor/bootstrap-fileinput/themes/fa/theme.min.js',
     // 'Modules/Admin/Assets/vendor/app/js/app.js'
 ];
 
@@ -150,7 +148,6 @@ mix.scripts(js.concat([
     'Modules/Admin/Assets/vendor/bootstrap-fileinput/js/locales/ar.js',
     'Modules/Admin/Assets/vendor/select2/dist/js/i18n/ar.js',
     'Modules/Admin/Assets/vendor/jquery-validation/dist/localization/messages_ar.js',
-    'Modules/Admin/Assets/vendor/bootstrap-fileinput/js/locales/ar.js',
 ]), 'public/js/admin-all-rtl.js').version();
 
 /**
@@ -165,12 +162,11 @@ mix.copy('Modules/Admin/Assets/vendor/app/i18n', 'public/i18n');
 
 // mix.copy('Modules/Admin/Assets/vendor/jquery-ui/themes/smoothness/images', 'public/css/images');
 mix.copy('Modules/Admin/Assets/vendor/img', 'public/img' ,false);
-mix.copy('Modules/Admin/Assets/vendor/bootstrap-fileinput/img', 'public/img');
+mix.copy('Modules/Admin/Assets/vendor/bootstrap-fileinput/img', 'public/img' ,false);
 
 mix.copy('Modules/Admin/Assets/vendor/simple-line-icons/fonts', 'public/fonts');
 mix.copy('Modules/Admin/Assets/vendor/fontawesome/fonts', 'public/fonts');
 mix.copy('resources/assets/myfont/font-jozoor/fonts', 'public/css/fonts' ,false);
-mix.copy('Modules/Admin/Assets/vendor/bootstrap-fileinput/img', 'public/img' ,false);
 
 /**
  * theme css
