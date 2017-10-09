@@ -48,6 +48,5 @@ return [
     'upload_retry_title'        => 'إعادة محاولة الرفع',
     'crop_title'                => 'قص',
     'attribute_title'           => 'خصائص',
-    'download_title'            => 'تنزيل الملف',
     'clear'                     => 'إزالة',
 ];

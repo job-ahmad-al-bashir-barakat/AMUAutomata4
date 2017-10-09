@@ -3,6 +3,7 @@
 namespace App\Library;
 
 use Illuminate\Http\Request;
+use Modules\Utilities\Entities\SiteMenu;
 
 class AutocompleteHelper
 {
@@ -10,7 +11,7 @@ class AutocompleteHelper
     {
         $query = $query->TypegeneralCondition();
 
-        return $this->whereNotNodeAndChildren($query);
+        return $this->whereNotNodeAndChildren($query)->whereIsLink(false);
     }
 
     function controlAutocomplete(Request $request ,$query)

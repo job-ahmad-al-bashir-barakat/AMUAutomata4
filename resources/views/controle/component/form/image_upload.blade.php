@@ -35,6 +35,7 @@
            data-cropper-selector="{{ $cropperSelector or '.aut-cropper-file-upload' }}"
            data-cropper-modal="{{ $cropperModal or '#crop-image' }}"
            data-show-caption="{{ $showCaption or 'false' }}"
+           data-show-preview="{{ $showPreview or 'true' }}"
            data-datatable="{{ $datatable or ''}}"
            data-reload-datatable="{{ $reloadDatatable or 'true' }}"
            {{--(event, data, previewId, index)--}}
@@ -47,11 +48,10 @@
            data-upload-retry-title="{{ $uploadRetryTitle or trans('app.upload_retry_title') }}"
            data-crop-title="{{ $cropTitle or trans('app.crop_title') }}"
            data-attribute-title="{{ $attributeTitle or trans('app.attribute_title') }}"
-           data-download-title="{{ $downloadTitle or trans('app.download_title') }}"
            data-append-location="{{ $appendLocation or '' }}"
            data-append-name="{{ $appendName or '' }}"
-           data-cont-capture="{{ $contCapture or '.cont-uploaded' }}"
-           data-item-capture="{{ $itemCapture or '.file-uploaded' }}"
+           data-allowed-preview-icons="{{ $allowedPreviewIcons or 'false' }}"
+           data-auto-replace="{{ $autoReplace or 'false' }}"
            multiple
     >
 @unless(empty($targetModel))

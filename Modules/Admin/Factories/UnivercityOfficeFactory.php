@@ -40,10 +40,10 @@ class UnivercityOfficeFactory extends GlobalFactory
             ->addAutocomplete('autocomplete/person' ,trans('admin::app.responsible_person') ,'person_id' ,"lang_name.{$this->lang}.text" ,"lang_name.{$this->lang}.text" ,'req required')
             ->addMultiInputTextLangs(['name'] ,'req required')
             ->startRelation('contact')
-                ->addInputEmail(trans('admin::app.email') ,'contact.email' ,'contact.email' ,'required req')
-                ->addInputText(trans('admin::app.phone') ,'contact.phone' ,'contact.phone' ,'required req' ,['data-masked' , 'data-inputmask-type' => "phone"])
-                ->addInputText(trans('admin::app.mobile') ,'contact.mobile' ,'contact.mobile' ,'required req',['data-masked' , 'data-inputmask-type' => "mobile"])
-                ->addInputText(trans('admin::app.fax') ,'contact.fax' ,'contact.fax' ,'' ,['data-masked' , 'data-inputmask-type' => "fax"])
+                ->addInputEmail(trans('admin::app.email') ,'contact.email' ,'contact.email' ,'required req none')
+                ->addInputText(trans('admin::app.phone') ,'contact.phone' ,'contact.phone' ,'required req none' ,['data-masked' , 'data-inputmask-type' => "phone"])
+                ->addInputText(trans('admin::app.mobile') ,'contact.mobile' ,'contact.mobile' ,'required req none',['data-masked' , 'data-inputmask-type' => "mobile"])
+                ->addInputText(trans('admin::app.fax') ,'contact.fax' ,'contact.fax' ,'none' ,['data-masked' , 'data-inputmask-type' => "fax"])
                 ->addMultiTextareaLangs(['address'] ,'req required')
             ->endRelation()
             ->startRelation('contact')
@@ -51,7 +51,6 @@ class UnivercityOfficeFactory extends GlobalFactory
             ->endRelation()
             ->addActionButton($this->update,'update','update')
             ->addActionButton($this->delete,'delete','delete')
-            ->editResponsiveRowDetailTemplete()
             ->addBlade('univercity-office-input-location-custom' ,view('controle.component.location.input_location', [
                 'id'                => 'univercity-office',
                 'title'             => trans('admin::app.nivercity_office_gelocation'),
@@ -70,7 +69,7 @@ class UnivercityOfficeFactory extends GlobalFactory
     {
         $contact = Contact::create($request->input('contact'));
 
-        //UnivercityOffice::create(array_merge($request->input(), ['contact_id' => $contact->id]));
+        UnivercityOffice::create(array_merge($request->except('contact'), ['contact_id' => $contact->id]));
     }
 
     /**

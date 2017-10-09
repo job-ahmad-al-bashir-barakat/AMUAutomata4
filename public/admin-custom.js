@@ -732,24 +732,219 @@ var APP_AMU = {
 
         treeContId: '.aut-tree',
 
-        treenormalLoadClass: '.nestable',
+        treeLoadClass: '.nestable',
 
         storageKeyName: 'js-nestable',
 
         storageKeyAuto: 'js-nestable-auto',
 
+        parentAutocompleteSelector: '.tree-autocomplete-change',
+
+        init : function ($this ,$node) {
+
+            var $cont        = $($this), //$this || $(this)
+                $treeParam   = $node != null ? "?nodeId=" + $node : "",
+                clone        = typeof $cont.data('clone') != typeof undefined ? JSON.parse($cont.data('clone')) : false,
+                groupSource  = typeof $cont.data('group-source') != typeof undefined ? $cont.data('group-source') : undefined,
+                reject       = typeof $cont.data('reject') != typeof undefined ? JSON.parse($cont.data('reject')) : false,
+                init         = typeof $cont.data('init') != typeof undefined ? JSON.parse($cont.data('init')) : false,
+                drop         = typeof $cont.data('drop') != typeof undefined ? JSON.parse($cont.data('drop')) : false,
+                drop_exists  = typeof $cont.data('drop-exists') != typeof undefined ? JSON.parse($cont.data('drop-exists')) : false,
+                disableNest  = typeof $cont.data('disable-nest') != typeof undefined ? JSON.parse($cont.data('disable-nest')) : false,
+                emptyText    = typeof $cont.data('empty-text') !=  typeof undefined ? $cont.data('empty-text') : 'Drag Here';
+
+
+            var optionsObj = {
+                maxDepth: $cont.data('max-depth'),
+                group: $cont.data('group'),
+                clone: clone,
+                emptyText: emptyText,
+                disableNest : disableNest,
+                // afterInit: function ( event ) { }
+            };
+
+            if(groupSource) {
+
+                var groupSource = (groupSource.toString()).split(',').map(Number);
+
+                optionsObj.group_source = groupSource;
+            }
+
+            // this it is just allow for the same list not between lists
+            if(reject)
+                optionsObj.reject = [{
+
+                        rule: function(draggedElement) {
+
+                            // The this object refers to dragRootEl i.e. the nestable root element. The drag action is cancelled if this function returns true
+                            // The rule here is that it is forbidden drag elements to first-level children
+
+                            var rule;
+
+                            if(typeof $cont.data('reject-rule-callback') != typeof undefined)
+                                rule = window[$cont.data('reject-rule-callback')](draggedElement);
+                            else
+                                rule = false;
+
+                            return rule;
+                        },
+
+                        action: function(draggedElement) {
+
+                            // This optional function defines what to do when such a rule applies
+                            // alert('You can\'t do that !');
+
+                            if(typeof $cont.data('reject-action-callback') != typeof undefined)
+                                window[$cont.data('reject-action-callback')](draggedElement);
+                        }
+                    }];
+
+            if(init)
+                optionsObj.afterInit = function ( event ) {
+                }
+
+            if(drop)
+                optionsObj.dropCallback = function (details) {
+                };
+
+            var nestable = function ($this) {
+
+                $this.nestable(optionsObj)
+                    .on('change', APP_AMU.tree.updateOutput)
+                    .on('dragEnd', function(event, item, source, destination, position) {
+
+                        // Make an ajax request to persist move on database
+                        // here you can pass item-id, source-id, destination-id and position index to the server
+
+                        if(typeof $cont.data('drag-end-callback') != typeof undefined)
+                            window[$cont.data('drag-end-callback')](event, item, source, destination, position);
+
+                        // for drop any item when is exists in same tree :: this driven by data-exitst and data-type
+                        if(drop_exists) {
+
+                            var destinationExists = destination.find('[data-exists=' + item.data('exists') + ']');
+                            if(destinationExists.length > 1)
+                                $.each(destinationExists ,function (i ,v) {
+                                    if(i == (destinationExists.length - 1))
+                                        $(this).remove();
+                                });
+
+                            if(item.data('type') != destination.closest(APP_AMU.tree.treeContId).data('type'))
+                                item.remove();
+                        }
+
+                        if($this.hasClass('order')) {
+
+                            item.parent().children('li').each(function (i, v) {
+
+                                $(this).attr('data-order', i + 1);
+                            });
+                        }
+
+                        if($cont.hasClass('ajax') && destination.closest(APP_AMU.tree.treeContId).data('type') == item.data('type')) {
+
+                            var item   = $(_.head(item)),
+                                id     = item.data('id'),
+                                parent = item.parents('li:first').data('id'),
+                                parent_target = item.data('parent');
+
+                            // get serialize data from tree
+                            var list = event.length ? event : $(event.target);
+
+                            var ObjectOrderSerialize = list.nestable('serialize');
+
+                            var data;
+                            if (parent_target) {
+                                //children
+                                data = JSPath.apply('..{.parent.id == "' + parent_target.id + '"}', ObjectOrderSerialize);
+                            } else {
+                                //parent
+                                data = JSPath.apply('.', ObjectOrderSerialize);
+                            }
+
+                            //reorder html item
+                            item.parent().children('li').each(function (i, v) {
+                                $(this).attr('data-order', i + 1);
+                            });
+
+                            //reorder data
+                            _.each(data, function (v, k) {
+                                v.order = k + 1;
+                            });
+
+                            if (!id)
+                                console.log('please set an data-id and data-parent for every item');
+
+                            parent = typeof parent != typeof undefined ? parent : null;
+
+                            $.put($cont.data('url') + "/" + id, {
+                                "parent": parent,
+                                "drag": true,
+                                "order": position + 1,
+                                "data": data
+                            }, function (res) {
+
+                                if (typeof res.id != typeof null)
+                                    item.attr('data-parent', '{ "id" : "' + res.id + '","name" : "' + res.name + '"}');
+                                else
+                                    item.removeAttr('data-parent');
+
+                                HELPER_AMU.notify({message: res.operation_message, status: 'success'});
+                            });
+                        }
+                    })
+                    //.on('beforeDragStart', function(handle) {})
+                    //.on('dragStart', function(event, item, source) { })
+                    //.on('dragMove', function(event, item, source, destination) { })
+                    //.on('beforeDragEnd', function(event, item, source, destination, position, feedback) {
+                        // If you need to persist list items order if changes, you need to comment the next line
+                        // if (source[0] === destination[0]) { feedback.abort = true; return; }
+                        // feedback.abort = !window.confirm('Continue?');
+                    //});
+            }
+
+            if($cont.hasClass('ajax')) {
+
+                $cont.load($cont.data('url') + $treeParam, function () {
+
+                    var $this    = $(this),
+                        _nestable = $this.find(APP_AMU.tree.treeLoadClass);
+
+                    nestable(_nestable);
+
+                    // output initial serialised data
+                    if (_nestable.length)
+                        APP_AMU.tree.updateOutput(_nestable.data('output', $this.find('.nestable-output')));
+
+                    APP_AMU.autocomplete.reloadAutocomplete($this.find('.autocomplete'));
+                });
+
+            } else nestable($cont.find(APP_AMU.tree.treeLoadClass));
+
+            // with ajax
+            $(document).off('change.parentAutocomplete').on('change.parentAutocomplete', APP_AMU.tree.parentAutocompleteSelector, APP_AMU.tree.changeParentAutocomplete);
+            $(document).off('change.treeAutocomplete').on('change.treeAutocomplete', '#treeAutocomplete', APP_AMU.tree.treeAutocomplete);
+            $(document).off('click.nestableAction').on('click.nestableAction', '.js-nestable-action [data-action]', APP_AMU.tree.eventNestableAction);
+            $(document).off('click.add').on('click.add', '[data-form-add]', APP_AMU.tree.eventFormAdd);
+            $(document).off('click.update').on('click.update', '[data-form-update]', APP_AMU.tree.eventFormUpdate);
+        },
+
         updateOutput: function (e) {
+
             var list     = e.length ? e : $(e.target),
                 output   = list.data('output'),
                 treeCont = list.closest(APP_AMU.tree.treeContId);
 
-            if (window.JSON) {
-                output.val(window.JSON.stringify(list.nestable('serialize')));//, null, 2));
-            } else {
-                output.val('JSON browser support required for this demo.');
+            if(output) {
+                if (window.JSON) {
+                    output.val(window.JSON.stringify(list.nestable('serialize')));//, null, 2));
+                } else {
+                    output.val('JSON browser support required for this demo.');
+                }
             }
 
             var treeAction = $.localStorage.get(treeCont.data('storage-key') || APP_AMU.tree.storageKeyName);
+
             if (treeAction != null)
                 list.nestable((treeAction.action).toCamelCase());
         },
@@ -762,285 +957,89 @@ var APP_AMU = {
             tree.append('<div class="dd-empty">' + text + '</div>');
         },
 
-        normalLoad : function () {
+        changeParentAutocomplete: function () {
 
-            var $this        = $(this),
-                clone        = typeof $this.data('clone') != typeof undefined ? JSON.parse($this.data('clone')) : false,
-                groupSource  = typeof $this.data('group-source') != typeof undefined ? $this.data('group-source') : undefined,
-                reject       = typeof $this.data('reject') != typeof undefined ? JSON.parse($this.data('reject')) : false,
-                init         = typeof $this.data('init') != typeof undefined ? JSON.parse($this.data('init')) : false,
-                drop         = typeof $this.data('drop') != typeof undefined ? JSON.parse($this.data('drop')) : false,
-                drop_exists  = typeof $this.data('drop-exists') != typeof undefined ? JSON.parse($this.data('drop-exists')) : false,
-                disableNest  = typeof $this.data('disable-nest') != typeof undefined ? JSON.parse($this.data('disable-nest')) : false,
-                emptyText    = typeof $this.data('empty-text') !=  typeof undefined ? $this.data('empty-text') : 'Drag Here';
+            var $this = $(this),
+                $treeContId = $(APP_AMU.tree.treeContId),
+                $length;
 
-            var optionsObj = {
-                maxDepth: $this.data('max-depth'),
-                group: $this.data('group'),
-                clone: clone,
-                emptyText: emptyText,
-                disableNest : disableNest,
-            };
+            if ($this.val())
+                // get children length for parent
+                $length = $treeContId
+                    .find("[data-id=" + $this.val() + "] .dd-list li:first")
+                    .parent()
+                    .children().length + 1;
+            else
+                // get length for first level
+                $length = $treeContId.find('.dd .dd-list:first').children('li').length + 1;
 
-            if(groupSource) {
+            // add order to order input inside form
+            $this.closest('form')
+                .find('#order')
+                .val($length);
+        },
 
-                var groupSource = (groupSource.toString()).split(',').map(Number);
+        treeAutocomplete: function () {
 
-                optionsObj.group_source = groupSource;
+            var $this = $(this),
+                $node = $this.val();
+
+            APP_AMU.tree.init($this.closest(APP_AMU.tree.treeLoadClass), $node);
+        },
+
+        eventNestableAction: function (e) {
+
+            var target   = $(e.target),
+                action   = target.data('action'),
+                treeCont = target.closest(APP_AMU.tree.treeContId),
+                list     = treeCont.find(APP_AMU.tree.treeLoadClass),
+                modal    = target.data('target');
+
+            if (action === 'expand-all') {
+                list.nestable('expandAll');
             }
 
-            // this it is just allow for the same list not between lists
-            if(reject)
-                optionsObj.reject = typeof $this.data('reject-callback') != typeof undefined
-                    ? window[$this.data('reject-callback')]()
-                    : [{
-                        rule: function(draggedElement) {
+            if (action === 'collapse-all') {
+                list.nestable('collapseAll');
+            }
 
-                            // The this object refers to dragRootEl i.e. the nestable root element. The drag action is cancelled if this function returns true
-                            // The rule here is that it is forbidden drag elements to first-level children
+            if (action === 'reset_tree') {
+                APP_AMU.tree.init($(this).closest(APP_AMU.tree.treeContId), null);
+            }
 
-                            return true;
-                        },
+            if (action === 'add_tree_node') {
+                // make change for parent autocomplete
+                $(modal).find(APP_AMU.tree.parentAutocompleteSelector).trigger('change');
+            }
 
-                        action: function(draggedElement) {
-
-                            // This optional function defines what to do when such a rule applies
-                            // alert('You can\'t do that !');
-                        }
-                    }];
-
-            if(init)
-                optionsObj.afterInit = function ( event ) {
-                }
-
-            if(drop)
-                optionsObj.dropCallback = function (details) {
-                };
-
-            $this.nestable(optionsObj).on('dragEnd', function(event, item, source, destination, position) {
-
-                if(drop_exists) {
-
-                    var destinationExists = destination.find('[data-exists=' + item.data('exists') + ']');
-                    if(destinationExists.length > 1)
-                        $.each(destinationExists ,function (i ,v) {
-                            if(i == (destinationExists.length - 1))
-                                $(this).remove();
-                        });
-
-                    if(item.data('type') != destination.closest(APP_AMU.tree.treenormalLoadClass).data('type'))
-                        item.remove();
-                }
-
-                if($this.hasClass('order')) {
-
-                    item.parent().children('li').each(function (i, v) {
-
-                        $(this).attr('data-order', i + 1);
-                    });
-                }
-            });
+            $.localStorage.set(treeCont.data('storage-key') || APP_AMU.tree.storageKeyName, {"action": action});
         },
 
-        ajaxLoad: function ($cont, $node) {
+        eventFormAdd: function () {
 
-            var $cont = $($cont);
-            var $treeParam = $node != null ? "?nodeId=" + $node : "";
-
-            $cont.load($cont.data('url') + $treeParam, function () {
-
-                var $this = $(this),
-                    $_nestable = $this.find('.ajax-nestable'),
-                    groupSource  = typeof $this.data('group-source') != typeof undefined ? $this.data('group-source') : undefined,
-                    reject       = typeof $this.data('reject') != typeof undefined ? JSON.parse($this.data('reject')) : false,
-                    emptyText    = typeof $this.data('empty-text') !=  typeof undefined ? $this.data('empty-text') : 'Drag Here';
-
-                var optionsObj = {
-                    maxDepth: $this.data('max-depth'),
-                    group: $this.data('group'),
-                    emptyText: emptyText
-                    // afterInit: function ( event ) { }
-                };
-
-                if(groupSource) {
-
-                    var groupSource = (groupSource.toString()).split(',').map(Number);
-
-                    optionsObj.group_source = groupSource;
-                }
-
-                // this it is just allow for the same list not between lists
-                if(reject)
-                    optionsObj.reject = typeof $this.data('reject-callback') != typeof undefined
-                        ? window[$this.data('reject-callback')]()
-                        : [{
-                            rule: function(draggedElement) {
-
-                                // The this object refers to dragRootEl i.e. the nestable root element. The drag action is cancelled if this function returns true
-                                // The rule here is that it is forbidden drag elements to first-level children
-
-                                return true;
-                            },
-
-                            action: function(draggedElement) {
-
-                                // This optional function defines what to do when such a rule applies
-                                // alert('You can\'t do that !');
-                            }
-                        }];
-
-                $_nestable.nestable(optionsObj).on('change', APP_AMU.tree.updateOutput).on('dragEnd', function (event, item, source, destination, position) {
-                    // Make an ajax request to persist move on database
-                    // here you can pass item-id, source-id, destination-id and position index to the server
-                    var item = $(_.head(item)),
-                        id = item.data('id'),
-                        parent = item.parents('li:first').data('id'),
-                        parent_target = item.data('parent');
-
-                    // get serialize data from tree
-                    var list = event.length ? event : $(event.target);
-
-                    var ObjectOrderSerialize = list.nestable('serialize');
-
-                    var data;
-                    if (parent_target) {
-                        //children
-                        data = JSPath.apply('..{.parent.id == "' + parent_target.id + '"}', ObjectOrderSerialize);
-                    } else {
-                        //parent
-                        data = JSPath.apply('.', ObjectOrderSerialize);
-                    }
-
-                    //reorder html item
-                    item.parent().children('li').each(function (i, v) {
-                        $(this).attr('data-order', i + 1);
-                    });
-
-                    //reorder data
-                    _.each(data, function (v, k) {
-                        v.order = k + 1;
-                    });
-
-                    if (!id)
-                        console.log('please set an data-id and data-parent for every item');
-
-                    parent = typeof parent != typeof undefined ? parent : null;
-
-                    $.put($this.data('url') + "/" + id, {
-                        "parent": parent,
-                        "drag": true,
-                        "order": position + 1,
-                        "data": data
-                    }, function (res) {
-
-                        if (typeof res.id != typeof null)
-                            item.attr('data-parent', '{ "id" : "' + res.id + '","name" : "' + res.name + '"}');
-                        else
-                            item.removeAttr('data-parent');
-
-                        HELPER_AMU.notify({message: res.operation_message, status: 'success'});
-                    });
-                })
-                //.on('beforeDragStart', function(handle) {})
-                //.on('dragStart', function(event, item, source) { })
-                //.on('dragMove', function(event, item, source, destination) { })
-                .on('beforeDragEnd', function(event, item, source, destination, position, feedback) {
-                    console.log(item);
-
-                 //If you need to persist list items order if changes, you need to comment the next line
-                 //   if (source[0] === destination[0]) { feedback.abort = true; return; }
-                 //   feedback.abort = !window.confirm('Continue?');
-                });
-
-                // output initial serialised data
-                if ($this.find('.ajax-nestable').length)
-                    APP_AMU.tree.updateOutput($this.find('.ajax-nestable').data('output', $this.find('.ajax-nestable-output')));
-
-                APP_AMU.autocomplete.reloadAutocomplete($this.find('.autocomplete'));
-            });
-        },
-
-        loadAjaxAction: function ($cont) {
-
-            $(document).off('change.tree').on('change.tree', '.tree-autocomplete-change', function () {
-
-                var $this = $(this),
-                    $treeContId = $(APP_AMU.tree.treeContId),
-                    $length;
-
-                if ($this.val())
-                    $length = $treeContId
-                        .find("[data-id=" + $this.val() + "] .dd-list li:first")
-                        .parent()
-                        .children().length + 1;
-                else
-                    $length = $treeContId.find('.dd .dd-list:first').children('li').length + 1;
-
-                $this.closest('form')
-                    .find('#order')
-                    .val($length);
-            });
-
-            $($cont).off('change').on('change', '#treeAutocomplete', function () {
-
-                var $node = $(this).val();
-
-                APP_AMU.tree.ajaxLoad($(this).closest($cont), $(this).val());
-            });
-
-            $($cont).on('click', '.js-nestable-action [data-action]', function (e) {
-                var target   = $(e.target),
-                    action   = target.data('action'),
-                    treeCont = target.closest(APP_AMU.tree.treeContId),
-                    list     = treeCont.find('.ajax-nestable'),
-                    modal    = target.data('target');
-
-                if (action === 'expand-all') {
-                    list.nestable('expandAll');
-                }
-
-                if (action === 'collapse-all') {
-                    list.nestable('collapseAll');
-                }
-
-                if (action === 'reset_tree') {
-                    APP_AMU.tree.ajaxLoad($(this).closest(APP_AMU.tree.treeContId), null);
-                }
-
-                if (action === 'add_tree_node') {
-                    $(modal).find('.tree-autocomplete-change').trigger('change');
-                }
-
-                $.localStorage.set(treeCont.data('storage-key') || APP_AMU.tree.storageKeyName, {"action": action});
-            });
-
-            $($cont).on('click', '[data-form-add]', function () {
-
+            var $this  = $(this),
                 $modal = $(this).data('target');
-                $($modal).find('.tree-autocomplete-change').attr('data-remote-param', "");
-            });
 
-            $($cont).on('click', '[data-form-update]', function () {
-
-                $contData = $(this).closest($(this).data('editable-target'));
-                $modal = $(this).data('target');
-                $($modal).find('.tree-autocomplete-change').attr('data-remote-param', "id=" + $($contData).data('id'));
-            });
+            // add id selected item  for filter auto without this id and its children
+            $($modal).find(APP_AMU.tree.parentAutocompleteSelector).attr('data-remote-param', "");
         },
 
-        initTreeAjax: function ($cont) {
+        eventFormUpdate: function () {
+
+            var $this     = $(this),
+                $contData = $this.closest($this.data('editable-target')),
+                $modal    = $this.data('target');
+
+            // add id selected item  for filter auto without this id and its children
+            $($modal).find(APP_AMU.tree.parentAutocompleteSelector).attr('data-remote-param', "id=" + $($contData).data('id'));
+        },
+
+        initTree: function () {
 
             $(APP_AMU.tree.treeContId).each(function () {
-                APP_AMU.tree.ajaxLoad(this);
-                APP_AMU.tree.loadAjaxAction(this);
+
+                APP_AMU.tree.init(this ,null);
             });
-        },
-
-        initTreeNormal: function ($cont) {
-
-            $cont = $cont || APP_AMU.tree.treenormalLoadClass;
-
-            $($cont).each(APP_AMU.tree.normalLoad);
         }
     },
 
@@ -1334,7 +1333,7 @@ var APP_AMU = {
                     var _this = this,
                         $this = $(_this);
 
-                    var btns, cropperTemplete, infoTemplete, downloadTemplete,
+                    var btns, cropperTemplete, infoTemplete, replacedFile = [],
                         previewFileType       = $this.data('preview-file-type'),
                         allowedFileTypes      = typeof $this.data('allowed-file-types') != typeof undefined ? $this.data('allowed-file-types').split(',') : null,
                         allowedFileExtensions = typeof $this.data('allowed-file-extensions') != typeof undefined ? $this.data('allowed-file-extensions') : null,
@@ -1348,8 +1347,8 @@ var APP_AMU = {
                         uploadRetryTitle= $this.data('upload-retry-title'),
                         cropTitle       = $this.data('crop-title'),
                         attributeTitle  = $this.data('attribute-title'),
-                        downloadTitle   = $this.data('download-title'),
                         showCaption     = typeof $this.data('show-caption') != typeof undefined ? JSON.parse($this.data('show-caption')) : false,
+                        showPreview     = typeof $this.data('show-preview') != typeof undefined ? JSON.parse($this.data('show-preview')) : true,
                         imageWidth      = $this.data('image-width') || null,
                         imageHeight     = $this.data('image-height') || null,
                         minImageHeight  = $this.data('min-image-height') || null,
@@ -1368,18 +1367,15 @@ var APP_AMU = {
                         datatableInitializeProperty = $this.data('datatable-initialize-property') || '.image',
                         appendLocation              = typeof $this.data('append-location') != typeof undefined ? $this.data('append-location') : '',
                         appendName                  = typeof $this.data('append-name') != typeof undefined ? $this.data('append-name') : '',
-                        contCapture                 = typeof $this.data('cont-capture') != typeof undefined ? $this.data('cont-capture') : '',
-                        itemCapture                 = typeof $this.data('item-capture') != typeof undefined ? $this.data('item-capture') : '';
+                        appendName                  = (appendName || _this.id + '[]'),
+                        allowedPreviewIcons         = typeof $this.data('allowed-preview-icons') != typeof undefined ? JSON.parse($this.data('allowed-preview-icons')) : false,
+                        autoReplace                 = typeof $this.data('auto-replace') != typeof undefined ? JSON.parse($this.data('auto-replace')) : false;
 
                     if(cropper)
-                        cropperTemplete = '<button type="button" class="kv-cust-btn btn-crop-image btn btn-xs btn-default" title="' + cropTitle + '"><i class="fa fa-crop"></i></button>';
-                    infoTemplete = '<button type="button" class="kv-cust-btn btn-attr-image btn btn-xs btn-default" title="' + attributeTitle + '" {dataKey}><i class="fa fa-question-circle"></i></button>';
-                    downloadTemplete = '<a href="{downloadUrl}" class="kv-cust-btn btn-download btn btn-xs btn-default" title="' + downloadTitle + '" download="{caption}"><i class="fa fa-download"></i></a>';
+                        cropperTemplete = '<button type="button" class="btn-crop-image btn btn-kv btn-default btn-outline-secondary" title="' + cropTitle + '"><i class="fa fa-crop"></i></button>';
+                    infoTemplete = '<button type="button" class="btn-attr-image btn btn-kv btn-default btn-outline-secondary" title="' + attributeTitle + '" {dataKey}><i class="fa fa-question-circle"></i></button>';
 
                     var params = {
-                        // fix upload / delete hidden file
-                        // required: true,
-                        // autoReplace: true,
                         rtl: DIR == 'rtl' ? true : false,
                         language: LANG,
                         theme : "fa",
@@ -1403,34 +1399,91 @@ var APP_AMU = {
                         otherActionButtons: '',
                         showUpload: true,
                         showDownload: true,
-                        // autoReplace: true,
-                        required: true,
-
+                        showPreview: showPreview,
+                        autoReplace: autoReplace,
+                        //required: true,
                         overwriteInitial: false,
                         layoutTemplates : {
                             actions: '<div class="file-actions">' +
-                                     '    <div class="file-footer-buttons">' +
-                                     '        {upload} {download} {delete} {cropper} {info} {zoom} {other}' +
-                                     '    </div>' +
-                                     '</div>',
+                            '    <div class="file-footer-buttons">' +
+                            '        {upload} {download} {delete} {cropper} {info} {zoom} {other}' +
+                            '    </div>' +
+                            '</div>',
                         },
                         fileActionSettings: {
                             uploadRetryIcon: '<i class="fa fa-refresh"></i>',
+                            downloadIcon: '<i class="fa fa-download"></i>'
                         },
                         removeLabel: removeLabel,
                         uploadRetryTitle: uploadRetryTitle,
                         previewThumbTags : {
                             '{cropper}'  : cropperTemplete || '',
                             '{info}'     : infoTemplete,
-                            '{download}' : '',
                         },
                         initialPreviewShowDelete: true,
                         initialPreview: [],
                         initialPreviewAsData: true,
                         initialPreviewFileType: 'image',
                         initialPreviewConfig: [],
-                        initialPreviewThumbTags : [],
+                        initialPreviewThumbTags : []
                     };
+
+                    if(allowedPreviewIcons)
+                        $.extend(params ,{
+
+                            // set to empty, null or false to disable preview for all types
+                            // allow only preview of image & text files
+                            allowedPreviewTypes: null,
+                            //allowedPreviewTypes: ['image', 'text'],
+                            // allow content to be shown only for certain mime types
+                            //allowedPreviewMimeTypes: ['image/jpeg', 'text/javascript'],
+                            previewFileIcon: '<i class="fa fa-file"></i>',
+                            // this will force thumbnails to display icons for following file extensions
+                            preferIconicPreview: true,
+                            // configure your icon file extensions
+                            previewFileIconSettings: {
+                                'doc': '<i class="fa fa-file-word-o text-primary"></i>',
+                                'xls': '<i class="fa fa-file-excel-o text-success"></i>',
+                                'ppt': '<i class="fa fa-file-powerpoint-o text-danger"></i>',
+                                'pdf': '<i class="fa fa-file-pdf-o text-danger"></i>',
+                                'zip': '<i class="fa fa-file-archive-o text-muted"></i>',
+                                'htm': '<i class="fa fa-file-code-o text-info"></i>',
+                                'txt': '<i class="fa fa-file-text-o text-info"></i>',
+                                'mov': '<i class="fa fa-file-movie-o text-warning"></i>',
+                                'mp3': '<i class="fa fa-file-audio-o text-warning"></i>',
+                                // note for these file types below no extension determination logic
+                                // has been configured (the keys itself will be used as extensions)
+                                'jpg': '<i class="fa fa-file-photo-o text-danger"></i>',
+                                'gif': '<i class="fa fa-file-photo-o text-warning"></i>',
+                                'png': '<i class="fa fa-file-photo-o text-primary"></i>'
+                            },
+                            previewFileExtSettings: { // configure the logic for determining icon file extensions
+                                'doc': function(ext) {
+                                    return ext.match(/(doc|docx)$/i);
+                                },
+                                'xls': function(ext) {
+                                    return ext.match(/(xls|xlsx)$/i);
+                                },
+                                'ppt': function(ext) {
+                                    return ext.match(/(ppt|pptx)$/i);
+                                },
+                                'zip': function(ext) {
+                                    return ext.match(/(zip|rar|tar|gzip|gz|7z)$/i);
+                                },
+                                'htm': function(ext) {
+                                    return ext.match(/(htm|html)$/i);
+                                },
+                                'txt': function(ext) {
+                                    return ext.match(/(txt|ini|csv|java|php|js|css)$/i);
+                                },
+                                'mov': function(ext) {
+                                    return ext.match(/(avi|mpg|mkv|mov|mp4|3gp|webm|wmv)$/i);
+                                },
+                                'mp3': function(ext) {
+                                    return ext.match(/(mp3|wav)$/i);
+                                },
+                            }
+                        });
 
                     if(param != '')
                         _.each(param.split('&') , function(v ,i) {
@@ -1445,6 +1498,9 @@ var APP_AMU = {
 
                         params.initialPreview.push(url);
 
+                        // deep clone object
+                        var extra = jQuery.extend(true, {}, params.deleteExtraData , $params.extra);
+
                         params.initialPreviewConfig.push({
                             previewAsData: true,
                             type: $params.type,
@@ -1452,30 +1508,60 @@ var APP_AMU = {
                             caption: $params.caption,
                             size: $params.size,
                             key: $params.key,
-                            extra: $.extend(params.deleteExtraData , $params.extra)
+                            downloadUrl: url,
+                            extra: extra,
                         });
 
                         params.initialPreviewThumbTags.push({
                             '{cropper}': '',
                             '{info}' : infoTemplete,
-                            '{download}': downloadTemplete,
-                            '{downloadUrl}': url,
                             '{caption}': $params.caption,
                         });
                     };
 
-                    var appendHiddenFunc = function (name ,value ,state) {
+                    var appendHiddenFunc = function (name ,value ,status) {
 
-                        var appendLocation = $(appendLocation),
-                            inputFile = $this.closest('.file-input');
+                        var _appendLocation = $(appendLocation),
+                            inputFile = $this.closest('.file-input'),
+                            selector  = function (name ,extraClass) {
 
-                        var hidden = '<input class="file-' + state + '" type="hidden" name="' + name + '" value="' + value + '"/>';
+                                var select = 'input[type=hidden][name="' + name + '"][value="' + value + '"]';
+
+                                if(extraClass)
+                                    select = select + extraClass;
+
+                                return select;
+                            },
+                            hidden    = '<input class="'+ status +'" type="hidden" name="' + name + '" value="' + value + '"/>';
+
+                        if(status == 'delete' && $(selector(name.replace('delete_' ,''))).hasClass('new'))
+                            return;
+
+                        if(status == 'replaced' && $(selector(name ,'.replaced')).length > 0)
+                            return;
 
                         // add hidden id foreach image uploaded
-                        if(appendLocation.length)
-                            appendLocation.append(hidden);
+                        if(_appendLocation.length)
+                            _appendLocation.append(hidden);
                         else
                             inputFile.before(hidden);
+                    };
+
+                    var deleteHiddenFunc = function (name ,value ,status) {
+
+                        var _appendLocation = $(appendLocation),
+                            selector       = 'input[type=hidden][name="' + name + '"]';
+
+                        if(value != null)
+                            selector += '[value="' + value + '"]';
+
+                        if(status != null ,status == 'replaced')
+                            selector += '.replaced';
+
+                        if(_appendLocation.length)
+                            _appendLocation.find(selector).remove();
+                        else
+                            $(selector).remove();
                     };
 
                     var initFileUpload = function (params) {
@@ -1485,12 +1571,54 @@ var APP_AMU = {
                             // This event is triggered when all file images are fully loaded in the preview window.
                             // This is only applicable for image file previews and if showPreview is set to true.
                         }).off('fileloaded').on('fileloaded', function(event, file, previewId, index, reader) {
+
                             // this event trigger after select new file from browse
-                        }).off('fileuploaded').on('fileuploaded', function(event, data, previewId, index) {
+                            if(autoReplace)
+                                if($this.fileinput('getFilesCount') > params.maxFileCount)
+                                    $.each($this.fileinput('getPreview').config , function(i ,v) {
+
+                                        //replaced file
+                                        appendHiddenFunc('delete_' + appendName ,v.key ,'replaced');
+                                        //push replaced item to array
+                                        replacedFile.push($.extend(v.extra ,{ key : v.key }));
+                                    });
+
+                        }).off('filepreupload').on('filepreupload', function(event, data, previewId, index) {
+                            // pre upload
+                        })
+                            .off('fileclear').on('fileclear', function(event) {
+
+                            if(autoReplace)
+                                if($this.fileinput('getFilesCount') > params.maxFileCount)
+                                {
+                                    // remove replaced hidden ..
+                                    deleteHiddenFunc('delete_' + appendName ,null ,'replaced');
+                                    // reset replaced file from replaced items
+                                    replacedFile = [];
+                                }
+                        })
+                            .off('fileuploaded').on('fileuploaded', function(event, data, previewId, index) {
 
                             var response  = data.response;
 
-                            appendHiddenFunc((appendName || _this.id + '[]') ,response[_this.id]['id'] ,'uploaded');
+                            appendHiddenFunc(appendName ,response[_this.id]['id'] ,'new');
+
+                            if(autoReplace)
+                                if($this.fileinput('getFilesCount') > params.maxFileCount)
+                                {
+                                    // delete delete_repaced hidden
+                                    $.each(replacedFile ,function (i ,v) {
+
+                                        // send post for delete replaced files
+                                        $.post(params.deleteUrl , v);
+
+                                        // delete new and uploaded
+                                        deleteHiddenFunc(appendName ,v.key ,null);
+                                    });
+
+                                    // reset replaced file from replaced items
+                                    replacedFile = [];
+                                }
 
                             // reload datatable after upload success
                             if(datatableInitialize == true && data && reloadDatatable)
@@ -1513,9 +1641,23 @@ var APP_AMU = {
                                     errorUl.append(message);
                                 });
                             }
+
+                        }).off('filebatchuploaderror').on('filebatchuploaderror', function(event, data, msg) {
+
+                            if(data.jqXHR.responseJSON) {
+                                var errorUl = $('.file-error-message').find('ul');
+                                errorUl.html('');
+                                _.each(data.jqXHR.responseJSON ,function (v ,i) {
+                                    var message = "<li data-file-id='" + data.id + "'>" + data.jqXHR.statusText + "<pre>" + v[0] + "</pre></li>";
+                                    errorUl.append(message);
+                                });
+                            }
+
                         }).off('filedeleted').on('filedeleted', function(event, key, jqXHR, data) {
 
-                            appendHiddenFunc('delete_' + (appendName || _this.id + '[]') ,key ,'deleted');
+                            appendHiddenFunc('delete_' + appendName ,key ,'delete');
+
+                            deleteHiddenFunc(appendName ,key);
 
                             // reload datatable after upload success
                             if(datatableInitialize == true && data && reloadDatatable)
@@ -1523,17 +1665,23 @@ var APP_AMU = {
 
                             if ((typeof $this.data('filedeleted') != typeof undefined) && $this.data('filedeleted'))
                                 window[$this.data('filedeleted')](event, key, jqXHR, data)  ;
-                        }).on('fileclear', function(event) {
-                            console.log("fileclear");
-                        }).on('filecleared', function(event) {
-                            console.log("filecleared");
-                        }).on('filereset', function(event) {
-                            console.log("filereset");
-                        }).on('fileselectnone', function(event) {
-                            console.log("Huh! No files were selected.");
-                        }).on('change', function(event) {
-                            console.log("change");
                         });
+                        /*
+                        .on('filecleared', function(event){ })
+                        .on('filereset', function(event){ })
+                        .on('fileselectnone', function(event) { })
+                        .on('fileselect', function(event, numFiles, label) { })
+                        .on('filebatchselected', function(event, files) { })
+                        .on('filebrowse', function(event) { })
+                        .on('filepreremove', function(event, id, index) { })
+                        .on('fileremoved', function(event, id, index) { })
+                        .on('filebeforedelete', function(event, key, data) { })
+                        .on('filepredelete', function(event, key, jqXHR, data) { })
+                        .on('filedeleted', function(event, key, jqXHR, data) { })
+                        .on('filepreupload', function(event, data, previewId, index) { })
+                        .on('filesuccessremove', function(event, id) {  });
+                        .on('fileclear', function(event) { }).on('filecleared', function(event) { })
+                        .on('change', function(event) { });*/
 
                         $this.closest('.file-input').on('click' ,'.btn-attr-image' ,function () {
                             //info button
@@ -1593,7 +1741,7 @@ var APP_AMU = {
                     } else if (datatableInitialize == false) {
 
                         var ids = [],
-                            capture = $(contCapture).find(itemCapture);
+                            capture = $(appendLocation).find('[name="' + appendName + '"]');
 
                         if(capture.length) {
 
@@ -1640,6 +1788,7 @@ var APP_AMU = {
                     var location = $input.val();
                     APP.GMap.init($(this).find('[data-gmap]'), location);
                 });
+
                 $($modal).modal('show');
             });
 
@@ -1718,8 +1867,7 @@ var APP_AMU = {
             APP_AMU.autocomplete.initAutocomplete();
             APP_AMU.select.initSelect();
             APP_AMU.validate.init('.ajaxCont');
-            APP_AMU.tree.initTreeAjax();
-            APP_AMU.tree.initTreeNormal();
+            APP_AMU.tree.initTree();
             APP_AMU.ckeditor.init('body', '.text-editor');
             APP_AMU.inputMask.init('[data-masked]');
             APP_AMU.fileUpload.load('.upload-file.load-file');
@@ -1944,8 +2092,7 @@ var onPageLoad = {
         APP_AMU.autocomplete.initAutocomplete,
         APP_AMU.select.initSelect,
         function (){APP_AMU.validate.init('.ajaxCont')},
-        APP_AMU.tree.initTreeAjax,
-        APP_AMU.tree.initTreeNormal,
+        APP_AMU.tree.initTree,
         function (){APP_AMU.ckeditor.init('body' ,'.text-editor')},
         APP_AMU.ckeditor.fixCkeditorModal,
         function (){APP_AMU.inputMask.init('[data-masked]')},
