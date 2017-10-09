@@ -8,6 +8,11 @@ Route::group(
     ],
 function () {
 
+    Route::get('login', function () {
+        return view('utilities::login');
+    });
+
+
     Route::get('test', function (){
 //        $data = [];
 //        DB::table('icons')->insert($data);

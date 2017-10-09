@@ -31,7 +31,8 @@ trait MultiLangs
 
         $supportedLocale = LaravelLocalization::getSupportedLanguagesKeys();
 //        dd($this);
-        $status = parent::save($input);
+//        $status = parent::save($input);
+        $status = parent::save($options);
 
 //        if(class_basename($this) == 'CustomModuleAttributeValue')
 //            dd($this, array_keys($this->getGlobalScopes()), $this->removedScopes());
@@ -48,7 +49,7 @@ trait MultiLangs
             {
                 $inputName = snake_case(str_replace('trans', '', $method));
                 $attribute = snake_case($method);
-                if(property_exists($this, 'transInputs')){
+                if(property_exists($this, 'transInputs') && isset($this->transInputs[$method])){
                     $data = $input[$this->transInputs[$method]][$attribute];
                 } else {
                     $data = $input[$attribute];

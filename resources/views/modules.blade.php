@@ -7,7 +7,7 @@
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
     <meta name="description" content="StudyPress | Education & Courses HTML Template" />
     <meta name="keywords" content="academy, course, education, education html theme, elearning, learning," />
-    <meta name="author" content="ThemeMascot" />
+    <meta name="author" content="automata4" />
 
     <!-- Page Title -->
     <title>StudyPress | Education & Courses HTML Template</title>
