@@ -52,11 +52,45 @@ if(! function_exists('colValue'))
 if(! function_exists('tree'))
 {
     //get prob Val
-    function tree($tree, $group = 1, $group_sourse = '', $maxDepth = 5, $extraParam = '')
+    function tree($tree, $group = 1, $group_sourse = '', $maxDepth = 5, $extraParam = [
+        'data-empty-text'             => 'Drag Item Here',
+        'data-init'                   => 'false',
+        'data-drop'                   => 'false',
+        'data-drop-exists'            => 'false',
+        'data-clone'                  => 'false',
+        'data-reject'                 => 'false',
+        'data-disable-nest'           => 'false',
+        'data-reject-rule-callback'   => '',
+        'data-reject-action-callback' => '',
+        'data-drag-end-callback'      => '',
+    ])
     {
         $url = localizeURL("utilities/$tree/tree");
 
-        return "<div data-url='$url' class='aut-tree $tree-tree' data-group='$group' data-group-source='$group_sourse' data-max-depth='$maxDepth' data-storage-key='$tree-key' $extraParam></div>";
+        $param = [
+            'data-empty-text'             => 'Drag Item Here',
+            'data-init'                   => 'false',
+            'data-drop'                   => 'false',
+            'data-drop-exists'            => 'false',
+            'data-clone'                  => 'false',
+            'data-reject'                 => 'false',
+            'data-disable-nest'           => 'false',
+            'data-reject-rule-callback'   => '',
+            'data-reject-action-callback' => '',
+            'data-drag-end-callback'      => '',
+        ];
+
+        $attrs = '';
+        foreach (array_merge($param, $extraParam) as $index => $item)
+            if(!empty($item)) {
+
+                if(is_numeric($index))
+                    $attrs .= "{$item} ";
+                else
+                    $attrs .= "{$index}={$item} ";
+            }
+
+        return "<div data-url='$url' class='aut-tree $tree-tree ajax' data-group='$group' data-group-source='$group_sourse' data-max-depth='$maxDepth' data-storage-key='$tree-key' $attrs></div>";
     }
 }
 

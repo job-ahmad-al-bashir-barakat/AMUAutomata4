@@ -2,6 +2,7 @@
 
 namespace App\Http\Validators;
 
+use Modules\Utilities\Entities\SiteMenu;
 use Validator;
 
 class CustomValidator
@@ -9,19 +10,19 @@ class CustomValidator
 
     function ratio($attribute, $value, $parameters, $validator)
     {
-            $route = \Route::getCurrentRoute()->parameters();
-            $model = $route['model'];
+        $route = \Route::getCurrentRoute()->parameters();
+        $model = $route['model'];
 
-            $imageLocalConfig   = config("file-upload.{$model}");
+        $imageLocalConfig   = config("file-upload.{$model}");
 
-            $file = \Request::file($model);
-            $file = is_array($file) ? $file[0] : $file;
+        $file = \Request::file($model);
+        $file = is_array($file) ? $file[0] : $file;
 
-            $dimensions = getimagesize($file->getPathname());
+        $dimensions = getimagesize($file->getPathname());
 
-            $imageRatio  = number_format($dimensions[0]/$dimensions[1] ,1);
-            $configRatio = number_format( $imageLocalConfig['width']/$imageLocalConfig['height'] ,1);
+        $imageRatio  = number_format($dimensions[0]/$dimensions[1] ,1);
+        $configRatio = number_format( $imageLocalConfig['width']/$imageLocalConfig['height'] ,1);
 
-            return $imageRatio === $configRatio;
+        return $imageRatio === $configRatio;
     }
 }

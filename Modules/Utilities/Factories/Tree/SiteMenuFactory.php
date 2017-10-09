@@ -8,30 +8,20 @@ use Modules\Utilities\Entities\SiteMenu;
 
 class SiteMenuFactory
 {
-
-    // id , parent_id , order , is_link ,menuable_id , menuable_type , trans_name
-
-    // save link on link not right
-    // make save list and update from modal
-    // make save on drag link
-    // autocompelte must has list item on link
-    // you can add and order list on list and link on list
-    // you can not add or order list on link
-    // add delete button on item and notify
-
-    // offices is list and add it on menusTables
+    //----------
+    //// id , parent_id , order , is_link ,menuable_id , menuable_type , trans_name
+    //// make save list and update from modal
+    //// make save on drag link
+    //// save link on link not right
+    //// autocompelte must has list item on list
+    //// you can add and order list on list and link on list
+    //// you can not add or order list on link
+    //// add delete button on item and notify
+    //// fix rtl css / html
+    //----------
     // faculties is list and department  is link
-
-    // change font-icon lib and file upload lib
-    // work on tree and arrange code
-    // fix upload file save delete get
-    // work on rest of tables
-    // fix datatable responsive
+    // offices is list and add it on menusTables
     // upadte univercity office name
-    // fix map open
-    // file input auto replace and upload pdf
-    // fix datatable load over ajax and pjax
-    // add email task to list
 
     function dataAttr()
     {
@@ -47,7 +37,8 @@ class SiteMenuFactory
     function setContent()
     {
         return [
-            //'html' => '<span style="padding: 5px;" class="tags"><i class="icon-tag"></i></span>',
+            //todo: make delete button
+            'html' => "<span style='padding: 4px; float: right; display: flex;' class='tags'><i class='icon-trash'></i></span>",
             'title',
         ];
     }
@@ -90,44 +81,31 @@ class SiteMenuFactory
 
     function store(Request $request)
     {
-        if($request->input('tree_menu' ,''))
+        if($request->input('link' ,''))
         {
-            foreach ($request->input('tree_menu') as $item)
-            {
-                $this->create($request->input('parent_id') ,[
-                    'parent_id'     => $request->input('parent_id'),
-                    'order'         => $item['order'],
-                    'menuable_id'   => $item['id'],
-                    'menuable_type' => $item['type'],
-                ]);
-            }
+            $request->request->add(['transSaveOper' => false]);
+
+            $this->create($request->input('parent_id') ,[
+                'parent_id'     => $request->input('parent_id'),
+                'order'         => $request->input('order'),
+                'menuable_id'   => $request->input('id'),
+                'menuable_type' => $request->input('type'),
+                'is_link'       => $request->input('link')
+            ]);
 
             return;
         }
 
-        $this->create($request->input('parent_id') ,$request->input());
+        $this->create($request->input('parent_id') ,$request->except('id'));
     }
 
     function update(Request $request ,$id)
     {
-        if($request->input('tree_menu' ,''))
-        {
-            foreach ($request->input('tree_menu') as $item)
-            {
-                $this->create($request->input('parent_id') ,[
-                    'parent_id'     => $request->input('parent_id'),
-                    'order'         => $item['order'],
-                    'menuable_id'   => $item['id'],
-                    'menuable_type' => $item['type'],
-                ]);
-            }
-
-            return;
-        }
+        dd('update');
 
         $node = SiteMenu::findOrFail($id);
 
-        $node->update($request->input());
+        $node->update($request->except('id'));
     }
 
     function destroy(Request $request ,$id)

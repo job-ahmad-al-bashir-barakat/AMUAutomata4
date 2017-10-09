@@ -15,7 +15,7 @@ class SiteMenu extends \Eloquent
 {
     use NodeTrait ,MultiLangs ,SoftDeletes;
 
-    protected $fillable = ['id' ,'parent_id' ,'name_route' ,'order' ,'is_link' ,'menuable_id' ,'mesnuable_type'];
+    protected $fillable = ['id' ,'parent_id' ,'name_route' ,'order' ,'is_link' ,'menuable_id' ,'menuable_type'];
 
     protected $appends = ['lang_name' ,'title'];
 
@@ -33,7 +33,7 @@ class SiteMenu extends \Eloquent
         return $title;
     }
 
-    public function scopeTypegeneralCondition($query) {
+    public function scopeTypeGeneralCondition($query) {
 
         $q = str_replace(' ', '%', request()->input('q', ''));
 

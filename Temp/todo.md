@@ -89,3 +89,14 @@ change file input upload path for show well orginize in file manager
 // fix datatable icon tabs responsive
 // fix pjax page load
 // add trash for each item on tree
+
+///////////////////////////////////////////////
+// change font-icon lib and file upload lib
+// fix datatable responsive
+// fix map open
+// addDialogText as general for trait class 
+// upload pdf
+// fix datatable load over ajax and pjax
+// add email task to list
+
+// use data to form multi table load 

@@ -132,7 +132,9 @@ class CustomFormServiceProvider extends ServiceProvider
                 'fileuploadedEvent'              => '',
                 'filedeletedEvent'               => '',
                 'allowedPreviewIcons'            => 'false',
-                'autoReplace'                    => 'false'
+                'autoReplace'                    => 'false',
+                'showCaption'                    => 'false',
+                'showPreview'                    => 'true',
             ],
         ]);
     }

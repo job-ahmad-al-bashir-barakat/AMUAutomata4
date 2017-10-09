@@ -4,7 +4,7 @@
     'action'              => treeUrl($view),
     'successFunc'         => 'generalMenu',
     'stopDeleteSerialize' => true,
-    'attr'                => ['data-tree-target' => 'general-tree'],
+    'attr'                => ['data-tree-target' => '.general-tree'],
 ])
 
     {{ Form::bsPrimarykey('id' ,'id' ,null ,'' ,['data-json' => 'id']) }}
@@ -17,56 +17,57 @@
 
 <script>
 
+    function rejectLinks(draggedElement) {
 
-    function rejectLinks() {
+        var reject = false;
 
-        return [{
-            rule: function(draggedElement) {
+        // prevent from nested element
+        if($(draggedElement).data('type') == $(draggedElement).closest('.dd').data('type'))
+            reject = true;
 
-                // The this object refers to dragRootEl i.e. the nestable root element. The drag action is cancelled if this function returns true
-                // The rule here is that it is forbidden drag elements to first-level children
-
-                var reject = false;
-
-                // prevent from nested element
-                if($(draggedElement).data('type') == $(draggedElement).closest('.dd').data('type'))
-                    reject = true;
-
-                return reject;
-            },
-
-            action: function(draggedElement) {
-
-                // This optional function defines what to do when such a rule applies
-                // alert('You can\'t do that !');
-            }
-        }];
-    }
-
-    function rejectMainTree() {
-
-        return [{
-            rule: function(draggedElement) {
-
-                // The this object refers to dragRootEl i.e. the nestable root element. The drag action is cancelled if this function returns true
-                // The rule here is that it is forbidden drag elements to first-level children
-
-                var reject = false;
-
-                return reject;
-            },
-
-            action: function(draggedElement) {
-
-                // This optional function defines what to do when such a rule applies
-                // alert('You can\'t do that !');
-            }
-        }];
+        return reject;
     }
 
     function generalMenu(form ,res) {
 
-        APP_AMU.tree.ajaxLoad($('.' + $(form).data('tree-target')));
+        APP_AMU.tree.init($(form).data('tree-target'));
+    }
+
+    function dragSiteMenu(event, item, source, destination, position) {
+
+        var parentLink = $(item).parents('li:first').data('link')
+        if ((typeof parentLink != typeof undefined && parentLink) == item.data('link')) {
+            $(item).remove()
+
+            alert('done22');
+
+            return
+        }
+
+        if (source != destination) {
+
+            var parent = $(item).parents('li:first');
+            $.post(destination.closest('.aut-tree').data('url') ,$.extend($(item).data() ,{ parent_id : parent.data('id') , order: parent.find('.dd-list:first').children('li').length }) ,function () {
+
+                APP_AMU.tree.init('.general-tree');
+            });
+        }
+    }
+
+    function ruleSiteMenu(draggedElement) {
+
+        var reject = false;
+
+        // prevent from nested element
+        if($(draggedElement).parents('li:first').data('link'))
+            reject = true;
+
+        return reject;
+    }
+
+    function actionSiteMenu(draggedElement) {
+
+        alert('done');
     }
 
 </script>

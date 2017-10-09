@@ -35,6 +35,7 @@
            data-cropper-selector="{{ $cropperSelector or '.aut-cropper-file-upload' }}"
            data-cropper-modal="{{ $cropperModal or '#crop-image' }}"
            data-show-caption="{{ $showCaption or 'false' }}"
+           data-show-preview="{{ $showPreview or 'true' }}"
            data-datatable="{{ $datatable or ''}}"
            data-reload-datatable="{{ $reloadDatatable or 'true' }}"
            {{--(event, data, previewId, index)--}}
