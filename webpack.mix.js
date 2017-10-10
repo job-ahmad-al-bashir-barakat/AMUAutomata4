@@ -12,6 +12,15 @@ const { mix } = require('laravel-mix');
  */
 
 /**
+ * Login Css
+ */
+mix.styles([
+    'Modules/Admin/Assets/vendor/fontawesome/css/font-awesome.min.css',
+    'Modules/Admin/Assets/vendor/simple-line-icons/css/simple-line-icons.css',
+    'Modules/Admin/Assets/vendor/app/css/bootstrap.css',
+    'Modules/Admin/Assets/vendor/app/css/app.css',
+], 'public/css/admin-login.css').version();
+/**
  * Control css
  */
 mix.styles([

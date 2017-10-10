@@ -15,7 +15,7 @@ trait ModuleTrait
      * This Function will determined the Module Class by Module id
      *
      * @param $moduleId
-     * @return SectionEndModule|SectionStartModule|TextEditorModule|SliderModule|BlockModule|CoursesOneModule|PersonsOneModule|VerticalSliderModule|GalleryModule|ShortInfoModule|SectionFluidStartModule|SmallGalleryModule|StepsModule
+     * @return SectionEndModule|SectionStartModule|TextEditorModule|SliderModule|BlockModule|CoursesOneModule|PersonsOneModule|VerticalSliderModule|GalleryModule|ShortInfoModule|SectionFluidStartModule|SmallGalleryModule|StepsModule|SectionIntersectTopStartModule|SectionIntersectEndModule
      * @throws \Exception
      */
     public static function setModule($moduleId)
@@ -47,6 +47,10 @@ trait ModuleTrait
                 return new SmallGalleryModule();
             case 14:
                 return new StepsModule();
+            case 15:
+                return new SectionIntersectTopStartModule();
+            case 16:
+                return new SectionIntersectEndModule();
             default:
                 throw new \Exception("Undefined Web Module [id:$moduleId]");
         }
@@ -56,7 +60,7 @@ trait ModuleTrait
      * This Function will determined the Module Class by Module Code
      *
      * @param $moduleCode
-     * @return SectionEndModule|SectionStartModule|TextEditorModule|SliderModule|BlockModule|CoursesOneModule|PersonsOneModule|VerticalSliderModule|GalleryModule|ShortInfoModule|SectionFluidStartModule|SmallGalleryModule|StepsModule
+     * @return SectionEndModule|SectionStartModule|TextEditorModule|SliderModule|BlockModule|CoursesOneModule|PersonsOneModule|VerticalSliderModule|GalleryModule|ShortInfoModule|SectionFluidStartModule|SmallGalleryModule|StepsModule|SectionIntersectTopStartModule|SectionIntersectEndModule
      * @throws \Exception
      */
     public static function setModuleByCode($moduleCode)
@@ -88,6 +92,10 @@ trait ModuleTrait
                 return new SmallGalleryModule();
             case 'steps':
                 return new StepsModule();
+            case 'section_intersect_top':
+                return new SectionIntersectTopStartModule();
+            case 'section_intersect_end':
+                return new SectionIntersectEndModule();
             default:
                 throw new \Exception("Undefined Web Module [$moduleCode]");
         }
