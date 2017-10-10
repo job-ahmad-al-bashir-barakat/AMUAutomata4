@@ -1,4 +1,3 @@
-<style>.dd3-item > button { margin-right: 5px;}</style>
 <div class="js-nestable-action">
     <a data-action="expand-all" class="btn btn-default btn-sm mr-sm">{{ trans('utilities::app.expand_all') }}</a>
     <a data-action="collapse-all" class="btn btn-default btn-sm mr-sm">{{ trans('utilities::app.collapse_all') }}</a>

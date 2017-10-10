@@ -100,3 +100,12 @@ change file input upload path for show well orginize in file manager
 // add email task to list
 
 // use data to form multi table load 
+
+// faculties is list and department  is link
+// offices is list and add it on menusTables
+// upadte univercity office name
+
+------
+بكرا خليني احكي معك مشان هي الشغلة //
+لانو لازم من وين ما بدي احسن اعمل notify //
+------

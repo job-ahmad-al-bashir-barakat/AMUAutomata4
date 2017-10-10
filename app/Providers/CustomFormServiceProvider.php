@@ -25,6 +25,7 @@ class CustomFormServiceProvider extends ServiceProvider
         $this->bsSelect();
         $this->bsImageUpload();
         $this->bsImageUploadCropper();
+        $this->notify();
     }
 
     function bsInputText()
@@ -98,6 +99,16 @@ class CustomFormServiceProvider extends ServiceProvider
             'class'          => '',
             'attr'           => [],
             'type'           => $type,
+        ]);
+    }
+
+    function notify()
+    {
+        Form::component('bsNotify','controle.component.form.notify',[
+            'icon' => '',
+            'class'=> '',
+            'text' => '',
+            'html' => '',
         ]);
     }
 

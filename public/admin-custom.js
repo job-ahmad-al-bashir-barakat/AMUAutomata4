@@ -53,10 +53,10 @@ var HELPER_AMU = {
         var icon = (typeof notify.icon !== typeof undefined) ? '<em class="fa fa-' + notify.icon +  '"></em> ' : '';
 
         $.notify({
-            message: icon + notify.message,
-            pos: 'bottom-right',
+            message: notify.html || (icon + notify.message),
+            pos: notify.pos || 'bottom-right',
             status: notify.status,
-            timeout: 1000
+            timeout: notify.timeout || 1000
         });
     },
 
@@ -801,6 +801,9 @@ var APP_AMU = {
 
             if(init)
                 optionsObj.afterInit = function ( event ) {
+
+                    if(typeof $cont.data('init-callback') != typeof undefined)
+                        window[$cont.data('init-callback')](event);
                 }
 
             if(drop)
@@ -810,14 +813,29 @@ var APP_AMU = {
             var nestable = function ($this) {
 
                 $this.nestable(optionsObj)
-                    .on('change', APP_AMU.tree.updateOutput)
-                    .on('dragEnd', function(event, item, source, destination, position) {
+                    .off('change').on('change', APP_AMU.tree.updateOutput)
+                    .off('dragEnd').on('dragEnd', function(event, item, source, destination, position) {
 
                         // Make an ajax request to persist move on database
                         // here you can pass item-id, source-id, destination-id and position index to the server
 
-                        if(typeof $cont.data('drag-end-callback') != typeof undefined)
-                            window[$cont.data('drag-end-callback')](event, item, source, destination, position);
+                        if($cont.hasClass('order')) {
+
+                            item.parent().children('li').each(function (i, v) {
+
+                                $(this).attr('data-order', i + 1);
+                            });
+                        }
+
+                        if(typeof $cont.data('drag-end-callback') != typeof undefined) {
+
+                            // drag callback
+                            $drag = window[$cont.data('drag-end-callback')](event, item, source, destination, position);
+
+                            // stop drag when return false
+                            if(!$drag)
+                                return;
+                        }
 
                         // for drop any item when is exists in same tree :: this driven by data-exitst and data-type
                         if(drop_exists) {
@@ -833,15 +851,7 @@ var APP_AMU = {
                                 item.remove();
                         }
 
-                        if($this.hasClass('order')) {
-
-                            item.parent().children('li').each(function (i, v) {
-
-                                $(this).attr('data-order', i + 1);
-                            });
-                        }
-
-                        if($cont.hasClass('ajax') && destination.closest(APP_AMU.tree.treeContId).data('type') == item.data('type')) {
+                        if($cont.hasClass('ajax')) {
 
                             var item   = $(_.head(item)),
                                 id     = item.data('id'),
@@ -864,6 +874,7 @@ var APP_AMU = {
 
                             //reorder html item
                             item.parent().children('li').each(function (i, v) {
+
                                 $(this).attr('data-order', i + 1);
                             });
 
@@ -893,10 +904,10 @@ var APP_AMU = {
                             });
                         }
                     })
-                    //.on('beforeDragStart', function(handle) {})
-                    //.on('dragStart', function(event, item, source) { })
-                    //.on('dragMove', function(event, item, source, destination) { })
-                    //.on('beforeDragEnd', function(event, item, source, destination, position, feedback) {
+                    //.off('beforeDragStart').on('beforeDragStart', function(handle) {})
+                    //.off('dragStart').on('dragStart', function(event, item, source) { })
+                    //.off('dragMove').on('dragMove', function(event, item, source, destination) { })
+                    //.off('beforeDragEnd').on('beforeDragEnd', function(event, item, source, destination, position, feedback) {
                         // If you need to persist list items order if changes, you need to comment the next line
                         // if (source[0] === destination[0]) { feedback.abort = true; return; }
                         // feedback.abort = !window.confirm('Continue?');
@@ -960,7 +971,7 @@ var APP_AMU = {
         changeParentAutocomplete: function () {
 
             var $this = $(this),
-                $treeContId = $(APP_AMU.tree.treeContId),
+                $treeContId = $($this.closest('form').data('tree-target')),
                 $length;
 
             if ($this.val())
@@ -973,6 +984,8 @@ var APP_AMU = {
                 // get length for first level
                 $length = $treeContId.find('.dd .dd-list:first').children('li').length + 1;
 
+            console.log();
+
             // add order to order input inside form
             $this.closest('form')
                 .find('#order')
@@ -984,7 +997,7 @@ var APP_AMU = {
             var $this = $(this),
                 $node = $this.val();
 
-            APP_AMU.tree.init($this.closest(APP_AMU.tree.treeLoadClass), $node);
+            APP_AMU.tree.init($this.closest(APP_AMU.tree.treeContId), $node);
         },
 
         eventNestableAction: function (e) {
@@ -1041,6 +1054,36 @@ var APP_AMU = {
                 APP_AMU.tree.init(this ,null);
             });
         }
+    },
+
+    sweetalert_swal: function (param ,func ,paramCancleSafe) {
+
+        swal({
+            title              : typeof param.title               != typeof undefined ? param.title               : null,
+            text               : typeof param.text                != typeof undefined ? param.text                : null,
+            type               : typeof param.type                != typeof undefined ? param.type                : null,
+            showCancelButton   : typeof param.showCancelButton    != typeof undefined ? param.showCancelButton    : false,
+            showCloseButton    : typeof param.showCloseButton     != typeof undefined ? param.showCloseButton     : false,
+            allowEscapeKey     : typeof param.allowEscapeKey      != typeof undefined ? param.allowEscapeKey      : true,
+            allowOutsideClick  : typeof param.allowOutsideClick   != typeof undefined ? param.allowOutsideClick   : true,
+            confirmButtonColor : typeof param.confirmButtonColor  != typeof undefined ? param.confirmButtonColor  : '#3085d6',
+            confirmButtonText  : typeof param.confirmButtonText   != typeof undefined ? param.confirmButtonText   : 'OK',
+            cancelButtonText   : typeof param.cancelButtonText    != typeof undefined ? param.cancelButtonText    : 'Cancel',
+            showLoaderOnConfirm: typeof param.showLoaderOnConfirm != typeof undefined ? param.showLoaderOnConfirm : false,
+            width              : typeof param.width               != typeof undefined ? param.width               : '500px',
+            html               : typeof param.html                != typeof undefined ? param.html                : '',
+        }).then(func, function (dismiss) {
+
+            if (dismiss === 'cancel') {
+
+                aut_datatable_swal({
+                    title : paramCancleSafe.cancleSafeTitle,
+                    text  : paramCancleSafe.cancleSafeText,
+                    confirmButtonText  : paramCancleSafe.cancleSafeConfirmButtonText,
+                    type : "error",
+                });
+            }
+        });
     },
 
     ckeditor: {

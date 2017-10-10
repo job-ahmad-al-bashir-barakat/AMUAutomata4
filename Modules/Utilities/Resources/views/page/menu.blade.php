@@ -4,6 +4,12 @@
 
     @include('utilities::layouts._content_header',['title' => trans("utilities::app.$view")])
 
+    <style>
+        .general-tree.ajax [data-link] .dd3-content {
+            background-color: rgba(215, 235, 255, 0.67);
+        }
+    </style>
+
 @endsection
 
 @section('content')

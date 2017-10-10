@@ -56,11 +56,22 @@
         group           : 0,
         maxDepth        : 5,
         threshold       : 20,
+
         // added by basheer
+        scroll              : false,
+        scrollSensitivity   : 1,
+        scrollSpeed         : 5,
+        scrollTriggers      : {
+            top: 40,
+            left: 40,
+            right: -40,
+            bottom: -40
+        },
         clone           : false,
         insertable      : true,
         reject          : [],
         // end added by basheer
+
         /* callback */
         afterInit: null,
 
@@ -73,6 +84,11 @@
     {
         this.w  = $(document);
         this.el = $(element);
+
+        // added by basheer
+        this.rtl = this.el.css('direction') == "rtl";
+        // end added by basheer
+
         this.options = $.extend({}, defaults, options);
         this.init();
     }
@@ -328,6 +344,10 @@
             li.children('[data-action="expand"]').hide();
             li.children('[data-action="collapse"]').show();
             li.children(this.options.listNodeName).show();
+
+            // added by basheer
+            this.el.trigger('expand', [li]);
+            // end added by basheer
         },
 
         collapseItem: function(li)
@@ -339,6 +359,10 @@
                 li.children('[data-action="expand"]').show();
                 li.children(this.options.listNodeName).hide();
             }
+
+            // added by basheer
+            this.el.trigger('collapse', [li]);
+            // end added by basheer
         },
 
         expandAll: function()
@@ -377,7 +401,18 @@
         {
             var mouse    = this.mouse,
                 target   = $(e.target),
-                dragItem = target.closest(this.options.itemNodeName);
+
+                // update by basheer
+                //dragItem = target.closest(this.options.itemNodeName);
+                dragItem = target.closest('.' + this.options.handleClass).closest(this.options.itemNodeName);
+                // end update by basheer
+
+            // added by basheer
+            this.handle = target.closest('.' + this.options.handleClass);
+            mouse.handleOffsetX = e.pageX - this.handle.offset().left;
+            mouse.handleOffsetY = e.pageY - this.handle.offset().top;
+            this.target_width = this.handle.width(); // for rtl
+            // end added by basheer
 
             this.sourceRoot = target.closest('.' + this.options.rootClass);
             this.placeEl.css('height', dragItem.height());
@@ -410,10 +445,20 @@
             }
             // end added by basheer
 
+            // added by basheer
+            var rtlFix = 0;
+            if( this.rtl )
+                rtlFix = this.dragEl.width() - this.target_width;
+            // end added by basheer
+
             $(document.body).append(this.dragEl);
             this.dragEl.css({
-                'left' : e.pageX - mouse.offsetX,
-                'top'  : e.pageY - mouse.offsetY
+                // updated by basheer
+                //'left' : e.pageX - mouse.offsetX,
+                //'top'  : e.pageY - mouse.offsetY
+                'left' : e.pageX - mouse.handleOffsetX - rtlFix,
+                'top'  : e.pageY - mouse.handleOffsetY
+                // end updated by basheer
             });
             // total depth of dragging item
             var i, depth,
@@ -492,9 +537,20 @@
                 opt   = this.options,
                 mouse = this.mouse;
 
+            // added by basheer
+            var rtlFix = 0;
+            if( this.rtl )
+                rtlFix = this.dragEl.width() - this.target_width;
+            // end added by basheer
+
             this.dragEl.css({
-                'left' : e.pageX - mouse.offsetX,
-                'top'  : e.pageY - mouse.offsetY
+
+                // updated by basheer
+                // 'left' : e.pageX - mouse.offsetX,
+                // 'top'  : e.pageY - mouse.offsetY
+                'left' : e.pageX - mouse.handleOffsetX - rtlFix,
+                'top'  : e.pageY - mouse.handleOffsetY
+                // end updated by basheer
             });
 
             // mouse position last events
@@ -522,6 +578,43 @@
                 return;
             }
 
+            // added by basheer
+            //Do scrolling
+            if (opt.scroll) {
+                var scrolled = false;
+                var scrollParent = this.el.scrollParent()[0];
+                if(scrollParent != document && scrollParent.tagName != 'HTML') {
+                    if((opt.scrollTriggers.bottom + scrollParent.offsetHeight) - e.pageY < opt.scrollSensitivity)
+                        scrollParent.scrollTop = scrolled = scrollParent.scrollTop + opt.scrollSpeed;
+                    else if(e.pageY - opt.scrollTriggers.top < opt.scrollSensitivity)
+                        scrollParent.scrollTop = scrolled = scrollParent.scrollTop - opt.scrollSpeed;
+
+                    if((opt.scrollTriggers.right + scrollParent.offsetWidth) - e.pageX < opt.scrollSensitivity)
+                        scrollParent.scrollLeft = scrolled = scrollParent.scrollLeft + opt.scrollSpeed;
+                    else if(e.pageX - opt.scrollTriggers.left < opt.scrollSensitivity)
+                        scrollParent.scrollLeft = scrolled = scrollParent.scrollLeft - opt.scrollSpeed;
+                } else {
+                    if(e.pageY - $(document).scrollTop() < opt.scrollSensitivity)
+                        scrolled = $(document).scrollTop($(document).scrollTop() - opt.scrollSpeed);
+                    else if($(window).height() - (e.pageY - $(document).scrollTop()) < opt.scrollSensitivity)
+                        scrolled = $(document).scrollTop($(document).scrollTop() + opt.scrollSpeed);
+
+                    if(e.pageX - $(document).scrollLeft() < opt.scrollSensitivity)
+                        scrolled = $(document).scrollLeft($(document).scrollLeft() - opt.scrollSpeed);
+                    else if($(window).width() - (e.pageX - $(document).scrollLeft()) < opt.scrollSensitivity)
+                        scrolled = $(document).scrollLeft($(document).scrollLeft() + opt.scrollSpeed);
+                }
+            }
+
+            if (this.scrollTimer)
+                clearTimeout(this.scrollTimer);
+            if (opt.scroll && scrolled) {
+                this.scrollTimer = setTimeout(function() {
+                    $(window).trigger(e);
+                }, 10);
+            }
+            // end added by basheer
+
             // calc distance moved on this axis (and direction)
             if (mouse.dirAx !== newAx) {
                 mouse.distAxX = 0;
@@ -546,7 +639,25 @@
                 mouse.distAxX = 0;
                 prev = this.placeEl.prev(opt.itemNodeName);
                 // increase horizontal level if previous sibling exists and is not collapsed
-                if (mouse.distX > 0 && prev.length && !prev.hasClass(opt.collapsedClass)) {
+
+                // added by basheer
+                //! rtl?
+                var distX_direction = true;
+
+                if( this.rtl && mouse.distX > 0 ) {
+                    distX_direction = false;
+                }
+                if( !this.rtl && mouse.distX < 0 ) {
+                    distX_direction = false;
+                }
+                // end added by basheer
+
+
+                // added by basheer
+                // if (mouse.distX > 0 && prev.length && !prev.hasClass(opt.collapsedClass)) {
+                if ( distX_direction && prev.length && !prev.hasClass(opt.collapsedClass)) {
+                // end added by basheer
+
                     // cannot increase level when item above is collapsed
                     list = prev.find(opt.listNodeName).last();
                     // check if depth limit has reached
@@ -566,7 +677,11 @@
                     }
                 }
                 // decrease horizontal level
-                if (mouse.distX < 0) {
+                // updated by basheer
+                // if (mouse.distX < 0) {
+                if ( !distX_direction ) {
+                // end updated by basheer
+
                     // we can't decrease a level if an item preceeds the current one
                     next = this.placeEl.next(opt.itemNodeName);
                     if (!next.length) {
@@ -585,12 +700,19 @@
             if (!hasPointerEvents) {
                 this.dragEl[0].style.visibility = 'hidden';
             }
-            this.pointEl = $(document.elementFromPoint(e.pageX - document.body.scrollLeft, e.pageY - (window.pageYOffset || document.documentElement.scrollTop)));
+            // updated by basheer
+            // this.pointEl = $(document.elementFromPoint(e.pageX - document.body.scrollLeft, e.pageY - (window.pageYOffset || document.documentElement.scrollTop)));
+            this.pointEl = $(document.elementFromPoint(e.pageX - document.documentElement.scrollLeft, e.pageY - (window.pageYOffset || document.documentElement.scrollTop)));
+            // end updated by basheer
+
             if (!hasPointerEvents) {
                 this.dragEl[0].style.visibility = 'visible';
             }
             if (this.pointEl.hasClass(opt.handleClass)) {
-                this.pointEl = this.pointEl.parent(opt.itemNodeName);
+                // updated by basheer
+                //this.pointEl = this.pointEl.parent(opt.itemNodeName);
+                this.pointEl = this.pointEl.closest(opt.itemNodeName);
+                // end updated by basheer
             }
             if (this.pointEl.hasClass(opt.emptyClass)) {
                 isEmpty = true;
@@ -666,8 +788,11 @@
                 // end updated by basheer
 
                 // parent root list has changed
+                // updated bu basheer
+                this.dragRootEl = pointElRoot;
                 if (isNewRoot) {
-                    this.dragRootEl = pointElRoot;
+                    //this.dragRootEl = pointElRoot;
+                    // end updated by basheer
                     this.hasNewRoot = this.el[0] !== this.dragRootEl[0];
                 }
             }
@@ -691,7 +816,8 @@
             return (S4() + S4() + delim + S4() + delim + S4() + delim + S4() + delim + S4() + S4() + S4());
         };
 
-        lists.each(function()
+        // iel added by basheer
+        lists.each(function(iel)
         {
             var plugin = $(this).data("nestable");
 
@@ -699,7 +825,9 @@
                 $(this).data("nestable", new Plugin(this, params));
                 // updated by basheer
                 // $(this).data("nestable-id", new Date().getTime());
+                // $(this).data("nestable-id", iel);
                 $(this).data("nestable-id", generateUid());
+                // end updated by basheer
             } else {
                 if (typeof params === 'string' && typeof plugin[params] === 'function') {
                     retval = plugin[params]();
