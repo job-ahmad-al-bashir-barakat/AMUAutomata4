@@ -29,10 +29,10 @@
                         <input id="exampleInputEmail1" type="text" placeholder="Enter username" autocomplete="off" required class="form-control">
                         <span class="fa fa-user  form-control-feedback text-muted"></span>
                     </div>
-                    {{--<div class="form-group has-feedback">
+                    <div class="form-group has-feedback">
                         <input id="exampleInputPassword1" type="password" placeholder="Password" required class="form-control">
                         <span class="fa fa-lock form-control-feedback text-muted"></span>
-                    </div>--}}
+                    </div>
                     <div class="clearfix">
                         <div class="checkbox c-checkbox pull-left mt0">
                             <label>
