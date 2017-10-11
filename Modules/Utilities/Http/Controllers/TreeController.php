@@ -223,42 +223,25 @@ class TreeController extends Controller
     {
         $factory = new $this->factory();
 
-        // drag update
-        if($request->input('drag' ,''))
-        {
-            $model = $this->model;
+        $factory->update($request ,$id);
 
-            //update self and siblings order
-            if(count($request->input('data')))
-                foreach ($request->input('data') as $index => $item) {
+        return Response::json(['operation_message' => trans('app.oper.success')]);
+    }
 
-                    $model::where('id' ,'=' ,$item['id'])->update(['order' => $item['order']]);
-                }
+    public function order($tree ,$id = '',Request $request)
+    {
+        $request->request->add(['transSaveOper' => false]);
 
-            //update moved node
-            $node = $model::findOrFail($id);
+        $model = $this->model;
 
-            $request->request->add(['transSaveOper' => false]);
+        //update self and siblings order
+        if(count($request->input('data')))
+            foreach ($request->input('data') as $index => $item) {
 
-            //$node->withoutTrans()->update
-            $node->update([
-                'parent_id' => $request->input('parent')
-                //'order'     => $request->input('order') //we don't need this because we loop over order from data
-            ]);
+                $model::where('id' ,'=' ,$item['id'])->update(['order' => $item['order'] ,'parent_id' => isset($item['parent']) ? $item['parent']['id'] : null ]);
+            }
 
-            $parent = $factory->dataAttr();
-
-            $parentId    = colValue($parent['parent']['id']   ,$node);
-            $parentTitle = colValue($parent['parent']['name'] ,$node);
-
-            return Response::json(['operation_message' => trans('app.oper.successOrder') ,'id' => $parentId ,'name' => $parentTitle]);
-        }
-        else
-        {
-            $factory->update($request ,$id);
-
-            return Response::json(['operation_message' => trans('app.oper.success')]);
-        }
+        return Response::json(['operation_message' => trans('app.oper.successOrder')]);
     }
 
     /**

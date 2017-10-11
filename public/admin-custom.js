@@ -70,6 +70,30 @@ var HELPER_AMU = {
             }
         })
     },
+
+    getDataAttribute: function (dom) {
+
+        var attributes = {} ,value = '';
+
+        $.each($(dom).get(0).attributes, function(i, attrib){
+
+            var matchValue = attrib.value.match("{"),
+                matchData  = attrib.name.match("^data-");
+
+            if(matchData)
+            {
+                if(matchValue && matchValue.length) {
+                    value = JSON.parse(attrib.value);
+                    attributes[attrib.name.slice(5)] = value;
+                } else if(attrib.value) {
+                    value = attrib.value;
+                    attributes[attrib.name.slice(5)] = value;
+                }
+            }
+        });
+
+        return attributes;
+    }
 };
 
 
@@ -699,16 +723,15 @@ var APP_AMU = {
 
             $(document).on('click', '[data-form-add]', function () {
 
-                $cont = $(this).data('target');
+                var $cont = $(this).data('target');
 
                 APP_AMU.validate.hideShowButtonForm($cont, 'add');
             });
 
             $(document).on('click', '[data-form-update]', function () {
 
-                $contData = $(this).closest($(this).data('editable-target'));
-
-                $cont = $(this).data('target');
+                var $contData = $(this).closest($(this).data('editable-target')),
+                    $cont = $(this).data('target');
 
                 $($cont).find('[data-json]').each(function (i, v) {
 
@@ -824,9 +847,30 @@ var APP_AMU = {
 
                             item.parent().children('li').each(function (i, v) {
 
-                                $(this).attr('data-order', i + 1);
-                                $(this).attr('data-ordered',true);
+                                var $this = $(this) ,parent = $this.parents('li:first');
+
+                                // order
+                                $this.attr('data-order', i + 1);
+                                $this.data('order', i + 1);
+                                // ordered
+                                $this.attr('data-ordered',true);
+                                $this.data('ordered',true);
+
+                                if(parent.length) {
+                                    var obj = { 'id' : parent.data('id') , 'name' : parent.data('name') };
+                                    $this.data('parent' ,obj);
+                                    $this.attr('data-parent' ,JSON.stringify(obj));
+                                } else {
+                                    delete $this.data().parent;
+                                    $this.removeAttr('data-parent');
+                                }
                             });
+
+                            var data = [];
+                            $('[data-ordered=true]').each(function(i ,v){
+                                data.push($(v).data());
+                            });
+                            $cont.data('order_list' ,data);
                         }
 
                         if(typeof $cont.data('drag-end-callback') != typeof undefined) {
@@ -876,33 +920,7 @@ var APP_AMU = {
                                     data = JSPath.apply('.', ObjectOrderSerialize);
                                 }
 
-                                //reorder html item
-                                item.parent().children('li').each(function (i, v) {
-
-                                    $(this).attr('data-order', i + 1);
-                                });
-
-                                //reorder data
-                                _.each(data, function (v, k) {
-                                    v.order = k + 1;
-                                });
-
-                                if (!id)
-                                    console.log('please set an data-id and data-parent for every item');
-
-                                parent = typeof parent != typeof undefined ? parent : null;
-
-                                $.put($cont.data('url') + "/" + id, {
-                                    "parent": parent,
-                                    "drag": true,
-                                    "order": position + 1,
-                                    "data": data
-                                }, function (res) {
-
-                                    if (typeof res.id != typeof null)
-                                        item.attr('data-parent', '{ "id" : "' + res.id + '","name" : "' + res.name + '"}');
-                                    else
-                                        item.removeAttr('data-parent');
+                                $.put($cont.data('url') + "/order/" + id, { data: data }, function (res) {
 
                                     HELPER_AMU.notify({message: res.operation_message, status: 'success'});
                                 });
@@ -1020,7 +1038,7 @@ var APP_AMU = {
             }
 
             if (action === 'reset_tree') {
-                APP_AMU.tree.init($(this).closest(APP_AMU.tree.treeContId), null);
+                APP_AMU.tree.init(treeCont, null);
             }
 
             if (action === 'add_tree_node') {
@@ -1037,19 +1055,9 @@ var APP_AMU = {
 
         saveTreeOrder: function (treeCont) {
 
-            $.put($cont.data('url') + "/" + id, {
-                "parent": parent,
-                "drag": true,
-                "order": position + 1,
-                "data": data
-            }, function (res) {
+            $.put(treeCont.data('url') + '/order', { data: treeCont.data('order_list') }, function (res) {
 
-                APP_AMU.tree.init('.general-tree');
-
-                if (typeof res.id != typeof null)
-                    item.attr('data-parent', '{ "id" : "' + res.id + '","name" : "' + res.name + '"}');
-                else
-                    item.removeAttr('data-parent');
+                // APP_AMU.tree.init(treeCont);
 
                 HELPER_AMU.notify({message: res.operation_message, status: 'success'});
             });

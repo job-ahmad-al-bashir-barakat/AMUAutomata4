@@ -12,6 +12,7 @@ class SiteMenuFactory
     {
         return array_merge([
             'id'                => 'id' ,
+            'name'              => 'titles->'.\App::getLocale().'->text',
             'parent'            => ['id' => 'parent_id','name' => 'parent->lang_name->'.\App::getLocale().'->text'],
             'order'             => 'order',
             'type'              => 'menuable_type',
