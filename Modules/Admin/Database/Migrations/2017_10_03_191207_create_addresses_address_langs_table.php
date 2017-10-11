@@ -13,7 +13,7 @@ class CreateAddressesAddressLangsTable extends Migration
      */
     public function up()
     {
-        Schema::create('addresses_address_langs', function (Blueprint $table) {
+        Schema::create('addresses_location_langs', function (Blueprint $table) {
             $table->increments('id')->unsigned();
             $table->integer('lang_id');
             $table->integer('address_id');
@@ -30,6 +30,6 @@ class CreateAddressesAddressLangsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('addresses_address_langs');
+        Schema::dropIfExists('addresses_location_langs');
     }
 }

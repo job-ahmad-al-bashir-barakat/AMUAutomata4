@@ -17,6 +17,8 @@ return [
     'set_location'    => 'Set Location',
     'title'           => 'Title',
     'text'            => 'Text',
+    'location'        => 'Address',
+    'address'         => 'Address',
 
     'oper' => [
         'success' => 'Operation done successfuly',

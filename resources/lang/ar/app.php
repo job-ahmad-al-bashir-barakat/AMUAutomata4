@@ -17,6 +17,8 @@ return [
     'set_location'    => 'تحديد الموقع',
     'title'           => 'عنوان',
     'text'            => 'نص',
+    'location'        => 'العنوان',
+    'address'         => 'العنوان',
 
     'oper' => [
         'success' => 'تمت العملية بنجاح',

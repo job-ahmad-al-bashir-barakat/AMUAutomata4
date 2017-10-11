@@ -45,6 +45,13 @@ class TreeController extends Controller
         $setCols = "";
         foreach ($dataAttr as $index => $col)
         {
+            if($index == 'fixed_field') {
+
+                $setCols .= $col;
+
+                continue;
+            }
+
             $index = Str::slug($index);
             // for autocomplete
             if(is_array($col))
@@ -72,7 +79,7 @@ class TreeController extends Controller
      * Display a listing of the resource.
      * @return Response
      */
-    public function index($tree ,\Request $request)
+    public function index($tree ,Request $request)
     {
         $model = $this->model;
 
@@ -115,19 +122,30 @@ class TreeController extends Controller
                 $factory  = new $this->factory();
 
                 // get Title
-                $content = []; $html = [];
-                foreach ($factory->setContent() as $index => $itemTitle)
-                {
-                    if($index !== 'html' )
+                $content = []; $contentKeys = [];
+                foreach ($factory->setContent($control) as $index => $itemTitle) {
+
+                    if ($index === 'icons') {
+                        $content['icons'][] = $itemTitle;
+                    } else if ($index === 'link') {
+                        $contentKeys[] = 'link';
+                        $content['link'][] = colValue($itemTitle ,$control);
+                    } else if ($index === 'html') {
+                        $content['html'][] = '';
+                    } else if (is_numeric($index)) {
+                        $contentKeys[] = 'title';
                         $content['title'][] = colValue($itemTitle ,$control);
-                    else
-                        $content['html'][] = $itemTitle;
+                    }
                 }
 
-                $content['title'] = $factory->getContent($content['title']);
-                $content['html']  = isset($content['html']) ? implode(' ' ,$content['html']) : '';
+                if(!empty($contentKeys))
+                    foreach ($contentKeys as $key)
+                        $content[$key] = $factory->getContent($content ,$key);
+
+                $content['icons']  = isset($content['icons']) ? implode(' ' ,$content['icons']) : '';
 
                 $content = $this->dir == "ltr" ? $content : collect($content)->reverse();
+
                 //set li item for each item
                 $tree = $tree.view("utilities::tree._treeItem",[
                         'model'       => $this->tree,

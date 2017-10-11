@@ -3,7 +3,7 @@
 return [
     'home'               => 'الرئيسية',
     'setting'            => 'اعدادات',
-    'univercity'         => 'جامعة',
+    'university'         => 'جامعة',
     'faculties'          => 'كليات',
     'degrees'            => 'اختصاصات',
     'departments'        => 'أقسام',
@@ -39,6 +39,10 @@ return [
     'prerequisite'       => 'المتطلبات المسبقة',
     'faculty_courses'    => 'مواد الكلية',
     'study_plan'         => 'الخطة الدراسية',
+    'addresses'          => 'عناوين اضافية',
+    'numbers'            => 'هواتف اضافية',
+    'number'             => 'الرقم',
+    'location'           => 'العنوان',
 
     'code'               => 'ترميز',
     'credit'             => 'عدد الساعات',

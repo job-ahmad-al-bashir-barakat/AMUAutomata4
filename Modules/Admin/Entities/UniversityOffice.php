@@ -4,10 +4,10 @@ namespace Modules\Admin\Entities;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Modules\Admin\Entities\LangModels\UnivercityOfficeNameLang;
+use Modules\Admin\Entities\LangModels\UniversityOfficeNameLang;
 use Modules\Utilities\Traits\MultiLangs;
 
-class UnivercityOffice extends \Eloquent
+class UniversityOffice extends \Eloquent
 {
     use SoftDeletes ,MultiLangs;
 
@@ -17,7 +17,7 @@ class UnivercityOffice extends \Eloquent
 
     public function transName()
     {
-        return $this->hasMany(UnivercityOfficeNameLang::class);
+        return $this->hasMany(UniversityOfficeNameLang::class);
     }
 
     public function getLangNameAttribute()

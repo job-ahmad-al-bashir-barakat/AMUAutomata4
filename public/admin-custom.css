@@ -119,3 +119,19 @@ td.center {
     padding: 15%;
     text-align: center;
 }
+
+/**
+ *  Notify
+ */
+
+.uk-notify {
+    z-index: 999999999;
+}
+
+.uk-notify .notify span:first-child {
+
+    padding: 10px 12px;
+    display: flex;
+    float: right;
+    font-size: 25px;
+}

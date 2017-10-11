@@ -17,7 +17,9 @@ class SiteMenu extends \Eloquent
 
     protected $fillable = ['id' ,'parent_id' ,'name_route' ,'order' ,'is_link' ,'menuable_id' ,'menuable_type'];
 
-    protected $appends = ['lang_name' ,'title'];
+    protected $appends = ['lang_name' ,'title' ,'titles'];
+
+    protected $with = ['menuable'];
 
     public function getTitleAttribute()
     {
@@ -31,6 +33,18 @@ class SiteMenu extends \Eloquent
             $title = $this->lang_name[$lang]['text'];
 
         return $title;
+    }
+
+    public function getTitlesAttribute()
+    {
+        $menuable = $this->menuable;
+
+        if($menuable != null && $menuable->count())
+            $titles = $menuable->lang_name;
+        else
+            $titles = $this->lang_name;
+
+        return collect($titles);
     }
 
     public function scopeTypeGeneralCondition($query) {

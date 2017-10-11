@@ -4,10 +4,10 @@ namespace Modules\Admin\Factories;
 
 use Aut\DataTable\Factories\GlobalFactory;
 use Modules\Admin\Entities\Contact;
-use Modules\Admin\Entities\UnivercityOffice;
+use Modules\Admin\Entities\UniversityOffice;
 use Modules\Utilities\Entities\Setting;
 
-class UnivercityOfficeFactory extends GlobalFactory
+class UniversityOfficeFactory extends GlobalFactory
 {
 
     /**
@@ -15,7 +15,7 @@ class UnivercityOfficeFactory extends GlobalFactory
      */
     public function getDatatable($model, $request)
     {
-        $query = UnivercityOffice::with(['contact' => function($query){
+        $query = UniversityOffice::with(['contact' => function($query){
             $query->allLangs();
         } ,'person'])->allLangs()->get();
 
@@ -25,6 +25,8 @@ class UnivercityOfficeFactory extends GlobalFactory
             ->queryMultiLang(['name' ,'contact' => 'address'])
             ->queryUpdateButton('id')
             ->queryDeleteButton('id')
+            ->queryCustomButton('addresses' ,'id' ,'icon-direction' ,'' ,'onclick="openAddressesModal(this)" data-contact={contact->id}')
+            ->queryCustomButton('numbers' ,'id' ,'icon-phone' ,'' ,'onclick="openNumbersModal(this)" data-contact={contact->id}')
             ->queryRender(true);
     }
 
@@ -49,6 +51,8 @@ class UnivercityOfficeFactory extends GlobalFactory
             ->startRelation('contact')
                 ->addInputGroup(trans('admin::app.gelocation'),'contact.gelocation' ,'contact.gelocation' ,'req required none' ,'icon-location-pin' ,'input-location hand' ,['data-modal' => '#modal-univercity-office-input-location'] ,'' ,true ,false ,false ,false ,false)
             ->endRelation()
+            ->addActionButton(trans('admin::app.addresses'),'addresses','addresses' ,'center all' ,'60px')
+            ->addActionButton(trans('admin::app.numbers'),'numbers','numbers' ,'center all' ,'60px')
             ->addActionButton($this->update,'update','update')
             ->addActionButton($this->delete,'delete','delete')
             ->addBlade('univercity-office-input-location-custom' ,view('controle.component.location.input_location', [
@@ -69,7 +73,7 @@ class UnivercityOfficeFactory extends GlobalFactory
     {
         $contact = Contact::create($request->input('contact'));
 
-        UnivercityOffice::create(array_merge($request->except('contact'), ['contact_id' => $contact->id]));
+        UniversityOffice::create(array_merge($request->except('contact'), ['contact_id' => $contact->id]));
     }
 
     /**
@@ -77,7 +81,7 @@ class UnivercityOfficeFactory extends GlobalFactory
      */
     public function updateDatatable($model = null, $request = null, $result = null)
     {
-        $find = UnivercityOffice::findOrFail($request->input('id'))->first();
+        $find = UniversityOffice::findOrFail($request->input('id'))->first();
 
         $find->update($request->input());
 

@@ -56,10 +56,33 @@ return [
     'collapse_all'           => 'Collapse All',
     'reset_tree'             => 'Reset Tree',
     'add_new_node'           => 'Add New Node',
+    'save_order'             => 'Save Order',
     'search_tree'            => 'Search Tree',
     'drag'                   => 'Drag',
+    'prevent_drag_link_on_link' => '<b>Sorry !!!</b><br> you can\'t drag Link on Link',
+    'prevent_drag_list_on_link' => '<b>Sorry !!!</b><br> you can\'t drag List on Link',
+    'link_items_are_colored'    => 'Link Items Are Colored in :color',
+    'list_items_are_colored'    => 'List Items Are Colored in :color',
+    'white'                     => 'white',
+    'sky'                       => 'sky',
 
     'parent'                 => 'Parent',
     'url_path'               => 'Url Path',
     'control_menu'           => 'Control Menu',
+
+    "swal" => [
+        'ok'                => 'Ok',
+        'title'             => 'Are you sure?',
+        'text'              => 'You will not be able to recover this row!',
+        'confirmButtonText' => 'Yes, delete it!',
+        'cancelButtonText'  => 'Cancel',
+        'success'           => [
+            'text'       => 'Deleted!',
+            'message'    => 'Your row has been deleted.',
+        ],
+        'cancleSafe'        => [
+            'text'       => 'Cancelled!',
+            'message'    => 'Your row is safed :)',
+        ]
+    ],
 ];

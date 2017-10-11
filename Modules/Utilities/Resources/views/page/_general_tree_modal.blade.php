@@ -15,6 +15,9 @@
 
 @endcomponent
 
+{{ Form::bsNotify('fa fa-bell-o' , 'prevent-drag-link',trans("utilities::app.prevent_drag_link_on_link")) }}
+{{ Form::bsNotify('fa fa-bell-o' , 'prevent-drag-list',trans("utilities::app.prevent_drag_list_on_link")) }}
+
 <script>
 
     function rejectLinks(draggedElement) {
@@ -35,23 +38,44 @@
 
     function dragSiteMenu(event, item, source, destination, position) {
 
-        var parentLink = $(item).parents('li:first').data('link')
+        var parentLink = $(item).parents('li:first').data('link');
+
+        if((typeof $(item).data('link') == typeof undefined) && parentLink) {
+
+            var _notify = $('.notify-clone.prevent-drag-list').clone();
+
+            HELPER_AMU.notify({html: _notify.html(), status: 'warning' ,pos : 'top-left' , timeout: 1500})
+
+            return false;
+        }
+
         if ((typeof parentLink != typeof undefined && parentLink) == item.data('link')) {
+
             $(item).remove()
 
-            alert('done22');
+            var _notify = $('.notify-clone.prevent-drag-link').clone();
 
-            return
+            HELPER_AMU.notify({html: _notify.html(), status: 'warning' ,pos : 'top-left' , timeout: 1500})
+
+            return;
         }
 
-        if (source != destination) {
+        if ((source != destination) && typeof item.data('saved') == typeof undefined) {
 
-            var parent = $(item).parents('li:first');
-            $.post(destination.closest('.aut-tree').data('url') ,$.extend($(item).data() ,{ parent_id : parent.data('id') , order: parent.find('.dd-list:first').children('li').length }) ,function () {
+            var parent = item.parents('li:first'),
+                order  = item.closest('.dd-list').children('li').length + 1;
+
+            $.post(destination.closest('.aut-tree').data('url') ,$.extend(item.data() ,parent.length > 0 ? { parent_id : parent.data('id') ,order : order } : { order : order }) ,function () {
 
                 APP_AMU.tree.init('.general-tree');
+
+                HELPER_AMU.notify({message: OPERATION_MESSAGE_SUCCESS, status: 'success'})
             });
+
+            return false;
         }
+
+        return true;
     }
 
     function ruleSiteMenu(draggedElement) {
@@ -64,12 +88,66 @@
 
         return reject;
     }
+    
+    function initSiteMenu(event) {
 
-    function actionSiteMenu(draggedElement) {
+        $('.general-tree').off('click').on('click' , '.trash' ,function () {
 
-        alert('done');
+            var $this = $(this),
+                   li = $this.closest('li');
+
+            aut_datatable_swal({
+                title              : '{{ trans('utilities::app.swal.title') }}',
+                text               : '{{ trans('utilities::app.swal.text') }}',
+                type               : 'warning',
+                confirmButtonText  : '{{ trans('utilities::app.swal.confirmButtonText') }}',
+                cancelButtonText   : '{{ trans('utilities::app.swal.cancelButtonText') }}',
+                showCancelButton   : true,
+                showCloseButton    : true,
+                allowEscapeKey     : true,
+                allowOutsideClick  : true,
+                confirmButtonColor : "#DD6B55",
+                showLoaderOnConfirm: true,
+
+            } ,function () {
+
+                $.delete($this.closest('.aut-tree').data('url') +'/'+ li.data('id') ,function () {
+
+                    APP_AMU.tree.init('.general-tree');
+
+                    HELPER_AMU.notify({message: OPERATION_MESSAGE_SUCCESS, status: 'success'});
+
+                });
+
+            });
+
+        });
     }
 
 </script>
 
 
+{{--
+    var attributes = {};
+    $('[data-ordered=true]').each(function(i ,v){
+
+        var value = '';
+        $.each($(this).get(0).attributes, function(i, attrib){
+
+            var matchValue = attrib.value.match("{"),
+                matchData  = attrib.name.match("^data-");
+
+            if(matchData)
+            {
+                if(matchValue && matchValue.length) {
+                    value = JSON.parse(attrib.value);
+                    attributes[attrib.name.slice(5)] = value;
+                } else if(attrib.value) {
+                    value = attrib.value;
+                    attributes[attrib.name.slice(5)] = value;
+                }
+            }
+        });
+        console.log(attributes)
+    });
+--}}

@@ -9,7 +9,7 @@ class AutocompleteHelper
 {
     function generalAutocomplete(Request $request ,$query)
     {
-        $query = $query->TypegeneralCondition();
+        $query = $query->TypeGeneralCondition();
 
         return $this->whereNotNodeAndChildren($query)->whereIsLink(false);
     }

@@ -17,16 +17,16 @@ class HierarchyFactory
         ],lang('name' ,"lang_name->{lang}->text",'all'));
     }
 
-    function setContent()
+    function setContent($control)
     {
         return [
-            'lang_name->'.\App::getLocale().'->text',
+           'link' => 'lang_name->'.\App::getLocale().'->text',
         ];
     }
 
-    function getContent($content)
+    function getContent($content ,$key)
     {
-        return implode('/' ,$content);
+        return implode(' ' ,$content[$key]);
     }
 
     function store(Request $request)

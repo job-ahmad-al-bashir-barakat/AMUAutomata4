@@ -40,7 +40,10 @@ if(! function_exists('colValue'))
         {
             $setItem = $obj;
             foreach (explode('->' ,$col) as $item)
-               $setItem = $setItem[$item];
+                if(isset($setItem[$item]))
+                    $setItem = $setItem[$item];
+                else
+                    return;
 
             return $setItem;
         }
@@ -52,7 +55,8 @@ if(! function_exists('colValue'))
 if(! function_exists('tree'))
 {
     //get prob Val
-    function tree($tree, $group = 1, $group_sourse = '', $maxDepth = 5, $extraParam = [
+    function tree($tree, $group = 1, $group_sourse = '', $maxDepth = 5, $class = '',$extraParam = [
+        'data-type'                   => '',
         'data-empty-text'             => 'Drag Item Here',
         'data-init'                   => 'false',
         'data-drop'                   => 'false',
@@ -60,6 +64,8 @@ if(! function_exists('tree'))
         'data-clone'                  => 'false',
         'data-reject'                 => 'false',
         'data-disable-nest'           => 'false',
+        'data-enable-auto-order-save' => 'false',
+        'data-init-callback'          => '',
         'data-reject-rule-callback'   => '',
         'data-reject-action-callback' => '',
         'data-drag-end-callback'      => '',
@@ -68,6 +74,7 @@ if(! function_exists('tree'))
         $url = localizeURL("utilities/$tree/tree");
 
         $param = [
+            'data-type'                   => '',
             'data-empty-text'             => 'Drag Item Here',
             'data-init'                   => 'false',
             'data-drop'                   => 'false',
@@ -75,6 +82,8 @@ if(! function_exists('tree'))
             'data-clone'                  => 'false',
             'data-reject'                 => 'false',
             'data-disable-nest'           => 'false',
+            'data-enable-auto-order-save' => 'false',
+            'data-init-callback'          => '',
             'data-reject-rule-callback'   => '',
             'data-reject-action-callback' => '',
             'data-drag-end-callback'      => '',
@@ -90,7 +99,7 @@ if(! function_exists('tree'))
                     $attrs .= "{$index}={$item} ";
             }
 
-        return "<div data-url='$url' class='aut-tree $tree-tree ajax' data-group='$group' data-group-source='$group_sourse' data-max-depth='$maxDepth' data-storage-key='$tree-key' $attrs></div>";
+        return "<div data-url='$url' class='aut-tree $tree-tree ajax $class' data-group='$group' data-group-source='$group_sourse' data-max-depth='$maxDepth' data-storage-key='$tree-key' $attrs></div>";
     }
 }
 
@@ -214,5 +223,65 @@ if(! function_exists('lang'))
 
             }; break;
         }
+    }
+}
+
+if(! function_exists('position')) {
+
+    /**
+     *
+     * return position left => ltr or right => rtl
+     *
+     * @return string
+     */
+    function position($pascalCase = false)
+    {
+        if(LaravelLocalization::getCurrentLocaleDirection() == 'ltr')
+        {
+            $position = 'left';
+        }
+        else
+        {
+            $position = 'right';
+        }
+
+        return $pascalCase == true ? str($position)->toPascalCase() : $position;
+    }
+}
+
+
+if(! function_exists('reversePosition')) {
+
+
+    /**
+     *
+     * return position right => ltr or left => rtl
+     *
+     * @return string
+     */
+    function reversePosition($pascalCase = false)
+    {
+        if(LaravelLocalization::getCurrentLocaleDirection() == 'ltr')
+        {
+            $position = 'right';
+        }
+        else
+        {
+            $position = 'left';
+        }
+
+        return $pascalCase == true ? str($position)->toPascalCase() : $position;
+    }
+}
+
+if(! function_exists('direction'))
+{
+    /**
+     * @return string
+     */
+    function direction()
+    {
+
+        return LaravelLocalization::getCurrentLocaleDirection();
     }
 }

@@ -8,21 +8,6 @@ use Modules\Utilities\Entities\SiteMenu;
 
 class SiteMenuFactory
 {
-    //----------
-    //// id , parent_id , order , is_link ,menuable_id , menuable_type , trans_name
-    //// make save list and update from modal
-    //// make save on drag link
-    //// save link on link not right
-    //// autocompelte must has list item on list
-    //// you can add and order list on list and link on list
-    //// you can not add or order list on link
-    //// add delete button on item and notify
-    //// fix rtl css / html
-    //----------
-    // faculties is list and department  is link
-    // offices is list and add it on menusTables
-    // upadte univercity office name
-
     function dataAttr()
     {
         return array_merge([
@@ -31,21 +16,28 @@ class SiteMenuFactory
             'order'             => 'order',
             'type'              => 'menuable_type',
             'link'              => 'is_link',
-        ],lang('name' ,"lang_name->{lang}->text",'all'));
+            'fixed_field'       => 'data-saved',
+        ],lang('name' ,"titles->{lang}->text",'all'));
     }
 
-    function setContent()
+    function setContent($control)
     {
-        return [
+        $items = [
             //todo: make delete button
-            'html' => "<span style='padding: 4px; float: right; display: flex;' class='tags'><i class='icon-trash'></i></span>",
-            'title',
+            'icons' => "<span style='padding: 4px; display: flex;' class='trash pull-right hand'><i class='icon-trash'></i></span>",
         ];
+
+        if($control->is_link)
+            $items[] = 'title';
+        else
+            $items['link'] = 'title';
+
+        return $items;
     }
 
-    function getContent($content)
+    function getContent($content ,$key)
     {
-        return implode(' ' ,$content);
+        return implode(' ' ,$content[$key]);
     }
 
     /**
@@ -101,8 +93,6 @@ class SiteMenuFactory
 
     function update(Request $request ,$id)
     {
-        dd('update');
-
         $node = SiteMenu::findOrFail($id);
 
         $node->update($request->except('id'));

@@ -3,7 +3,7 @@
 return [
     'home'               => 'Home',
     'setting'            => 'Setting',
-    'univercity'         => 'Univercity',
+    'university'         => 'University',
     'faculties'          => 'Faculties',
     'degrees'            => 'Degrees',
     'departments'        => 'Departments',
@@ -34,6 +34,9 @@ return [
     'faculty_courses'    => 'Faculty Courses',
     'offices'            => 'Offices',
     'study_plan'         => 'Study Plan',
+    'addresses'          => 'Extra Addresses',
+    'numbers'            => 'Extra Numbers',
+    'number'             => 'Number',
 
     'responsible_person' => 'Responsible Person',
     'address1'           => 'First Address',

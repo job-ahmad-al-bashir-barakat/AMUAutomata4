@@ -56,10 +56,34 @@ return [
     'collapse_all'           => 'اغلاق الجميع',
     'reset_tree'             => 'تصفير الشجرة',
     'add_new_node'           => 'اضافة عقدة جديدة',
+    'save_order'             => 'حفظ الترتيب',
     'search_tree'            => 'البحث في الشجرة',
     'drag'                   => 'سحب',
+    'prevent_drag_link_on_link' => '<b>المعذرة !!!</b><br> لايمكنك وضع رابط داخل رابط اخر',
+    'prevent_drag_list_on_link' => '<b>المعذرة !!!</b><br> لايمكنك وضع قائمة داخل رابط اخر',
+    'link_items_are_colored'    => ' جميع الروابط ملونة بـ:color',
+    'list_items_are_colored'    => ' جميع القوائم ملونة بـ:color',
+    'white'                     => 'الابيض',
+    'sky'                       => 'السماوي',
+
 
     'parent'                 => 'الأب',
     'url_path'               => 'عنوان الرابط',
     'control_menu'           => 'قائمة التحكم',
+
+    "swal" => [
+        'ok'                => 'موافق',
+        'title'             => 'هل أنت متأكد ؟',
+        'text'              => 'لن يكون بامكانك استعادة هذا السجل',
+        'confirmButtonText' => 'نعم قم بحذفه !',
+        'cancelButtonText'  => 'إغلاق',
+        'success'           => [
+            'text'       => 'تم الحذف !',
+            'message'    => 'سجلك قد تم حذفه.',
+        ],
+        'cancleSafe'        => [
+            'text'       => 'إغلاق',
+            'message'    => 'سجلك مايزال آمن :)',
+        ]
+    ],
 ];
