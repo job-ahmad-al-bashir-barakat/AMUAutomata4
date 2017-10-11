@@ -2,10 +2,10 @@
 
 namespace Aut\DataTable;
 
+use Route;
+use LaravelLocalization;
 use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
-use LaravelLocalization;
-use Route;
 
 class DataTableServiceProvider extends ServiceProvider
 {
