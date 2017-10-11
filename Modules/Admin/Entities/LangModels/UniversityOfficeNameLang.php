@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Modules\Utilities\Traits\LangInfo;
 
-class UnivercityOfficeNameLang extends Model
+class UniversityOfficeNameLang extends Model
 {
     use SoftDeletes ,LangInfo;
 

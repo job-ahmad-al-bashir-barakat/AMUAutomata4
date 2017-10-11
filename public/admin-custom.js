@@ -742,17 +742,17 @@ var APP_AMU = {
 
         init : function ($this ,$node) {
 
-            var $cont        = $($this), //$this || $(this)
-                $treeParam   = $node != null ? "?nodeId=" + $node : "",
-                clone        = typeof $cont.data('clone') != typeof undefined ? JSON.parse($cont.data('clone')) : false,
-                groupSource  = typeof $cont.data('group-source') != typeof undefined ? $cont.data('group-source') : undefined,
-                reject       = typeof $cont.data('reject') != typeof undefined ? JSON.parse($cont.data('reject')) : false,
-                init         = typeof $cont.data('init') != typeof undefined ? JSON.parse($cont.data('init')) : false,
-                drop         = typeof $cont.data('drop') != typeof undefined ? JSON.parse($cont.data('drop')) : false,
-                drop_exists  = typeof $cont.data('drop-exists') != typeof undefined ? JSON.parse($cont.data('drop-exists')) : false,
-                disableNest  = typeof $cont.data('disable-nest') != typeof undefined ? JSON.parse($cont.data('disable-nest')) : false,
-                emptyText    = typeof $cont.data('empty-text') !=  typeof undefined ? $cont.data('empty-text') : 'Drag Here';
-
+            var $cont               = $($this), //$this || $(this)
+                $treeParam          = $node != null ? "?nodeId=" + $node : "",
+                clone               = typeof $cont.data('clone') != typeof undefined ? JSON.parse($cont.data('clone')) : false,
+                groupSource         = typeof $cont.data('group-source') != typeof undefined ? $cont.data('group-source') : undefined,
+                reject              = typeof $cont.data('reject') != typeof undefined ? JSON.parse($cont.data('reject')) : false,
+                init                = typeof $cont.data('init') != typeof undefined ? JSON.parse($cont.data('init')) : false,
+                drop                = typeof $cont.data('drop') != typeof undefined ? JSON.parse($cont.data('drop')) : false,
+                drop_exists         = typeof $cont.data('drop-exists') != typeof undefined ? JSON.parse($cont.data('drop-exists')) : false,
+                disableNest         = typeof $cont.data('disable-nest') != typeof undefined ? JSON.parse($cont.data('disable-nest')) : false,
+                emptyText           = typeof $cont.data('empty-text') !=  typeof undefined ? $cont.data('empty-text') : 'Drag Here',
+                enableAutoOrderSave = typeof $cont.data('enable-auto-order-save') !=  typeof undefined ? JSON.parse($cont.data('enable-auto-order-save')) : false;
 
             var optionsObj = {
                 maxDepth: $cont.data('max-depth'),
@@ -774,30 +774,30 @@ var APP_AMU = {
             if(reject)
                 optionsObj.reject = [{
 
-                        rule: function(draggedElement) {
+                    rule: function(draggedElement) {
 
-                            // The this object refers to dragRootEl i.e. the nestable root element. The drag action is cancelled if this function returns true
-                            // The rule here is that it is forbidden drag elements to first-level children
+                        // The this object refers to dragRootEl i.e. the nestable root element. The drag action is cancelled if this function returns true
+                        // The rule here is that it is forbidden drag elements to first-level children
 
-                            var rule;
+                        var rule;
 
-                            if(typeof $cont.data('reject-rule-callback') != typeof undefined)
-                                rule = window[$cont.data('reject-rule-callback')](draggedElement);
-                            else
-                                rule = false;
+                        if(typeof $cont.data('reject-rule-callback') != typeof undefined)
+                            rule = window[$cont.data('reject-rule-callback')](draggedElement);
+                        else
+                            rule = false;
 
-                            return rule;
-                        },
+                        return rule;
+                    },
 
-                        action: function(draggedElement) {
+                    action: function(draggedElement) {
 
-                            // This optional function defines what to do when such a rule applies
-                            // alert('You can\'t do that !');
+                        // This optional function defines what to do when such a rule applies
+                        // alert('You can\'t do that !');
 
-                            if(typeof $cont.data('reject-action-callback') != typeof undefined)
-                                window[$cont.data('reject-action-callback')](draggedElement);
-                        }
-                    }];
+                        if(typeof $cont.data('reject-action-callback') != typeof undefined)
+                            window[$cont.data('reject-action-callback')](draggedElement);
+                    }
+                }];
 
             if(init)
                 optionsObj.afterInit = function ( event ) {
@@ -819,11 +819,13 @@ var APP_AMU = {
                         // Make an ajax request to persist move on database
                         // here you can pass item-id, source-id, destination-id and position index to the server
 
+                        // need this for save order operation
                         if($cont.hasClass('order')) {
 
                             item.parent().children('li').each(function (i, v) {
 
                                 $(this).attr('data-order', i + 1);
+                                $(this).attr('data-ordered',true);
                             });
                         }
 
@@ -851,57 +853,60 @@ var APP_AMU = {
                                 item.remove();
                         }
 
-                        if($cont.hasClass('ajax')) {
+                        if(enableAutoOrderSave) {
 
-                            var item   = $(_.head(item)),
-                                id     = item.data('id'),
-                                parent = item.parents('li:first').data('id'),
-                                parent_target = item.data('parent');
+                            if($cont.hasClass('ajax')) {
 
-                            // get serialize data from tree
-                            var list = event.length ? event : $(event.target);
+                                var item   = $(_.head(item)),
+                                    id     = item.data('id'),
+                                    parent = item.parents('li:first').data('id'),
+                                    parent_target = item.data('parent');
 
-                            var ObjectOrderSerialize = list.nestable('serialize');
+                                // get serialize data from tree
+                                var list = event.length ? event : $(event.target);
 
-                            var data;
-                            if (parent_target) {
-                                //children
-                                data = JSPath.apply('..{.parent.id == "' + parent_target.id + '"}', ObjectOrderSerialize);
-                            } else {
-                                //parent
-                                data = JSPath.apply('.', ObjectOrderSerialize);
+                                var ObjectOrderSerialize = list.nestable('serialize');
+
+                                var data;
+                                if (parent_target) {
+                                    //children
+                                    data = JSPath.apply('..{.parent.id == "' + parent_target.id + '"}', ObjectOrderSerialize);
+                                } else {
+                                    //parent
+                                    data = JSPath.apply('.', ObjectOrderSerialize);
+                                }
+
+                                //reorder html item
+                                item.parent().children('li').each(function (i, v) {
+
+                                    $(this).attr('data-order', i + 1);
+                                });
+
+                                //reorder data
+                                _.each(data, function (v, k) {
+                                    v.order = k + 1;
+                                });
+
+                                if (!id)
+                                    console.log('please set an data-id and data-parent for every item');
+
+                                parent = typeof parent != typeof undefined ? parent : null;
+
+                                $.put($cont.data('url') + "/" + id, {
+                                    "parent": parent,
+                                    "drag": true,
+                                    "order": position + 1,
+                                    "data": data
+                                }, function (res) {
+
+                                    if (typeof res.id != typeof null)
+                                        item.attr('data-parent', '{ "id" : "' + res.id + '","name" : "' + res.name + '"}');
+                                    else
+                                        item.removeAttr('data-parent');
+
+                                    HELPER_AMU.notify({message: res.operation_message, status: 'success'});
+                                });
                             }
-
-                            //reorder html item
-                            item.parent().children('li').each(function (i, v) {
-
-                                $(this).attr('data-order', i + 1);
-                            });
-
-                            //reorder data
-                            _.each(data, function (v, k) {
-                                v.order = k + 1;
-                            });
-
-                            if (!id)
-                                console.log('please set an data-id and data-parent for every item');
-
-                            parent = typeof parent != typeof undefined ? parent : null;
-
-                            $.put($cont.data('url') + "/" + id, {
-                                "parent": parent,
-                                "drag": true,
-                                "order": position + 1,
-                                "data": data
-                            }, function (res) {
-
-                                if (typeof res.id != typeof null)
-                                    item.attr('data-parent', '{ "id" : "' + res.id + '","name" : "' + res.name + '"}');
-                                else
-                                    item.removeAttr('data-parent');
-
-                                HELPER_AMU.notify({message: res.operation_message, status: 'success'});
-                            });
                         }
                     })
                     //.off('beforeDragStart').on('beforeDragStart', function(handle) {})
@@ -984,8 +989,6 @@ var APP_AMU = {
                 // get length for first level
                 $length = $treeContId.find('.dd .dd-list:first').children('li').length + 1;
 
-            console.log();
-
             // add order to order input inside form
             $this.closest('form')
                 .find('#order')
@@ -1025,7 +1028,31 @@ var APP_AMU = {
                 $(modal).find(APP_AMU.tree.parentAutocompleteSelector).trigger('change');
             }
 
+            if (action == 'save_order') {
+                APP_AMU.tree.saveTreeOrder(treeCont);
+            }
+
             $.localStorage.set(treeCont.data('storage-key') || APP_AMU.tree.storageKeyName, {"action": action});
+        },
+
+        saveTreeOrder: function (treeCont) {
+
+            $.put($cont.data('url') + "/" + id, {
+                "parent": parent,
+                "drag": true,
+                "order": position + 1,
+                "data": data
+            }, function (res) {
+
+                APP_AMU.tree.init('.general-tree');
+
+                if (typeof res.id != typeof null)
+                    item.attr('data-parent', '{ "id" : "' + res.id + '","name" : "' + res.name + '"}');
+                else
+                    item.removeAttr('data-parent');
+
+                HELPER_AMU.notify({message: res.operation_message, status: 'success'});
+            });
         },
 
         eventFormAdd: function () {

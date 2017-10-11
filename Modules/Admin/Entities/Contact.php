@@ -41,4 +41,14 @@ class Contact extends \Eloquent
     {
         return $this->socialNetwork->keyBy('code');
     }
+
+    function phoneNumbers()
+    {
+        return $this->hasMany(PhoneNumbers::class);
+    }
+
+    function addresses()
+    {
+        return $this->hasMany(Addresses::class);
+    }
 }

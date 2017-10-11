@@ -4,7 +4,7 @@
     'action'              => treeUrl($view),
     'successFunc'         => 'controlMenu',
     'stopDeleteSerialize' => true,
-    'attr'                => ['data-tree-target' => 'control-tree']
+    'attr'                => ['data-tree-target' => '.control-tree']
 ])
     {{ Form::bsPrimarykey('id' ,'id' ,null ,'' ,['data-json' => 'id']) }}
     {{ Form::bsHidden('control_page_id' ,'control_page_id' ,null ,'' ,['data-json' => 'control-page-id']) }}
@@ -18,6 +18,6 @@
 <script>
     function controlMenu(form ,res) {
 
-        APP_AMU.tree.ajaxLoad($('.' + $(form).data('tree-target')));
+        APP_AMU.tree.init($(form).data('tree-target'));
     }
 </script>

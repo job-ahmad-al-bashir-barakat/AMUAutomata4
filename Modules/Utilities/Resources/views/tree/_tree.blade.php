@@ -2,7 +2,8 @@
     <a data-action="expand-all" class="btn btn-default btn-sm mr-sm">{{ trans('utilities::app.expand_all') }}</a>
     <a data-action="collapse-all" class="btn btn-default btn-sm mr-sm">{{ trans('utilities::app.collapse_all') }}</a>
     <a data-action="reset_tree" class="btn btn-default btn-sm mr-sm">{{ trans('utilities::app.reset_tree') }}</a>
-    <a data-action="add_tree_node" class="btn btn-default btn-sm" data-toggle="modal" data-target="#modal-{{$model}}-tree" data-form-add>{{ trans('utilities::app.add_new_node') }}</a>
+    <a data-action="add_tree_node" class="btn btn-default btn-sm mr-sm" data-toggle="modal" data-target="#modal-{{$model}}-tree" data-form-add>{{ trans('utilities::app.add_new_node') }}</a>
+    <a data-action="save_order" class="btn btn-default btn-sm">{{ trans('utilities::app.save_order') }}</a>
 </div>
 <div>
     <div style="margin-top: 5px;">

@@ -177,10 +177,23 @@ return [
     ],
 
     'offices' => [
-      'model'   => \Modules\Admin\Entities\UnivercityOffice::class,
-      'factory' => \Modules\Admin\Factories\UnivercityOfficeFactory::class,
+      'model'   => \Modules\Admin\Entities\UniversityOffice::class,
+      'factory' => \Modules\Admin\Factories\UniversityOfficeFactory::class,
       'stopOperation' => ['store' ,'update']
     ],
+
+    'contact-addresses' => [
+        'model'    => \Modules\Admin\Entities\Contact::class,
+        'factory'  => \Modules\Admin\Factories\ContactAddressesFactory::class,
+        'stopOperation' => ['store' ,'update' ,'destroy']
+    ],
+
+    'contact-numbers' => [
+        'model'   => \Modules\Admin\Entities\Contact::class,
+        'factory' => \Modules\Admin\Factories\ContactNumbersFactory::class,
+        'stopOperation' => ['store' ,'update' ,'destroy']
+    ],
+
 
     'semester' => [
         'model'   => \Modules\Admin\Entities\Semester::class,

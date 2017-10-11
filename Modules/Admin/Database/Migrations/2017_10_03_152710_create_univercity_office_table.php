@@ -13,7 +13,7 @@ class CreateUnivercityOfficeTable extends Migration
      */
     public function up()
     {
-        Schema::create('univercity_offices', function (Blueprint $table) {
+        Schema::create('university_offices', function (Blueprint $table) {
             $table->increments('id')->unsigned();
             $table->integer('contact_id');
             $table->integer('person_id');
@@ -29,6 +29,6 @@ class CreateUnivercityOfficeTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('univercity_offices');
+        Schema::dropIfExists('university_offices');
     }
 }

@@ -56,6 +56,7 @@ return [
     'collapse_all'           => 'Collapse All',
     'reset_tree'             => 'Reset Tree',
     'add_new_node'           => 'Add New Node',
+    'save_order'             => 'Save Order',
     'search_tree'            => 'Search Tree',
     'drag'                   => 'Drag',
     'prevent_drag_link_on_link' => '<b>Sorry !!!</b><br> you can\'t drag Link on Link',

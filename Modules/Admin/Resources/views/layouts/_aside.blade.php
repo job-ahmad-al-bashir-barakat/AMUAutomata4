@@ -6,12 +6,12 @@
     </li>
 
     <li class="">
-        <a href="#univercity" title="{{ trans('admin::app.univercity') }}" data-toggle="collapse" class="">
+        <a href="#university" title="{{ trans('admin::app.university') }}" data-toggle="collapse" class="">
             <em class="icon-cup"></em>
-            <span>{{ trans('admin::app.univercity') }}</span>
+            <span>{{ trans('admin::app.university') }}</span>
         </a>
-        <ul id="univercity" class="nav sidebar-subnav collapse">
-            <li class="sidebar-subnav-header">{{ trans('admin::app.univercity') }}</li>
+        <ul id="university" class="nav sidebar-subnav collapse">
+            <li class="sidebar-subnav-header">{{ trans('admin::app.university') }}</li>
 
             <li class="">
                 <a href="{{ localizeURL('admin/faculties') }}" class="ajax" title="{{ trans('admin::app.faculties') }}">

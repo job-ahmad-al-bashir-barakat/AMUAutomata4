@@ -56,6 +56,7 @@ return [
     'collapse_all'           => 'اغلاق الجميع',
     'reset_tree'             => 'تصفير الشجرة',
     'add_new_node'           => 'اضافة عقدة جديدة',
+    'save_order'             => 'حفظ الترتيب',
     'search_tree'            => 'البحث في الشجرة',
     'drag'                   => 'سحب',
     'prevent_drag_link_on_link' => '<b>المعذرة !!!</b><br> لايمكنك وضع رابط داخل رابط اخر',

@@ -17,13 +17,13 @@
         <div class="panel-body {{ $class or '' }}">
             {!! $slot or $html !!}
         </div>
-    </div>
-    @if(preg_match('/\b(?<![\S])(footer)(?![\S])\b/',$class))
-        <div class="panel-footer">
-            <div class="clearfix">
-                {{ $footer or '' }}
+        @if(preg_match('/\b(?<![\S])(footer)(?![\S])\b/',$class))
+            <div class="panel-footer">
+                <div class="clearfix">
+                    {{ $footer or '' }}
+                </div>
             </div>
-        </div>
-    @endif
+        @endif
+    </div>
 </div>
 <!-- END panel-->
