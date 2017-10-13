@@ -143,15 +143,29 @@ function aut_datatable_initAutocomplete(Data) {
 }
 
 var aut_datatable_formatRepo = function (repo) {
-    if (repo.loading)
-        return repo.text;
-    return repo.name;
+
+    // if (repo.loading)
+    //     return repo.text;
+    // return repo.name;
+
+    return repo.name || repo.text;
 };
 
 var aut_datatable_formatRepoSelection = function (repo) {
-    if(typeof repo.selected === typeof undefined)
-        return repo.text;
-    return repo.name;
+
+    // if(typeof repo.selected === typeof undefined)
+    //     return repo.text;
+    // return repo.name;
+
+    var repoText = repo.text || repo.name;
+    var $option = $(repo.element);
+    for(var key in repo){
+        if(key.startsWith('data-')){
+            $option.attr(key, repo[key]);
+            //$option.data('type')
+        }
+    }
+    return repoText;
 };
 
 function aut_datatable_selectedAutocomplete(selector,data) {
@@ -227,20 +241,20 @@ function _DataTableValidate($cont, callback) {
                     jQuery(e).closest('.form-group').find('div[id*=error_]').append(error);
                 },
                 highlight: function(e, errorClass, validClass) {
-                    var elem = jQuery(e);
 
+                    var elem = jQuery(e);
                     elem.closest('.form-group > div').removeClass('has-error').addClass('has-error');
                     elem.closest('.help-block').remove();
                 },
                 unhighlight: function(e, errorClass, validClass) {
-                    var elem = jQuery(e);
 
+                    var elem = jQuery(e);
                     elem.closest('.form-group > div').removeClass('has-error');
                     elem.closest('.help-block').remove();
                 },
                 success: function(e) {
-                    var elem = jQuery(e);
 
+                    var elem = jQuery(e);
                     elem.closest('.form-group  > div').removeClass('has-error');
                     elem.closest('.help-block').remove();
                 }

@@ -53,6 +53,6 @@ class FacultyFactory extends GlobalFactory
 
     public function updateDatatable($model ,$request ,$result)
     {
-
+        $result->studyYear()->sync($request->input('study_year.id'));
     }
 }

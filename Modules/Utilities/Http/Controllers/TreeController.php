@@ -238,7 +238,7 @@ class TreeController extends Controller
         if(count($request->input('data')))
             foreach ($request->input('data') as $index => $item) {
 
-                $model::where('id' ,'=' ,$item['id'])->update(['order' => $item['order'] ,'parent_id' => isset($item['parent']) ? $item['parent']['id'] : null ]);
+                $model::where('id' ,'=' ,$item['id'])->update(['order' => $item['order'] ,'parent_id' => isset($item['parent']) ? $item['parent']['id'] : null]);
             }
 
         return Response::json(['operation_message' => trans('app.oper.successOrder')]);

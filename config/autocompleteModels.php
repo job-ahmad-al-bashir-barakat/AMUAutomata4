@@ -10,26 +10,26 @@
  *  |  ------------------------------   |  -----------------------------
  *  |  'colId'     => 'id',             |  'colId'     => 'id',
  *  |  'colName'   => 'name_{lang}',    |  'colName'   => 'transName->text',
- *  |  'condition' => [                 |  'condition' => [
+ *  |  'q'         => [                 |  'q'         => [
  *  |      'name_{langs}',              |      'transName' => 'text',
  *  |  ]                                |  ]
  *
  * ----------------------------------------------------------------------------------------------------
  * model     : define model for fetch data from it
  * ----------------------------------------------------------------------------------------------------
- * condition : is array of relation => condition
+ * q : is array of relation => condition
  *
  * -- (just withLang) type {langs} with col this will loop over all lang to add them as condition
- * -- if you add condition as item key\value in array this will be  $wheteHas => $col condition
+ * -- if you add q as item key\value in array this will be  $wheteHas => $col condition
  *
- *| 'condition' => [
+ *| 'q' => [
  *|      //ps: whereHas page => filter on code col
  *|      'page' => 'code',
  *|  ],
  *
- * -- if you add condition as item just value in array this will be traditional where condition
+ * -- if you add q as item just value in array this will be traditional where condition
  *
- *| 'condition' => [
+ *| 'q' => [
  *|      //ps: where code col
  *|      'code',
  *|  ],
@@ -83,27 +83,27 @@ return [
 
     'icons' => [
         'model' => \Modules\Utilities\Entities\Icon::class,
-        'condition' => ['code'],
+        'q'     => ['code'],
         'colName'  => 'icon_html'
     ],
 
     'sliders' => [
         'model' => \Modules\Utilities\Entities\Slider::class,
-        'condition'   => [
+        'q'     => [
             'sliderDetails' => 'id',
         ],
     ],
 
     'vertical-sliders' => [
         'model' => \Modules\Utilities\Entities\VerticalSlider::class,
-        'condition'   => [
+        'q'     => [
             'verticalSliderDetails' => 'id',
         ],
     ],
 
     'blocks' => [
         'model' => \Modules\Utilities\Entities\Block::class,
-        'condition'   => [
+        'q'     => [
             'blockDetails' => 'id',
         ],
     ],
@@ -111,7 +111,7 @@ return [
     'steps' => [
         'model' => \Modules\Utilities\Entities\Step::class,
         'colName'  => 'transTitle->text',
-        'condition' => [
+        'q'        => [
             'transTitle' => 'text',
         ],
     ],
@@ -122,14 +122,24 @@ return [
 
     'degree' => [
         'model' => \Modules\Admin\Entities\Degree::class,
+        'conditions' => [
+            ['faculty_id' ,'=' ,'request:faculty'],
+        ],
     ],
 
     'department' => [
         'model' => \Modules\Admin\Entities\Department::class,
+        'conditions' => [
+            ['faculty_id' ,'=' ,'request:faculty'],
+        ],
     ],
 
     'course' => [
         'model' => \Modules\Admin\Entities\Course::class,
+        'conditions' => [
+            ['id' ,'<>' ,'request:course'],
+            ['faculty_id' ,'<>' ,'request:faculty'],
+        ],
     ],
 
     'person' => [
@@ -150,7 +160,7 @@ return [
 
     'control' => [
         'model' => \Modules\Utilities\Entities\ControlMenu::class,
-        'condition'   => [
+        'q'     => [
             'page' => 'control_page_code',
         ],
         'colName'  => 'page->control_page_code',
@@ -159,13 +169,25 @@ return [
     'general' => [
         'model' => \Modules\Utilities\Entities\SiteMenu::class,
         //todo: fix this condition for menu autocompelte
-        'condition' => false,
+        'q'       => false,
         'colName' => 'title',
-        'colId' => 'id',
+        'colId'   => 'id',
     ],
 
     'study-year' => [
-        'model' => \Modules\Admin\Entities\StudyYear::class
+        'model'  => \Modules\Admin\Entities\StudyYear::class,
+    ],
+
+    'faculty-study-year' => [
+        'model'   => \Modules\Admin\Entities\Faculty::class,
+        'with'    => ['studyYear'],
+        'data'    => 'studyYear',
+        'q'       => [
+            'studyYear.transName' => 'text'
+        ],
+        'conditions' => [
+            ['id' ,'=' ,'request:faculty'],
+        ],
     ],
 
     'hierarchy' => [

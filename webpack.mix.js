@@ -42,6 +42,7 @@ mix.styles([
     'Modules/Admin/Assets/vendor/sweetalert/dist/sweetalert2.min.css',
     'Modules/Admin/Assets/vendor/bootstrap-fileinput/css/fileinput.css',
     'Modules/Admin/Assets/vendor/cropper/dist/cropper.css',
+    'Modules/Admin/Assets/vendor/dragula/dragula.css',
     'node_modules/loaders.css/loaders.css',
     'Aut/DataTable/src/Assets/css/ltr/datatables-custom-ltr.css',
     'Aut/DataTable/src/Assets/css/shared/datatables-custom.css',
@@ -70,6 +71,7 @@ mix.styles([
     'Modules/Admin/Assets/vendor/bootstrap-fileinput/css/fileinput.css',
     'Modules/Admin/Assets/vendor/bootstrap-fileinput/css/fileinput-rtl.css',
     'Modules/Admin/Assets/vendor/cropper/dist/cropper.css',
+    'Modules/Admin/Assets/vendor/dragula/dragula.css',
     'node_modules/loaders.css/loaders.css',
     'Aut/DataTable/src/Assets/css/rtl/datatables-custom-rtl.css',
     'Aut/DataTable/src/Assets/css/shared/datatables-custom.css',
@@ -138,6 +140,8 @@ var js = [
     'Modules/Admin/Assets/vendor/bootstrap-fileinput/js/fileinput.js',
     'Modules/Admin/Assets/vendor/bootstrap-fileinput/themes/fa/theme.js',
     'Modules/Admin/Assets/vendor/cropper/dist/cropper.js',
+    'Modules/Admin/Assets/vendor/dragula/dragula.js',
+
 
     // 'Modules/Admin/Assets/vendor/nestable/jquery.nestable.js',
     'Modules/Admin/Assets/vendor/jquery.inputmask/dist/jquery.inputmask.bundle.js',

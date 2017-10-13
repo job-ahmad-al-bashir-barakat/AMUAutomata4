@@ -317,9 +317,10 @@ var APP_AMU = {
         formatRepoSelection: function (repo) {
             var repoText = repo.text || repo.name;
             var $option = $(repo.element);
-            for (var key in repo) {
-                if (key.startsWith('data-')) {
-                    $option.attr(key.replace('data-', ''), repo[key]);
+            for(var key in repo){
+                if(key.startsWith('data-')){
+                    $option.attr(key, repo[key]);
+                    //$option.data('type')
                 }
             }
             return repoText;
@@ -540,7 +541,7 @@ var APP_AMU = {
                                 : _.lowerCase($form.attr('method'));
                         }
 
-                        $[$method](APP_AMU.validate.changeAction($form), $data, function (res) {
+                        $[$method]($button.data('action') || APP_AMU.validate.changeAction($form), $data, function (res) {
 
                             // if form was inside modal we will close it after save
                             if (typeof $form.parents('.modal') != typeof undefined)
@@ -576,7 +577,8 @@ var APP_AMU = {
                             if (typeof $button.data('ajax-form-delete-success') != typeof undefined)
                                 window[$button.data('ajax-form-delete-success')](form, res);
 
-                            HELPER_AMU.notify({message: res.operation_message || OPERATION_MESSAGE_SUCCESS, status: 'success'})
+                            if(!($button.is('[data-stop-operation-message]') || $form.is('[data-stop-operation-message]')))
+                                HELPER_AMU.notify({message: res.operation_message || OPERATION_MESSAGE_SUCCESS, status: 'success'})
 
                         }).fail(function (res) {
 
@@ -594,30 +596,28 @@ var APP_AMU = {
                     errorClass: 'validate-error validate-error-help-block validate-error-style animated fadeInDown',
                     errorElement: 'div',
                     invalidHandler: function (event, validator) {
+
                         if (validator.errorList.length)
                             $('[data-tab=' + $(validator.errorList[0].element).closest('[data-tab]').data('tab') + ']').trigger('click');
                     },
                     errorPlacement: function (error, e) {
 
-                        jQuery(e).closest('.form-group').find('div[id*=error_]').append(error);
+                        jQuery(e).parent().find('div[id*=error_]').append(error);
                     },
                     highlight: function (e, errorClass, validClass) {
 
                         var elem = jQuery(e);
-                        elem.closest('.form-group > div').removeClass('has-error').addClass('has-error');
-                        elem.closest('.help-block').remove();
+                        elem.closest('div').addClass('has-error');
                     },
                     unhighlight: function (e, errorClass, validClass) {
 
                         var elem = jQuery(e);
-                        elem.closest('.form-group > div').removeClass('has-error');
-                        elem.closest('.help-block').remove();
+                        elem.closest('div').removeClass('has-error');
                     },
                     success: function (e) {
 
                         var elem = jQuery(e);
-                        elem.closest('.form-group  > div').removeClass('has-error');
-                        elem.closest('.help-block').remove();
+                        elem.closest('div').removeClass('has-error');
                     }
                 });
             });
