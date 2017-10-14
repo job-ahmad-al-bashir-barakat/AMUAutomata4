@@ -11,6 +11,7 @@ class HierarchyFactory
     {
         return array_merge([
             'id'                => 'id' ,
+            'name'              => 'lang_name->'.\App::getLocale().'->text',
             'parent'            => ['id' => 'parent_id' ,'name' => 'parent->lang_name->'.\App::getLocale().'->text'],
             'hierarchy-type'    => ['id' => 'hierarchy_type_id' ,'name' => 'hierarchyType->lang_name->'.\App::getLocale().'->text'],
             'order'             => 'order',

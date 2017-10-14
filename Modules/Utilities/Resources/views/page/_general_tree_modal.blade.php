@@ -116,38 +116,10 @@
                     APP_AMU.tree.init('.general-tree');
 
                     HELPER_AMU.notify({message: OPERATION_MESSAGE_SUCCESS, status: 'success'});
-
                 });
-
             });
 
         });
     }
 
 </script>
-
-
-{{--
-    var attributes = {};
-    $('[data-ordered=true]').each(function(i ,v){
-
-        var value = '';
-        $.each($(this).get(0).attributes, function(i, attrib){
-
-            var matchValue = attrib.value.match("{"),
-                matchData  = attrib.name.match("^data-");
-
-            if(matchData)
-            {
-                if(matchValue && matchValue.length) {
-                    value = JSON.parse(attrib.value);
-                    attributes[attrib.name.slice(5)] = value;
-                } else if(attrib.value) {
-                    value = attrib.value;
-                    attributes[attrib.name.slice(5)] = value;
-                }
-            }
-        });
-        console.log(attributes)
-    });
---}}

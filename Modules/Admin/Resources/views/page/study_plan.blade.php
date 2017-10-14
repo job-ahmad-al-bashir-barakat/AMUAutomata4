@@ -5,64 +5,73 @@
 @endsection
 
 @section('content')
-        <div class="row">
-
-            <div class="col-lg-3 col-xs-12 pull-right">
-                @component('controle.component.panel' ,[
-                      'title' => 'Filter Courses',
-                      'class' => 'footer'
-                ])
-                    {{ Form::model(isset($modal) ? $modal : [] ,['class' => 'form-horizontal']) }}
-                    <div class="col-lg-12">
-                        {{ Form::bsAutocomplete(trans('admin::app.faculty') ,'faculty' ,'faculty' ,'autocomplete/faculty' ,[] ,'3' ,'group') }}
-                        {{ Form::bsAutocomplete(trans('admin::app.department') ,'department' ,'department' ,'autocomplete/department' ,[] ,'3' ,'group') }}
-                        {{ Form::bsAutocomplete(trans('admin::app.degree') ,'degree' ,'degree' ,'autocomplete/degree' ,[] ,'3' ,'group') }}
-                    </div>
-                    {{ Form::close() }}
-
-                    @slot('footer')
-                        <div class="text-center">
-                            <button type="submit" class="btn btn-primary filter-courses">{{ trans('app.filter') }}</button>
+    <div class="row">
+        <div class="col-lg-12 col-xs-12">
+            <div class="ajaxCont">
+                {!! Form::open(['id' => 'form-search' ,'url' => localizeURL('admin/study-plan/create'), 'method' => 'get' ,'class' => 'form-horizontal  ajax-form']) !!}
+                    @component('controle.component.panel' ,[
+                          'title' => trans('admin::app.filter_study_plan'),
+                          'class' => 'footer'
+                    ])
+                        <div class="form-group">
+                            <div class="col-lg-12">
+                                {{ Form::bsAutocomplete(trans('admin::app.faculty') ,'faculty' ,'faculty' ,'autocomplete/faculty' ,[] ,'0' ,'c:col-xs-3 required' ,['data-placeholder' => trans('admin::app.faculty')]) }}
+                                {{ Form::bsAutocomplete(trans('admin::app.study_year') ,'study-year' ,'study-year' ,'autocomplete/faculty-study-year' ,[] ,'0' ,'c:col-xs-3 required' ,['data-placeholder' => trans('admin::app.study_year') ,'data-param' => '#faculty']) }}
+                                {{ Form::bsAutocomplete(trans('admin::app.department') ,'department' ,'department' ,'autocomplete/department' ,[] ,'0' ,'c:col-xs-3 required' ,['data-placeholder' => trans('admin::app.department') ,'data-param' => '#faculty']) }}
+                                {{ Form::bsAutocomplete(trans('admin::app.degree') ,'degree' ,'degree' ,'autocomplete/degree' ,[] ,'0' ,'c:col-xs-3' ,['data-placeholder' => trans('admin::app.degree') ,'data-param' => '#faculty']) }}
+                            </div>
                         </div>
-                    @endslot
-                @endcomponent
-            </div>
-
-            <div class="col-lg-9 col-xs-12">
-                <h4>Courses</h4>
-                <div class="box-placeholder p-5">
-                    <button class="btn btn-primary btn-xs m-5">Koko YY</button>
-                    <button class="btn btn-primary btn-xs m-5">KokoKoko YY</button>
-                    <button class="btn btn-primary btn-xs m-5">KokoKokoKoko YY</button>
-                    <button class="btn btn-primary btn-xs m-5">Koko YY</button>
-                    <button class="btn btn-primary btn-xs m-5">KokoKokoKoko YY</button>
-                    <button class="btn btn-primary btn-xs m-5">Koko YY</button>
-                    <button class="btn btn-primary btn-xs m-5">Koko YY</button>
-                    <button class="btn btn-primary btn-xs m-5">Koko YY</button>
-                    <button class="btn btn-primary btn-xs m-5">Koko YY</button>
-                    <button class="btn btn-primary btn-xs m-5">Koko YY</button>
-                </div>
-            </div>
-
-            <div class="col-lg-9 col-xs-12">
-                @component('controle.component.panel' ,[
-                      'title' => trans('admin::app.study_plan'),
-                      'class' => 'footer',
-                ])
-                    @foreach($semester as $index => $item)
-                        <h4>{{ $item->lang_name['en']['text'] }}</h4>
-                        <div class="box-placeholder">
-
-
-                        </div>
-                    @endforeach
-
-                    @slot('footer')
-                        <div class="text-center">
-                            <button type="submit" class="btn btn-success">{{ trans('app.save') }}</button>
-                        </div>
-                    @endslot
-                @endcomponent
+                        @slot('footer')
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary filter-courses" data-method="get" data-action="{{ localizeURL('admin/study-plan/create') }}" data-stop-operation-message data-ajax-form-success="studyPlanSuccess">{{ trans('app.filter') }}</button>
+                            </div>
+                        @endslot
+                    @endcomponent
+                {!! Form::close() !!}
             </div>
         </div>
+        <div class="study-plan"></div>
+    </div>
+@endsection
+
+@section('footer')
+    <script>
+
+        function studyPlanSuccess(form ,res) {
+
+            $('.study-plan').html(res.study_plan);
+
+            var containers = $('.destination').toArray();
+            containers = containers.concat($('#target').toArray());
+
+            // init form
+            APP_AMU.validate.init('.ajaxCont');
+
+            // init dragula
+            var drake = dragula({
+                containers: containers,
+
+            });
+
+            drake.on ('dragend' ,function (el) {
+
+                var el = $(el),
+                    destination = el.closest('.destination'),
+                    semester = destination.data('semester'),
+                    course   = el.data('course'),
+                    _delete  = $('.delete-study-plan');
+
+                el.find('.semester').remove();
+
+                if(semester)
+                    el.append('<input class="semester" type=hidden name="study-plan[' + course + '][semester_id]" value="' + semester + '">')
+
+
+                if(destination.length)
+                    _delete.find('[value="' + course + '"]').remove();
+                else
+                    _delete.append('<input type="hidden" name="delete[' + course + ']" value="' + course + '">')
+            });
+        }
+    </script>
 @endsection

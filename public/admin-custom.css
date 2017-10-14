@@ -1,3 +1,7 @@
+/*-----------------------------------------------------
+                     General section
+--------------------------------------------------------*/
+
 body ,
 h1,h2,h3,h4,h5,h6,
 * {
@@ -7,6 +11,26 @@ h1,h2,h3,h4,h5,h6,
 /*-----------------------------------------------------
                         rtl section
 --------------------------------------------------------*/
+
+
+
+/*---------------------------------------------------------
+             Component: form-validation.less
+----------------------------------------------------------*/
+
+.validate-error {
+    border-color: #f05050 !important;
+}
+
+.validate-error-help-block {
+    display: block;
+}
+
+.validate-error-style {
+    font-size: 12px;
+    list-style: none;
+    color: #f05050;
+}
 
 /*-----------------------------------------------------
         Fix Autocompelte validation color border
@@ -26,6 +50,11 @@ h1,h2,h3,h4,h5,h6,
 .has-error .select2-container--focus .select2-selection, .has-error .select2-container--open .select2-selection {
 
     border-color: #f05050 !important;
+}
+
+.select2-container .select2-search,
+.select2-container .select2-search__field{
+    width: 100% !important;
 }
 
 /*-----------------------------------------------------
@@ -48,12 +77,9 @@ h1,h2,h3,h4,h5,h6,
 }
 
 /*-----------------------------------------------------
-                        Google map
+    Google map :  # autocomplete on modal bootstrap
 --------------------------------------------------------*/
 
-/*------------------------------------
-   # autocomplete on modal bootstrap
---------------------------------------*/
 .map-autocomplete {
 
     margin-top: 9px;
@@ -111,18 +137,19 @@ td.center {
     line-height: 1.2em;
 }
 
-/*
- *  Jquery Nestable
- */
+/*-----------------------------------------------------
+                     Jquery Nestable
+--------------------------------------------------------*/
+
 .dd-empty {
 
     padding: 15%;
     text-align: center;
 }
 
-/**
- *  Notify
- */
+/*-----------------------------------------------------
+                         Notify
+--------------------------------------------------------*/
 
 .uk-notify {
     z-index: 999999999;

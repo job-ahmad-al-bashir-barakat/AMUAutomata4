@@ -40,33 +40,6 @@ class AutocompleteHelper
             return $query;
     }
 
-    function degreeAutocomplete(Request $request ,$query)
-    {
-        if($request->input('faculty' ,''))
-            $query = $query->where('faculty_id' ,'=' ,$request->input('faculty'));
-
-        return $query;
-    }
-
-    function departmentAutocomplete(Request $request ,$query)
-    {
-        if($request->input('faculty' ,''))
-            $query = $query->where('faculty_id' ,'=' ,$request->input('faculty'));
-
-        return $query;
-    }
-
-    function courseAutocomplete(Request $request ,$query)
-    {
-        if($request->input('course' ,''))
-            $query = $query->where('id' ,'<>' ,$request->input('course'));
-
-        if(request()->input('faculty' ,''))
-            $query = $query->where('faculty_id' ,'=' ,$request->input('faculty'));
-
-        return $query;
-    }
-
     public function modulesAutocomplete(Request $request, $query)
     {
         return  $query->where('customized', '=', '1');

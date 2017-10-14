@@ -318,15 +318,15 @@ table.dataTable > thead > tr:not(.hiddenRowInline) > th {
    Component: form-validation.less
 --------------------------------------*/
 
-.modal .validate-error {
+.modal.datatable-modal .validate-error {
     border-color: #f05050 !important;
 }
 
-.modal .validate-error-help-block {
+.modal.datatable-modal .validate-error-help-block {
     display: block;
 }
 
-.modal .validate-error-style {
+.modal.datatable-modal .validate-error-style {
     font-size: 12px;
     list-style: none;
     color: #f05050;

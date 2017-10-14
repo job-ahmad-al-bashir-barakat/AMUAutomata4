@@ -5,6 +5,7 @@ namespace Aut\Autocomplete\Http\Controllers;
 use function foo\func;
 use Illuminate\Support\Str;
 use Modules\Admin\Entities\Department;
+use Modules\Admin\Entities\Faculty;
 use Route;
 use Exception;
 use Illuminate\Http\Request;
@@ -14,11 +15,17 @@ class AutocompleteController
 {
     protected $model;
 
+    protected $with;
+
+    protected $data;
+
     protected $langs;
 
     protected $isLang;
 
-    protected $condition;
+    protected $q;
+
+    protected $conditions;
 
     protected $colId;
 
@@ -35,9 +42,8 @@ class AutocompleteController
 
         $object = new $model();
 
-        // $condition
-        if($this->condition)
-            foreach ($this->condition as $whereHasOrIndex => $col)
+        if($this->q)
+            foreach ($this->q as $whereHasOrIndex => $col)
             {
                 $q = str_replace(' ', '%', request()->input('q', ''));
 
@@ -66,6 +72,37 @@ class AutocompleteController
                 }
             }
 
+        if(!empty($this->conditions))
+            foreach ($this->conditions as $whereHasOrIndex => $condition) {
+
+                $pattern = '/.+:/';
+                // get real value
+                $value = preg_replace($pattern ,'',$condition[2]);
+                // get value type
+                preg_match($pattern ,$condition[2] ,$type);
+                if(!empty($type)) {
+
+                    $type = substr($type[0], 0, -1);
+                    switch ($type) {
+                        case 'request' : $value = \request()->input($value ,'');
+                    }
+                }
+
+                // condition
+                if(!is_numeric($whereHasOrIndex)) {
+
+                    if($value)
+                        $object = $object->whereHas($whereHasOrIndex ,function ($query) use ($condition ,$value) {
+
+                            $query->where($condition[0] ,$condition[1] ,$value);
+                        });
+
+                } else {
+
+                    if($value)
+                        $object = $object->where($condition[0] ,$condition[1] ,$value);
+                }
+            }
 
         $helper = function ($request ,$object ,$prefix = 'Autocomplete') {
 
@@ -86,7 +123,13 @@ class AutocompleteController
 
         $object = $helper($request ,$object);
 
+        if(!empty($this->with))
+            $object->with($this->with);
+
         $data = $object->get();
+
+        if($object->count() && $this->data)
+            $data = $object->first()->{$this->data};
 
         $nameFunc = function ($name ,$colName) {
 
@@ -142,10 +185,13 @@ class AutocompleteController
             $this->isLang    = config('autocomplete.isLangs');
             $this->langs     = \LaravelLocalization::getSupportedLanguagesKeys();
             $withOrNot       = $this->isLang ? 'withLang' : 'withoutLang';
-            $this->model     = isset($tableSet['model']) ? $tableSet['model'] : '';
-            $this->condition = isset($tableSet['condition']) ? $tableSet['condition'] : config("autocomplete.default.$withOrNot.condition");
-            $this->colId     = isset($tableSet['colId'])   ? $tableSet['colId']   : config("autocomplete.default.$withOrNot.colId");
-            $this->colName   = isset($tableSet['colName']) ? $tableSet['colName'] : config("autocomplete.default.$withOrNot.colName");
+            $this->model     = isset($tableSet['model'])     ? $tableSet['model']      : '';
+            $this->data      = isset($tableSet['data'])      ? $tableSet['data']       : false;
+            $this->with      = isset($tableSet['with'])      ? $tableSet['with']       : [];
+            $this->q         = isset($tableSet['q'])         ? $tableSet['q']          : config("autocomplete.default.$withOrNot.q");
+            $this->conditions= isset($tableSet['conditions'])? $tableSet['conditions'] : [];
+            $this->colId     = isset($tableSet['colId'])     ? $tableSet['colId']      : config("autocomplete.default.$withOrNot.colId");
+            $this->colName   = isset($tableSet['colName'])   ? $tableSet['colName']    : config("autocomplete.default.$withOrNot.colName");
         }
     }
 }

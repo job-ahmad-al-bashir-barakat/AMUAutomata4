@@ -55,7 +55,8 @@
                             <label class="control-label">
                                 <span class="pull-left" style="
                                     background-color: rgba(215, 235, 255, 0.67);
-                                    border: 2px solid rgba(225, 225, 225, 0.3);
+                                    border: 2px solid rgb(219, 219, 219);
+                                    border: 2px solid rgb(219, 219, 219);
                                     margin: 3px 8px; display: flex;
                                     width: 15px;
                                     height: 15px;
@@ -65,7 +66,14 @@
                         </div>
                         <div>
                             <label class="control-label">
-                                <span class="pull-left" style="background-color: rgb(255, 255, 255); margin: 3px 8px; display: flex; width: 15px; height: 15px; border-radius: 4px;"></span>
+                                <span class="pull-left" style="
+                                    background-color: rgb(255, 255, 255);
+                                    border: 2px solid rgb(219, 219, 219);
+                                    margin: 3px 8px;
+                                    display: flex;
+                                    width: 15px;
+                                    height: 15px;
+                                    border-radius: 4px;"></span>
                                 <span>{{ trans('utilities::app.list_items_are_colored' ,['color' => trans('utilities::app.white')]) }}</span>
                             </label>
                         </div>
