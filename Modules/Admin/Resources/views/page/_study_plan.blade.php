@@ -3,7 +3,7 @@
         <h4>@lang('admin::app.courses')</h4>
         <div id="target" class="target box-placeholder p-10" style="min-height: 40px;">
             @foreach($courses as $course)
-                <div class="label label-primary btn-xs m-5" data-course="{{ $course->id }}" style="font-size: 12px;">
+                <div class="label label-primary btn-xs m-5 hand" data-course="{{ $course->id }}" style="font-size: 12px;">
                     <input type="hidden" class="study-year" name="study-plan[{{ $course->id }}][faculty_study_year_id]" value="{{ $studyYear }}">
                     <span>{{ $course->lang_name[\App::getLocale()]['text'] }}</span>
                 </div>
@@ -24,7 +24,7 @@
                     <div id="destination-{{$index}}" class="destination box-placeholder p-10" style="min-height: 40px;" data-semester="{{ $semester->id }}">
                         @if(isset($semester_courses[$semester->id]))
                             @foreach($semester_courses[$semester->id] as $index => $course)
-                                <div class="label label-primary btn-xs m-5" data-course="{{ $course->id }}" style="font-size: 12px;">
+                                <div class="label label-primary btn-xs m-5 hand" data-course="{{ $course->id }}" style="font-size: 12px;">
                                     <input type="hidden" class="study-year" name="study-plan[{{ $course->id }}][faculty_study_year_id]" value="{{ $studyYear }}">
                                     <input type=hidden class="semester" name="study-plan[{{ $course->id }}][semester_id]" value="{{ $semester->id }}">
                                     <span>{{ $course->lang_name[\App::getLocale()]['text'] }}</span>
