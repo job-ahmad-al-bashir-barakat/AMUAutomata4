@@ -3,13 +3,12 @@
 namespace Modules\Utilities\Entities;
 
 use Kalnoy\Nestedset\NodeTrait;
-use Illuminate\Database\Eloquent\Model;
 use Modules\Admin\Entities\Degree;
-use Modules\Admin\Entities\Department;
 use Modules\Admin\Entities\Faculty;
-use Modules\Utilities\Entities\LangModels\SiteMenuNameLang;
+use Modules\Admin\Entities\Department;
 use Modules\Utilities\Traits\MultiLangs;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Modules\Utilities\Entities\LangModels\SiteMenuNameLang;
 
 class SiteMenu extends \Eloquent
 {
