@@ -46,7 +46,7 @@
     @include('theme.preloader')
 
     <!-- Header -->
-    @include('theme.header')
+    @include('theme.header', ['menu' => $menu])
 
     <!-- Start main-content -->
     <div class="main-content">

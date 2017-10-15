@@ -145,69 +145,6 @@
                 <nav id="menuzord" class="menuzord bg-theme-colored pull-left flip menuzord-responsive">
                     <ul class="menuzord-menu">
                         {!! buildHtmlTree($menu) !!}
-                        <li class="active"><a href="#home">Home</a></li>
-                        <li><a href="#">About university </a>
-                            <ul class="dropdown">
-                                <li><a href="#">University Message</a></li>
-                                <li><a href="#">University in glance</a></li>
-                                <li><a href="#">Page Title</a></li>
-                                <li><a href="#">Hierarchy</a>e
-                                    <ul class="dropdown">
-                                        <li><a href="features-side-push-panel-left-overlay.html">Left Overlay</a></li>
-                                        <li><a href="features-side-push-panel-left-push.html">Left Push</a></li>
-                                        <li><a href="features-side-push-panel-right-overlay.html">Right Overlay</a></li>
-                                        <li><a href="features-side-push-panel-right-push.html">Right Push</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">University Council</a></li>
-                                <li><a href="#">Trusted Councel</a></li>
-                                <li><a href="#">University Partner</a></li>
-                                <li><a href="#">Location</a></li>
-                                <li><a href="#">University offices</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">Faculties</a>
-                            <ul class="dropdown">
-                                <li><a href="features-footer-style1.html#footer">Medical</a>
-                                    <ul class="dropdown">
-                                        <li><a href="#">Degrees</a></li>
-                                        <li><a href="#">Courses</a></li>
-                                        <li><a href="#">Study Plan</a></li>
-                                        <li><a href="#">Message & Gols</a></li>
-                                        <li><a href="#">Instrutors</a></li>
-                                        <li><a href="#">Labs</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="features-footer-style2.html#footer">Engineering</a>
-                                    <ul class="dropdown">
-                                        <li><a href="#">Degrees</a></li>
-                                        <li><a href="#">Courses</a></li>
-                                        <li><a href="#">Study Plan</a></li>
-                                        <li><a href="#">Message & Gols</a></li>
-                                        <li><a href="#">Teachers</a></li>
-                                        <li><a href="#">Labs</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <li><a href="#">Registration and admission</a>
-                            <ul class="dropdown">
-                                <li><a href="#">Admission Rules</a></li>
-                                <li><a href="#">Admission Procuders</a></li>
-                                <li><a href="#">Fees</a></li>
-                                <li><a href="#">Scholarship</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#home">Studies and exams </a>
-                            <ul class="dropdown">
-                                <li><a href="page-course-gird.html">University Calander</a></li>
-                                <li><a href="page-course-list.html">Course List</a></li>
-                                <li><a href="page-courses-accounting-technologies.html">Exams</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">Contact Us</a></li>
-                        <li><a href="#">News</a></li>
-                        <li><a href="#">Gallery</a></li>
                     </ul>
                     <ul class="pull-right flip hidden-sm hidden-xs">
                         <li>

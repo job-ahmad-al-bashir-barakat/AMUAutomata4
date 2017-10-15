@@ -291,7 +291,16 @@ if (!function_exists('buildHtmlTree')) {
     function buildHtmlTree($tree)
     {
         $html = '';
-
+        foreach ($tree as $item) {
+            $html .= "<li>";
+            $html .= "<a href='#home'>{$item->title}</a>";
+            if($item->children->count()){
+                $html .= "<ul class='dropdown'>";
+                $html .= buildHtmlTree($item->children);
+                $html .= "</ul>";
+            }
+            $html .= "</li>";
+        }
         return $html;
     }
 }
