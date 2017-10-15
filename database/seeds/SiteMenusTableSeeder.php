@@ -591,6 +591,34 @@ class SiteMenusTableSeeder extends Seeder
                 'updated_at' => '2017-10-14 18:54:18',
                 'deleted_at' => NULL,
             ),
+            41 => 
+            array (
+                'id' => 42,
+                '_lft' => 83,
+                '_rgt' => 84,
+                'parent_id' => NULL,
+                'order' => 10,
+                'is_link' => 1,
+                'menuable_id' => 2,
+                'menuable_type' => 'page',
+                'created_at' => '2017-10-15 12:20:57',
+                'updated_at' => '2017-10-15 12:21:34',
+                'deleted_at' => '2017-10-15 12:21:34',
+            ),
+            42 => 
+            array (
+                'id' => 43,
+                '_lft' => 85,
+                '_rgt' => 86,
+                'parent_id' => NULL,
+                'order' => 10,
+                'is_link' => 1,
+                'menuable_id' => 2,
+                'menuable_type' => 'page',
+                'created_at' => '2017-10-15 12:21:00',
+                'updated_at' => '2017-10-15 12:21:24',
+                'deleted_at' => '2017-10-15 12:21:24',
+            ),
         ));
         
         
