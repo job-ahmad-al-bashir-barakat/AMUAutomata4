@@ -541,56 +541,92 @@ var APP_AMU = {
                                 : _.lowerCase($form.attr('method'));
                         }
 
-                        $[$method]($button.data('action') || APP_AMU.validate.changeAction($form), $data, function (res) {
+                        $call = function () {
 
-                            // if form was inside modal we will close it after save
-                            if (typeof $form.parents('.modal') != typeof undefined)
-                                $($form.parents('.modal')).modal('hide');
+                            $[$method]($button.data('action') || APP_AMU.validate.changeAction($form), $data, function (res) {
 
-                            // reload after success oper by enter json like {"tree" : [".aut-tree"],....}
-                            if (typeof $form.data('ajax-form-reload') != typeof undefined)
-                                HELPER_AMU.reloadElement($form.data('ajax-form-reload'));
+                                // if form was inside modal we will close it after save
+                                if (typeof $form.parents('.modal') != typeof undefined)
+                                    $($form.parents('.modal')).modal('hide');
 
-                            /**
-                             *  Success Button Function Area
-                             *
-                             *  data-ajax-form-success
-                             *  data-ajax-form-delete-success
-                             *  data-ajax-form-update-success
-                             *  data-ajax-form-add-success
-                             *
-                             */
+                                // reload after success oper by enter json like {"tree" : [".aut-tree"],....}
+                                if (typeof $form.data('ajax-form-reload') != typeof undefined)
+                                    HELPER_AMU.reloadElement($form.data('ajax-form-reload'));
 
-                            // callback exec after oper success
-                            if (typeof $button.data('ajax-form-success') != typeof undefined)
-                                window[$button.data('ajax-form-success')](form, res);
+                                /**
+                                 *  Success Button Function Area
+                                 *
+                                 *  data-ajax-form-success
+                                 *  data-ajax-form-delete-success
+                                 *  data-ajax-form-update-success
+                                 *  data-ajax-form-add-success
+                                 *
+                                 */
 
-                            // callback exec after add oper success
-                            if (typeof $button.data('ajax-form-add-success') != typeof undefined)
-                                window[$button.data('ajax-form-add-success')](form, res);
+                                // callback exec after oper success
+                                if (typeof $button.data('ajax-form-success') != typeof undefined)
+                                    window[$button.data('ajax-form-success')](form, res);
 
-                            // callback exec after update oper success
-                            if (typeof $button.data('ajax-form-update-success') != typeof undefined)
-                                window[$button.data('ajax-form-update-success')](form, res);
+                                // callback exec after add oper success
+                                if (typeof $button.data('ajax-form-add-success') != typeof undefined)
+                                    window[$button.data('ajax-form-add-success')](form, res);
 
-                            // callback exec after delete oper success
-                            if (typeof $button.data('ajax-form-delete-success') != typeof undefined)
-                                window[$button.data('ajax-form-delete-success')](form, res);
+                                // callback exec after update oper success
+                                if (typeof $button.data('ajax-form-update-success') != typeof undefined)
+                                    window[$button.data('ajax-form-update-success')](form, res);
 
-                            if(!($button.is('[data-stop-operation-message]') || $form.is('[data-stop-operation-message]')))
-                                HELPER_AMU.notify({message: res.operation_message || OPERATION_MESSAGE_SUCCESS, status: 'success'})
+                                // callback exec after delete oper success
+                                if (typeof $button.data('ajax-form-delete-success') != typeof undefined)
+                                    window[$button.data('ajax-form-delete-success')](form, res);
 
-                        }).fail(function (res) {
+                                if(!($button.is('[data-stop-operation-message]') || $form.is('[data-stop-operation-message]')))
+                                    HELPER_AMU.notify({message: res.operation_message || OPERATION_MESSAGE_SUCCESS, status: 'success'});
 
-                            HELPER_AMU.notify({message: OPERATION_MESSAGE_FAIL, status: 'danger'});
+                            }).fail(function (res) {
 
-                            $.each(JSON.parse(res.responseText).server_message, function (k, v) {
+                                HELPER_AMU.notify({message: OPERATION_MESSAGE_FAIL, status: 'danger'});
 
-                                var error = $form.find('#error_' + k);
-                                error.children().remove();
-                                error.append('<div id="' + k + '-error" class="validate-error validate-error-help-block validate-error-style animated fadeInDown">' + v[0] + '</div>');
+                                $.each(JSON.parse(res.responseText).server_message, function (k, v) {
+
+                                    var error = $form.find('#error_' + k);
+                                    error.children().remove();
+                                    error.append('<div id="' + k + '-error" class="validate-error validate-error-help-block validate-error-style animated fadeInDown">' + v[0] + '</div>');
+                                });
                             });
-                        });
+                        };
+
+                        if($method == 'delete') {
+
+                            APP_AMU.sweetalert_swal({
+                                title              : SWAL.title,
+                                text               : SWAL.text,
+                                type               : 'warning',
+                                confirmButtonText  : SWAL.confirmButtonText,
+                                cancelButtonText   : SWAL.cancelButtonText,
+                                showCancelButton   : true,
+                                showCloseButton    : true,
+                                allowEscapeKey     : true,
+                                allowOutsideClick  : true,
+                                confirmButtonColor : "#DD6B55",
+                                showLoaderOnConfirm: true,
+
+                            } ,function () {
+
+                                $call();
+
+                            } ,{
+                                ok: SWAL.ok,
+                                cancleSafe : {
+                                    text : SWAL.cancleSafe.text,
+                                    message: SWAL.cancleSafe.message,
+                                }
+                            });
+
+                        } else {
+
+                            $call();
+                        }
+
                     },
                     ignore: [],
                     errorClass: 'validate-error validate-error-help-block validate-error-style animated fadeInDown',
@@ -1112,9 +1148,9 @@ var APP_AMU = {
             if (dismiss === 'cancel') {
 
                 aut_datatable_swal({
-                    title : paramCancleSafe.cancleSafeTitle,
-                    text  : paramCancleSafe.cancleSafeText,
-                    confirmButtonText  : paramCancleSafe.cancleSafeConfirmButtonText,
+                    title : paramCancleSafe.cancleSafe.text,
+                    text  : paramCancleSafe.cancleSafe.message,
+                    confirmButtonText  : paramCancleSafe.ok,
                     type : "error",
                 });
             }

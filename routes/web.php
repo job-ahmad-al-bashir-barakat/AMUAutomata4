@@ -15,4 +15,12 @@ Route::group(
             $modules = \Modules\Utilities\Entities\BuilderPage::pageModules()->get()->pluck('module');
             return view('modules')->withModules($modules);
         })->name('home');
+
+        Route::get('university-message' ,function () {
+            return view('page.university_message');
+        });
+
+        Route::get('contact' ,function () {
+            return view('page.contact');
+        });
     });

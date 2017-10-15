@@ -19,7 +19,7 @@ class CreateSiteMenuTable extends Migration
             $table->integer('_rgt')->unsigned()->default(0);
             $table->integer('parent_id')->unsigned()->nullable();
             $table->integer('order')->unsigned();
-            $table->boolean('is_link');
+            $table->boolean('is_link')->nullable();
             $table->nullableMorphs('menuable');
             $table->timestamps();
             $table->softDeletes();
