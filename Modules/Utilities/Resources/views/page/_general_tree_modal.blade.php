@@ -65,6 +65,8 @@
             var parent = item.parents('li:first'),
                 order  = item.closest('.dd-list').children('li').length + 1;
 
+            item.attr('data-saved' ,true);
+
             $.post(destination.closest('.aut-tree').data('url') ,$.extend(item.data() ,parent.length > 0 ? { parent_id : parent.data('id') ,order : order } : { order : order }) ,function () {
 
                 APP_AMU.tree.init('.general-tree');
@@ -96,12 +98,12 @@
             var $this = $(this),
                    li = $this.closest('li');
 
-            aut_datatable_swal({
-                title              : '{{ trans('utilities::app.swal.title') }}',
-                text               : '{{ trans('utilities::app.swal.text') }}',
+            APP_AMU.sweetalert_swal({
+                title              : SWAL.title,
+                text               : SWAL.text,
                 type               : 'warning',
-                confirmButtonText  : '{{ trans('utilities::app.swal.confirmButtonText') }}',
-                cancelButtonText   : '{{ trans('utilities::app.swal.cancelButtonText') }}',
+                confirmButtonText  : SWAL.confirmButtonText,
+                cancelButtonText   : SWAL.cancelButtonText,
                 showCancelButton   : true,
                 showCloseButton    : true,
                 allowEscapeKey     : true,
@@ -117,6 +119,12 @@
 
                     HELPER_AMU.notify({message: OPERATION_MESSAGE_SUCCESS, status: 'success'});
                 });
+            },{
+                ok: SWAL.ok,
+                cancleSafe : {
+                    text : SWAL.cancleSafe.text,
+                    message: SWAL.cancleSafe.message,
+                }
             });
 
         });
