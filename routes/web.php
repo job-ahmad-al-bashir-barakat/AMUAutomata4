@@ -23,4 +23,8 @@ Route::group(
         Route::get('contact' ,function () {
             return view('page.contact');
         });
+
+        Route::get( 'university-in-glance',function () {
+            return view('page.university_in_glance');
+        });
     });
