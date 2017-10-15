@@ -144,6 +144,7 @@
             <div class="container">
                 <nav id="menuzord" class="menuzord bg-theme-colored pull-left flip menuzord-responsive">
                     <ul class="menuzord-menu">
+                        {!! buildHtmlTree($menu) !!}
                         <li class="active"><a href="#home">Home</a></li>
                         <li><a href="#">About university </a>
                             <ul class="dropdown">

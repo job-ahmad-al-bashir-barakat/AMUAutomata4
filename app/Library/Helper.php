@@ -285,3 +285,13 @@ if(! function_exists('direction'))
         return LaravelLocalization::getCurrentLocaleDirection();
     }
 }
+
+if (!function_exists('buildHtmlTree')) {
+
+    function buildHtmlTree($tree)
+    {
+        $html = '';
+
+        return $html;
+    }
+}
