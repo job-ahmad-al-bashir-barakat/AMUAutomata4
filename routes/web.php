@@ -29,4 +29,9 @@ Route::group(
         Route::get( 'university-in-glance',function () {
             return view('page.university_in_glance');
         });
+
+        Route::get('university-council' ,function () {
+            return view('page.university_council');
+
+        });
     });
