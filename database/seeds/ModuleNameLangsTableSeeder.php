@@ -20,7 +20,7 @@ class ModuleNameLangsTableSeeder extends Seeder
             0 => 
             array (
                 'id' => 3,
-                'module_id' => 2,
+                'module_id' => 1,
                 'lang_id' => 1,
                 'text' => 'Text Editor',
                 'created_at' => '2017-07-22 08:56:29',
@@ -30,7 +30,7 @@ class ModuleNameLangsTableSeeder extends Seeder
             1 => 
             array (
                 'id' => 4,
-                'module_id' => 2,
+                'module_id' => 1,
                 'lang_id' => 2,
                 'text' => 'محرر نصوص',
                 'created_at' => '2017-07-22 08:56:29',
@@ -200,7 +200,7 @@ class ModuleNameLangsTableSeeder extends Seeder
             18 => 
             array (
                 'id' => 25,
-                'module_id' => 11,
+                'module_id' => 2,
                 'lang_id' => 1,
                 'text' => 'Short Info',
                 'created_at' => '2017-09-30 16:48:37',
@@ -210,11 +210,151 @@ class ModuleNameLangsTableSeeder extends Seeder
             19 => 
             array (
                 'id' => 26,
-                'module_id' => 11,
+                'module_id' => 2,
                 'lang_id' => 2,
                 'text' => 'معلومات قصير',
                 'created_at' => '2017-09-30 16:48:37',
                 'updated_at' => '2017-09-30 16:48:37',
+                'deleted_at' => NULL,
+            ),
+            20 => 
+            array (
+                'id' => 41,
+                'module_id' => 11,
+                'lang_id' => 1,
+                'text' => 'section Fluid Start',
+                'created_at' => '2017-10-16 16:43:49',
+                'updated_at' => '2017-10-16 16:43:49',
+                'deleted_at' => NULL,
+            ),
+            21 => 
+            array (
+                'id' => 42,
+                'module_id' => 11,
+                'lang_id' => 2,
+                'text' => 'section Fluid Start',
+                'created_at' => '2017-10-16 16:43:49',
+                'updated_at' => '2017-10-16 16:43:49',
+                'deleted_at' => NULL,
+            ),
+            22 => 
+            array (
+                'id' => 43,
+                'module_id' => 12,
+                'lang_id' => 1,
+                'text' => 'Small Gallery',
+                'created_at' => '2017-10-16 16:49:39',
+                'updated_at' => '2017-10-16 16:49:39',
+                'deleted_at' => NULL,
+            ),
+            23 => 
+            array (
+                'id' => 44,
+                'module_id' => 12,
+                'lang_id' => 2,
+                'text' => 'معرض صور صغير',
+                'created_at' => '2017-10-16 16:49:39',
+                'updated_at' => '2017-10-16 16:49:39',
+                'deleted_at' => NULL,
+            ),
+            24 => 
+            array (
+                'id' => 45,
+                'module_id' => 13,
+                'lang_id' => 1,
+                'text' => 'Steps',
+                'created_at' => '2017-10-16 16:50:13',
+                'updated_at' => '2017-10-16 16:50:13',
+                'deleted_at' => NULL,
+            ),
+            25 => 
+            array (
+                'id' => 46,
+                'module_id' => 13,
+                'lang_id' => 2,
+                'text' => 'خطوات',
+                'created_at' => '2017-10-16 16:50:13',
+                'updated_at' => '2017-10-16 16:50:13',
+                'deleted_at' => NULL,
+            ),
+            26 => 
+            array (
+                'id' => 47,
+                'module_id' => 14,
+                'lang_id' => 1,
+                'text' => 'Section Intersect Top',
+                'created_at' => '2017-10-16 16:51:31',
+                'updated_at' => '2017-10-16 16:51:31',
+                'deleted_at' => NULL,
+            ),
+            27 => 
+            array (
+                'id' => 48,
+                'module_id' => 14,
+                'lang_id' => 2,
+                'text' => 'Section Intersect Top',
+                'created_at' => '2017-10-16 16:51:31',
+                'updated_at' => '2017-10-16 16:51:31',
+                'deleted_at' => NULL,
+            ),
+            28 => 
+            array (
+                'id' => 49,
+                'module_id' => 15,
+                'lang_id' => 1,
+                'text' => 'Section Intersect End',
+                'created_at' => '2017-10-16 16:51:54',
+                'updated_at' => '2017-10-16 16:51:54',
+                'deleted_at' => NULL,
+            ),
+            29 => 
+            array (
+                'id' => 50,
+                'module_id' => 15,
+                'lang_id' => 2,
+                'text' => 'Section Intersect End',
+                'created_at' => '2017-10-16 16:51:54',
+                'updated_at' => '2017-10-16 16:51:54',
+                'deleted_at' => NULL,
+            ),
+            30 => 
+            array (
+                'id' => 51,
+                'module_id' => 16,
+                'lang_id' => 1,
+                'text' => 'Text Card #1',
+                'created_at' => '2017-10-16 16:52:28',
+                'updated_at' => '2017-10-16 16:52:28',
+                'deleted_at' => NULL,
+            ),
+            31 => 
+            array (
+                'id' => 52,
+                'module_id' => 16,
+                'lang_id' => 2,
+                'text' => 'Text Card #1',
+                'created_at' => '2017-10-16 16:52:28',
+                'updated_at' => '2017-10-16 16:52:28',
+                'deleted_at' => NULL,
+            ),
+            32 => 
+            array (
+                'id' => 53,
+                'module_id' => 17,
+                'lang_id' => 1,
+                'text' => 'Contact Form',
+                'created_at' => '2017-10-16 18:01:45',
+                'updated_at' => '2017-10-16 18:01:45',
+                'deleted_at' => NULL,
+            ),
+            33 => 
+            array (
+                'id' => 54,
+                'module_id' => 17,
+                'lang_id' => 2,
+                'text' => 'فورم الاتصال',
+                'created_at' => '2017-10-16 18:01:45',
+                'updated_at' => '2017-10-16 18:01:45',
                 'deleted_at' => NULL,
             ),
         ));

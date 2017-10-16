@@ -35,5 +35,9 @@ class DatabaseSeeder extends Seeder
         $this->call(SiteMenuNameLangsTableSeeder::class);
         $this->call(PagesTableSeeder::class);
         $this->call(PageNameLangsTableSeeder::class);
+        $this->call(CustomModulesTableSeeder::class);
+        $this->call(CustomModuleNameLangsTableSeeder::class);
+        $this->call(CustomModuleAttributeValuesTableSeeder::class);
+        $this->call(CustomModuleAttributeValueMultiLangsTableSeeder::class);
     }
 }

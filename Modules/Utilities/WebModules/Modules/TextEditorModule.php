@@ -6,7 +6,7 @@ namespace Modules\Utilities\WebModules\Modules;
 class TextEditorModule extends Module
 {
 
-    public $id = '2';
+    public $id = '1';
 
     public $code = 'text_editor';
 

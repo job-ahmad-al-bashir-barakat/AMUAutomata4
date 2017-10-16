@@ -15,14 +15,16 @@ trait ModuleTrait
      * This Function will determined the Module Class by Module id
      *
      * @param $moduleId
-     * @return SectionEndModule|SectionStartModule|TextEditorModule|SliderModule|BlockModule|CoursesOneModule|PersonsOneModule|VerticalSliderModule|GalleryModule|ShortInfoModule|SectionFluidStartModule|SmallGalleryModule|StepsModule|SectionIntersectTopStartModule|SectionIntersectEndModule
+     * @return SectionEndModule|SectionStartModule|TextEditorModule|SliderModule|BlockModule|CoursesOneModule|PersonsOneModule|VerticalSliderModule|GalleryModule|ShortInfoModule|SectionFluidStartModule|SmallGalleryModule|StepsModule|SectionIntersectTopStartModule|SectionIntersectEndModule|TextCardOneModule|ContactFormModule
      * @throws \Exception
      */
     public static function setModule($moduleId)
     {
         switch ($moduleId) {
-            case 2:
+            case 1:
                 return new TextEditorModule();
+            case 2:
+                return new ShortInfoModule();
             case 3:
                 return new SectionStartModule();
             case 4:
@@ -40,17 +42,19 @@ trait ModuleTrait
             case 10:
                 return new GalleryModule();
             case 11:
-                return new ShortInfoModule();
-            case 12:
                 return new SectionFluidStartModule();
-            case 13:
+            case 12:
                 return new SmallGalleryModule();
-            case 14:
+            case 13:
                 return new StepsModule();
-            case 15:
+            case 14:
                 return new SectionIntersectTopStartModule();
-            case 16:
+            case 15:
                 return new SectionIntersectEndModule();
+            case 16:
+                return new TextCardOneModule();
+            case 17:
+                return new ContactFormModule();
             default:
                 throw new \Exception("Undefined Web Module [id:$moduleId]");
         }
@@ -60,7 +64,7 @@ trait ModuleTrait
      * This Function will determined the Module Class by Module Code
      *
      * @param $moduleCode
-     * @return SectionEndModule|SectionStartModule|TextEditorModule|SliderModule|BlockModule|CoursesOneModule|PersonsOneModule|VerticalSliderModule|GalleryModule|ShortInfoModule|SectionFluidStartModule|SmallGalleryModule|StepsModule|SectionIntersectTopStartModule|SectionIntersectEndModule
+     * @return SectionEndModule|SectionStartModule|TextEditorModule|SliderModule|BlockModule|CoursesOneModule|PersonsOneModule|VerticalSliderModule|GalleryModule|ShortInfoModule|SectionFluidStartModule|SmallGalleryModule|StepsModule|SectionIntersectTopStartModule|SectionIntersectEndModule|TextCardOneModule|ContactFormModule
      * @throws \Exception
      */
     public static function setModuleByCode($moduleCode)
@@ -96,6 +100,10 @@ trait ModuleTrait
                 return new SectionIntersectTopStartModule();
             case 'section_intersect_end':
                 return new SectionIntersectEndModule();
+            case 'text_card_1':
+                return new TextCardOneModule();
+            case 'contact_form':
+                return new ContactFormModule();
             default:
                 throw new \Exception("Undefined Web Module [$moduleCode]");
         }
