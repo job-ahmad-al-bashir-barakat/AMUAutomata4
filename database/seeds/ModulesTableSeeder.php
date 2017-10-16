@@ -165,9 +165,9 @@ class ModulesTableSeeder extends Seeder
             array (
                 'id' => 17,
                 'code' => 'contact_form',
-                'customized' => '0',
+                'customized' => '1',
                 'created_at' => NULL,
-                'updated_at' => '2017-10-16 18:07:07',
+                'updated_at' => '2017-10-16 18:09:35',
                 'deleted_at' => NULL,
             ),
         ));

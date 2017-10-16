@@ -21,10 +21,15 @@ class BuilderPage extends Model
 
     public function scopePageModules($query, $page = false)
     {
-        $query->with(['customModule']);
-        $currentPage = $page ? : 1;// use $page or auto detect the page from route name
+        $route = request()->route();
+        $currentPage = $route->getName();
 
-        return $query->where('page_id', '=', $currentPage)->orderBy('order');
+        $query->with(['customModule']);
+        $pageCode = $page ? : $currentPage;
+
+        $pageId = Page::where('page_code', '=', $pageCode)->first(['id'])->id;
+
+        return $query->where('page_id', '=', $pageId)->orderBy('order');
     }
 
     /**
