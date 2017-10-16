@@ -23,7 +23,9 @@ Route::group(
         });
 
         Route::get('contact' ,function () {
-            return view('page.contact');
+            $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
+            $modules = \Modules\Utilities\Entities\BuilderPage::pageModules()->get()->pluck('module');
+            return view('page.contact' ,compact('modules', 'menu'));
         });
 
         Route::get( 'university-in-glance',function () {
