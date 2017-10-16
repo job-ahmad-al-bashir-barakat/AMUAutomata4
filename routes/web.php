@@ -23,19 +23,15 @@ Route::group(
         });
 
         Route::get('contact' ,function () {
-            $modules = \Modules\Utilities\Entities\BuilderPage::pageModules()->get()->pluck('module');
-            $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
-            return view('page.contact', compact('menu', 'modules'));
-        })->name('contact_us');
+            return view('page.contact');
+        });
 
         Route::get( 'university-in-glance',function () {
-            $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
-            return view('page.university_in_glance', compact('menu'));
+            return view('page.university_in_glance');
         });
 
         Route::get('university-council' ,function () {
-            $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
-            return view('page.university_council', compact('menu'));
+            return view('page.university_council');
 
         });
     });
