@@ -26,7 +26,7 @@ Route::group(
             $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
             $modules = \Modules\Utilities\Entities\BuilderPage::pageModules()->get()->pluck('module');
             return view('page.contact' ,compact('modules', 'menu'));
-        });
+        })->name('contact_us');
 
         Route::get( 'university-in-glance',function () {
             return view('page.university_in_glance');
