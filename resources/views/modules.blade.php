@@ -1,27 +1,18 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="9en">
 <head>
-
-    <!-- Meta Tags -->
     <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
     <meta name="description" content="StudyPress | Education & Courses HTML Template" />
     <meta name="keywords" content="academy, course, education, education html theme, elearning, learning," />
     <meta name="author" content="automata4" />
-
-    <!-- Page Title -->
     <title>StudyPress | Education & Courses HTML Template</title>
-
-    <!-- Favicon and Touch Icons -->
     <link href="{{ asset('images/favicon.png') }}" rel="shortcut icon" type="image/png">
     <link href="{{ asset('images/apple-touch-icon.png') }}" rel="apple-touch-icon">
     <link href="{{ asset('images/apple-touch-icon-72x72.png') }}" rel="apple-touch-icon" sizes="72x72">
     <link href="{{ asset('images/apple-touch-icon-114x114.png') }}" rel="apple-touch-icon" sizes="114x114">
     <link href="{{ asset('images/apple-touch-icon-144x144.png') }}" rel="apple-touch-icon" sizes="144x144">
-
-    <!-- Stylesheet -->
     {{-- <link href="{{ asset(mix('css/theme-ltr.css')) }}" rel="stylesheet" type="text/css"> --}}
-
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/jquery-ui.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/animate.css') }}" rel="stylesheet" type="text/css">
@@ -31,55 +22,29 @@
     <link href="{{ asset('css/preloader.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/custom-bootstrap-margin-padding.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/responsive.css') }}" rel="stylesheet" type="text/css">
-
-    <!-- Revolution Slider 5.x CSS settings -->
     <link href="{{ asset(mix('js/revolution-slider/css/revolution-slider.css')) }}" rel="stylesheet" type="text/css">
-
-    <!-- CSS | Theme Color -->
     <link href="{{ asset('css/colors/theme-skin-color-set-1.css') }}" rel="stylesheet" type="text/css">
-    <!-- CSS | Style css. This is the file where you can place your own custom css code. Just uncomment it and use it. -->
     <!-- <link href="css/style.css" rel="stylesheet" type="text/css"> -->
 </head>
 <body class="">
 <div id="wrapper" class="clearfix">
-    <!-- preloader -->
     @include('theme.preloader')
-
-    <!-- Header -->
     @include('theme.header', ['menu' => $menu])
-
-    <!-- Start main-content -->
     <div class="main-content">
-
         @include('utilities::web-modules.modules.modules')
-
         @include('theme.component.module.map')
-
     </div>
-
-    <!-- Footer -->
     @include('theme.footer')
 </div>
-<!-- end wrapper -->
-
-<!-- Footer Scripts -->
-<!-- external javascripts -->
 <script src="{{ asset(mix('js/main.js')) }}"></script>
-<!-- Revolution Slider 5.x SCRIPTS -->
 <script src="{{ asset(mix('js/revolution-slider/js/revolution-slider.js')) }}"></script>
-<!-- SLIDER REVOLUTION 5.0 EXTENSIONS(Load Extensions only on Local File Systems ! The following part can be removed on Server for On Demand Loading) -->
 <script src="{{ asset(mix('js/revolution-slider/js/extensions/revolution-slider-extensions.js')) }}"></script>
-<!-- Google Map -->
 <script src="http://maps.google.com/maps/api/js?key=AIzaSyAYWE4mHmR9GyPsHSOVZrSCOOljk8DU9B4"></script>
 <script src="{{ asset('js/google-map-init-multilocation.js') }}"></script>
-<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
 <script src="{{ asset(mix('js/ie.js')) }}"></script>
 <![endif]-->
-
 <script type="text/javascript">
-
     $(document).ready(function(e) {
 
         $('#mailchimp-subscription-form-footer').ajaxChimp({

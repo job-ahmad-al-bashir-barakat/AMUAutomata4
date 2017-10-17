@@ -21,6 +21,8 @@
         </div>
     </section>
 
+    @include('utilities::web-modules.modules.modules')
+
     <!-- Divider: Contact -->
     <section class="divider">
         <div class="container">

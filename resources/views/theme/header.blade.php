@@ -1,4 +1,3 @@
-<!-- Header -->
 <header id="header" class="header">
     <div class="header-top bg-theme-color-2 sm-text-center p-0">
         <div class="container">
@@ -148,9 +147,7 @@
                     </ul>
                     <ul class="pull-right flip hidden-sm hidden-xs">
                         <li>
-                            <!-- Modal: Book Now Starts -->
                             <a class="btn btn-colored btn-flat bg-theme-color-2 text-white font-14 bs-modal-ajax-load mt-0 p-25 pr-15 pl-15" data-toggle="modal" data-target="#BSParentModal" href="ajax-load/reservation-form.html">Learnata</a>
-                            <!-- Modal: Book Now End -->
                         </li>
                     </ul>
                     <div id="top-search-bar" class="collapse">

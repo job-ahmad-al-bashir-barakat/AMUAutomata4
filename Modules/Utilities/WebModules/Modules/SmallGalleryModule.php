@@ -6,7 +6,7 @@ namespace Modules\Utilities\WebModules\Modules;
 class SmallGalleryModule extends Module
 {
 
-    public $id = '13';
+    public $id = '12';
 
     public $code = 'small_gallery';
 

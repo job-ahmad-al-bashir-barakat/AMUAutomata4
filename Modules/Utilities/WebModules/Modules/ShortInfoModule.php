@@ -6,7 +6,7 @@ namespace Modules\Utilities\WebModules\Modules;
 class ShortInfoModule extends Module
 {
 
-    public $id = '11';
+    public $id = '2';
 
     public $code = 'short_info';
 

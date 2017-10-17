@@ -18,7 +18,6 @@ Route::group(
             return view('modules', compact('modules', 'menu'));
         })->name('home');
 
-
         /*
          * Temp By Ahmed
          */
@@ -37,7 +36,7 @@ Route::group(
             $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
             $modules = \Modules\Utilities\Entities\BuilderPage::pageModules()->get()->pluck('module');
             return view('page.contact' ,compact('modules', 'menu'));
-        });
+        })->name('contact_us');
 
         Route::get('university-message' ,function () {
             $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();

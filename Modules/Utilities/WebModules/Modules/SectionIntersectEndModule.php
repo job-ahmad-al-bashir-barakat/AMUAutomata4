@@ -6,7 +6,7 @@ namespace Modules\Utilities\WebModules\Modules;
 class SectionIntersectEndModule extends Module
 {
 
-    public $id = '16';
+    public $id = '15';
 
     public $code = 'section_intersect_end';
 
