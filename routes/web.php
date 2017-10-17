@@ -44,7 +44,7 @@ Route::group(
             return view('page.university_message' ,compact('modules', 'menu'));
         });
 
-        Route::get( 'university-in-glance',function () {
+        Route::get('university-in-glance',function () {
             $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
             $modules = \Modules\Utilities\Entities\BuilderPage::pageModules()->get()->pluck('module');
             return view('page.university_in_glance'  ,compact('modules', 'menu'));
@@ -52,7 +52,7 @@ Route::group(
 
         Route::get('university-council' ,function () {
             $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
-            $modules = \Modules\Utilities\Entities\BuilderPage::pageModules()->get()->pluck('module');
+//            $modules = \Modules\Utilities\Entities\BuilderPage::pageModules()->get()->pluck('module');
             return view('page.university_council'  ,compact('modules', 'menu'));
         });
 

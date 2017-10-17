@@ -14,7 +14,7 @@ trait AttributeTrait
      * This Function will determined the Attribute Class by Attribute id
      *
      * @param $attributeId
-     * @return LimitAttribute|StatusAttribute|TextEditorAttribute|WidthAttribute|SlidersAttribute|BlocksAttribute|CoursesAttribute|ShowAttribute|PersonsAttribute|TitleAttribute|IconAttribute|VerticalSlidersAttribute|ImagesAttribute|LinkTextAttribute|UrlAttribute|PageAttribute|StepsAttribute
+     * @return LimitAttribute|StatusAttribute|TextEditorAttribute|WidthAttribute|SlidersAttribute|BlocksAttribute|CoursesAttribute|ShowAttribute|PersonsAttribute|TitleAttribute|IconAttribute|VerticalSlidersAttribute|ImagesAttribute|LinkTextAttribute|UrlAttribute|PageAttribute|StepsAttribute|TextCardsOneAttribute
      * @throws \Exception
      */
     public static function setAttribute($attributeId)
@@ -54,6 +54,8 @@ trait AttributeTrait
                 return new PageAttribute();
             case '17':
                 return new StepsAttribute();
+            case '18':
+                return new TextCardsOneAttribute();
             default:
                 throw new \Exception('Undefined Attributes');
         }
@@ -63,7 +65,7 @@ trait AttributeTrait
      * This Function will determined the Attribute Class by Attribute Code
      *
      * @param $attributeCode
-     * @return LimitAttribute|StatusAttribute|TextEditorAttribute|WidthAttribute|SlidersAttribute|BlocksAttribute|CoursesAttribute|ShowAttribute|PersonsAttribute|TitleAttribute|IconAttribute|VerticalSlidersAttribute|ImagesAttribute|LinkTextAttribute|UrlAttribute|PageAttribute|StepsAttribute
+     * @return LimitAttribute|StatusAttribute|TextEditorAttribute|WidthAttribute|SlidersAttribute|BlocksAttribute|CoursesAttribute|ShowAttribute|PersonsAttribute|TitleAttribute|IconAttribute|VerticalSlidersAttribute|ImagesAttribute|LinkTextAttribute|UrlAttribute|PageAttribute|StepsAttribute|TextCardsOneAttribute
      * @throws \Exception
      */
     public static function setByAttributeCode($attributeCode)
@@ -103,6 +105,8 @@ trait AttributeTrait
                 return new PageAttribute();
             case 'steps':
                 return new StepsAttribute();
+            case 'text_cards_1':
+                return new TextCardsOneAttribute();
             default:
                 throw new \Exception('Undefined Attributes');
         }

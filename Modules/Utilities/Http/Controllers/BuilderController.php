@@ -159,4 +159,16 @@ class BuilderController extends Controller
             'subPage' => false,
         ]);
     }
+    /**
+     * Cards
+     */
+    public function textCards()
+    {
+        return view('utilities::page.table',[
+            'table' => 'text-cards',
+            'param' => '',
+            'title' => trans('utilities::app.text-cards'),
+            'subPage' => false,
+        ]);
+    }
 }

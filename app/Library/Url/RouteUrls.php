@@ -94,6 +94,11 @@ class RouteUrls
         return $this->localizeUrl('builder/steps', 'utilities');
     }
 
+    public function textCards()
+    {
+        return $this->localizeUrl('builder/text-cards', 'utilities');
+    }
+
     public function blocks()
     {
         return $this->localizeUrl('builder/blocks', 'utilities');

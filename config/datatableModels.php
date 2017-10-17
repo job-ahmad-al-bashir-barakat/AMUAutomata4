@@ -89,6 +89,11 @@ return [
         'factory'       => Modules\Utilities\Factories\StepFactory::class
     ],
 
+    'text-cards' => [
+        'model'         => Modules\Utilities\Entities\TextCard::class,
+        'factory'       => Modules\Utilities\Factories\TextCardFactory::class
+    ],
+
     'builder-pages' => [
         'model'         => Modules\Utilities\Entities\BuilderPage::class,
         'factory'       => Modules\Utilities\Factories\BuilderPageFactory::class

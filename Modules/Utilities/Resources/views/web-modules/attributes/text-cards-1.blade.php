@@ -1,0 +1,1 @@
+{!! Form::bsAutocomplete($title, 'text_cards_1', "webModule[{$code}][]", 'autocomplete/text-cards', $data, 0, 'group required l:col-lg-3 i:col-lg-8', ['multiple']) !!}
