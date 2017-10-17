@@ -36,6 +36,8 @@
     <link href="{{ asset('css/colors/theme-skin-color-set-1.css') }}" rel="stylesheet" type="text/css">
     <!-- CSS | Style css. This is the file where you can place your own custom css code. Just uncomment it and use it. -->
     <!-- <link href="css/style.css" rel="stylesheet" type="text/css"> -->
+    <link href="{{ asset('theme-custom.css') }}" rel="stylesheet" type="text/css">
+
 </head>
 <body class="">
 <div id="wrapper" class="clearfix">

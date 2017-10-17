@@ -22,6 +22,17 @@ Route::group(
         /*
          * Temp By Ahmed
          */
+
+        //admission rules   ||| Text :: this is same as university in glance
+        //admission way     ||| Text :: this is same as university in glance
+        //fees              ||| Text :: this is same as university in glance
+        //scholarship       ||| Text :: this is same as university in glance
+
+        //university calendar ||| coming soon
+        //Courses List        ||| coming soon
+        //Exams               ||| coming soon
+        //News                ||| coming soon
+
         Route::get('contact' ,function () {
             $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
             $modules = \Modules\Utilities\Entities\BuilderPage::pageModules()->get()->pluck('module');
@@ -34,13 +45,6 @@ Route::group(
             return view('page.university_message' ,compact('modules', 'menu'));
         });
 
-        /**
-         * Text
-         */
-        //admission rules   ||| this is same as university in glance
-        //admission way     ||| this is same as university in glance
-        //fees              ||| this is same as university in glance
-        //scholarship       ||| this is same as university in glance
         Route::get( 'university-in-glance',function () {
             $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
             $modules = \Modules\Utilities\Entities\BuilderPage::pageModules()->get()->pluck('module');
@@ -77,21 +81,22 @@ Route::group(
             return view('page.university_partner'  ,compact('modules', 'menu'));
         });
 
+        Route::get('university-offices' ,function () {
+            $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
+            $modules = \Modules\Utilities\Entities\BuilderPage::pageModules()->get()->pluck('module');
+            return view('page.university_offices'  ,compact('modules', 'menu'));
+        });
+
         Route::get('error-404' ,function () {
             return view('page.404');
         });
 
-        //Gallery
-        //university_partner
-        //university_offices
-        //faculties
-        //login
-        //register
-        //mega menu
+        Route::get('gallery' ,function () {
+            $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
+            $modules = \Modules\Utilities\Entities\BuilderPage::pageModules()->get()->pluck('module');
+            return view('page.gallery' ,compact('modules', 'menu'));
+        });
 
-        /**
-         * Coming Soon
-         */
         Route::get('coming-soon' ,function () {
             return view('page.coming_soon');
         });
@@ -102,8 +107,17 @@ Route::group(
             return view('page.news'  ,compact('modules', 'menu'));
         });
 
-        //university calendar ||| coming soon
-        //Courses List        ||| coming soon
-        //Exams               ||| coming soon
-        //News                ||| coming soon
+        //faculties
+        //-- Message & Goals -- this is same as university in glance
+        //location
+        //hierarchy
+
+        // work now
+        Route::get('hierarchy' ,function () {
+            $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
+            $modules = \Modules\Utilities\Entities\BuilderPage::pageModules()->get()->pluck('module');
+            $hierarchy = \Modules\Admin\Entities\Hierarchy::orderBy('order')->get()->toTree();
+            return view('page.hierarchy' ,compact('modules', 'menu' ,'hierarchy'));
+        });
+
     });
