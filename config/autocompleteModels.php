@@ -116,6 +116,14 @@ return [
         ],
     ],
 
+    'text-cards' => [
+        'model' => \Modules\Utilities\Entities\TextCard::class,
+        'colName'  => 'transTitle->text',
+        'q'        => [
+            'transTitle' => 'text',
+        ],
+    ],
+
     'faculty' => [
         'model' => \Modules\Admin\Entities\Faculty::class,
     ],

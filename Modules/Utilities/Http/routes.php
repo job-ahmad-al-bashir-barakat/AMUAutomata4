@@ -35,6 +35,7 @@ function () {
         Route::get('blocks/{block}', 'BuilderController@block');
 
         Route::get('steps', 'BuilderController@steps');
+        Route::get('text-cards', 'BuilderController@textCards');
     });
 
     Route::group(['prefix' => 'attribute'], function () {

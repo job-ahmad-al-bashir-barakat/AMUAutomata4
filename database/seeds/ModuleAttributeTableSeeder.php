@@ -451,24 +451,6 @@ class ModuleAttributeTableSeeder extends Seeder
             ),
             48 => 
             array (
-                'id' => 49,
-                'module_id' => 16,
-                'attribute_id' => 11,
-                'created_at' => NULL,
-                'updated_at' => NULL,
-                'deleted_at' => NULL,
-            ),
-            49 => 
-            array (
-                'id' => 50,
-                'module_id' => 16,
-                'attribute_id' => 15,
-                'created_at' => NULL,
-                'updated_at' => NULL,
-                'deleted_at' => NULL,
-            ),
-            50 => 
-            array (
                 'id' => 51,
                 'module_id' => 17,
                 'attribute_id' => 1,
@@ -476,7 +458,7 @@ class ModuleAttributeTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            51 => 
+            49 => 
             array (
                 'id' => 52,
                 'module_id' => 17,
@@ -485,7 +467,7 @@ class ModuleAttributeTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            52 => 
+            50 => 
             array (
                 'id' => 53,
                 'module_id' => 17,
@@ -494,7 +476,7 @@ class ModuleAttributeTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            53 => 
+            51 => 
             array (
                 'id' => 54,
                 'module_id' => 17,
@@ -503,11 +485,20 @@ class ModuleAttributeTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            54 => 
+            52 => 
             array (
-                'id' => 55,
+                'id' => 56,
                 'module_id' => 16,
-                'attribute_id' => 10,
+                'attribute_id' => 18,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+                'deleted_at' => NULL,
+            ),
+            53 => 
+            array (
+                'id' => 57,
+                'module_id' => 16,
+                'attribute_id' => 8,
                 'created_at' => NULL,
                 'updated_at' => NULL,
                 'deleted_at' => NULL,

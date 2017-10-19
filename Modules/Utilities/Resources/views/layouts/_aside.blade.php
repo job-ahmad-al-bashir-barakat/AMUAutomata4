@@ -104,6 +104,12 @@
             </li>
 
             <li class="">
+                <a href="{{ RouteUrls::textCards() }}" class="ajax" title="{{ trans('utilities::app.text-cards') }}">
+                    <span>{{ trans('utilities::app.text-cards') }}</span>
+                </a>
+            </li>
+
+            <li class="">
                 <a href="{{ RouteUrls::customModules() }}" class="ajax" title="{{ trans('utilities::app.custom_modules') }}">
                     <span>{{ trans('utilities::app.custom_modules') }}</span>
                 </a>
