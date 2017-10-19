@@ -40,6 +40,11 @@ class Course extends \Eloquent
 
     public function prerequisiteGroup()
     {
-        return self::belongsToMany(PrerequisiteGroup::class);
+        return self::hasMany(PrerequisiteGroup::class);
+    }
+
+    public function prerequisite()
+    {
+        return self::belongsToMany(PrerequisiteGroup::class ,'prerequisite');
     }
 }

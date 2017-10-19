@@ -120,7 +120,7 @@
                         data-latlng="-37.817314,144.955431"
                         data-title="sample title"
                         data-zoom="12"
-                        data-marker="images/map-marker.png">
+                        data-marker="{{ asset('images/map-marker.png') }}">
                 </div>
                 <div class="map-popupstring hidden" id="popupstring1">
                     <div class="text-center">
@@ -128,16 +128,17 @@
                         <p>121 King Street, Melbourne Victoria 3000 Australia</p>
                     </div>
                 </div>
-                <!-- Google Map Javascript Codes -->
-                {{--<script src="http://maps.google.com/maps/api/js"></script>--}}
-                {{--<script src="js/google-map-init.js"></script>--}}
-
             </div>
         </div>
     </section>
 @endsection
 
 @section('footer')
+
+    <!-- Google Map Javascript Codes -->
+    <script src="http://maps.google.com/maps/api/js?key=AIzaSyAYWE4mHmR9GyPsHSOVZrSCOOljk8DU9B4"></script>
+    <script src="{{ asset('js/google-map-init.js') }}"></script>
+
     <!-- Contact Form Validation-->
     <script type="text/javascript">
         $("#contact_form").validate({

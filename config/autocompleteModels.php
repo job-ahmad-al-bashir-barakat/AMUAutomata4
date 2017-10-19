@@ -138,7 +138,7 @@ return [
         'model' => \Modules\Admin\Entities\Course::class,
         'conditions' => [
             ['id' ,'<>' ,'request:course'],
-            ['faculty_id' ,'<>' ,'request:faculty'],
+            ['faculty_id' ,'=' ,'request:faculty'],
         ],
     ],
 

@@ -38,6 +38,8 @@
     <!-- <link href="css/style.css" rel="stylesheet" type="text/css"> -->
     <link href="{{ asset('theme-custom.css') }}" rel="stylesheet" type="text/css">
 
+    @yield('header')
+
 </head>
 <body class="">
 <div id="wrapper" class="clearfix">
@@ -67,8 +69,8 @@
 <!-- SLIDER REVOLUTION 5.0 EXTENSIONS(Load Extensions only on Local File Systems ! The following part can be removed on Server for On Demand Loading) -->
 <script src="{{ asset(mix('js/revolution-slider/js/extensions/revolution-slider-extensions.js')) }}"></script>
 <!-- Google Map -->
-<script src="http://maps.google.com/maps/api/js?key=AIzaSyAYWE4mHmR9GyPsHSOVZrSCOOljk8DU9B4"></script>
-<script src="{{ asset('js/google-map-init-multilocation.js') }}"></script>
+{{--<script src="http://maps.google.com/maps/api/js?key=AIzaSyAYWE4mHmR9GyPsHSOVZrSCOOljk8DU9B4"></script>--}}
+{{--<script src="{{ asset('js/google-map-init-multilocation.js') }}"></script>--}}
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>

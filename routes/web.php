@@ -22,6 +22,7 @@ Route::group(
          * Temp By Ahmed
          */
 
+        // faculties -- Message & Goals -- this is same as university in glance
         //admission rules   ||| Text :: this is same as university in glance
         //admission way     ||| Text :: this is same as university in glance
         //fees              ||| Text :: this is same as university in glance
@@ -33,8 +34,8 @@ Route::group(
         //News                ||| coming soon
 
         Route::get('contact' ,function () {
-            $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
-            $modules = \Modules\Utilities\Entities\BuilderPage::pageModules()->get()->pluck('module');
+            $menu = [];
+            $modules = [];
             return view('page.contact' ,compact('modules', 'menu'));
         })->name('contact_us');
 
@@ -63,8 +64,8 @@ Route::group(
         });
 
         Route::get('trusted-council' ,function () {
-            $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
-            $modules = \Modules\Utilities\Entities\BuilderPage::pageModules()->get()->pluck('module');
+            $menu = [];
+            $modules = [];
             return view('page.trusted_council'  ,compact('modules', 'menu'));
         });
 
@@ -81,8 +82,8 @@ Route::group(
         });
 
         Route::get('university-offices' ,function () {
-            $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
-            $modules = \Modules\Utilities\Entities\BuilderPage::pageModules()->get()->pluck('module');
+            $menu = [];
+            $modules = [];
             return view('page.university_offices'  ,compact('modules', 'menu'));
         });
 
@@ -106,17 +107,77 @@ Route::group(
             return view('page.news'  ,compact('modules', 'menu'));
         });
 
-        //faculties
-        //-- Message & Goals -- this is same as university in glance
-        //location
-        //hierarchy
+        function call ($hierarchy) {
+            $obj = [];
+            foreach ($hierarchy as $index => $item) {
+                $obj[$index]['name'] = $item->lang_name[App::getLocale()]['text'];
+                if($item->children->count()){
+                    $obj[$index]['children'] = call($item->children);
+                } else {
+                    $obj[$index]['size'] = rand(10,1000);
+                }
+            }
+            return $obj;
+        }
 
-        // work now
         Route::get('hierarchy' ,function () {
-            $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
-            $modules = \Modules\Utilities\Entities\BuilderPage::pageModules()->get()->pluck('module');
-            $hierarchy = \Modules\Admin\Entities\Hierarchy::orderBy('order')->get()->toTree();
-            return view('page.hierarchy' ,compact('modules', 'menu' ,'hierarchy'));
+            $menu = [];
+            $modules = [];
+
+            return view('page.hierarchy' ,compact('modules', 'menu' ));
         });
 
+        Route::get('hierarchy/data' ,function () {
+            $hierarchy = \Modules\Admin\Entities\Hierarchy::orderBy('order')->get()->toTree();
+            $hierarchyJson = collect(call($hierarchy));
+            return response()->json(collect($hierarchyJson)->first());
+        });
+
+        Route::get('degrees' ,function () {
+            $menu = [];
+            $modules = [];
+            $degrees = \Modules\Admin\Entities\Degree::all();
+            return view('page.degrees' ,compact('modules', 'menu' ,'degrees' ));
+        });
+
+        Route::get('courses' ,function () {
+
+            $menu = [];
+            $modules = [];
+            $courses = \Modules\Admin\Entities\Course::with(['degree' ,'department' ,'prerequisiteGroup.courses'])->get();
+
+            return view('page.courses' ,compact('modules', 'menu', 'courses'));
+        });
+
+        Route::get('study_plan' ,function () {
+
+            $menu = [];
+            $modules = [];
+
+//            \Modules\Admin\Entities\Course::
+            return view('page.study_plan' ,compact('modules', 'menu', 'study_plan'));
+        });
+
+        Route::get('labs' ,function () {
+            $menu = [];
+            $modules = [];
+
+            return view('page.labs' ,compact('modules', 'menu' ));
+        });
+
+        Route::get('instructors' ,function () {
+
+            $menu = [];
+            $modules = [];
+
+            return view('page.instructors'  ,compact('modules', 'menu' ));
+        });
+
+        Route::get('location' ,function () {
+
+            $menu = [];
+            $modules = [];
+
+            return view('page.location'  ,compact('modules', 'menu' ));
+        });
     });
