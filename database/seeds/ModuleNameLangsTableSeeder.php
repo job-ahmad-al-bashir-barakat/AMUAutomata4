@@ -357,6 +357,66 @@ class ModuleNameLangsTableSeeder extends Seeder
                 'updated_at' => '2017-10-16 18:01:45',
                 'deleted_at' => NULL,
             ),
+            34 => 
+            array (
+                'id' => 55,
+                'module_id' => 18,
+                'lang_id' => 1,
+                'text' => 'Text Card #2',
+                'created_at' => '2017-10-19 17:15:32',
+                'updated_at' => '2017-10-19 17:15:32',
+                'deleted_at' => NULL,
+            ),
+            35 => 
+            array (
+                'id' => 56,
+                'module_id' => 18,
+                'lang_id' => 2,
+                'text' => 'Text Card #2',
+                'created_at' => '2017-10-19 17:15:33',
+                'updated_at' => '2017-10-19 17:15:33',
+                'deleted_at' => NULL,
+            ),
+            36 => 
+            array (
+                'id' => 57,
+                'module_id' => 19,
+                'lang_id' => 1,
+                'text' => 'Person Page',
+                'created_at' => '2017-10-19 17:31:43',
+                'updated_at' => '2017-10-19 17:31:43',
+                'deleted_at' => NULL,
+            ),
+            37 => 
+            array (
+                'id' => 58,
+                'module_id' => 19,
+                'lang_id' => 2,
+                'text' => 'Person Page',
+                'created_at' => '2017-10-19 17:31:43',
+                'updated_at' => '2017-10-19 17:31:43',
+                'deleted_at' => NULL,
+            ),
+            38 => 
+            array (
+                'id' => 59,
+                'module_id' => 20,
+                'lang_id' => 1,
+                'text' => 'Office Page',
+                'created_at' => '2017-10-19 17:44:25',
+                'updated_at' => '2017-10-19 17:44:25',
+                'deleted_at' => NULL,
+            ),
+            39 => 
+            array (
+                'id' => 60,
+                'module_id' => 20,
+                'lang_id' => 2,
+                'text' => 'Office Page',
+                'created_at' => '2017-10-19 17:44:25',
+                'updated_at' => '2017-10-19 17:44:25',
+                'deleted_at' => NULL,
+            ),
         ));
         
         

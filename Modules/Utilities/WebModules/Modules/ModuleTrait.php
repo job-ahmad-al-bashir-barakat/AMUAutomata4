@@ -15,7 +15,7 @@ trait ModuleTrait
      * This Function will determined the Module Class by Module id
      *
      * @param $moduleId
-     * @return SectionEndModule|SectionStartModule|TextEditorModule|SliderModule|BlockModule|CoursesOneModule|PersonsOneModule|VerticalSliderModule|GalleryModule|ShortInfoModule|SectionFluidStartModule|SmallGalleryModule|StepsModule|SectionIntersectTopStartModule|SectionIntersectEndModule|TextCardOneModule|ContactFormModule
+     * @return SectionEndModule|SectionStartModule|TextEditorModule|SliderModule|BlockModule|CoursesOneModule|PersonsOneModule|VerticalSliderModule|GalleryModule|ShortInfoModule|SectionFluidStartModule|SmallGalleryModule|StepsModule|SectionIntersectTopStartModule|SectionIntersectEndModule|TextCardOneModule|ContactFormModule|TextCardTwoModule
      * @throws \Exception
      */
     public static function setModule($moduleId)
@@ -55,6 +55,12 @@ trait ModuleTrait
                 return new TextCardOneModule();
             case 17:
                 return new ContactFormModule();
+            case 18:
+                return new TextCardTwoModule();
+            case 19:
+                return new PersonPageModule();
+            case 20:
+                return new OfficePageModule();
             default:
                 throw new \Exception("Undefined Web Module [id:$moduleId]");
         }
@@ -64,7 +70,7 @@ trait ModuleTrait
      * This Function will determined the Module Class by Module Code
      *
      * @param $moduleCode
-     * @return SectionEndModule|SectionStartModule|TextEditorModule|SliderModule|BlockModule|CoursesOneModule|PersonsOneModule|VerticalSliderModule|GalleryModule|ShortInfoModule|SectionFluidStartModule|SmallGalleryModule|StepsModule|SectionIntersectTopStartModule|SectionIntersectEndModule|TextCardOneModule|ContactFormModule
+     * @return SectionEndModule|SectionStartModule|TextEditorModule|SliderModule|BlockModule|CoursesOneModule|PersonsOneModule|VerticalSliderModule|GalleryModule|ShortInfoModule|SectionFluidStartModule|SmallGalleryModule|StepsModule|SectionIntersectTopStartModule|SectionIntersectEndModule|TextCardOneModule|ContactFormModule|TextCardTwoModule
      * @throws \Exception
      */
     public static function setModuleByCode($moduleCode)
@@ -104,6 +110,12 @@ trait ModuleTrait
                 return new TextCardOneModule();
             case 'contact_form':
                 return new ContactFormModule();
+            case 'text_card_2':
+                return new TextCardTwoModule();
+            case 'person_page':
+                return new PersonPageModule();
+            case 'office_page':
+                return new OfficePageModule();
             default:
                 throw new \Exception("Undefined Web Module [$moduleCode]");
         }

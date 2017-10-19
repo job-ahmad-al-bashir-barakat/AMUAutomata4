@@ -34,8 +34,8 @@ Route::group(
         //News                ||| coming soon
 
         Route::get('contact' ,function () {
-            $menu = [];
-            $modules = [];
+            $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
+            $modules = \Modules\Utilities\Entities\BuilderPage::pageModules()->get()->pluck('module');
             return view('page.contact' ,compact('modules', 'menu'));
         })->name('contact_us');
 
@@ -47,7 +47,7 @@ Route::group(
 
         Route::get('university-in-glance',function () {
             $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
-            $modules = \Modules\Utilities\Entities\BuilderPage::pageModules()->get()->pluck('module');
+//            $modules = \Modules\Utilities\Entities\BuilderPage::pageModules()->get()->pluck('module');
             return view('page.university_in_glance'  ,compact('modules', 'menu'));
         });
 
@@ -59,10 +59,9 @@ Route::group(
 
         Route::get('university-council-detail' ,function () {
             $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
-            $modules = \Modules\Utilities\Entities\BuilderPage::pageModules()->get()->pluck('module');
+//            $modules = \Modules\Utilities\Entities\BuilderPage::pageModules()->get()->pluck('module');
             return view('page.university_council_detail'  ,compact('modules', 'menu'));
         });
-
         Route::get('trusted-council' ,function () {
             $menu = [];
             $modules = [];
@@ -71,13 +70,13 @@ Route::group(
 
         Route::get('trusted-council-detail' ,function () {
             $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
-            $modules = \Modules\Utilities\Entities\BuilderPage::pageModules()->get()->pluck('module');
+//            $modules = \Modules\Utilities\Entities\BuilderPage::pageModules()->get()->pluck('module');
             return view('page.trusted_council_detail'  ,compact('modules', 'menu'));
         });
 
         Route::get('university-partner' ,function () {
             $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
-            $modules = \Modules\Utilities\Entities\BuilderPage::pageModules()->get()->pluck('module');
+//            $modules = \Modules\Utilities\Entities\BuilderPage::pageModules()->get()->pluck('module');
             return view('page.university_partner'  ,compact('modules', 'menu'));
         });
 
@@ -93,9 +92,10 @@ Route::group(
 
         Route::get('gallery' ,function () {
             $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
-            $modules = \Modules\Utilities\Entities\BuilderPage::pageModules()->get()->pluck('module');
+//            $modules = \Modules\Utilities\Entities\BuilderPage::pageModules()->get()->pluck('module');
             return view('page.gallery' ,compact('modules', 'menu'));
         });
+//-----------------------
 
         Route::get('coming-soon' ,function () {
             return view('page.coming_soon');

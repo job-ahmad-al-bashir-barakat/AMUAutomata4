@@ -170,6 +170,33 @@ class ModulesTableSeeder extends Seeder
                 'updated_at' => '2017-10-16 18:09:35',
                 'deleted_at' => NULL,
             ),
+            17 => 
+            array (
+                'id' => 18,
+                'code' => 'text_card_2',
+                'customized' => '1',
+                'created_at' => '2017-10-19 17:15:32',
+                'updated_at' => '2017-10-19 17:15:32',
+                'deleted_at' => NULL,
+            ),
+            18 => 
+            array (
+                'id' => 19,
+                'code' => 'person_page',
+                'customized' => '0',
+                'created_at' => '2017-10-19 17:31:43',
+                'updated_at' => '2017-10-19 17:31:43',
+                'deleted_at' => NULL,
+            ),
+            19 => 
+            array (
+                'id' => 20,
+                'code' => 'office_page',
+                'customized' => '0',
+                'created_at' => '2017-10-19 17:44:25',
+                'updated_at' => '2017-10-19 17:44:25',
+                'deleted_at' => NULL,
+            ),
         ));
         
         

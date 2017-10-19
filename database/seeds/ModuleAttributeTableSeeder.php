@@ -503,6 +503,78 @@ class ModuleAttributeTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
+            54 => 
+            array (
+                'id' => 58,
+                'module_id' => 18,
+                'attribute_id' => 1,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+                'deleted_at' => NULL,
+            ),
+            55 => 
+            array (
+                'id' => 59,
+                'module_id' => 18,
+                'attribute_id' => 2,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+                'deleted_at' => NULL,
+            ),
+            56 => 
+            array (
+                'id' => 60,
+                'module_id' => 18,
+                'attribute_id' => 18,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+                'deleted_at' => NULL,
+            ),
+            57 => 
+            array (
+                'id' => 61,
+                'module_id' => 18,
+                'attribute_id' => 8,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+                'deleted_at' => NULL,
+            ),
+            58 => 
+            array (
+                'id' => 62,
+                'module_id' => 18,
+                'attribute_id' => 10,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+                'deleted_at' => NULL,
+            ),
+            59 => 
+            array (
+                'id' => 63,
+                'module_id' => 19,
+                'attribute_id' => 1,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+                'deleted_at' => NULL,
+            ),
+            60 => 
+            array (
+                'id' => 64,
+                'module_id' => 19,
+                'attribute_id' => 2,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+                'deleted_at' => NULL,
+            ),
+            61 => 
+            array (
+                'id' => 65,
+                'module_id' => 20,
+                'attribute_id' => 1,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+                'deleted_at' => NULL,
+            ),
         ));
         
         
