@@ -61,6 +61,8 @@ trait ModuleTrait
                 return new PersonPageModule();
             case 20:
                 return new OfficePageModule();
+            case 21:
+                return new BreadcrumbModule();
             default:
                 throw new \Exception("Undefined Web Module [id:$moduleId]");
         }
@@ -116,6 +118,8 @@ trait ModuleTrait
                 return new PersonPageModule();
             case 'office_page':
                 return new OfficePageModule();
+            case 'breadcrumb':
+                return new BreadcrumbModule();
             default:
                 throw new \Exception("Undefined Web Module [$moduleCode]");
         }

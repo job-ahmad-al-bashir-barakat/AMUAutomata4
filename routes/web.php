@@ -90,12 +90,12 @@ Route::group(
             return view('page.404');
         });
 
+//-----------------------
         Route::get('gallery' ,function () {
             $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
 //            $modules = \Modules\Utilities\Entities\BuilderPage::pageModules()->get()->pluck('module');
             return view('page.gallery' ,compact('modules', 'menu'));
         });
-//-----------------------
 
         Route::get('coming-soon' ,function () {
             return view('page.coming_soon');
