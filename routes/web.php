@@ -80,17 +80,24 @@ Route::group(
             return view('page.university_partner'  ,compact('modules', 'menu'));
         });
 
+        // -- labs : same as university-offices and university-offices-detail
         Route::get('university-offices' ,function () {
             $menu = [];
             $modules = [];
             return view('page.university_offices'  ,compact('modules', 'menu'));
         });
 
+        Route::get('university-offices-detail' ,function () {
+            $menu = [];
+            $modules = [];
+            return view('page.university_offices_detail'  ,compact('modules', 'menu'));
+        });
+
         Route::get('error-404' ,function () {
             return view('page.404');
         });
 
-//-----------------------
+        //-----------------------
         Route::get('gallery' ,function () {
             $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
 //            $modules = \Modules\Utilities\Entities\BuilderPage::pageModules()->get()->pluck('module');
@@ -181,3 +188,10 @@ Route::group(
             return view('page.location'  ,compact('modules', 'menu' ));
         });
     });
+
+//study plan
+
+
+//understand module
+//db generates
+//seo

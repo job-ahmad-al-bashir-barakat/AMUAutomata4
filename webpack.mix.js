@@ -240,6 +240,7 @@ mix.scripts([
     'resources/assets/js/jquery.min.js',
     'resources/assets/js/jquery-ui.min.js',
     'resources/assets/js/bootstrap.min.js',
+
     // JS | jquery plugin collection for this theme
     'resources/assets/js/jquery-plugin-collection.js',
     // JS | Custom script for all pages
