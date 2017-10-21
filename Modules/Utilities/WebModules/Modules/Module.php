@@ -14,6 +14,8 @@ class Module
     public $code;
     public $viewName;
     public $viewPath;
+    public $customModuleId;
+    public $data = [];
 
     const POSITION = [
         '' => '',
@@ -55,7 +57,16 @@ class Module
 
     public function getModuleHtml()
     {
-        return view($this->viewPath)->render();
+        $data = [];
+        return view($this->viewPath, compact('data'))->render();
+    }
+
+    public function setAttributeValueData()
+    {
+        foreach ($this->data as $code => $value) {
+            $attribute = Attribute::setByAttributeCode($code);
+            $this->data[$code] = $attribute->getAttributeRenderValue($this->customModuleId);
+        }
     }
 
 }

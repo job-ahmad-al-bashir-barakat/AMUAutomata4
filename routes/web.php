@@ -15,6 +15,8 @@ Route::group(
         Route::get('home', function () {
             $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
             $modules = \Modules\Utilities\Entities\BuilderPage::pageModules()->get()->pluck('module');
+//            return $modules;
+            dd($modules);
             return view('modules', compact('modules', 'menu'));
         })->name('home');
 
@@ -103,7 +105,7 @@ Route::group(
 
         Route::get('news' ,function () {
             $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
-            $modules = \Modules\Utilities\Entities\BuilderPage::pageModules()->get()->pluck('module');
+//            $modules = \Modules\Utilities\Entities\BuilderPage::pageModules()->get()->pluck('module');
             return view('page.news'  ,compact('modules', 'menu'));
         });
 
@@ -149,7 +151,7 @@ Route::group(
             return view('page.courses' ,compact('modules', 'menu', 'courses'));
         });
 
-        Route::get('study_plan' ,function () {
+        Route::get('study-plan' ,function () {
 
             $menu = [];
             $modules = [];

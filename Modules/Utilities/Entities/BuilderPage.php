@@ -24,7 +24,7 @@ class BuilderPage extends Model
         $route = request()->route();
         $currentPage = $route->getName();
 
-        $query->with(['customModule']);
+        $query->with(['customModule.attributeValues.attribute']);
         $pageCode = $page ? : $currentPage;
 
         $pageId = Page::where('page_code', '=', $pageCode)->first(['id'])->id;
@@ -39,6 +39,11 @@ class BuilderPage extends Model
      */
     public function getModuleAttribute()
     {
-        return Module::setModule($this->customModule->module_id);
+        $module = Module::setModule($this->customModule->module_id);
+        $module->customModuleId = $this->custom_module_id;
+//        collect([])->pluck()
+        $module->data = $this->customModule->attributeValues->pluck('value', 'attribute.code');
+        $module->setAttributeValueData();
+        return $module;
     }
 }
