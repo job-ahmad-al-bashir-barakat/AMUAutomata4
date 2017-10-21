@@ -1,20 +1,36 @@
 
 /**
- *  Image overlay
- */
+*  by basheer : Image overlay
+*/
 
-.overlay-hover-zoom {
-    float: left;
+.overlay-zoom {
+    position: relative;
+    margin: 0px;
     padding: 0px;
+}
+.overlay-zoom .overlay-zoom-item {
     position: relative;
     overflow: hidden;
+    z-index: 50;
 }
 
-.overlay-hover-zoom:hover .caption {
+.overlay-zoom .overlay-zoom-item .caption-text {
+
+    background-color: rgba(0, 0, 0, 0.58);
+    position: absolute;
+    padding: 15px;
+    color: #fff;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+}
+
+.overlay-zoom .overlay-zoom-item:hover .caption{
     opacity: 1;
 }
-
-.overlay-hover-zoom:hover img {
+.overlay-zoom .overlay-zoom-item:hover img{
     opacity: 1;
     transform: scale(1.15,1.15);
     -webkit-transform:scale(1.15,1.15);
@@ -22,17 +38,20 @@
     -ms-transform:scale(1.15,1.15);
     -o-transform:scale(1.15,1.15);
 }
-
-.overlay-hover-zoom img {
+.overlay-zoom img{
     margin: 0px;
     padding: 0px;
     float: left;
-    z-index: 4;
 }
 
-.overlay-hover-zoom .caption {
+.overlay-zoom .overlay-zoom-item .caption-text h1{
+    text-transform: uppercase;
+    font-size: 24px;
+    color: #fff;
+}
+
+.overlay-zoom .overlay-zoom-item .caption{
     cursor: pointer;
-    position: absolute;
     opacity: 0;
     -webkit-transition:all 0.45s ease-in-out;
     -moz-transition:all 0.45s ease-in-out;
@@ -41,36 +60,10 @@
     transition:all 0.45s ease-in-out;
 }
 
-.overlay-hover-zoom img {
+.overlay-zoom .overlay-zoom-item img{
     -webkit-transition:all 0.25s ease-in-out;
     -moz-transition:all 0.25s ease-in-out;
     -o-transition:all 0.25s ease-in-out;
     -ms-transition:all 0.25s ease-in-out;
     transition:all 0.25s ease-in-out;
-}
-
-.overlay-hover-zoom .blur {
-    background-color: rgba(0,0,0,0.65);
-    height: 100%;
-    width: 100%;
-    z-index: 5;
-    position: absolute;
-}
-
-.overlay-hover-zoom .caption-text h1 {
-    color: white;
-    text-transform: uppercase;
-    font-size: 24px;
-    font-weight: bold;
-}
-
-.overlay-hover-zoom .caption-text {
-    z-index: 10;
-    color: #fff;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    top: 25%;
-    padding:40px;
 }

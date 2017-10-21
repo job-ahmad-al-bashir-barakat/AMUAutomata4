@@ -51,7 +51,6 @@
                 </div>
             </div>
         </section>
-    </div>
     <!-- end main-content -->
 
 
