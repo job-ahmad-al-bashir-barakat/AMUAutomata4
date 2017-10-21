@@ -57,15 +57,17 @@ class Module
 
     public function getModuleHtml()
     {
-        $data = [];
+        $data = $this->data ?: [];
+//        dd($data['sliders']->sliderDetails()->with('image')->get());
         return view($this->viewPath, compact('data'))->render();
     }
 
-    public function setAttributeValueData()
+    public function getAttributeValue()
     {
         foreach ($this->data as $code => $value) {
             $attribute = Attribute::setByAttributeCode($code);
-            $this->data[$code] = $attribute->getAttributeRenderValue($this->customModuleId);
+            $attribute->getAttributeValue($this->customModuleId);
+            $this->data[$code] = $attribute->data;
         }
     }
 

@@ -27,8 +27,6 @@ class VerticalSlidersAttribute extends Attribute
 
         $data = VerticalSlider::findOrFail($this->data);
 
-        $this->data = [
-            [$data->id => $data->transName->first()->text],
-        ];
+        $this->data = $data;
     }
 }

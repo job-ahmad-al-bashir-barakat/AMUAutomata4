@@ -43,7 +43,7 @@ class BuilderPage extends Model
         $module->customModuleId = $this->custom_module_id;
 //        collect([])->pluck()
         $module->data = $this->customModule->attributeValues->pluck('value', 'attribute.code');
-        $module->setAttributeValueData();
+        $module->getAttributeValue();
         return $module;
     }
 }

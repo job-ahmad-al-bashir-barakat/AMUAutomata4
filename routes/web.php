@@ -15,8 +15,6 @@ Route::group(
         Route::get('home', function () {
             $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
             $modules = \Modules\Utilities\Entities\BuilderPage::pageModules()->get()->pluck('module');
-//            return $modules;
-            dd($modules);
             return view('modules', compact('modules', 'menu'));
         })->name('home');
 

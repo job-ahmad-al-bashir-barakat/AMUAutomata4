@@ -14,9 +14,11 @@ class SliderDetail extends Model
 {
     use SoftDeletes, MultiLangs;
 
+    const IMAGE_PATH = 'storage/upload/image/sliders/';
+
     protected $fillable = ['slider_id', 'image_id', 'page_id', 'position'];
 
-    protected $appends = ['lang_head', 'lang_title', 'lang_text', 'lang_btn'];
+    protected $appends = ['lang_head', 'lang_title', 'lang_text', 'lang_btn', 'image_path'];
 
     public function transHead()
     {
@@ -56,6 +58,11 @@ class SliderDetail extends Model
     public function getLangBtnAttribute()
     {
         return $this->transBtn->keyBy('lang_code');
+    }
+
+    public function getImagePathAttribute()
+    {
+        return self::IMAGE_PATH . $this->image->hash_name;
     }
 
     public function image()

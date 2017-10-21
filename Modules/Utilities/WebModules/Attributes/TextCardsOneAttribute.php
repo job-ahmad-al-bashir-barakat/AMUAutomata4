@@ -26,7 +26,8 @@ class TextCardsOneAttribute extends Attribute
         parent::getAttributeValue($customModuleId, $forceQuery);
 
         $lang = app()->getLocale();
-        $this->data = TextCard::whereIn('id', $this->data)->get()->pluck("lang_title.{$lang}.text", 'id')->toArray();
+//        $this->data = TextCard::whereIn('id', $this->data)->get()->pluck("lang_title.{$lang}.text", 'id')->toArray();
+        $this->data = TextCard::whereIn('id', $this->data)->get();
     }
 
 }
