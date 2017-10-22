@@ -37,6 +37,6 @@ class CustomModule extends Model
 
     /*public function attributes()
     {
-        return $this->belongsToMany(Attribute::class);
+        return $this->belongsToMany(Attribute::class, 'custom_module_attribute_value');
     }*/
 }

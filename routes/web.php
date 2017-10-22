@@ -109,7 +109,7 @@ Route::group(
 
         Route::get('news' ,function () {
             $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
-            $modules = \Modules\Utilities\Entities\BuilderPage::pageModules()->get()->pluck('module');
+//            $modules = \Modules\Utilities\Entities\BuilderPage::pageModules()->get()->pluck('module');
             return view('page.news'  ,compact('modules', 'menu'));
         });
 

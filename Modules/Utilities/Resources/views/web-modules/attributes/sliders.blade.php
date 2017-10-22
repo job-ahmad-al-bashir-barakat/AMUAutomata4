@@ -1,1 +1,1 @@
-{!! Form::bsAutocomplete($title, 'sliders', "webModule[{$code}]", 'autocomplete/sliders', $data, 0, 'group required l:col-lg-3 l:control-label i:col-lg-8') !!}
+{!! Form::bsAutocomplete($title, 'sliders', "webModule[{$code}]", 'autocomplete/sliders', [[$data->id => $data->transName->first()->text]], 0, 'group required l:col-lg-3 l:control-label i:col-lg-8') !!}

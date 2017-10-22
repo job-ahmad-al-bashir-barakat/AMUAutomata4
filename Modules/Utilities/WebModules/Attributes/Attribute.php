@@ -32,9 +32,8 @@ class Attribute
         $this->lang = \LaravelLocalization::getCurrentLocale();
         $this->title = trans("utilities::web-modules.{$this->title}");
     }
-
-
-        /**
+    
+    /**
      * This Function will render the view of the attribute
      * will pass the $id, $code, $title, $values, $data, supportedLangs and Lang to the view
      *
@@ -65,7 +64,6 @@ class Attribute
     {
         //todo in attribute class must Use "withoutTrans" | "stopTransSaveOper" to stop trying saving multi in none multi attributes
         //todo update it after fixing Multilangs Trait "save function"
-        //todo Solve in this function if the attribute is  multi values
 
         request()->merge(['transSaveOper' => $this->multiLang]);
         if ($this->multiLang) {

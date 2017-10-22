@@ -1,14 +1,16 @@
-<!-- Slider Revolution Start -->
+
 <div class="rev_slider_wrapper">
     <div class="rev_slider" data-version="5.0">
         <ul>
             <!-- SLIDE 1 -->
+            @foreach($data['sliders']->sliderDetails()->with('image')->get() as $sliderDetail)
             @include('utilities::web-modules.modules.sub.slider',
                 [
-                    'image' => 'http://placehold.it/1920x1280',
+                    'image' => asset($sliderDetail->image_path),
                     'bgposition' => '10%',
                 ]
             )
+            @endforeach
 
             <!-- SLIDE 2 -->
             <li data-index="rs-2" data-transition="slidingoverlayhorizontal" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="default" data-thumb="http://placehold.it/1920x1280" data-rotate="0" data-saveperformance="off" data-title="Web Show" data-description="">

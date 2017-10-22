@@ -24,4 +24,9 @@ class CustomModuleAttributeValue extends Model
     {
         return $this->transmulti->keyBy('lang_code');
     }
+
+    public function attribute()
+    {
+        return $this->belongsTo(Attribute::class);
+    }
 }
