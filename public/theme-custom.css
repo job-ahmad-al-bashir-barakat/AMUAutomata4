@@ -67,3 +67,11 @@
     -ms-transition:all 0.25s ease-in-out;
     transition:all 0.25s ease-in-out;
 }
+
+/**
+ * Custom Css
+ */
+
+.hand {
+    cursor: pointer;
+}

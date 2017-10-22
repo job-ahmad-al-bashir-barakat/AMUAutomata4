@@ -14,6 +14,7 @@ class CreateFacultyStudyYearTable extends Migration
     public function up()
     {
         Schema::create('faculty_study_year', function (Blueprint $table) {
+            $table->increments('id')->unsigned();
             $table->integer('faculty_id')->unsigned();
             $table->integer('study_year_id')->unsigned();
             $table->timestamps();
