@@ -184,11 +184,8 @@ Route::group(
             $modules = [];
 
             $studyYears = \Modules\Admin\Entities\Course::with(['degree' ,'department' ,'semester' ,'facultyStudyYear.studyYear'])->where('faculty_id' ,'=' ,6)->whereNotNull('faculty_study_year_id')->whereNotNull('semester_id')->get();
-            $degrees = \Modules\Admin\Entities\Degree::where('faculty_id' ,'=' ,6)->get();
 
-            $studyYearsCount =  $studyYears->groupBy(function ($item) {
-                return $item->facultyStudyYear->studyYear->lang_name[App::getLocale()]['text'];
-            });
+            $degrees = $studyYears->pluck('degree.lang_name.'.App::getLocale().'.text' ,'degree_id');
 
             $studyYears = $studyYears->sortBy(function ($item) {
                 return $item->faculty_study_year_id;

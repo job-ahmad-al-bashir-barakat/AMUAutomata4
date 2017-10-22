@@ -75,7 +75,6 @@
                                 <b>Filter Table</b>
                             </a>
                             <span class="pull-right">
-                                <i class="fa fa-filter m-5 hand"></i>
                                 <i class="fa fa-print m-5 hand"></i>
                             </span>
                         </h4>
@@ -94,7 +93,6 @@
                                     <div class="col-xs-12 pb-5">
                                         <div><b>Degree</b></div>
                                         @foreach($degrees as $degree)
-                                            @php($degree = $degree->lang_name[App::getLocale()]['text'])
                                             <span data-filter="{{ \Illuminate\Support\Str::slug($degree ,'-') }}" class="label label-default filter-plan hand">{{ $degree }}</span>
                                         @endforeach
                                     </div>
@@ -158,18 +156,19 @@
      $('.filter-plan').on('click' ,function () {
 
          // clone
-         var item = $('.search-choose.hide')
+         var $this = $(this),
+             item  = $('.search-choose.hide')
              .clone()
              .removeClass('hide');
 
          // add data filter
-         item.data('filter' ,$(this).data('filter'))
+         item.data('filter' ,$this.data('filter'))
          // add text
-         item.find('.search-title').text($(this).text());
+         item.find('.search-title').text($this.text());
          // append
          item.appendTo('.filter-apply');
          // hide it
-         $(this).hide();
+         $this.hide();
 
 
          var findIn = [];
@@ -177,20 +176,28 @@
              findIn.push('.target-filter[data-filter=' + $(v).data('filter') + ']');
          });
 
-         $('.target-filter').not('.choosen').fadeOut();
-         $(findIn.join(',')).addClass('choosen').fadeIn();
+         var selector = $(findIn.join(','));
+         if(selector.length) {
+             $('.target-filter').not('.choosen').fadeOut();
+             selector.addClass('choosen').fadeIn();
+         }
      });
 
      $('.filter-area').on('click' ,'.search-remove' ,function () {
 
-         var filter = $(this).closest(".search-choose:not(.hide)").data('filter');
-         $('.filter-plan[data-filter='+ filter +']').show();
-         $(this).closest(".search-choose:not('.hide')").remove();
+         var $this        = $(this),
+             filter       = $this.closest(".search-choose:not(.hide)").data('filter'),
+             filterPlan   = $('.filter-plan[data-filter='+ filter +']'),
+             targetFilter = $('.target-filter[data-filter=' + filter + ']');
 
-         $('.target-filter[data-filter=' + filter + ']').removeClass('choosen');
+         filterPlan.show();
+
+         $this.closest(".search-choose:not('.hide')").remove();
+
+         targetFilter.removeClass('choosen');
 
          if($('.target-filter.choosen').length)
-            $('.target-filter[data-filter=' + filter + ']').fadeOut();
+             targetFilter.fadeOut();
          else
             $('.target-filter').fadeIn();
      });
