@@ -8,9 +8,9 @@ use Modules\Utilities\Entities\Page;
 class PageAttribute extends Attribute
 {
     public $id = '16';
-    public $code = 'pages';
-    public $viewName = 'pages';
-    public $title = 'pages';
+    public $code = 'page';
+    public $viewName = 'page';
+    public $title = 'page';
     public $values = [];
     public $data = [];
 
@@ -25,10 +25,7 @@ class PageAttribute extends Attribute
         parent::getAttributeValue($customModuleId, $forceQuery);
 
         $data = Page::findOrFail($this->data);
-
-        $this->data = [
-            [$data->id => $data->transName->first()->text],
-        ];
+        $this->data = $data;
     }
 
 }
