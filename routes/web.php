@@ -97,7 +97,6 @@ Route::group(
             return view('page.404');
         });
 
-        //-----------------------
         Route::get('gallery' ,function () {
             $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
 //            $modules = \Modules\Utilities\Entities\BuilderPage::pageModules()->get()->pluck('module');
@@ -156,15 +155,6 @@ Route::group(
             return view('page.courses' ,compact('modules', 'menu', 'courses'));
         });
 
-        Route::get('study-plan' ,function () {
-
-            $menu = [];
-            $modules = [];
-
-//            \Modules\Admin\Entities\Course::
-            return view('page.study_plan' ,compact('modules', 'menu', 'study_plan'));
-        });
-
         Route::get('labs' ,function () {
             $menu = [];
             $modules = [];
@@ -187,11 +177,35 @@ Route::group(
 
             return view('page.location'  ,compact('modules', 'menu' ));
         });
+
+        Route::get('study-plan' ,function () {
+
+            $menu = [];
+            $modules = [];
+
+            $studyYears = \Modules\Admin\Entities\Course::with(['degree' ,'department' ,'semester' ,'facultyStudyYear.studyYear'])->where('faculty_id' ,'=' ,6)->whereNotNull('faculty_study_year_id')->whereNotNull('semester_id')->get();
+
+            $degrees = $studyYears->pluck('degree.lang_name.'.App::getLocale().'.text' ,'degree_id');
+
+            $studyYears = $studyYears->sortBy(function ($item) {
+                return $item->faculty_study_year_id;
+            })->groupBy(function ($item) {
+                return $item->facultyStudyYear->studyYear->lang_name[App::getLocale()]['text'];
+            })->map(function ($item) {
+                return $item->sortBy(function ($item) {
+                    return $item->semester_id;
+                })->groupBy(function ($item){
+                    return $item->semester->lang_name[App::getLocale()]['text'];
+                });
+            });
+
+            return view('page.study_plan'  ,compact('modules', 'menu' ,'studyYears' ,'studyYearsCount' ,'degrees' ,'departments'));
+        });
+
+
     });
 
-//study plan
 
-
+//seo
 //understand module
 //db generates
-//seo

@@ -38,6 +38,21 @@ class Course extends \Eloquent
         return $this->belongsTo(Degree::class);
     }
 
+    function faculty()
+    {
+        return $this->belongsTo(Faculty::class);
+    }
+
+    function facultyStudyYear()
+    {
+        return $this->belongsTo(FacultyStudyYear::class);
+    }
+
+    function semester()
+    {
+        return $this->belongsTo(Semester::class);
+    }
+
     public function prerequisiteGroup()
     {
         return self::hasMany(PrerequisiteGroup::class);

@@ -188,6 +188,7 @@ return [
 
     'faculty-study-year' => [
         'model'   => \Modules\Admin\Entities\Faculty::class,
+        'colId'   => 'pivot->id',
         'with'    => ['studyYear'],
         'data'    => 'studyYear',
         'q'       => [

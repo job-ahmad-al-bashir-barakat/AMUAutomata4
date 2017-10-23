@@ -31,6 +31,6 @@ class Faculty extends \Eloquent
 
     public function studyYear()
     {
-        return $this->belongsToMany(StudyYear::class);
+        return $this->belongsToMany(StudyYear::class)->withPivot('id');
     }
 }
