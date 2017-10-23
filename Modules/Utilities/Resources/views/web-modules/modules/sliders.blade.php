@@ -1,228 +1,110 @@
-
 <div class="rev_slider_wrapper">
     <div class="rev_slider" data-version="5.0">
         <ul>
-            <!-- SLIDE 1 -->
+            @php($i = 1)
             @foreach($data['sliders']->sliderDetails()->with('image')->get() as $sliderDetail)
-            @include('utilities::web-modules.modules.sub.slider',
-                [
-                    'image' => asset($sliderDetail->image_path),
-                    'bgposition' => '10%',
-                ]
-            )
+                @if($sliderDetail->position == 'L')
+                    @php($bgposition = '10%')
+                    @php($layers['1']['class'] = 'tp-caption tp-resizeme text-uppercase text-white font-raleway')
+                    @php($layers['1']['x'] = 'left')
+                    @php($layers['1']['hoffset'] = '30')
+                    @php($layers['1']['voffset'] = '-110')
+                    @php($layers['1']['fontsize'] = '100')
+                    @php($layers['1']['lineheight'] = '110')
+                    @php($layers['1']['style'] = 'z-index: 7; white-space: nowrap; font-weight:700;')
+                    @php($layers['2']['class'] = 'tp-caption tp-resizeme text-uppercase text-white font-raleway bg-theme-colored-transparent border-left-theme-color-2-6px pl-20 pr-20')
+                    @php($layers['2']['x'] = 'left')
+                    @php($layers['2']['hoffset'] = '35')
+                    @php($layers['2']['voffset'] = '-25')
+                    @php($layers['2']['fontsize'] = '35')
+                    @php($layers['2']['lineheight'] = '54')
+                    @php($layers['2']['style'] = 'z-index: 7; white-space: nowrap; font-weight:600;')
+                    @php($layers['3']['class'] = 'tp-caption tp-resizeme text-white')
+                    @php($layers['3']['x'] = 'left')
+                    @php($layers['3']['hoffset'] = '35')
+                    @php($layers['3']['voffset'] = '35')
+                    @php($layers['3']['fontsize'] = '16')
+                    @php($layers['3']['lineheight'] = '28')
+                    @php($layers['3']['style'] = 'z-index: 5; white-space: nowrap; letter-spacing:0px; font-weight:400;')
+                    @php($layers['4']['class'] = 'tp-caption tp-resizeme')
+                    @php($layers['4']['x'] = 'left')
+                    @php($layers['4']['hoffset'] = '35')
+                    @php($layers['4']['voffset'] = '100')
+                    @php($layers['4']['link_class'] = 'btn btn-colored btn-lg btn-flat btn-theme-colored border-left-theme-color-2-6px pl-20 pr-20')
+                    @php($layers['4']['style'] = 'z-index: 5; white-space: nowrap; letter-spacing:1px;')
+                @elseif($sliderDetail->position == 'C')
+                    @php($bgposition = '40%')
+                    @php($layers['1']['class'] = 'tp-caption tp-resizeme text-uppercase  bg-dark-transparent-5 text-white font-raleway border-left-theme-color-2-6px border-right-theme-color-2-6px pl-30 pr-30')
+                    @php($layers['1']['x'] = 'center')
+                    @php($layers['1']['hoffset'] = '0')
+                    @php($layers['1']['voffset'] = '-90')
+                    @php($layers['1']['fontsize'] = '28')
+                    @php($layers['1']['lineheight'] = '54')
+                    @php($layers['1']['style'] = 'z-index: 7; white-space: nowrap; font-weight:400; border-radius: 30px;')
+                    @php($layers['2']['class'] = 'tp-caption tp-resizeme text-uppercase bg-theme-colored-transparent text-white font-raleway pl-30 pr-30')
+                    @php($layers['2']['x'] = 'center')
+                    @php($layers['2']['hoffset'] = '0')
+                    @php($layers['2']['voffset'] = '-20')
+                    @php($layers['2']['fontsize'] = '48')
+                    @php($layers['2']['lineheight'] = '70')
+                    @php($layers['2']['style'] = 'z-index: 7; white-space: nowrap; font-weight:700; border-radius: 30px;')
+                    @php($layers['3']['class'] = 'tp-caption tp-resizeme text-white text-center')
+                    @php($layers['3']['x'] = 'center')
+                    @php($layers['3']['hoffset'] = '0')
+                    @php($layers['3']['voffset'] = '50')
+                    @php($layers['3']['fontsize'] = '16')
+                    @php($layers['3']['lineheight'] = '28')
+                    @php($layers['3']['style'] = 'z-index: 5; white-space: nowrap; letter-spacing:0px; font-weight:400;')
+                    @php($layers['4']['class'] = 'tp-caption tp-resizeme')
+                    @php($layers['4']['x'] = 'center')
+                    @php($layers['4']['hoffset'] = '0')
+                    @php($layers['4']['voffset'] = '115')
+                    @php($layers['4']['link_class'] = 'btn btn-default btn-circled btn-transparent pl-20 pr-20')
+                    @php($layers['4']['style'] = 'z-index: 5; white-space: nowrap; letter-spacing:1px;')
+                @elseif($sliderDetail->position == 'R')
+                    @php($bgposition = 'center')
+                    @php($layers['1']['class'] = 'tp-caption tp-resizeme text-uppercase text-white font-raleway bg-theme-colored-transparent border-right-theme-color-2-6px pr-20 pl-20')
+                    @php($layers['1']['x'] = 'right')
+                    @php($layers['1']['hoffset'] = '30')
+                    @php($layers['1']['voffset'] = '-90')
+                    @php($layers['1']['fontsize'] = '64')
+                    @php($layers['1']['lineheight'] = '72')
+                    @php($layers['1']['style'] = 'z-index: 7; white-space: nowrap; font-weight:600;')
+                    @php($layers['2']['class'] = 'tp-caption tp-resizeme text-uppercase bg-dark-transparent-6 text-white font-raleway pl-20 pr-20')
+                    @php($layers['2']['x'] = 'right')
+                    @php($layers['2']['hoffset'] = '35')
+                    @php($layers['2']['voffset'] = '-25')
+                    @php($layers['2']['fontsize'] = '32')
+                    @php($layers['2']['lineheight'] = '54')
+                    @php($layers['2']['style'] = 'z-index: 7; white-space: nowrap; font-weight:600;')
+                    @php($layers['3']['class'] = 'tp-caption tp-resizeme text-white text-right')
+                    @php($layers['3']['x'] = 'right')
+                    @php($layers['3']['hoffset'] = '35')
+                    @php($layers['3']['voffset'] = '30')
+                    @php($layers['3']['fontsize'] = '16')
+                    @php($layers['3']['lineheight'] = '28')
+                    @php($layers['3']['style'] = 'z-index: 5; white-space: nowrap; letter-spacing:0px; font-weight:400;')
+                    @php($layers['4']['class'] = 'tp-caption tp-resizeme')
+                    @php($layers['4']['x'] = 'right')
+                    @php($layers['4']['hoffset'] = '35')
+                    @php($layers['4']['voffset'] = '95')
+                    @php($layers['4']['link_class'] = 'btn btn-colored btn-lg btn-flat btn-theme-colored btn-theme-colored border-right-theme-color-2-6px pl-20 pr-20')
+                    @php($layers['4']['style'] = 'z-index: 5; white-space: nowrap; letter-spacing:1px;')
+                @endif
+                @php($layers['1']['data'] = $sliderDetail->lang_head[$lang]->text)
+                @php($layers['2']['data'] = $sliderDetail->lang_title[$lang]->text)
+                @php($layers['3']['data'] = $sliderDetail->lang_text[$lang]->text)
+                @php($layers['4']['data'] = $sliderDetail->lang_btn[$lang]->text)
+                @include('utilities::web-modules.modules.sub.slider',
+                    [
+                        'i' => $i++,
+                        'image' => asset($sliderDetail->image_path),
+                        'imageThumb' => asset($sliderDetail->image_path),
+                        'bgposition' => '10%',
+                        'layers' => $layers,
+                    ]
+                )
             @endforeach
-
-            <!-- SLIDE 2 -->
-            <li data-index="rs-2" data-transition="slidingoverlayhorizontal" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="default" data-thumb="http://placehold.it/1920x1280" data-rotate="0" data-saveperformance="off" data-title="Web Show" data-description="">
-                <!-- MAIN IMAGE -->
-                <img src="http://placehold.it/1920x1280"  alt=""  data-bgposition="center 40%" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-bgparallax="6" data-no-retina>
-                <!-- LAYERS -->
-
-                <!-- LAYER NR. 1 -->
-                <div class="tp-caption tp-resizeme text-uppercase  bg-dark-transparent-5 text-white font-raleway border-left-theme-color-2-6px border-right-theme-color-2-6px pl-30 pr-30"
-                     id="rs-2-layer-1"
-
-                     data-x="['center']"
-                     data-hoffset="['0']"
-                     data-y="['middle']"
-                     data-voffset="['-90']"
-                     data-fontsize="['28']"
-                     data-lineheight="['54']"
-                     data-width="none"
-                     data-height="none"
-                     data-whitespace="nowrap"
-                     data-transform_idle="o:1;s:500"
-                     data-transform_in="y:100;scaleX:1;scaleY:1;opacity:0;"
-                     data-transform_out="x:left(R);s:1000;e:Power3.easeIn;s:1000;e:Power3.easeIn;"
-                     data-mask_in="x:0px;y:0px;s:inherit;e:inherit;"
-                     data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
-                     data-start="1000"
-                     data-splitin="none"
-                     data-splitout="none"
-                     data-responsive_offset="on"
-                     style="z-index: 7; white-space: nowrap; font-weight:400; border-radius: 30px;">Feed Your Knowledge
-                </div>
-
-                <!-- LAYER NR. 2 -->
-                <div class="tp-caption tp-resizeme text-uppercase bg-theme-colored-transparent text-white font-raleway pl-30 pr-30"
-                     id="rs-2-layer-2"
-
-                     data-x="['center']"
-                     data-hoffset="['0']"
-                     data-y="['middle']"
-                     data-voffset="['-20']"
-                     data-fontsize="['48']"
-                     data-lineheight="['70']"
-                     data-width="none"
-                     data-height="none"
-                     data-whitespace="nowrap"
-                     data-transform_idle="o:1;s:500"
-                     data-transform_in="y:100;scaleX:1;scaleY:1;opacity:0;"
-                     data-transform_out="x:left(R);s:1000;e:Power3.easeIn;s:1000;e:Power3.easeIn;"
-                     data-mask_in="x:0px;y:0px;s:inherit;e:inherit;"
-                     data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
-                     data-start="1000"
-                     data-splitin="none"
-                     data-splitout="none"
-                     data-responsive_offset="on"
-                     style="z-index: 7; white-space: nowrap; font-weight:700; border-radius: 30px;"> World’s Best University
-                </div>
-
-                <!-- LAYER NR. 3 -->
-                <div class="tp-caption tp-resizeme text-white text-center"
-                     id="rs-2-layer-3"
-
-                     data-x="['center']"
-                     data-hoffset="['0']"
-                     data-y="['middle']"
-                     data-voffset="['50']"
-                     data-fontsize="['16']"
-                     data-lineheight="['28']"
-                     data-width="none"
-                     data-height="none"
-                     data-whitespace="nowrap"
-                     data-transform_idle="o:1;s:500"
-                     data-transform_in="y:100;scaleX:1;scaleY:1;opacity:0;"
-                     data-transform_out="x:left(R);s:1000;e:Power3.easeIn;s:1000;e:Power3.easeIn;"
-                     data-mask_in="x:0px;y:0px;s:inherit;e:inherit;"
-                     data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
-                     data-start="1400"
-                     data-splitin="none"
-                     data-splitout="none"
-                     data-responsive_offset="on"
-                     style="z-index: 5; white-space: nowrap; letter-spacing:0px; font-weight:400;">We provides always our best services for our clients and  always<br> try to achieve our client's trust and satisfaction.
-                </div>
-
-                <!-- LAYER NR. 4 -->
-                <div class="tp-caption tp-resizeme"
-                     id="rs-2-layer-4"
-
-                     data-x="['center']"
-                     data-hoffset="['0']"
-                     data-y="['middle']"
-                     data-voffset="['115']"
-                     data-width="none"
-                     data-height="none"
-                     data-whitespace="nowrap"
-                     data-transform_idle="o:1;"
-                     data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
-                     data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
-                     data-mask_in="x:0px;y:[100%];s:inherit;e:inherit;"
-                     data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
-                     data-start="1400"
-                     data-splitin="none"
-                     data-splitout="none"
-                     data-responsive_offset="on"
-                     style="z-index: 5; white-space: nowrap; letter-spacing:1px;"><a class="btn btn-default btn-circled btn-transparent pl-20 pr-20" href="#">Apply Now</a>
-                </div>
-            </li>
-
-            <!-- SLIDE 3 -->
-            <li data-index="rs-3" data-transition="slidingoverlayhorizontal" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="default" data-thumb="http://placehold.it/1920x1280" data-rotate="0" data-saveperformance="off" data-title="Web Show" data-description="">
-                <!-- MAIN IMAGE -->
-                <img src="http://placehold.it/1920x1280"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-bgparallax="6" data-no-retina>
-                <!-- LAYERS -->
-
-                <!-- LAYER NR. 1 -->
-                <div class="tp-caption tp-resizeme text-uppercase text-white font-raleway bg-theme-colored-transparent border-right-theme-color-2-6px pr-20 pl-20"
-                     id="rs-3-layer-1"
-
-                     data-x="['right']"
-                     data-hoffset="['30']"
-                     data-y="['middle']"
-                     data-voffset="['-90']"
-                     data-fontsize="['64']"
-                     data-lineheight="['72']"
-                     data-width="none"
-                     data-height="none"
-                     data-whitespace="nowrap"
-                     data-transform_idle="o:1;s:500"
-                     data-transform_in="y:100;scaleX:1;scaleY:1;opacity:0;"
-                     data-transform_out="x:left(R);s:1000;e:Power3.easeIn;s:1000;e:Power3.easeIn;"
-                     data-mask_in="x:0px;y:0px;s:inherit;e:inherit;"
-                     data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
-                     data-start="1000"
-                     data-splitin="none"
-                     data-splitout="none"
-                     data-responsive_offset="on"
-                     style="z-index: 7; white-space: nowrap; font-weight:600;">Best Education
-                </div>
-
-                <!-- LAYER NR. 2 -->
-                <div class="tp-caption tp-resizeme text-uppercase bg-dark-transparent-6 text-white font-raleway pl-20 pr-20"
-                     id="rs-3-layer-2"
-
-                     data-x="['right']"
-                     data-hoffset="['35']"
-                     data-y="['middle']"
-                     data-voffset="['-25']"
-                     data-fontsize="['32']"
-                     data-lineheight="['54']"
-                     data-width="none"
-                     data-height="none"
-                     data-whitespace="nowrap"
-                     data-transform_idle="o:1;s:500"
-                     data-transform_in="y:100;scaleX:1;scaleY:1;opacity:0;"
-                     data-transform_out="x:left(R);s:1000;e:Power3.easeIn;s:1000;e:Power3.easeIn;"
-                     data-mask_in="x:0px;y:0px;s:inherit;e:inherit;"
-                     data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
-                     data-start="1000"
-                     data-splitin="none"
-                     data-splitout="none"
-                     data-responsive_offset="on"
-                     style="z-index: 7; white-space: nowrap; font-weight:600;">For Your Better Future
-                </div>
-
-                <!-- LAYER NR. 3 -->
-                <div class="tp-caption tp-resizeme text-white text-right"
-                     id="rs-3-layer-3"
-
-                     data-x="['right']"
-                     data-hoffset="['35']"
-                     data-y="['middle']"
-                     data-voffset="['30']"
-                     data-fontsize="['16']"
-                     data-lineheight="['28']"
-                     data-width="none"
-                     data-height="none"
-                     data-whitespace="nowrap"
-                     data-transform_idle="o:1;s:500"
-                     data-transform_in="y:100;scaleX:1;scaleY:1;opacity:0;"
-                     data-transform_out="x:left(R);s:1000;e:Power3.easeIn;s:1000;e:Power3.easeIn;"
-                     data-mask_in="x:0px;y:0px;s:inherit;e:inherit;"
-                     data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
-                     data-start="1400"
-                     data-splitin="none"
-                     data-splitout="none"
-                     data-responsive_offset="on"
-                     style="z-index: 5; white-space: nowrap; letter-spacing:0px; font-weight:400;">We provides always our best services for our clients and  always<br> try to achieve our client's trust and satisfaction.
-                </div>
-
-                <!-- LAYER NR. 4 -->
-                <div class="tp-caption tp-resizeme"
-                     id="rs-3-layer-4"
-
-                     data-x="['right']"
-                     data-hoffset="['35']"
-                     data-y="['middle']"
-                     data-voffset="['95']"
-                     data-width="none"
-                     data-height="none"
-                     data-whitespace="nowrap"
-                     data-transform_idle="o:1;"
-                     data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
-                     data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
-                     data-mask_in="x:0px;y:[100%];s:inherit;e:inherit;"
-                     data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
-                     data-start="1400"
-                     data-splitin="none"
-                     data-splitout="none"
-                     data-responsive_offset="on"
-                     style="z-index: 5; white-space: nowrap; letter-spacing:1px;"><a class="btn btn-colored btn-lg btn-flat btn-theme-colored btn-theme-colored border-right-theme-color-2-6px pl-20 pr-20" href="#">Apply Now</a>
-                </div>
-            </li>
-
         </ul>
-    </div><!-- end .rev_slider -->
+    </div>
 </div>
-<!-- Slider Revolution Ends -->

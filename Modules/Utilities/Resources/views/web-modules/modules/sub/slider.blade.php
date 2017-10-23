@@ -1,18 +1,14 @@
-<li data-index="rs-1" data-transition="slidingoverlayhorizontal" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="default" data-thumb="http://placehold.it/1920x1280" data-rotate="0" data-saveperformance="off" data-title="Web Show" data-description="">
-    <!-- MAIN IMAGE -->
+<li data-index="rs-{{ $i }}" data-transition="slidingoverlayhorizontal" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="default" data-thumb="{{ $imageThumb }}" data-rotate="0" data-saveperformance="off" data-title="Web Show" data-description="">
     <img src="{{ $image }}"  alt=""  data-bgposition="center {{ $bgposition }}" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-bgparallax="6" data-no-retina>
-    <!-- LAYERS -->
-
     <!-- LAYER NR. 1 -->
-    <div class="tp-caption tp-resizeme text-uppercase text-white font-raleway"
-         id="rs-1-layer-1"
-
-         data-x="['left']"
-         data-hoffset="['30']"
+    <div class="{{ $layers['1']['class'] }}"
+         id="rs-{{ $i }}-layer-1"
+         data-x="['{{ $layers['1']['x'] }}']"
+         data-hoffset="['{{ $layers['1']['hoffset'] }}']"
          data-y="['middle']"
-         data-voffset="['-110']"
-         data-fontsize="['100']"
-         data-lineheight="['110']"
+         data-voffset="['{{ $layers['1']['voffset'] }}']"
+         data-fontsize="['{{ $layers['1']['fontsize'] }}']"
+         data-lineheight="['{{ $layers['1']['lineheight'] }}']"
          data-width="none"
          data-height="none"
          data-whitespace="nowrap"
@@ -25,19 +21,17 @@
          data-splitin="none"
          data-splitout="none"
          data-responsive_offset="on"
-         style="z-index: 7; white-space: nowrap; font-weight:700;">Education
+         style="{{ $layers['1']['style'] }}">{{ $layers['1']['data'] }}
     </div>
-
     <!-- LAYER NR. 2 -->
-    <div class="tp-caption tp-resizeme text-uppercase text-white font-raleway bg-theme-colored-transparent border-left-theme-color-2-6px pl-20 pr-20"
-         id="rs-1-layer-2"
-
-         data-x="['left']"
-         data-hoffset="['35']"
+    <div class="{{ $layers['2']['class'] }}"
+         id="rs-{{ $i }}-layer-2"
+         data-x="['{{ $layers['2']['x'] }}']"
+         data-hoffset="['{{ $layers['2']['hoffset'] }}']"
          data-y="['middle']"
-         data-voffset="['-25']"
-         data-fontsize="['35']"
-         data-lineheight="['54']"
+         data-voffset="['{{ $layers['2']['voffset'] }}']"
+         data-fontsize="['{{ $layers['2']['fontsize'] }}']"
+         data-lineheight="['{{ $layers['2']['lineheight'] }}']"
          data-width="none"
          data-height="none"
          data-whitespace="nowrap"
@@ -50,19 +44,17 @@
          data-splitin="none"
          data-splitout="none"
          data-responsive_offset="on"
-         style="z-index: 7; white-space: nowrap; font-weight:600;">Education For Everyone
+         style="{{ $layers['2']['style'] }}">{{ $layers['2']['data'] }}
     </div>
-
     <!-- LAYER NR. 3 -->
-    <div class="tp-caption tp-resizeme text-white"
-         id="rs-1-layer-3"
-
-         data-x="['left']"
-         data-hoffset="['35']"
+    <div class="{{ $layers['3']['class'] }}"
+         id="rs-{{ $i }}-layer-3"
+         data-x="['{{ $layers['3']['x'] }}']"
+         data-hoffset="['{{ $layers['3']['hoffset'] }}']"
          data-y="['middle']"
-         data-voffset="['35']"
-         data-fontsize="['16']"
-         data-lineheight="['28']"
+         data-voffset="['{{ $layers['3']['voffset'] }}']"
+         data-fontsize="['{{ $layers['3']['fontsize'] }}']"
+         data-lineheight="['{{ $layers['3']['lineheight'] }}']"
          data-width="none"
          data-height="none"
          data-whitespace="nowrap"
@@ -75,17 +67,15 @@
          data-splitin="none"
          data-splitout="none"
          data-responsive_offset="on"
-         style="z-index: 5; white-space: nowrap; letter-spacing:0px; font-weight:400;">We provides always our best services for our clients and  always<br> try to achieve our client's trust and satisfaction.
+         style="{{ $layers['3']['style'] }}">{{ $layers['3']['data'] }}
     </div>
-
     <!-- LAYER NR. 4 -->
-    <div class="tp-caption tp-resizeme"
-         id="rs-1-layer-4"
-
-         data-x="['left']"
-         data-hoffset="['35']"
+    <div class="{{ $layers['4']['class'] }}"
+         id="rs-{{ $i }}-layer-4"
+         data-x="['{{ $layers['4']['x'] }}']"
+         data-hoffset="['{{ $layers['4']['hoffset'] }}']"
          data-y="['middle']"
-         data-voffset="['100']"
+         data-voffset="['{{ $layers['4']['voffset'] }}']"
          data-width="none"
          data-height="none"
          data-whitespace="nowrap"
@@ -98,6 +88,6 @@
          data-splitin="none"
          data-splitout="none"
          data-responsive_offset="on"
-         style="z-index: 5; white-space: nowrap; letter-spacing:1px;"><a class="btn btn-colored btn-lg btn-flat btn-theme-colored border-left-theme-color-2-6px pl-20 pr-20" href="#">View Details</a>
+         style="{{ $layers['4']['style'] }}"><a class="{{ $layers['4']['link_class'] }}" href="#">{{ $layers['4']['data'] }}</a>
     </div>
 </li>
