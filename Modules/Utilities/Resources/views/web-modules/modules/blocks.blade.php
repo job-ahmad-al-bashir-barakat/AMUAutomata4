@@ -3,7 +3,10 @@
     <div class="container pt-0 pb-0">
         <div class="section-content">
             <div class="row" data-margin-top="-70px">
-                @include("utilities::web-modules.modules.sub.block")
+                @foreach($data['blocks']->blockDetails()->with('icon')->get() as $block)
+                @include("utilities::web-modules.modules.sub.block", compact('block'))
+                @endforeach
+            {{--
                 <div class="col-sm-12 col-md-4">
                     <div class="card effect__hover">
                         <div class="card__front border-3px bg-lighter" >
@@ -70,6 +73,7 @@
                         </div>
                     </div><!-- /flip-box -->
                 </div>
+            --}}
             </div>
         </div>
     </div>

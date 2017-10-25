@@ -7,9 +7,9 @@
                         <div class="display-table-cell">
                             <div class="icon-box mb-0">
                                 <a href="#" class="icon mb-0">
-                                    <i class="text-theme-colored pe-7s-users font-72"></i>
+                                    <i class="text-theme-colored {{ $block->icon->code }} font-72"></i>
                                 </a>
-                                <h3 class="icon-box-title text-theme-colored">Experience Teachers</h3>
+                                <h3 class="icon-box-title text-theme-colored">{{ $block->lang_title[$lang]->text }}</h3>
                             </div>
                         </div>
                     </div>
@@ -21,13 +21,13 @@
                 <div class="display-table-parent p-30">
                     <div class="display-table">
                         <div class="display-table-cell">
-                            <h3 class="text-theme-color-2">Experience Teachers</h3>
-                            <p class="text-gray-lightgray">Sed gravida, ligula eget aliquam elementum, justo nisl mattis neque, in molestie ipsum dolor eu justo. Duis nec aliquam nulla. Sed interdum orci non mi porttitor, a dapibus ante varius.</p>
-                            <a href="#" class="btn btn-default mt-10"> Read More </a>
+                            <h3 class="text-theme-color-2">{{ $block->lang_title[$lang]->text }}</h3>
+                            <p class="text-gray-lightgray">{{ $block->lang_text[$lang]->text }}</p>
+                            <a href="#" class="btn btn-default mt-10">{{ $block->lang_btn[$lang]->text }}</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div><!-- /flip-box -->
+    </div>
 </div>

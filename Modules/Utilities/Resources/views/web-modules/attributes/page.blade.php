@@ -1,1 +1,1 @@
-{!! Form::bsAutocomplete($title, 'pages', "webModule[{$code}]", 'autocomplete/pages', $data, 0, 'group required l:col-lg-3 i:col-lg-8') !!}
+{!! Form::bsAutocomplete($title, 'pages', "webModule[{$code}]", 'autocomplete/pages', [[$data->id => $data->transName->first()->text]], 0, 'group required l:col-lg-3 i:col-lg-8') !!}

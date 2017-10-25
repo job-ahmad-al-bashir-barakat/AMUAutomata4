@@ -26,9 +26,6 @@ class BlocksAttribute extends Attribute
         parent::getAttributeValue($customModuleId, $forceQuery);
 
         $data = Block::findOrFail($this->data);
-
-        $this->data = [
-            [$data->id => $data->transName->first()->text],
-        ];
+        $this->data = $data;
     }
 }

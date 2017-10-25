@@ -62,7 +62,12 @@ class SliderDetail extends Model
 
     public function getImagePathAttribute()
     {
-        return self::IMAGE_PATH . $this->image->hash_name;
+        if ($this->image) {
+            $imageName = $this->image->hash_name ?: '';
+        } else {
+            $imageName = '';
+        }
+        return self::IMAGE_PATH . $imageName;
     }
 
     public function image()
