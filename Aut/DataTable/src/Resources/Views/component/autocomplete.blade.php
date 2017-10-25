@@ -17,6 +17,7 @@
                 style='width: 99.9%'
                 data-collabel = '{{ $colLabel }}'
                 data-editable = 'true'
+                @if(!empty($value)) data-selected-default="{{ collect($value)->toJson() }}" @endif
                 {{ $attr }}
         >
         </select>

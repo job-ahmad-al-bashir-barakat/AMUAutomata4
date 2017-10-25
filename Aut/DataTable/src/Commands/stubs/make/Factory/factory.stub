@@ -10,7 +10,7 @@ class DummyClass extends GlobalFactory
     /**
      *  get datatable query
      */
-    public function getDatatable($model, $request)
+    public function getDatatable($DummyModel, $request)
     {
         //
     }
@@ -18,7 +18,7 @@ class DummyClass extends GlobalFactory
     /**
      *  build datatable modal and table
      */
-    public function buildDatatable($model, $request)
+    public function buildDatatable($DummyModel, $request)
     {
         //
     }
@@ -26,7 +26,7 @@ class DummyClass extends GlobalFactory
     /**
      *  store action for save relation
      */
-    public function storeDatatable($model = null, $request = null, $result = null)
+    public function storeDatatable($DummyModel = null, $request = null, $result = null)
     {
         //
     }
@@ -34,7 +34,7 @@ class DummyClass extends GlobalFactory
     /**
      *  update action for update relation
      */
-    public function updateDatatable($model = null, $request = null, $result = null)
+    public function updateDatatable($DummyModel = null, $request = null, $result = null)
     {
         //
     }
@@ -42,7 +42,7 @@ class DummyClass extends GlobalFactory
     /**
      *  destroy action for destroy relation
      */
-    public function destroyDatatable($model = null, $request = null, $result = null)
+    public function destroyDatatable($DummyModel = null, $request = null, $result = null)
     {
         //
     }

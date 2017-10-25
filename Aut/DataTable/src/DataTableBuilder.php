@@ -75,6 +75,8 @@ class DataTableBuilder
 
     protected $HTabs = [];
 
+    protected $value = '';
+
     protected $events = [
         'onAdd'          => '',
         'onUpdate'       => '',
@@ -117,8 +119,6 @@ class DataTableBuilder
 
         if($this->optionDatatableConfig['responsive'])
             $this->dataTable->put('responsive', ['details' => ['renderer' => 'responsive_renderer']]);
-        if($this->optionDatatableConfig['scrollX'])
-            $this->dataTable->put('scrollX', true);
         $this->dataTable->put('autoWidth', true);
         $this->dataTable->put('processing', true);
         $this->dataTable->put('stateSave' , false);
@@ -132,6 +132,16 @@ class DataTableBuilder
         $this->dataTable->put('buttons', []);
         $this->dataTable->put('dom', $this->setButtonPosition());
         $this->dataTable->put('searchDelay', 900);
+        $this->dataTable->put('fixedColumns', [
+            'leftColumns'  => $this->optionDatatableConfig['fixedStart'],
+            'rightColumns' => $this->optionDatatableConfig['fixedEnd']
+        ]);
+        if($this->optionDatatableConfig['scrollX'])
+            $this->dataTable->put('scrollX', true);
+        if($this->optionDatatableConfig['scrollY']) {
+            $this->dataTable->put('scrollY', $this->optionDatatableConfig['scrollY']);
+            $this->dataTable->put('scrollCollapse', true);
+        }
     }
 
     /**
@@ -149,6 +159,7 @@ class DataTableBuilder
             'removeSomeElement' => [],
             'responsive'        => true,
             'scrollX'           => false,
+            'scrollY'           => '300px',
             'filter'            => false,
             'sortable'          => false,
             'fixedStart'        => 0,
@@ -183,6 +194,7 @@ class DataTableBuilder
         'removeElement'     => false,
         'removeSomeElement' => [],
         'scrollX'           => false,
+        'scrollY'           => '300px',
         'filter'            => false,
         'sortable'          => false,
         'fixedStart'        => 0,
@@ -226,11 +238,6 @@ class DataTableBuilder
         $dataTable->put('ajax', [
             'url'  =>  localizeURL("datatable/$model/get/table{$param}"),
             'type' => 'POST',
-        ]);
-
-        $this->dataTable->put('fixedColumns', [
-            'leftColumns'  => $this->optionDatatableConfig['fixedStart'],
-            'rightColumns' => $this->optionDatatableConfig['fixedEnd']
         ]);
 
         $this->addIndex();
@@ -2007,6 +2014,12 @@ class DataTableBuilder
         return $paramDefault;
     }
 
+    function setDefaultValue($value)
+    {
+        $this->value = $value;
+
+        return $this;
+    }
     /**
      * @param array $param
      */
@@ -2200,14 +2213,11 @@ class DataTableBuilder
      * @param $param
      * @param $choosen
      */
-    function FillDialogDatatable($param , $choosen)
+    function FillDialogDatatable($param, $choosen)
     {
         $class_attr = $param['class_attr'];
 
-        $id = preg_replace('/.+\./','',$param["data"]);
-
-        //form data-id ckeditor
-        //$class_attr['attr'] = "{$class_attr['attr']} data-original-id=$id";
+        $id = preg_replace('/.+\./', '', $param["data"]);
 
         $array = $param["type"] == 'autocompleteMulti' ? "[]" : "";
 
@@ -2219,16 +2229,14 @@ class DataTableBuilder
 
         switch ($param["type"]) {
 
-            case 'hidden' :
-            {
-                if(!$this->optionDatatableConfig['disableDialog'])
-                    $this->_HiddenInput($id ,$name ,$param['value'] ,'hidden' ,$class_attr['class_dialog'] ,$class_attr['attr'] ,$this->isCustom);
+            case 'hidden' : {
+                if (!$this->optionDatatableConfig['disableDialog'])
+                    $this->_HiddenInput($id, $name, $param['value'], 'hidden', $class_attr['class_dialog'], $class_attr['attr'], $this->isCustom);
             }; break;
 
-            case 'text' :
-            {
-                if(!$this->optionDatatableConfig['disableDialog'])
-                    $isCustom = $this->_Input($param["title"] ,$id ,$name ,'', 'text', $class_attr['class_dialog'], $class_attr['attr'] ,$this->isCustom);
+            case 'text' : {
+                if (!$this->optionDatatableConfig['disableDialog'])
+                    $isCustom = $this->_Input($param["title"], $id, $name, $this->value, 'text', $class_attr['class_dialog'], $class_attr['attr'], $this->isCustom);
             }; break;
 
             case 'date' :
@@ -2238,52 +2246,47 @@ class DataTableBuilder
             case 'month' :
             case 'week' :
             case 'email' :
-            case 'url' :
-            {
-                if(!$this->optionDatatableConfig['disableDialog'])
-                    $isCustom = $this->_Input($param["title"] ,$id ,$name ,'', $param["type"], $class_attr['class_dialog'], $class_attr['attr'] ,$this->isCustom);
+            case 'url' : {
+                if (!$this->optionDatatableConfig['disableDialog'])
+                    $isCustom = $this->_Input($param["title"], $id, $name, $this->value, $param["type"], $class_attr['class_dialog'], $class_attr['attr'], $this->isCustom);
             }; break;
 
-            case 'password' :
-            {
-                if(!$this->optionDatatableConfig['disableDialog'])
-                    $isCustom = $this->_InputPassword($param["title"] ,$id ,$name , 'password', $class_attr['class_dialog'], $class_attr['attr'] ,$this->isCustom);
+            case 'password' : {
+                if (!$this->optionDatatableConfig['disableDialog'])
+                    $isCustom = $this->_InputPassword($param["title"], $id, $name, 'password', $class_attr['class_dialog'], $class_attr['attr'], $this->isCustom);
             }; break;
 
-            case 'group' :
-            {
-                if(!$this->optionDatatableConfig['disableDialog'])
-                    $isCustom = $this->_InputGroup($param["title"], $id,$name , 'text', $class_attr['class_dialog'], $param['groupIcon'], $param['groupClass'], $class_attr['attr'] ,$this->isCustom);
+            case 'group' : {
+                if (!$this->optionDatatableConfig['disableDialog'])
+                    $isCustom = $this->_InputGroup($param["title"], $id, $name, $this->value, 'text', $class_attr['class_dialog'], $param['groupIcon'], $param['groupClass'], $class_attr['attr'], $this->isCustom);
             }; break;
 
-            case 'textarea' :
-            {
-                if(!$this->optionDatatableConfig['disableDialog'])
-                    $isCustom = $this->_TextArea($param["title"] ,$id ,$name , $class_attr['class_dialog'], $class_attr['attr'] ,$this->isCustom);
+            case 'textarea' : {
+                if (!$this->optionDatatableConfig['disableDialog'])
+                    $isCustom = $this->_TextArea($param["title"], $id, $name, $this->value, $class_attr['class_dialog'], $class_attr['attr'], $this->isCustom);
             }; break;
 
-            case 'number' :
-            {
-                if(!$this->optionDatatableConfig['disableDialog'])
-                    $isCustom = $this->_InputNumber($param["title"],$id ,$name , 'number', $class_attr['class_dialog'], $class_attr['attr'] ,$this->isCustom);
+            case 'number' : {
+                if (!$this->optionDatatableConfig['disableDialog'])
+                    $isCustom = $this->_InputNumber($param["title"], $id, $name, $this->value, 'number', $class_attr['class_dialog'], $class_attr['attr'], $this->isCustom);
             }; break;
 
-            case 'select':
-            {
-                if(!$this->optionDatatableConfig['disableDialog'])
-                    $isCustom = $this->_Select($param['obj'] ,$param["title"] ,$id ,$name , $param['colLabel'], $class_attr['class_dialog'], $class_attr['attr'] ,$this->isCustom);
+            case 'select': {
+                if (!$this->optionDatatableConfig['disableDialog'])
+                    $isCustom = $this->_Select($param['obj'], $param["title"], $id, $name, $param['colLabel'], $class_attr['class_dialog'], $class_attr['attr'], $this->isCustom);
             }; break;
 
             case 'autocomplete' :
-            case 'autocompleteMulti' :
-            {
-                if(!$this->optionDatatableConfig['disableDialog'])
-                    $isCustom = $this->_Autocomplete($param['url'] ,$param["title"] ,$id ,$name ,$param['colLabel'], $class_attr['class_dialog'], $class_attr['attr'] ,'body' /* "#{$this->id}-modal" */  ,$this->isCustom);
+            case 'autocompleteMulti' : {
+                if (!$this->optionDatatableConfig['disableDialog'])
+                    $isCustom = $this->_Autocomplete($param['url'], $param["title"], $id, $name, $this->value, $param['colLabel'], $class_attr['class_dialog'], $class_attr['attr'], 'body' /* "#{$this->id}-modal" */, $this->isCustom);
             }; break;
         }
 
-        if($this->isCustom)
+        if ($this->isCustom)
             $this->customHtml .= $isCustom;
+
+        $this->value = '';
     }
 
     /**
@@ -2635,6 +2638,7 @@ class DataTableBuilder
         $dir                      = $this->dir;
         $disableDialog            = $this->optionDatatableConfig['disableDialog'] ? 'true' : 'false';
         $scrollX                  = $this->optionDatatableConfig['scrollX'] ? 'true' : 'false';
+        $scrollY                  = $this->optionDatatableConfig['scrollY'] ? 'true' : 'false';
         $url                      = localizeURL($this->url);
         $exportUrl                = localizeURL("datatable/$this->model/export/table");
         $dialog                   = trans('datatable::table.dialog');
@@ -2686,6 +2690,7 @@ class DataTableBuilder
                             used    : $usedComponent,
                             options : $componentOptions
                          },
+                         model : '$this->model',
                          ids : {
                              table   : '#$this->id',
                              modal   : '#$this->id-modal',
@@ -2726,6 +2731,7 @@ class DataTableBuilder
                              disable_dialog : $disableDialog,
                              sortable : $sortable,
                              scrollX : $scrollX,
+                             scrollY: $scrollY,
                          },
                          global_script : function() {
                             {$this->globalScript}
@@ -2798,16 +2804,6 @@ class DataTableBuilder
             </script>";
 
         return $script;
-    }
-
-    /**
-     * @return string
-     */
-
-    //not used unti now
-    private function renderHtml()
-    {
-        return $dialog = $this->optionDatatableConfig['disableDialog'] == true ? '' : $this->renderDialog("{$this->id}-modal");
     }
 
     /**

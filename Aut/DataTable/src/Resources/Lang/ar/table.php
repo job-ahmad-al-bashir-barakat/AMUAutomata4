@@ -93,5 +93,5 @@ return [
     'code'              => 'ترميز ',
     'symbol'            => 'شكل الترميز',
     'population'        => 'عدد السكان',
-
+    'processing_order'  => 'معالجة الأمر',
 ];

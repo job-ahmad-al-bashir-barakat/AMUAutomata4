@@ -3,7 +3,7 @@
  */
 
 /*-----------------------------------
- Stack Dialog
+             Stack Dialog
  -------------------------------------*/
 
 function stackModal() {
@@ -37,7 +37,7 @@ function stackModal() {
 }
 
 /*-----------------------------------
- password hide/show
+         password hide/show
  -------------------------------------*/
 
 function aut_datatable_passwordHideShow(selector) {
@@ -192,18 +192,6 @@ function aut_datatable_resetAutocomplete(selector) {
 function aut_datatable_resetForm($cont) {
 
     $($cont).validate().resetForm();
-}
-
-var aut_datatable_numberFormat = function () {
-
-    $(this).off('keypress').on('keypress',function (e) {
-        return /[0-9]/.test(String.fromCharCode(e.which));
-    });
-}
-
-function aut_datatable_reloadNumberFormat() {
-
-    $('input[type=number]').each(aut_datatable_numberFormat);
 }
 
 var initAdditionalValidationClass = function () {
@@ -511,14 +499,17 @@ function aut_datatable_submitDialogFrom(table ,aut_datatable) {
 
         e.preventDefault();
 
-        var data = $(aut_datatable.ids.modal + ' form').serialize();
+        var button = $(this.submitButton).closest('button'),
+            data   = $(aut_datatable.ids.modal + ' form').serialize();
+
+        button.button('loading');
 
         var id = (typeof $(aut_datatable.ids.modal + ' form input[type=hidden][data-key=true]').val() !== typeof undefined)
             ? $(aut_datatable.ids.modal + ' form input[type=hidden][data-key=true]').val()
             : $(form).attr('data-key');
 
         (id == '') || (typeof id == typeof undefined)
-            ? $.post(aut_datatable.url, data, function(res) {
+        ? $.post(aut_datatable.url, data, function(res) {
 
             if(status == 'add')
                 $(aut_datatable.ids.modal).modal('hide');
@@ -545,6 +536,8 @@ function aut_datatable_submitDialogFrom(table ,aut_datatable) {
 
         }).done(function () {
 
+            button.button('reset');
+
             aut_datatable.events.on_add(aut_datatable_initParamEvent(aut_datatable));
         })
         : $.put(aut_datatable.url + '/' + id, data, function(res) {
@@ -569,6 +562,8 @@ function aut_datatable_submitDialogFrom(table ,aut_datatable) {
                 });
 
         }).done(function () {
+
+            button.button('reset');
 
             aut_datatable.events.on_update(aut_datatable_initParamEvent(aut_datatable));
         });
@@ -620,8 +615,6 @@ function aut_datatable_clearFrom(form) {
 function aut_datatable_dialogOpen(aut_datatable) {
 
     $(document).off('show.bs.modal', aut_datatable.ids.modal).on('show.bs.modal', aut_datatable.ids.modal, function() {
-
-        aut_datatable_reloadNumberFormat();
     });
 
     $(document).off('shown.bs.modal', aut_datatable.ids.modal).on('shown.bs.modal', aut_datatable.ids.modal, function() {
@@ -647,30 +640,32 @@ function aut_datatable_addModalCont() {
         $('body').append('<div class="modal-cont"></div>');
 }
 
-var aut_datatable_enable_multi_modal = false;
-
-function aut_datatable_setMultiModal(aut_datatable) {
-
-    if(aut_datatable.multi_modal)
-        aut_datatable_enable_multi_modal = true;
-    else
-        aut_datatable_enable_multi_modal = false;
-}
+// var aut_datatable_enable_multi_modal = false;
+//
+// function aut_datatable_setMultiModal(aut_datatable) {
+//
+//     if(aut_datatable.multi_modal)
+//         aut_datatable_enable_multi_modal = true;
+//     else
+//         aut_datatable_enable_multi_modal = false;
+// }
 
 function aut_datatable_copyModalToHisCont(aut_datatable) {
 
     var $modalCont = $('.modal-cont');
 
-    $modalCont.find('[data-table]').each(function () {
-        var item = $('.datatable[data-table=' + $(this).data('table') + ']');
-        if(!item.length)
-            $(this).remove();
-    });
+    // $modalCont.find('[data-table]').each(function () {
+    //     var item = $('.datatable[data-table=' + $(this).data('table') + ']');
+    //     if(!item.length)
+    //         $(this).remove();
+    // });
 
-    if(!aut_datatable_enable_multi_modal)
-        $modalCont.children().remove();
-    else
-        $modalCont.find(aut_datatable.ids.modal).remove();
+    // if(!aut_datatable_enable_multi_modal)
+    //     $modalCont.children().remove();
+    // else
+    //     $modalCont.find(aut_datatable.ids.modal).remove();
+
+    $modalCont.find('[data-table="' + aut_datatable.model + '"]:first').remove();
 
     $modalCont.append($(aut_datatable.ids.modal));
 }
@@ -899,6 +894,12 @@ function aut_datatable_replaceDatatableFunctionWithJPath(aut_datatable) {
 
             $(aut_datatable.ids.modal + ' button[data-status=save]').show();
 
+            $(aut_datatable.ids.modal + ' .datatable-autocomplete').each(function(i ,v) {
+
+                if($(v).is('[data-selected-default]'))
+                    aut_datatable_selectedAutocomplete(this , $(v).data('selected-default'));
+            });
+
             aut_datatable.events.modal_add(aut_datatable_initParamEvent(aut_datatable));
         };
 
@@ -974,8 +975,6 @@ function aut_datatable_replaceDatatableFunctionWithJPath(aut_datatable) {
 
         aut_datatable.events.on_load(aut_datatable.ids.modal, aut_datatable_initParamEvent(aut_datatable));
 
-        aut_datatable_reloadNumberFormat();
-
         // remove stuck order icon
         $('.dataTable .index').removeClass('sorting_asc');
 
@@ -1023,9 +1022,10 @@ function aut_datatable_replaceDatatableFunctionWithJPath(aut_datatable) {
 
 function aut_datatable_addTriggerOpenModelToButtonPlus(aut_datatable) {
 
-    $(aut_datatable.ids.table + '.custom-table .button-plus')
-        .attr('data-toggle', 'modal')
-        .attr('data-target',aut_datatable.ids.modal);
+    $('[role="datatable"][data-table=' + aut_datatable.model + ']').off('click.plus').on('click.plus' ,aut_datatable.ids.wrapper + ' .button-plus' ,function () {
+
+        $(aut_datatable.ids.modal).modal('show');
+    });
 }
 
 function aut_datatable_addGlobalScript(aut_datatable) {
@@ -1131,11 +1131,8 @@ function aut_datatable_responsive_window() {
 
 var searchDelay;
 
-function aut_datatable_CreateNewTable(TableObject)
+function aut_datatable_CreateNewTable(aut_datatable)
 {
-    // _not global
-    var aut_datatable = TableObject;
-
     aut_datatable_replaceDatatableFunctionWithJPath(aut_datatable);
 
     var table = aut_datatable_initDatatable(aut_datatable);
@@ -1173,7 +1170,7 @@ function aut_datatable_CreateNewTable(TableObject)
 
         aut_datatable_copyModalToHisCont(aut_datatable);
 
-        aut_datatable_setMultiModal(aut_datatable);
+        // aut_datatable_setMultiModal(aut_datatable);
 
         aut_datatable_passwordHideShow(aut_datatable.ids.modal);
 

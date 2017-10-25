@@ -204,8 +204,3 @@ Route::group(
 
 
     });
-
-
-//seo
-//understand module
-//db generates
