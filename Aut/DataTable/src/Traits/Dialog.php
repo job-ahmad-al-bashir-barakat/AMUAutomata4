@@ -343,8 +343,9 @@ trait Dialog
      */
     protected function _Autocomplete($url, $title, $id, $name, $value, $colLabel = '', $class = '', $attr = '', $target = '', $custom = false)
     {
-        foreach ($value as $item)
-            $value['selected'] = true;
+        if(!empty($value))
+            foreach ($value as $item)
+                $value['selected'] = true;
 
         return $this->_dialogEntry([
             'component'         => 'autocomplete',
