@@ -1,15 +1,17 @@
-<div class="section-title mb-10">
+{{--<div class="section-title mb-10">
     <div class="row">
-        <div class="col-md-8">
-            <h2 class="mt-0 text-uppercase font-28 line-bottom line-height-1">Our <span class="text-theme-color-2 font-weight-400">COURSES</span></h2>
-        </div>
+        @include('utilities::web-modules.modules.sub.title', ['width' => $data['width'], 'title' => $data['title'][$lang]])
     </div>
-</div>
+</div>--}}
 <div class="section-content">
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-{{ $data['width'] }}">
+            @include('utilities::web-modules.modules.sub.title', ['title' => $data['title'][$lang]])
             <div class="owl-carousel-4col" data-dots="true">
-                @include('utilities::web-modules.modules.sub.course-card-1')
+                @foreach( \Modules\Admin\Entities\Course::whereIn('id', array_keys($data['courses']))->with(['department'])->get() as $course )
+                    @include('utilities::web-modules.modules.sub.course-card-1', compact('course'))
+                @endforeach
+                {{--
                 <div class="item">
                     <div class="service-block mb-md-30 bg-white">
                         <div class="thumb"> <img alt="featured project" src="http://placehold.it/265x195" class="img-responsive img-fullwidth">
@@ -58,6 +60,7 @@
                         </div>
                     </div>
                 </div>
+                --}}
             </div>
         </div>
     </div>

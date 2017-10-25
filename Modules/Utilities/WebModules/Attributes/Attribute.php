@@ -97,12 +97,14 @@ class Attribute
         if(!$this->data || $forceQuery){
             $customModuleAttributeValue = CustomModuleAttributeValue::where('custom_module_id', '=', $customModuleId)->where('attribute_id', '=', $this->id)->first();
             if ($this->multiLang) {
-                foreach ($customModuleAttributeValue->lang_multi as $langCode => $multi) {
-                    $this->data[$langCode] = $multi->text;
+                if($customModuleAttributeValue){
+                    foreach ($customModuleAttributeValue->lang_multi as $langCode => $multi) {
+                        $this->data[$langCode] = $multi->text;
+                    }
                 }
                 return;
             }
-            if($this->multiVal){
+            if($this->multiVal) {
                 $this->data = json_decode($customModuleAttributeValue->value);
                 return;
             }
