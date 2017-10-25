@@ -4,7 +4,9 @@ namespace Modules\Admin\Entities;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Modules\Admin\Entities\LangModels\CourseDescriptionLang;
 use Modules\Admin\Entities\LangModels\CourseNameLang;
+use Modules\Utilities\Entities\Image;
 use Modules\Utilities\Traits\MultiLangs;
 
 class Course extends \Eloquent
@@ -13,7 +15,7 @@ class Course extends \Eloquent
 
     protected $fillable = ['id' ,'code' ,'credit' ,'faculty_id' ,'department_id' ,'degree_id' ,'semester_id' ,'faculty_study_year_id'];
 
-    protected $appends = ['lang_name'];
+    protected $appends = ['lang_name' ,'lang_description'];
 
     public function transName()
     {
@@ -24,6 +26,17 @@ class Course extends \Eloquent
     {
         return $this->transName->keyBy('lang_code');
     }
+
+    public function transDescription()
+    {
+        return $this->hasMany(CourseDescriptionLang::class);
+    }
+
+    public function getLangDescriptionAttribute()
+    {
+        return $this->transDescription->keyBy('lang_code');
+    }
+
 
     /*
      * relation
@@ -61,5 +74,10 @@ class Course extends \Eloquent
     public function prerequisite()
     {
         return self::belongsToMany(PrerequisiteGroup::class ,'prerequisite');
+    }
+
+    function image()
+    {
+        $this->belongsTo(Image::class);
     }
 }

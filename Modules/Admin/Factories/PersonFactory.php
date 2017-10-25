@@ -66,6 +66,7 @@ class PersonFactory extends GlobalFactory
 
             foreach ($socialNetworks as $socialNetwork)
                 $table = $table->startRelation('contact[social]['.$socialNetwork->id.']')
+                               ->setDefaultValue('#')
                                ->addInputText($socialNetwork->lang_name[$this->lang]['text'],'contact.social.'.$socialNetwork->code.'.pivot.url' ,'contact.social.'.$socialNetwork->code.'.pivot.url','none' ,'' ,'' ,true ,false ,true ,false)
                                ->endRelation();
 
@@ -81,7 +82,11 @@ class PersonFactory extends GlobalFactory
 
     public function storeDatatable($model ,$request ,$result)
     {
+        $request->request->add(['transSaveOper' => false]);
+
         $contact = Contact::create($request->input('contact'));
+
+        $request->request->add(['transSaveOper' => true]);
 
         $contact->socialNetwork()->sync($request->input('contact.social'));
 
