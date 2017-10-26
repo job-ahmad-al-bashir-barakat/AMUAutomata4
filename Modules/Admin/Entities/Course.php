@@ -13,7 +13,7 @@ class Course extends \Eloquent
 {
     use SoftDeletes ,MultiLangs;
 
-    protected $fillable = ['id' ,'code' ,'credit' ,'faculty_id' ,'department_id' ,'degree_id' ,'semester_id' ,'faculty_study_year_id'];
+    protected $fillable = ['id' ,'code' ,'credit' ,'faculty_id' ,'department_id' ,'degree_id' ,'semester_id' ,'faculty_study_year_id' ,'image_id'];
 
     protected $appends = ['lang_name' ,'lang_description'];
 
@@ -78,6 +78,6 @@ class Course extends \Eloquent
 
     function image()
     {
-        $this->belongsTo(Image::class);
+        return $this->belongsTo(Image::class);
     }
 }

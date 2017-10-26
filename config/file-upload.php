@@ -47,4 +47,11 @@ return [
         'height' => '100',
         'stopRelationSave' => true,
     ],
+
+    'course' => [
+        'model'        => \Modules\Admin\Entities\Course::class,
+        'width'        => '265',
+        'height'       => '195',
+        'relationType' => 'one',
+    ],
 ];

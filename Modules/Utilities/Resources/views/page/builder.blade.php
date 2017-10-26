@@ -12,7 +12,7 @@
                     'id'    => 'panel-pages',
                     'title' => $title
                 ])
-                {!! datatable('builder-pages') !!}
+                    {!! datatable('builder-pages') !!}
                 @endcomponent
             </div>
         </div>

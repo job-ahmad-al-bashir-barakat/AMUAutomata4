@@ -1,7 +1,7 @@
 
 {{ Form::bsImageUpload('course' ,'course' ,'' ,'' ,'265' ,'195' ,[
     'modalId'    => 'course-image-upload',
-    'modalTitle' => trans('admin::app.upload_course_image')
+    'modalTitle' => trans('admin::app.upload_image')
 ] ,'#datatable-course') }}
 
 {{ Form::bsImageUploadCropper('90%' ,false ,true,false ,false ,false ,true) }}

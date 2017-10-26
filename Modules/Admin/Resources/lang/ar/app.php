@@ -35,6 +35,7 @@ return [
     'extra_info'         => 'معلومات اضافية',
     'gelocation'         => 'الموقع الجغرافي',
     'upload_images'      => 'تحميل الصور',
+    'upload_image'       =>  'تحميل صورة',
     'course'             => 'مادة',
     'prerequisite'       => 'المتطلبات المسبقة',
     'faculty_courses'    => 'مواد الكلية',

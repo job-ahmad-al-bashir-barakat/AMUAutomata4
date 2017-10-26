@@ -44,6 +44,7 @@ class CourseFactory extends GlobalFactory
             ->addInputText(trans('admin::app.code'),'code' ,'code' ,'req required')
             ->addInputNumber(trans('admin::app.credit'),'credit' ,'credit' ,'req required')
             ->addActionButton(trans('admin::app.prerequisite'),'btn-prerequisite','btn-prerequisite' ,'center all' , '80px')
+            ->addActionButton(trans('admin::app.upload_image'),'upload_image','upload_image' ,'center all' ,'60px')
             ->addActionButton($this->update,'update','update')
             ->addActionButton($this->delete,'delete','delete')
             ->addNavButton()
