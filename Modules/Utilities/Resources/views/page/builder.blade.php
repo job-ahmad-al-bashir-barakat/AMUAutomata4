@@ -15,6 +15,9 @@
                     {!! datatable('builder-pages') !!}
                 @endcomponent
             </div>
+            <div class="col-md-6">
+                <div>dsads</div>
+            </div>
         </div>
     </div>
 @stop

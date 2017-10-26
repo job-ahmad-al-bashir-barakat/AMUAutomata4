@@ -41,8 +41,8 @@ Route::group(
         })->name('contact_us');
 
         Route::get('university-message' ,function () {
-            $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
-            $modules = \Modules\Utilities\Entities\BuilderPage::pageModules()->get()->pluck('module');
+            $menu = []; //\Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree()
+            $modules = []; //\Modules\Utilities\Entities\BuilderPage::pageModules()->get()->pluck('module')
             return view('page.university_message' ,compact('modules', 'menu'));
         });
 

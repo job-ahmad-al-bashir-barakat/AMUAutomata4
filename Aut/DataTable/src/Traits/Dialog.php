@@ -144,9 +144,9 @@ trait Dialog
             'text'              => $param['text'],
             'stringCont'        => $param['stringCont'] == 'dialogBody',
             // all input
-            'star'              => preg_match('/\b(?<![\S])(req)(?![\S])\b/',$param['class']),
+            'star'              => matchClass('req' ,$param['class']),
             // pass
-            'refresh'           => preg_match('/\b(?<![\S])(refresh)(?![\S])\b/',$param['class']),
+            'refresh'           => matchClass('refresh' ,$param['class']),
             // all input
             'gridSystemResult'  => $this->gridSystemResult
         ])->render();

@@ -12,6 +12,8 @@ return [
 
     'customResponsiveTemplete' => false,
 
+    'customResponsiveTempleteView' => 'datatable::_responsive',
+
     'gridSystem' => [
         'formHorizontal' => false,
         'global'         => [ 'cols' => 6, 'type' => 'lg|md' ],

@@ -2,10 +2,8 @@
 /////////////Datatable///////////////
 /////////////////////////////////////
 
------------------------------------
-اضافة كلاس على hidden input
------------------------------------
-برمتر الداتا ساويه array فيها name , data
+-------------------------------
+fix scrollX and footer filter location
 -------------------------------
 fix multi datatable load // need to rebuild js
 -------------------------------
@@ -79,4 +77,10 @@ MakePackage (tree , image ,map)
 tree part ajax load
 add color package to ckeditor
 change url admin in all utilities and admin
+
+
+// image true and false 
+// image multi dimention
+// custom-module short js code 
+// seo
 
