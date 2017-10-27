@@ -14,6 +14,7 @@ class CreateModuleAttributeTable extends Migration {
 	{
 		Schema::create('module_attribute', function(Blueprint $table)
 		{
+		    $table->increments('id');
 			$table->integer('module_id')->unsigned();
 			$table->integer('attribute_id')->unsigned();
 			$table->timestamps();

@@ -16,12 +16,12 @@ trait Table
 
         $this->header .= "<th class='$choosen $printable' style='max-width: {$param['width']};'>{$param['title']}</th>";
 
-        if($this->optionDatatableConfig['filter'] )
-        {
+        if($this->optionDatatableConfig['filter']) {
+
             $transFilter = trans('datatable::table.filter');
 
-            if(!in_array($param["type"],['index','hidden','button' ,'detail']))
-            {
+            if(!in_array($param["type"],['index','hidden','button' ,'detail'])) {
+
                 switch ($param["type"]) {
 
                     case 'select' : {
@@ -29,12 +29,12 @@ trait Table
                         foreach ($param['obj'] as $key => $value)
                             $option .= "<option value='$key'>$value</option>";
 
-                        $this->filter .=
-                        "<th>
-                            <select class='form-control filter-select datatable-select' style='width: 100%;' data-placeholder='{$param['title']}'>
-                                $option
-                            </select>
-                        </th>
+                        $this->filter .="
+                            <th>
+                                <select class='form-control filter-select datatable-select' style='width: 100%;' data-placeholder='{$param['title']}'>
+                                    $option
+                                </select>
+                            </th>
                         ";
                     } break;
 
@@ -43,8 +43,7 @@ trait Table
                     } break;
                 }
             }
-            else
-            {
+            else {
                 $this->filter .="<th></th>";
             }
         }
@@ -55,26 +54,13 @@ trait Table
     protected function renderTable($id = 'datatable', $class = 'table table-striped table-hover')
     {
         $buttonResponsive =  $this->optionDatatableConfig['responsive']
-        ? "
-            <tr>
-                <th class='table-button' colspan='$this->count'></th>
-            </tr>
-        " : "";
+        ? "<tr><th class='table-button' colspan='$this->count'></th></tr>" : "";
 
         $filter = $this->optionDatatableConfig['filter']
-        ? "
-            <tr class='filter-datatable-cont'>
-                $this->filter
-            </tr>
-        " : "";
+        ? "<tr class='filter-datatable-cont'>$this->filter</tr>" : "";
 
         $footer = $this->optionDatatableConfig['responsive'] || $this->optionDatatableConfig['filter']  ?
-        "
-            <tfoot>
-                $filter
-                $buttonResponsive
-            </tfoot>
-        " : "";
+        "<tfoot>{$filter}{$buttonResponsive}</tfoot>" : "";
 
         $sortable = $this->optionDatatableConfig['sortable'] == true ? "class='sortable'" : "";
 
@@ -86,7 +72,6 @@ trait Table
                     </tr>
                 </thead>
                 <tbody $sortable>
-   
                 </tbody>
                 $footer
             </table>";

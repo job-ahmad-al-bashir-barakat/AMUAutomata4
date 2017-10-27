@@ -1,111 +1,86 @@
-transSaveOper // withoutTrans // tree // lang -- fix
-fix get datatable issue
+/////////////////////////////////////
+/////////////Datatable///////////////
+/////////////////////////////////////
 
------------------------------ ckeditor and image upload and file manager
------------------------------ ckeditor and image upload and file manager
------------------------------ ckeditor and image upload and file manager
-fix initailize ckeditor
-add cutom delete button to delete file and image in ckeditor
-
------------------------------------------------datatable
------------------------------------------------datatable
------------------------------------------------datatable
-ساوي كلاسات اللغات بالتابع dialogClassAttr
-------------------------------------------------
-scroll datatable modal and table 
---------------------------------->
---------------------------------->
-Scroll dialog  hieght ,min height ,overflow-y
-
-Sweetalert scroll
--------------------
-height: 300px;
-overflow: auto;
--------------------
---------------------------------->
---------------------------------->
+-------------------------------
+fix scrollX and footer filter location
+-------------------------------
+fix multi datatable load // need to rebuild js
+-------------------------------
+//add ajax upload to file upload datatable
+-------------------------------
+//fix datatable validation error pos // with for loop
+-------------------------------
+//build datatable directly with load without ajax
+-------------------------------
+//multi autocomplete search order
+-------------------------------
+//fix order and search datatable without get datatable
+-------------------------------
+//when you remove get form datatable order and search will not work //try on faculties table
+------------------------------
+//support arabic type input
+------------------------------
+//mouse scroll draggble
+------------------------------
+//refliction class for factory class
+------------------------------
+//filter for multi autocomplete and lang
+------------------------------
+//custom templete //templete replace tr with div
+------------------------------
+//print button datatable //json //ecxel// csv //html//text//pdf
+-------------------------------
+datatable update path stub file 
+-------------------------------
+fix datatable modal input col clearfix
 ---------------------------------------------
 add bundle assets to datatable lib
 ---------------------------------------------
-make some fix to support arabic default for localization
---------------------------------->
---------------------------------->
-Laravellocalization.php
-'hideDefaultLocaleInURL' => true,
+//make some fix to support arabic default for localization
+---------------------------------------------
 
-Route.php
-'middleware' =>['web','localizationRedirect' /*,'localeSessionRedirect'*/],
+/////////////////////////////////////
+////////////////AMU//////////////////
+/////////////////////////////////////
 
-
-Helper
-function localizeURL($url='')
-{
-    $lang = (LaravelLocalization::getCurrentLocale()==LaravelLocalization::getDefaultLocale()
-        ? ''
-        :LaravelLocalization::getCurrentLocale().'/');
-
-    return url($lang.$url);
-}
-
-datatable.php
-'routeMiddleware' => ['web', 'localizationRedirect'/* ,'localeSessionRedirect' */],
---------------------------------->
-لما تعمل توليد لملف الـ Factory ينحط اسم المتحول متل اسم ال PersonFactory بدون كلمة factory مع camel case
-getDatatable($model, $request){ => $model -> $person
---------------------------------->
-برمتر الداتا ساويه array فيها name , data
-اضافة كلاس على hidden input 
-ضيف url get على data-attr بال table
-search regex in datatable
-multiModel config add to js compy modal to his cont
+add custom delete button to delete file and image in ckeditor
+-----------
+transSaveOper // withoutTrans // tree // lang -- fix
 fix withoutTrans lang on treeController and UploadController
-
 -----------
 fix ckeditor file link and upload button
-change file input upload path for show well orginize in file manager
-
 ------------
 //  Abdo  //
 ------------
-
 شلونك بشير
 في شغلة بالحذف ب datatable
 مافي داعي تسكر ال alert تبعت التاكيد خليها ظاهرة وبس تعمل alert نجاح العملية هو لحالو بيعمل animation مشان يغير
-
+//make global notify
 -----------
-
 بشير فكر بهي الشغلة وقلي شو رايك
 جداول اللغات كلها متل بعضها الفرق بس ال id للجدول المرتبط معو
 ليش ما منعمل جدول واحد object_id مع object_type وهاد مرتبط ب كل الجداول
 بعرف انو نحن حكينا فيها بس فكر فيها على رواق وبعد ما نسلم ممكن نعمل مقارنة بالاداء للحالتين
-
 -----------
-هام جدا  
------------
-
-// work on unfinish tables
-// fill public menu
-// rtl issue
-// fix datatable icon tabs responsive
 // fix pjax page load
-// add trash for each item on tree
+-----------
+//htaccess cache
+//localization session cache
+//add code cache file
+localization and seo admin
+No index for page => seo
+isAjax => seo 
+-----------
+MakePackage (tree , image ,map)
+------------
+tree part ajax load
+add color package to ckeditor
+change url admin in all utilities and admin
 
-///////////////////////////////////////////////
-// change font-icon lib and file upload lib
-// fix datatable responsive
-// fix map open
-// addDialogText as general for trait class 
-// upload pdf
-// fix datatable load over ajax and pjax
-// add email task to list
 
-// use data to form multi table load 
+// image true and false 
+// image multi dimention
+// custom-module short js code 
+// seo
 
-// faculties is list and department  is link
-// offices is list and add it on menusTables
-// upadte univercity office name
-
-------
-بكرا خليني احكي معك مشان هي الشغلة //
-لانو لازم من وين ما بدي احسن اعمل notify //
-------

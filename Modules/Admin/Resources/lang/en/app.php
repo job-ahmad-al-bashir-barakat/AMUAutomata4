@@ -29,6 +29,7 @@ return [
     'extra_info'         => 'Extra Info',
     'gelocation'         => 'Gelocation',
     'upload_images'      => 'Upload Images',
+    'upload_image'       => 'Upload Image',
     'course'             => 'Course',
     'prerequisite'       => 'Prerequisite',
     'faculty_courses'    => 'Faculty Courses',

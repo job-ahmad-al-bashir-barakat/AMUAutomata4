@@ -11,7 +11,7 @@
             </div>
         </div>
     </div>
-    <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 bhoechie-tab tabs tabs-content">
+    <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 bhoechie-tab datatable-content-tab tabs tabs-content">
         @foreach($tabs as $index => $tab)
             <div data-tab="{{$id}}_{{$index}}_tab" class="bhoechie-tab-content {{ $index == 0 ? "active $tabAnimation" : '' }}" {{ $tab['attr'] }}>
                 {!! $tab['content'] !!}

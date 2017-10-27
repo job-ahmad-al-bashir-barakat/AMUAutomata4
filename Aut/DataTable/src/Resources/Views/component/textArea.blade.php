@@ -3,7 +3,7 @@
 @endphp
 
 <div class='form-group {{ $global }}'>
-    @if(!preg_match('/\b(?<![\S])(noLabel)(?![\S])\b/',$class))
+    @if(!matchClass('noLabel' ,$class))
         <label class='{{ $label }} control-label' for='{{ $name }}'>{{ $title }} @if($star) <span class='text-danger'>*</span> @endif </label>
     @endif
     <div class='{{ $input }}'>

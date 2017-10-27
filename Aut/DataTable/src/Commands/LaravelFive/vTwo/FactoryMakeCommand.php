@@ -89,6 +89,24 @@ class FactoryMakeCommand extends GeneratorCommand
     }
 
     /**
+     * Replace the param model name for the given stub.
+     *
+     * @param  string  $stub
+     * @param  string  $name
+     * @return string
+     */
+    protected function replaceParameter(&$stub, $search = [] ,$replace = [])
+    {
+        $stub = str_replace(
+            $search,
+            $replace,
+            $stub
+        );
+
+        return $this;
+    }
+
+    /**
      * Build the class with the given name.
      *
      * @param  string  $name
@@ -103,7 +121,9 @@ class FactoryMakeCommand extends GeneratorCommand
         if($module != '')
             $name = preg_replace("/App./",'' ,$name);
 
-        return $this->replaceNamespace($stub, $name)->replaceClass($stub, $name);
+        $model = preg_replace('/(.+\\\\)|(factory)/i' ,'' ,$name);
+
+        return $this->replaceParameter($stub ,['DummyModel'],[$model])->replaceNamespace($stub, $name)->replaceClass($stub, $name);
     }
 
     /**

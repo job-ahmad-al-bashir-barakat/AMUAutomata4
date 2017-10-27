@@ -145,7 +145,7 @@ if(! function_exists('colValue'))
 
 if(! function_exists('convertArrayToString'))
 {
-    function convertArrayToString($input ,$additional_string)
+    function convertArrayToString($input ,$additional_string = '')
     {
         $result = '';
         if(is_array($input))
@@ -154,7 +154,7 @@ if(! function_exists('convertArrayToString'))
                 if(is_numeric($index))
                     $result .= "{$item} ";
                 else
-                    $result .= "{$index} = {$item} ";
+                    $result .= "{$index}={$item} ";
 
             return "$result $additional_string";
         }
@@ -162,3 +162,21 @@ if(! function_exists('convertArrayToString'))
             return "$input $additional_string";
     }
 }
+
+if(! function_exists('shortIfElse'))
+{
+    function shortIfElse($condition ,$if ,$else)
+    {
+        return $condition ? $if : $else;
+    }
+}
+
+if(! function_exists('matchClass'))
+{
+    function matchClass($match ,$subject ,&$matches = null ,$flags = 0)
+    {
+        return preg_match("/\b(?<![\S])($match)(?![\S])\b/",$subject ,$matches ,$flags);
+    }
+}
+
+

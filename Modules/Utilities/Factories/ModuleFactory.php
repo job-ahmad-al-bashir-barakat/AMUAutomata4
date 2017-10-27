@@ -31,7 +31,7 @@ class ModuleFactory extends GlobalFactory
     public function buildDatatable($model, $request)
     {
         return $this->table
-            ->config('datatable-modules',trans('utilities::app.modules'))
+            ->config('datatable-modules' ,trans('utilities::app.modules'))
             ->addPrimaryKey('id','id')
             ->addInputText(trans('utilities::app.code'),'code','code','required req')
             ->addMultiInputTextLangs(['name'] ,'req required')

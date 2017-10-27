@@ -1699,8 +1699,7 @@ var APP_AMU = {
 
                         }).off('filepreupload').on('filepreupload', function(event, data, previewId, index) {
                             // pre upload
-                        })
-                            .off('fileclear').on('fileclear', function(event) {
+                        }).off('fileclear').on('fileclear', function(event) {
 
                             if(autoReplace)
                                 if($this.fileinput('getFilesCount') > params.maxFileCount)
@@ -1710,8 +1709,7 @@ var APP_AMU = {
                                     // reset replaced file from replaced items
                                     replacedFile = [];
                                 }
-                        })
-                            .off('fileuploaded').on('fileuploaded', function(event, data, previewId, index) {
+                        }).off('fileuploaded').on('fileuploaded', function(event, data, previewId, index) {
 
                             var response  = data.response;
 

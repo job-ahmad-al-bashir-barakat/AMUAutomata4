@@ -75,6 +75,16 @@ class DataTableBuilder
 
     protected $HTabs = [];
 
+    protected $options = [
+    ];
+
+    protected $params = [
+        'name'  => '',
+        'class' => '',
+        'value' => '',
+        'attr'  => '',
+    ];
+
     protected $events = [
         'onAdd'          => '',
         'onUpdate'       => '',
@@ -117,8 +127,6 @@ class DataTableBuilder
 
         if($this->optionDatatableConfig['responsive'])
             $this->dataTable->put('responsive', ['details' => ['renderer' => 'responsive_renderer']]);
-        if($this->optionDatatableConfig['scrollX'])
-            $this->dataTable->put('scrollX', true);
         $this->dataTable->put('autoWidth', true);
         $this->dataTable->put('processing', true);
         $this->dataTable->put('stateSave' , false);
@@ -132,6 +140,16 @@ class DataTableBuilder
         $this->dataTable->put('buttons', []);
         $this->dataTable->put('dom', $this->setButtonPosition());
         $this->dataTable->put('searchDelay', 900);
+        $this->dataTable->put('fixedColumns', [
+            'leftColumns'  => $this->optionDatatableConfig['fixedStart'],
+            'rightColumns' => $this->optionDatatableConfig['fixedEnd']
+        ]);
+        if($this->optionDatatableConfig['scrollX'])
+            $this->dataTable->put('scrollX', true);
+        if($this->optionDatatableConfig['scrollY']) {
+            $this->dataTable->put('scrollY', $this->optionDatatableConfig['scrollY']);
+            $this->dataTable->put('scrollCollapse', true);
+        }
     }
 
     /**
@@ -149,6 +167,7 @@ class DataTableBuilder
             'removeSomeElement' => [],
             'responsive'        => true,
             'scrollX'           => false,
+            'scrollY'           => '300px',
             'filter'            => false,
             'sortable'          => false,
             'fixedStart'        => 0,
@@ -160,11 +179,6 @@ class DataTableBuilder
         ];
 
         $optionDefault = array_merge($optionDefault ,$option);
-
-        if($optionDefault['scrollX'])
-        {
-            $optionDefault['responsive'] = false;
-        }
 
         return $optionDefault;
     }
@@ -183,6 +197,7 @@ class DataTableBuilder
         'removeElement'     => false,
         'removeSomeElement' => [],
         'scrollX'           => false,
+        'scrollY'           => '300px',
         'filter'            => false,
         'sortable'          => false,
         'fixedStart'        => 0,
@@ -228,11 +243,6 @@ class DataTableBuilder
             'type' => 'POST',
         ]);
 
-        $this->dataTable->put('fixedColumns', [
-            'leftColumns'  => $this->optionDatatableConfig['fixedStart'],
-            'rightColumns' => $this->optionDatatableConfig['fixedEnd']
-        ]);
-
         $this->addIndex();
 
         /*
@@ -245,9 +255,15 @@ class DataTableBuilder
 
         $this->gridSystemResult = gridSystemResult($this->optionDatatableConfig['gridSystem'] ,$this->gridSystem);
 
-        if($this->optionDatatableConfig['responsive'] && !config('datatable.customResponsiveTemplete')){
+        /**
+         * Custom Responsive Templete
+         */
+        if($this->optionDatatableConfig['responsive']) {
 
-            $removeSpaces = autConvertString(view('datatable::_responsive')->render());
+            if(config('datatable.customResponsiveTemplete'))
+                $removeSpaces = autConvertString(view(config('datatable.customResponsiveTempleteView'))->render());
+            else
+                $removeSpaces = autConvertString(view('datatable::_responsive')->render());
 
             $this->customResponsiveTemplete = $removeSpaces;
         }
@@ -506,7 +522,7 @@ class DataTableBuilder
     {
         $this->isCustom = true;
 
-        $star = preg_match('/\b(?<![\S])(req)(?![\S])\b/',$class);
+        $star = matchClass('req' ,$class);
 
         $this->HTab = ['id' => $id ,'title' => $title ,'class' => $class ,'star' => $star ,'active' => $active];
 
@@ -637,17 +653,17 @@ class DataTableBuilder
      */
     function addInputText
     (
-        $title = '',
-        $data = '',
-        $name = '',
-        $colClass = '',
+        $title      = '',
+        $data       = '',
+        $name       = '',
+        $colClass   = '',
         $dialogAttr = '',
-        $colWidth = '',
-        $visible = true,
-        $orderable = true,
+        $colWidth   = '',
+        $visible    = true,
+        $orderable  = true,
         $searchable = true,
-        $choosen = true,
-        $printable = true
+        $choosen    = true,
+        $printable  = true
     )
     {
         $this->addField([
@@ -684,17 +700,17 @@ class DataTableBuilder
      */
     function addInputDate
     (
-        $title = '',
-        $data = '',
-        $name = '',
-        $colClass = '',
+        $title      = '',
+        $data       = '',
+        $name       = '',
+        $colClass   = '',
         $dialogAttr = '',
-        $colWidth = '',
-        $visible = true,
-        $orderable = true,
+        $colWidth   = '',
+        $visible    = true,
+        $orderable  = true,
         $searchable = true,
-        $choosen = true,
-        $printable = true
+        $choosen    = true,
+        $printable  = true
     )
     {
         $this->addField([
@@ -731,17 +747,17 @@ class DataTableBuilder
      */
     function addInputTime
     (
-        $title = '',
-        $data = '',
-        $name = '',
-        $colClass = '',
+        $title      = '',
+        $data       = '',
+        $name       = '',
+        $colClass   = '',
         $dialogAttr = '',
-        $colWidth = '',
-        $visible = true,
-        $orderable = true,
+        $colWidth   = '',
+        $visible    = true,
+        $orderable  = true,
         $searchable = true,
-        $choosen = true,
-        $printable = true
+        $choosen    = true,
+        $printable  = true
     )
     {
         $this->addField([
@@ -778,17 +794,17 @@ class DataTableBuilder
      */
     function addInputDateTimeLocal
     (
-        $title = '',
-        $data = '',
-        $name = '',
-        $colClass = '',
+        $title      = '',
+        $data       = '',
+        $name       = '',
+        $colClass   = '',
         $dialogAttr = '',
-        $colWidth = '',
-        $visible = true,
-        $orderable = true,
+        $colWidth   = '',
+        $visible    = true,
+        $orderable  = true,
         $searchable = true,
-        $choosen = true,
-        $printable = true
+        $choosen    = true,
+        $printable  = true
     )
     {
         $this->addField([
@@ -825,17 +841,17 @@ class DataTableBuilder
      */
     function addInputDateTime
     (
-        $title = '',
-        $data = '',
-        $name = '',
-        $colClass = '',
+        $title      = '',
+        $data       = '',
+        $name       = '',
+        $colClass   = '',
         $dialogAttr = '',
-        $colWidth = '',
-        $visible = true,
-        $orderable = true,
+        $colWidth   = '',
+        $visible    = true,
+        $orderable  = true,
         $searchable = true,
-        $choosen = true,
-        $printable = true
+        $choosen    = true,
+        $printable  = true
     )
     {
         $this->addField([
@@ -872,17 +888,17 @@ class DataTableBuilder
      */
     function addInputMonth
     (
-        $title = '',
-        $data = '',
-        $name = '',
-        $colClass = '',
+        $title      = '',
+        $data       = '',
+        $name       = '',
+        $colClass   = '',
         $dialogAttr = '',
-        $colWidth = '',
-        $visible = true,
-        $orderable = true,
+        $colWidth   = '',
+        $visible    = true,
+        $orderable  = true,
         $searchable = true,
-        $choosen = true,
-        $printable = true
+        $choosen    = true,
+        $printable  = true
     )
     {
         $this->addField([
@@ -919,17 +935,17 @@ class DataTableBuilder
      */
     function addInputWeek
     (
-        $title = '',
-        $data = '',
-        $name = '',
-        $colClass = '',
+        $title      = '',
+        $data       = '',
+        $name       = '',
+        $colClass   = '',
         $dialogAttr = '',
-        $colWidth = '',
-        $visible = true,
-        $orderable = true,
+        $colWidth   = '',
+        $visible    = true,
+        $orderable  = true,
         $searchable = true,
-        $choosen = true,
-        $printable = true
+        $choosen    = true,
+        $printable  = true
     )
     {
         $this->addField([
@@ -966,17 +982,17 @@ class DataTableBuilder
      */
     function addInputEmail
     (
-        $title = '',
-        $data = '',
-        $name = '',
-        $colClass = '',
+        $title      = '',
+        $data       = '',
+        $name       = '',
+        $colClass   = '',
         $dialogAttr = '',
-        $colWidth = '',
-        $visible = true,
-        $orderable = true,
+        $colWidth   = '',
+        $visible    = true,
+        $orderable  = true,
         $searchable = true,
-        $choosen = true,
-        $printable = true
+        $choosen    = true,
+        $printable  = true
     )
     {
         $this->addField([
@@ -1013,17 +1029,17 @@ class DataTableBuilder
      */
     function addInputUrl
     (
-        $title = '',
-        $data = '',
-        $name = '',
-        $colClass = '',
+        $title      = '',
+        $data       = '',
+        $name       = '',
+        $colClass   = '',
         $dialogAttr = '',
-        $colWidth = '',
-        $visible = true,
-        $orderable = true,
+        $colWidth   = '',
+        $visible    = true,
+        $orderable  = true,
         $searchable = true,
-        $choosen = true,
-        $printable = true
+        $choosen    = true,
+        $printable  = true
     )
     {
         $this->addField([
@@ -1190,7 +1206,7 @@ class DataTableBuilder
             $this->startRelation($relation);
 
             // use this tabs when you need to add textarea ckeditor
-            $hasTab = preg_match('/\b(?<![\S])(d:tabs)(?![\S])\b/',$colClass);
+            $hasTab = matchClass('d:tabs' ,$colClass);
 
             if($hasTab)
                 $this->startHorizontalTab();
@@ -1250,17 +1266,17 @@ class DataTableBuilder
      */
     function addInputPassword
     (
-        $title = '',
-        $data = '',
-        $name = '',
-        $colClass = '',
+        $title      = '',
+        $data       = '',
+        $name       = '',
+        $colClass   = '',
         $dialogAttr = '',
-        $colWidth = '',
-        $visible = true,
-        $orderable = true,
+        $colWidth   = '',
+        $visible    = true,
+        $orderable  = true,
         $searchable = true,
-        $choosen = true,
-        $printable = false
+        $choosen    = true,
+        $printable  = false
     )
     {
         $this->addField([
@@ -1299,19 +1315,19 @@ class DataTableBuilder
      */
     function addInputGroup
     (
-        $title = '',
-        $data = '',
-        $name = '',
-        $colClass = '',
-        $groupIcon = '',
+        $title      = '',
+        $data       = '',
+        $name       = '',
+        $colClass   = '',
+        $groupIcon  = '',
         $groupClass ='',
         $dialogAttr = '',
-        $colWidth = '',
-        $visible = true,
-        $orderable = true,
+        $colWidth   = '',
+        $visible    = true,
+        $orderable  = true,
         $searchable = true,
-        $choosen = true,
-        $printable = true
+        $choosen    = true,
+        $printable  = true
     )
     {
         $this->addField([
@@ -1350,17 +1366,17 @@ class DataTableBuilder
      */
     function addTextArea
     (
-        $title = '',
-        $data = '',
-        $name = '',
-        $colClass = '',
+        $title      = '',
+        $data       = '',
+        $name       = '',
+        $colClass   = '',
         $dialogAttr = '',
-        $colWidth = '',
-        $visible = true,
-        $orderable = true,
+        $colWidth   = '',
+        $visible    = true,
+        $orderable  = true,
         $searchable = true,
-        $choosen = true,
-        $printable = true
+        $choosen    = true,
+        $printable  = true
     )
     {
         $this->addField([
@@ -1397,17 +1413,17 @@ class DataTableBuilder
      */
     function addInputNumber
     (
-        $title = '',
-        $data = '',
-        $name = '',
-        $colClass = '',
+        $title      = '',
+        $data       = '',
+        $name       = '',
+        $colClass   = '',
         $dialogAttr = '',
-        $colWidth = '',
-        $visible = true,
-        $orderable = true,
+        $colWidth   = '',
+        $visible    = true,
+        $orderable  = true,
         $searchable = true,
-        $choosen = true,
-        $printable = true
+        $choosen    = true,
+        $printable  = true
     )
     {
         $this->addField([
@@ -1446,19 +1462,19 @@ class DataTableBuilder
      */
     function addAutocomplete
     (
-        $url = '',
-        $title = '' ,
-        $data = '',
-        $name = '' ,
-        $colLabel = '',
-        $colClass = '' ,
+        $url        = '',
+        $title      = '' ,
+        $data       = '',
+        $name       = '' ,
+        $colLabel   = '',
+        $colClass   = '' ,
         $dialogAttr = '',
-        $colWidth = '',
-        $visible = true,
-        $orderable = true ,
+        $colWidth   = '',
+        $visible    = true,
+        $orderable  = true ,
         $searchable = true ,
-        $choosen = true,
-        $printable = true
+        $choosen    = true,
+        $printable  = true
     )
     {
         $this->addField([
@@ -1500,20 +1516,20 @@ class DataTableBuilder
      */
     function addMultiAutocomplete
     (
-        $url = '',
-        $templete = '',
-        $title = '' ,
-        $data = '',
-        $name = '' ,
-        $colLabel = '',
-        $colClass = '' ,
+        $url        = '',
+        $templete   = '',
+        $title      = '' ,
+        $data       = '',
+        $name       = '' ,
+        $colLabel   = '',
+        $colClass   = '' ,
         $dialogAttr = '',
-        $colWidth = '',
-        $visible = true,
-        $orderable = false,
+        $colWidth   = '',
+        $visible    = true,
+        $orderable  = false,
         $searchable = true,
-        $choosen = true,
-        $printable = true
+        $choosen    = true,
+        $printable  = true
     )
     {
         $this->addField([
@@ -1555,19 +1571,19 @@ class DataTableBuilder
      */
     function addSelect
     (
-        $obj = [],
-        $title = '' ,
-        $data = '' ,
-        $name = '' ,
-        $colLabel = '',
-        $colClass = '' ,
+        $obj        = [],
+        $title      = '' ,
+        $data       = '' ,
+        $name       = '' ,
+        $colLabel   = '',
+        $colClass   = '' ,
         $dialogAttr = '',
-        $colWidth = '',
-        $visible = true,
-        $orderable = true ,
+        $colWidth   = '',
+        $visible    = true,
+        $orderable  = true ,
         $searchable = true ,
-        $choosen = true,
-        $printable = true
+        $choosen    = true,
+        $printable  = true
     )
     {
         $this->addField([
@@ -1607,18 +1623,18 @@ class DataTableBuilder
      */
     function addViewField
     (
-        $title = '' ,
-        $data = '' ,
-        $name = '' ,
-        $colLabel = '',
-        $colClass = '' ,
+        $title      = '' ,
+        $data       = '' ,
+        $name       = '' ,
+        $colLabel   = '',
+        $colClass   = '' ,
         $dialogAttr = '',
-        $colWidth = '',
-        $visible = true,
-        $orderable = true ,
-        $searchable = true ,
-        $choosen = true,
-        $printable = true
+        $colWidth   = '',
+        $visible    = true,
+        $orderable  = true,
+        $searchable = true,
+        $choosen    = true,
+        $printable  = true
     )
     {
         $this->addField([
@@ -1684,10 +1700,10 @@ class DataTableBuilder
      * @return $this
      */
     function addButton(
-        $text = '',
-        $id = '',
-        $class = '',
-        $attr = '',
+        $text      = '',
+        $id        = '',
+        $class     = '',
+        $attr      = '',
         $placement = 'footer'
     )
     {
@@ -1705,10 +1721,10 @@ class DataTableBuilder
      * @return $this
      */
     function addSubmit(
-        $text = '',
-        $id = '',
-        $class = '',
-        $attr = '',
+        $text      = '',
+        $id        = '',
+        $class     = '',
+        $attr      = '',
         $placement = 'footer'
     )
     {
@@ -1893,6 +1909,7 @@ class DataTableBuilder
     function onModalOpen($script) {
 
         $this->events['modalOpen'] = $this->replaceScript($script);
+
         return $this;
     }
 
@@ -1997,14 +2014,67 @@ class DataTableBuilder
         {
             if($paramDefault['visible']['visible'] == false)
             {
-                $paramDefault['visible'] = false;
-                $paramDefault['orderable'] = false;
+                $paramDefault['visible']    = false;
+                $paramDefault['orderable']  = false;
                 $paramDefault['searchable'] = false;
-                $paramDefault['choosen'] = false;
+                $paramDefault['choosen']    = false;
+                $paramDefault['printable']  = false;
             }
         }
 
+        if(matchClass('none' ,$paramDefault['class']))
+        {
+            $paramDefault['orderable']  = false;
+            $paramDefault['searchable'] = false;
+            $paramDefault['choosen']    = false;
+            $paramDefault['printable']  = false;
+        }
+
         return $paramDefault;
+    }
+
+    /**
+     * @param $value string|array
+     * @return $this
+     */
+    function setDefaultValue($value)
+    {
+        $this->params['value'] = $value;
+
+        return $this;
+    }
+
+    /**
+     * @param $class string
+     * @return $this
+     */
+    function setClass($class)
+    {
+        $this->params['class'] = $class;
+
+        return $this;
+    }
+
+    /**
+     * @param $name string
+     * @return $this
+     */
+    function setName($name)
+    {
+        $this->params['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * @param $attr string|array
+     * @return $this
+     */
+    function setAttr($attr)
+    {
+        $this->params['attr'] = $attr;
+
+        return $this;
     }
 
     /**
@@ -2085,47 +2155,38 @@ class DataTableBuilder
     {
         $class_dialog = '';
 
-        $attrs = '';
-        if(is_array($attr))
-        {
-            foreach ($attr as $index => $item)
-                if(is_numeric($index))
-                    $attrs .= "{$item} ";
-                        else
-                    $attrs .= "{$index}={$item} ";
-
-            $attr = $attrs;
-        }
+        $attr = convertArrayToString($attr);
+        $attr = empty($this->params['attr']) ? $attr : convertArrayToString($this->params['attr'] ,$attr);
 
         // add en/ar class to dialog
         $langs = implode("|", $this->langs);
-        if(preg_match('/\b(?<![\S])('.$langs.')(?![\S])\b/',$class ,$result))
+        if(matchClass($langs ,$class ,$result))
             $class_dialog = "$class_dialog {$result[0]}";
 
         // add required class to dialog
-        if(preg_match('/\b(?<![\S])(required)(?![\S])\b/',$class))
+        if(matchClass('required' ,$class))
             $class_dialog = "$class_dialog required";
 
         // add req class to dialog
-        if(preg_match('/\b(?<![\S])(req)(?![\S])\b/',$class))
+        if(matchClass('req' ,$class))
             $class_dialog = "$class_dialog req";
 
         // add req class to dialog
-        if(preg_match('/\b(?<![\S])(text-editor)(?![\S])\b/',$class)) {
+        if(matchClass('text-editor' ,$class)) {
             $class_dialog = "$class_dialog datatable-text-editor";
             $attr = "$attr data-resize=true data-resize-type=vertical";
         }
 
         if($type == 'number')
         {
-            if(preg_match('/\b(?<![\S])(spinner)(?![\S])\b/',$class))
+            if(matchClass('spinner' ,$class))
                 $class_dialog = "$class_dialog spinner";
             else
                 $class_dialog = "$class_dialog none-spinner";
         }
 
-        if(preg_match('/\b(?<![\S])(number)(?![\S])\b/',$class))
-            $class_dialog = "$class_dialog number";
+        if(matchClass('number' ,$class))
+             $class_dialog = "$class_dialog number";
 
         $replacement = '';
         // add other class with d alias to dialog ** add this classes to replacement str
@@ -2145,7 +2206,7 @@ class DataTableBuilder
         // add attr autocomplete to attr str
         if($type == 'text' || $type == 'number' || $type == 'group')
         {
-            if(preg_match('/\b(?<![\S])(autocomplete)(?![\S])\b/',$class))
+            if(matchClass('autocomplete' ,$class))
                 $attr = "$attr autocomplete = 'on'";
             else
                 $attr = "$attr autocomplete = 'off'";
@@ -2200,35 +2261,30 @@ class DataTableBuilder
      * @param $param
      * @param $choosen
      */
-    function FillDialogDatatable($param , $choosen)
+    function FillDialogDatatable($param, $choosen)
     {
         $class_attr = $param['class_attr'];
 
-        $id = preg_replace('/.+\./','',$param["data"]);
+        $id = preg_replace('/.+\./', '', $param["data"]);
+        $id = shortIfElse($this->relation_key != '' ,$param["data"] ,$id);
 
-        //form data-id ckeditor
-        //$class_attr['attr'] = "{$class_attr['attr']} data-original-id=$id";
-
-        $array = $param["type"] == 'autocompleteMulti' ? "[]" : "";
-
+        $array    = shortIfElse($param["type"] == 'autocompleteMulti' , "[]" ,"");
         $relation = $this->organizeRelation($this->relation_key);
+        $name     = shortIfElse($this->relation_key != '' ,"{$relation}[$id]$array" ,"$id{$array}");
+        $name     = shortIfElse(empty($this->params['name']) ,$name ,$this->params['name']);
 
-        $name = $this->relation_key != '' ? "{$relation}[$id]$array" : "$id{$array}";
-
-        $id = $this->relation_key != '' ? $param["data"] : $id;
+        $class  = shortIfElse(empty($this->params['class']) ,$class_attr['class_dialog'] ,"{$this->params['class']} {$class_attr['class_dialog']}");
 
         switch ($param["type"]) {
 
-            case 'hidden' :
-            {
-                if(!$this->optionDatatableConfig['disableDialog'])
-                    $this->_HiddenInput($id ,$name ,$param['value'] ,'hidden' ,$class_attr['class_dialog'] ,$class_attr['attr'] ,$this->isCustom);
+            case 'hidden' : {
+                if (!$this->optionDatatableConfig['disableDialog'])
+                    $this->_HiddenInput($id, $name, $param['value'], 'hidden', $class, $class_attr['attr'], $this->isCustom);
             }; break;
 
-            case 'text' :
-            {
-                if(!$this->optionDatatableConfig['disableDialog'])
-                    $isCustom = $this->_Input($param["title"] ,$id ,$name ,'', 'text', $class_attr['class_dialog'], $class_attr['attr'] ,$this->isCustom);
+            case 'text' : {
+                if (!$this->optionDatatableConfig['disableDialog'])
+                    $isCustom = $this->_Input($param["title"], $id, $name, $this->params['value'], 'text', $class, $class_attr['attr'], $this->isCustom);
             }; break;
 
             case 'date' :
@@ -2238,52 +2294,49 @@ class DataTableBuilder
             case 'month' :
             case 'week' :
             case 'email' :
-            case 'url' :
-            {
-                if(!$this->optionDatatableConfig['disableDialog'])
-                    $isCustom = $this->_Input($param["title"] ,$id ,$name ,'', $param["type"], $class_attr['class_dialog'], $class_attr['attr'] ,$this->isCustom);
+            case 'url' : {
+                if (!$this->optionDatatableConfig['disableDialog'])
+                    $isCustom = $this->_Input($param["title"], $id, $name, $this->params['value'], $param["type"], $class, $class_attr['attr'], $this->isCustom);
             }; break;
 
-            case 'password' :
-            {
-                if(!$this->optionDatatableConfig['disableDialog'])
-                    $isCustom = $this->_InputPassword($param["title"] ,$id ,$name , 'password', $class_attr['class_dialog'], $class_attr['attr'] ,$this->isCustom);
+            case 'password' : {
+                if (!$this->optionDatatableConfig['disableDialog'])
+                    $isCustom = $this->_InputPassword($param["title"], $id, $name, 'password', $class, $class_attr['attr'], $this->isCustom);
             }; break;
 
-            case 'group' :
-            {
-                if(!$this->optionDatatableConfig['disableDialog'])
-                    $isCustom = $this->_InputGroup($param["title"], $id,$name , 'text', $class_attr['class_dialog'], $param['groupIcon'], $param['groupClass'], $class_attr['attr'] ,$this->isCustom);
+            case 'group' : {
+                if (!$this->optionDatatableConfig['disableDialog'])
+                    $isCustom = $this->_InputGroup($param["title"], $id, $name, $this->params['value'], 'text', $class, $param['groupIcon'], $param['groupClass'], $class_attr['attr'], $this->isCustom);
             }; break;
 
-            case 'textarea' :
-            {
-                if(!$this->optionDatatableConfig['disableDialog'])
-                    $isCustom = $this->_TextArea($param["title"] ,$id ,$name , $class_attr['class_dialog'], $class_attr['attr'] ,$this->isCustom);
+            case 'textarea' : {
+                if (!$this->optionDatatableConfig['disableDialog'])
+                    $isCustom = $this->_TextArea($param["title"], $id, $name, $this->params['value'], $class, $class_attr['attr'], $this->isCustom);
             }; break;
 
-            case 'number' :
-            {
-                if(!$this->optionDatatableConfig['disableDialog'])
-                    $isCustom = $this->_InputNumber($param["title"],$id ,$name , 'number', $class_attr['class_dialog'], $class_attr['attr'] ,$this->isCustom);
+            case 'number' : {
+                if (!$this->optionDatatableConfig['disableDialog'])
+                    $isCustom = $this->_InputNumber($param["title"], $id, $name, $this->params['value'], 'number', $class, $class_attr['attr'], $this->isCustom);
             }; break;
 
-            case 'select':
-            {
-                if(!$this->optionDatatableConfig['disableDialog'])
-                    $isCustom = $this->_Select($param['obj'] ,$param["title"] ,$id ,$name , $param['colLabel'], $class_attr['class_dialog'], $class_attr['attr'] ,$this->isCustom);
+            case 'select': {
+                if (!$this->optionDatatableConfig['disableDialog'])
+                    $isCustom = $this->_Select($param['obj'], $param["title"], $id, $name, $param['colLabel'], $class, $class_attr['attr'], $this->isCustom);
             }; break;
 
             case 'autocomplete' :
-            case 'autocompleteMulti' :
-            {
-                if(!$this->optionDatatableConfig['disableDialog'])
-                    $isCustom = $this->_Autocomplete($param['url'] ,$param["title"] ,$id ,$name ,$param['colLabel'], $class_attr['class_dialog'], $class_attr['attr'] ,'body' /* "#{$this->id}-modal" */  ,$this->isCustom);
+            case 'autocompleteMulti' : {
+                if (!$this->optionDatatableConfig['disableDialog'])
+                    $isCustom = $this->_Autocomplete($param['url'], $param["title"], $id, $name, $this->params['value'], $param['colLabel'], $class, $class_attr['attr'], 'body' /* "#{$this->id}-modal" */, $this->isCustom);
             }; break;
         }
 
-        if($this->isCustom)
+        if ($this->isCustom)
             $this->customHtml .= $isCustom;
+
+        // clear param
+        foreach($this->params as $index => $param)
+            $this->params[$index] = '';
     }
 
     /**
@@ -2305,7 +2358,7 @@ class DataTableBuilder
 
         if($choosen)
         {
-            if(preg_match('/\b(?<![\S])('.$hiddenLang.')(?![\S])\b/',$class)) {
+            if(matchClass($hiddenLang ,$class)) {
 
                 $visible = false;
             }
@@ -2635,12 +2688,14 @@ class DataTableBuilder
         $dir                      = $this->dir;
         $disableDialog            = $this->optionDatatableConfig['disableDialog'] ? 'true' : 'false';
         $scrollX                  = $this->optionDatatableConfig['scrollX'] ? 'true' : 'false';
+        $scrollY                  = $this->optionDatatableConfig['scrollY'] ? 'true' : 'false';
         $url                      = localizeURL($this->url);
         $exportUrl                = localizeURL("datatable/$this->model/export/table");
         $dialog                   = trans('datatable::table.dialog');
         $save                     = trans('datatable::table.save');
         $sortable                 = $this->optionDatatableConfig['sortable'] ? 'true' : 'false';
         $rowDetail                = $this->rowDetail != '' ? $this->rowDetail : '';
+        $responsive               = $this->optionDatatableConfig['responsive'] ? 'true' : 'false';
         $customResponsiveTemplete = $this->customResponsiveTemplete;
         $usedComponent            = $this->optionDatatableConfig['usedComponent'] ? 'true' : 'false';
         $componentOptions         = !empty($this->componentOptions) ? collect($this->componentOptions) : collect([]);
@@ -2679,6 +2734,7 @@ class DataTableBuilder
                          row_detail    : function(row) {
                             return $rowDetail; 
                          }, 
+                         responsive: $responsive,
                          responsive_templete: function(col) {
                             return $customResponsiveTemplete;
                          },
@@ -2686,6 +2742,7 @@ class DataTableBuilder
                             used    : $usedComponent,
                             options : $componentOptions
                          },
+                         model : '$this->model',
                          ids : {
                              table   : '#$this->id',
                              modal   : '#$this->id-modal',
@@ -2726,6 +2783,7 @@ class DataTableBuilder
                              disable_dialog : $disableDialog,
                              sortable : $sortable,
                              scrollX : $scrollX,
+                             scrollY: $scrollY,
                          },
                          global_script : function() {
                             {$this->globalScript}
@@ -2801,24 +2859,15 @@ class DataTableBuilder
     }
 
     /**
-     * @return string
-     */
-
-    //not used unti now
-    private function renderHtml()
-    {
-        return $dialog = $this->optionDatatableConfig['disableDialog'] == true ? '' : $this->renderDialog("{$this->id}-modal");
-    }
-
-    /**
      * @return array
      */
     function render()
     {
         $this->customHtml = '';
 
-        if($this->customResponsiveTemplete == '')
-            throw new Exception('opsss !!! sorry you must fill your custom responsive templete');
+        if($this->optionDatatableConfig['responsive'])
+            if($this->customResponsiveTemplete == '')
+                throw new Exception('opsss !!! sorry you must fill your custom responsive templete');
 
         $dialog = $this->optionDatatableConfig['disableDialog'] == true ? '' : $this->renderDialog("{$this->id}-modal");
 
