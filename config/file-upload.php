@@ -48,6 +48,12 @@ return [
         'stopRelationSave' => true,
     ],
 
+    'small_gallery' => [
+        'width' => '560',
+        'height' => '200',
+        'stopRelationSave' => true,
+    ],
+
     'course' => [
         'model'        => \Modules\Admin\Entities\Course::class,
         'width'        => '265',

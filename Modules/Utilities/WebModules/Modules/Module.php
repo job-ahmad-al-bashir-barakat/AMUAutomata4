@@ -34,14 +34,18 @@ class Module
 
     public function getModuleAttributeHtml($customModuleId = false)
     {
-        $moduleAttribute = ModuleModel::find($this->id)->attributes()->get();
+        $module = ModuleModel::find($this->id);
+        $moduleCode = $module->code;
+        $moduleAttribute = $module->attributes()->get();
+//        $moduleAttribute = ModuleModel::find($this->id)->attributes()->get();
+//        print_r($moduleAttribute);exit;
         $htmlResult = '';
         foreach ($moduleAttribute as $attribute) {
             $attribute = Attribute::setAttribute($attribute->id);
             if($customModuleId) {
                 $attribute->getAttributeValue($customModuleId);
             }
-            $htmlResult .= $attribute->getAttributeHtml();
+            $htmlResult .= $attribute->getAttributeHtml($moduleCode);
         }
         return $htmlResult;
     }
