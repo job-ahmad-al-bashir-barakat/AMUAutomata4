@@ -14,8 +14,15 @@ return [
 
     'lab' => [
         'model'  => \Modules\Admin\Entities\Lab::class,
-        'width'  => '1366',
-        'height' => '768',
+        'ratio' => [
+            'first'  => [ 'width'  => '1366', 'height' => '768', ],
+            'second' => [ 'width'  => '450', 'height' => '300', ]
+        ],
+        'thumps' => [
+            's' => [ 'width'  => '100', 'height' => '100' ],
+            'l' => [ 'width'  => '700', 'height' => '700' ],
+        ],
+
         //'stopRelationSave' => true
     ],
 

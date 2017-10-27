@@ -225,7 +225,10 @@ var APP = {
                         options : options,
                     });
 
-                    APP.CROPPER.ratio($image ,$this.attr('data-width') ,$this.attr('data-height'))
+                    var ratioWidth  = $image.data('ratio-width'),
+                        ratioHeight = $image.data('ratio-height');
+
+                    APP.CROPPER.ratio($image ,ratioWidth || $this.attr('data-width') ,ratioHeight || $this.attr('data-height'));
                 }
 
                 $this.off('click').on('click', '[data-method]', function() {
@@ -275,7 +278,18 @@ var APP = {
 
                     if($_this.data('method') === 'cropResize') {
 
-                        APP.CROPPER.ratio($image ,$_this.data('width') ,$_this.data('height'));
+                        var ratio  = $_this.data('ratio'),
+                            width  = $_this.data('width'),
+                            height = $_this.data('height');
+
+                        APP.CROPPER.ratio($image ,width ,height);
+
+                        $_this.siblings('button').removeAttr('style');
+                        $_this.attr('style' ,'background-color :#27c24c;')
+
+                        $image.data('ratio-width' ,width);
+                        $image.data('ratio-height' ,height);
+                        $image.data('ratio' ,ratio);
 
                         return;
                     }
@@ -305,9 +319,13 @@ var APP = {
 
                                 result.toBlob(function (blob) {
 
-                                     var target = $(cropper.attr('data-target')),
-                                         name   = $inputName.val() + $inputName.attr('data-ext'),
-                                         blob   = blob;
+                                     var target    = $(cropper.attr('data-target')),
+                                         name      = $inputName.val() + $inputName.attr('data-ext'),
+                                         real_name = name.split(',_,')[0],
+                                         blob      = blob;
+
+                                    if(typeof $image.data('ratio') != typeof undefined)
+                                        name = [ real_name , $image.data('ratio') ].join(',_,');
 
                                      $.extend(blob ,{ name : name });
 
@@ -317,7 +335,7 @@ var APP = {
 
                                      target.closest('.file-input').find("[data-fileindex=" + cropper.attr('data-fileindex') + "] img").attr('src' ,object);
 
-                                     target.closest('.file-input').find("[data-fileindex=" + cropper.attr('data-fileindex') + "] .file-footer-caption").html(name + "</br><samp>(" + APP_AMU.fileUpload.formatBytes(blob.size) + ")</samp>");
+                                     target.closest('.file-input').find("[data-fileindex=" + cropper.attr('data-fileindex') + "] .file-footer-caption").html(real_name + "</br><samp>(" + APP_AMU.fileUpload.formatBytes(blob.size) + ")</samp>");
 
                                      var modal = $this.closest('.modal');
 

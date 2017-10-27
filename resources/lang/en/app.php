@@ -43,6 +43,7 @@ return [
     'apply_file_to_cropper'     => 'Apply File To Cropper',
     'toggle_options'            => 'Toggle Options',
     'image_name'                => 'Image Name',
+    'crop_ratio'                => 'Crop Ratio',
 
     /*
      * upload file

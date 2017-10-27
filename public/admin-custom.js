@@ -1452,6 +1452,7 @@ var APP_AMU = {
                         allowedFileTypes      = typeof $this.data('allowed-file-types') != typeof undefined ? $this.data('allowed-file-types').split(',') : null,
                         allowedFileExtensions = typeof $this.data('allowed-file-extensions') != typeof undefined ? $this.data('allowed-file-extensions') : null,
                         uploadUrl       = $this.data('upload-url'),
+                        ratioUrl        = $this.data('ratio-url'),
                         deleteUrl       = $this.data('delete-url'),
                         downloadFolder  = $this.data('download-folder'),
                         maxFileSize     = $this.data('max-file-size') || 0,
@@ -1483,7 +1484,8 @@ var APP_AMU = {
                         appendName                  = typeof $this.data('append-name') != typeof undefined ? $this.data('append-name') : '',
                         appendName                  = (appendName || _this.id + '[]'),
                         allowedPreviewIcons         = typeof $this.data('allowed-preview-icons') != typeof undefined ? JSON.parse($this.data('allowed-preview-icons')) : false,
-                        autoReplace                 = typeof $this.data('auto-replace') != typeof undefined ? JSON.parse($this.data('auto-replace')) : false;
+                        autoReplace                 = typeof $this.data('auto-replace') != typeof undefined ? JSON.parse($this.data('auto-replace')) : false,
+                        allowRatio                  = typeof $this.data('allow-ratio') != typeof undefined ? JSON.parse($this.data('allow-ratio')) : false;
 
                     if(cropper)
                         cropperTemplete = '<button type="button" class="btn-crop-image btn btn-kv btn-default btn-outline-secondary" title="' + cropTitle + '"><i class="fa fa-crop"></i></button>';
@@ -1817,6 +1819,7 @@ var APP_AMU = {
 
                                     $(cropperModal).find(cropperSelector)
                                         .attr('data-fileindex' ,$fileindex)
+                                        .attr('data-model'     ,_this.id)
                                         .attr('data-target'    ,id)
                                         .attr('data-width'     ,imageWidth)
                                         .attr('data-height'    ,imageHeight)
@@ -1824,6 +1827,17 @@ var APP_AMU = {
                                         .attr('data-maxHeight' ,maxImageHeight)
                                         .attr('data-minHeight' ,minImageHeight)
                                         .attr('data-minWidth'  ,minImageWidth);
+
+                                    var $cropRaio = $(cropperModal).find('.crop-raio');
+                                    if(allowRatio)
+                                        if(!$cropRaio.data('done'))
+                                            $.get(ratioUrl ,function (res) {
+
+                                                $cropRaio.html(res.ratio);
+                                                $cropRaio.data('done' ,true);
+
+                                                APP.CROPPER.init(cropperSelector ,file);
+                                            });
 
                                     APP.CROPPER.init(cropperSelector ,file);
                                 });
