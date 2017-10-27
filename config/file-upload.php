@@ -56,8 +56,10 @@ return [
     ],
 
     'small_gallery' => [
-        'width' => '560',
-        'height' => '200',
+        'ratio' => [
+            'first'  => [ 'width'  => '560', 'height' => '200', ],
+            'second' => [ 'width'  => '275', 'height' => '197', ]
+        ],
         'stopRelationSave' => true,
     ],
 
