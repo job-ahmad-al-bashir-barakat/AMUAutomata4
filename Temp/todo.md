@@ -79,8 +79,8 @@ add color package to ckeditor
 change url admin in all utilities and admin
 
 
-// image true and false 
-// image multi dimention
+// image true and false fix
+// image multi dimention and thumbs
 // custom-module short js code 
 // seo
 

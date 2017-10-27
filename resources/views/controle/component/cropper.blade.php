@@ -46,16 +46,15 @@
                         </div>
                     @endcomponent
                 </div>
+                <div class="crop-raio"></div>
                 @if($showType)
-                    <div>
-                        @component('controle.component.panel' ,['title' => trans('app.crop_type') ,'active' => false])
-                            <div class="form-group">
-                                @foreach(config('cropper.cropType') as $index => $item)
-                                    <button type="button" data-method="cropResize" data-width="{{ $item['width'] }}" data-height="{{ $item['height'] }}" class="btn btn-info btn-block mt">{{ trans("app.{$item['title']}") }}</button>
-                                @endforeach
-                            </div>
-                        @endcomponent
-                    </div>
+                    @component('controle.component.panel' ,['title' => trans('app.crop_type') ,'active' => false])
+                        <div class="form-group">
+                            @foreach(config('cropper.cropType') as $index => $item)
+                                <button type="button" data-method="cropResize" data-width="{{ $item['width'] }}" data-height="{{ $item['height'] }}" class="btn btn-info btn-block mt">{{ trans("app.{$item['title']}") }}</button>
+                            @endforeach
+                        </div>
+                    @endcomponent
                 @endif
                 <div>
                     <button type="button" class="btn btn-success btn-block mt" data-method="getCroppedCanvas" data-type="crop">{{ trans('app.crop') }}</button>

@@ -119,8 +119,8 @@ class CustomFormServiceProvider extends ServiceProvider
             'name'                               => '',
             'class'                              => '',
             'param'                              => '',
-            'imageWidth'                         => '',
-            'imageHeight'                        => '',
+            'imageWidth'                         => null,
+            'imageHeight'                        => null,
             'targetModel'                        => [
                 'modalId'        => '',
                 'modalTitle'     => '',
@@ -146,6 +146,7 @@ class CustomFormServiceProvider extends ServiceProvider
                 'autoReplace'                    => 'false',
                 'showCaption'                    => 'false',
                 'showPreview'                    => 'true',
+                'allowRatio'                     => 'false',
             ],
         ]);
     }

@@ -43,6 +43,7 @@ return [
     'apply_file_to_cropper'     => 'قبول الملف',
     'toggle_options'            => 'التلاعب بالاعدادات',
     'image_name'                => 'اسم الصورة',
+    'crop_ratio'                => 'نسبة القص',
 
     /*
      * upload file

@@ -72,35 +72,57 @@ class UploadController extends Controller
         $file = $request->file($model);
         $file = is_array($file) ? $file[0] : $file;
 
-        // todo : from this we will know what type of image is original or cropped or thumpnail
-        // imageType this must stored in db
-        $imageType = 'original';
+        $paramFromName = explode(',_,' ,$file->getClientOriginalName());
+
+        $clientOriginalName = $paramFromName[0];
+        $ratio              = isset($paramFromName[1]) ?  $paramFromName[1] : false;
+
+        if($ratio)
+            $getRatio = collect($this->imageLocalConfig['ratio'])->get($ratio);
+        else
+            $getRatio = collect($this->imageLocalConfig['ratio'])->first();
 
         $path       = storage_path($this->uploadDirectory);
-        $hashName   = strtolower(str_random(12))."_{$imageType}_". $file->getClientOriginalName();
+        $hashName   = strtolower(str_random(12))."_{$type}_". $clientOriginalName;
 
         // make directory if not exists
         Storage::makeDirectory($this->targetDirectory);
 
         // move with intervention
         $imgRezise = \Image::make($file->getRealPath());
-        $imgRezise->resize($this->imageLocalConfig['width'], $this->imageLocalConfig['height'])->save("$path/$hashName");
+        $imgRezise->resize($getRatio['width'], $getRatio['height'])->save("$path/$hashName");
 
         // it just move your image
         //$file->move($path ,$hashName);
 
         $extraParams =  [
-            'name'      => $file->getClientOriginalName(),
+            'name'      => $clientOriginalName,
             'hash_name' => $hashName,
             'ext'       => $file->getClientOriginalExtension(),
-            'width'     => $this->imageLocalConfig['width'],
-            'height'    => $this->imageLocalConfig['height'],
+            'width'     => $getRatio['width'],
+            'height'    => $getRatio['height'],
             'size'      => $file->getClientSize(),
         ];
 
         // save file inside file table
         $partFunc = Str::studly($type);
         $returnParam = $this->{"saveUpload{$partFunc}Db"}($extraParams);
+
+        // set image thumps for image
+        if(isset($this->imageLocalConfig['thumps'])) {
+
+            //make thumps directory
+            Storage::makeDirectory("$this->targetDirectory/thumps");
+
+            foreach ($this->imageLocalConfig['thumps'] as $index => $thump) {
+
+                //make thumps directory
+                Storage::makeDirectory("$this->targetDirectory/thumps/$index");
+
+                //resize thump image directory
+                $imgRezise->resize($thump['width'], $thump['height'])->save("$path/thumps/$index/$hashName");
+            }
+        }
 
         if(!$this->stopRelationSave)
         {
@@ -143,9 +165,22 @@ class UploadController extends Controller
         $this->{"destroyUpload{$partFunc}Db"}($request->get('key'));
 
         // set storage path for file delete
-        $path = "$this->targetDirectory\\{$request->get('file_name')}";
+        $path       = $this->targetDirectory;
+        $hashName   = $request->get('file_name');
         // delete image from storage .. ps: this accept just file name but i pass full path.
-        Storage::delete($path);
+        Storage::delete("$path\\$hashName");
+
+        // delete image thumps for storge
+        if(isset($this->imageLocalConfig['thumps'])) {
+
+            //make thumps directory
+            foreach ($this->imageLocalConfig['thumps'] as $index => $thump) {
+
+                //resize thump image directory
+                Storage::delete("$path\\thumps\\$index\\$hashName");
+            }
+        }
+
 
         return ["success" => true];
     }
@@ -162,5 +197,14 @@ class UploadController extends Controller
     protected function destroyUploadImageDb($id) {
 
         Image::destroy($id);
+    }
+
+    protected function ratio(Request $request ,$model ,$type)
+    {
+        $routeParam = \Route::getCurrentRoute()->parameters();
+
+        $this->imageLocalConfig   = config("file-upload.{$routeParam['model']}");
+
+        return \response()->json(['ratio' => view('controle.component._crop_ratio' ,[ 'cropRatio' => $this->imageLocalConfig['ratio'] ])->render()]);
     }
 }
