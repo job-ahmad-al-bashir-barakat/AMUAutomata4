@@ -1,4 +1,4 @@
-<div class="col-md-5 wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.3s"
+<div class="col-md-{{ $data['width'] }} wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.3s"
      style="visibility: visible; animation-duration: 1s; animation-delay: 0.3s;">
     <h3 class="text-uppercase title line-bottom mt-0 mb-30 mt-sm-40"><i
                 class="fa fa-calendar text-gray-darkgray mr-10"></i>Client <span
@@ -8,8 +8,8 @@
         <div class="bx-viewport" style="width: 100%; overflow: hidden; position: relative; height: 328px;">
             <div class="bxslider bx-nav-top"
                  style="width: auto; position: relative; transition-duration: 0s; transform: translate3d(0px, -338px, 0px);">
-                @include('web-modules.modules.sub.vertical-slider', ['borderDir' => 'left'])
-                @include('web-modules.modules.sub.vertical-slider', ['borderDir' => 'right'])
+                @include('utilities::web-modules.modules.sub.vertical-slider', ['borderDir' => 'left'])
+                @include('utilities::web-modules.modules.sub.vertical-slider', ['borderDir' => 'right'])
                 <div class="border-1px border-left-theme-color-2-6px media sm-maxwidth400 p-15 mt-0 mb-15 bx-clone"
                      style="float: none; list-style: none; position: relative; width: 458px; margin-bottom: 20px;">
                     <div class="testimonial pt-10">
