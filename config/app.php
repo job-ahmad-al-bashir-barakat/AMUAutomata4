@@ -181,6 +181,7 @@ return [
         Yajra\Datatables\DatatablesServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
+        RenatoMarinho\LaravelPageSpeed\ServiceProvider::class,
 
         /**
          * Our Service Provider

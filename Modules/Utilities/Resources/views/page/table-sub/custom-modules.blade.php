@@ -7,20 +7,12 @@
 
 <script>
     function showFileUploadModal($this) {
-
         var inputFile = $('#slider-image-upload').find('.upload-file');
-//        var datatableRaw = _aut_datatable_getSelectedRowData('#datatable-slider' ,$($this).closest('tr'));
-
-//        inputFile.attr('data-param' ,'id=' + $($this).data('key'));
-
         APP_AMU.fileUpload.load(inputFile);
-
         $('#slider-image-upload').modal('show');
     }
-
     // update by basheer
     $(document).on('change','#module-id' ,function () {
-        // this when you do change
         var id = $(this).val();
         var $template = $('#datatable-custom-modules-modal #custom-module-temp');
         if(id) {
@@ -39,4 +31,3 @@
         }
     });
 </script>
-
