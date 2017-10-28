@@ -16,6 +16,7 @@
         "laravelcollective/html": "^5.4",
         "mcamara/laravel-localization": "^1.2",
         "nwidart/laravel-modules": "^1.19",
+        "renatomarinho/laravel-page-speed": "^1.8",
         "rmccue/requests": "^1.7",
         "symfony/css-selector": "^3.2",
         "symfony/dom-crawler": "^3.2",

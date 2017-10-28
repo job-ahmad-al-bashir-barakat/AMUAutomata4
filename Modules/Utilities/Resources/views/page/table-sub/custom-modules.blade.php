@@ -1,26 +1,28 @@
 {{ Form::bsImageUpload('gallery' ,'gallery' ,'' ,'' ,'100', '100' ,[
-    'modalId'    => 'slider-image-upload',
-    'modalTitle' => trans('utilities::app.upload_slider_image')
-] ,'#datatable-slider', 'false', '.image', ['appendLocation' => '#images', 'appendName' => 'webModule[images][]']) }}
+    'modalId'    => 'gallery-image-upload',
+    'modalTitle' => trans('utilities::app.upload_gallery_image')
+] ,'#datatable-gallery', 'false', '.image', ['appendLocation' => '#images', 'appendName' => 'webModule[images][]']) }}
+
+{{ Form::bsImageUpload('small_gallery' ,'small_gallery' ,'' ,'' ,'560', '200' ,[
+    'modalId'    => 'small-gallery-image-upload',
+    'modalTitle' => trans('utilities::app.upload_small_gallery')
+] ,'#datatable-small-gallery', 'false', '.image', ['appendLocation' => '#images', 'appendName' => 'webModule[images][]']) }}
+
 
 {{ Form::bsImageUploadCropper('90%' ,false ,true,false ,false ,false ,true) }}
 
 <script>
-    function showFileUploadModal($this) {
-
-        var inputFile = $('#slider-image-upload').find('.upload-file');
-//        var datatableRaw = _aut_datatable_getSelectedRowData('#datatable-slider' ,$($this).closest('tr'));
-
-//        inputFile.attr('data-param' ,'id=' + $($this).data('key'));
-
+    function showFileUploadModalGallery($this) {
+        var inputFile = $('#gallery-image-upload').find('.upload-file');
         APP_AMU.fileUpload.load(inputFile);
-
-        $('#slider-image-upload').modal('show');
+        $('#gallery-image-upload').modal('show');
     }
-
-    // update by basheer
+    function showFileUploadModalSmallGallery($this) {
+        var inputFile = $('#small-gallery-image-upload').find('.upload-file');
+        APP_AMU.fileUpload.load(inputFile);
+        $('#small-gallery-image-upload').modal('show');
+    }
     $(document).on('change','#module-id' ,function () {
-        // this when you do change
         var id = $(this).val();
         var $template = $('#datatable-custom-modules-modal #custom-module-temp');
         if(id) {
@@ -39,4 +41,3 @@
         }
     });
 </script>
-

@@ -42,14 +42,12 @@ class CustomModuleFactory extends GlobalFactory
             ->addComponent(view('utilities::page._custom_module')->renderSections()['component'] ,[
                 ['selector' => '#custom-module-temp' , 'targetAttr' => 'html' ,'rowVal' => 'custom_module_temp']
             ])
-//            ->addBlade('custom-module-custom' , view('utilities::page._custom_module')->renderSections()['script'])
             ->addNavButton()
-            ->onUpdate('')
-            //todo reset, init must be use the selector not an id EX: sets of text area for each supported language
-            ->onModalOpen("<script>
-                 APP_AMU.ckeditor.reset('' ,'' ,'single' ,'module-textarea-id');
-                 APP_AMU.ckeditor.init('body' ,'.datatable-text-editor');
-                 APP_AMU.autocomplete.initAutocomplete($('#custom-module-temp').find('.autocomplete'));
+            ->onModalOpen("
+            <script>
+                APP_AMU.ckeditor.reset('' ,'' ,'single' ,'module-textarea-id');
+                APP_AMU.ckeditor.init('body' ,'.datatable-text-editor');
+                APP_AMU.autocomplete.initAutocomplete($('#custom-module-temp').find('.autocomplete'));
             </script>")
             ->render();
     }

@@ -37,9 +37,10 @@ class Attribute
      * This Function will render the view of the attribute
      * will pass the $id, $code, $title, $values, $data, supportedLangs and Lang to the view
      *
+     *
      * @return string Html
      */
-    public function getAttributeHtml()
+    public function getAttributeHtml($moduleCode)
     {
         return view($this->viewPath,
             [
@@ -49,7 +50,8 @@ class Attribute
                 'values' => $this->values,
                 'data' => $this->data,
                 'supportedLangs' => $this->supportedLangs,
-                'lang' => $this->lang
+                'lang' => $this->lang,
+                'moduleCode' => $moduleCode,
             ]
         )->render();
     }
@@ -97,12 +99,14 @@ class Attribute
         if(!$this->data || $forceQuery){
             $customModuleAttributeValue = CustomModuleAttributeValue::where('custom_module_id', '=', $customModuleId)->where('attribute_id', '=', $this->id)->first();
             if ($this->multiLang) {
-                foreach ($customModuleAttributeValue->lang_multi as $langCode => $multi) {
-                    $this->data[$langCode] = $multi->text;
+                if($customModuleAttributeValue){
+                    foreach ($customModuleAttributeValue->lang_multi as $langCode => $multi) {
+                        $this->data[$langCode] = $multi->text;
+                    }
                 }
                 return;
             }
-            if($this->multiVal){
+            if($this->multiVal) {
                 $this->data = json_decode($customModuleAttributeValue->value);
                 return;
             }
