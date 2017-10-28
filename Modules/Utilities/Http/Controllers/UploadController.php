@@ -72,6 +72,9 @@ class UploadController extends Controller
         $file = $request->file($model);
         $file = is_array($file) ? $file[0] : $file;
 
+        $dimensions  = getimagesize($file->getPathname());
+        $imageRatio  = number_format($dimensions[0]/$dimensions[1] ,1);
+
         $paramFromName = explode(',_,' ,$file->getClientOriginalName());
 
         $clientOriginalName = $paramFromName[0];
@@ -80,7 +83,17 @@ class UploadController extends Controller
         if($ratio)
             $getRatio = collect($this->imageLocalConfig['ratio'])->get($ratio);
         else
-            $getRatio = collect($this->imageLocalConfig['ratio'])->first();
+            foreach ($this->imageLocalConfig['ratio'] as $index => $current_ratio) {
+
+                $loopRatio = number_format($current_ratio['width']/$current_ratio['height'] ,1);
+
+                if($loopRatio === $imageRatio) {
+
+                    $getRatio = $current_ratio;
+
+                    break;
+                }
+            }
 
         $path       = storage_path($this->uploadDirectory);
         $hashName   = strtolower(str_random(12))."_{$type}_". $clientOriginalName;
@@ -181,7 +194,6 @@ class UploadController extends Controller
             }
         }
 
-
         return ["success" => true];
     }
 
@@ -199,7 +211,7 @@ class UploadController extends Controller
         Image::destroy($id);
     }
 
-    protected function ratio(Request $request ,$model ,$type)
+    function ratio(Request $request ,$model ,$type)
     {
         $routeParam = \Route::getCurrentRoute()->parameters();
 
@@ -207,4 +219,8 @@ class UploadController extends Controller
 
         return \response()->json(['ratio' => view('controle.component._crop_ratio' ,[ 'cropRatio' => $this->imageLocalConfig['ratio'] ])->render()]);
     }
+
+//   function validate() {
+//
+//   }
 }

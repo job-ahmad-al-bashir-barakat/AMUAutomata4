@@ -3,9 +3,9 @@
 /////////////////////////////////////
 
 -------------------------------
-fix scrollX and footer filter location
+//fix scrollX and footer filter location
 -------------------------------
-fix multi datatable load // need to rebuild js
+//fix multi datatable load // need to rebuild js
 -------------------------------
 //add ajax upload to file upload datatable
 -------------------------------
@@ -78,9 +78,12 @@ tree part ajax load
 add color package to ckeditor
 change url admin in all utilities and admin
 
-
 // image true and false fix
-// image multi dimention and thumbs
 // custom-module short js code 
+// datatable update procces order to waiting 
+// find sweet alert composer
+// ratio from javascript validation
+// file size
+// composer require renatomarinho/laravel-page-speed
 // seo
 

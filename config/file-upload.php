@@ -15,21 +15,22 @@ return [
     'lab' => [
         'model'  => \Modules\Admin\Entities\Lab::class,
         'ratio' => [
-            'first'  => [ 'width'  => '1366', 'height' => '768', ],
-            'second' => [ 'width'  => '450', 'height' => '300', ]
+            'first_ratio'  => [ 'width'  => '1366', 'height' => '768', ],
+            'second_ratio' => [ 'width'  => '480', 'height' => '480', ],
         ],
-        'thumps' => [
-            's' => [ 'width'  => '100', 'height' => '100' ],
-            'l' => [ 'width'  => '700', 'height' => '700' ],
-        ],
+        // 'thumps' => [
+        //     's' => [ 'width'  => '100', 'height' => '100' ],
+        //     'l' => [ 'width'  => '700', 'height' => '700' ],
+        // ],
 
-        //'stopRelationSave' => true
+        // 'stopRelationSave' => true
     ],
 
     'person' => [
         'model'        => \Modules\Admin\Entities\Person::class,
-        'width'        => '150',
-        'height'       => '150',
+        'ratio' => [
+            'person_ratio' => [ 'width'  => '150', 'height' => '150', ],
+        ],
         'relationType' => 'one',
     ],
 
@@ -57,8 +58,9 @@ return [
 
     'course' => [
         'model'        => \Modules\Admin\Entities\Course::class,
-        'width'        => '265',
-        'height'       => '195',
+        'ratio' => [
+            'person_ratio' => [ 'width'  => '265', 'height' => '195', ],
+        ],
         'relationType' => 'one',
     ],
 ];

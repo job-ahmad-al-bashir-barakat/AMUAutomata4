@@ -1699,8 +1699,6 @@ var APP_AMU = {
                                         replacedFile.push($.extend(v.extra ,{ key : v.key }));
                                     });
 
-                        }).off('filepreupload').on('filepreupload', function(event, data, previewId, index) {
-                            // pre upload
                         }).off('fileclear').on('fileclear', function(event) {
 
                             if(autoReplace)
@@ -1778,7 +1776,31 @@ var APP_AMU = {
                                 aut_datatable_reload(datatable);
 
                             if ((typeof $this.data('filedeleted') != typeof undefined) && $this.data('filedeleted'))
-                                window[$this.data('filedeleted')](event, key, jqXHR, data)  ;
+                                window[$this.data('filedeleted')](event, key, jqXHR, data);
+
+                        }).off('filepreupload').on('filepreupload', function(event, data, previewId, index) {
+
+                            // var u = URL.createObjectURL(data.files[0]);
+                            // var img = new Image;
+                            //
+                            // var a = false;
+                            // img.onload = function() {
+                            //     a = true;
+                            // };
+                            //
+                            // img.src = u;
+                            //
+                            // if(a)
+                            // {
+                            //     return {
+                            //         message: 'You are not allowed to do that',
+                            //         data: {key1: 'Key 1', detail1: 'Detail 1'}
+                            //     };
+                            // }
+
+                        }).off('filecustomerror').on('filecustomerror', function(event, params) {
+                            // params.abortData will contain the additional abort data passed
+                            // params.abortMessage will contain the aborted error message passed
                         });
                         /*
                         .on('filecleared', function(event){ })
@@ -1792,7 +1814,6 @@ var APP_AMU = {
                         .on('filebeforedelete', function(event, key, data) { })
                         .on('filepredelete', function(event, key, jqXHR, data) { })
                         .on('filedeleted', function(event, key, jqXHR, data) { })
-                        .on('filepreupload', function(event, data, previewId, index) { })
                         .on('filesuccessremove', function(event, id) {  });
                         .on('fileclear', function(event) { }).on('filecleared', function(event) { })
                         .on('change', function(event) { });*/

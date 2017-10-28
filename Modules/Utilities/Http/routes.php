@@ -54,6 +54,7 @@ function () {
     Route::post('{model}/{type}/destroy' ,'UploadController@destroy');
     Route::get('{model}/{type}/upload' ,'UploadController@index');
     Route::get('{model}/{type}/ratio' ,'UploadController@ratio');
+    Route::get('{model}/{type}/validate' ,'UploadController@validate');
 
 //    Route::group([], function () {/*for super admin*/});
 //    Route::group([], function () {/*for admin*/});
