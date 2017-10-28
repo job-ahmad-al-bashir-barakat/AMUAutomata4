@@ -36,6 +36,7 @@
            data-cropper-selector="{{ $cropperSelector or '.aut-cropper-file-upload' }}"
            data-cropper-modal="{{ $cropperModal or '#crop-image' }}"
            data-allow-ratio="{{ $allowRatio or 'false' }}"
+           {{--data-object-ratio="{{ config('') }}"--}}
            data-show-caption="{{ $showCaption or 'false' }}"
            data-show-preview="{{ $showPreview or 'true' }}"
            data-datatable="{{ $datatable or ''}}"

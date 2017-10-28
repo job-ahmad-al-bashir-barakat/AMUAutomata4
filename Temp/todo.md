@@ -78,12 +78,13 @@ tree part ajax load
 add color package to ckeditor
 change url admin in all utilities and admin
 
-// image true and false fix
-// custom-module short js code 
-// datatable update procces order to waiting 
-// find sweet alert composer
-// ratio from javascript validation
-// file size
 // composer require renatomarinho/laravel-page-speed
+// uxweb/sweet-alert //sweet alert composer
+
+// image true and false fix
+// ratio from javascript validation
+// custom-module short js code 
+
+// file size
 // seo
 

@@ -15,8 +15,7 @@ return [
     'lab' => [
         'model'  => \Modules\Admin\Entities\Lab::class,
         'ratio' => [
-            'first_ratio'  => [ 'width'  => '1366', 'height' => '768', ],
-            'second_ratio' => [ 'width'  => '480', 'height' => '480', ],
+            'first'  => [ 'width'  => '1366', 'height' => '768' ],
         ],
         // 'thumps' => [
         //     's' => [ 'width'  => '100', 'height' => '100' ],

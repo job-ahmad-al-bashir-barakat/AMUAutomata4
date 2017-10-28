@@ -219,8 +219,4 @@ class UploadController extends Controller
 
         return \response()->json(['ratio' => view('controle.component._crop_ratio' ,[ 'cropRatio' => $this->imageLocalConfig['ratio'] ])->render()]);
     }
-
-//   function validate() {
-//
-//   }
 }

@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.4.21 on 2017-09-15.
+ * Generated for Laravel 5.4.21 on 2017-10-28.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -11968,17 +11968,7 @@ namespace Nwidart\Modules\Facades {
 namespace Collective\Html {
 
     class FormFacade {
-
-        public static function bsPrimarykey($id = '' ,$name = '' ,$value = null ,$class = '' ,$attr = []){}
-        public static function bsHidden($id = '' ,$name = '' ,$value = null ,$class = '' ,$attr = []){}
-        public static function bsText($label = '', $id = '', $name =  '', $value = null, $class = '', $attr = []){}
-        public static function bsNumber($label = '', $id = '', $name =  '', $value = null, $class = '', $attr = []){}
-        public static function bsAutocomplete($label = '', $id = '', $name = '', $remote = '', $option = [], $letter = '3', $class  = '', $attr   = []){}
-        public static function bsSelect($label = '', $id = '', $name = '', $option = [], $selected = null, $class = '', $attr = []){}
-        public static function bsImageUpload($id = '', $name = '', $class = '', $param = '', $imageWidth = null, $imageHeight = null, $targetModel =  ['modalId' => '', 'modalTitle' => '', 'modalWidth' => '700px',], $datatable = '', $datatableInitialize = 'true', $datatableInitializeProperty = '.image', $extraParameter = ['maxFileCount' => '0', 'minFileCount' => '0', 'minImageWidth' => null, 'minImageHeight' => null, 'maxImageWidth' => null, 'maxImageHeight' => null, 'allowedFileExtensions' => 'jpeg,jpg,bmp,png' ,'appendLocation' => '' ,'appendName' => '' , 'reloadDatatable' => 'true' ,'fileuploadedEvent' => '' ,'filedeletedEvent' => '' ,'allowedPreviewIcons' => 'false' ,'autoReplace' => 'false' ,'showCaption' => 'false' ,'showPreview' => 'true' , 'allowRatio' => 'false']){}
-        public static function bsImageUploadCropper($width = '90%', $single = false, $showName = true ,$showType = false, $showOption = false, $showToggleOption = false, $showPreview = false ,$previewType = ['lg' ,'md' ,'sm' ,'xs']){}
-        public static function bsNotify($icon = '' ,$class = '',$text = '' ,$html = ''){}
-
+        
         /**
          * Open up a new HTML form.
          *
@@ -14873,6 +14863,54 @@ namespace Aut\DataTable {
         /**
          * 
          *
+         * @param $value string|array
+         * @return $this 
+         * @static 
+         */
+        public static function setDefaultValue($value)
+        {
+            return \Aut\DataTable\DataTableBuilder::setDefaultValue($value);
+        }
+        
+        /**
+         * 
+         *
+         * @param $class string
+         * @return $this 
+         * @static 
+         */
+        public static function setClass($class)
+        {
+            return \Aut\DataTable\DataTableBuilder::setClass($class);
+        }
+        
+        /**
+         * 
+         *
+         * @param $name string
+         * @return $this 
+         * @static 
+         */
+        public static function setName($name)
+        {
+            return \Aut\DataTable\DataTableBuilder::setName($name);
+        }
+        
+        /**
+         * 
+         *
+         * @param $attr string|array
+         * @return $this 
+         * @static 
+         */
+        public static function setAttr($attr)
+        {
+            return \Aut\DataTable\DataTableBuilder::setAttr($attr);
+        }
+        
+        /**
+         * 
+         *
          * @param $param
          * @param $choosen
          * @static 
@@ -14956,6 +14994,16 @@ namespace Aut\DataTable {
         public static function checkReturnValue($html, $isCustom, $stringCont = 'dialogBody')
         {
             return \Aut\DataTable\DataTableBuilder::checkReturnValue($html, $isCustom, $stringCont);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function _dialogEntry($param = array())
+        {
+            return \Aut\DataTable\DataTableBuilder::_dialogEntry($param);
         }
         
         /**
@@ -15377,9 +15425,119 @@ namespace App\Library\Url\Facades {
          *
          * @static 
          */
+        public static function icons()
+        {
+            return \App\Library\Url\RouteUrls::icons();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
         public static function builderPages()
         {
             return \App\Library\Url\RouteUrls::builderPages();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function sliders()
+        {
+            return \App\Library\Url\RouteUrls::sliders();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function verticalSliders()
+        {
+            return \App\Library\Url\RouteUrls::verticalSliders();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function slider($id)
+        {
+            return \App\Library\Url\RouteUrls::slider($id);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function verticalSlider($id)
+        {
+            return \App\Library\Url\RouteUrls::verticalSlider($id);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function steps()
+        {
+            return \App\Library\Url\RouteUrls::steps();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function textCards()
+        {
+            return \App\Library\Url\RouteUrls::textCards();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function blocks()
+        {
+            return \App\Library\Url\RouteUrls::blocks();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function block($id)
+        {
+            return \App\Library\Url\RouteUrls::block($id);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function getBuilderPageModules()
+        {
+            return \App\Library\Url\RouteUrls::getBuilderPageModules();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function menuTables()
+        {
+            return \App\Library\Url\RouteUrls::menuTables();
         }
         
     }         
