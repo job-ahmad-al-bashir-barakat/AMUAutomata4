@@ -17,6 +17,8 @@ return [
     'set_location'    => 'Set Location',
     'title'           => 'Title',
     'text'            => 'Text',
+    'sub_text'        => 'Sub Text',
+    'small_text'      => 'Small Text',
     'location'        => 'Address',
     'address'         => 'Address',
 

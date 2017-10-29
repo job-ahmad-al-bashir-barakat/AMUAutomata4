@@ -6,7 +6,7 @@
 {{ Form::bsImageUpload('small_gallery' ,'small_gallery' ,'' ,'' ,'560', '200' ,[
     'modalId'    => 'small-gallery-image-upload',
     'modalTitle' => trans('utilities::app.upload_small_gallery')
-] ,'#datatable-small-gallery', 'false', '.image', ['appendLocation' => '#images', 'appendName' => 'webModule[images][]']) }}
+] ,'#datatable-small-gallery', 'false', '.image', ['appendLocation' => '#images', 'appendName' => 'webModule[images][]', 'allowRatio' => 'true']) }}
 
 
 {{ Form::bsImageUploadCropper('90%' ,false ,true,false ,false ,false ,true) }}

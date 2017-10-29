@@ -29,7 +29,7 @@ class AttributeFactory extends GlobalFactory
     public function buildDatatable($attribute, $request)
     {
         return $this->table
-            ->config('datatable-langs',trans('admin::app.title_example'))
+            ->config('datatable-langs',trans('utilities::app.attributes'))
             ->addPrimaryKey('id','id')
             ->addInputText(trans('utilities::app.code'),'code','code','required req')
             ->addMultiInputTextLangs(['name'] ,'req required')

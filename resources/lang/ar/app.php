@@ -17,6 +17,8 @@ return [
     'set_location'    => 'تحديد الموقع',
     'title'           => 'عنوان',
     'text'            => 'نص',
+    'sub_text'        => 'نص فرعي',
+    'small_text'      => 'نص صغير',
     'location'        => 'العنوان',
     'address'         => 'العنوان',
 

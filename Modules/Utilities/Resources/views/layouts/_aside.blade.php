@@ -77,7 +77,7 @@
             <span>{{ trans('utilities::app.builder') }}</span>
         </a>
         <ul id="builder" class="nav sidebar-subnav collapse">
-            <li class="sidebar-subnav-header">{{ trans('utilities::builder') }}</li>
+            <li class="sidebar-subnav-header">{{ trans('utilities::app.builder') }}</li>
 
             <li class="">
                 <a href="{{ RouteUrls::sliders() }}" class="ajax" title="{{ trans('utilities::app.sliders') }}">
