@@ -33,6 +33,8 @@ return [
     'upload_images'          => 'Upload Images',
     'btn'                    => 'Button',
     'url'                    => 'Url',
+    'page_route'             => 'Page Url',
+    'page_code'              => 'Page Code',
 
     'automata4_utilities'    => 'Automata4 Utilities',
     'global'                 => 'Global',

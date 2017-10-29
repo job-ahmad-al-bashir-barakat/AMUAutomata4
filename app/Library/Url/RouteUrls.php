@@ -118,4 +118,14 @@ class RouteUrls
     {
         return $this->localizeUrl('menu-tables', 'utilities');
     }
+
+
+    /**
+     * @Section Web Site Urls
+     */
+
+    public function page($page)
+    {
+        return $this->localizeUrl("$page", '');
+    }
 }
