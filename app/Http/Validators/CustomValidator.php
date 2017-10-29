@@ -20,16 +20,33 @@ class CustomValidator
         $paramFromName    = explode(',_,' ,$file->getClientOriginalName());
         $ratio            = isset($paramFromName[1]) ?  $paramFromName[1] : false;
 
+        $dimensions  = getimagesize($file->getPathname());
+        $imageRatio  = number_format($dimensions[0]/$dimensions[1] ,1);
+
         if($ratio)
             $getRatio = collect($imageLocalConfig['ratio'])->get($ratio);
         else
-            $getRatio = collect($imageLocalConfig['ratio'])->first();
+            foreach ($imageLocalConfig['ratio'] as $index => $current_ratio) {
 
-        $dimensions = getimagesize($file->getPathname());
+                $loopRatio = number_format($current_ratio['width']/$current_ratio['height'] ,1);
 
-        $imageRatio  = number_format($dimensions[0]/$dimensions[1] ,1);
-        $configRatio = number_format( $getRatio['width']/$getRatio['height'] ,1);
+                if($loopRatio === $imageRatio) {
 
-        return $imageRatio === $configRatio;
+                    $getRatio = $current_ratio;
+
+                    break;
+                }
+            }
+
+        if(isset($getRatio)) {
+
+            $configRatio = number_format( $getRatio['width']/$getRatio['height'] ,1);
+
+            return $imageRatio === $configRatio;
+
+        } else {
+
+            return false;
+        }
     }
 }

@@ -98,5 +98,5 @@ return [
     'code'              => 'Code ',
     'symbol'            => 'Symbol',
     'population'        => 'Population',
-    'processing_order'  => 'Processing Order',
+    'waiting'           => 'waiting',
 ];

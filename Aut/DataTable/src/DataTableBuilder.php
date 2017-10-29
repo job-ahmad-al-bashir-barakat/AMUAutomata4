@@ -2266,12 +2266,11 @@ class DataTableBuilder
         $class_attr = $param['class_attr'];
 
         $id = preg_replace('/.+\./', '', $param["data"]);
-        $id = shortIfElse($this->relation_key != '' ,$param["data"] ,$id);
-
         $array    = shortIfElse($param["type"] == 'autocompleteMulti' , "[]" ,"");
         $relation = $this->organizeRelation($this->relation_key);
         $name     = shortIfElse($this->relation_key != '' ,"{$relation}[$id]$array" ,"$id{$array}");
         $name     = shortIfElse(empty($this->params['name']) ,$name ,$this->params['name']);
+        $id       = shortIfElse($this->relation_key != '' ,$param["data"] ,$id);
 
         $class  = shortIfElse(empty($this->params['class']) ,$class_attr['class_dialog'] ,"{$this->params['class']} {$class_attr['class_dialog']}");
 
