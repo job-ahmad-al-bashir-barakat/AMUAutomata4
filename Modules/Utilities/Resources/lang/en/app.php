@@ -29,6 +29,7 @@ return [
     'head'                   => 'Head',
     'text'                   => 'Text',
     'btn'                    => 'Button',
+    'url'                    => 'Url',
 
     'automata4_utilities'    => 'Automata4 Utilities',
     'global'                 => 'Global',
@@ -41,6 +42,7 @@ return [
     'attributes'             => 'Attributes',
     'modules'                => 'Modules',
     'custom_modules'         => 'Custom Modules',
+    'custom-modules'         => 'Custom Modules',
     'pages'                  => 'Pages',
     'page'                   => 'Page',
     'builder'                => 'Builder',
@@ -49,6 +51,7 @@ return [
     'slider'                 => 'Slider',
     'blocks'                 => 'Blocks',
     'icons'                  => 'Icons',
+    'text-cards'             => 'Text Cards',
     'customized'             => 'Customized',
     'steps'                  => 'Steps',
 

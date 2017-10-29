@@ -29,6 +29,7 @@ return [
     'head'                   => 'عنوان رئيسي',
     'text'                   => 'نص',
     'btn'                    => 'زر',
+    'url'                    => 'رابط',
 
     'automata4_utilities'    => 'أدوات أتوماتا 4',
     'global'                 => 'أدوات شاملة',
@@ -41,6 +42,7 @@ return [
     'attributes'             => 'واصفات',
     'modules'                => 'قوالب',
     'custom_modules'         => 'قوالب خاصة',
+    'custom-modules'         => 'قوالب خاصة',
     'pages'                  => 'الصفحات',
     'page'                   => 'صفحة',
     'builder'                => 'الباني',
@@ -49,6 +51,7 @@ return [
     'slider'                 => 'شرائح',
     'blocks'                 => 'كتل',
     'icons'                  => 'الايقونات',
+    'text-cards'             => 'Text Cards',
     'customized'             => 'Customized',
     'steps'                  => 'خطوات',
 
