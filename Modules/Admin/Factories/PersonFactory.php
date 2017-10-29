@@ -95,6 +95,8 @@ class PersonFactory extends GlobalFactory
 
     public function updateDatatable($model ,$request ,$result)
     {
+        $request->request->add(['transSaveOper' => false]);
+
         $result->contact()->update($request->input('contact'));
 
         $result->contact->socialNetwork()->sync($request->input('contact.social'));
