@@ -62,7 +62,7 @@ class ModuleFactory extends GlobalFactory
     {
         //
         $attributeIds = $request->input('attributes.id');
-        $result->attributes()->sync($attributeIds);
+        $response = $result->attributes()->sync($attributeIds);
     }
 
     /**

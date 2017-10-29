@@ -37,8 +37,6 @@ class Module
         $module = ModuleModel::find($this->id);
         $moduleCode = $module->code;
         $moduleAttribute = $module->attributes()->get();
-//        $moduleAttribute = ModuleModel::find($this->id)->attributes()->get();
-//        print_r($moduleAttribute);exit;
         $htmlResult = '';
         foreach ($moduleAttribute as $attribute) {
             $attribute = Attribute::setAttribute($attribute->id);
