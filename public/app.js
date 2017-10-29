@@ -327,7 +327,7 @@ var APP = {
                                     if(typeof $image.data('ratio') != typeof undefined)
                                         name = [ real_name , $image.data('ratio') ].join(',_,');
 
-                                     $.extend(blob ,{ name : name });
+                                     $.extend(blob ,{ name : name ,crop : true});
 
                                      target.fileinput('updateStack', cropper.attr('data-fileindex') , blob);
 

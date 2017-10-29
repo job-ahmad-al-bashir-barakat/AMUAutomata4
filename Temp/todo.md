@@ -82,9 +82,8 @@ change url admin in all utilities and admin
 // uxweb/sweet-alert //sweet alert composer
 
 // image true and false fix
-// ratio from javascript validation
 // custom-module short js code 
-
 // file size
+
 // seo
 

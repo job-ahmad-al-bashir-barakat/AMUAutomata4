@@ -523,6 +523,8 @@ function aut_datatable_submitDialogFrom(table ,aut_datatable) {
 
         }).fail(function(res) {
 
+            button.button('reset');
+
             aut_datatable_notify({ message : aut_datatable.lang.oper.error ,status : 'danger'});
 
             var errors = JSON.parse(res.responseText);
@@ -549,6 +551,8 @@ function aut_datatable_submitDialogFrom(table ,aut_datatable) {
             aut_datatable_notify({ message : res.operation_message ,status : 'success'});
 
         }).fail(function(res) {
+
+            button.button('reset');
 
             aut_datatable_notify({ message :  aut_datatable.lang.oper.error ,status : 'danger'});
 

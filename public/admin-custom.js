@@ -1447,7 +1447,7 @@ var APP_AMU = {
                     var _this = this,
                         $this = $(_this);
 
-                    var btns, cropperTemplete, infoTemplete, replacedFile = [],
+                    var btns, cropperTemplete, infoTemplete, replacedFile = [], invalidRatio = [],
                         previewFileType       = $this.data('preview-file-type'),
                         allowedFileTypes      = typeof $this.data('allowed-file-types') != typeof undefined ? $this.data('allowed-file-types').split(',') : null,
                         allowedFileExtensions = typeof $this.data('allowed-file-extensions') != typeof undefined ? $this.data('allowed-file-extensions') : null,
@@ -1485,7 +1485,9 @@ var APP_AMU = {
                         appendName                  = (appendName || _this.id + '[]'),
                         allowedPreviewIcons         = typeof $this.data('allowed-preview-icons') != typeof undefined ? JSON.parse($this.data('allowed-preview-icons')) : false,
                         autoReplace                 = typeof $this.data('auto-replace') != typeof undefined ? JSON.parse($this.data('auto-replace')) : false,
-                        allowRatio                  = typeof $this.data('allow-ratio') != typeof undefined ? JSON.parse($this.data('allow-ratio')) : false;
+                        allowRatio                  = typeof $this.data('allow-ratio') != typeof undefined ? JSON.parse($this.data('allow-ratio')) : false,
+                        ratio                       = typeof $this.data('ratio') != typeof undefined ? $this.data('ratio') : {},
+                        ratioMessage                = typeof $this.data('ratio-message') != typeof undefined ? $this.data('ratio-message') : '';
 
                     if(cropper)
                         cropperTemplete = '<button type="button" class="btn-crop-image btn btn-kv btn-default btn-outline-secondary" title="' + cropTitle + '"><i class="fa fa-crop"></i></button>';
@@ -1688,6 +1690,24 @@ var APP_AMU = {
                             // This is only applicable for image file previews and if showPreview is set to true.
                         }).off('fileloaded').on('fileloaded', function(event, file, previewId, index, reader) {
 
+                            // check image ratio
+                            var blob = APP_AMU.fileUpload.convertFileToObject(file ,'fileToUrlBlob').fileToUrlBlob;
+                            var img = new Image;
+                            img.onload = function() {
+
+                                var invalid = true;
+                                $.each(ratio ,function (i ,v) {
+                                    var imageRatio = parseInt(img.width)/parseInt(img.height);
+                                    var ratio      = parseInt(v.width) / parseInt(v.height);
+                                    if(imageRatio === ratio)
+                                        invalid = false;
+                                });
+
+                                if(invalid)
+                                    invalidRatio[previewId] = ratioMessage.replace('{name}' ,file.name);
+                            };
+                            img.src = blob;
+
                             // this event trigger after select new file from browse
                             if(autoReplace)
                                 if($this.fileinput('getFilesCount') > params.maxFileCount)
@@ -1780,27 +1800,22 @@ var APP_AMU = {
 
                         }).off('filepreupload').on('filepreupload', function(event, data, previewId, index) {
 
-                            // var u = URL.createObjectURL(data.files[0]);
-                            // var img = new Image;
-                            //
-                            // var a = false;
-                            // img.onload = function() {
-                            //     a = true;
-                            // };
-                            //
-                            // img.src = u;
-                            //
-                            // if(a)
-                            // {
-                            //     return {
-                            //         message: 'You are not allowed to do that',
-                            //         data: {key1: 'Key 1', detail1: 'Detail 1'}
-                            //     };
-                            // }
+                            if(invalidRatio[previewId] && !data.files[0].crop) {
+
+                                return {
+                                    message: invalidRatio[previewId],
+                                    data: {data: data}
+                                };
+                            }
 
                         }).off('filecustomerror').on('filecustomerror', function(event, params) {
+
                             // params.abortData will contain the additional abort data passed
                             // params.abortMessage will contain the aborted error message passed
+
+                            if(params.files[0].crop) {
+                                $this.fileinput('upload');
+                            }
                         });
                         /*
                         .on('filecleared', function(event){ })
