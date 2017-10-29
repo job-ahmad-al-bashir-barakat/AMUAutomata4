@@ -28,6 +28,9 @@ return [
     'title'                  => 'عنوان',
     'head'                   => 'عنوان رئيسي',
     'text'                   => 'نص',
+    'sub_text'               => 'نص فرعي',
+    'small_text'             => 'نص صغير',
+    'upload_images'          => 'رفع الصور',
     'btn'                    => 'زر',
     'url'                    => 'رابط',
 
@@ -48,6 +51,7 @@ return [
     'builder'                => 'الباني',
     'sliders'                => 'مجموعات الشرائح',
     'vertical-sliders'       => 'مجموعات الشرائح الافقية',
+    'vertical-slider'        => 'شريحة افقية',
     'slider'                 => 'شرائح',
     'blocks'                 => 'كتل',
     'icons'                  => 'الايقونات',

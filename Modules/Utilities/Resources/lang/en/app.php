@@ -28,6 +28,9 @@ return [
     'title'                  => 'Title',
     'head'                   => 'Head',
     'text'                   => 'Text',
+    'sub_text'               => 'Sub Text',
+    'small_text'             => 'Small Text',
+    'upload_images'          => 'Upload Images',
     'btn'                    => 'Button',
     'url'                    => 'Url',
 
@@ -48,6 +51,7 @@ return [
     'builder'                => 'Builder',
     'sliders'                => 'Sliders',
     'vertical-sliders'       => 'Vertical Sliders',
+    'vertical-slider'        => 'Vertical Slider',
     'slider'                 => 'Slider',
     'blocks'                 => 'Blocks',
     'icons'                  => 'Icons',
