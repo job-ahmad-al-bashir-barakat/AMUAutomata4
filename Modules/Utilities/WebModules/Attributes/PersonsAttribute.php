@@ -24,9 +24,7 @@ class PersonsAttribute extends Attribute
     public function getAttributeValue($customModuleId, $forceQuery = false)
     {
         parent::getAttributeValue($customModuleId, $forceQuery);
-
-        $lang = app()->getLocale();
-        $this->data = Person::whereIn('id', $this->data)->get()->pluck("lang_name.{$lang}.text", 'id')->toArray();
+        $this->data = Person::whereIn('id', $this->data)->get();
     }
 
 }

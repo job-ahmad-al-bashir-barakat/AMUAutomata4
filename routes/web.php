@@ -40,7 +40,7 @@ Route::group(
         })->name('contact_us');
 
         Route::get('university-message' ,function () {
-            $menu = []; //\Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree()
+            $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
             $modules = []; //\Modules\Utilities\Entities\BuilderPage::pageModules()->get()->pluck('module')
             return view('page.university_message' ,compact('modules', 'menu'));
         });
@@ -63,7 +63,7 @@ Route::group(
             return view('page.university_council_detail'  ,compact('modules', 'menu'));
         });
         Route::get('trusted-council' ,function () {
-            $menu = [];
+            $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
             $modules = [];
             return view('page.trusted_council'  ,compact('modules', 'menu'));
         });
@@ -82,13 +82,13 @@ Route::group(
 
         // -- labs : same as university-offices and university-offices-detail
         Route::get('university-offices' ,function () {
-            $menu = [];
+            $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
             $modules = [];
             return view('page.university_offices'  ,compact('modules', 'menu'));
         });
 
         Route::get('university-offices-detail' ,function () {
-            $menu = [];
+            $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
             $modules = [];
             return view('page.university_offices_detail'  ,compact('modules', 'menu'));
         });
@@ -127,7 +127,7 @@ Route::group(
         }
 
         Route::get('hierarchy' ,function () {
-            $menu = [];
+            $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
             $modules = [];
 
             return view('page.hierarchy' ,compact('modules', 'menu' ));
@@ -140,15 +140,14 @@ Route::group(
         });
 
         Route::get('degrees' ,function () {
-            $menu = [];
+            $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
             $modules = [];
             $degrees = \Modules\Admin\Entities\Degree::all();
             return view('page.degrees' ,compact('modules', 'menu' ,'degrees' ));
         });
 
         Route::get('courses' ,function () {
-
-            $menu = [];
+            $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
             $modules = [];
             $courses = \Modules\Admin\Entities\Course::with(['degree' ,'department' ,'prerequisiteGroup.courses'])->get();
 
@@ -156,31 +155,28 @@ Route::group(
         });
 
         Route::get('labs' ,function () {
-            $menu = [];
+            $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
             $modules = [];
 
             return view('page.labs' ,compact('modules', 'menu' ));
         });
 
         Route::get('instructors' ,function () {
-
-            $menu = [];
+            $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
             $modules = [];
 
             return view('page.instructors'  ,compact('modules', 'menu' ));
         });
 
         Route::get('location' ,function () {
-
-            $menu = [];
+            $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
             $modules = [];
 
             return view('page.location'  ,compact('modules', 'menu' ));
         });
 
         Route::get('study-plan' ,function () {
-
-            $menu = [];
+            $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
             $modules = [];
 
             $studyYears = \Modules\Admin\Entities\Course::with(['degree' ,'department' ,'semester' ,'facultyStudyYear.studyYear'])->where('faculty_id' ,'=' ,6)->whereNotNull('faculty_study_year_id')->whereNotNull('semester_id')->get();
@@ -201,6 +197,5 @@ Route::group(
 
             return view('page.study_plan'  ,compact('modules', 'menu' ,'studyYears' ,'studyYearsCount' ,'degrees' ,'departments'));
         });
-
 
     });
