@@ -17,4 +17,6 @@ return [
     'images' => 'الصور',
     'steps' => 'خطوات',
     'persons' => 'أشخاص',
+    'url-text' => 'نص الرابط',
+    'text-cards' => 'بطاقة نص',
 ];

@@ -33,17 +33,18 @@ Route::group(
         //Exams               ||| coming soon
         //News                ||| coming soon
 
-        Route::get('contact' ,function () {
+        Route::get('contact-us' ,function () {
             $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
             $modules = \Modules\Utilities\Entities\BuilderPage::pageModules()->get()->pluck('module');
-            return view('page.contact' ,compact('modules', 'menu'));
+            return view('modules' ,compact('modules', 'menu'));
         })->name('contact_us');
 
         Route::get('university-message' ,function () {
             $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
-            $modules = []; //\Modules\Utilities\Entities\BuilderPage::pageModules()->get()->pluck('module')
-            return view('page.university_message' ,compact('modules', 'menu'));
-        });
+            $modules = \Modules\Utilities\Entities\BuilderPage::pageModules()->get()->pluck('module');
+//            return view('page.university_message' ,compact('modules', 'menu'));
+            return view('modules' ,compact('modules', 'menu'));
+        })->name('university_message');
 
         Route::get('university-in-glance',function () {
             $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
@@ -53,9 +54,9 @@ Route::group(
 
         Route::get('university-council' ,function () {
             $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
-//            $modules = \Modules\Utilities\Entities\BuilderPage::pageModules()->get()->pluck('module');
-            return view('page.university_council'  ,compact('modules', 'menu'));
-        });
+            $modules = \Modules\Utilities\Entities\BuilderPage::pageModules()->get()->pluck('module');
+            return view('modules'  ,compact('modules', 'menu'));
+        })->name('university_council');
 
         Route::get('university-council-detail' ,function () {
             $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();

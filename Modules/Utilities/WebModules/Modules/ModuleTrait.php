@@ -15,7 +15,7 @@ trait ModuleTrait
      * This Function will determined the Module Class by Module id
      *
      * @param $moduleId
-     * @return SectionEndModule|SectionStartModule|TextEditorModule|SliderModule|BlockModule|CoursesOneModule|PersonsOneModule|VerticalSliderModule|GalleryModule|ShortInfoModule|SectionFluidStartModule|SmallGalleryModule|StepsModule|SectionIntersectTopStartModule|SectionIntersectEndModule|TextCardOneModule|ContactFormModule|TextCardTwoModule
+     * @return Module
      * @throws \Exception
      */
     public static function setModule($moduleId)
@@ -63,6 +63,8 @@ trait ModuleTrait
                 return new OfficePageModule();
             case 21:
                 return new BreadcrumbModule();
+            case 22:
+                return new UniversityCouncilModule();
             default:
                 throw new \Exception("Undefined Web Module [id:$moduleId]");
         }
@@ -72,7 +74,7 @@ trait ModuleTrait
      * This Function will determined the Module Class by Module Code
      *
      * @param $moduleCode
-     * @return SectionEndModule|SectionStartModule|TextEditorModule|SliderModule|BlockModule|CoursesOneModule|PersonsOneModule|VerticalSliderModule|GalleryModule|ShortInfoModule|SectionFluidStartModule|SmallGalleryModule|StepsModule|SectionIntersectTopStartModule|SectionIntersectEndModule|TextCardOneModule|ContactFormModule|TextCardTwoModule
+     * @return Module
      * @throws \Exception
      */
     public static function setModuleByCode($moduleCode)
@@ -120,6 +122,8 @@ trait ModuleTrait
                 return new OfficePageModule();
             case 'breadcrumb':
                 return new BreadcrumbModule();
+            case 'university_council':
+                return new UniversityCouncilModule();
             default:
                 throw new \Exception("Undefined Web Module [$moduleCode]");
         }
