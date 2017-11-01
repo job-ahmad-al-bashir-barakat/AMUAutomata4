@@ -1,5 +1,5 @@
-<div class="col-md-{{ $data['width'] }}">
-    <div class="row mtli-row-clearfix">
+<div class="col-md-{{ $data['width'] }} form-group">
+    <div class="row mtli-row-clearfix form-group">
         <div class="col-xs-12 col-sm-6 col-md-3 sm-text-center mb-30 mb-sm-30">
             <div class="team-members maxwidth400">
                 <div class="team-thumb">
@@ -139,7 +139,10 @@
     </div>
     <div class="row mtli-row-clearfix">
         <div class="col-md-12 form-group text-center">
-            <button type="submit" class="btn btn-default">@lang('app.load-more')</button>
+            <a href="#"
+               class="btn btn-default btn-theme-colored btn-circled ajax-link"
+               data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> @lang('app.loading')"
+            >@lang('app.load_more')</a>
         </div>
     </div>
 </div>

@@ -21,6 +21,8 @@ return [
     'small_text'      => 'نص صغير',
     'location'        => 'العنوان',
     'address'         => 'العنوان',
+    'load_more'       => 'رؤية المزيد',
+    'loading'       => 'تحميل ...',
 
     'oper' => [
         'success' => 'تمت العملية بنجاح',
