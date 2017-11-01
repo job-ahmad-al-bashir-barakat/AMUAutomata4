@@ -137,4 +137,9 @@
             </div>
         </div>
     </div>
+    <div class="row mtli-row-clearfix">
+        <div class="col-md-12 form-group text-center">
+            <button type="submit" class="btn btn-default">@lang('app.load-more')</button>
+        </div>
+    </div>
 </div>
