@@ -14,7 +14,7 @@ trait AttributeTrait
      * This Function will determined the Attribute Class by Attribute id
      *
      * @param $attributeId
-     * @return LimitAttribute|StatusAttribute|TextEditorAttribute|WidthAttribute|SlidersAttribute|BlocksAttribute|CoursesAttribute|ShowAttribute|PersonsAttribute|TitleAttribute|IconAttribute|VerticalSlidersAttribute|ImagesAttribute|LinkTextAttribute|UrlAttribute|PageAttribute|StepsAttribute|TextCardsOneAttribute
+     * @return Attribute
      * @throws \Exception
      */
     public static function setAttribute($attributeId)
@@ -56,6 +56,8 @@ trait AttributeTrait
                 return new StepsAttribute();
             case '18':
                 return new TextCardsOneAttribute();
+            case '19':
+                return new UrlTextAttribute();
             default:
                 throw new \Exception('Undefined Attributes');
         }
@@ -65,7 +67,7 @@ trait AttributeTrait
      * This Function will determined the Attribute Class by Attribute Code
      *
      * @param $attributeCode
-     * @return LimitAttribute|StatusAttribute|TextEditorAttribute|WidthAttribute|SlidersAttribute|BlocksAttribute|CoursesAttribute|ShowAttribute|PersonsAttribute|TitleAttribute|IconAttribute|VerticalSlidersAttribute|ImagesAttribute|LinkTextAttribute|UrlAttribute|PageAttribute|StepsAttribute|TextCardsOneAttribute
+     * @return Attribute
      * @throws \Exception
      */
     public static function setByAttributeCode($attributeCode)
@@ -107,6 +109,8 @@ trait AttributeTrait
                 return new StepsAttribute();
             case 'text_cards_1':
                 return new TextCardsOneAttribute();
+            case 'url_text':
+                return new UrlTextAttribute();
             default:
                 throw new \Exception('Undefined Attributes');
         }

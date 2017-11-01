@@ -9,7 +9,7 @@ class TextCardsOneAttribute extends Attribute
     public $id = '18';
     public $code = 'text_cards_1';
     public $viewName = 'text-cards-1';
-    public $title = 'text-cards-1';
+    public $title = 'text-cards';
     public $values = [];
     public $data = [];
 

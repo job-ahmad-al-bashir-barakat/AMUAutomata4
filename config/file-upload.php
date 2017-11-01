@@ -29,7 +29,7 @@ return [
     'person' => [
         'model'        => \Modules\Admin\Entities\Person::class,
         'ratio' => [
-            'person_ratio' => [ 'width'  => '150', 'height' => '150', ],
+            'person_ratio' => ['width' => '260', 'height' => '230'],
         ],
         'relationType' => 'one',
     ],

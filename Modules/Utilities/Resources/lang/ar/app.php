@@ -33,6 +33,8 @@ return [
     'upload_images'          => 'رفع الصور',
     'btn'                    => 'زر',
     'url'                    => 'رابط',
+    'page_route'             => 'رابط الصفحة',
+    'page_code'              => 'رمز الصفحة',
 
     'automata4_utilities'    => 'أدوات أتوماتا 4',
     'global'                 => 'أدوات شاملة',

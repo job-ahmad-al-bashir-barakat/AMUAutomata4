@@ -17,4 +17,7 @@ return [
     'icon' => 'Icon',
     'images' => 'Images',
     'steps' => 'Steps',
+    'persons' => 'Persons',
+    'url-text' => 'URL Text',
+    'text-cards' => 'Text Cards',
 ];

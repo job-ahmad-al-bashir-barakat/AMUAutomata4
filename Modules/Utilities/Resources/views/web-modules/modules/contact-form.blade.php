@@ -1,6 +1,7 @@
-<div class="col-md-8">
-    <h3 class="line-bottom mt-0 mb-20">Interested in discussing?</h3>
-    <p class="mb-20">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error optio in quia ipsum quae neque alias eligendi, nulla nisi. Veniam ut quis similique culpa natus dolor aliquam officiis ratione libero. Expedita asperiores aliquam provident amet dolores.</p>
+<div class="col-md-{{ $data['width'] }}">
+    @include('utilities::web-modules.modules.sub.title', ['h' => 3, 'title'=> $data['title'][$lang]])
+    {{--<h3 class="line-bottom mt-0 mb-20">Interested in discussing?</h3>--}}
+    {!! $data['text_editor'][$lang] !!}
     <!-- Contact Form -->
     <form id="contact_form" name="contact_form" class="" action="includes/sendmail.php" method="post">
 

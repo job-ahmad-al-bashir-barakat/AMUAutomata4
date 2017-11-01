@@ -292,8 +292,14 @@ if (!function_exists('buildHtmlTree')) {
     {
         $html = '';
         foreach ($tree as $item) {
+            if($item->menuable_type == 'page') {
+                $url =  RouteUrls::page($item->menuable->route);
+            }
+            else {
+                $url = '#';
+            }
             $html .= "<li>";
-            $html .= "<a href='#home'>{$item->title}</a>";
+            $html .= "<a href='{$url}'>{$item->title}</a>";
             if($item->children->count()){
                 $html .= "<ul class='dropdown'>";
                 $html .= buildHtmlTree($item->children);
