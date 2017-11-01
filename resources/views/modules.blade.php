@@ -16,6 +16,8 @@
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/jquery-ui.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/animate.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('css/font-awesome.min.css') }}">
+    <link href="{{ asset('css/simple-line-icons/css/simple-line-icons.css') }}">
     <link href="{{ asset('css/css-plugin-collections.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/menuzord-skins/menuzord-rounded-boxed.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/style-main.css') }}" rel="stylesheet" type="text/css">
