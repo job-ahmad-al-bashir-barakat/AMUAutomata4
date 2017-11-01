@@ -41,7 +41,7 @@ class LabFactory extends GlobalFactory
             ->addInputGroup(trans('admin::app.gelocation'),'contact.gelocation' ,'contact.gelocation' ,'req required' ,'icon-location-pin' ,'input-location hand' ,['data-modal' => '#modal-labs-input-location'])
             ->endRelation()
             ->setGridNormalCol(12)
-            ->addMultiTextareaLangs(['description'] ,'req required text-editor d:tabs d:noLabel')
+            ->addMultiTextareaLangs(['description'] ,'req required text-editor d:tabs d:noLabel none')
             ->addActionButton(trans('admin::app.upload_images') ,'upload_image' ,'upload_image', 'center all' ,'100px')
             ->addActionButton($this->update,'update','update')
             ->addActionButton($this->delete,'delete','delete')
@@ -58,13 +58,19 @@ class LabFactory extends GlobalFactory
 
     public function storeDatatable($model ,$request ,$result)
     {
+        $request->request->add(['transSaveOper' => false]);
+
         $contact = Contact::create($request->input('contact'));
+
+        $request->request->add(['transSaveOper' => true]);
 
         Lab::create(array_merge($request->input(),['contact_id' => $contact->id]));
     }
 
     public function updateDatatable($model ,$request ,$result)
     {
+        $request->request->add(['transSaveOper' => false]);
+
         $result->contact()->update($request->input('contact'));
     }
 }
