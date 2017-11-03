@@ -12,15 +12,6 @@ const { mix } = require('laravel-mix');
  */
 
 /**
- * Login Css
- */
-mix.styles([
-    'Modules/Admin/Assets/vendor/fontawesome/css/font-awesome.min.css',
-    'Modules/Admin/Assets/vendor/simple-line-icons/css/simple-line-icons.css',
-    'Modules/Admin/Assets/vendor/app/css/bootstrap.css',
-    'Modules/Admin/Assets/vendor/app/css/app.css',
-], 'public/css/admin-login.css').version();
-/**
  * Control css
  */
 mix.styles([
@@ -180,6 +171,29 @@ mix.copy('Modules/Admin/Assets/vendor/bootstrap-fileinput/img', 'public/img' ,fa
 mix.copy('Modules/Admin/Assets/vendor/simple-line-icons/fonts', 'public/fonts');
 mix.copy('Modules/Admin/Assets/vendor/fontawesome/fonts', 'public/fonts');
 mix.copy('resources/assets/myfont/font-jozoor/fonts', 'public/css/fonts' ,false);
+
+
+/**
+ * Login Css
+ */
+mix.styles([
+    'Modules/Admin/Assets/vendor/fontawesome/css/font-awesome.min.css',
+    'Modules/Admin/Assets/vendor/simple-line-icons/css/simple-line-icons.css',
+    'Modules/Admin/Assets/vendor/app/css/bootstrap.css',
+    'resources/assets/css/animate.css',
+    'Modules/Admin/Assets/vendor/app/css/app.css',
+], 'public/css/admin-login.css').version();
+
+/**
+ * Login js
+ */
+mix.scripts([
+    'Modules/Admin/Assets/vendor/modernizr/modernizr.custom.js',
+    'Modules/Admin/Assets/vendor/jquery/dist/jquery.js',
+    'Modules/Admin/Assets/vendor/bootstrap/dist/js/bootstrap.js',
+    'node_modules/jquery-validation/dist/jquery.validate.js',
+    'Modules/Admin/Assets/vendor/jQuery-Storage-API/jquery.storageapi.js',
+], 'public/js/admin-login.js').version();
 
 /**
  * theme css

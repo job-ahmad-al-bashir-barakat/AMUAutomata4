@@ -2,7 +2,7 @@
 
 Route::group(
     [
-        'middleware' => ['web', 'localeSessionRedirect', 'localizationRedirect'],
+        'middleware' => ['web', 'localeSessionRedirect', 'localizationRedirect' ,'auth'],
         'prefix'     => LaravelLocalization::setLocale().'/admin',
         'namespace'  => 'Modules\Admin\Http\Controllers'
     ],

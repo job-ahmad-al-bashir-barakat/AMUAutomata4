@@ -7,9 +7,9 @@
     <meta name="description" content="Bootstrap Admin App + jQuery">
     <meta name="keywords" content="app, responsive, jquery, bootstrap, dashboard, admin">
     <title>Angle - Bootstrap Admin Template</title>
-    <!-- =============== VENDOR STYLES ===============-->
-    <!-- FONT AWESOME-->
     <link rel="stylesheet" href="{{ asset(mix("css/admin-login.css")) }}">
+    <link rel="stylesheet" href="{{ asset('admin-custom.css') }}">
+
 </head>
 
 <body>
@@ -24,53 +24,52 @@
             </div>
             <div class="panel-body">
                 <p class="text-center pv">SIGN IN TO CONTINUE.</p>
-                <form role="form" data-parsley-validate="" novalidate="" class="mb-lg">
-                    <div class="form-group has-feedback">
-                        <input id="exampleInputEmail1" type="text" placeholder="Enter username" autocomplete="off" required class="form-control">
-                        <span class="fa fa-user  form-control-feedback text-muted"></span>
-                    </div>
-                    <div class="form-group has-feedback">
-                        <input id="exampleInputPassword1" type="password" placeholder="Password" required class="form-control">
-                        <span class="fa fa-lock form-control-feedback text-muted"></span>
-                    </div>
-                    <div class="clearfix">
-                        <div class="checkbox c-checkbox pull-left mt0">
-                            <label>
-                                <input type="checkbox" value="" name="remember">
-                                <span class="fa fa-check"></span>Remember Me</label>
+                <div class="ajaxCont">
+                    <form class="mb-lg ajax-form" method="post" action="#">
+                        {{ csrf_field() }}
+                        <div class="form-group has-feedback">
+                            <input type="text" name="name" placeholder="Enter name" autocomplete="off" class="form-control required">
+                            <span class="fa fa-user  form-control-feedback text-muted"></span>
+                            <div id='error_name'></div>
                         </div>
-                        <div class="pull-right"><a href="recover.html" class="text-muted">Forgot your password?</a>
+                        <div class="form-group has-feedback">
+                            <input name="password" type="password" placeholder="Password" class="form-control required">
+                            <span class="fa fa-lock form-control-feedback text-muted"></span>
+                            <div id='error_password'></div>
                         </div>
-                    </div>
-                    <button type="submit" class="btn btn-block btn-primary mt-lg">Login</button>
-                </form>
+                        <div class="clearfix">
+                            <div class="checkbox c-checkbox pull-left mt0">
+                                <label>
+                                    <input type="checkbox" name="remember">
+                                    <span class="fa fa-check"></span>Remember Me</label>
+                            </div>
+                            <div class="pull-right"><a href="recover.html" class="text-muted">Forgot your password?</a>
+                            </div>
+                        </div>
+                        <button type="submit" data-method="post" data-action="{{ localizeURL('login') }}" data-stop-operation-message data-ajax-form-success="loginSuccess" class="btn btn-block btn-primary mt-lg">Login</button>
+                    </form>
+                </div>
                 {{--<p class="pt-lg text-center">Need to Signup?</p><a href="register.html" class="btn btn-block btn-default">Register Now</a>--}}
             </div>
         </div>
         <!-- END panel-->
         <div class="p-lg text-center">
+            <span>Al-Andalus Medical Sciences University</span>
             <span>&copy;</span>
-            <span>2016</span>
-            <span>-</span>
-            <span>Angle</span>
-            <br>
-            <span>Bootstrap Admin Template</span>
+            <span>{{ date('Y') }}</span>
         </div>
     </div>
 </div>
 <!-- =============== VENDOR SCRIPTS ===============-->
-<!-- MODERNIZR-->
-<script src="../vendor/modernizr/modernizr.custom.js"></script>
-<!-- JQUERY-->
-<script src="../vendor/jquery/dist/jquery.js"></script>
-<!-- BOOTSTRAP-->
-<script src="../vendor/bootstrap/dist/js/bootstrap.js"></script>
-<!-- STORAGE API-->
-<script src="../vendor/jQuery-Storage-API/jquery.storageapi.js"></script>
-<!-- PARSLEY-->
-<script src="../vendor/parsleyjs/dist/parsley.min.js"></script>
+<script src="{{ asset(mix("js/admin-login.js")) }}"></script>
+@include('controle.global-js')
 <!-- =============== APP SCRIPTS ===============-->
-<script src="js/app.js"></script>
+<script src="{{ asset('app.js') }}"></script>
+<script src="{{ asset('admin-custom.js') }}"></script>
+<script>
+    function loginSuccess(form ,res) {
+        window.location.href = "{{ localizeURL('admin') }}";
+    }
+</script>
 </body>
-
 </html>

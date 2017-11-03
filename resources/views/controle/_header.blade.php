@@ -46,7 +46,8 @@
                 <!-- END User avatar toggle-->
                 <!-- START lock screen-->
                 <li>
-                    <a href="{{ url('logout') }}" title="{{ trans('app.logout') }}">
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hide">{{ csrf_field() }}</form>
+                    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" title="{{ trans('app.logout') }}">
                         <em class="icon-lock"></em>
                     </a>
                 </li>

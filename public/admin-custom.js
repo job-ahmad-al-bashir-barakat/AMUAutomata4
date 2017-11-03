@@ -586,11 +586,13 @@ var APP_AMU = {
 
                                 HELPER_AMU.notify({message: OPERATION_MESSAGE_FAIL, status: 'danger'});
 
-                                $.each(JSON.parse(res.responseText).server_message, function (k, v) {
+                                //JSON.parse(res.responseText).server_message
+                                $.each(res.responseJSON, function (k, v) {
 
                                     var error = $form.find('#error_' + k);
                                     error.children().remove();
-                                    error.append('<div id="' + k + '-error" class="validate-error validate-error-help-block validate-error-style animated fadeInDown">' + v[0] + '</div>');
+                                    //v[0]
+                                    error.append('<div id="' + k + '-error" class="validate-error validate-error-help-block validate-error-style animated fadeInDown">' + v + '</div>');
                                 });
                             });
                         };
