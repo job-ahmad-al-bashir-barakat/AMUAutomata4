@@ -28,7 +28,7 @@ class Person extends \Eloquent
 
     public function scopeType($query)
     {
-        return $query->where('type', '=', Str::studly(\Route::input('model')));
+        return $query->where('type', '=', Str::snake(\Route::input('model')));
     }
 
     /*

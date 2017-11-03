@@ -206,7 +206,7 @@ Route::group(
         $this->post('logout', 'Auth\LoginController@logout')->name('logout');
 
         // Registration Routes...
-        $this->get('register', function (){
+        $this->get('register', function () {
             return Redirect::route('login');
         });
 
