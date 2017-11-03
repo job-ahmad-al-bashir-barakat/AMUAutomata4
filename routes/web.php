@@ -66,9 +66,9 @@ Route::group(
         });
         Route::get('trusted-council' ,function () {
             $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
-            $modules = [];
-            return view('page.trusted_council'  ,compact('modules', 'menu'));
-        });
+            $modules = \Modules\Utilities\Entities\BuilderPage::pageModules()->get()->pluck('module');
+            return view('modules'  ,compact('modules', 'menu'));
+        })->name('trusted_council');
 
         Route::get('trusted-council-detail' ,function () {
             $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();

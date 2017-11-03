@@ -21,9 +21,9 @@ class PagesTableSeeder extends Seeder
             array (
                 'id' => 1,
                 'page_code' => 'home',
-                'route' => 'home-page',
+                'route' => 'home',
                 'created_at' => '2017-08-23 18:20:56',
-                'updated_at' => '2017-08-31 07:02:55',
+                'updated_at' => '2017-10-29 19:24:20',
                 'deleted_at' => NULL,
             ),
             1 => 
@@ -39,45 +39,45 @@ class PagesTableSeeder extends Seeder
             array (
                 'id' => 3,
                 'page_code' => 'university_message',
-                'route' => 'university_message',
+                'route' => 'university-message',
                 'created_at' => '2017-10-14 17:58:05',
-                'updated_at' => '2017-10-14 17:58:05',
+                'updated_at' => '2017-10-29 19:19:13',
                 'deleted_at' => NULL,
             ),
             3 => 
             array (
                 'id' => 4,
                 'page_code' => 'university_in_glance',
-                'route' => 'university_in_glance',
+                'route' => 'university-in-glance',
                 'created_at' => '2017-10-14 17:59:01',
-                'updated_at' => '2017-10-14 17:59:01',
+                'updated_at' => '2017-10-29 19:24:53',
                 'deleted_at' => NULL,
             ),
             4 => 
             array (
                 'id' => 5,
                 'page_code' => 'university_council',
-                'route' => 'university_council',
+                'route' => 'university-council',
                 'created_at' => '2017-10-14 18:03:13',
-                'updated_at' => '2017-10-14 18:03:13',
+                'updated_at' => '2017-10-29 19:25:07',
                 'deleted_at' => NULL,
             ),
             5 => 
             array (
                 'id' => 6,
                 'page_code' => 'trusted_council',
-                'route' => 'trusted_council',
+                'route' => 'trusted-council',
                 'created_at' => '2017-10-14 18:04:01',
-                'updated_at' => '2017-10-14 18:04:01',
+                'updated_at' => '2017-10-29 19:25:20',
                 'deleted_at' => NULL,
             ),
             6 => 
             array (
                 'id' => 7,
                 'page_code' => 'university_partner',
-                'route' => 'university_partner',
+                'route' => 'university-partner',
                 'created_at' => '2017-10-14 18:05:24',
-                'updated_at' => '2017-10-14 18:05:24',
+                'updated_at' => '2017-10-29 19:25:32',
                 'deleted_at' => NULL,
             ),
             7 => 
@@ -102,9 +102,9 @@ class PagesTableSeeder extends Seeder
             array (
                 'id' => 10,
                 'page_code' => 'university_offices',
-                'route' => 'university_offices',
+                'route' => 'university-offices',
                 'created_at' => '2017-10-14 18:06:46',
-                'updated_at' => '2017-10-14 18:06:46',
+                'updated_at' => '2017-10-29 19:25:44',
                 'deleted_at' => NULL,
             ),
             10 => 
@@ -129,18 +129,18 @@ class PagesTableSeeder extends Seeder
             array (
                 'id' => 13,
                 'page_code' => 'study_plan',
-                'route' => 'study_plan',
+                'route' => 'study-plan',
                 'created_at' => '2017-10-14 18:17:00',
-                'updated_at' => '2017-10-14 18:17:00',
+                'updated_at' => '2017-10-29 19:26:13',
                 'deleted_at' => NULL,
             ),
             13 => 
             array (
                 'id' => 14,
                 'page_code' => 'message_and_goals',
-                'route' => 'message_and_goals',
+                'route' => 'message-and-goals',
                 'created_at' => '2017-10-14 18:20:17',
-                'updated_at' => '2017-10-14 18:20:17',
+                'updated_at' => '2017-10-29 19:26:28',
                 'deleted_at' => NULL,
             ),
             14 => 
@@ -165,9 +165,9 @@ class PagesTableSeeder extends Seeder
             array (
                 'id' => 17,
                 'page_code' => 'contact_us',
-                'route' => 'contact_us',
+                'route' => 'contact-us',
                 'created_at' => '2017-10-14 18:25:07',
-                'updated_at' => '2017-10-14 18:25:07',
+                'updated_at' => '2017-10-29 19:26:01',
                 'deleted_at' => NULL,
             ),
             17 => 
@@ -192,18 +192,18 @@ class PagesTableSeeder extends Seeder
             array (
                 'id' => 20,
                 'page_code' => 'admission_rules',
-                'route' => 'admission_rules',
+                'route' => 'admission-rules',
                 'created_at' => '2017-10-14 18:47:09',
-                'updated_at' => '2017-10-14 18:47:09',
+                'updated_at' => '2017-10-29 19:26:45',
                 'deleted_at' => NULL,
             ),
             20 => 
             array (
                 'id' => 21,
                 'page_code' => 'admission_process',
-                'route' => 'admission_process',
+                'route' => 'admission-process',
                 'created_at' => '2017-10-14 18:47:59',
-                'updated_at' => '2017-10-14 18:47:59',
+                'updated_at' => '2017-10-29 19:27:02',
                 'deleted_at' => NULL,
             ),
             21 => 
@@ -227,19 +227,19 @@ class PagesTableSeeder extends Seeder
             23 => 
             array (
                 'id' => 24,
-                'page_code' => 'university_calendar',
+                'page_code' => 'university-calendar',
                 'route' => 'university_calendar',
                 'created_at' => '2017-10-14 18:49:43',
-                'updated_at' => '2017-10-14 18:49:43',
+                'updated_at' => '2017-10-29 19:27:21',
                 'deleted_at' => NULL,
             ),
             24 => 
             array (
                 'id' => 25,
                 'page_code' => 'courses_list',
-                'route' => 'courses_list',
+                'route' => 'courses-list',
                 'created_at' => '2017-10-14 18:50:13',
-                'updated_at' => '2017-10-14 18:50:13',
+                'updated_at' => '2017-10-29 19:27:39',
                 'deleted_at' => NULL,
             ),
             25 => 

@@ -370,51 +370,6 @@ class ModuleAttributeTableSeeder extends Seeder
             ),
             39 => 
             array (
-                'id' => 40,
-                'module_id' => 13,
-                'attribute_id' => 1,
-                'created_at' => NULL,
-                'updated_at' => NULL,
-                'deleted_at' => NULL,
-            ),
-            40 => 
-            array (
-                'id' => 41,
-                'module_id' => 13,
-                'attribute_id' => 2,
-                'created_at' => NULL,
-                'updated_at' => NULL,
-                'deleted_at' => NULL,
-            ),
-            41 => 
-            array (
-                'id' => 42,
-                'module_id' => 13,
-                'attribute_id' => 10,
-                'created_at' => NULL,
-                'updated_at' => NULL,
-                'deleted_at' => NULL,
-            ),
-            42 => 
-            array (
-                'id' => 43,
-                'module_id' => 13,
-                'attribute_id' => 4,
-                'created_at' => NULL,
-                'updated_at' => NULL,
-                'deleted_at' => NULL,
-            ),
-            43 => 
-            array (
-                'id' => 44,
-                'module_id' => 13,
-                'attribute_id' => 13,
-                'created_at' => NULL,
-                'updated_at' => NULL,
-                'deleted_at' => NULL,
-            ),
-            44 => 
-            array (
                 'id' => 45,
                 'module_id' => 14,
                 'attribute_id' => 1,
@@ -422,7 +377,7 @@ class ModuleAttributeTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            45 => 
+            40 => 
             array (
                 'id' => 46,
                 'module_id' => 15,
@@ -431,7 +386,7 @@ class ModuleAttributeTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            46 => 
+            41 => 
             array (
                 'id' => 47,
                 'module_id' => 16,
@@ -440,7 +395,7 @@ class ModuleAttributeTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            47 => 
+            42 => 
             array (
                 'id' => 48,
                 'module_id' => 16,
@@ -449,7 +404,7 @@ class ModuleAttributeTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            48 => 
+            43 => 
             array (
                 'id' => 51,
                 'module_id' => 17,
@@ -458,7 +413,7 @@ class ModuleAttributeTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            49 => 
+            44 => 
             array (
                 'id' => 52,
                 'module_id' => 17,
@@ -467,7 +422,7 @@ class ModuleAttributeTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            50 => 
+            45 => 
             array (
                 'id' => 53,
                 'module_id' => 17,
@@ -476,7 +431,7 @@ class ModuleAttributeTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            51 => 
+            46 => 
             array (
                 'id' => 54,
                 'module_id' => 17,
@@ -485,7 +440,7 @@ class ModuleAttributeTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            52 => 
+            47 => 
             array (
                 'id' => 56,
                 'module_id' => 16,
@@ -494,7 +449,7 @@ class ModuleAttributeTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            53 => 
+            48 => 
             array (
                 'id' => 57,
                 'module_id' => 16,
@@ -503,7 +458,7 @@ class ModuleAttributeTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            54 => 
+            49 => 
             array (
                 'id' => 58,
                 'module_id' => 18,
@@ -512,7 +467,7 @@ class ModuleAttributeTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            55 => 
+            50 => 
             array (
                 'id' => 59,
                 'module_id' => 18,
@@ -521,7 +476,7 @@ class ModuleAttributeTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            56 => 
+            51 => 
             array (
                 'id' => 60,
                 'module_id' => 18,
@@ -530,7 +485,7 @@ class ModuleAttributeTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            57 => 
+            52 => 
             array (
                 'id' => 61,
                 'module_id' => 18,
@@ -539,7 +494,7 @@ class ModuleAttributeTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            58 => 
+            53 => 
             array (
                 'id' => 62,
                 'module_id' => 18,
@@ -548,7 +503,7 @@ class ModuleAttributeTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            59 => 
+            54 => 
             array (
                 'id' => 63,
                 'module_id' => 19,
@@ -557,7 +512,7 @@ class ModuleAttributeTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            60 => 
+            55 => 
             array (
                 'id' => 64,
                 'module_id' => 19,
@@ -566,7 +521,7 @@ class ModuleAttributeTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            61 => 
+            56 => 
             array (
                 'id' => 65,
                 'module_id' => 20,
@@ -575,7 +530,7 @@ class ModuleAttributeTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            62 => 
+            57 => 
             array (
                 'id' => 66,
                 'module_id' => 21,
@@ -584,11 +539,101 @@ class ModuleAttributeTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
-            63 => 
+            58 => 
             array (
                 'id' => 67,
                 'module_id' => 7,
                 'attribute_id' => 10,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+                'deleted_at' => NULL,
+            ),
+            59 => 
+            array (
+                'id' => 68,
+                'module_id' => 13,
+                'attribute_id' => 1,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+                'deleted_at' => NULL,
+            ),
+            60 => 
+            array (
+                'id' => 69,
+                'module_id' => 13,
+                'attribute_id' => 2,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+                'deleted_at' => NULL,
+            ),
+            61 => 
+            array (
+                'id' => 70,
+                'module_id' => 13,
+                'attribute_id' => 10,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+                'deleted_at' => NULL,
+            ),
+            62 => 
+            array (
+                'id' => 71,
+                'module_id' => 13,
+                'attribute_id' => 4,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+                'deleted_at' => NULL,
+            ),
+            63 => 
+            array (
+                'id' => 72,
+                'module_id' => 13,
+                'attribute_id' => 17,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+                'deleted_at' => NULL,
+            ),
+            64 => 
+            array (
+                'id' => 73,
+                'module_id' => 8,
+                'attribute_id' => 10,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+                'deleted_at' => NULL,
+            ),
+            65 => 
+            array (
+                'id' => 74,
+                'module_id' => 22,
+                'attribute_id' => 1,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+                'deleted_at' => NULL,
+            ),
+            66 => 
+            array (
+                'id' => 75,
+                'module_id' => 22,
+                'attribute_id' => 2,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+                'deleted_at' => NULL,
+            ),
+            67 => 
+            array (
+                'id' => 76,
+                'module_id' => 23,
+                'attribute_id' => 1,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+                'deleted_at' => NULL,
+            ),
+            68 => 
+            array (
+                'id' => 77,
+                'module_id' => 23,
+                'attribute_id' => 2,
                 'created_at' => NULL,
                 'updated_at' => NULL,
                 'deleted_at' => NULL,

@@ -133,4 +133,8 @@ class RouteUrls
     {
         return $this->localizeUrl("load-more/university-council");
     }
+    public function trustedCouncilHtml()
+    {
+        return $this->localizeUrl("load-more/trusted-council");
+    }
 }
