@@ -90,6 +90,7 @@ class PersonFactory extends GlobalFactory
 
         $contact->socialNetwork()->sync($request->input('contact.social'));
 
+        $request->request->add(['transSaveOper' => false]);
         Person::create(array_merge($request->input(),['contact_id' => $contact->id]));
     }
 

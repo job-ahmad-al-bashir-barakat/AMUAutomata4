@@ -39,6 +39,23 @@
     @include('theme.footer')
 </div>
 <script src="{{ asset(mix('js/main.js')) }}"></script>
+<script>
+    $(document).on('click', 'a.ajax-link-module', function (e) {
+        e.preventDefault();
+        var $this = $(this);
+        var page = $this.data('page');
+        var $container = $($this.data('append_to'));
+        var url = $this.attr('href');
+        $this.button('loading');
+        $.get(url, {page: page}, function (res){
+            $(res).appendTo($container);
+            $this.button('reset');
+            $this.data('page', page + 1);
+        });
+    });
+    $("[data-trigger-on-load]").trigger('click');
+
+</script>
 <script src="{{ asset(mix('js/revolution-slider/js/revolution-slider.js')) }}"></script>
 <script src="{{ asset(mix('js/revolution-slider/js/extensions/revolution-slider-extensions.js')) }}"></script>
 <script src="http://maps.google.com/maps/api/js?key=AIzaSyAYWE4mHmR9GyPsHSOVZrSCOOljk8DU9B4"></script>

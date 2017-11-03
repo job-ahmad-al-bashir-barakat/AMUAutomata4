@@ -21,6 +21,8 @@ return [
     'small_text'      => 'Small Text',
     'location'        => 'Address',
     'address'         => 'Address',
+    'load_more'       => 'Load More',
+    'loading'       => 'Loading ...',
 
     'oper' => [
         'success' => 'Operation done successfuly',
