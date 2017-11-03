@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Form;
+use App\Library\Form\FormComponent;
 use Illuminate\Support\ServiceProvider;
 
 class CustomFormServiceProvider extends ServiceProvider
@@ -172,6 +173,6 @@ class CustomFormServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        // register
     }
 }

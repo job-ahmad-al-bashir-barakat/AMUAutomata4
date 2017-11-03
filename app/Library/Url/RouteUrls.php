@@ -9,7 +9,7 @@ class RouteUrls
     {
         $locale = app()->getLocale();
 
-        if($modular) $modular .= '/';
+        if ($modular) $modular .= '/';
 
         return url("{$locale}/{$modular}{$url}");
     }
@@ -123,6 +123,20 @@ class RouteUrls
     /**
      * @Section Web Site Urls
      */
+    public function home()
+    {
+        return $this->localizeUrl('/');
+    }
+
+    public function admin()
+    {
+        return $this->localizeUrl('/' ,'admin');
+    }
+
+    public function login()
+    {
+        return $this->localizeUrl('login');
+    }
 
     public function page($page)
     {
@@ -132,5 +146,125 @@ class RouteUrls
     public function universityCouncilHtml()
     {
         return $this->localizeUrl("load-more/university-council");
+    }
+
+    public function hierarchyType()
+    {
+        return $this->localizeURL('hierarchy-type', 'admin');
+    }
+
+    public function faculties()
+    {
+        return $this->localizeUrl('faculties', 'admin');
+    }
+
+    public function departments()
+    {
+        return $this->localizeUrl('departments', 'admin');
+    }
+
+    public function degrees()
+    {
+        return $this->localizeUrl('degrees', 'admin');
+    }
+
+    public function studyPlan()
+    {
+        return $this->localizeUrl('study-plan', 'admin');
+    }
+
+    public function studyPlanCreate()
+    {
+        return $this->localizeUrl('study-plan/create', 'admin');
+    }
+
+    public function hierarchy()
+    {
+        return $this->localizeUrl('hierarchy/data');
+    }
+
+    public function hierarchyMenu()
+    {
+        return $this->localizeUrl('hierarchy/menu', 'admin');
+    }
+
+    public function offices()
+    {
+        return $this->localizeUrl('offices', 'admin');
+    }
+
+    public function universityCouncil()
+    {
+        return $this->localizeUrl('university-council', 'admin');
+    }
+
+    public function boardOfTrustees()
+    {
+        return $this->localizeUrl('board-of-trustees', 'admin');
+    }
+
+    public function staff()
+    {
+        return $this->localizeUrl('staff', 'admin');
+    }
+
+    public function blog()
+    {
+        return $this->localizeUrl('blog', 'admin');
+    }
+
+    public function studyYear()
+    {
+        return $this->localizeUrl('study-year', 'admin');
+    }
+
+    public function semester()
+    {
+        return $this->localizeUrl('semester', 'admin');
+    }
+
+    public function course()
+    {
+        return $this->localizeURL("{id}/courses", 'admin');
+    }
+
+    public function lab()
+    {
+        return $this->localizeURL('{id}/labs' ,'admin');
+    }
+
+    public function generalMenu()
+    {
+        return $this->localizeUrl('general/menu' ,'utilities');
+    }
+
+    public function controlMenu()
+    {
+        return $this->localizeUrl('control/menu' ,'utilities');
+    }
+
+    public function generalSetting()
+    {
+        return $this->localizeUrl('general-setting' ,'utilities');
+    }
+
+    public function socialNetwork()
+    {
+        return $this->localizeUrl('social-network' ,'utilities');
+    }
+
+    public function gender()
+    {
+        return $this->localizeUrl('gender' ,'utilities');
+    }
+
+    public function position()
+    {
+        return $this->localizeUrl('position' ,'utilities');
+    }
+
+    public function jobTitle()
+    {
+        return $this->localizeUrl('job-title' ,'utilities');
     }
 }

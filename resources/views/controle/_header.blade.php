@@ -4,7 +4,7 @@
     <nav role="navigation" class="navbar topnavbar">
         <!-- START navbar header-->
         <div class="navbar-header">
-            <a href="{{ localizeURL('admin') }}" class="navbar-brand ajax">
+            <a href="{{ RouteUrls::admin() }}" class="navbar-brand ajax">
                 <div class="brand-logo">
                     <img src="{{ asset('img/logo.png') }}" alt="App Logo" class="img-responsive">
                 </div>

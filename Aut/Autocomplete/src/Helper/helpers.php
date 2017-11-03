@@ -13,21 +13,13 @@ if(! function_exists('autAutocompleteLang'))
     }
 }
 
-if(! function_exists('localizeURL'))
-{
-    function localizeURL($url = '')
-    {
-        $url = Str::startsWith('/' ,$url) ? $url : "/$url" ;
-
-        return url(\LaravelLocalization::getCurrentLocale().$url);
-    }
-}
-
 if(! function_exists('autocompleteURL'))
 {
     function autocompleteURL($url = '')
     {
-        return localizeURL("autocomplete/$url");
+        $url = \Illuminate\Support\Str::contains($url ,'autocomplete') ? "/$url" : "/autocomplete/$url";
+
+        return url(\LaravelLocalization::getCurrentLocale().$url);
     }
 }
 

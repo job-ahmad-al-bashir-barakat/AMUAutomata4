@@ -46,7 +46,7 @@
                             <div class="pull-right"><a href="recover.html" class="text-muted">Forgot your password?</a>
                             </div>
                         </div>
-                        <button type="submit" data-method="post" data-action="{{ localizeURL('login') }}" data-stop-operation-message data-ajax-form-success="loginSuccess" class="btn btn-block btn-primary mt-lg">Login</button>
+                        <button type="submit" data-method="post" data-action="{{ RouteUrls::login() }}" data-stop-operation-message data-ajax-form-success="loginSuccess" class="btn btn-block btn-primary mt-lg">Login</button>
                     </form>
                 </div>
                 {{--<p class="pt-lg text-center">Need to Signup?</p><a href="register.html" class="btn btn-block btn-default">Register Now</a>--}}
@@ -68,7 +68,7 @@
 <script src="{{ asset('admin-custom.js') }}"></script>
 <script>
     function loginSuccess(form ,res) {
-        window.location.href = "{{ localizeURL('admin') }}";
+        window.location.href = "{{ RouteUrls::admin() }}";
     }
 </script>
 </body>

@@ -13,7 +13,7 @@
 
     <div class="col-lg-12 col-xs-12">
         <div class="ajaxCont">
-            {!! Form::open(['id' => 'form-study-plan' ,'url' => localizeURL('admin/study-plan'), 'method' => 'post' ,'class' => 'form-horizontal  ajax-form']) !!}
+            {!! Form::open(['id' => 'form-study-plan' ,'url' => RouteUrls::studyPlan(), 'method' => 'post' ,'class' => 'form-horizontal  ajax-form']) !!}
             @component('controle.component.panel' ,[
                   'title' => trans('admin::app.study_plan'),
                   'class' => 'footer',
@@ -36,7 +36,7 @@
 
                 @slot('footer')
                     <div class="text-center">
-                        <button type="submit" class="btn btn-success" data-method="post" data-action="{{ localizeURL('admin/study-plan') }}">{{ trans('app.save') }}</button>
+                        <button type="submit" class="btn btn-success" data-method="post" data-action="{{ RouteUrls::studyPlan() }}">{{ trans('app.save') }}</button>
                     </div>
                 @endslot
             @endcomponent

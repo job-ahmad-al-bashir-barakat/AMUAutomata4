@@ -52,6 +52,14 @@ if(! function_exists('colValue'))
     }
 }
 
+if(! function_exists('treeLocalizeUrl'))
+{
+    function treeLocalizeUrl($tree)
+    {
+        return url(\LaravelLocalization::getCurrentLocale()."/utilities/$tree/tree");
+    }
+}
+
 if(! function_exists('tree'))
 {
     //get prob Val
@@ -71,7 +79,7 @@ if(! function_exists('tree'))
         'data-drag-end-callback'      => '',
     ])
     {
-        $url = localizeURL("utilities/$tree/tree");
+        $url = treeLocalizeUrl($tree);
 
         $param = [
             'data-type'                   => '',
@@ -100,15 +108,6 @@ if(! function_exists('tree'))
             }
 
         return "<div data-url='$url' class='aut-tree $tree-tree ajax $class' data-group='$group' data-group-source='$group_sourse' data-max-depth='$maxDepth' data-storage-key='$tree-key' $attrs></div>";
-    }
-}
-
-if(! function_exists('treeUrl'))
-{
-    //get prob Val
-    function treeUrl($tree)
-    {
-        return localizeURL("utilities/$tree/tree");
     }
 }
 

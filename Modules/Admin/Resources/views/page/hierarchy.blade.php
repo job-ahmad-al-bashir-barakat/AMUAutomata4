@@ -21,7 +21,7 @@
     @component('controle.component.modal', [
         'id'                  => 'modal-hierarchy-tree',
         'title'               => trans('admin::app.hierarchy'),
-        'action'              => treeUrl($view),
+        'action'              => treeLocalizeUrl($view),
         'successFunc'         => 'hierarchyMenu',
         'stopDeleteSerialize' => true,
         'attr'                => ['data-tree-target' => '.hierarchy-tree']

@@ -53,19 +53,19 @@
             <li class="sidebar-subnav-header">{{ trans('utilities::app.menus') }}</li>
 
             <li class="">
-                <a href="{{ localizeURL('utilities/general/menu') }}" class="ajax" title="{{ trans('utilities::app.general') }}">
+                <a href="{{ RouteUrls::generalMenu() }}" class="ajax" title="{{ trans('utilities::app.general') }}">
                     <span>{{ trans('utilities::app.general') }}</span>
                 </a>
             </li>
 
             <li class="">
-                <a href="{{ localizeURL('utilities/control/menu') }}" class="ajax" title="{{ trans('utilities::app.control') }}">
+                <a href="{{ RouteUrls::controlMenu() }}" class="ajax" title="{{ trans('utilities::app.control') }}">
                     <span>{{ trans('utilities::app.control') }}</span>
                 </a>
             </li>
 
             <li class="">
-                <a href="{{ RouteUrls::menuTables()  }}" class="ajax" title="{{ trans('utilities::app.menu_tables') }}">
+                <a href="{{ RouteUrls::menuTables() }}" class="ajax" title="{{ trans('utilities::app.menu_tables') }}">
                     <span>{{ trans('utilities::app.menu_tables') }}</span>
                 </a>
             </li>
@@ -127,30 +127,30 @@
 @section('_aside_setting_utilities')
 
     <li class="">
-        <a href="{{ localizeURL('utilities/general-setting') }}" class="ajax" title="{{ trans('utilities::app.general_setting') }}">
+        <a href="{{ RouteUrls::generalSetting() }}" class="ajax" title="{{ trans('utilities::app.general_setting') }}">
             <span>{{ trans('utilities::app.general_setting') }}</span>
         </a>
     </li>
 
     <li class="">
-        <a href="{{ localizeURL('utilities/social-network') }}" class="ajax" title="{{ trans('utilities::app.social_network') }}">
+        <a href="{{ RouteUrls::socialNetwork() }}" class="ajax" title="{{ trans('utilities::app.social_network') }}">
             <span>{{ trans('utilities::app.social_network') }}</span>
         </a>
     </li>
 
     <li class="">
-        <a href="{{ localizeURL('utilities/gender') }}" class="ajax" title="{{ trans('utilities::app.gender') }}">
+        <a href="{{ RouteUrls::gender() }}" class="ajax" title="{{ trans('utilities::app.gender') }}">
             <span>{{ trans('utilities::app.gender') }}</span>
         </a>
     </li>
 
     <li class="">
-        <a href="{{ localizeURL('utilities/position') }}" class="ajax" title="{{ trans('utilities::app.position') }}">
+        <a href="{{ RouteUrls::position() }}" class="ajax" title="{{ trans('utilities::app.position') }}">
             <span>{{ trans('utilities::app.position') }}</span>
         </a>
     </li>
     <li class="">
-        <a href="{{ localizeURL('utilities/job-title') }}" class="ajax" title="{{  trans('utilities::app.job_title') }}">
+        <a href="{{ RouteUrls::jobTitle() }}" class="ajax" title="{{  trans('utilities::app.job_title') }}">
             <span>{{  trans('utilities::app.job_title') }}</span>
         </a>
     </li>

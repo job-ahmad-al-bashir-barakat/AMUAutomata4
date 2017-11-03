@@ -4,6 +4,7 @@ namespace Modules\Admin\Factories;
 
 use Aut\DataTable\Factories\GlobalFactory;
 use Modules\Admin\Entities\Faculty;
+use RouteUrls;
 
 class FacultyFactory extends GlobalFactory
 {
@@ -20,8 +21,8 @@ class FacultyFactory extends GlobalFactory
             ->queryUpdateButton('id')
             ->queryDeleteButton('id')
             ->queryMultiLang(['name'])
-            ->queryCustomButton('courses' ,'id' ,'icon-book-open' ,'ajax' ,pjax(localizeURL("admin/{id}/courses")))
-            ->queryCustomButton('labs' ,'id' ,'icon-chemistry' ,'ajax' ,pjax(localizeURL('admin/{id}/labs')))
+            ->queryCustomButton('courses' ,'id' ,'icon-book-open' ,'ajax' ,pjax(RouteUrls::course()))
+            ->queryCustomButton('labs' ,'id' ,'icon-chemistry' ,'ajax' ,pjax(RouteUrls::lab()))
             ->queryMultiAutocompleteTemplete('study_year_temp',"studyYear" ,"lang_name->{$this->lang}->text")
             ->queryRender();
     }
