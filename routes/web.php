@@ -1,12 +1,13 @@
 <?php
 
-
 Route::group(
     [
         'middleware' => ['web', 'localeSessionRedirect', 'localizationRedirect'],
         'prefix' => LaravelLocalization::setLocale()
     ],
     function () {
+        Route::get('load-more/{model}', 'LoadMoreController@getHtml');
+
         Route::get('/', function () {
             $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
             return view('welcome')->withMenu($menu);

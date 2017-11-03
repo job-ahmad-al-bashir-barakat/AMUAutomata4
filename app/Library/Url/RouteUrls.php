@@ -126,6 +126,11 @@ class RouteUrls
 
     public function page($page)
     {
-        return $this->localizeUrl("$page", '');
+        return $this->localizeUrl("$page");
+    }
+
+    public function universityCouncilHtml()
+    {
+        return $this->localizeUrl("load-more/university-council");
     }
 }

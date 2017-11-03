@@ -1,147 +1,15 @@
-<div class="col-md-{{ $data['width'] }} form-group">
-    <div class="row mtli-row-clearfix form-group">
-        <div class="col-xs-12 col-sm-6 col-md-3 sm-text-center mb-30 mb-sm-30">
-            <div class="team-members maxwidth400">
-                <div class="team-thumb">
-                    <img class="img-fullwidth" alt="" src="http://placehold.it/260x230">
-                </div>
-                <div class="team-bottom-part border-bottom-theme-color-2-2px bg-lighter border-1px text-center p-10 pt-20 pb-10">
-                    <h4 class="text-uppercase font-raleway font-weight-600 m-0"><a class="text-theme-color-2" href="page-teachers-details.html"> David Zakaria</a></h4>
-                    <h5 class="text-theme-color">Teacher - MBA</h5>
-                    <ul class="styled-icons icon-sm icon-dark icon-theme-colored">
-                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                        <li><a href="#"><i class="fa fa-skype"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-3 sm-text-center mb-30 mb-sm-30">
-            <div class="team-members maxwidth400">
-                <div class="team-thumb">
-                    <img class="img-fullwidth" alt="" src="http://placehold.it/260x230">
-                </div>
-                <div class="team-bottom-part border-bottom-theme-color-2-2px bg-lighter border-1px text-center p-10 pt-20 pb-10">
-                    <h4 class="text-uppercase font-raleway font-weight-600 m-0"><a class="text-theme-color-2" href="page-teachers-details.html"> Sakib Smith</a></h4>
-                    <h5 class="text-theme-color">Teacher - MBA</h5>
-                    <ul class="styled-icons icon-sm icon-dark icon-theme-colored">
-                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                        <li><a href="#"><i class="fa fa-skype"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-3 sm-text-center mb-30 mb-sm-30">
-            <div class="team-members maxwidth400">
-                <div class="team-thumb">
-                    <img class="img-fullwidth" alt="" src="http://placehold.it/260x230">
-                </div>
-                <div class="team-bottom-part border-bottom-theme-color-2-2px bg-lighter border-1px text-center p-10 pt-20 pb-10">
-                    <h4 class="text-uppercase font-raleway font-weight-600 m-0"><a class="text-theme-color-2" href="page-teachers-details.html"> Ismail Jhon</a></h4>
-                    <h5 class="text-theme-color">Teacher - MBA</h5>
-                    <ul class="styled-icons icon-sm icon-dark icon-theme-colored">
-                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                        <li><a href="#"><i class="fa fa-skype"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-3 sm-text-center mb-30 mb-sm-30">
-            <div class="team-members maxwidth400">
-                <div class="team-thumb">
-                    <img class="img-fullwidth" alt="" src="http://placehold.it/260x230">
-                </div>
-                <div class="team-bottom-part border-bottom-theme-color-2-2px bg-lighter border-1px text-center p-10 pt-20 pb-10">
-                    <h4 class="text-uppercase font-raleway font-weight-600 m-0"><a class="text-theme-color-2" href="page-teachers-details.html"> Andre Smith</a></h4>
-                    <h5 class="text-theme-color">Teacher - MBA</h5>
-                    <ul class="styled-icons icon-sm icon-dark icon-theme-colored">
-                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                        <li><a href="#"><i class="fa fa-skype"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-3 sm-text-center mb-sm-30">
-            <div class="team-members maxwidth400">
-                <div class="team-thumb">
-                    <img class="img-fullwidth" alt="" src="http://placehold.it/260x230">
-                </div>
-                <div class="team-bottom-part border-bottom-theme-color-2-2px bg-lighter border-1px text-center p-10 pt-20 pb-10">
-                    <h4 class="text-uppercase font-raleway font-weight-600 m-0"><a class="text-theme-color-2" href="page-teachers-details.html"> David Zakaria</a></h4>
-                    <h5 class="text-theme-color">Teacher - MBA</h5>
-                    <ul class="styled-icons icon-sm icon-dark icon-theme-colored">
-                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                        <li><a href="#"><i class="fa fa-skype"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-3 sm-text-center mb-sm-30">
-            <div class="team-members maxwidth400">
-                <div class="team-thumb">
-                    <img class="img-fullwidth" alt="" src="http://placehold.it/260x230">
-                </div>
-                <div class="team-bottom-part border-bottom-theme-color-2-2px bg-lighter border-1px text-center p-10 pt-20 pb-10">
-                    <h4 class="text-uppercase font-raleway font-weight-600 m-0"><a class="text-theme-color-2" href="page-teachers-details.html"> Sakib Smith</a></h4>
-                    <h5 class="text-theme-color">Teacher - MBA</h5>
-                    <ul class="styled-icons icon-sm icon-dark icon-theme-colored">
-                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                        <li><a href="#"><i class="fa fa-skype"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-3 sm-text-center mb-sm-30">
-            <div class="team-members maxwidth400">
-                <div class="team-thumb">
-                    <img class="img-fullwidth" alt="" src="http://placehold.it/260x230">
-                </div>
-                <div class="team-bottom-part border-bottom-theme-color-2-2px bg-lighter border-1px text-center p-10 pt-20 pb-10">
-                    <h4 class="text-uppercase font-raleway font-weight-600 m-0"><a class="text-theme-color-2" href="page-teachers-details.html"> Ismail Jhon</a></h4>
-                    <h5 class="text-theme-color">Teacher - MBA</h5>
-                    <ul class="styled-icons icon-sm icon-dark icon-theme-colored">
-                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                        <li><a href="#"><i class="fa fa-skype"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-3 sm-text-center mb-sm-30">
-            <div class="team-members maxwidth400">
-                <div class="team-thumb">
-                    <img class="img-fullwidth" alt="" src="http://placehold.it/260x230">
-                </div>
-                <div class="team-bottom-part border-bottom-theme-color-2-2px bg-lighter border-1px text-center p-10 pt-20 pb-10">
-                    <h4 class="text-uppercase font-raleway font-weight-600 m-0"><a class="text-theme-color-2" href="page-teachers-details.html"> Andre Smith</a></h4>
-                    <h5 class="text-theme-color">Teacher - MBA</h5>
-                    <ul class="styled-icons icon-sm icon-dark icon-theme-colored">
-                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                        <li><a href="#"><i class="fa fa-skype"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+<div class="col-md-{{ $data['width'] }}">
+    <div id="university_council" class="row mtli-row-clearfix form-group">
+        @include('utilities::web-modules.modules.sub.persons-card-2', ['persons' => []])
     </div>
     <div class="row mtli-row-clearfix">
         <div class="col-md-12 form-group text-center">
-            <a href="#"
-               class="btn btn-default btn-theme-colored btn-circled ajax-link"
+            <a href="{{ RouteUrls::universityCouncilHtml() }}"
+               class="btn btn-default btn-circled ajax-link-module"
+               data-trigger-on-load
                data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> @lang('app.loading')"
+               data-page="1"
+               data-append_to="#university_council"
             >@lang('app.load_more')</a>
         </div>
     </div>

@@ -20,8 +20,15 @@ class GendersTableSeeder extends Seeder
             0 => 
             array (
                 'id' => 1,
-                'created_at' => '2017-06-16 17:16:42',
-                'updated_at' => '2017-06-16 17:16:42',
+                'created_at' => '2017-11-03 04:18:16',
+                'updated_at' => '2017-11-03 04:18:16',
+                'deleted_at' => NULL,
+            ),
+            1 => 
+            array (
+                'id' => 2,
+                'created_at' => '2017-11-03 04:18:31',
+                'updated_at' => '2017-11-03 04:18:31',
                 'deleted_at' => NULL,
             ),
         ));
