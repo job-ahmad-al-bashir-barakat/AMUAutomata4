@@ -59,15 +59,5 @@ return [
     'semester'           => 'Semester',
     'automata4_admin'    => 'Automata4 Admin',
 
-    /*
-     * Login
-     */
 
-    'amu'                  => 'Al-Andalus Medical Sciences University',
-    'login'                => 'Login',
-    'enter_name'           => 'Enter Name',
-    'password'             => 'Password',
-    'forgot_your_password' => 'Forgot Your Password?',
-    'sign_in_to_continue'  => 'SIGN IN TO CONTINUE',
-    'remember_me'          => 'Remember Me',
 ];

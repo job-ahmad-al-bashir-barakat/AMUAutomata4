@@ -60,14 +60,5 @@ return [
     'semester'           => 'فصل',
     'automata4_admin'    => 'إدارة أتوماتا 4',
 
-    /*
-     * Login
-     */
-    'amu'                  => 'جامعة الأندلس للعلوم الطبية',
-    'login'                => 'تسجيل الدخول',
-    'enter_name'           => 'ادخل الاسم',
-    'password'             => 'كلمة المرور',
-    'forgot_your_password' => 'نسيت كلمة المرور ؟',
-    'sign_in_to_continue'  => 'سجل الدخول لتستمر',
-    'remember_me'          => 'تذكرني',
+
 ];

@@ -272,4 +272,19 @@ class RouteUrls
     {
         return $this->localizeUrl('job-title' ,'utilities');
     }
+
+    public function logout()
+    {
+        return $this->localizeUrl('logout');
+    }
+
+    public function lockscreen()
+    {
+        return $this->localizeUrl('lockscreen');
+    }
+
+    public function unlockscreen()
+    {
+        return $this->localizeUrl('unlockscreen');
+    }
 }

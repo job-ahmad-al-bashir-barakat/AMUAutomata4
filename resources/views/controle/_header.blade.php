@@ -46,15 +46,15 @@
                 <!-- END User avatar toggle-->
                 <!-- START logout-->
                 <li>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hide">{{ csrf_field() }}</form>
-                    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" title="{{ trans('app.logout') }}">
+                    <form id="logout-form" action="{{ RouteUrls::logout() }}" method="POST" class="hide">{{ csrf_field() }}</form>
+                    <a href="{{ RouteUrls::logout() }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" title="{{ trans('app.logout') }}">
                         <em class="icon-logout"></em>
                     </a>
                 </li>
                 <!-- END logout-->
                 <!-- START lock screen-->
                 <li>
-                    <a href="@void()">
+                    <a href="{{ RouteUrls::lockscreen() }}" title="{{ trans('utilities::app.lockscreen') }}">
                         <em class="icon-lock"></em>
                     </a>
                 </li>

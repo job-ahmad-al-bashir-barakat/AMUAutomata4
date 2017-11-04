@@ -2,7 +2,6 @@
 
 namespace App\Http;
 
-use App\Http\Middleware\FilterIfPjax;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -71,6 +70,11 @@ class Kernel extends HttpKernel
          */
         'localize' => \Mcamara\LaravelLocalization\Middleware\LaravelLocalizationRoutes::class,
         'localizationRedirect' => \Mcamara\LaravelLocalization\Middleware\LaravelLocalizationRedirectFilter::class,
-        'localeSessionRedirect' => \Mcamara\LaravelLocalization\Middleware\LocaleSessionRedirect::class
+        'localeSessionRedirect' => \Mcamara\LaravelLocalization\Middleware\LocaleSessionRedirect::class,
+        /**
+         *
+         *  App Middleware
+         */
+        'lock' => \App\Http\Middleware\LockScreen::class,
     ];
 }

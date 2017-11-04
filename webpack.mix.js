@@ -184,7 +184,7 @@ mix.styles([
     'Modules/Admin/Assets/vendor/loaders.css/loaders.css',
     'Modules/Admin/Assets/vendor/animate.css/animate.min.css',
     'Modules/Admin/Assets/vendor/app/css/app.css',
-], 'public/css/admin-login.css').version();
+], 'public/css/admin-membership.css').version();
 
 /**
  * Login js
@@ -198,12 +198,12 @@ var loginJs = [
 
 mix.scripts(loginJs.concat([
     'node_modules/jquery-validation/dist/jquery.validate.js',
-]), 'public/js/admin-login-ltr.js').version();
+]), 'public/js/admin-membership-ltr.js').version();
 
 mix.scripts(loginJs.concat([
     'node_modules/jquery-validation/dist/jquery.validate.js',
     'Modules/Admin/Assets/vendor/jquery-validation/dist/localization/messages_ar.js',
-]), 'public/js/admin-login-rtl.js').version();
+]), 'public/js/admin-membership-rtl.js').version();
 
 /**
  * theme css

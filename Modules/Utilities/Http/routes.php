@@ -2,7 +2,7 @@
 
 Route::group(
     [
-        'middleware' => ['web', 'localeSessionRedirect', 'localizationRedirect' ,'auth'],
+        'middleware' => ['web', 'localeSessionRedirect', 'localizationRedirect' ,'auth' ,'lock'],
         'prefix' => LaravelLocalization::setLocale() . '/utilities',
         'namespace' => 'Modules\Utilities\Http\Controllers'
     ],

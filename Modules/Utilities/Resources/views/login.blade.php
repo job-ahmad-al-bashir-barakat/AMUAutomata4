@@ -7,7 +7,7 @@
     <meta name="description" content="Bootstrap Admin App + jQuery">
     <meta name="keywords" content="app, responsive, jquery, bootstrap, dashboard, admin">
     <title>Angle - Bootstrap Admin Template</title>
-    <link rel="stylesheet" href="{{ asset(mix("css/admin-login.css")) }}">
+    <link rel="stylesheet" href="{{ asset(mix("css/admin-membership.css")) }}">
     <link rel="stylesheet" href="{{ asset('admin-custom.css') }}">
 </head>
 
@@ -22,18 +22,18 @@
                 </a>
             </div>
             <div class="panel-body" data-form-loader>
-                <p class="text-center pv">{{ trans('admin::app.sign_in_to_continue') }}</p>
+                <p class="text-center pv">{{ trans('utilities::app.sign_in_to_continue') }}</p>
                 <div class="ajaxCont">
                     <form class="mb-lg ajax-form" method="post" action="#">
                         {{ csrf_field() }}
                         <div class="form-group has-feedback">
-                            <input type="text" name="name" placeholder="{{ trans('admin::app.enter_name') }}"
+                            <input type="text" name="name" placeholder="{{ trans('utilities::app.enter_name') }}"
                                    autocomplete="off" class="form-control required">
                             <span class="fa fa-user  form-control-feedback text-muted"></span>
                             <div id='error_name'></div>
                         </div>
                         <div class="form-group has-feedback">
-                            <input name="password" type="password" placeholder="{{ trans('admin::app.password') }}"
+                            <input name="password" type="password" placeholder="{{ trans('utilities::app.password') }}"
                                    class="form-control required">
                             <span class="fa fa-lock form-control-feedback text-muted"></span>
                             <div id='error_password'></div>
@@ -42,15 +42,15 @@
                             <div class="checkbox c-checkbox pull-left mt0">
                                 <label>
                                     <input type="checkbox" name="remember">
-                                    <span class="fa fa-check"></span>{{ trans('admin::app.remember_me') }}</label>
+                                    <span class="fa fa-check"></span>{{ trans('utilities::app.remember_me') }}</label>
                             </div>
                             <div class="pull-right"><a href="recover.html"
-                                                       class="text-muted">{{ trans('admin::app.forgot_your_password') }}</a>
+                                                       class="text-muted">{{ trans('utilities::app.forgot_your_password') }}</a>
                             </div>
                         </div>
                         <button type="submit" data-method="post" data-action="{{ RouteUrls::login() }}"
                                 data-stop-operation-message data-ajax-form-success="loginSuccess"
-                                class="btn btn-block btn-primary mt-lg">{{ trans('admin::app.login') }}</button>
+                                class="btn btn-block btn-primary mt-lg">{{ trans('utilities::app.login') }}</button>
                     </form>
                 </div>
                 {{--<p class="pt-lg text-center">Need to Signup?</p><a href="register.html" class="btn btn-block btn-default">Register Now</a>--}}
@@ -58,14 +58,14 @@
         </div>
         <!-- END panel-->
         <div class="p-lg text-center">
-            <span>{{ trans('admin::app.amu') }}</span>
+            <span>{{ trans('utilities::app.amu') }}</span>
             <span>&copy;</span>
             <span>{{ date('Y') }}</span>
         </div>
     </div>
 </div>
 <!-- =============== VENDOR SCRIPTS ===============-->
-<script src="{{ asset(mix("js/admin-login-{$dir}.js")) }}"></script>
+<script src="{{ asset(mix("js/admin-membership-{$dir}.js")) }}"></script>
 @include('controle.global-js')
 <!-- =============== APP SCRIPTS ===============-->
 <script src="{{ asset('app.js') }}"></script>

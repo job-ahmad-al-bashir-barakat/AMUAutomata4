@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.4.21 on 2017-11-03.
+ * Generated for Laravel 5.4.21 on 2017-11-04.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -14911,6 +14911,16 @@ namespace Aut\DataTable {
         /**
          * 
          *
+         * @static 
+         */
+        public static function setPlaceholder($placeholder)
+        {
+            return \Aut\DataTable\DataTableBuilder::setPlaceholder($placeholder);
+        }
+        
+        /**
+         * 
+         *
          * @param $param
          * @param $choosen
          * @static 
@@ -15546,9 +15556,9 @@ namespace App\Library\Url\Facades {
          * @Section Web Site Urls
          * @static 
          */
-        public static function login()
+        public static function home()
         {
-            return \App\Library\Url\RouteUrls::login();
+            return \App\Library\Url\RouteUrls::home();
         }
         
         /**
@@ -15559,6 +15569,16 @@ namespace App\Library\Url\Facades {
         public static function admin()
         {
             return \App\Library\Url\RouteUrls::admin();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function login()
+        {
+            return \App\Library\Url\RouteUrls::login();
         }
         
         /**
@@ -15646,6 +15666,16 @@ namespace App\Library\Url\Facades {
          *
          * @static 
          */
+        public static function hierarchy()
+        {
+            return \App\Library\Url\RouteUrls::hierarchy();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
         public static function hierarchyMenu()
         {
             return \App\Library\Url\RouteUrls::hierarchyMenu();
@@ -15659,6 +15689,16 @@ namespace App\Library\Url\Facades {
         public static function offices()
         {
             return \App\Library\Url\RouteUrls::offices();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function partners()
+        {
+            return \App\Library\Url\RouteUrls::partners();
         }
         
         /**
@@ -15809,6 +15849,36 @@ namespace App\Library\Url\Facades {
         public static function jobTitle()
         {
             return \App\Library\Url\RouteUrls::jobTitle();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function logout()
+        {
+            return \App\Library\Url\RouteUrls::logout();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function lockscreen()
+        {
+            return \App\Library\Url\RouteUrls::lockscreen();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function unlockscreen()
+        {
+            return \App\Library\Url\RouteUrls::unlockscreen();
         }
         
     }         
