@@ -6,6 +6,8 @@
         LOCALIZE_URL = "{{ RouteUrls::home() }}/",
         OPERATION_MESSAGE_FAIL = "{{ trans('app.oper.error') }}",
         OPERATION_MESSAGE_SUCCESS = "{{ trans('app.oper.success') }}",// Added By AA1992
+        WAITING_TITLE = "{{ trans('app.waiting') }}",
+
         CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content'),
         SWAL = {
             ok              : '{{ trans('utilities::app.swal.ok') }}',

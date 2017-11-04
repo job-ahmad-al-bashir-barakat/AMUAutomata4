@@ -10,7 +10,7 @@
         <textarea id='{{ $id }}'
                   data-datavalue='{{ $data }}'
                   name='{{ $name }}'
-                  placeholder='{{ $title }}'
+                  placeholder='{{ $placeholder }}'
                   class='form-control {{ $class }}'
                   style='resize:vertical;'
                   data-editable = 'true'

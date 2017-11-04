@@ -11,7 +11,7 @@
                 class='form-control datatable-autocomplete {{ $class }}'
                 data-letter='0'
                 data-target='{{ $target }}'
-                data-placeholder='{{ $title }}'
+                data-placeholder='{{ $placeholder }}'
                 tabindex='1'
                 data-remote='{{ $url }}'
                 style='width: 99.9%'

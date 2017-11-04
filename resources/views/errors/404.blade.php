@@ -41,16 +41,7 @@
     <!-- <link href="css/style.css" rel="stylesheet" type="text/css"> -->
 </head>
 <body class="">
-<div id="wrapper" class="clearfix">
-    <!-- preloader -->
-    <div id="preloader">
-        <div id="spinner">
-            <div class="preloader-dot-loading">
-                <div class="cssload-loading"><i></i><i></i><i></i><i></i></div>
-            </div>
-        </div>
-        <div id="disable-preloader" class="btn btn-default btn-sm">Disable Preloader</div>
-    </div>
+<div id="wrapper" class="clearfix animated fadeIn">
 
     <!-- start main-content -->
     <div class="main-content">
@@ -65,6 +56,7 @@
                                 <h2 class="mt-0">Oops! Page Not Found</h2>
                                 <p>The page you were looking for could not be found.</p>
                                 <a class="btn btn-border btn-gray btn-transparent btn-circled" href="index-mp-layout1.html">Return Home</a>
+                                <a class="btn btn-border btn-gray btn-transparent btn-circled" href="index-mp-layout1.html">Go Back</a>
                             </div>
                         </div>
                     </div>

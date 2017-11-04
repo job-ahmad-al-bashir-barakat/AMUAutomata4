@@ -44,10 +44,17 @@
                     </a>
                 </li>
                 <!-- END User avatar toggle-->
-                <!-- START lock screen-->
+                <!-- START logout-->
                 <li>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hide">{{ csrf_field() }}</form>
                     <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" title="{{ trans('app.logout') }}">
+                        <em class="icon-logout"></em>
+                    </a>
+                </li>
+                <!-- END logout-->
+                <!-- START lock screen-->
+                <li>
+                    <a href="@void()">
                         <em class="icon-lock"></em>
                     </a>
                 </li>

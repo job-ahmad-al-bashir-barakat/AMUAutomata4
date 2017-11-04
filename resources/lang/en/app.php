@@ -22,7 +22,8 @@ return [
     'location'        => 'Address',
     'address'         => 'Address',
     'load_more'       => 'Load More',
-    'loading'       => 'Loading ...',
+    'loading'         => 'Loading ...',
+    'waiting'         => 'Waiting',
 
     'oper' => [
         'success' => 'Operation done successfuly',

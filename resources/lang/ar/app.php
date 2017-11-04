@@ -22,7 +22,8 @@ return [
     'location'        => 'العنوان',
     'address'         => 'العنوان',
     'load_more'       => 'رؤية المزيد',
-    'loading'       => 'تحميل ...',
+    'loading'         => 'تحميل ...',
+    'waiting'         => 'انتظر',
 
     'oper' => [
         'success' => 'تمت العملية بنجاح',

@@ -15,7 +15,20 @@ class Lab extends \Eloquent
     protected $fillable = ['faculty_id' ,'contact_id'];
 
     protected $appends = ['lang_name','lang_description'];
-    
+
+    protected static function boot() {
+
+        parent::boot();
+
+        static::deleting(function($lab) {
+
+            $lab->image()->sync([]);
+
+            $lab->contact()->delete();
+        });
+    }
+
+
     public function transName()
     {
         return $this->hasMany(LabNameLang::class);

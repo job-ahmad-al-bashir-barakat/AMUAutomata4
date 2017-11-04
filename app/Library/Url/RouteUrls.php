@@ -193,6 +193,11 @@ class RouteUrls
         return $this->localizeUrl('offices', 'admin');
     }
 
+    public function partners()
+    {
+        return $this->localizeUrl('partners', 'admin');
+    }
+
     public function universityCouncil()
     {
         return $this->localizeUrl('university-council', 'admin');

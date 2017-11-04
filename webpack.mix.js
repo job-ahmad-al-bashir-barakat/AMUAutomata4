@@ -177,23 +177,33 @@ mix.copy('resources/assets/myfont/font-jozoor/fonts', 'public/css/fonts' ,false)
  * Login Css
  */
 mix.styles([
+    'resources/assets/myfont/font-jozoor/jozoor-font.css',
     'Modules/Admin/Assets/vendor/fontawesome/css/font-awesome.min.css',
     'Modules/Admin/Assets/vendor/simple-line-icons/css/simple-line-icons.css',
     'Modules/Admin/Assets/vendor/app/css/bootstrap.css',
-    'resources/assets/css/animate.css',
+    'Modules/Admin/Assets/vendor/loaders.css/loaders.css',
+    'Modules/Admin/Assets/vendor/animate.css/animate.min.css',
     'Modules/Admin/Assets/vendor/app/css/app.css',
 ], 'public/css/admin-login.css').version();
 
 /**
  * Login js
  */
-mix.scripts([
+var loginJs = [
     'Modules/Admin/Assets/vendor/modernizr/modernizr.custom.js',
     'Modules/Admin/Assets/vendor/jquery/dist/jquery.js',
     'Modules/Admin/Assets/vendor/bootstrap/dist/js/bootstrap.js',
-    'node_modules/jquery-validation/dist/jquery.validate.js',
     'Modules/Admin/Assets/vendor/jQuery-Storage-API/jquery.storageapi.js',
-], 'public/js/admin-login.js').version();
+];
+
+mix.scripts(loginJs.concat([
+    'node_modules/jquery-validation/dist/jquery.validate.js',
+]), 'public/js/admin-login-ltr.js').version();
+
+mix.scripts(loginJs.concat([
+    'node_modules/jquery-validation/dist/jquery.validate.js',
+    'Modules/Admin/Assets/vendor/jquery-validation/dist/localization/messages_ar.js',
+]), 'public/js/admin-login-rtl.js').version();
 
 /**
  * theme css

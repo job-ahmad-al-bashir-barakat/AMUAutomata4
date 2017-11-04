@@ -47,7 +47,7 @@ class LabFactory extends GlobalFactory
             ->addActionButton($this->delete,'delete','delete')
             ->addBlade('lab-input-location-custom' ,view('controle.component.location.input_location', [
                 'id'                => 'labs',
-                'title'             => trans('admin::app.labs_gelocation'),
+                'title'             => trans('admin::app.gelocation'),
                 'inputFullLocation' => '#datatable-labs-modal .input-location input',
                 'zoom'              => 10,
                 'geoLocation'       => Setting::whereCode('UGL')->first()->value

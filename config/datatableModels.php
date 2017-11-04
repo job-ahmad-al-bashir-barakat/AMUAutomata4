@@ -187,6 +187,12 @@ return [
       'stopOperation' => ['store' ,'update']
     ],
 
+    'partners' => [
+        'model'   => \Modules\Admin\Entities\Partner::class,
+        'factory' => \Modules\Admin\Factories\UniversityPartnerFactory::class,
+        'stopOperation' => ['store']
+    ],
+
     'contact-addresses' => [
         'model'    => \Modules\Admin\Entities\Contact::class,
         'factory'  => \Modules\Admin\Factories\ContactAddressesFactory::class,

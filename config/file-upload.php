@@ -74,4 +74,20 @@ return [
         ],
         'relationType' => 'one',
     ],
+
+    'partner-large-image' => [
+        'model' => \Modules\Admin\Entities\Partner::class,
+        'ratio' => [
+            'partner_large_image' => [ 'width'  => '755', 'height' => '480', ],
+        ],
+        'relationType' => 'many',
+    ],
+
+    'partner-small-image' => [
+        'model' => \Modules\Admin\Entities\Partner::class,
+        'ratio' => [
+            'partner_small_image' => [ 'width'  => '320', 'height' => '300', ],
+        ],
+        'relationType' => 'many',
+    ],
 ];

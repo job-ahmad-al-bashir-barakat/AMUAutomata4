@@ -48,7 +48,11 @@
                     <span>{{ trans('admin::app.offices') }}</span>
                 </a>
             </li>
-
+            <li class="">
+                <a href="{{ RouteUrls::partners() }}" class="ajax" title="{{ trans('admin::app.partners') }}">
+                    <span>{{ trans('admin::app.partners') }}</span>
+                </a>
+            </li>
         </ul>
     </li>
 

@@ -16,7 +16,7 @@
                 @endcomponent
             </div>
             <div class="col-md-6">
-                <div>dsads</div>
+                {{--<div>Seo</div>--}}
             </div>
         </div>
     </div>

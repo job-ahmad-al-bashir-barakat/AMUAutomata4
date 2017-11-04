@@ -473,6 +473,43 @@ var APP_AMU = {
      */
     validate: {
 
+        loaderSelector : '[data-form-loader]',
+
+        loader :
+
+        '<div class="form-loader overlay">' +
+            '<div class="ball-triangle-path" style="left: 50%; top: 50%;">' +
+                '<div style="background-color: #3e3935;"></div>' +
+                '<div style="background-color: #3e3935;"></div>' +
+                '<div style="background-color: #3e3935;"></div>' +
+            '</div>' +
+        '</div>',
+
+        addLoader: function ($button) {
+
+            // form loader
+            $button.closest(APP_AMU.validate.loaderSelector)
+                   .attr('style' ,'position:relative;')
+                   .prepend(APP_AMU.validate.loader);
+
+            // button loader
+            if(!$button.is('[data-loading-text]'))
+                $button.attr('data-loading-text' ,"<i class='fa fa-circle-o-notch fa-spin'> </i> " + WAITING_TITLE);
+
+            $button.button('loading');
+        },
+
+        removeLoader: function ($button) {
+
+            // form loader
+            $formLoader = $button.closest(APP_AMU.validate.loaderSelector);
+            $formLoader.removeAttr('style' ,'position:relative;');
+            $formLoader.find('.form-loader.overlay').remove();
+
+            // done / fail
+            $button.button('reset');
+        },
+
         /**
          * serialize data function
          *
@@ -541,6 +578,9 @@ var APP_AMU = {
                                 : _.lowerCase($form.attr('method'));
                         }
 
+                        // add Loader
+                        APP_AMU.validate.addLoader($button);
+
                         $call = function () {
 
                             $[$method]($button.data('action') || APP_AMU.validate.changeAction($form), $data, function (res) {
@@ -584,7 +624,11 @@ var APP_AMU = {
 
                             }).fail(function (res) {
 
-                                HELPER_AMU.notify({message: OPERATION_MESSAGE_FAIL, status: 'danger'});
+                                // remove Loader
+                                APP_AMU.validate.removeLoader($button);
+
+                                if(!($button.is('[data-stop-operation-message]') || $form.is('[data-stop-operation-message]')))
+                                    HELPER_AMU.notify({message: OPERATION_MESSAGE_FAIL, status: 'danger'});
 
                                 //JSON.parse(res.responseText).server_message
                                 $.each(res.responseJSON, function (k, v) {
@@ -594,6 +638,10 @@ var APP_AMU = {
                                     //v[0]
                                     error.append('<div id="' + k + '-error" class="validate-error validate-error-help-block validate-error-style animated fadeInDown">' + v + '</div>');
                                 });
+                            }).done(function (res) {
+
+                                // remove Loader
+                                APP_AMU.validate.removeLoader($button);
                             });
                         };
 
@@ -697,7 +745,12 @@ var APP_AMU = {
                     number: true
                 },
                 email: {
+                    required: true,
                     email: true,
+                },
+                url: {
+                    required: true,
+                    url: true,
                 }
             });
         },

@@ -80,10 +80,11 @@ class DataTableBuilder
     ];
 
     protected $params = [
-        'name'  => '',
-        'class' => '',
-        'value' => '',
-        'attr'  => '',
+        'name'        => '',
+        'class'       => '',
+        'value'       => '',
+        'attr'        => '',
+        'placeholder' => '',
     ];
 
     protected $events = [
@@ -2074,6 +2075,13 @@ class DataTableBuilder
     function setAttr($attr)
     {
         $this->params['attr'] = $attr;
+
+        return $this;
+    }
+
+    function setPlaceholder($placeholder)
+    {
+        $this->params['placeholder'] = $placeholder;
 
         return $this;
     }

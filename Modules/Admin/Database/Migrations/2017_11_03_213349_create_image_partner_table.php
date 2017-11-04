@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateImagesLabTable extends Migration
+class CreateImagePartnerTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateImagesLabTable extends Migration
      */
     public function up()
     {
-        Schema::create('image_lab', function (Blueprint $table) {
+        Schema::create('image_partner', function (Blueprint $table) {
             $table->increments('id')->unsigned();
-            $table->integer('lab_id')->unsigned()->index('lab_id');
+            $table->integer('partner_id')->unsigned()->index('lab_id');
             $table->integer('image_id')->unsigned();
             $table->timestamps();
         });
@@ -28,6 +28,6 @@ class CreateImagesLabTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('image_lab');
+        Schema::dropIfExists('image_partner');
     }
 }

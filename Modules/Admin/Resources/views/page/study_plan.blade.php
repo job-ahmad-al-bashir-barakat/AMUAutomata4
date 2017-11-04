@@ -10,7 +10,7 @@
             <div class="ajaxCont">
                 {!! Form::open(['id' => 'form-search' ,'url' => RouteUrls::studyPlanCreate(), 'method' => 'get' ,'class' => 'form-horizontal  ajax-form']) !!}
                     @component('controle.component.panel' ,[
-                          'title' => trans('admin::app.filter_study_plan'),
+                          'title' => trans('admin::app.study_plan'),
                           'class' => 'footer'
                     ])
                         <div class="form-group">

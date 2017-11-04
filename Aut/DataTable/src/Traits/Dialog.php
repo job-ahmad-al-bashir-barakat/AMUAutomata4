@@ -130,6 +130,7 @@ trait Dialog
             'value'             => $param['value'],
             'class'             => $param['class'],
             'attr'              => $param['attr'],
+            'placeholder'       => shortIfElse($this->params['placeholder'] ,$this->params['placeholder'] ,$param['title']),
 
             //for autocomplete and select
             'colLabel'          => $param['colLabel'],
