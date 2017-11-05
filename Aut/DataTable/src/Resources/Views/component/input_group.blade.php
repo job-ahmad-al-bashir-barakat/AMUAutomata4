@@ -10,7 +10,7 @@
                    data-datavalue='{{ $data }}'
                    name='{{ $name }}'
                    type='{{ $type }}'
-                   placeholder='{{ $title }}'
+                   placeholder='{{ $placeholder }}'
                    class='form-control {{ $class }}'
                    data-editable = 'true'
                    {{ $attr }}

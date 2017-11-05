@@ -8,9 +8,9 @@
     <div class="row">
         <div class="col-lg-12 col-xs-12">
             <div class="ajaxCont">
-                {!! Form::open(['id' => 'form-search' ,'url' => localizeURL('admin/study-plan/create'), 'method' => 'get' ,'class' => 'form-horizontal  ajax-form']) !!}
+                {!! Form::open(['id' => 'form-search' ,'url' => RouteUrls::studyPlanCreate(), 'method' => 'get' ,'class' => 'form-horizontal  ajax-form']) !!}
                     @component('controle.component.panel' ,[
-                          'title' => trans('admin::app.filter_study_plan'),
+                          'title' => trans('admin::app.study_plan'),
                           'class' => 'footer'
                     ])
                         <div class="form-group">
@@ -23,7 +23,7 @@
                         </div>
                         @slot('footer')
                             <div class="text-center">
-                                <button type="submit" class="btn btn-primary filter-courses" data-method="get" data-action="{{ localizeURL('admin/study-plan/create') }}" data-stop-operation-message data-ajax-form-success="studyPlanSuccess">{{ trans('app.filter') }}</button>
+                                <button type="submit" class="btn btn-primary filter-courses" data-method="get" data-action="{{  RouteUrls::studyPlanCreate() }}" data-stop-operation-message data-ajax-form-success="studyPlanSuccess">{{ trans('app.filter') }}</button>
                             </div>
                         @endslot
                     @endcomponent

@@ -1,7 +1,7 @@
 @component('controle.component.modal', [
     'id'                  => 'modal-control-tree',
     'title'               => trans('utilities::app.control_item'),
-    'action'              => treeUrl($view),
+    'action'              => treeLocalizeUrl($view),
     'successFunc'         => 'controlMenu',
     'stopDeleteSerialize' => true,
     'attr'                => ['data-tree-target' => '.control-tree']

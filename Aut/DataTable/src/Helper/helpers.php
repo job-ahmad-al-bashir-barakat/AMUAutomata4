@@ -1,6 +1,6 @@
 <?php
 
-if(! function_exists('localizeURL'))
+if(! function_exists('datatableLocalizeURL'))
 {
     /**
      *
@@ -9,7 +9,7 @@ if(! function_exists('localizeURL'))
      * @param $url
      * @return \Illuminate\Contracts\Routing\UrlGenerator|string
      */
-    function localizeURL($url = '')
+    function datatableLocalizeURL($url = '')
     {
         $url = \Illuminate\Support\Str::startsWith($url,'/') ? $url : "/{$url}" ;
 
@@ -28,7 +28,7 @@ if(! function_exists('datatable'))
      */
     function datatable($dataModel = '' , $dataParam = '' , $dataLoad = true)
     {
-        $url = localizeURL("datatable/$dataModel/table/create{$dataParam}");
+        $url = datatableLocalizeURL("datatable/$dataModel/table/create{$dataParam}");
 
         $cont = "<div class='datatable' data-table='$dataModel' role='datatable' data-load='$dataLoad' data-url='$url'></div>";
 

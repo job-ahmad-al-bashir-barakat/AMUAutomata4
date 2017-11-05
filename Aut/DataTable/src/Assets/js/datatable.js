@@ -201,7 +201,12 @@ var initAdditionalValidationClass = function () {
             number: true
         },
         email : {
+            required: true,
             email: true,
+        },
+        url: {
+            required: true,
+            url: true
         }
     });
 };

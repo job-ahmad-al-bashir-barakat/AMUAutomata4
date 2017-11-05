@@ -94,4 +94,19 @@ return [
             'message'    => 'Your row is safed :)',
         ]
     ],
+
+    /*
+     * Membership
+     */
+
+    'amu'                  => 'Al-Andalus Medical Sciences University',
+    'unlock_caption'       => 'Please login to unlock your screen.',
+    'login'                => 'Login',
+    'unlock'               => 'Unlock',
+    'lockscreen'           => 'Lockscreen',
+    'enter_name'           => 'Enter Name',
+    'password'             => 'Password',
+    'forgot_your_password' => 'Forgot Your Password?',
+    'sign_in_to_continue'  => 'SIGN IN TO CONTINUE',
+    'remember_me'          => 'Remember Me',
 ];

@@ -7,6 +7,7 @@ use Aut\DataTable\Traits\Dialog;
 use Aut\DataTable\Traits\JavaScript;
 use Aut\DataTable\Traits\QueryDataTable;
 use Aut\DataTable\Traits\Table;
+use Illuminate\Support\Str;
 use Mockery\CountValidator\Exception;
 
 /**
@@ -79,10 +80,11 @@ class DataTableBuilder
     ];
 
     protected $params = [
-        'name'  => '',
-        'class' => '',
-        'value' => '',
-        'attr'  => '',
+        'name'        => '',
+        'class'       => '',
+        'value'       => '',
+        'attr'        => '',
+        'placeholder' => '',
     ];
 
     protected $events = [
@@ -239,7 +241,7 @@ class DataTableBuilder
         $this->defaultProp();
 
         $dataTable->put('ajax', [
-            'url'  =>  localizeURL("datatable/$model/get/table{$param}"),
+            'url'  =>  datatableLocalizeURL("datatable/$model/get/table{$param}"),
             'type' => 'POST',
         ]);
 
@@ -1479,7 +1481,7 @@ class DataTableBuilder
     {
         $this->addField([
             "type"       => 'autocomplete',
-            "url"        => localizeURL($url),
+            "url"        => datatableLocalizeURL(Str::contains($url ,'autocomplete') ? $url : "autocomplete/$url"),
             "title"      => $title ,
             "data"       => $data,
             "name"       => $name ,
@@ -1534,7 +1536,7 @@ class DataTableBuilder
     {
         $this->addField([
             "type"       => 'autocompleteMulti',
-            "url"        => localizeURL($url),
+            "url"        => datatableLocalizeURL($url),
             "templete"   => $templete,
             "title"      => $title ,
             "data"       => $data,
@@ -2073,6 +2075,13 @@ class DataTableBuilder
     function setAttr($attr)
     {
         $this->params['attr'] = $attr;
+
+        return $this;
+    }
+
+    function setPlaceholder($placeholder)
+    {
+        $this->params['placeholder'] = $placeholder;
 
         return $this;
     }
@@ -2688,8 +2697,8 @@ class DataTableBuilder
         $disableDialog            = $this->optionDatatableConfig['disableDialog'] ? 'true' : 'false';
         $scrollX                  = $this->optionDatatableConfig['scrollX'] ? 'true' : 'false';
         $scrollY                  = $this->optionDatatableConfig['scrollY'] ? 'true' : 'false';
-        $url                      = localizeURL($this->url);
-        $exportUrl                = localizeURL("datatable/$this->model/export/table");
+        $url                      = datatableLocalizeURL($this->url);
+        $exportUrl                = datatableLocalizeURL("datatable/$this->model/export/table");
         $dialog                   = trans('datatable::table.dialog');
         $save                     = trans('datatable::table.save');
         $sortable                 = $this->optionDatatableConfig['sortable'] ? 'true' : 'false';

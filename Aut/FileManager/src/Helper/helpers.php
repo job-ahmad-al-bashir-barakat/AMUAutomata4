@@ -24,20 +24,20 @@ if (!function_exists('aut_filemanager_getConfig')) {
     }
 }
 
-if (!function_exists('localizeURL')) {
+//if (!function_exists('localizeURL')) {
 
     /**
      * @param string $url
      * @return \Illuminate\Contracts\Routing\UrlGenerator|string
      */
-    function localizeURL($url = '')
-    {
+//    function localizeURL($url = '')
+//    {
 //        $url = \Illuminate\Support\Str::startsWith($url,'/') ? $url : "/{$url}" ;
 //
 //        return url(\LaravelLocalization::getCurrentLocale()."$url");
 
-        $lang = (LaravelLocalization::getCurrentLocale()=='en'?'':LaravelLocalization::getCurrentLocale().'/');
-
-        return url($lang.$url);
-    }
-}
+//        $lang = (LaravelLocalization::getCurrentLocale()=='en'?'':LaravelLocalization::getCurrentLocale().'/');
+//
+//        return url($lang.$url);
+//    }
+//}

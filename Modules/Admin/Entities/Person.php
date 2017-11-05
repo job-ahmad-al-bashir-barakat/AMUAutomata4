@@ -24,11 +24,27 @@ class Person extends \Eloquent
 
     protected $appends = ['lang_name' ,'lang_summary', 'image_path'];
 
-    protected $with = ['gender' ,'position' ,'jobTitle' ,'contact', 'image'];
+    protected $with = ['gender' ,'position' ,'jobTitle' ,'contact.socialNetwork', 'image'];
+
+    protected static function boot() {
+
+        parent::boot();
+
+        //before delete() method call this
+        static::deleting(function($person) {
+
+            foreach ($person->contact()->get() as $contact)
+            {
+                $contact->socialNetwork()->sync([]);
+            }
+
+            $person->contact->delete();
+        });
+    }
 
     public function scopeType($query)
     {
-        return $query->where('type', '=', Str::studly(\Route::input('model')));
+        return $query->where('type', '=', Str::snake(\Route::input('model')));
     }
 
     /*

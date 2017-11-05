@@ -33,7 +33,11 @@ return [
     'course'             => 'Course',
     'prerequisite'       => 'Prerequisite',
     'faculty_courses'    => 'Faculty Courses',
+    'univercity_office'  => 'Univercity Office',
     'offices'            => 'Offices',
+    'partners'           => 'Partners',
+    'partner_larg_image' => 'Larg Image',
+    'partner_small_image'=> 'Small Image',
     'study_plan'         => 'Study Plan',
     'addresses'          => 'Extra Addresses',
     'numbers'            => 'Extra Numbers',
@@ -51,6 +55,9 @@ return [
     'faculty'            => 'Faculty',
     'department'         => 'Department',
     'degree'             => 'Degree',
+    'website'            => 'Website',
     'semester'           => 'Semester',
     'automata4_admin'    => 'Automata4 Admin',
+
+
 ];

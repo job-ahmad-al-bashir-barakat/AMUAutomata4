@@ -2,23 +2,17 @@
 
 Route::group(
     [
-        'middleware' => ['web', 'localeSessionRedirect', 'localizationRedirect'],
+        'middleware' => ['web', 'localeSessionRedirect', 'localizationRedirect' ,'auth' ,'lock'],
         'prefix' => LaravelLocalization::setLocale() . '/utilities',
         'namespace' => 'Modules\Utilities\Http\Controllers'
     ],
 function () {
-
-    Route::get('login', function () {
-        return view('utilities::login');
-    });
-
 
     Route::get('test', function (){
 //        $data = [];
 //        DB::table('icons')->insert($data);
         return \Modules\Utilities\Entities\Icon::all();
     });
-
 
     Route::group(['prefix' => 'builder'], function () {
         Route::get('pages', 'BuilderController@pages');

@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.4.21 on 2017-10-28.
+ * Generated for Laravel 5.4.21 on 2017-11-04.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -1567,7 +1567,7 @@ namespace Illuminate\Support\Facades {
         /**
          * Get the currently authenticated user.
          *
-         * @return \App\User|null 
+         * @return \Modules\Utilities\Entities\User|null 
          * @static 
          */
         public static function user()
@@ -1602,7 +1602,7 @@ namespace Illuminate\Support\Facades {
          * Log the given user ID into the application without sessions or cookies.
          *
          * @param mixed $id
-         * @return \App\User|false 
+         * @return \Modules\Utilities\Entities\User|false 
          * @static 
          */
         public static function onceUsingId($id)
@@ -1666,7 +1666,7 @@ namespace Illuminate\Support\Facades {
          *
          * @param mixed $id
          * @param bool $remember
-         * @return \App\User|false 
+         * @return \Modules\Utilities\Entities\User|false 
          * @static 
          */
         public static function loginUsingId($id, $remember = false)
@@ -1713,7 +1713,7 @@ namespace Illuminate\Support\Facades {
         /**
          * Get the last user we attempted to authenticate.
          *
-         * @return \App\User 
+         * @return \Modules\Utilities\Entities\User 
          * @static 
          */
         public static function getLastAttempted()
@@ -1838,7 +1838,7 @@ namespace Illuminate\Support\Facades {
         /**
          * Return the currently cached user.
          *
-         * @return \App\User|null 
+         * @return \Modules\Utilities\Entities\User|null 
          * @static 
          */
         public static function getUser()
@@ -1884,7 +1884,7 @@ namespace Illuminate\Support\Facades {
         /**
          * Determine if the current user is authenticated.
          *
-         * @return \App\User 
+         * @return \Modules\Utilities\Entities\User 
          * @throws \Illuminate\Auth\AuthenticationException
          * @static 
          */
@@ -14911,6 +14911,16 @@ namespace Aut\DataTable {
         /**
          * 
          *
+         * @static 
+         */
+        public static function setPlaceholder($placeholder)
+        {
+            return \Aut\DataTable\DataTableBuilder::setPlaceholder($placeholder);
+        }
+        
+        /**
+         * 
+         *
          * @param $param
          * @param $choosen
          * @static 
@@ -15538,6 +15548,434 @@ namespace App\Library\Url\Facades {
         public static function menuTables()
         {
             return \App\Library\Url\RouteUrls::menuTables();
+        }
+        
+        /**
+         * 
+         *
+         * @Section Web Site Urls
+         * @static 
+         */
+        public static function home()
+        {
+            return \App\Library\Url\RouteUrls::home();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function admin()
+        {
+            return \App\Library\Url\RouteUrls::admin();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function login()
+        {
+            return \App\Library\Url\RouteUrls::login();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function page($page)
+        {
+            return \App\Library\Url\RouteUrls::page($page);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function universityCouncilHtml()
+        {
+            return \App\Library\Url\RouteUrls::universityCouncilHtml();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function hierarchyType()
+        {
+            return \App\Library\Url\RouteUrls::hierarchyType();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function faculties()
+        {
+            return \App\Library\Url\RouteUrls::faculties();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function departments()
+        {
+            return \App\Library\Url\RouteUrls::departments();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function degrees()
+        {
+            return \App\Library\Url\RouteUrls::degrees();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function studyPlan()
+        {
+            return \App\Library\Url\RouteUrls::studyPlan();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function studyPlanCreate()
+        {
+            return \App\Library\Url\RouteUrls::studyPlanCreate();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function hierarchy()
+        {
+            return \App\Library\Url\RouteUrls::hierarchy();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function hierarchyMenu()
+        {
+            return \App\Library\Url\RouteUrls::hierarchyMenu();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function offices()
+        {
+            return \App\Library\Url\RouteUrls::offices();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function partners()
+        {
+            return \App\Library\Url\RouteUrls::partners();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function universityCouncil()
+        {
+            return \App\Library\Url\RouteUrls::universityCouncil();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function boardOfTrustees()
+        {
+            return \App\Library\Url\RouteUrls::boardOfTrustees();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function staff()
+        {
+            return \App\Library\Url\RouteUrls::staff();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function blog()
+        {
+            return \App\Library\Url\RouteUrls::blog();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function studyYear()
+        {
+            return \App\Library\Url\RouteUrls::studyYear();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function semester()
+        {
+            return \App\Library\Url\RouteUrls::semester();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function course()
+        {
+            return \App\Library\Url\RouteUrls::course();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function lab()
+        {
+            return \App\Library\Url\RouteUrls::lab();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function generalMenu()
+        {
+            return \App\Library\Url\RouteUrls::generalMenu();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function controlMenu()
+        {
+            return \App\Library\Url\RouteUrls::controlMenu();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function generalSetting()
+        {
+            return \App\Library\Url\RouteUrls::generalSetting();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function socialNetwork()
+        {
+            return \App\Library\Url\RouteUrls::socialNetwork();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function gender()
+        {
+            return \App\Library\Url\RouteUrls::gender();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function position()
+        {
+            return \App\Library\Url\RouteUrls::position();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function jobTitle()
+        {
+            return \App\Library\Url\RouteUrls::jobTitle();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function logout()
+        {
+            return \App\Library\Url\RouteUrls::logout();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function lockscreen()
+        {
+            return \App\Library\Url\RouteUrls::lockscreen();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function unlockscreen()
+        {
+            return \App\Library\Url\RouteUrls::unlockscreen();
+        }
+        
+    }         
+}
+    
+namespace App\Library\Form\Facades {
+
+    class FormComponent {
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function bsPrimarykey($id = '', $name = '', $value = null, $class = '', $attr = array())
+        {
+            return \App\Library\Form\FormComponent::bsPrimarykey($id, $name, $value, $class, $attr);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function bsHidden($id = '', $name = '', $value = null, $class = '', $attr = array())
+        {
+            return \App\Library\Form\FormComponent::bsHidden($id, $name, $value, $class, $attr);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function bsText($label = '', $id = '', $name = '', $value = null, $class = '', $attr = array())
+        {
+            return \App\Library\Form\FormComponent::bsText($label, $id, $name, $value, $class, $attr);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function bsNumber($label = '', $id = '', $name = '', $value = null, $class = '', $attr = array())
+        {
+            return \App\Library\Form\FormComponent::bsNumber($label, $id, $name, $value, $class, $attr);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function bsAutocomplete($label = '', $id = '', $name = '', $remote = '', $option = array(), $letter = '3', $class = '', $attr = array())
+        {
+            return \App\Library\Form\FormComponent::bsAutocomplete($label, $id, $name, $remote, $option, $letter, $class, $attr);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function bsSelect($label = '', $id = '', $name = '', $option = array(), $selected = null, $class = '', $attr = array())
+        {
+            return \App\Library\Form\FormComponent::bsSelect($label, $id, $name, $option, $selected, $class, $attr);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function bsImageUpload($id = '', $name = '', $class = '', $param = '', $imageWidth = null, $imageHeight = null, $targetModel = array(), $datatable = '', $datatableInitialize = 'true', $datatableInitializeProperty = '.image', $extraParameter = array())
+        {
+            return \App\Library\Form\FormComponent::bsImageUpload($id, $name, $class, $param, $imageWidth, $imageHeight, $targetModel, $datatable, $datatableInitialize, $datatableInitializeProperty, $extraParameter);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function bsImageUploadCropper($width = '90%', $single = false, $showName = true, $showType = false, $showOption = false, $showToggleOption = false, $showPreview = false, $previewType = array())
+        {
+            return \App\Library\Form\FormComponent::bsImageUploadCropper($width, $single, $showName, $showType, $showOption, $showToggleOption, $showPreview, $previewType);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function bsNotify($icon = '', $class = '', $text = '', $html = '')
+        {
+            return \App\Library\Form\FormComponent::bsNotify($icon, $class, $text, $html);
         }
         
     }         
@@ -17756,6 +18194,8 @@ namespace {
     class Image extends \Intervention\Image\Facades\Image {}
     
     class RouteUrls extends \App\Library\Url\Facades\RouteUrls {}
+    
+    class FormComponent extends \App\Library\Form\Facades\FormComponent {}
     
     class Iseed extends \Orangehill\Iseed\Facades\Iseed {}
     

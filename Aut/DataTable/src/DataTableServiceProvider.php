@@ -119,7 +119,7 @@ class DataTableServiceProvider extends ServiceProvider
 
             $load = isset($param[2]) ? $param[2] : 'true';
 
-            $cont = "<div class='datatable' role='datatable' data-table='$table' data-load='<?=$load?>' data-url='<?= localizeURL(\"datatable/$model/table/create{$data_param}\")?>'></div>";
+            $cont = "<div class='datatable' role='datatable' data-table='$table' data-load='<?=$load?>' data-url='<?= datatableLocalizeURL(\"datatable/$model/table/create{$data_param}\")?>'></div>";
 
             return $cont;
         });

@@ -12,7 +12,6 @@
                 {{$label}}
             </label>
         @endif
-
         <div {{ $inputClass ? "class=$inputClass" : ''}}>
             {!! Form::select($name,$option,array_keys($option),array_merge([
                  'id'                    => $id,
@@ -21,7 +20,7 @@
                  "data-target"           => "body",
                  'tabindex'              => '1',
                  'style'                 => "width: 100%",
-                 'data-remote'           => localizeURL($remote)
+                 'data-remote'           => autocompleteURL($remote)
             ],$attr)) !!}
             <div id='error_{{$name}}'></div>
         </div>

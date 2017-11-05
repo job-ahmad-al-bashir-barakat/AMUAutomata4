@@ -7,8 +7,9 @@ use Modules\Utilities\Traits\MultiLangs;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Modules\Utilities\Entities\LangModels\UserNameLang;
 use Modules\Utilities\Entities\LangModels\UserSummaryLang;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Model
+class User extends Authenticatable
 {
     use SoftDeletes, MultiLangs;
 

@@ -60,7 +60,7 @@
             .append("g")
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-        d3.json("{{ localizeURL('hierarchy/data') }}", function(error, flare) {
+        d3.json("{{ RouteUrls::hierarchy() }}", function(error, flare) {
             if (error) throw error;
 
             root = flare;

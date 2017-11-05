@@ -18,8 +18,11 @@ return [
     'social_media'       => 'تواصل اجتماعي',
     'hierarchy'          => 'التسلسل الهرمي',
     'hierarchy_type'     => 'نوع التسلسل الهرمي',
+    'univercity_office'  => 'مكتب جامعة',
     'offices'            => 'مكاتب الجامعة',
-
+    'partners'           => 'الشركاء',
+    'partner_larg_image' => 'صورة كبيرة',
+    'partner_small_image'=> 'صورة صغيرة',
     'responsible_person' => 'الشخص المسؤول',
     'address1'           => 'العنوان (الاول)',
     'address2'           => 'العنوان (الثاني)',
@@ -52,7 +55,10 @@ return [
     'labs'               => 'مخابر',
     'faculty'            => 'كلية',
     'department'         => 'قسم',
+    'website'            => 'موقع الكتروني',
     'degree'             => 'اختصاص',
     'semester'           => 'فصل',
     'automata4_admin'    => 'إدارة أتوماتا 4',
+
+
 ];

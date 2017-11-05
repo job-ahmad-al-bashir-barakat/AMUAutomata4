@@ -14,9 +14,10 @@ class CreateImagesLabTable extends Migration
     public function up()
     {
         Schema::create('image_lab', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('lab_id')->index('lab_id');
+            $table->increments('id')->unsigned();
+            $table->integer('lab_id')->unsigned()->index('lab_id');
             $table->integer('image_id')->unsigned();
+            $table->timestamps();
         });
     }
 

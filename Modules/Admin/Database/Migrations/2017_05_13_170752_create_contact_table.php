@@ -20,6 +20,7 @@ class CreateContactTable extends Migration
             $table->string('mobile')->nullable();
             $table->string('fax')->nullable();
             $table->string('gelocation')->nullable();
+            $table->string('url' ,1000)->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

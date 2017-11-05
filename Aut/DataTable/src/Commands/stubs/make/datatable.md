@@ -177,7 +177,7 @@
     any class you add to function will added by default to table unless you add this extention d: befor calss then this class will added to dialog
     
     3 - add view and add this blade temp inside @datatable('model') 
-    | like @datatable('city')  this will be localizeURL("city/table/create?id=1&name=fofo")
+    | like @datatable('city')  this will be datatableLocalizeURL("city/table/create?id=1&name=fofo")
     | ?id=1&name=fofo this param you can take it from request in get_ and build_ function
     
     ##------------------------------------------

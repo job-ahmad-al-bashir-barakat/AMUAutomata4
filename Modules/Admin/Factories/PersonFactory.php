@@ -35,9 +35,9 @@ class PersonFactory extends GlobalFactory
         $socialNetworks = SocialNetwork::all();
 
         $table = $this->table
-            ->config('datatable-persons',trans('admin::app.persons'),['withTab' => true ,'gridSystem' => true ,'dialogWidth' => "50%"])
+            ->config('datatable-persons',trans('admin::app.'.Str::slug(\Route::input('model'),'_')),['withTab' => true ,'gridSystem' => true ,'dialogWidth' => "50%"])
             ->addPrimaryKey('id','id')
-            ->addHiddenInput('type' ,'type' ,Str::studly(\Route::input('model')) ,false ,true)
+            ->addHiddenInput('type' ,'type' ,Str::snake(\Route::input('model')) ,false ,true)
             ->gridSystemConfig(false)
             ->setGridNormalCol(12 ,'lg')
             ->startTab(trans('admin::app.personal_Info'),'fa fa-user fa-2x')
@@ -90,7 +90,6 @@ class PersonFactory extends GlobalFactory
 
         $contact->socialNetwork()->sync($request->input('contact.social'));
 
-        $request->request->add(['transSaveOper' => false]);
         Person::create(array_merge($request->input(),['contact_id' => $contact->id]));
     }
 

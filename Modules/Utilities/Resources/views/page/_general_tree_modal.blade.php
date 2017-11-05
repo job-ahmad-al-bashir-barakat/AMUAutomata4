@@ -1,7 +1,7 @@
 @component('controle.component.modal', [
     'id'                  => 'modal-general-tree',
     'title'               => trans('utilities::app.general_item'),
-    'action'              => treeUrl($view),
+    'action'              => treeLocalizeUrl($view),
     'successFunc'         => 'generalMenu',
     'stopDeleteSerialize' => true,
     'attr'                => ['data-tree-target' => '.general-tree'],

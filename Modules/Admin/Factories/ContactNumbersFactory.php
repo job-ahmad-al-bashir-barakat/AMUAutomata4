@@ -14,7 +14,7 @@ class ContactNumbersFactory extends GlobalFactory
      */
     public function getDatatable($model, $request)
     {
-        $query = Contact::findOrFail(request()->get('id'))->first()->phoneNumbers;
+        $query = PhoneNumbers::where('contact_id' ,'=' ,request()->get('id'));
 
         return $this->table
             ->queryConfig('datatable-phone-numbers')

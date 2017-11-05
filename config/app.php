@@ -189,6 +189,7 @@ return [
         App\Providers\ComposerServiceProvider::class,
         App\Providers\CustomBladeServiceProvider::class,
         App\Providers\CustomFormServiceProvider::class,
+        App\Library\Form\Providers\FormComponentServiceProvider::class,
         App\Library\Url\Providers\RouteUrlsServiceProvider::class,
         App\Providers\CustomValidationServiceProvider::class,
         Aut\Autocomplete\AutocompleteServiceProvider::class,
@@ -259,7 +260,8 @@ return [
 		 /*
           * Project Facades
           */
-        'RouteUrls' => \App\Library\Url\Facades\RouteUrls::class,
+        'RouteUrls'     => \App\Library\Url\Facades\RouteUrls::class,
+        'FormComponent' => \App\Library\Form\Facades\FormComponent::class,
     ],
 
 ];

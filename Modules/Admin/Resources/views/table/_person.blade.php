@@ -1,4 +1,4 @@
-{{ Form::bsImageUpload('person' ,'person' ,'' ,'' ,'150' ,'150' ,[
+{{ Form::bsImageUpload('person' ,'person' ,'' ,'' ,'260' ,'230' ,[
     'modalId'    => 'person-image-upload',
     'modalTitle' => trans('admin::app.personal_image')
 ] ,'#datatable-persons') }}

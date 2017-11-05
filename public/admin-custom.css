@@ -15,8 +15,18 @@ h1,h2,h3,h4,h5,h6,
 
 
 /*---------------------------------------------------------
-             Component: form-validation.less
+                            form
 ----------------------------------------------------------*/
+
+.overlay {
+    background-color: rgba(226, 226, 226, 0.42);
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+}
 
 .validate-error {
     border-color: #f05050 !important;
