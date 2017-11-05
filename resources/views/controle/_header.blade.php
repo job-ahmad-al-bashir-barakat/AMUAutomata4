@@ -39,7 +39,7 @@
                 <!-- START User avatar toggle-->
                 <li>
                     <!-- Button used to collapse the left sidebar. Only visible on tablet and desktops-->
-                    <a id="user-block-toggle" href="#user-block" data-toggle="collapse">
+                    <a id="user-block-toggle" href="#user-block" data-toggle="collapse" title="{{ trans('utilities::app.user') }}">
                         <em class="icon-user"></em>
                     </a>
                 </li>
@@ -65,90 +65,25 @@
             <ul class="nav navbar-nav navbar-right">
                 <!-- Search icon-->
                 <li>
-                    <a href="@void()" data-search-open="">
+                    <a href="@void()" data-search-open="" title="{{ trans('utilities::app.search') }}">
                         <em class="icon-magnifier"></em>
                     </a>
                 </li>
                 <!-- Reload Ajax -->
                 <li>
-                    <a href="@void()" data-reload="">
+                    <a href="@void()" data-reload="" title="{{ trans('utilities::app.reload_page') }}">
                         <em class="icon-reload"></em>
                     </a>
                 </li>
                 <!-- Fullscreen (only desktops)-->
                 <li class="visible-lg">
-                    <a href="@void()" data-toggle-fullscreen="">
+                    <a href="@void()" data-toggle-fullscreen="" title="{{ trans('utilities::app.fullscreen') }}">
                         <em class="fa fa-expand"></em>
                     </a>
                 </li>
-                <!-- START Alert menu-->
-                {{--<li class="dropdown dropdown-list">
-                    <a href="@void()" data-toggle="dropdown">
-                        <em class="icon-bell"></em>
-                        <div class="label label-danger">11</div>
-                    </a>
-                    <!-- START Dropdown menu-->
-                    <ul class="dropdown-menu animated flipInX">
-                        <li>
-                            <!-- START list group-->
-                            <div class="list-group">
-                                <!-- list item-->
-                                <a href="#" class="list-group-item">
-                                    <div class="media-box">
-                                        <div class="pull-left">
-                                            <em class="fa fa-twitter fa-2x text-info"></em>
-                                        </div>
-                                        <div class="media-box-body clearfix">
-                                            <p class="m0">New followers</p>
-                                            <p class="m0 text-muted">
-                                                <small>1 new follower</small>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </a>
-                                <!-- list item-->
-                                <a href="#" class="list-group-item">
-                                    <div class="media-box">
-                                        <div class="pull-left">
-                                            <em class="fa fa-envelope fa-2x text-warning"></em>
-                                        </div>
-                                        <div class="media-box-body clearfix">
-                                            <p class="m0">New e-mails</p>
-                                            <p class="m0 text-muted">
-                                                <small>You have 10 new emails</small>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </a>
-                                <!-- list item-->
-                                <a href="#" class="list-group-item">
-                                    <div class="media-box">
-                                        <div class="pull-left">
-                                            <em class="fa fa-tasks fa-2x text-success"></em>
-                                        </div>
-                                        <div class="media-box-body clearfix">
-                                            <p class="m0">Pending Tasks</p>
-                                            <p class="m0 text-muted">
-                                                <small>11 pending task</small>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </a>
-                                <!-- last list item-->
-                                <a href="#" class="list-group-item">
-                                    <small>More notifications</small>
-                                    <span class="label label-danger pull-right">14</span>
-                                </a>
-                            </div>
-                            <!-- END list group-->
-                        </li>
-                    </ul>
-                    <!-- END Dropdown menu-->
-                </li>--}}
-                <!-- END Alert menu-->
                 <!-- START Offsidebar button-->
                 <li>
-                    <a href="@void()" data-toggle-state="offsidebar-open" data-no-persist="true">
+                    <a href="@void()" data-toggle-state="offsidebar-open" data-no-persist="true" title="{{ trans('utilities::app.theme_setting') }}">
                         <em class="icon-notebook"></em>
                     </a>
                 </li>
@@ -160,7 +95,7 @@
         <!-- START Search form-->
         <form role="search" action="search.html" class="navbar-form">
             <div class="form-group has-feedback">
-                <input type="text" placeholder="Type and hit enter ..." class="form-control">
+                <input type="text" placeholder="{{ trans('utilities::app.search_for_page') }}" class="form-control">
                 <div data-search-dismiss="" class="fa fa-times form-control-feedback"></div>
             </div>
             <button type="submit" class="hidden btn btn-default">Submit</button>

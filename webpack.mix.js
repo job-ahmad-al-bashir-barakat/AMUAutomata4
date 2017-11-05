@@ -184,7 +184,17 @@ mix.styles([
     'Modules/Admin/Assets/vendor/loaders.css/loaders.css',
     'Modules/Admin/Assets/vendor/animate.css/animate.min.css',
     'Modules/Admin/Assets/vendor/app/css/app.css',
-], 'public/css/admin-membership.css').version();
+], 'public/css/admin-membership-ltr.css').version();
+
+mix.styles([
+    'resources/assets/myfont/font-jozoor/jozoor-font.css',
+    'Modules/Admin/Assets/vendor/fontawesome/css/font-awesome.min.css',
+    'Modules/Admin/Assets/vendor/simple-line-icons/css/simple-line-icons.css',
+    'Modules/Admin/Assets/vendor/app/css/bootstrap-rtl.css',
+    'Modules/Admin/Assets/vendor/loaders.css/loaders.css',
+    'Modules/Admin/Assets/vendor/animate.css/animate.min.css',
+    'Modules/Admin/Assets/vendor/app/css/app-rtl.css',
+], 'public/css/admin-membership-rtl.css').version();
 
 /**
  * Login js

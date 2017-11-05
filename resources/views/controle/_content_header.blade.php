@@ -11,7 +11,7 @@
                             href="{{LaravelLocalization::getLocalizedURL($localeCode ,preg_replace('/(en|ar)\//' ,"$localeCode/",\URL::current())) }}"
                             {{--class="ajax langs"--}}
                             data-set-lang="{{ $localeCode }}">
-                            {{ $properties['native'] }}
+                            {{ $properties["{$lang}Lang"] }}
                         </a>
                     </li>
                 @endforeach

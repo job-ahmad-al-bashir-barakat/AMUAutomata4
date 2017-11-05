@@ -101,6 +101,7 @@ return [
 
     'amu'                  => 'Al-Andalus Medical Sciences University',
     'unlock_caption'       => 'Please login to unlock your screen.',
+    'pass_not_match'       => 'Password does not match. Please try again.',
     'login'                => 'Login',
     'unlock'               => 'Unlock',
     'lockscreen'           => 'Lockscreen',

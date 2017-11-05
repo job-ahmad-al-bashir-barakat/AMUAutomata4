@@ -71,7 +71,10 @@ class LoginController extends Controller
         }
 
         if ($this->attemptLogin($request)) {
-            return $this->sendLoginResponse($request);
+            if($request->ajax())
+                return \Response::json(['redirect_url' => $this->sendLoginResponse($request)->getTargetUrl()]);
+            else
+                return $this->sendLoginResponse($request);
         }
 
         // If the login attempt was unsuccessful we will increment the number of attempts
