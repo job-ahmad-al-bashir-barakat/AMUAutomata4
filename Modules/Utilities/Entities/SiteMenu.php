@@ -14,7 +14,7 @@ class SiteMenu extends \Eloquent
 {
     use NodeTrait ,MultiLangs ,SoftDeletes;
 
-    protected $fillable = ['id' ,'parent_id' ,'name_route' ,'order' ,'is_link' ,'menuable_id' ,'menuable_type'];
+    protected $fillable = ['id' ,'parent_id' ,'name_route' ,'order' ,'is_link' ,'menuable_id' ,'menuable_type' ,'dynamic'];
 
     protected $appends = ['lang_name' ,'title' ,'titles'];
 

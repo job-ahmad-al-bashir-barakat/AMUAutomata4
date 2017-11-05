@@ -16,6 +16,8 @@ return [
     'no'                     => 'No',
 
     'menu_tables'            => 'Menu Tables',
+    'table_columns'          => 'Table Columns',
+    'dynamic'                => 'Dynamic',
     'make_link'              => 'Make Link List',
     'drag_menu'              => 'Drag Menu (Drag\Drop)',
     'drag_item_here'         => 'Drag Item Here',

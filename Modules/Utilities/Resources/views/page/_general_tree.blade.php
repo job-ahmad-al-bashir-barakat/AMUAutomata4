@@ -24,6 +24,15 @@
                         <div class='aut-tree' data-group="{{ $i }}" data-max-depth="10" data-clone="true"  data-drop-exists="true" data-reject="true" data-reject-rule-callback="rejectLinks" data-type="{{ $index }}">
                             <div id="nestable-{{$index}}" class="nestable dd">
                                 <ol class="dd-list">
+                                    @php($menu_item = $menu_items[$index]->first())
+                                    @php($text = $menu_item->lang_name[App::getLocale()]['text'])
+                                    <li data-id="{{ $menu_item->id }}" data-order="" class="dd-item" data-link="1" data-exists="{{ $index }}" data-type="menus-table" data-dynamic="{{ $index }}">
+                                        <div class='dd-handle dd3-handle move'>{{ $text or $menu_item->code }}</div>
+                                        <div class='dd3-content'>
+                                            <span class="hand">{{ $text or $menu_item->code }} ({{ trans('utilities::app.dynamic') }})</span>
+                                        </div>
+                                    </li>
+
                                     @foreach($items as $link)
                                         @php($text = $link->lang_name[App::getLocale()]['text'])
                                         <li data-id="{{ $link->id }}" data-order="" class="dd-item" data-link="1" data-exists="{{ \Illuminate\Support\Str::slug($text) }}" data-type="{{ $index }}">

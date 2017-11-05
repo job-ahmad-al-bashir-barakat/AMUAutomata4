@@ -18,6 +18,7 @@ class SiteMenuFactory
             'type'              => 'menuable_type',
             'link'              => 'is_link',
             'fixed_field'       => 'data-saved',
+            'dynamic'           => 'dynamic',
         ],lang('name' ,"titles->{lang}->text",'all'));
     }
 
@@ -83,7 +84,8 @@ class SiteMenuFactory
                 'order'         => $request->input('order'),
                 'menuable_id'   => $request->input('id'),
                 'menuable_type' => $request->input('type'),
-                'is_link'       => $request->input('link')
+                'is_link'       => $request->input('link'),
+                'dynamic'       => $request->input('dynamic'),
             ]);
 
             return;
