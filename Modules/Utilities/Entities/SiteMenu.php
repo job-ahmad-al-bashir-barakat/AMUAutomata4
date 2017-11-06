@@ -26,10 +26,17 @@ class SiteMenu extends \Eloquent
 
         $menuable = $this->menuable;
 
-        if($menuable != null && $menuable->count())
+        if($menuable != null && $menuable->count()) {
+
             $title = $menuable->lang_name[$lang]['text'];
-        else
+
+            if($this->dynamic)
+                $title .= " (Dynamic)";
+
+        } else {
+
             $title = $this->lang_name[$lang]['text'];
+        }
 
         return $title;
     }
