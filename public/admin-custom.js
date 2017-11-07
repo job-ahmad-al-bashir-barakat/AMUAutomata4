@@ -229,6 +229,12 @@ var APP_AMU = {
                 if(jqxhr.responseJSON.redirect_url)
                     window.location.href = jqxhr.responseJSON.redirect_url;
             });
+
+            $(document).ajaxSuccess(function( event, jqxhr, settings, thrownError ) {
+
+                if(jqxhr.responseJSON.redirect_url)
+                    window.location.href = jqxhr.responseJSON.redirect_url;
+            });
         }
     },
 
