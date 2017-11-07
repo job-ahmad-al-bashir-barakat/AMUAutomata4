@@ -67,6 +67,8 @@ trait ModuleTrait
                 return new UniversityCouncilModule();
             case 23:
                 return new TrustedCouncilModule();
+            case 24:
+                return new UniversityPartnerModule();
             default:
                 throw new \Exception("Undefined Web Module [id:$moduleId]");
         }
@@ -128,6 +130,8 @@ trait ModuleTrait
                 return new UniversityCouncilModule();
             case 'trusted_council':
                 return new TrustedCouncilModule();
+            case 'university_partner':
+                return new UniversityPartnerModule();
             default:
                 throw new \Exception("Undefined Web Module [$moduleCode]");
         }

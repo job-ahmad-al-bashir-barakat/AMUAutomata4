@@ -27,6 +27,7 @@
     <link href="{{ asset(mix('js/revolution-slider/css/revolution-slider.css')) }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/colors/theme-skin-color-set-1.css') }}" rel="stylesheet" type="text/css">
     <!-- <link href="css/style.css" rel="stylesheet" type="text/css"> -->
+    <link href="{{ asset('theme-custom.css') }}" rel="stylesheet" type="text/css">
 </head>
 <body class="">
 <div id="wrapper" class="clearfix">

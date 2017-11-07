@@ -28,8 +28,8 @@ class UtilitiesController extends Controller
             $classes = function($name) {
 
                 return [
-                    'admin'     => "Modules\Admin\Entities\\$name",
-                    'utilities' => "Modules\Utilities\Entities\\$name",
+                    'admin'     => "Modules\\Admin\\Entities\\$name",
+                    'utilities' => "Modules\\Utilities\\Entities\\$name",
                 ];
             };
 
