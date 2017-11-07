@@ -16,6 +16,8 @@ return [
     'no'                     => 'No',
 
     'menu_tables'            => 'Menu Tables',
+    'table_columns'          => 'Table Columns',
+    'dynamic'                => 'Dynamic',
     'make_link'              => 'Make Link List',
     'drag_menu'              => 'Drag Menu (Drag\Drop)',
     'drag_item_here'         => 'Drag Item Here',
@@ -101,6 +103,7 @@ return [
 
     'amu'                  => 'Al-Andalus Medical Sciences University',
     'unlock_caption'       => 'Please login to unlock your screen.',
+    'pass_not_match'       => 'Password does not match. Please try again.',
     'login'                => 'Login',
     'unlock'               => 'Unlock',
     'lockscreen'           => 'Lockscreen',

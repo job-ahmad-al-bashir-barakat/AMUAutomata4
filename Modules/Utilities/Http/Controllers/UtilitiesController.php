@@ -34,6 +34,7 @@ class UtilitiesController extends Controller
             };
 
             $group = [ 'count' => 0 ];
+
             $menu_items = MenuTables::all();
             $menu_items->each(function ($item) use (&$modules ,$classes ,&$group){
                 $name  = Str::studly($item->code);
@@ -50,8 +51,10 @@ class UtilitiesController extends Controller
                         $modules[$index][$item->code] = $obj;
                     }
             });
+
+            $menu_items = $menu_items->groupBy('code');
         }
 
-        return view("utilities::page.menu", compact('view' ,'modules' ,'group'));
+        return view("utilities::page.menu", compact('view' ,'menu_items','modules' ,'group'));
     }
 }

@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Relations\Relation;
 use Modules\Admin\Entities\Degree;
 use Modules\Admin\Entities\Department;
 use Modules\Admin\Entities\Faculty;
+use Modules\Utilities\Entities\MenuTables;
 use Modules\Utilities\Entities\Page;
 
 class AppServiceProvider extends ServiceProvider
@@ -29,6 +30,7 @@ class AppServiceProvider extends ServiceProvider
             'faculty'    => Faculty::class,
             'degree'     => Degree::class,
             'department' => Department::class,
+            'menus-table'=> MenuTables::class,
         ]);
     }
 

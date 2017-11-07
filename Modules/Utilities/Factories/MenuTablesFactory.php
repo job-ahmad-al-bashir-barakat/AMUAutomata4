@@ -21,6 +21,7 @@ class MenuTablesFactory extends GlobalFactory
             ->queryMultiLang(['name'])
             ->queryUpdateButton('id')
             ->queryDeleteButton('id')
+            ->queryCustomButton('tableColumn' ,'id' ,'icon icon-layers' ,'' ,"href='javascript:void(0);' onclick='tableColumnModal(this)'")
             ->queryRender();
     }
 
@@ -30,10 +31,11 @@ class MenuTablesFactory extends GlobalFactory
     public function buildDatatable($model, $request)
     {
         return $this->table
-            ->config('datatable-menu-tables',trans('utilities::app.modules'))
+            ->config('datatable-menu-tables',trans('utilities::app.menu_tables'))
             ->addPrimaryKey('id','id')
             ->addMultiInputTextLangs(['name'] ,'req required')
             ->addInputText(trans('utilities::app.code'),'code','code','required req')
+            ->addActionButton(trans('utilities::app.table_columns') ,'tableColumn' ,'tableColumn' ,'center all' ,'80px')
             ->addActionButton($this->update,'update','update')
             ->addActionButton($this->delete,'delete','delete')
             ->addNavButton()

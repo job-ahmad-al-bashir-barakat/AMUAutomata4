@@ -129,6 +129,11 @@ return [
         'factory'       => Modules\Utilities\Factories\MenuTablesFactory::class,
     ],
 
+    'menu-table-columns' => [
+        'model'   => Modules\Utilities\Entities\MenuTableColumns::class,
+        'factory' => Modules\Utilities\Factories\MenuTableColumnsFactory::class,
+    ],
+
     /**
      *  Admin Module
      */

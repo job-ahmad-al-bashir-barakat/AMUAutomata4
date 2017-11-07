@@ -8,7 +8,7 @@
     <meta name="keywords" content="app, responsive, jquery, bootstrap, dashboard, admin">
     <title>Angle - Bootstrap Admin Template</title>
     <!-- =============== VENDOR STYLES ===============-->
-    <link rel="stylesheet" href="{{ asset(mix("css/admin-membership.css")) }}">
+    <link rel="stylesheet" href="{{ asset(mix("css/admin-membership-$dir.css")) }}">
     <link rel="stylesheet" href="{{ asset('admin-custom.css') }}">
 </head>
 
