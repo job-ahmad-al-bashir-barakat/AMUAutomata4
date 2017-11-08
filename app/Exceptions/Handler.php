@@ -6,6 +6,8 @@ use Exception;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Session\TokenMismatchException;
+use Response;
+use RouteUrls;
 
 class Handler extends ExceptionHandler
 {
@@ -45,18 +47,24 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
-        if($exception instanceof TokenMismatchException) {
+         if ($exception instanceof AuthenticationException) {
 
             if($request->ajax()) {
-                return \Response::json(['redirect_url' => redirect()->back()->getTargetUrl()] ,500);
+
+                return Response::json([ 'redirect_url' => RouteUrls::login() ] ,401);
             }
 
-        } elseif ($exception instanceof AuthenticationException) {
+        } elseif ($exception instanceof TokenMismatchException) {
 
-            if($request->ajax()) {
-                return \Response::json([ 'redirect_url' => \RouteUrls::login() ] ,401);
-            }
-        }
+             if($request->ajax()) {
+
+                 return Response::json(['redirect_url' => redirect()->back()->getTargetUrl()] ,500);
+
+             } else {
+
+                 return redirect()->back();
+             }
+         }
 
         return parent::render($request, $exception);
     }
