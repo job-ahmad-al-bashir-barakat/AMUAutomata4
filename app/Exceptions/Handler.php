@@ -83,7 +83,7 @@ class Handler extends ExceptionHandler
     protected function tokenMismatched($request, TokenMismatchException $tokenMismatchException)
     {
         if($request->ajax()) {
-            return response()->json(['redirect_url' => redirect()->back()->getTargetUrl()], 500);
+            return response()->json(['error' => 'Token Mismatched.', 'redirect_url' => redirect()->back()->getTargetUrl()], 500);
         }
         return redirect()->back();
     }

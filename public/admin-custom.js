@@ -598,9 +598,10 @@ var APP_AMU = {
                             $[$method]($button.data('action') || APP_AMU.validate.changeAction($form), $data, function (res) {
 
                                 // redirect to url from response
+                                /*
                                 if(res.redirect_url)
                                     window.location.href = res.redirect_url;
-
+                                */
                                 // if form was inside modal we will close it after save
                                 if (typeof $form.parents('.modal') != typeof undefined)
                                     $($form.parents('.modal')).modal('hide');
@@ -2356,4 +2357,6 @@ var onPageLoad = {
 $(function () {
     //Updated By AA1992
     onPageLoad.loadOnLoad();
+    
+
 });
