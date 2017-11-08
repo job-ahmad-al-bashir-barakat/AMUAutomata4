@@ -484,19 +484,19 @@ var APP_AMU = {
         loader :
 
         '<div class="form-loader overlay">' +
-            '<div class="ball-triangle-path" style="left: 50%; top: 50%;">' +
-                '<div style="background-color: #3e3935;"></div>' +
-                '<div style="background-color: #3e3935;"></div>' +
-                '<div style="background-color: #3e3935;"></div>' +
-            '</div>' +
+        '<div class="ball-triangle-path" style="left: 50%; top: 50%;">' +
+        '<div style="background-color: #3e3935;"></div>' +
+        '<div style="background-color: #3e3935;"></div>' +
+        '<div style="background-color: #3e3935;"></div>' +
+        '</div>' +
         '</div>',
 
         addLoader: function ($button) {
 
             // form loader
             $button.closest(APP_AMU.validate.loaderSelector)
-                   .attr('style' ,'position:relative;')
-                   .prepend(APP_AMU.validate.loader);
+                .attr('style' ,'position:relative;')
+                .prepend(APP_AMU.validate.loader);
 
             // button loader
             if(!$button.is('[data-loading-text]'))
@@ -940,102 +940,102 @@ var APP_AMU = {
                     .off('change').on('change', APP_AMU.tree.updateOutput)
                     .off('dragEnd').on('dragEnd', function(event, item, source, destination, position) {
 
-                        // Make an ajax request to persist move on database
-                        // here you can pass item-id, source-id, destination-id and position index to the server
+                    // Make an ajax request to persist move on database
+                    // here you can pass item-id, source-id, destination-id and position index to the server
 
-                        // need this for save order operation
-                        if($cont.hasClass('order')) {
+                    // need this for save order operation
+                    if($cont.hasClass('order')) {
 
-                            item.parent().children('li').each(function (i, v) {
+                        item.parent().children('li').each(function (i, v) {
 
-                                var $this = $(this) ,parent = $this.parents('li:first');
+                            var $this = $(this) ,parent = $this.parents('li:first');
 
-                                // order
-                                $this.attr('data-order', i + 1);
-                                $this.data('order', i + 1);
-                                // ordered
-                                $this.attr('data-ordered',true);
-                                $this.data('ordered',true);
+                            // order
+                            $this.attr('data-order', i + 1);
+                            $this.data('order', i + 1);
+                            // ordered
+                            $this.attr('data-ordered',true);
+                            $this.data('ordered',true);
 
-                                if(parent.length) {
-                                    var obj = { 'id' : parent.data('id') , 'name' : parent.data('name') };
-                                    $this.data('parent' ,obj);
-                                    $this.attr('data-parent' ,JSON.stringify(obj));
-                                } else {
-                                    delete $this.data().parent;
-                                    $this.removeAttr('data-parent');
-                                }
-                            });
-
-                            var data = [];
-                            $('[data-ordered=true]').each(function(i ,v){
-                                data.push($(v).data());
-                            });
-                            $cont.data('order_list' ,data);
-                        }
-
-                        if(typeof $cont.data('drag-end-callback') != typeof undefined) {
-
-                            // drag callback
-                            $drag = window[$cont.data('drag-end-callback')](event, item, source, destination, position);
-
-                            // stop drag when return false
-                            if(!$drag)
-                                return;
-                        }
-
-                        // for drop any item when is exists in same tree :: this driven by data-exitst and data-type
-                        if(drop_exists) {
-
-                            var destinationExists = destination.find('[data-exists=' + item.data('exists') + ']');
-                            if(destinationExists.length > 1)
-                                $.each(destinationExists ,function (i ,v) {
-                                    if(i == (destinationExists.length - 1))
-                                        $(this).remove();
-                                });
-
-                            if(item.data('type') != destination.closest(APP_AMU.tree.treeContId).data('type'))
-                                item.remove();
-                        }
-
-                        if(enableAutoOrderSave) {
-
-                            if($cont.hasClass('ajax')) {
-
-                                var item   = $(_.head(item)),
-                                    id     = item.data('id'),
-                                    parent = item.parents('li:first').data('id'),
-                                    parent_target = item.data('parent');
-
-                                // get serialize data from tree
-                                var list = event.length ? event : $(event.target);
-
-                                var ObjectOrderSerialize = list.nestable('serialize');
-
-                                var data;
-                                if (parent_target) {
-                                    //children
-                                    data = JSPath.apply('..{.parent.id == "' + parent_target.id + '"}', ObjectOrderSerialize);
-                                } else {
-                                    //parent
-                                    data = JSPath.apply('.', ObjectOrderSerialize);
-                                }
-
-                                $.put($cont.data('url') + "/order/" + id, { data: data }, function (res) {
-
-                                    HELPER_AMU.notify({message: res.operation_message, status: 'success'});
-                                });
+                            if(parent.length) {
+                                var obj = { 'id' : parent.data('id') , 'name' : parent.data('name') };
+                                $this.data('parent' ,obj);
+                                $this.attr('data-parent' ,JSON.stringify(obj));
+                            } else {
+                                delete $this.data().parent;
+                                $this.removeAttr('data-parent');
                             }
+                        });
+
+                        var data = [];
+                        $('[data-ordered=true]').each(function(i ,v){
+                            data.push($(v).data());
+                        });
+                        $cont.data('order_list' ,data);
+                    }
+
+                    if(typeof $cont.data('drag-end-callback') != typeof undefined) {
+
+                        // drag callback
+                        $drag = window[$cont.data('drag-end-callback')](event, item, source, destination, position);
+
+                        // stop drag when return false
+                        if(!$drag)
+                            return;
+                    }
+
+                    // for drop any item when is exists in same tree :: this driven by data-exitst and data-type
+                    if(drop_exists) {
+
+                        var destinationExists = destination.find('[data-exists=' + item.data('exists') + ']');
+                        if(destinationExists.length > 1)
+                            $.each(destinationExists ,function (i ,v) {
+                                if(i == (destinationExists.length - 1))
+                                    $(this).remove();
+                            });
+
+                        if(item.data('type') != destination.closest(APP_AMU.tree.treeContId).data('type'))
+                            item.remove();
+                    }
+
+                    if(enableAutoOrderSave) {
+
+                        if($cont.hasClass('ajax')) {
+
+                            var item   = $(_.head(item)),
+                                id     = item.data('id'),
+                                parent = item.parents('li:first').data('id'),
+                                parent_target = item.data('parent');
+
+                            // get serialize data from tree
+                            var list = event.length ? event : $(event.target);
+
+                            var ObjectOrderSerialize = list.nestable('serialize');
+
+                            var data;
+                            if (parent_target) {
+                                //children
+                                data = JSPath.apply('..{.parent.id == "' + parent_target.id + '"}', ObjectOrderSerialize);
+                            } else {
+                                //parent
+                                data = JSPath.apply('.', ObjectOrderSerialize);
+                            }
+
+                            $.put($cont.data('url') + "/order/" + id, { data: data }, function (res) {
+
+                                HELPER_AMU.notify({message: res.operation_message, status: 'success'});
+                            });
                         }
-                    })
-                    //.off('beforeDragStart').on('beforeDragStart', function(handle) {})
-                    //.off('dragStart').on('dragStart', function(event, item, source) { })
-                    //.off('dragMove').on('dragMove', function(event, item, source, destination) { })
-                    //.off('beforeDragEnd').on('beforeDragEnd', function(event, item, source, destination, position, feedback) {
-                        // If you need to persist list items order if changes, you need to comment the next line
-                        // if (source[0] === destination[0]) { feedback.abort = true; return; }
-                        // feedback.abort = !window.confirm('Continue?');
-                    //});
+                    }
+                })
+                //.off('beforeDragStart').on('beforeDragStart', function(handle) {})
+                //.off('dragStart').on('dragStart', function(event, item, source) { })
+                //.off('dragMove').on('dragMove', function(event, item, source, destination) { })
+                //.off('beforeDragEnd').on('beforeDragEnd', function(event, item, source, destination, position, feedback) {
+                // If you need to persist list items order if changes, you need to comment the next line
+                // if (source[0] === destination[0]) { feedback.abort = true; return; }
+                // feedback.abort = !window.confirm('Continue?');
+                //});
             }
 
             if($cont.hasClass('ajax')) {
@@ -1099,13 +1099,13 @@ var APP_AMU = {
                 $length;
 
             if ($this.val())
-                // get children length for parent
+            // get children length for parent
                 $length = $treeContId
                     .find("[data-id=" + $this.val() + "] .dd-list li:first")
                     .parent()
                     .children().length + 1;
             else
-                // get length for first level
+            // get length for first level
                 $length = $treeContId.find('.dd .dd-list:first').children('li').length + 1;
 
             // add order to order input inside form
@@ -1509,10 +1509,10 @@ var APP_AMU = {
 
                 $($selector).each(function () {
 
-                    var _this = this,
-                        $this = $(_this);
-
-                    var btns, cropperTemplete, infoTemplete, replacedFile = [], invalidRatio = [],
+                    var _this       = this,
+                        $this       = $(_this),
+                        $imageCont  = $this.closest('.image-cont'),
+                        cropperTemplete, infoTemplete, replacedFile = [], invalidRatio = [],
                         previewFileType       = $this.data('preview-file-type'),
                         allowedFileTypes      = typeof $this.data('allowed-file-types') != typeof undefined ? $this.data('allowed-file-types').split(',') : null,
                         allowedFileExtensions = typeof $this.data('allowed-file-extensions') != typeof undefined ? $this.data('allowed-file-extensions') : null,
@@ -1902,6 +1902,19 @@ var APP_AMU = {
                             //info button
                         });
 
+                        if(allowRatio) {
+
+                            if(!$imageCont.data('allow-ratio-done'))
+                                $.get(ratioUrl ,function (res) {
+
+                                    var $cropRaio = $(cropperModal).find('.crop-raio');
+                                    $cropRaio.html(res.ratio.ratio_button);
+
+                                    $imageCont.find('.ratio-cont').html(res.ratio.ratio_resolution);
+                                    $imageCont.data('allow-ratio-done' ,true);
+                                });
+                        }
+
                         if(cropper) {
 
                             $this.closest('.file-input').on('click' ,'.btn-crop-image', function() {
@@ -1928,17 +1941,6 @@ var APP_AMU = {
                                         .attr('data-maxHeight' ,maxImageHeight)
                                         .attr('data-minHeight' ,minImageHeight)
                                         .attr('data-minWidth'  ,minImageWidth);
-
-                                    var $cropRaio = $(cropperModal).find('.crop-raio');
-                                    if(allowRatio)
-                                        if(!$cropRaio.data('done'))
-                                            $.get(ratioUrl ,function (res) {
-
-                                                $cropRaio.html(res.ratio);
-                                                $cropRaio.data('done' ,true);
-
-                                                APP.CROPPER.init(cropperSelector ,file);
-                                            });
 
                                     APP.CROPPER.init(cropperSelector ,file);
                                 });
