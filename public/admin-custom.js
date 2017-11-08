@@ -223,18 +223,6 @@ var APP_AMU = {
 
                 $.pjax({url: window.location.href, container: container, timeout: 1000});
             });
-
-            $(document).ajaxError(function( event, jqxhr, settings, thrownError ) {
-
-                if(jqxhr.responseJSON.redirect_url)
-                    window.location.href = jqxhr.responseJSON.redirect_url;
-            });
-
-            $(document).ajaxSuccess(function( event, jqxhr, settings, thrownError ) {
-
-                if(jqxhr.responseJSON.redirect_url)
-                    window.location.href = jqxhr.responseJSON.redirect_url;
-            });
         }
     },
 
@@ -2302,6 +2290,21 @@ var APP_AMU = {
                 return data[id] || false;
             }
         }
+    },
+
+    initGlobalJs: function () {
+
+        $(document).ajaxError(function( event, jqxhr, settings, thrownError ) {
+
+            if(jqxhr.responseJSON && jqxhr.responseJSON.redirect_url)
+                window.location.href = jqxhr.responseJSON.redirect_url;
+        });
+
+        $(document).ajaxSuccess(function( event, jqxhr, settings, thrownError ) {
+
+            if(jqxhr.responseJSON && jqxhr.responseJSON.redirect_url)
+                window.location.href = jqxhr.responseJSON.redirect_url;
+        });
     }
 };
 
@@ -2314,6 +2317,7 @@ var onPageLoad = {
         /**
          * Delegate Load
          */
+        APP_AMU.initGlobalJs,
         APP_AMU.COLLAPSE_PANELS,
         APP_AMU.changeColorControleTheme,
         function (){APP_AMU.initPjax('#pjax-container')},
@@ -2357,6 +2361,4 @@ var onPageLoad = {
 $(function () {
     //Updated By AA1992
     onPageLoad.loadOnLoad();
-    
-
 });

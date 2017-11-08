@@ -135,7 +135,7 @@ class DataTableBuilder
         $this->dataTable->put('serverSide', true);
         $this->dataTable->put('deferRender', true);
         $this->dataTable->put('paging' , true);
-        $this->dataTable->put('pagingType' , 'simple_numbers');
+        $this->dataTable->put('pagingType' , $this->optionDatatableConfig['pagingType']);
         $this->dataTable->put('lengthMenu', [$length ,$lengthWithAll]);
         $this->dataTable->put('language', $this->setLanguage());
         $this->dataTable->put('columnDefs', $this->exceptColumn());
@@ -178,6 +178,7 @@ class DataTableBuilder
             'withTab'           => false,
             'gridSystem'        => false,
             'usedComponent'     => false,
+            'pagingType'        => 'simple_numbers',
         ];
 
         $optionDefault = array_merge($optionDefault ,$option);
@@ -208,6 +209,7 @@ class DataTableBuilder
         'withTab'           => false,
         'gridSystem'        => false,
         'usedComponent'     => false,
+        'pagingType'        => 'simple_numbers',
     ])
     {
         $dataTable = $this->dataTable;
