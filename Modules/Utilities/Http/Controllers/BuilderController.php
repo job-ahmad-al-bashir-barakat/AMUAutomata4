@@ -26,7 +26,7 @@ class BuilderController extends Controller
     public function pages()
     {
         return view('utilities::page.builder', [
-            'title' => 'Builder: Pages',
+            'title' => trans('utilities::app.page-builder'),
         ]);
     }
 

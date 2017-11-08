@@ -34,7 +34,7 @@ class BuilderPageFactory extends GlobalFactory
             ->config('datatable-builder-pages',trans('utilities::app.pages'))
             ->addPrimaryKey('id','id')
             ->addMultiInputTextLangs(['name'], 'req required')
-            ->addActionButton('Modules', 'modules')
+            ->addActionButton(trans('utilities::app.modules'), 'modules')
             ->addNavButton([], ['add'])
             ->render();
     }

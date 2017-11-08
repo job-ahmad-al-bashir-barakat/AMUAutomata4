@@ -68,7 +68,12 @@ class Handler extends ExceptionHandler
     protected function unauthenticated($request, AuthenticationException $exception)
     {
         if ($request->expectsJson()) {
-            return response()->json(['error' => 'Unauthenticated.', 'redirect_url' => \RouteUrls::login()], 401);
+            return response()->json(
+                [
+                    'error_message' => 'Unauthenticated.',
+                    'redirect_url' => \RouteUrls::login(),
+                    'show_notify' => true
+                ], 401);
         }
         return redirect()->guest(route('login'));
     }
@@ -83,7 +88,12 @@ class Handler extends ExceptionHandler
     protected function tokenMismatched($request, TokenMismatchException $tokenMismatchException)
     {
         if($request->ajax()) {
-            return response()->json(['error' => 'Token Mismatched.', 'redirect_url' => redirect()->back()->getTargetUrl()], 500);
+            return response()->json(
+                [
+                    'error_message' => 'Token Mismatched.',
+                    'redirect_url' => redirect()->back()->getTargetUrl(),
+                    'show_notify' => true
+                ], 500);
         }
         return redirect()->back();
     }

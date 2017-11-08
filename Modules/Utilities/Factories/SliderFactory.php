@@ -37,7 +37,7 @@ class SliderFactory extends GlobalFactory
             ->addMultiInputTextLangs(['name'], 'req required')
             ->addActionButton($this->update,'update','update')
             ->addActionButton($this->delete,'delete','delete')
-            ->addActionButton('Details', 'slider_detail', 'slider_detail')
+            ->addActionButton(trans('utilities::app.details'), 'slider_detail', 'slider_detail')
             ->addNavButton()
             ->render();
     }

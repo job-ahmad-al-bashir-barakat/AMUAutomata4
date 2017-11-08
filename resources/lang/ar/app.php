@@ -16,6 +16,8 @@ return [
     'filter'          => 'بحث',
     'set_location'    => 'تحديد الموقع',
     'title'           => 'عنوان',
+    'head'            => 'ترويسة',
+    'btn'             => 'زر',
     'text'            => 'نص',
     'sub_text'        => 'نص فرعي',
     'small_text'      => 'نص صغير',

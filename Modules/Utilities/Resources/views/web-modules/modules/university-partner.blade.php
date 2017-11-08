@@ -1,3 +1,4 @@
+{{ dd(\Modules\Admin\Entities\Partner::with(['contact', 'image', 'image_small', 'image_large'])->get()) }}
 <section>
     <div class="container pb-0">
         <div class="row">

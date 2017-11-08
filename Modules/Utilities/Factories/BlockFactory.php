@@ -37,7 +37,7 @@ class BlockFactory extends GlobalFactory
             ->addMultiInputTextLangs(['name'], 'req required')
             ->addActionButton($this->update,'update','update')
             ->addActionButton($this->delete,'delete','delete')
-            ->addActionButton('Details', 'block_detail', 'block_detail')
+            ->addActionButton(trans('utilities::app.details'), 'block_detail', 'block_detail')
             ->addNavButton()
             ->render();
     }

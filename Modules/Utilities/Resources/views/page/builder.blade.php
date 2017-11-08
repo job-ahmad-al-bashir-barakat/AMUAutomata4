@@ -33,7 +33,7 @@
                             <span aria-hidden="true">×</span>
                         </button>
                         <h4 id="myModalLabel" class="modal-title">
-                            <span class="text-dialog">Page Modules [<i id="page_name"></i>]</span>
+                            <span class="text-dialog">@lang('utilities::app.page-modules') [<i id="page_name"></i>]</span>
                         </h4>
                     </div>
                     <div class="modal-body clearfix">
@@ -42,10 +42,9 @@
                                 <thead>
                                 <tr>
                                     <th style="width: 10px">#</th>
-                                    <th style="width: 200px">Custom Modules</th>
-                                    <th style="width: 100px">Position</th>
-                                    {{--<th style="width: 30px">Order</th>--}}
-                                    <th class="center" style="width: 10px">Delete</th>
+                                    <th style="width: 200px">@lang('utilities::app.custom-modules')</th>
+                                    <th style="width: 100px">@lang('utilities::app.position_location')</th>
+                                    <th class="center" style="width: 10px">@lang('app.delete')</th>
                                 </tr>
                                 <tr id="template_row" class="template-row hide">
                                     <td class="move">1</td>

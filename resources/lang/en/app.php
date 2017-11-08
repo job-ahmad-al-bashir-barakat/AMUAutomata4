@@ -16,6 +16,8 @@ return [
     'filter'          => 'Filter',
     'set_location'    => 'Set Location',
     'title'           => 'Title',
+    'head'            => 'Head',
+    'btn'             => 'Button',
     'text'            => 'Text',
     'sub_text'        => 'Sub Text',
     'small_text'      => 'Small Text',
