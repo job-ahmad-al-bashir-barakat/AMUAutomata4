@@ -64,11 +64,11 @@
             <!-- START Right Navbar-->
             <ul class="nav navbar-nav navbar-right">
                 <!-- Search icon-->
-                <li>
+                {{--<li>
                     <a href="@void()" data-search-open="" title="{{ trans('utilities::app.search') }}">
                         <em class="icon-magnifier"></em>
                     </a>
-                </li>
+                </li>--}}
                 <!-- Reload Ajax -->
                 <li>
                     <a href="@void()" data-reload="" title="{{ trans('utilities::app.reload_page') }}">
@@ -93,13 +93,13 @@
         </div>
         <!-- END Nav wrapper-->
         <!-- START Search form-->
-        <form role="search" action="search.html" class="navbar-form">
+        {{--<form role="search" action="search.html" class="navbar-form">
             <div class="form-group has-feedback">
                 <input type="text" placeholder="{{ trans('utilities::app.search_for_page') }}" class="form-control">
                 <div data-search-dismiss="" class="fa fa-times form-control-feedback"></div>
             </div>
             <button type="submit" class="hidden btn btn-default">Submit</button>
-        </form>
+        </form>--}}
         <!-- END Search form-->
     </nav>
     <!-- END Top Navbar-->

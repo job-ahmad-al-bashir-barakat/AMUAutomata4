@@ -217,6 +217,6 @@ class UploadController extends Controller
 
         $this->imageLocalConfig   = config("file-upload.{$routeParam['model']}");
 
-        return \response()->json(['ratio' => view('controle.component._crop_ratio' ,[ 'cropRatio' => $this->imageLocalConfig['ratio'] ])->render()]);
+        return \response()->json(['ratio' => view('controle.component._crop_ratio' ,[ 'cropRatio' => $this->imageLocalConfig['ratio'] ])->renderSections() ]);
     }
 }

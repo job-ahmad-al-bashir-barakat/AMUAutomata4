@@ -107,6 +107,22 @@ return [
         ]
     ],
 
+    /**
+     * theme setting
+     */
+
+    'settings'       => 'الاعدادات',
+    'themes'         => 'الألوان',
+    'layout'         => 'المظهر',
+    'fixed'          => 'ثابت',
+    'boxed'          => 'صندوقي',
+    'collapsed'      => 'تصغير',
+    'collapsed_text' => 'تصغير (اظهار النص)',
+    'float'          => 'طفو',
+    'hover'          => 'اظهار القائمة جانباً',
+    'show_scrollbar' => 'اظهار Scrollbar',
+    'aside'          => 'القائمة الجانبية',
+
     /*
      * Membership
      */
