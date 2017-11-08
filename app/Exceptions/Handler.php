@@ -6,8 +6,6 @@ use Exception;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Session\TokenMismatchException;
-use Response;
-use RouteUrls;
 
 class Handler extends ExceptionHandler
 {
@@ -47,24 +45,15 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
-         if ($exception instanceof AuthenticationException) {
-
-            if($request->ajax()) {
-
-                return Response::json([ 'redirect_url' => RouteUrls::login() ] ,401);
+        $exceptionClassName = class_basename($exception);
+        $ref = new \ReflectionClass($this);
+        $methods = $ref->getMethods(\ReflectionMethod::IS_PROTECTED);
+        foreach ($methods as $method) {
+            $parameters = $method->getParameters();
+            if (isset($parameters[1]) && studly_case($method->getParameters()[1]->getName()) == $exceptionClassName) {
+                return call_user_func_array([$this, $method->getName()], [$request, $exception]);
             }
-
-        } elseif ($exception instanceof TokenMismatchException) {
-
-             if($request->ajax()) {
-
-                 return Response::json(['redirect_url' => redirect()->back()->getTargetUrl()] ,500);
-
-             } else {
-
-                 return redirect()->back();
-             }
-         }
+        }
 
         return parent::render($request, $exception);
     }
@@ -79,9 +68,23 @@ class Handler extends ExceptionHandler
     protected function unauthenticated($request, AuthenticationException $exception)
     {
         if ($request->expectsJson()) {
-            return response()->json(['error' => 'Unauthenticated.'], 401);
+            return response()->json(['error' => 'Unauthenticated.', 'redirect_url' => \RouteUrls::login()], 401);
         }
-
         return redirect()->guest(route('login'));
+    }
+
+    /**
+     * Convert an authentication exception into an unauthenticated response.
+     *
+     * @param  \Illuminate\Http\Request $request
+     * @param TokenMismatchException $tokenMismatchException
+     * @return \Illuminate\Http\Response
+     */
+    protected function tokenMismatched($request, TokenMismatchException $tokenMismatchException)
+    {
+        if($request->ajax()) {
+            return response()->json(['redirect_url' => redirect()->back()->getTargetUrl()], 500);
+        }
+        return redirect()->back();
     }
 }
