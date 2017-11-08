@@ -226,13 +226,13 @@ var APP_AMU = {
 
             $(document).ajaxError(function( event, jqxhr, settings, thrownError ) {
 
-                if(jqxhr.responseJSON.redirect_url)
+                if(jqxhr.responseJSON && jqxhr.responseJSON.redirect_url)
                     window.location.href = jqxhr.responseJSON.redirect_url;
             });
 
             $(document).ajaxSuccess(function( event, jqxhr, settings, thrownError ) {
 
-                if(jqxhr.responseJSON.redirect_url)
+                if(jqxhr.responseJSON && jqxhr.responseJSON.redirect_url)
                     window.location.href = jqxhr.responseJSON.redirect_url;
             });
         }
@@ -490,11 +490,11 @@ var APP_AMU = {
         loader :
 
         '<div class="form-loader overlay">' +
-        '<div class="ball-triangle-path" style="left: 50%; top: 50%;">' +
-        '<div style="background-color: #3e3935;"></div>' +
-        '<div style="background-color: #3e3935;"></div>' +
-        '<div style="background-color: #3e3935;"></div>' +
-        '</div>' +
+            '<div class="ball-triangle-path" style="left: 50%; top: 50%;">' +
+                '<div style="background-color: #3e3935;"></div>' +
+                '<div style="background-color: #3e3935;"></div>' +
+                '<div style="background-color: #3e3935;"></div>' +
+            '</div>' +
         '</div>',
 
         addLoader: function ($button) {
@@ -596,10 +596,6 @@ var APP_AMU = {
                         $call = function () {
 
                             $[$method]($button.data('action') || APP_AMU.validate.changeAction($form), $data, function (res) {
-
-                                // redirect to url from response
-                                if(res.redirect_url)
-                                    window.location.href = res.redirect_url;
 
                                 // if form was inside modal we will close it after save
                                 if (typeof $form.parents('.modal') != typeof undefined)

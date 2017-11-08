@@ -97,6 +97,22 @@ return [
         ]
     ],
 
+    /**
+     * theme setting
+     */
+
+    'settings'       => 'Settings',
+    'themes'         => 'Themes',
+    'layout'         => 'Layout',
+    'fixed'          => 'Fixed',
+    'boxed'          => 'Boxed',
+    'collapsed'      => 'Collapsed',
+    'collapsed_text' => 'Collapsed Text',
+    'float'          => 'Float',
+    'hover'          => 'Hover',
+    'show_scrollbar' => 'Show Scrollbar',
+    'aside'          => 'Aside',
+
     /*
      * Membership
      */
