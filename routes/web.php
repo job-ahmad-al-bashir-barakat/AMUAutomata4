@@ -1,5 +1,10 @@
 <?php
 
+Route::get('md5/{code}', function ($code) {
+    return bcrypt($code);
+});
+
+
 Route::group(
     [
         'middleware' => ['web', 'localeSessionRedirect', 'localizationRedirect'],
@@ -11,7 +16,7 @@ Route::group(
         Route::get('/', function () {
             $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
             return view('welcome')->withMenu($menu);
-        });
+        })->name('home');
 
         Route::get('home', function () {
             $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
@@ -66,9 +71,9 @@ Route::group(
         });
         Route::get('trusted-council' ,function () {
             $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
-            $modules = [];
-            return view('page.trusted_council'  ,compact('modules', 'menu'));
-        });
+            $modules = \Modules\Utilities\Entities\BuilderPage::pageModules()->get()->pluck('module');
+            return view('modules'  ,compact('modules', 'menu'));
+        })->name('trusted_council');
 
         Route::get('trusted-council-detail' ,function () {
             $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
@@ -78,16 +83,16 @@ Route::group(
 
         Route::get('university-partner' ,function () {
             $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
-//            $modules = \Modules\Utilities\Entities\BuilderPage::pageModules()->get()->pluck('module');
-            return view('page.university_partner'  ,compact('modules', 'menu'));
-        });
+            $modules = \Modules\Utilities\Entities\BuilderPage::pageModules()->get()->pluck('module');
+            return view('modules', compact('modules', 'menu'));
+        })->name('university_partner');
 
         // -- labs : same as university-offices and university-offices-detail
         Route::get('university-offices' ,function () {
             $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
             $modules = [];
             return view('page.university_offices'  ,compact('modules', 'menu'));
-        });
+        })->name('university_offices');
 
         Route::get('university-offices-detail' ,function () {
             $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();

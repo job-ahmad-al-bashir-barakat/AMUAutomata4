@@ -161,6 +161,14 @@ class AttributesTableSeeder extends Seeder
                 'updated_at' => '2017-10-17 18:57:38',
                 'deleted_at' => NULL,
             ),
+            18 => 
+            array (
+                'id' => 19,
+                'code' => 'url_text',
+                'created_at' => NULL,
+                'updated_at' => NULL,
+                'deleted_at' => NULL,
+            ),
         ));
         
         

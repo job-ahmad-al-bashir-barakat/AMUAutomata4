@@ -57,6 +57,118 @@ class CustomModulesTableSeeder extends Seeder
                 'updated_at' => '2017-10-16 17:17:12',
                 'deleted_at' => NULL,
             ),
+            5 => 
+            array (
+                'id' => 6,
+                'module_id' => 5,
+                'created_at' => '2017-10-16 17:28:29',
+                'updated_at' => '2017-10-16 17:28:29',
+                'deleted_at' => NULL,
+            ),
+            6 => 
+            array (
+                'id' => 7,
+                'module_id' => 6,
+                'created_at' => '2017-10-16 17:29:16',
+                'updated_at' => '2017-10-16 17:29:16',
+                'deleted_at' => NULL,
+            ),
+            7 => 
+            array (
+                'id' => 8,
+                'module_id' => 17,
+                'created_at' => '2017-10-16 18:11:04',
+                'updated_at' => '2017-10-16 18:11:04',
+                'deleted_at' => NULL,
+            ),
+            8 => 
+            array (
+                'id' => 11,
+                'module_id' => 16,
+                'created_at' => '2017-10-17 19:22:01',
+                'updated_at' => '2017-10-17 19:22:01',
+                'deleted_at' => NULL,
+            ),
+            9 => 
+            array (
+                'id' => 12,
+                'module_id' => 2,
+                'created_at' => '2017-10-23 18:01:01',
+                'updated_at' => '2017-10-23 18:01:01',
+                'deleted_at' => NULL,
+            ),
+            10 => 
+            array (
+                'id' => 13,
+                'module_id' => 7,
+                'created_at' => '2017-10-25 16:18:21',
+                'updated_at' => '2017-10-25 16:18:21',
+                'deleted_at' => NULL,
+            ),
+            11 => 
+            array (
+                'id' => 14,
+                'module_id' => 9,
+                'created_at' => '2017-10-25 19:27:29',
+                'updated_at' => '2017-10-25 19:27:29',
+                'deleted_at' => NULL,
+            ),
+            12 => 
+            array (
+                'id' => 15,
+                'module_id' => 12,
+                'created_at' => '2017-10-27 07:20:04',
+                'updated_at' => '2017-10-27 07:20:04',
+                'deleted_at' => NULL,
+            ),
+            13 => 
+            array (
+                'id' => 16,
+                'module_id' => 13,
+                'created_at' => '2017-10-29 06:07:30',
+                'updated_at' => '2017-10-29 06:07:30',
+                'deleted_at' => NULL,
+            ),
+            14 => 
+            array (
+                'id' => 17,
+                'module_id' => 8,
+                'created_at' => '2017-10-29 20:00:27',
+                'updated_at' => '2017-10-29 20:00:27',
+                'deleted_at' => NULL,
+            ),
+            15 => 
+            array (
+                'id' => 18,
+                'module_id' => 1,
+                'created_at' => '2017-10-31 17:27:46',
+                'updated_at' => '2017-10-31 17:27:46',
+                'deleted_at' => NULL,
+            ),
+            16 => 
+            array (
+                'id' => 19,
+                'module_id' => 22,
+                'created_at' => '2017-10-31 19:56:17',
+                'updated_at' => '2017-10-31 19:56:17',
+                'deleted_at' => NULL,
+            ),
+            17 => 
+            array (
+                'id' => 20,
+                'module_id' => 18,
+                'created_at' => '2017-10-31 20:06:14',
+                'updated_at' => '2017-10-31 20:06:14',
+                'deleted_at' => NULL,
+            ),
+            18 => 
+            array (
+                'id' => 21,
+                'module_id' => 23,
+                'created_at' => '2017-11-03 05:07:56',
+                'updated_at' => '2017-11-03 05:07:56',
+                'deleted_at' => NULL,
+            ),
         ));
         
         
