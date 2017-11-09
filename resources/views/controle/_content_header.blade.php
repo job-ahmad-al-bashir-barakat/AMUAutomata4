@@ -11,6 +11,7 @@
                             href="{{LaravelLocalization::getLocalizedURL($localeCode ,preg_replace('/(en|ar)\//' ,"$localeCode/",\URL::current())) }}"
                             {{--class="ajax langs"--}}
                             data-set-lang="{{ $localeCode }}">
+                            <img src="{{ asset($flags[$localeCode]) }}" style="margin: 0 3px 3px 3px;">
                             {{ $properties["{$lang}Lang"] }}
                         </a>
                     </li>

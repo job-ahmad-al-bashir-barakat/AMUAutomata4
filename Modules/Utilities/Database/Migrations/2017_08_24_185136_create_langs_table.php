@@ -18,6 +18,7 @@ class CreateLangsTable extends Migration {
 			$table->string('lang_code', 191);
 			$table->string('name', 191);
 			$table->string('native', 191);
+			$table->integer('image_id')->unsigned();
 			$table->boolean('is_default');
 			$table->softDeletes();
 			$table->timestamps();

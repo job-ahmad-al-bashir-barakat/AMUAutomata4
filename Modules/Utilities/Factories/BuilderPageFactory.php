@@ -31,7 +31,7 @@ class BuilderPageFactory extends GlobalFactory
     public function buildDatatable($model, $request)
     {
         return $this->table
-            ->config('datatable-builder-pages',trans('utilities::app.pages'))
+            ->config('datatable-builder-pages',trans('utilities::app.pages') ,['pagingType' => 'simple'])
             ->addPrimaryKey('id','id')
             ->addMultiInputTextLangs(['name'], 'req required')
             ->addActionButton(trans('utilities::app.modules'), 'modules')

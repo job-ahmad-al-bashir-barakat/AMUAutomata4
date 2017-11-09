@@ -5,11 +5,27 @@ return [
     'setting' => [
 
         'image' => [
-            'validate'         => 'required|mimes:jpeg,jpg,png|ratio',
+            'validate'         => 'required|mimes:jpeg,jpg,png,gif|ratio',
             'upload_directory' => 'upload\image',
         ],
 
         'relationType' => 'many', //one
+    ],
+
+    'user' => [
+        'model'  => \Modules\Utilities\Entities\User::class,
+        'ratio' => [
+            'first_ratio'  => [ 'width'  => '60', 'height' => '60', ],
+        ],
+        'relationType' => 'one',
+    ],
+
+    'lang' => [
+        'model'  => \Modules\Utilities\Entities\Lang::class,
+        'ratio' => [
+            'first_ratio'  => [ 'width'  => '18', 'height' => '12', ],
+        ],
+        'relationType' => 'one',
     ],
 
     'lab' => [

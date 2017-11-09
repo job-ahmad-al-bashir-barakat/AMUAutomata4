@@ -5,6 +5,7 @@ use Illuminate\Support\Str;
 use Illuminate\View\View;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use Modules\Utilities\Entities\ControlMenu;
+use Modules\Utilities\Entities\Lang;
 use Nwidart\Modules\Exceptions\ModuleNotFoundException;
 use Nwidart\Modules\Facades\Module;
 
@@ -16,6 +17,7 @@ class GlobalComposer
             'currentModule' => $this->getCurrentModule(),
             'dir'    => LaravelLocalization::getCurrentLocaleDirection(),
             'lang'   => LaravelLocalization::getCurrentLocale(),
+            'flags'  => Lang::all()->pluck('image_path' ,'lang_code')
         ]);
     }
 

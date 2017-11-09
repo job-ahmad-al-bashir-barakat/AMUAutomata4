@@ -1504,10 +1504,10 @@ var APP_AMU = {
 
                 $($selector).each(function () {
 
-                    var _this = this,
-                        $this = $(_this);
-
-                    var btns, cropperTemplete, infoTemplete, replacedFile = [], invalidRatio = [],
+                    var _this      = this,
+                        $this      = $(_this),
+                        $imageCont = $this.closest('.image-cont'),
+                        cropperTemplete, infoTemplete, replacedFile = [], invalidRatio = [],
                         previewFileType       = $this.data('preview-file-type'),
                         allowedFileTypes      = typeof $this.data('allowed-file-types') != typeof undefined ? $this.data('allowed-file-types').split(',') : null,
                         allowedFileExtensions = typeof $this.data('allowed-file-extensions') != typeof undefined ? $this.data('allowed-file-extensions') : null,
@@ -1897,6 +1897,19 @@ var APP_AMU = {
                             //info button
                         });
 
+                        if(allowRatio) {
+
+                            if(!$imageCont.data('allow-ratio-done'))
+                                $.get(ratioUrl ,function (res) {
+
+                                    var $cropRaio = $(cropperModal).find('.crop-raio');
+                                    $cropRaio.html(res.ratio.ratio_button);
+
+                                    $imageCont.find('.ratio-cont').html(res.ratio.ratio_resolution);
+                                    $imageCont.data('allow-ratio-done' ,true);
+                                });
+                        }
+
                         if(cropper) {
 
                             $this.closest('.file-input').on('click' ,'.btn-crop-image', function() {
@@ -1923,17 +1936,6 @@ var APP_AMU = {
                                         .attr('data-maxHeight' ,maxImageHeight)
                                         .attr('data-minHeight' ,minImageHeight)
                                         .attr('data-minWidth'  ,minImageWidth);
-
-                                    var $cropRaio = $(cropperModal).find('.crop-raio');
-                                    if(allowRatio)
-                                        if(!$cropRaio.data('done'))
-                                            $.get(ratioUrl ,function (res) {
-
-                                                $cropRaio.html(res.ratio);
-                                                $cropRaio.data('done' ,true);
-
-                                                APP.CROPPER.init(cropperSelector ,file);
-                                            });
 
                                     APP.CROPPER.init(cropperSelector ,file);
                                 });

@@ -157,6 +157,8 @@ class DataTableBuilder
     /**
      * @param $option
      * @return array
+     *
+     * pagingType: numbers|simple|simple_numbers|full|full_numbers|first_last_numbers
      */
     private function setDefaultConfig($option)
     {

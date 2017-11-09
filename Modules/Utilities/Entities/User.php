@@ -13,13 +13,15 @@ class User extends Authenticatable
 {
     use SoftDeletes, MultiLangs;
 
-    protected $fillable = ['id' ,'name', 'email', 'password'];
+    const IMAGE_PATH = 'storage/upload/image/users/';
+
+    protected $fillable = ['id' ,'name', 'email', 'password' ,'image_id'];
 
     protected $hidden = [
         'password', 'remember_token'
     ];
 
-    protected $appends = ['lang_name','lang_summary'];
+    protected $appends = ['lang_name','lang_summary' ,'image_path'];
 
     public function transName()
     {
@@ -50,5 +52,21 @@ class User extends Authenticatable
                 $password = bcrypt($password);
 
         $this->attributes['password'] = $password;
+    }
+
+    function image()
+    {
+        return $this->belongsTo(Image::class);
+    }
+
+    public function getImagePathAttribute()
+    {
+        if ($this->image) {
+            $imageName = $this->image->hash_name ?: '';
+        } else {
+            $imageName = '';
+        }
+
+        return self::IMAGE_PATH . $imageName;
     }
 }
