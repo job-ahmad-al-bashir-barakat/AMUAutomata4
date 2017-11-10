@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-md-8 pull-right">
-        <img src="{{ asset($partner->image_large_path) }}" alt="">
+        <img src="{{ asset($partner->large_image_path) }}" alt="">
     </div>
     <div class="col-md-4 pull-left">
         <ul>
@@ -8,7 +8,7 @@
                 <h5>Client:</h5>
                 <p>{{ $partner->lang_name[$lang]->text }}</p>
             </li>
-            <li>
+            {{--<li>
                 <h5>Location:</h5>
                 <p>#405, Lan Streen, Los Vegas, USA</p>
             </li>
@@ -19,27 +19,25 @@
             <li>
                 <h5>Start Date:</h5>
                 <p>January 26, 2016</p>
-            </li>
+            </li>--}}
             <li>
-                <h5>End Date:</h5>
-                <p>February 10, 2016</p>
+                <h5>Description:</h5>
+                <p>{!! $partner->lang_description[$lang]->text !!}</p>
             </li>
             <li>
                 <h5>Website:</h5>
-                <p>kodesolution.com</p>
+                <p><a href="{{ $partner->contact->url }}">{{ $partner->contact->url }}</a></p>
             </li>
             <li>
-                <h5>Share:</h5>
-                <div class="styled-icons icon-sm icon-gray icon-circled">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-instagram"></i></a>
-                    <a href="#"><i class="fa fa-google-plus"></i></a>
-                </div>
+                <h5>Social Network:</h5>
+                <ul class="styled-icons icon-sm icon-gray icon-circled">
+                    @include('utilities::web-modules.modules.sub.social-network', ['socialNetworks' => $partner->contact->socialNetwork])
+                </ul>
             </li>
         </ul>
     </div>
 </div>
+{{--
 <div class="row mt-60">
     <div class="col-md-6">
         <h4 class="mt-0">Project Description</h4>
@@ -51,4 +49,4 @@
             <footer>Someone famous in <cite title="Source Title">Source Title</cite></footer>
         </blockquote>
     </div>
-</div>
+</div>--}}

@@ -8,15 +8,7 @@
             <h5 class="text-theme-color">{{ $person->jobTitle->lang_name[$lang]->text }}</h5>
             <ul class="styled-icons icon-sm icon-dark icon-theme-colored">
                 @if($person->contact && $person->contact->socialNetwork)
-                    @foreach($person->contact->socialNetwork as $socialNetwork)
-                        <li><a href="{{ $socialNetwork->pivot->url or '#' }}"><i class="fa fa-{{ $socialNetwork->code }}"></i></a></li>
-                    @endforeach
-                    {{--
-                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                    <li><a href="#"><i class="fa fa-skype"></i></a></li>
-                    --}}
+                    @include('utilities::web-modules.modules.sub.social-network', ['socialNetworks' => $person->contact->socialNetwork])
                 @else
                     <li style="visibility: hidden"><a href="#" class="fa fa-times"></a></li>
                 @endif

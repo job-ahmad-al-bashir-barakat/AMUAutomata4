@@ -13,9 +13,12 @@ class Partner extends \Eloquent
 {
     use MultiLangs,SoftDeletes;
 
+    const LARGE_IMAGE_PATH = 'storage/upload/image/partner-large-images/';
+    const SMALL_IMAGE_PATH = 'storage/upload/image/partner-small-images/';
+
     protected $fillable = ['contact_id'];
 
-    protected $appends = ['lang_name','lang_description'];
+    protected $appends = ['lang_name', 'lang_description', 'large_image_path', 'small_image_path'];
 
     protected static function boot() {
 
@@ -70,5 +73,25 @@ class Partner extends \Eloquent
     function image_large()
     {
         return $this->belongsToMany(Image::class)->wherePivot('image_type' ,'=' ,'large');
+    }
+
+    public function getLargeImagePathAttribute()
+    {
+        if ($this->image) {
+            $imageName = $this->image_large->first()->hash_name ?: '';
+        } else {
+            $imageName = '';
+        }
+        return self::LARGE_IMAGE_PATH . $imageName;
+    }
+
+    public function getSmallImagePathAttribute()
+    {
+        if ($this->image) {
+            $imageName = $this->image_small->first()->hash_name ?: '';
+        } else {
+            $imageName = '';
+        }
+        return self::SMALL_IMAGE_PATH . $imageName;
     }
 }
