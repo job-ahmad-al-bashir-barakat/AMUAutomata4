@@ -17,7 +17,6 @@ class GlobalComposer
             'currentModule' => $this->getCurrentModule(),
             'dir'    => LaravelLocalization::getCurrentLocaleDirection(),
             'lang'   => LaravelLocalization::getCurrentLocale(),
-            'flags'  => Lang::all()->pluck('image_path' ,'lang_code')
         ]);
     }
 
@@ -39,6 +38,13 @@ class GlobalComposer
 
         $view->with([
             'path'   => ControlMenu::whereAncestorOrSelf($node)->get()
+        ]);
+    }
+
+    public function langs(View $view)
+    {
+        $view->with([
+            'langs'  => Lang::all(),
         ]);
     }
 }

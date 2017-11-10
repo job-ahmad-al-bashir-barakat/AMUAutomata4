@@ -8,6 +8,8 @@ return [
     'password'               => 'Password',
     'name'                   => 'Name',
     'code'                   => 'Code',
+    'regional'               => 'Regional',
+    'script'                 => 'Script',
     'name_route'             => 'Name Route',
     'value'                  => 'Value',
     'native'                 => 'Native',

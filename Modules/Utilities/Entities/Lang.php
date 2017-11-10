@@ -12,7 +12,7 @@ class Lang extends \Eloquent
 
     protected $appends = ['image_path'];
 
-    protected $fillable = ['lang_code','short_code','name','native','is_default' ,'image_id'];
+    protected $fillable = ['lang_code', 'short_code', 'name', 'script', 'native', 'regional', 'is_default', 'image_id'];
 
     function image()
     {

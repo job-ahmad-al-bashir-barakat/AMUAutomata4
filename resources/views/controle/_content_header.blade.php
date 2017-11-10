@@ -4,15 +4,16 @@
         <div class="btn-group">
             <button type="button" data-toggle="dropdown" class="btn btn-default">{{ LaravelLocalization::getCurrentLocaleNative() }}</button>
             <ul role="menu" class="dropdown-menu dropdown-menu-right animated fadeInUpShort">
-                @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                @foreach($langs as $index => $lang)
                     <li>
                         <a  rel="alternate"
-                            hreflang="{{$localeCode}}"
-                            href="{{LaravelLocalization::getLocalizedURL($localeCode ,preg_replace('/(en|ar)\//' ,"$localeCode/",\URL::current())) }}"
+                            hreflang="{{$lang['lang_code']}}"
+                            href="{{ LaravelLocalization::getLocalizedURL($lang['lang_code'] ,\URL::current()) }}"
                             {{--class="ajax langs"--}}
-                            data-set-lang="{{ $localeCode }}">
-                            <img src="{{ asset($flags[$localeCode]) }}" style="margin: 0 3px 3px 3px;">
-                            {{ $properties["{$lang}Lang"] }}
+                            {{--data-set-lang="{{ $lang['lang_code'] }}"--}}
+                        >
+                            <img src="{{ asset($lang['image_path']) }}" style="margin: 0 3px 3px 3px;">
+                            {{ $lang['native'] }}
                         </a>
                     </li>
                 @endforeach

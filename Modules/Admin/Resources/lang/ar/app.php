@@ -60,5 +60,6 @@ return [
     'semester'           => 'فصل',
     'automata4_admin'    => 'إدارة أتوماتا 4',
 
-
+    'large'              => 'حجم كبير',
+    'small'              => 'حجم صغير',
 ];

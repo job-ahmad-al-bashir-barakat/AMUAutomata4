@@ -94,16 +94,18 @@ return [
     'partner-large-image' => [
         'model' => \Modules\Admin\Entities\Partner::class,
         'ratio' => [
-            'partner_large_image' => [ 'width'  => '755', 'height' => '480', ],
+            'partner_large_image' => [ 'title' => 'admin::app.large', 'width'  => '755', 'height' => '480', ],
         ],
-        'relationType' => 'many',
+        'relationType'  => 'many',
+        'relationParam' => ['image_type'],
     ],
 
     'partner-small-image' => [
         'model' => \Modules\Admin\Entities\Partner::class,
         'ratio' => [
-            'partner_small_image' => [ 'width'  => '320', 'height' => '300', ],
+            'partner_small_image' => [ 'title' => 'admin::app.small' ,'width'  => '320', 'height' => '300', ],
         ],
         'relationType' => 'many',
+        'relationParam' => ['image_type'],
     ],
 ];

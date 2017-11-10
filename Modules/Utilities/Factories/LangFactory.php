@@ -39,6 +39,8 @@ class LangFactory extends GlobalFactory
             ->addInputText(trans('utilities::app.code'),'lang_code','lang_code','required req')
             ->addInputText($this->name ,'name','name','required req')
             ->addInputText(trans('utilities::app.native'),'native','native','required req')
+            ->addInputText(trans('utilities::app.script'),'script','script')
+            ->addInputText(trans('utilities::app.regional'),'regional','regional')
             ->addSelect([0 => trans('utilities::app.no') ,1 => trans('utilities::app.yes')],trans('utilities::app.active') ,'is_default' ,'is_default' ,'is_default_active')
             ->addActionButton(trans('utilities::app.upload_images') ,'upload_image' ,'upload_image', 'center all' ,'100px')
             ->addActionButton($this->update,'update','update')

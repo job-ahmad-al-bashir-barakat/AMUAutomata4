@@ -1223,7 +1223,7 @@ class DataTableBuilder
 
                 $title = preg_match('/datatable::/',$title) ? "app.$col" : "datatable::table.$col";
 
-                $title = trans($title)." ({$lang[App::getLocale().'Lang']})";
+                $title = trans($title)." ({$lang['native']})";
 
                 if($hasTab)
                     $this->openHorizontalTab("{$col}_{$index}" ,$title ,'req' ,$index == App::getLocale() ? true : false);

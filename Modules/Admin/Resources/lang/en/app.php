@@ -59,5 +59,6 @@ return [
     'semester'           => 'Semester',
     'automata4_admin'    => 'Automata4 Admin',
 
-
+    'large'              => 'Large Size',
+    'small'              => 'Small Size',
 ];

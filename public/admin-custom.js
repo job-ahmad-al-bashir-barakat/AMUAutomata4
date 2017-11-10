@@ -93,6 +93,31 @@ var HELPER_AMU = {
         });
 
         return attributes;
+    },
+
+    /**
+     *
+     * @param string param
+     * @param string|object extraParam
+     * @returns {*}
+     */
+    convertStringParamToJson: function (param ,extraParam) {
+
+        var objJson = function (param) {
+
+            return JSON.parse('{"' + param.replace(/&|,/g, '","').replace(/=/g,'":"') + '"}', function(key, value) {
+                return key === "" ? value : decodeURIComponent(value)
+            });
+        };
+
+        if(typeof extraParam == typeof undefined)
+            return objJson(param);
+
+        var result = typeof extraParam == typeof {}
+            ? $.extend(objJson(param), extraParam)
+            : $.extend(objJson(param), objJson(extraParam));
+
+        return result;
     }
 };
 
@@ -1508,34 +1533,34 @@ var APP_AMU = {
                         $this      = $(_this),
                         $imageCont = $this.closest('.image-cont'),
                         cropperTemplete, infoTemplete, replacedFile = [], invalidRatio = [],
-                        previewFileType       = $this.data('preview-file-type'),
-                        allowedFileTypes      = typeof $this.data('allowed-file-types') != typeof undefined ? $this.data('allowed-file-types').split(',') : null,
-                        allowedFileExtensions = typeof $this.data('allowed-file-extensions') != typeof undefined ? $this.data('allowed-file-extensions') : null,
-                        uploadUrl       = $this.data('upload-url'),
-                        ratioUrl        = $this.data('ratio-url'),
-                        deleteUrl       = $this.data('delete-url'),
-                        downloadFolder  = $this.data('download-folder'),
-                        maxFileSize     = $this.data('max-file-size') || 0,
-                        maxFileCount    = $this.data('max-file-count') || 0,
-                        minFileCount    = $this.data('min-file-count') || 0,
-                        removeLabel     = $this.data('remove-label'),
-                        uploadRetryTitle= $this.data('upload-retry-title'),
-                        cropTitle       = $this.data('crop-title'),
-                        attributeTitle  = $this.data('attribute-title'),
-                        showCaption     = typeof $this.data('show-caption') != typeof undefined ? JSON.parse($this.data('show-caption')) : false,
-                        showPreview     = typeof $this.data('show-preview') != typeof undefined ? JSON.parse($this.data('show-preview')) : true,
-                        imageWidth      = $this.data('image-width') || null,
-                        imageHeight     = $this.data('image-height') || null,
-                        minImageHeight  = $this.data('min-image-height') || null,
-                        maxImageHeight  = $this.data('max-image-height') || null,
-                        minImageWidth   = $this.data('min-image-width')  || null,
-                        maxImageWidth   = $this.data('max-image-width')  || null,
-                        param           = $this.attr('data-param')       || '',
-                        multiple        = typeof $this.attr('multiple') != typeof undefined ? true : false,
-                        target          = typeof $this.data('target') != typeof undefined ? $this.data('target') : '',
-                        cropper         = typeof $this.data('cropper') != typeof undefined ? JSON.parse($this.data('cropper')) : true,
-                        cropperSelector = $this.data('cropper-selector') || '.aut-cropper-file-upload',
-                        cropperModal    = $this.data('cropper-modal') || '',
+                        previewFileType             = $this.data('preview-file-type'),
+                        allowedFileTypes            = typeof $this.data('allowed-file-types') != typeof undefined ? $this.data('allowed-file-types').split(',') : null,
+                        allowedFileExtensions       = typeof $this.data('allowed-file-extensions') != typeof undefined ? $this.data('allowed-file-extensions') : null,
+                        uploadUrl                   = $this.data('upload-url'),
+                        ratioUrl                    = $this.data('ratio-url'),
+                        deleteUrl                   = $this.data('delete-url'),
+                        downloadFolder              = $this.data('download-folder'),
+                        maxFileSize                 = $this.data('max-file-size') || 0,
+                        maxFileCount                = $this.data('max-file-count') || 0,
+                        minFileCount                = $this.data('min-file-count') || 0,
+                        removeLabel                 = $this.data('remove-label'),
+                        uploadRetryTitle            = $this.data('upload-retry-title'),
+                        cropTitle                   = $this.data('crop-title'),
+                        attributeTitle              = $this.data('attribute-title'),
+                        showCaption                 = typeof $this.data('show-caption') != typeof undefined ? JSON.parse($this.data('show-caption')) : false,
+                        showPreview                 = typeof $this.data('show-preview') != typeof undefined ? JSON.parse($this.data('show-preview')) : true,
+                        imageWidth                  = $this.data('image-width') || null,
+                        imageHeight                 = $this.data('image-height') || null,
+                        minImageHeight              = $this.data('min-image-height') || null,
+                        maxImageHeight              = $this.data('max-image-height') || null,
+                        minImageWidth               = $this.data('min-image-width')  || null,
+                        maxImageWidth               = $this.data('max-image-width')  || null,
+                        param                       = $this.attr('data-param')       || '',
+                        multiple                    = typeof $this.attr('multiple') != typeof undefined ? true : false,
+                        target                      = typeof $this.data('target') != typeof undefined ? $this.data('target') : '',
+                        cropper                     = typeof $this.data('cropper') != typeof undefined ? JSON.parse($this.data('cropper')) : true,
+                        cropperSelector             = $this.data('cropper-selector') || '.aut-cropper-file-upload',
+                        cropperModal                = $this.data('cropper-modal') || '',
                         datatable                   = $this.data('datatable'),
                         reloadDatatable             = typeof $this.data('reload-datatable') != typeof undefined ? JSON.parse($this.data('reload-datatable')) : true,
                         datatableInitialize         = typeof $this.data('datatable-initialize') != typeof undefined ? JSON.parse($this.data('datatable-initialize')) : true,
@@ -1897,22 +1922,33 @@ var APP_AMU = {
                             //info button
                         });
 
-                        if(allowRatio) {
-
-                            if(!$imageCont.data('allow-ratio-done'))
-                                $.get(ratioUrl ,function (res) {
-
-                                    var $cropRaio = $(cropperModal).find('.crop-raio');
-                                    $cropRaio.html(res.ratio.ratio_button);
-
-                                    $imageCont.find('.ratio-cont').html(res.ratio.ratio_resolution);
-                                    $imageCont.data('allow-ratio-done' ,true);
-                                });
-                        }
-
                         if(cropper) {
 
                             $this.closest('.file-input').on('click' ,'.btn-crop-image', function() {
+
+                                var $cropperModal         = $(cropperModal),
+                                    $cropRaio             = $cropperModal.find('.crop-ratio'),
+                                    $cropRaioButtons      = $cropperModal.find('.ratio-button'),
+                                    $cropRaioHiddenButton = $cropperModal.find('.crop-ratio-button-hidden');
+
+                                if(allowRatio) {
+
+                                    $cropRaio.removeClass('hide').show();
+                                    $cropRaioButtons.html('');
+                                    $.each(ratio ,function (i ,v) {
+
+                                        var button = $cropRaioHiddenButton.clone(true ,true).removeClass('crop-ratio-button-hidden hide').show();
+                                        console.log(button);
+                                        button.attr('data-ratio' ,i);
+                                        button.attr('data-width' ,v['width']);
+                                        button.attr('data-height' ,v['height']);
+                                        button.text(( v['title'] || i ) + ' ( ' + v['width'] + ' × ' + v['height'] + button.data('pixel') + ' )');
+                                        $cropRaioButtons.append(button);
+                                    });
+                                } else {
+
+                                    $cropRaio.addClass('hide').hide();
+                                }
 
                                 var $thisBtn   = $(this),
                                     $fileindex = $thisBtn.closest('div.kv-preview-thumb').data('fileindex');

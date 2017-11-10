@@ -6,8 +6,8 @@ return [
     // These are sorted by the native name, which is the order you might show them in a language selector.
     // Regional languages are sorted by their base language, so "British English" sorts as "English, British"
     'supportedLocales' => [
-        'en' => ['name' => 'English', 'script' => 'Latn', 'native' => 'English','enLang' => 'English' ,'arLang' => 'انكليزي'  ,'regional' => 'en_GB'],
-        'ar' => ['name' => 'Arabic',  'script' => 'Arab', 'native' => 'العربية','enLang' => 'Arabic'  ,'arLang' => 'عربي'     ,'regional' => 'ar_AE'],
+        'ar' => ['name' => 'Arabic',  'script' => 'Arab', 'native' => 'العربية', 'regional' => 'ar_AE'],
+        'en' => ['name' => 'English', 'script' => 'Latn', 'native' => 'English', 'regional' => 'en_GB'],
     ],
 
     // Negotiate for the user locale using the Accept-Language header if it's not defined in the URL?
