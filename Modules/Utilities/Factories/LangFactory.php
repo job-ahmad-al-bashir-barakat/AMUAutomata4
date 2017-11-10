@@ -13,7 +13,7 @@ class LangFactory extends GlobalFactory
     public function getDatatable($lang ,$request)
     {
         //todo This code is repeated and can be set as default action to get the query
-        $query = $lang::all();
+        $query = $lang::with(['image'])->get();
 
         return $this->table
             ->queryConfig('datatable-langs')
@@ -21,6 +21,7 @@ class LangFactory extends GlobalFactory
             ->queryAddColumn('is_default_active' ,function ($item){
                 return $item->is_default ? trans('utilities::app.yes') : trans('utilities::app.no');
             })
+            ->queryCustomButton('upload_image' ,'id' ,'fa fa-image' ,'' ,'onclick="showFileUploadModal(this)"')
             ->queryUpdateButton()
             ->queryDeleteButton()
             ->queryRender();
@@ -38,7 +39,10 @@ class LangFactory extends GlobalFactory
             ->addInputText(trans('utilities::app.code'),'lang_code','lang_code','required req')
             ->addInputText($this->name ,'name','name','required req')
             ->addInputText(trans('utilities::app.native'),'native','native','required req')
+            ->addInputText(trans('utilities::app.script'),'script','script')
+            ->addInputText(trans('utilities::app.regional'),'regional','regional')
             ->addSelect([0 => trans('utilities::app.no') ,1 => trans('utilities::app.yes')],trans('utilities::app.active') ,'is_default' ,'is_default' ,'is_default_active')
+            ->addActionButton(trans('utilities::app.upload_images') ,'upload_image' ,'upload_image', 'center all' ,'100px')
             ->addActionButton($this->update,'update','update')
             ->addActionButton($this->delete,'delete','delete')
             ->addNavButton()

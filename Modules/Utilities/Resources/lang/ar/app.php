@@ -8,6 +8,8 @@ return [
     'password'               => 'كلمة المرور',
     'name'                   => 'الاسم',
     'code'                   => 'كود',
+    'regional'               => 'الرمز الاقليمي',
+    'script'                 => 'ترميز',
     'name_route'             => 'اسم الموجه',
     'value'                  => 'قيمة',
     'native'                 => 'أصلي',

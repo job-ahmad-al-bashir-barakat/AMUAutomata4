@@ -51,6 +51,7 @@ return [
     'toggle_options'            => 'Toggle Options',
     'image_name'                => 'Image Name',
     'crop_ratio'                => 'Crop Ratio',
+    'allowed_ratio'             => 'allowed ratio (width × height) px:',
 
     /*
      * upload file
@@ -59,4 +60,5 @@ return [
     'crop_title'                => 'Crop',
     'attribute_title'           => 'Attribute',
     'clear'                     => 'Clear',
+    'pixel'                     => ' px',
 ];

@@ -1,5 +1,11 @@
 @php(extract($extraParameter))
 @php(extract($targetModel))
+@php(
+    $cropRatio = collect(config("file-upload.$id.ratio"))->map(function ($item ,$index) {
+        $item['title'] = isset($item['title']) ? trans($item['title']) : $index;
+        return $item;
+    })
+)
 
 @unless(empty($targetModel))
     @component('controle.component.modal' ,[
@@ -10,15 +16,20 @@
         'stopFooter' => true,
     ])
 @endunless
+
     <div class="image-cont">
-        <div class="ratio-cont"></div>
+        <div class="ratio-cont">
+            <span><b>{{ trans('app.allowed_ratio') }}</b></span>
+            @foreach($cropRatio as $index => $item)
+                <span> [{{ $item['width'] }} × {{ $item['height'] }}] </span>
+            @endforeach
+        </div>
         <input id="{{$id}}"
                name="{{$name}}"
                type="file"
                class="file-loading upload-file @if($class) {{ $class }} @else load-file @endif"
                data-upload-url="{{ localizeURL("utilities/$id/image/upload") }}"
                data-delete-url="{{ localizeURL("utilities/$id/image/destroy") }}"
-               data-ratio-url="{{ localizeURL("utilities/$id/image/ratio") }}"
                data-download-folder="{{ \Illuminate\Support\Str::plural($id) }}"
                data-max-file-size="{{ $maxFileSize or 0 }}"
                data-image-width="{{ $imageWidth or null }}"
@@ -38,7 +49,7 @@
                data-cropper-selector="{{ $cropperSelector or '.aut-cropper-file-upload' }}"
                data-cropper-modal="{{ $cropperModal or '#crop-image' }}"
                data-allow-ratio="{{ $allowRatio or 'false' }}"
-               data-ratio="{{ collect(config("file-upload.$id.ratio"))->toJson() }}"
+               data-ratio="{{ $cropRatio->toJson() }}"
                data-ratio-message="{{ trans('validation.ratio' ,['attribute' => '{name}']) }}"
                data-show-caption="{{ $showCaption or 'false' }}"
                data-show-preview="{{ $showPreview or 'true' }}"

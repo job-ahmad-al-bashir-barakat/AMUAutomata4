@@ -17,6 +17,7 @@ class CreateImagePartnerTable extends Migration
             $table->increments('id')->unsigned();
             $table->integer('partner_id')->unsigned()->index('lab_id');
             $table->integer('image_id')->unsigned();
+            $table->integer('image_type')->unsigned();
             $table->timestamps();
         });
     }

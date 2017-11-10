@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Relations\Relation;
 use Modules\Admin\Entities\Degree;
 use Modules\Admin\Entities\Department;
 use Modules\Admin\Entities\Faculty;
+use Modules\Utilities\Entities\Lang;
 use Modules\Utilities\Entities\MenuTables;
 use Modules\Utilities\Entities\Page;
 
@@ -20,11 +21,24 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Schema::defaultStringLength(191);
+        $this->setDefaultSchemaStringLength();
+        $this->setMorphMap();
+        $this->setLaravelLocalizationConfig();
+    }
 
-        /**
-         *  Menu morph
-         */
+    /**
+     * Default Schema String Length
+     */
+    function setDefaultSchemaStringLength()
+    {
+        Schema::defaultStringLength(191);
+    }
+
+    /**
+     * Menu morph
+     */
+    function setMorphMap()
+    {
         Relation::morphMap([
             'page'       => Page::class,
             'faculty'    => Faculty::class,
@@ -32,8 +46,28 @@ class AppServiceProvider extends ServiceProvider
             'department' => Department::class,
             'menus-table'=> MenuTables::class,
         ]);
+
     }
 
+    /**
+     * set laravellocalization config
+     */
+    function setLaravelLocalizationConfig()
+    {
+        \Config::set('laravellocalization.supportedLocales' ,Lang::all()
+            ->groupBy('lang_code')
+            ->map(function ($value ,$index){
+
+                $value = $value->first();
+
+                return [
+                    'name'     => $value->name,
+                    'script'   => is_null($value->script) ? '' : $value->script,
+                    'native'   => $value->native,
+                    'regional' => is_null($value->regional) ? '' : $value->regional,
+                ];
+            })->toArray());
+    }
     /**
      * Register any application services.
      *

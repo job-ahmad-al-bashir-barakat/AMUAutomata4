@@ -46,7 +46,12 @@
                         </div>
                     @endcomponent
                 </div>
-                <div class="crop-raio"></div>
+                <div class="crop-ratio hide">
+                    @component('controle.component.panel' ,['title' => trans('app.crop_ratio') ,'active' => true])
+                        <button type="button" id="cropResize" name="cropResize" data-method="cropResize" data-ratio="index" data-width="width" data-height="height" data-pixel="{{ trans('app.pixel') }}" class="btn btn-info btn-block mt crop-ratio-button-hidden hide">title</button>
+                        <div class="ratio-button form-group"></div>
+                    @endcomponent
+                </div>
                 @if($showType)
                     @component('controle.component.panel' ,['title' => trans('app.crop_type') ,'active' => false])
                         <div class="form-group">

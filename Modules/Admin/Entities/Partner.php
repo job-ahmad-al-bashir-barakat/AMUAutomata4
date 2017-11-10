@@ -64,11 +64,11 @@ class Partner extends \Eloquent
 
     function image_small()
     {
-        return $this->belongsToMany(Image::class)->where('width' ,'=' ,320);
+        return $this->belongsToMany(Image::class)->wherePivot('image_type' ,'=' ,'small');
     }
 
     function image_large()
     {
-        return $this->belongsToMany(Image::class)->where('width' ,'=' ,755);
+        return $this->belongsToMany(Image::class)->wherePivot('image_type' ,'=' ,'large');
     }
 }

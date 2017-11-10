@@ -19,6 +19,7 @@ class UserFactory extends GlobalFactory
             ->queryMultiLang(['name' ,'summary'])
             ->queryUpdateButton('id')
             ->queryDeleteButton('id')
+            ->queryCustomButton('upload_image' ,'id' ,'fa fa-image' ,'' ,'onclick="showFileUploadModal(this)"')
             ->queryRender(true);
     }
 
@@ -35,6 +36,7 @@ class UserFactory extends GlobalFactory
             ->addMultiInputTextLangs(['name'] ,'req required')
             ->addMultiTextareaLangs(['summary'] ,'req required')
             ->addInputPassword(trans('utilities::app.password'),'password','password','','','',false,false,false,false)
+            ->addActionButton(trans('utilities::app.upload_images') ,'upload_image' ,'upload_image', 'center all' ,'100px')
             ->addActionButton($this->update,'update','update')
             ->addActionButton($this->delete,'delete','delete')
             ->addNavButton()

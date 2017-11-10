@@ -5,6 +5,7 @@ use Illuminate\Support\Str;
 use Illuminate\View\View;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use Modules\Utilities\Entities\ControlMenu;
+use Modules\Utilities\Entities\Lang;
 use Nwidart\Modules\Exceptions\ModuleNotFoundException;
 use Nwidart\Modules\Facades\Module;
 
@@ -37,6 +38,13 @@ class GlobalComposer
 
         $view->with([
             'path'   => ControlMenu::whereAncestorOrSelf($node)->get()
+        ]);
+    }
+
+    public function langs(View $view)
+    {
+        $view->with([
+            'langs'  => Lang::all(),
         ]);
     }
 }

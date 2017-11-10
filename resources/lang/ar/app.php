@@ -51,6 +51,7 @@ return [
     'toggle_options'            => 'التلاعب بالاعدادات',
     'image_name'                => 'اسم الصورة',
     'crop_ratio'                => 'نسبة القص',
+    'allowed_ratio'             => 'النسبة المسموحة (العرض × الطول) بالبيكسل:',
 
     /*
      * upload file
@@ -59,4 +60,5 @@ return [
     'crop_title'                => 'قص',
     'attribute_title'           => 'خصائص',
     'clear'                     => 'إزالة',
+    'pixel'                     => ' بيكسل',
 ];

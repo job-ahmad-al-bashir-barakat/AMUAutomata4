@@ -141,14 +141,28 @@ class UploadController extends Controller
         {
             // get config model
             $dbModel = $this->imageLocalConfig['model'];
-
             // save relation file
             $dbModel = $dbModel::findOrFail($request->get('id'));
+            // relation params or extra update param
+            $params = [];
+            if(isset($this->imageLocalConfig['relationParam']) && count($this->imageLocalConfig['relationParam']))
+                foreach ($this->imageLocalConfig['relationParam'] as $param)
+                    $params[$param] = $request->input($param);
+
             // relationType has to be many or one
-            if($this->relationType == 'many')
-                $dbModel->image()->attach($returnParam->id);
-            else
-                $dbModel->update(["{$type}_id" => $returnParam->id]);
+            if($this->relationType == 'many') {
+
+                $attach = $returnParam->id;
+
+                if(count($params))
+                    $attach = [ $returnParam->id => $params ];
+
+                $dbModel->image()->attach($attach);
+
+            } else {
+
+                $dbModel->update(array_merge(["{$type}_id" => $returnParam->id] ,$params));
+            }
         }
 
         return array_merge(["success" => true], [$model => $returnParam]);
@@ -209,14 +223,5 @@ class UploadController extends Controller
     protected function destroyUploadImageDb($id) {
 
         Image::destroy($id);
-    }
-
-    function ratio(Request $request ,$model ,$type)
-    {
-        $routeParam = \Route::getCurrentRoute()->parameters();
-
-        $this->imageLocalConfig   = config("file-upload.{$routeParam['model']}");
-
-        return \response()->json(['ratio' => view('controle.component._crop_ratio' ,[ 'cropRatio' => $this->imageLocalConfig['ratio'] ])->renderSections() ]);
     }
 }
