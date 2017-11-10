@@ -14,9 +14,18 @@ class ControlMenu extends \Eloquent
 
     protected $fillable = ['id' ,'control_page_id' ,'parent_id' ,'url_path' ,'order'];
 
+    protected $appends = ['url_path_replace'];
+
     function page()
     {
         return $this->belongsTo(ControlPage::class ,'control_page_id');
+    }
+
+    function getUrlPathReplaceAttribute($value)
+    {
+        $params = request()->route()->parameters();
+
+        return replaceParamWithValue($this->url_path ,$params);
     }
 
     // this is a recommended way to declare event handlers

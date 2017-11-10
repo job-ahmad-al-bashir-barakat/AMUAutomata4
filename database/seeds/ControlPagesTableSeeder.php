@@ -513,6 +513,110 @@ class ControlPagesTableSeeder extends Seeder
                 'updated_at' => '2017-11-10 18:37:05',
                 'deleted_at' => NULL,
             ),
+            62 => 
+            array (
+                'id' => 109,
+                'control_page_code' => 'courses',
+                'created_at' => '2017-11-10 19:34:42',
+                'updated_at' => '2017-11-10 19:34:42',
+                'deleted_at' => NULL,
+            ),
+            63 => 
+            array (
+                'id' => 110,
+                'control_page_code' => 'labs',
+                'created_at' => '2017-11-10 19:36:03',
+                'updated_at' => '2017-11-10 19:36:03',
+                'deleted_at' => NULL,
+            ),
+            64 => 
+            array (
+                'id' => 111,
+                'control_page_code' => 'builder',
+                'created_at' => '2017-11-10 20:13:18',
+                'updated_at' => '2017-11-10 20:13:18',
+                'deleted_at' => NULL,
+            ),
+            65 => 
+            array (
+                'id' => 112,
+                'control_page_code' => 'sliders',
+                'created_at' => '2017-11-10 20:13:56',
+                'updated_at' => '2017-11-10 20:13:56',
+                'deleted_at' => NULL,
+            ),
+            66 => 
+            array (
+                'id' => 113,
+                'control_page_code' => 'slider_detail',
+                'created_at' => '2017-11-10 20:20:51',
+                'updated_at' => '2017-11-10 20:20:51',
+                'deleted_at' => NULL,
+            ),
+            67 => 
+            array (
+                'id' => 114,
+                'control_page_code' => 'vertical_sliders',
+                'created_at' => '2017-11-10 20:22:50',
+                'updated_at' => '2017-11-10 20:22:50',
+                'deleted_at' => NULL,
+            ),
+            68 => 
+            array (
+                'id' => 115,
+                'control_page_code' => 'vertical_slider_detail',
+                'created_at' => '2017-11-10 20:23:50',
+                'updated_at' => '2017-11-10 20:25:59',
+                'deleted_at' => NULL,
+            ),
+            69 => 
+            array (
+                'id' => 116,
+                'control_page_code' => 'blocks',
+                'created_at' => '2017-11-10 20:24:29',
+                'updated_at' => '2017-11-10 20:24:29',
+                'deleted_at' => NULL,
+            ),
+            70 => 
+            array (
+                'id' => 117,
+                'control_page_code' => 'block_detail',
+                'created_at' => '2017-11-10 20:25:01',
+                'updated_at' => '2017-11-10 20:25:50',
+                'deleted_at' => NULL,
+            ),
+            71 => 
+            array (
+                'id' => 118,
+                'control_page_code' => 'steps',
+                'created_at' => '2017-11-10 20:25:20',
+                'updated_at' => '2017-11-10 20:25:20',
+                'deleted_at' => NULL,
+            ),
+            72 => 
+            array (
+                'id' => 119,
+                'control_page_code' => 'text_cards',
+                'created_at' => '2017-11-10 20:25:42',
+                'updated_at' => '2017-11-10 20:25:42',
+                'deleted_at' => NULL,
+            ),
+            73 => 
+            array (
+                'id' => 120,
+                'control_page_code' => 'custom_modules',
+                'created_at' => '2017-11-10 20:26:48',
+                'updated_at' => '2017-11-10 20:26:48',
+                'deleted_at' => NULL,
+            ),
+            74 => 
+            array (
+                'id' => 121,
+                'control_page_code' => 'pages',
+                'created_at' => '2017-11-10 20:27:07',
+                'updated_at' => '2017-11-10 20:27:07',
+                'deleted_at' => NULL,
+            ),
         ));
         
         

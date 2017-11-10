@@ -309,3 +309,30 @@ if (!function_exists('buildHtmlTree')) {
         return $html;
     }
 }
+
+if (!function_exists('replaceParamWithValue')) {
+
+    function replaceParamWithValue($target ,$object)
+    {
+        if(preg_match_all('/{[a-z-A-Z_>]+}/' ,$target ,$results ,PREG_PATTERN_ORDER)) {
+
+            foreach ($results[0] as $result)
+            {
+                $property = substr($result, 1, -1);
+
+                $propArr = explode('->',$property);
+
+                $obj = $object;
+
+                foreach ($propArr as $prop)
+                {
+                    $obj = $obj[$prop];
+                }
+
+                $target = preg_replace("/$result/" ,$obj ,$target);
+            }
+        }
+
+        return $target;
+    }
+}
