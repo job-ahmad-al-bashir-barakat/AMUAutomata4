@@ -5,7 +5,7 @@
     $name  = $_lang ? "{$name}_{$_lang}" : $name;
     if($_lang && isset($trans))
         $name    = "trans_{$originalName}[{$name}]";
-    $label = $_lang ? "$label ({$item["{$lang}Lang"]})": $label;
+    $label = $_lang ? "$label ({$item["native"]})": $label;
 @endphp
 
 @if($group)
