@@ -833,7 +833,7 @@ function aut_datatable_extraEventDatatable(table ,aut_datatable) {
 function aut_datatable_repositionPlaceButtonsColvis(aut_datatable) {
 
     // reposition place for buttons-colvis dropdown
-    $('table' + aut_datatable.ids.table).on('click','.buttons-colvis',function(){
+    $('[role="datatable"][data-table=' + aut_datatable.model + ']').off('click' ,'.buttons-colvis').on('click','.buttons-colvis',function(){
 
         if(aut_datatable.dir == 'rtl')
         {
@@ -847,8 +847,9 @@ function aut_datatable_repositionPlaceButtonsColvis(aut_datatable) {
             else
                 var pos = (body - (colvisOffsetLeft - colvisWidth - colvisPadding )) + (colvisWidth + colvisPadding) + colvisPadding;
 
-            $('.dt-button-collection').css('left','initial');
-            $('.dt-button-collection').css('right',pos);
+            var buttonCollection = $('.dt-button-collection');
+            buttonCollection.css('left','initial');
+            buttonCollection.css('right',pos);
         }
     });
 }

@@ -13,7 +13,7 @@ class Partner extends \Eloquent
 {
     use MultiLangs,SoftDeletes;
 
-    protected $fillable = ['iid' ,'contact_id'];
+    protected $fillable = ['contact_id'];
 
     protected $appends = ['lang_name','lang_description'];
 
