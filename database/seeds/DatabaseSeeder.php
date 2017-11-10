@@ -43,5 +43,30 @@ class DatabaseSeeder extends Seeder
         $this->call(GenderNameLangsTableSeeder::class);
         $this->call(SocialNetworksTableSeeder::class);
         $this->call(SocialNetworkNameLangsTableSeeder::class);
+        $this->call(BuilderPagesTableSeeder::class);
+        $this->call(StepsTableSeeder::class);
+        $this->call(StepTextLangsTableSeeder::class);
+        $this->call(StepTitleLangsTableSeeder::class);
+        $this->call(TextCardsTableSeeder::class);
+        $this->call(TextCardTitleLangsTableSeeder::class);
+        $this->call(VerticalSlidersTableSeeder::class);
+        $this->call(VerticalSliderDetailsTableSeeder::class);
+        $this->call(VerticalSliderDetailSmallTextLangsTableSeeder::class);
+        $this->call(VerticalSliderDetailSubTextLangsTableSeeder::class);
+        $this->call(VerticalSliderDetailTextLangsTableSeeder::class);
+        $this->call(VerticalSliderNameLangsTableSeeder::class);
+        $this->call(SlidersTableSeeder::class);
+        $this->call(SliderDetailsTableSeeder::class);
+        $this->call(SliderDetailBtnLangsTableSeeder::class);
+        $this->call(SliderDetailHeadLangsTableSeeder::class);
+        $this->call(SliderDetailTextLangsTableSeeder::class);
+        $this->call(SliderDetailTitleLangsTableSeeder::class);
+        $this->call(SliderNameLangsTableSeeder::class);
+        $this->call(BlocksTableSeeder::class);
+        $this->call(BlockDetailsTableSeeder::class);
+        $this->call(BlockDetailBtnLangsTableSeeder::class);
+        $this->call(BlockDetailTextLangsTableSeeder::class);
+        $this->call(BlockDetailTitleLangsTableSeeder::class);
+        $this->call(BlockNameLangsTableSeeder::class);
     }
 }
