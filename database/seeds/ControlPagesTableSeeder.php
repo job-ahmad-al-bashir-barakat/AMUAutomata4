@@ -241,6 +241,278 @@ class ControlPagesTableSeeder extends Seeder
                 'updated_at' => '2017-07-31 20:58:52',
                 'deleted_at' => NULL,
             ),
+            28 => 
+            array (
+                'id' => 75,
+                'control_page_code' => 'home',
+                'created_at' => '2017-11-10 17:44:56',
+                'updated_at' => '2017-11-10 17:44:56',
+                'deleted_at' => NULL,
+            ),
+            29 => 
+            array (
+                'id' => 76,
+                'control_page_code' => 'langs',
+                'created_at' => '2017-11-10 17:45:15',
+                'updated_at' => '2017-11-10 17:45:15',
+                'deleted_at' => NULL,
+            ),
+            30 => 
+            array (
+                'id' => 77,
+                'control_page_code' => 'icons',
+                'created_at' => '2017-11-10 17:45:35',
+                'updated_at' => '2017-11-10 17:45:35',
+                'deleted_at' => NULL,
+            ),
+            31 => 
+            array (
+                'id' => 78,
+                'control_page_code' => 'global',
+                'created_at' => '2017-11-10 17:45:52',
+                'updated_at' => '2017-11-10 17:45:52',
+                'deleted_at' => NULL,
+            ),
+            32 => 
+            array (
+                'id' => 79,
+                'control_page_code' => 'users',
+                'created_at' => '2017-11-10 17:46:29',
+                'updated_at' => '2017-11-10 17:46:29',
+                'deleted_at' => NULL,
+            ),
+            33 => 
+            array (
+                'id' => 80,
+                'control_page_code' => 'attributes',
+                'created_at' => '2017-11-10 17:47:30',
+                'updated_at' => '2017-11-10 17:47:30',
+                'deleted_at' => NULL,
+            ),
+            34 => 
+            array (
+                'id' => 81,
+                'control_page_code' => 'modules',
+                'created_at' => '2017-11-10 17:47:50',
+                'updated_at' => '2017-11-10 17:47:50',
+                'deleted_at' => NULL,
+            ),
+            35 => 
+            array (
+                'id' => 82,
+                'control_page_code' => 'pages',
+                'created_at' => '2017-11-10 17:48:07',
+                'updated_at' => '2017-11-10 17:48:07',
+                'deleted_at' => NULL,
+            ),
+            36 => 
+            array (
+                'id' => 83,
+                'control_page_code' => 'general',
+                'created_at' => '2017-11-10 17:48:38',
+                'updated_at' => '2017-11-10 17:48:38',
+                'deleted_at' => NULL,
+            ),
+            37 => 
+            array (
+                'id' => 84,
+                'control_page_code' => 'menus',
+                'created_at' => '2017-11-10 17:48:54',
+                'updated_at' => '2017-11-10 17:48:54',
+                'deleted_at' => NULL,
+            ),
+            38 => 
+            array (
+                'id' => 85,
+                'control_page_code' => 'control',
+                'created_at' => '2017-11-10 17:49:39',
+                'updated_at' => '2017-11-10 17:49:39',
+                'deleted_at' => NULL,
+            ),
+            39 => 
+            array (
+                'id' => 86,
+                'control_page_code' => 'menu_tables',
+                'created_at' => '2017-11-10 17:50:06',
+                'updated_at' => '2017-11-10 17:50:06',
+                'deleted_at' => NULL,
+            ),
+            40 => 
+            array (
+                'id' => 87,
+                'control_page_code' => 'university',
+                'created_at' => '2017-11-10 17:50:41',
+                'updated_at' => '2017-11-10 17:50:41',
+                'deleted_at' => NULL,
+            ),
+            41 => 
+            array (
+                'id' => 88,
+                'control_page_code' => 'faculties',
+                'created_at' => '2017-11-10 17:50:58',
+                'updated_at' => '2017-11-10 17:50:58',
+                'deleted_at' => NULL,
+            ),
+            42 => 
+            array (
+                'id' => 89,
+                'control_page_code' => 'departments',
+                'created_at' => '2017-11-10 17:51:12',
+                'updated_at' => '2017-11-10 17:51:12',
+                'deleted_at' => NULL,
+            ),
+            43 => 
+            array (
+                'id' => 90,
+                'control_page_code' => 'degrees',
+                'created_at' => '2017-11-10 17:51:26',
+                'updated_at' => '2017-11-10 17:51:26',
+                'deleted_at' => NULL,
+            ),
+            44 => 
+            array (
+                'id' => 91,
+                'control_page_code' => 'study_plan',
+                'created_at' => '2017-11-10 17:51:44',
+                'updated_at' => '2017-11-10 17:51:44',
+                'deleted_at' => NULL,
+            ),
+            45 => 
+            array (
+                'id' => 92,
+                'control_page_code' => 'hierarchy',
+                'created_at' => '2017-11-10 17:52:11',
+                'updated_at' => '2017-11-10 17:52:11',
+                'deleted_at' => NULL,
+            ),
+            46 => 
+            array (
+                'id' => 93,
+                'control_page_code' => 'offices',
+                'created_at' => '2017-11-10 17:52:29',
+                'updated_at' => '2017-11-10 17:52:29',
+                'deleted_at' => NULL,
+            ),
+            47 => 
+            array (
+                'id' => 94,
+                'control_page_code' => 'partners',
+                'created_at' => '2017-11-10 17:52:44',
+                'updated_at' => '2017-11-10 17:52:44',
+                'deleted_at' => NULL,
+            ),
+            48 => 
+            array (
+                'id' => 95,
+                'control_page_code' => 'person',
+                'created_at' => '2017-11-10 17:53:08',
+                'updated_at' => '2017-11-10 17:53:08',
+                'deleted_at' => NULL,
+            ),
+            49 => 
+            array (
+                'id' => 96,
+                'control_page_code' => 'university_council',
+                'created_at' => '2017-11-10 17:53:33',
+                'updated_at' => '2017-11-10 17:53:33',
+                'deleted_at' => NULL,
+            ),
+            50 => 
+            array (
+                'id' => 97,
+                'control_page_code' => 'board_of_trustees',
+                'created_at' => '2017-11-10 17:54:14',
+                'updated_at' => '2017-11-10 17:54:14',
+                'deleted_at' => NULL,
+            ),
+            51 => 
+            array (
+                'id' => 98,
+                'control_page_code' => 'staff',
+                'created_at' => '2017-11-10 17:54:29',
+                'updated_at' => '2017-11-10 17:54:29',
+                'deleted_at' => NULL,
+            ),
+            52 => 
+            array (
+                'id' => 99,
+                'control_page_code' => 'blog',
+                'created_at' => '2017-11-10 17:54:44',
+                'updated_at' => '2017-11-10 17:54:44',
+                'deleted_at' => NULL,
+            ),
+            53 => 
+            array (
+                'id' => 100,
+                'control_page_code' => 'setting',
+                'created_at' => '2017-11-10 18:32:23',
+                'updated_at' => '2017-11-10 18:32:23',
+                'deleted_at' => NULL,
+            ),
+            54 => 
+            array (
+                'id' => 101,
+                'control_page_code' => 'general_setting',
+                'created_at' => '2017-11-10 18:32:55',
+                'updated_at' => '2017-11-10 18:32:55',
+                'deleted_at' => NULL,
+            ),
+            55 => 
+            array (
+                'id' => 102,
+                'control_page_code' => 'social_network',
+                'created_at' => '2017-11-10 18:33:18',
+                'updated_at' => '2017-11-10 18:33:18',
+                'deleted_at' => NULL,
+            ),
+            56 => 
+            array (
+                'id' => 103,
+                'control_page_code' => 'gender',
+                'created_at' => '2017-11-10 18:33:39',
+                'updated_at' => '2017-11-10 18:33:39',
+                'deleted_at' => NULL,
+            ),
+            57 => 
+            array (
+                'id' => 104,
+                'control_page_code' => 'position',
+                'created_at' => '2017-11-10 18:33:58',
+                'updated_at' => '2017-11-10 18:33:58',
+                'deleted_at' => NULL,
+            ),
+            58 => 
+            array (
+                'id' => 105,
+                'control_page_code' => 'job_title',
+                'created_at' => '2017-11-10 18:34:22',
+                'updated_at' => '2017-11-10 18:34:22',
+                'deleted_at' => NULL,
+            ),
+            59 => 
+            array (
+                'id' => 106,
+                'control_page_code' => 'study_year',
+                'created_at' => '2017-11-10 18:36:18',
+                'updated_at' => '2017-11-10 18:36:18',
+                'deleted_at' => NULL,
+            ),
+            60 => 
+            array (
+                'id' => 107,
+                'control_page_code' => 'semester',
+                'created_at' => '2017-11-10 18:36:42',
+                'updated_at' => '2017-11-10 18:36:42',
+                'deleted_at' => NULL,
+            ),
+            61 => 
+            array (
+                'id' => 108,
+                'control_page_code' => 'hierarchy_type',
+                'created_at' => '2017-11-10 18:37:05',
+                'updated_at' => '2017-11-10 18:37:05',
+                'deleted_at' => NULL,
+            ),
         ));
         
         

@@ -16,7 +16,8 @@ class CreateModulesTable extends Migration {
 		{
 			$table->increments('id');
 			$table->string('code', 191);
-			$table->timestamps();
+            $table->string('customized', 1)->default('1');
+            $table->timestamps();
 			$table->softDeletes();
 		});
 	}

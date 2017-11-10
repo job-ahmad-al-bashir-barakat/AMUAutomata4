@@ -20,7 +20,7 @@ class CreateLangsTable extends Migration {
             $table->string('native', 191);
             $table->string('script', 191)->nullable();
             $table->string('regional', 191)->nullable();
-			$table->integer('image_id')->unsigned();
+			$table->integer('image_id')->unsigned()->nullable();
 			$table->boolean('is_default');
 			$table->softDeletes();
 			$table->timestamps();
