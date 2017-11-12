@@ -40,28 +40,29 @@
 
         var parentLink = $(item).parents('li:first').data('link');
 
-        if(!$(item).is('[data-dynamic]'))
-        {
-            if((typeof $(item).data('link') == typeof undefined) && parentLink) {
+        if(!$(item).parents('li:first').is('[data-dynamic]'))
+            if(!$(item).is('[data-dynamic]'))
+            {
+                if((typeof $(item).data('link') == typeof undefined) && parentLink) {
 
-                var _notify = $('.notify-clone.prevent-drag-list').clone();
+                    var _notify = $('.notify-clone.prevent-drag-list').clone();
 
-                HELPER_AMU.notify({html: _notify.html(), status: 'warning' ,pos : 'top-left' , timeout: 1500})
+                    HELPER_AMU.notify({html: _notify.html(), status: 'warning' ,pos : 'top-left' , timeout: 1500})
 
-                return false;
+                    return false;
+                }
+
+                if ((typeof parentLink != typeof undefined && parentLink) == item.data('link')) {
+
+                    $(item).remove()
+
+                    var _notify = $('.notify-clone.prevent-drag-link').clone();
+
+                    HELPER_AMU.notify({html: _notify.html(), status: 'warning' ,pos : 'top-left' , timeout: 1500})
+
+                    return;
+                }
             }
-
-            if ((typeof parentLink != typeof undefined && parentLink) == item.data('link')) {
-
-                $(item).remove()
-
-                var _notify = $('.notify-clone.prevent-drag-link').clone();
-
-                HELPER_AMU.notify({html: _notify.html(), status: 'warning' ,pos : 'top-left' , timeout: 1500})
-
-                return;
-            }
-        }
 
         if ((source != destination) && typeof item.data('saved') == typeof undefined) {
 
@@ -88,9 +89,10 @@
         var reject = false;
 
         // prevent from nested element
-        if(!$(draggedElement).is('[data-dynamic]'))
-            if($(draggedElement).parents('li:first').data('link'))
-                reject = true;
+        if(!$(draggedElement).parents('li:first').is('[data-dynamic]'))
+            if(!$(draggedElement).is('[data-dynamic]'))
+                if($(draggedElement).parents('li:first').data('link'))
+                    reject = true;
 
         return reject;
     }
