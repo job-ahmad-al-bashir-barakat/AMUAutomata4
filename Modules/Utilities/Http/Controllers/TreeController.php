@@ -189,9 +189,13 @@ class TreeController extends Controller
      */
     public function store(Request $request)
     {
+        $model = $this->model;
+
         $factory = new $this->factory();
 
         $factory->store($request);
+
+        $model::fixTree();
 
         return Response::json(['operation_message' => trans('app.oper.success')]);
     }
@@ -221,9 +225,13 @@ class TreeController extends Controller
      */
     public function update(Request $request ,$tree ,$id)
     {
+        $model = $this->model;
+
         $factory = new $this->factory();
 
         $factory->update($request ,$id);
+
+        $model::fixTree();
 
         return Response::json(['operation_message' => trans('app.oper.success')]);
     }
@@ -241,6 +249,8 @@ class TreeController extends Controller
                 $model::where('id' ,'=' ,$item['id'])->update(['order' => $item['order'] ,'parent_id' => isset($item['parent']) ? $item['parent']['id'] : null]);
             }
 
+        $model::fixTree();
+
         return Response::json(['operation_message' => trans('app.oper.successOrder')]);
     }
 
@@ -250,9 +260,13 @@ class TreeController extends Controller
      */
     public function destroy(Request $request ,$tree ,$id)
     {
+        $model = $this->model;
+
         $factory = new $this->factory();
 
         $factory->destroy($request ,$id);
+
+        $model::fixTree();
 
         return Response::json(['operation_message' => trans('app.oper.success')]);
     }

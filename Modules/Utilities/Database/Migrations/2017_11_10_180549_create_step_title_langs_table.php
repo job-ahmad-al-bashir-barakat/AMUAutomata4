@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateModulesTable extends Migration {
+class CreateStepTitleLangsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,12 +12,13 @@ class CreateModulesTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('modules', function(Blueprint $table)
+		Schema::create('step_title_langs', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->string('code', 191);
-            $table->string('customized', 1)->default('1');
-            $table->timestamps();
+			$table->integer('step_id')->unsigned()->index('step_id');
+			$table->integer('lang_id')->unsigned()->index('lang_id');
+			$table->string('text', 200);
+			$table->timestamps();
 			$table->softDeletes();
 		});
 	}
@@ -30,7 +31,7 @@ class CreateModulesTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('modules');
+		Schema::drop('step_title_langs');
 	}
 
 }

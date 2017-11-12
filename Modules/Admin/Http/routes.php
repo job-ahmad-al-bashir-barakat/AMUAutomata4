@@ -8,9 +8,13 @@ Route::group(
     ],
 function() {
 
-    Route::get('/', 'AdminController@index');
+    Route::get('/', 'AdminController@index')->name('home');
 
-    Route::resource('study-plan' ,'StudyPlanController');
+    Route::resource('study-plan' ,'StudyPlanController' ,[
+        'names' => [
+            'index' => 'study-plan',
+        ]
+    ]);
 
     Route::get('{view}/menu' ,'AdminController@menu');
 

@@ -21,7 +21,7 @@ class CreateSiteMenuTable extends Migration
             $table->integer('order')->unsigned();
             $table->boolean('is_link')->default(0)->nullable();
             $table->nullableMorphs('menuable');
-            $table->string('dynamic');
+            $table->string('dynamic')->nullable();
             $table->timestamps();
             $table->softDeletes();
             $table->index(['_lft','_rgt','parent_id']);

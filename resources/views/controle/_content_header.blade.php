@@ -30,9 +30,17 @@
         @foreach($path as $index => $singlePath)
             <li @if(!$singlePath->url_path) class="active" @endif>
                 @if($singlePath->url_path)
-                    <a {{ $singlePath->url_path ? "href=$singlePath->url_path class=ajax" : "href=#" }}>{{ trans("$module::app.{$singlePath->page->control_page_code}") }}</a>
+                    @php
+                        $trans = trans("$module::app.{$singlePath->page->control_page_code}");
+                        $controlPageTitle = preg_match('/::/', $trans)
+                            ? trans("$module::app.".\Illuminate\Support\Str::slug($singlePath->page->control_page_code ,'-'))
+                            : $trans;
+
+                        $url = $singlePath->url_path_replace ? App::getLocale().'/'.$singlePath->url_path_replace : "#";
+                    @endphp
+                    <span><a href="{{ $url }}" class=ajax>{{ $controlPageTitle }}</a></span>
                 @else
-                    {{ trans("$module::app.{$singlePath->page->control_page_code}") }}
+                    <span>{{ trans("$module::app.{$singlePath->page->control_page_code}") }}</span>
                 @endif
             </li>
         @endforeach

@@ -15,21 +15,21 @@ function () {
     });
 
     Route::group(['prefix' => 'builder'], function () {
-        Route::get('pages', 'BuilderController@pages');
+        Route::get('pages', 'BuilderController@pages')->name('pages');
         Route::post('pages', 'BuilderController@storePages');
         Route::get('modules/{pageId}', 'BuilderController@getPages');
 
-        Route::get('sliders', 'BuilderController@sliders');
-        Route::get('sliders/{slider}', 'BuilderController@slider');
+        Route::get('sliders', 'BuilderController@sliders')->name('sliders');
+        Route::get('sliders/{slider}', 'BuilderController@slider')->name('slider-detail');
 
-        Route::get('vertical-sliders', 'BuilderController@verticalSliders');
-        Route::get('vertical-sliders/{verticalSlider}', 'BuilderController@verticalSlider');
+        Route::get('vertical-sliders', 'BuilderController@verticalSliders')->name('vertical-sliders');
+        Route::get('vertical-sliders/{verticalSlider}', 'BuilderController@verticalSlider')->name('vertical-slider-detail');
 
-        Route::get('blocks', 'BuilderController@blocks');
-        Route::get('blocks/{block}', 'BuilderController@block');
+        Route::get('blocks', 'BuilderController@blocks')->name('blocks');
+        Route::get('blocks/{block}', 'BuilderController@block')->name('block-detail');
 
-        Route::get('steps', 'BuilderController@steps');
-        Route::get('text-cards', 'BuilderController@textCards');
+        Route::get('steps', 'BuilderController@steps')->name('steps');
+        Route::get('text-cards', 'BuilderController@textCards')->name('text-cards');
     });
 
     Route::group(['prefix' => 'attribute'], function () {

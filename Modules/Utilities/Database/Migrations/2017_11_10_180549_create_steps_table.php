@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateModulesTable extends Migration {
+class CreateStepsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,12 +12,10 @@ class CreateModulesTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('modules', function(Blueprint $table)
+		Schema::create('steps', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->string('code', 191);
-            $table->string('customized', 1)->default('1');
-            $table->timestamps();
+			$table->timestamps();
 			$table->softDeletes();
 		});
 	}
@@ -30,7 +28,7 @@ class CreateModulesTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('modules');
+		Schema::drop('steps');
 	}
 
 }
