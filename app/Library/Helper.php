@@ -248,7 +248,6 @@ if(! function_exists('position')) {
     }
 }
 
-
 if(! function_exists('reversePosition')) {
 
 
@@ -334,5 +333,21 @@ if (!function_exists('replaceParamWithValue')) {
         }
 
         return $target;
+    }
+}
+
+if (!function_exists('getSlug')) {
+
+    function getSlug($id, $text)
+    {
+        return str_slug("{$id}_{$text}");
+    }
+}
+
+if (!function_exists('getIdFromSlug')) {
+    function getIdFromSlug($slug)
+    {
+        $id = explode('_', $slug, 2)[0];
+        return $id;
     }
 }

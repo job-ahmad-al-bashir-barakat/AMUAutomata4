@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Modules\Utilities\WebModules\Modules\Module;
 
+/**
+ * @property CustomModule customModule
+ * @property int custom_module_id
+ */
 class BuilderPage extends Model
 {
     use SoftDeletes;
@@ -41,7 +45,6 @@ class BuilderPage extends Model
     {
         $module = Module::setModule($this->customModule->module_id);
         $module->customModuleId = $this->custom_module_id;
-//        collect([])->pluck()
         $module->data = $this->customModule->attributeValues->pluck('value', 'attribute.code');
         $module->getAttributeValue();
         return $module;

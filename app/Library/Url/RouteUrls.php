@@ -292,4 +292,9 @@ class RouteUrls
     {
         return $this->localizeUrl('unlockscreen');
     }
+
+    public function universityStaff($staff)
+    {
+        return $this->localizeUrl("university/staff/$staff");
+    }
 }

@@ -14,9 +14,9 @@ class SiteMenu extends \Eloquent
 {
     use NodeTrait ,MultiLangs ,SoftDeletes;
 
-    protected $fillable = ['id' ,'parent_id' ,'name_route' ,'order' ,'is_link' ,'menuable_id' ,'menuable_type' ,'dynamic'];
+    protected $fillable = ['id' ,'parent_id' ,'name_route' ,'order' ,'is_link' ,'menuable_id' ,'menuable_type', 'dynamic'];
 
-    protected $appends = ['lang_name' ,'title' ,'titles'];
+    protected $appends = ['lang_name' ,'title' ,'titles', 'dynamic_info'];
 
     protected $with = ['menuable'];
 
@@ -79,6 +79,13 @@ class SiteMenu extends \Eloquent
     public function getLangNameAttribute()
     {
         return $this->transName->keyBy('lang_code');
+    }
+
+    public function getDynamicInfoAttribute()
+    {
+        if($this->dynamic) {
+            return $model = studly_case($this->dynamic);
+        }
     }
 
     public function menuable()
