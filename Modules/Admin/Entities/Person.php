@@ -18,7 +18,9 @@ class Person extends \Eloquent
 
     const IMAGE_PATH = 'storage/upload/image/people/';
 
-    const PERSON_UNIVERSITY_COUNCIL = 'university_council';
+    const PERSON_UNIVERSITY_COUNCIL = 'university-council';
+    const PERSON_BOARD_OF_TRUSTEES  = 'board-of-trustees';
+    const PERSON_STAFF              = 'staff';
 
     protected $table = 'persons';
 
@@ -54,9 +56,14 @@ class Person extends \Eloquent
         return $query->where('type', '=', self::PERSON_UNIVERSITY_COUNCIL);
     }
 
-    public function scopeUniversityTrusted($query)
+    public function scopeBoardOfTrustees($query)
     {
-        return $query->where('type', '=', 'university_trusted');
+        return $query->where('type', '=', self::PERSON_BOARD_OF_TRUSTEES);
+    }
+
+    public function scopeStaff($query)
+    {
+        return $query->where('type', '=', self::PERSON_STAFF);
     }
 
     /*

@@ -14,6 +14,13 @@ class SiteMenu extends \Eloquent
 {
     use NodeTrait ,MultiLangs ,SoftDeletes;
 
+    const MENUABLE_PATH = [
+        'page'       => Page::class,
+        'faculty'    => Faculty::class,
+        'degree'     => Degree::class,
+        'department' => Department::class,
+    ];
+
     protected $fillable = ['id' ,'parent_id' ,'name_route' ,'order' ,'is_link' ,'menuable_id' ,'menuable_type' ,'dynamic'];
 
     protected $appends = ['lang_name' ,'title' , 'title_dynamic','titles'];
