@@ -340,14 +340,14 @@ if (!function_exists('getSlug')) {
 
     function getSlug($id, $text)
     {
-        return str_slug("{$id}_{$text}");
+        return str_slug("{$id}-{$text}");
     }
 }
 
 if (!function_exists('getIdFromSlug')) {
     function getIdFromSlug($slug)
     {
-        $id = explode('_', $slug, 2)[0];
+        $id = explode('-', $slug, 2)[0];
         return $id;
     }
 }
