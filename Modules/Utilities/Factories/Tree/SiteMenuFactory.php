@@ -30,9 +30,9 @@ class SiteMenuFactory
         ];
 
         if($control->is_link)
-            $items[] = 'title';
+            $items[] = 'title_dynamic';
         else
-            $items['link'] = 'title';
+            $items['link'] = 'title_dynamic';
 
         return $items;
     }

@@ -41,6 +41,7 @@
         var parentLink = $(item).parents('li:first').data('link');
 
         if(!$(item).parents('li:first').is('[data-dynamic]'))
+        {
             if(!$(item).is('[data-dynamic]'))
             {
                 if((typeof $(item).data('link') == typeof undefined) && parentLink) {
@@ -63,6 +64,7 @@
                     return;
                 }
             }
+        }
 
         if ((source != destination) && typeof item.data('saved') == typeof undefined) {
 

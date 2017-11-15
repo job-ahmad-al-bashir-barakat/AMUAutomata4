@@ -16,7 +16,7 @@ class SiteMenu extends \Eloquent
 
     protected $fillable = ['id' ,'parent_id' ,'name_route' ,'order' ,'is_link' ,'menuable_id' ,'menuable_type' ,'dynamic'];
 
-    protected $appends = ['lang_name' ,'title' ,'titles'];
+    protected $appends = ['lang_name' ,'title' , 'title_dynamic','titles'];
 
     protected $with = ['menuable'];
 
@@ -30,13 +30,20 @@ class SiteMenu extends \Eloquent
 
             $title = $menuable->lang_name[$lang]['text'];
 
-            if($this->dynamic)
-                $title .= " (Dynamic)";
-
         } else {
 
             $title = $this->lang_name[$lang]['text'];
         }
+
+        return $title;
+    }
+
+    public function getTitleDynamicAttribute()
+    {
+        $title = $this->title;
+
+        if($this->dynamic)
+            $title .= " (Dynamic)";
 
         return $title;
     }

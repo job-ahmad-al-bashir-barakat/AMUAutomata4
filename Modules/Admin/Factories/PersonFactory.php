@@ -18,7 +18,7 @@ class PersonFactory extends GlobalFactory
         $query = Person::with(['image'])->allLangs()->Type();
 
         return $this->table
-            ->queryConfig('datatable-persons')
+            ->queryConfig('datatable-persons-'.Str::snake(\Route::input('model')))
             ->queryDatatable($query)
             ->queryUpdateButton('id')
             ->queryDeleteButton('id')
@@ -34,21 +34,23 @@ class PersonFactory extends GlobalFactory
     {
         $socialNetworks = SocialNetwork::all();
 
+        $type = Str::snake(\Route::input('model'));
+
         $table = $this->table
-            ->config('datatable-persons',trans('admin::app.'.Str::slug(\Route::input('model'),'_')),['withTab' => true ,'gridSystem' => true ,'dialogWidth' => "50%"])
+            ->config("datatable-persons-$type",trans('admin::app.'.Str::slug(\Route::input('model'),'_')),['withTab' => true ,'gridSystem' => true ,'dialogWidth' => "50%"])
             ->addPrimaryKey('id','id')
-            ->addHiddenInput('type' ,'type' ,Str::snake(\Route::input('model')) ,false ,true)
+            ->addHiddenInput('type' ,'type' ,$type ,false ,true)
             ->gridSystemConfig(false)
             ->setGridNormalCol(12 ,'lg')
             ->startTab(trans('admin::app.personal_Info'),'fa fa-user fa-2x')
                 ->startHorizontalTab()
-                    ->openHorizontalTab('name' ,$this->name ,'req',true)
+                    ->openHorizontalTab("name-$type" ,$this->name ,'req',true)
                         ->addMultiInputTextLangs(['name'] ,'req required')
                     ->closeHorizontalTab()
-                    ->openHorizontalTab('summary' ,$this->summary ,'req')
+                    ->openHorizontalTab("summary-$type" ,$this->summary ,'req')
                         ->addMultiTextareaLangs(['summary'] ,'req required')
                     ->closeHorizontalTab()
-                    ->openHorizontalTab('extra' ,trans('admin::app.extra_info') ,'req')
+                    ->openHorizontalTab("extra-$type" ,trans('admin::app.extra_info') ,'req')
                         ->addAutocomplete('autocomplete/gender' ,trans('admin::app.gender') , 'gender_id', 'gender_id', "gender.lang_name.$this->lang.text" ,'req required none' ,'' , '' ,true ,false ,true ,false)
                         ->addAutocomplete('autocomplete/position' ,trans('utilities::app.position') , 'position_id', 'position_id', "position.lang_name.$this->lang.text" ,'req required none' ,'' , '' ,true ,false ,true ,false)
                         ->addAutocomplete('autocomplete/job-title' ,trans('utilities::app.job_title') , 'job_title_id', 'job_title_id', "job_title.lang_name.$this->lang.text" ,'req required none' ,'' , '' ,true ,false ,true ,false)
@@ -71,11 +73,11 @@ class PersonFactory extends GlobalFactory
                                ->endRelation();
 
             $table = $table->endTab()
-                      ->addActionButton(trans('admin::app.upload_images') ,'upload_image' ,'upload_image', 'center all' ,'100px')
-                      ->addActionButton($this->update,'update','update')
-                      ->addActionButton($this->delete,'delete','delete')
-                      ->addNavButton()
-                      ->render();
+                           ->addActionButton(trans('admin::app.upload_images') ,'upload_image' ,'upload_image', 'center all' ,'100px')
+                           ->addActionButton($this->update,'update','update')
+                           ->addActionButton($this->delete,'delete','delete')
+                           ->addNavButton()
+                           ->render();
 
         return $table;
     }
