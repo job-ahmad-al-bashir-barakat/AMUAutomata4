@@ -286,19 +286,36 @@ if(! function_exists('direction'))
 
 if (!function_exists('buildHtmlTree')) {
 
+    /**
+     * Need some refactoring
+     *
+     * @param $tree
+     * @return string
+     */
     function buildHtmlTree($tree)
     {
         $html = '';
         foreach ($tree as $item) {
+            $url = '#';
             if($item->menuable_type == 'page') {
                 $url =  RouteUrls::page($item->menuable->route);
             }
-            else {
-                $url = '#';
-            }
             $html .= "<li>";
             $html .= "<a href='{$url}'>{$item->title}</a>";
-            if($item->children->count()){
+            if ($item->dynamic && $item->dynamic_info->count()) {// set the dynamic data as list
+                $html .= "<ul class='dropdown'>";
+                foreach ($item->dynamic_info as $info) {// set the children tree for each dynamic data list
+                    $html .= "<li>";
+                    $html .= "<a href='{$url}'>" . $info->lang_name[app()->getLocale()]->text . "</a>";
+                    if($item->children->count()){
+                        $html .= "<ul class='dropdown'>";
+                        $html .= buildHtmlTree($item->children);
+                        $html .= "</ul>";
+                    }
+                    $html .= "</li>";
+                }
+                $html .= "</ul>";
+            } else if($item->children->count()){
                 $html .= "<ul class='dropdown'>";
                 $html .= buildHtmlTree($item->children);
                 $html .= "</ul>";
