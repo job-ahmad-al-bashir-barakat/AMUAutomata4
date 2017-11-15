@@ -3,10 +3,15 @@
 namespace Modules\Utilities\Entities;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Collection;
 use Modules\Utilities\Traits\MultiLangs;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Modules\Utilities\Entities\LangModels\CustomModuleNameLang;
 
+/**
+ * @property int module_id
+ * @property CustomModuleAttributeValue|Collection attributeValues
+ */
 class CustomModule extends Model
 {
     use SoftDeletes, MultiLangs;
