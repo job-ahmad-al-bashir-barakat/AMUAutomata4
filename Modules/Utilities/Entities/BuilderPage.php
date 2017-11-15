@@ -7,10 +7,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Modules\Utilities\WebModules\Modules\Module;
 
 /**
- * @property CustomModule customModule
  * @property int custom_module_id
+ * @property CustomModule customModule
  */
-class BuilderPage extends Model
+class BuilderPage extends \Eloquent
 {
     use SoftDeletes;
 

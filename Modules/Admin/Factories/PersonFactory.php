@@ -33,11 +33,10 @@ class PersonFactory extends GlobalFactory
     public function buildDatatable($model ,$request)
     {
         $socialNetworks = SocialNetwork::all();
-
         $table = $this->table
             ->config('datatable-persons',trans('admin::app.'.Str::slug(\Route::input('model'),'_')),['withTab' => true ,'gridSystem' => true ,'dialogWidth' => "50%"])
             ->addPrimaryKey('id','id')
-            ->addHiddenInput('type' ,'type' ,Str::snake(\Route::input('model')) ,false ,true)
+            ->addHiddenInput('type', 'type', Str::snake(\Route::input('model')), false, true)
             ->gridSystemConfig(false)
             ->setGridNormalCol(12 ,'lg')
             ->startTab(trans('admin::app.personal_Info'),'fa fa-user fa-2x')

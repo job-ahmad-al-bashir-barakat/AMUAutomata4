@@ -18,6 +18,8 @@ class Person extends \Eloquent
 
     const IMAGE_PATH = 'storage/upload/image/people/';
 
+    const PERSON_UNIVERSITY_COUNCIL = 'university_council';
+
     protected $table = 'persons';
 
     protected $fillable = ['type' ,'image_id' ,'gender_id' ,'position_id' ,'job_title_id' ,'contact_id'];
@@ -45,6 +47,16 @@ class Person extends \Eloquent
     public function scopeType($query)
     {
         return $query->where('type', '=', Str::snake(\Route::input('model')));
+    }
+
+    public function scopeUniversityCouncil($query)
+    {
+        return $query->where('type', '=', self::PERSON_UNIVERSITY_COUNCIL);
+    }
+
+    public function scopeUniversityTrusted($query)
+    {
+        return $query->where('type', '=', 'university_trusted');
     }
 
     /*
