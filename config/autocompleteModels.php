@@ -178,7 +178,7 @@ return [
         'model' => \Modules\Utilities\Entities\SiteMenu::class,
         //todo: fix this condition for menu autocompelte
         'q'       => false,
-        'colName' => 'title',
+        'colName' => 'title_autocomplete',
         'colId'   => 'id',
     ],
 
