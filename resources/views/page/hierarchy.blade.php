@@ -61,6 +61,7 @@
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
         d3.json("{{ RouteUrls::hierarchy() }}", function(error, flare) {
+
             if (error) throw error;
 
             root = flare;
@@ -75,8 +76,11 @@
                 }
             }
 
-            root.children.forEach(collapse);
-            update(root);
+            if(root.children)
+            {
+                root.children.forEach(collapse);
+                update(root);
+            }
         });
 
         d3.select(self.frameElement).style("height", "800px");
