@@ -119,10 +119,9 @@ class Person extends \Eloquent
 
     public function getImagePathAttribute()
     {
+        $imageName = '';
         if ($this->image) {
             $imageName = $this->image->hash_name ?: '';
-        } else {
-            $imageName = '';
         }
         return self::IMAGE_PATH . $imageName;
     }

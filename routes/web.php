@@ -20,7 +20,6 @@ Route::group(
 
         Route::get('home', function () {
             $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
-            //return $menu;
             $modules = \Modules\Utilities\Entities\BuilderPage::pageModules()->get()->pluck('module');
             return view('modules', compact('modules', 'menu'));
         })->name('home');
@@ -68,19 +67,20 @@ Route::group(
         Route::get('university/staff/{person}' ,function () {//university-council-detail
             $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
             $modules = \Modules\Utilities\Entities\BuilderPage::pageModules()->get()->pluck('module');
-            return view('page.university_council_detail'  ,compact('modules', 'menu'));
+            return view(/*'page.university_council_detail'*/'modules', compact('modules', 'menu'));
         })->name('person');
+
         Route::get('trusted-council' ,function () {
             $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
             $modules = \Modules\Utilities\Entities\BuilderPage::pageModules()->get()->pluck('module');
             return view('modules'  ,compact('modules', 'menu'));
         })->name('trusted_council');
-
+/*
         Route::get('trusted-council-detail' ,function () {
             $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
 //            $modules = \Modules\Utilities\Entities\BuilderPage::pageModules()->get()->pluck('module');
             return view('page.trusted_council_detail'  ,compact('modules', 'menu'));
-        });
+        })->name('person');*/
 
         Route::get('university-partner' ,function () {
             $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();

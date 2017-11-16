@@ -23,7 +23,7 @@ class SiteMenu extends \Eloquent
 
     protected $fillable = ['id' ,'parent_id' ,'name_route' ,'order' ,'is_link' ,'menuable_id' ,'menuable_type' ,'dynamic'];
 
-    protected $appends = ['lang_name', 'title', 'title_dynamic', 'title_autocomplete', 'titles'];
+    protected $appends = ['lang_name', 'title', 'title_dynamic', 'title_autocomplete', 'titles' ,'dynamic_info'];
 
     protected $with = ['menuable'];
 
@@ -76,6 +76,15 @@ class SiteMenu extends \Eloquent
 
         return collect($titles);
     }
+
+    public function getDynamicInfoAttribute()
+    {
+        if ($this->dynamic) {
+            $model = self::MENUABLE_PATH[$this->dynamic];
+            return $model::all();
+        }
+    }
+
 
     public function scopeTypeGeneralCondition($query) {
 
