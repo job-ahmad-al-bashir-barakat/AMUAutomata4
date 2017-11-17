@@ -143,12 +143,11 @@ Route::group(
             return response()->json(collect($hierarchyJson)->first());
         });
 
-        Route::get('degrees' ,function () {
+        Route::get('faculty/{faculty}/degrees' ,function ($faculty) {
             $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
-            $modules = [];
-            $degrees = \Modules\Admin\Entities\Degree::all();
-            return view('page.degrees' ,compact('modules', 'menu' ,'degrees' ));
-        });
+            $modules = \Modules\Utilities\Entities\BuilderPage::pageModules()->get()->pluck('module');
+            return view('modules' ,compact('modules', 'menu' ,'degrees' ));
+        })->name('degrees');
 
         Route::get('courses' ,function () {
             $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();

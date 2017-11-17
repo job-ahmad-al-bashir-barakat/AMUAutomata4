@@ -290,26 +290,28 @@ if (!function_exists('buildHtmlTree')) {
      * Need some refactoring
      *
      * @param $tree
+     * @param string $urlPrefix
      * @return string
      */
-    function buildHtmlTree($tree)
+    function buildHtmlTree($tree, $urlPrefix = '')
     {
         $html = '';
         foreach ($tree as $item) {
             $url = '#';
             if($item->menuable_type == 'page') {
-                $url =  RouteUrls::page($item->menuable->route);
+                $url = RouteUrls::page("{$urlPrefix}{$item->menuable->route}");
             }
             $html .= "<li>";
             $html .= "<a href='{$url}'>{$item->title}</a>";
             if ($item->dynamic && $item->dynamic_info->count()) {// set the dynamic data as list
                 $html .= "<ul class='dropdown'>";
                 foreach ($item->dynamic_info as $info) {// set the children tree for each dynamic data list
+                    $prefix = $item->dynamic. "/" . getSlug($info->id, $info->lang_name[app()->getLocale()]->text);
                     $html .= "<li>";
                     $html .= "<a href='{$url}'>" . $info->lang_name[app()->getLocale()]->text . "</a>";
                     if($item->children->count()){
                         $html .= "<ul class='dropdown'>";
-                        $html .= buildHtmlTree($item->children);
+                        $html .= buildHtmlTree($item->children, "{$prefix}/");
                         $html .= "</ul>";
                     }
                     $html .= "</li>";
