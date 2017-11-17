@@ -11,7 +11,10 @@ class AutocompleteHelper
     {
         $query = $query->TypeGeneralCondition();
 
-        return $this->whereNotNodeAndChildren($query)->whereIsLink(false);
+        if($request->input('type') == 'dialog')
+            return $this->whereNotNodeAndChildren($query)->whereIsLink(false);
+        else
+            return $query;
     }
 
     function controlAutocomplete(Request $request ,$query)

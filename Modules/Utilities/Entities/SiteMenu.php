@@ -23,7 +23,7 @@ class SiteMenu extends \Eloquent
 
     protected $fillable = ['id' ,'parent_id' ,'name_route' ,'order' ,'is_link' ,'menuable_id' ,'menuable_type' ,'dynamic'];
 
-    protected $appends = ['lang_name', 'title', 'title_dynamic', 'titles', 'dynamic_info'];
+    protected $appends = ['lang_name', 'title', 'title_dynamic', 'title_autocomplete', 'titles' ,'dynamic_info'];
 
     protected $with = ['menuable'];
 
@@ -41,6 +41,16 @@ class SiteMenu extends \Eloquent
 
             $title = $this->lang_name[$lang]['text'];
         }
+
+        return $title;
+    }
+
+    public function getTitleAutocompleteAttribute()
+    {
+        $title = $this->title;
+
+        if($this->parent)
+            $title .= " ({$this->parent->title})";
 
         return $title;
     }
