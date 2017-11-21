@@ -143,34 +143,32 @@ Route::group(
             return response()->json(collect($hierarchyJson)->first());
         });
 
-        Route::get('degrees' ,function () {
+        Route::get('faculty/{faculty}/degrees' ,function ($faculty) {
             $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
-            $modules = [];
-            $degrees = \Modules\Admin\Entities\Degree::all();
-            return view('page.degrees' ,compact('modules', 'menu' ,'degrees' ));
-        });
+            $modules = \Modules\Utilities\Entities\BuilderPage::pageModules()->get()->pluck('module');
+            return view('modules' ,compact('modules', 'menu' ,'degrees' ));
+        })->name('degrees');
 
-        Route::get('courses' ,function () {
+        Route::get('faculty/{faculty}/courses' ,function () {
             $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
             $modules = [];
             $courses = \Modules\Admin\Entities\Course::with(['degree' ,'department' ,'prerequisiteGroup.courses'])->get();
-
             return view('page.courses' ,compact('modules', 'menu', 'courses'));
-        });
+        })->name('courses');
 
-        Route::get('labs' ,function () {
+        Route::get('faculty/{faculty}/labs' ,function () {
             $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
             $modules = [];
 
             return view('page.labs' ,compact('modules', 'menu' ));
-        });
+        })->name('labs');
 
-        Route::get('instructors' ,function () {
+        Route::get('faculty/{faculty}/instructors' ,function () {
             $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
             $modules = [];
 
             return view('page.instructors'  ,compact('modules', 'menu' ));
-        });
+        })->name('instructors');
 
         Route::get('location' ,function () {
             $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();

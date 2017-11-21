@@ -32,30 +32,6 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-xs-3 mt-40">
-                        <div class="list-group">
-                            <a href="#" class="list-group-item active">
-                                Faculty 1
-                                <span class="badge">7</span>
-                            </a>
-                            <a href="#" class="list-group-item">
-                                Faculty 2
-                                <span class="badge">4</span>
-                            </a>
-                            <a href="#" class="list-group-item">
-                                Faculty 3
-                                <span class="badge">4</span>
-                            </a>
-                            <a href="#"  class="list-group-item">
-                                Faculty 4
-                                <span class="badge">4</span>
-                            </a>
-                            <a href="#" class="list-group-item">
-                                Faculty 5
-                                <span class="badge">4</span>
-                            </a>
-                        </div>
-                    </div>
                     <div class="col-xs-9 mt-40">
                         <div class="panel panel-info">
                             <!-- Default panel contents -->
