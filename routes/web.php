@@ -177,7 +177,7 @@ Route::group(
             return view('page.location'  ,compact('modules', 'menu' ));
         });
 
-        Route::get('study-plan' ,function () {
+        Route::get('faculty/{faculty}/study-plan' ,function () {
             $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
             $modules = [];
 
