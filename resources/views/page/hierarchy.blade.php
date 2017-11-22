@@ -31,8 +31,7 @@
 @endsection
 
 @section('content')
-    <div class="hierarchy" style="margin-top: 100px; text-align: center; transform: rotate(90deg);">
-
+    <div class="hierarchy" style="margin: 150px; text-align: center; transform: rotate(90deg);">
     </div>
 @endsection
 
