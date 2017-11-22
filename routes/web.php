@@ -151,9 +151,9 @@ Route::group(
 
         Route::get('faculty/{faculty}/courses' ,function () {
             $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
-            $modules = [];
-            $courses = \Modules\Admin\Entities\Course::with(['degree' ,'department' ,'prerequisiteGroup.courses'])->get();
-            return view('page.courses' ,compact('modules', 'menu', 'courses'));
+            $modules = \Modules\Utilities\Entities\BuilderPage::pageModules()->get()->pluck('module');
+            //$courses = \Modules\Admin\Entities\Course::with(['degree' ,'department' ,'prerequisiteGroup.courses'])->get();
+            return view('modules' ,compact('modules', 'menu'));
         })->name('courses');
 
         Route::get('faculty/{faculty}/labs' ,function () {
