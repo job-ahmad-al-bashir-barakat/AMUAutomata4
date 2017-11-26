@@ -52,8 +52,8 @@
                 <button type="button" data-dismiss="alert" aria-label="Close" class="close">
                     <span aria-hidden="true">×</span>
                 </button>
-                <i class="icons icon-info"></i>
-                @lang('admin::app.error_semesters')
+                <i class="icons icon-info pr-5"></i>
+                @lang('admin::app.error_semesters' ,['link' => RouteUrls::semester()])
             </div>
         </div>
     </div>
