@@ -47,6 +47,7 @@ return [
     'numbers'            => 'هواتف اضافية',
     'number'             => 'الرقم',
     'location'           => 'العنوان',
+    'error_semesters'    => 'من فضلك أضف بعض الفصول',
 
     'code'               => 'ترميز',
     'credit'             => 'عدد الساعات',

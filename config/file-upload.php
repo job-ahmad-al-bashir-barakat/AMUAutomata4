@@ -105,7 +105,7 @@ return [
         'ratio' => [
             'partner_small_image' => [ 'title' => 'admin::app.small' ,'width'  => '320', 'height' => '300', ],
         ],
-        'relationType' => 'many',
+        'relationType'  => 'many',
         'relationParam' => ['image_type'],
     ],
 ];

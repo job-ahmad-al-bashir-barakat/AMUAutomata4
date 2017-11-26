@@ -42,6 +42,7 @@ return [
     'addresses'          => 'Extra Addresses',
     'numbers'            => 'Extra Numbers',
     'number'             => 'Number',
+    'error_semesters'    => 'Please enter some semesters',
 
     'responsible_person' => 'Responsible Person',
     'address1'           => 'First Address',
