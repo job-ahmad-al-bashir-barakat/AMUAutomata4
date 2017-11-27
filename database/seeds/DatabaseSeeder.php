@@ -68,5 +68,6 @@ class DatabaseSeeder extends Seeder
         $this->call(BlockDetailTextLangsTableSeeder::class);
         $this->call(BlockDetailTitleLangsTableSeeder::class);
         $this->call(BlockNameLangsTableSeeder::class);
+        $this->call(MenuTableColumnsTableSeeder::class);
     }
 }

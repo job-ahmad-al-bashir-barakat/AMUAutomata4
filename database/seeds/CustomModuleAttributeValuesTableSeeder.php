@@ -637,6 +637,66 @@ class CustomModuleAttributeValuesTableSeeder extends Seeder
                 'updated_at' => '2017-11-05 19:49:54',
                 'deleted_at' => NULL,
             ),
+            62 => 
+            array (
+                'id' => 73,
+                'custom_module_id' => 23,
+                'attribute_id' => 1,
+                'value' => 'E',
+                'created_at' => '2017-11-15 19:04:08',
+                'updated_at' => '2017-11-15 19:04:08',
+                'deleted_at' => NULL,
+            ),
+            63 => 
+            array (
+                'id' => 74,
+                'custom_module_id' => 23,
+                'attribute_id' => 2,
+                'value' => '12',
+                'created_at' => '2017-11-15 19:04:08',
+                'updated_at' => '2017-11-15 19:04:08',
+                'deleted_at' => NULL,
+            ),
+            64 => 
+            array (
+                'id' => 75,
+                'custom_module_id' => 25,
+                'attribute_id' => 1,
+                'value' => 'E',
+                'created_at' => '2017-11-17 18:52:26',
+                'updated_at' => '2017-11-17 18:52:26',
+                'deleted_at' => NULL,
+            ),
+            65 => 
+            array (
+                'id' => 76,
+                'custom_module_id' => 25,
+                'attribute_id' => 2,
+                'value' => '9',
+                'created_at' => '2017-11-17 18:52:26',
+                'updated_at' => '2017-11-17 18:52:26',
+                'deleted_at' => NULL,
+            ),
+            66 => 
+            array (
+                'id' => 77,
+                'custom_module_id' => 26,
+                'attribute_id' => 1,
+                'value' => 'E',
+                'created_at' => '2017-11-22 18:53:28',
+                'updated_at' => '2017-11-22 18:53:28',
+                'deleted_at' => NULL,
+            ),
+            67 => 
+            array (
+                'id' => 78,
+                'custom_module_id' => 26,
+                'attribute_id' => 2,
+                'value' => '12',
+                'created_at' => '2017-11-22 18:53:28',
+                'updated_at' => '2017-11-22 18:53:28',
+                'deleted_at' => NULL,
+            ),
         ));
         
         

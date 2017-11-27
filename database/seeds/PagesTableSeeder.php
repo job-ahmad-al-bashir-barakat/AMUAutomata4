@@ -227,10 +227,10 @@ class PagesTableSeeder extends Seeder
             23 => 
             array (
                 'id' => 24,
-                'page_code' => 'university-calendar',
-                'route' => 'university_calendar',
+                'page_code' => 'university_calendar',
+                'route' => 'university-calendar',
                 'created_at' => '2017-10-14 18:49:43',
-                'updated_at' => '2017-10-29 19:27:21',
+                'updated_at' => '2017-11-15 20:56:39',
                 'deleted_at' => NULL,
             ),
             24 => 
@@ -249,6 +249,15 @@ class PagesTableSeeder extends Seeder
                 'route' => 'exams',
                 'created_at' => '2017-10-14 18:50:34',
                 'updated_at' => '2017-10-14 18:50:34',
+                'deleted_at' => NULL,
+            ),
+            26 => 
+            array (
+                'id' => 27,
+                'page_code' => 'person',
+                'route' => 'person',
+                'created_at' => '2017-11-15 18:10:31',
+                'updated_at' => '2017-11-15 18:10:31',
                 'deleted_at' => NULL,
             ),
         ));

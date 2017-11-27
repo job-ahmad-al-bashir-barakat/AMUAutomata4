@@ -497,6 +497,46 @@ class ModuleNameLangsTableSeeder extends Seeder
                 'updated_at' => '2017-11-05 19:35:03',
                 'deleted_at' => NULL,
             ),
+            48 => 
+            array (
+                'id' => 69,
+                'module_id' => 25,
+                'lang_id' => 1,
+                'text' => 'Degrees Table',
+                'created_at' => '2017-11-17 18:45:14',
+                'updated_at' => '2017-11-17 18:45:14',
+                'deleted_at' => NULL,
+            ),
+            49 => 
+            array (
+                'id' => 70,
+                'module_id' => 25,
+                'lang_id' => 2,
+                'text' => 'جدول الاختصاصات',
+                'created_at' => '2017-11-17 18:45:14',
+                'updated_at' => '2017-11-17 18:45:14',
+                'deleted_at' => NULL,
+            ),
+            50 => 
+            array (
+                'id' => 71,
+                'module_id' => 26,
+                'lang_id' => 1,
+                'text' => 'Courses Table',
+                'created_at' => '2017-11-22 18:40:58',
+                'updated_at' => '2017-11-22 18:40:58',
+                'deleted_at' => NULL,
+            ),
+            51 => 
+            array (
+                'id' => 72,
+                'module_id' => 26,
+                'lang_id' => 2,
+                'text' => 'جدول الامقررات',
+                'created_at' => '2017-11-22 18:40:58',
+                'updated_at' => '2017-11-22 18:40:58',
+                'deleted_at' => NULL,
+            ),
         ));
         
         

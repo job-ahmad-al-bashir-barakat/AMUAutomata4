@@ -417,6 +417,66 @@ class CustomModuleNameLangsTableSeeder extends Seeder
                 'updated_at' => '2017-11-05 19:49:54',
                 'deleted_at' => NULL,
             ),
+            40 => 
+            array (
+                'id' => 45,
+                'custom_module_id' => 23,
+                'lang_id' => 1,
+                'text' => 'Person',
+                'created_at' => '2017-11-15 19:04:08',
+                'updated_at' => '2017-11-15 19:04:08',
+                'deleted_at' => NULL,
+            ),
+            41 => 
+            array (
+                'id' => 46,
+                'custom_module_id' => 23,
+                'lang_id' => 2,
+                'text' => 'شخص',
+                'created_at' => '2017-11-15 19:04:08',
+                'updated_at' => '2017-11-15 19:04:08',
+                'deleted_at' => NULL,
+            ),
+            42 => 
+            array (
+                'id' => 49,
+                'custom_module_id' => 25,
+                'lang_id' => 1,
+                'text' => 'Degrees Table',
+                'created_at' => '2017-11-17 18:52:26',
+                'updated_at' => '2017-11-17 18:52:26',
+                'deleted_at' => NULL,
+            ),
+            43 => 
+            array (
+                'id' => 50,
+                'custom_module_id' => 25,
+                'lang_id' => 2,
+                'text' => 'جدول الاختصاصات',
+                'created_at' => '2017-11-17 18:52:26',
+                'updated_at' => '2017-11-17 18:52:26',
+                'deleted_at' => NULL,
+            ),
+            44 => 
+            array (
+                'id' => 51,
+                'custom_module_id' => 26,
+                'lang_id' => 1,
+                'text' => 'Courses Table',
+                'created_at' => '2017-11-22 18:53:28',
+                'updated_at' => '2017-11-22 18:53:28',
+                'deleted_at' => NULL,
+            ),
+            45 => 
+            array (
+                'id' => 52,
+                'custom_module_id' => 26,
+                'lang_id' => 2,
+                'text' => 'جدول المقررات',
+                'created_at' => '2017-11-22 18:53:28',
+                'updated_at' => '2017-11-22 18:53:28',
+                'deleted_at' => NULL,
+            ),
         ));
         
         
