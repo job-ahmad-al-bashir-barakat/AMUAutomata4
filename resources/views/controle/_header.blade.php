@@ -24,7 +24,7 @@
                         <em class="fa fa-navicon"></em>
                     </a>
                     <!-- Button to show/hide the sidebar on mobile. Visible on mobile only.-->
-                    <a href="#" data-toggle-state="aside-toggled" data-no-persist="true"
+                    <a href="@void()" data-toggle-state="aside-toggled" data-no-persist="true"
                        class="visible-xs sidebar-toggle">
                         <em class="fa fa-navicon"></em>
                     </a>

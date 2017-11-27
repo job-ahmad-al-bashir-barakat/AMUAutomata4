@@ -15,10 +15,10 @@
                     ])
                         <div class="form-group">
                             <div class="col-lg-12">
-                                {{ Form::bsAutocomplete(trans('admin::app.faculty') ,'faculty' ,'faculty' ,'autocomplete/faculty' ,[] ,'0' ,'c:col-xs-3 required' ,['data-placeholder' => trans('admin::app.faculty')]) }}
-                                {{ Form::bsAutocomplete(trans('admin::app.study_year') ,'study-year' ,'study-year' ,'autocomplete/faculty-study-year' ,[] ,'0' ,'c:col-xs-3 required' ,['data-placeholder' => trans('admin::app.study_year') ,'data-param' => '#faculty']) }}
-                                {{ Form::bsAutocomplete(trans('admin::app.department') ,'department' ,'department' ,'autocomplete/department' ,[] ,'0' ,'c:col-xs-3 required' ,['data-placeholder' => trans('admin::app.department') ,'data-param' => '#faculty']) }}
-                                {{ Form::bsAutocomplete(trans('admin::app.degree') ,'degree' ,'degree' ,'autocomplete/degree' ,[] ,'0' ,'c:col-xs-3' ,['data-placeholder' => trans('admin::app.degree') ,'data-param' => '#faculty']) }}
+                                {{ Form::bsAutocomplete(trans('admin::app.faculty') ,'faculty' ,'faculty' ,'autocomplete/faculty' ,[] ,'0' ,'c:col-lg-3 c:col-xs-12 required' ,['data-placeholder' => trans('admin::app.faculty')]) }}
+                                {{ Form::bsAutocomplete(trans('admin::app.study_year') ,'study-year' ,'study-year' ,'autocomplete/faculty-study-year' ,[] ,'0' ,'c:col-lg-3 c:col-xs-12 required' ,['data-placeholder' => trans('admin::app.study_year') ,'data-param' => '#faculty']) }}
+                                {{ Form::bsAutocomplete(trans('admin::app.department') ,'department' ,'department' ,'autocomplete/department' ,[] ,'0' ,' c:col-lg-3 c:col-xs-12 required' ,['data-placeholder' => trans('admin::app.department') ,'data-param' => '#faculty']) }}
+                                {{ Form::bsAutocomplete(trans('admin::app.degree') ,'degree' ,'degree' ,'autocomplete/degree' ,[] ,'0' ,'c:col-lg-3 c:col-xs-12' ,['data-placeholder' => trans('admin::app.degree') ,'data-param' => '#faculty']) }}
                             </div>
                         </div>
                         @slot('footer')
