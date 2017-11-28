@@ -54,19 +54,21 @@ class AppServiceProvider extends ServiceProvider
      */
     function setLaravelLocalizationConfig()
     {
-        \Config::set('laravellocalization.supportedLocales' ,Lang::all()
-            ->groupBy('lang_code')
-            ->map(function ($value ,$index){
+        if(Lang::count()) {
+            \Config::set('laravellocalization.supportedLocales', Lang::all()
+                ->groupBy('lang_code')
+                ->map(function ($value, $index) {
 
-                $value = $value->first();
+                    $value = $value->first();
 
-                return [
-                    'name'     => $value->name,
-                    'script'   => is_null($value->script) ? '' : $value->script,
-                    'native'   => $value->native,
-                    'regional' => is_null($value->regional) ? '' : $value->regional,
-                ];
-            })->toArray());
+                    return [
+                        'name' => $value->name,
+                        'script' => is_null($value->script) ? '' : $value->script,
+                        'native' => $value->native,
+                        'regional' => is_null($value->regional) ? '' : $value->regional,
+                    ];
+                })->toArray());
+        }
     }
     /**
      * Register any application services.
