@@ -64,8 +64,8 @@ class SiteMenuNameLangsTableSeeder extends Seeder
                 'lang_id' => 1,
                 'text' => 'Medical',
                 'created_at' => '2017-10-14 18:11:23',
-                'updated_at' => '2017-10-14 18:11:23',
-                'deleted_at' => NULL,
+                'updated_at' => '2017-11-12 19:48:19',
+                'deleted_at' => '2017-11-12 19:48:19',
             ),
             5 => 
             array (
@@ -74,8 +74,8 @@ class SiteMenuNameLangsTableSeeder extends Seeder
                 'lang_id' => 2,
                 'text' => 'طبي',
                 'created_at' => '2017-10-14 18:11:23',
-                'updated_at' => '2017-10-14 18:11:23',
-                'deleted_at' => NULL,
+                'updated_at' => '2017-11-12 19:48:19',
+                'deleted_at' => '2017-11-12 19:48:19',
             ),
             6 => 
             array (
@@ -84,8 +84,8 @@ class SiteMenuNameLangsTableSeeder extends Seeder
                 'lang_id' => 1,
                 'text' => 'Faculties',
                 'created_at' => '2017-10-14 18:12:30',
-                'updated_at' => '2017-10-14 18:12:30',
-                'deleted_at' => NULL,
+                'updated_at' => '2017-11-12 19:50:47',
+                'deleted_at' => '2017-11-12 19:50:47',
             ),
             7 => 
             array (
@@ -94,8 +94,8 @@ class SiteMenuNameLangsTableSeeder extends Seeder
                 'lang_id' => 2,
                 'text' => 'الكليات',
                 'created_at' => '2017-10-14 18:12:30',
-                'updated_at' => '2017-10-14 18:12:30',
-                'deleted_at' => NULL,
+                'updated_at' => '2017-11-12 19:50:47',
+                'deleted_at' => '2017-11-12 19:50:47',
             ),
             8 => 
             array (
@@ -104,8 +104,8 @@ class SiteMenuNameLangsTableSeeder extends Seeder
                 'lang_id' => 1,
                 'text' => 'Engineering',
                 'created_at' => '2017-10-14 18:13:31',
-                'updated_at' => '2017-10-14 18:13:31',
-                'deleted_at' => NULL,
+                'updated_at' => '2017-11-12 19:50:08',
+                'deleted_at' => '2017-11-12 19:50:08',
             ),
             9 => 
             array (
@@ -114,8 +114,8 @@ class SiteMenuNameLangsTableSeeder extends Seeder
                 'lang_id' => 2,
                 'text' => 'الهندسة',
                 'created_at' => '2017-10-14 18:13:31',
-                'updated_at' => '2017-10-14 18:13:31',
-                'deleted_at' => NULL,
+                'updated_at' => '2017-11-12 19:50:08',
+                'deleted_at' => '2017-11-12 19:50:08',
             ),
             10 => 
             array (

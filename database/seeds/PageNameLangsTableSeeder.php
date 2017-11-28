@@ -537,6 +537,26 @@ class PageNameLangsTableSeeder extends Seeder
                 'updated_at' => '2017-10-14 18:50:34',
                 'deleted_at' => NULL,
             ),
+            52 => 
+            array (
+                'id' => 53,
+                'page_id' => 27,
+                'lang_id' => 1,
+                'text' => 'Person',
+                'created_at' => '2017-11-15 18:10:31',
+                'updated_at' => '2017-11-15 18:10:31',
+                'deleted_at' => NULL,
+            ),
+            53 => 
+            array (
+                'id' => 54,
+                'page_id' => 27,
+                'lang_id' => 2,
+                'text' => 'شخص',
+                'created_at' => '2017-11-15 18:10:31',
+                'updated_at' => '2017-11-15 18:10:31',
+                'deleted_at' => NULL,
+            ),
         ));
         
         

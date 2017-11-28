@@ -185,7 +185,7 @@ class ModulesTableSeeder extends Seeder
                 'code' => 'person_page',
                 'customized' => '0',
                 'created_at' => '2017-10-19 17:31:43',
-                'updated_at' => '2017-10-19 17:31:43',
+                'updated_at' => '2017-11-15 19:04:29',
                 'deleted_at' => NULL,
             ),
             19 => 
@@ -231,6 +231,24 @@ class ModulesTableSeeder extends Seeder
                 'customized' => '1',
                 'created_at' => NULL,
                 'updated_at' => NULL,
+                'deleted_at' => NULL,
+            ),
+            24 => 
+            array (
+                'id' => 25,
+                'code' => 'degrees_table',
+                'customized' => '0',
+                'created_at' => NULL,
+                'updated_at' => '2017-11-17 18:53:27',
+                'deleted_at' => NULL,
+            ),
+            25 => 
+            array (
+                'id' => 26,
+                'code' => 'courses_table',
+                'customized' => '0',
+                'created_at' => NULL,
+                'updated_at' => '2017-11-22 18:56:24',
                 'deleted_at' => NULL,
             ),
         ));
