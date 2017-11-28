@@ -22,7 +22,7 @@ class CreateCourseTable extends Migration
             $table->integer('degree_id')->nullable()->unsigned();
             $table->integer('semester_id')->nullable()->unsigned();
             $table->integer('faculty_study_year_id')->nullable()->unsigned();
-            $table->integer('image_id')->unsigned();
+            $table->integer('image_id')->nullable()->unsigned();
             $table->timestamps();
             $table->softDeletes();
         });

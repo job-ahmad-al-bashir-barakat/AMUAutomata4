@@ -68,5 +68,13 @@ class DatabaseSeeder extends Seeder
         $this->call(BlockDetailTextLangsTableSeeder::class);
         $this->call(BlockDetailTitleLangsTableSeeder::class);
         $this->call(BlockNameLangsTableSeeder::class);
+        $this->call(SemestersTableSeeder::class);
+        $this->call(SemesterNameLangsTableSeeder::class);
+        $this->call(StudyYearsTableSeeder::class);
+        $this->call(StudyYearNameLangsTableSeeder::class);
+        $this->call(FacultyStudyYearTableSeeder::class);
+        $this->call(CoursesTableSeeder::class);
+        $this->call(CourseNameLangsTableSeeder::class);
+        $this->call(CourseDescriptionLangsTableSeeder::class);
     }
 }
