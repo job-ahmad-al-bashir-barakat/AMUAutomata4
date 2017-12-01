@@ -4,6 +4,9 @@ Route::get('md5/{code}', function ($code) {
     return bcrypt($code);
 });
 
+Route::get('test', function () {
+    return 'test';
+});
 
 Route::group(
     [
@@ -179,26 +182,9 @@ Route::group(
 
         Route::get('faculty/{faculty}/study-plan' ,function () {
             $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
-            $modules = [];
-
-            $studyYears = \Modules\Admin\Entities\Course::with(['degree' ,'department' ,'semester' ,'facultyStudyYear.studyYear'])->where('faculty_id' ,'=' ,6)->whereNotNull('faculty_study_year_id')->whereNotNull('semester_id')->get();
-
-            $degrees = $studyYears->pluck('degree.lang_name.'.App::getLocale().'.text' ,'degree_id');
-
-            $studyYears = $studyYears->sortBy(function ($item) {
-                return $item->faculty_study_year_id;
-            })->groupBy(function ($item) {
-                return $item->facultyStudyYear->studyYear->lang_name[App::getLocale()]['text'];
-            })->map(function ($item) {
-                return $item->sortBy(function ($item) {
-                    return $item->semester_id;
-                })->groupBy(function ($item) {
-                    return $item->semester->lang_name[App::getLocale()]['text'];
-                });
-            });
-
-            return view('page.study_plan'  ,compact('modules', 'menu' ,'studyYears' ,'studyYearsCount' ,'degrees' ,'departments'));
-        });
+            $modules = \Modules\Utilities\Entities\BuilderPage::pageModules()->get()->pluck('module');
+            return view('modules'  ,compact('modules', 'menu'));
+        })->name('study_plan');
 
         // Authentication Routes...
         $this->get('login', 'Auth\LoginController@showLoginForm')->name('login');
