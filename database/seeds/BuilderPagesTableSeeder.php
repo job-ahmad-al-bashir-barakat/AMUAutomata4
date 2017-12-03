@@ -457,6 +457,39 @@ class BuilderPagesTableSeeder extends Seeder
                 'updated_at' => '2017-11-05 19:51:38',
                 'deleted_at' => NULL,
             ),
+            40 => 
+            array (
+                'id' => 52,
+                'page_id' => 13,
+                'custom_module_id' => 1,
+                'position' => 'T',
+                'order' => 1,
+                'created_at' => '2017-12-01 18:14:30',
+                'updated_at' => '2017-12-01 18:14:30',
+                'deleted_at' => NULL,
+            ),
+            41 => 
+            array (
+                'id' => 53,
+                'page_id' => 13,
+                'custom_module_id' => 27,
+                'position' => 'T',
+                'order' => 2,
+                'created_at' => '2017-12-01 18:14:30',
+                'updated_at' => '2017-12-01 18:14:30',
+                'deleted_at' => NULL,
+            ),
+            42 => 
+            array (
+                'id' => 54,
+                'page_id' => 13,
+                'custom_module_id' => 2,
+                'position' => 'T',
+                'order' => 3,
+                'created_at' => '2017-12-01 18:14:30',
+                'updated_at' => '2017-12-01 18:14:30',
+                'deleted_at' => NULL,
+            ),
         ));
         
         
