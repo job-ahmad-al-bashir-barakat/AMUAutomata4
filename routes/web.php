@@ -162,15 +162,13 @@ Route::group(
         Route::get('faculty/{faculty}/labs' ,function () {
             $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
             $modules = [];
-
             return view('page.labs' ,compact('modules', 'menu' ));
         })->name('labs');
 
         Route::get('faculty/{faculty}/instructors' ,function () {
             $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
-            $modules = [];
-
-            return view('page.instructors'  ,compact('modules', 'menu' ));
+            $modules = \Modules\Utilities\Entities\BuilderPage::pageModules()->get()->pluck('module');
+            return view('modules'  ,compact('modules', 'menu' ));
         })->name('instructors');
 
         Route::get('location' ,function () {

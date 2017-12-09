@@ -153,6 +153,11 @@ class RouteUrls
         return $this->localizeUrl("load-more/trusted-council");
     }
 
+    public function facultyInstructorsHtml()
+    {
+        return $this->localizeUrl("load-more/faculty-instructors");
+    }
+
     public function hierarchyType()
     {
         return $this->localizeURL('hierarchy-type', 'admin');

@@ -75,6 +75,8 @@ trait ModuleTrait
                 return new CoursesTableModule();
             case 27:
                 return new StudyPlanModule();
+            case 28:
+                return new FacultyInstructorsModule();
             default:
                 throw new \Exception("Undefined Web Module [id:$moduleId]");
         }
@@ -144,6 +146,8 @@ trait ModuleTrait
                 return new CoursesTableModule();
             case 'study_plan':
                 return new StudyPlanModule();
+            case 'faculty_instructors':
+                return new FacultyInstructorsModule();
             default:
                 throw new \Exception("Undefined Web Module [$moduleCode]");
         }

@@ -27,20 +27,20 @@
                     <b>Filter Table</b>
                 </a>
                 <span class="pull-right">
-                                <i class="fa fa-print m-5 hand"></i>
-                            </span>
+                    <i class="fa fa-print m-5 hand"></i>
+                </span>
             </h4>
             <div class="col-xs-12 p-0">
                 <ul class="list-group">
                     <li class="list-group-item clearfix p-20">
                         <div class="col-xs-12 pb-10 filter-area">
-                                        <span class="filter-apply m-5">
-                                            <span class="fa fa-filter"></span>
-                                        </span>
+                            <span class="filter-apply m-5">
+                                <span class="fa fa-filter"></span>
+                            </span>
                             <span class="search-choose m-5 hide">
-                                            <span class="search-title"></span>
-                                            <span class="search-remove hand fa fa-times-circle"></span>
-                                        </span>
+                                <span class="search-title"></span>
+                                <span class="search-remove hand fa fa-times-circle"></span>
+                            </span>
                         </div>
                         <div class="col-xs-12 pb-5">
                             <div><b>Degree</b></div>
@@ -54,10 +54,7 @@
         </div>
         <div class="col-xs-12 mt-40">
             <div class="panel panel-info">
-                <!--Default panel contents-->
                 <div class="panel-heading">Courses</div>
-
-                <!--Table-->
                 <div class="table-responsive">
                     <table class="table table-striped">
                         <thead>
@@ -81,11 +78,11 @@
                                         @foreach($courses as $indexCourse => $course)
                                             @php($degree = $course->degree->lang_name[$lang]['text'])
                                             <span data-filter="{{ \Illuminate\Support\Str::slug($degree ,'-') }}" class="target-filter label label-default" style="display: inline-block; background-color: rgba(212, 212, 212, 0.56); color: #656565; text-align: left; padding: 5px; margin: 5px 2px;">
-                                                                <span>{{ $course->lang_name[$lang]['text'] }}</span>
+                                                <span>{{ $course->lang_name[$lang]['text'] }}</span>
                                                 @if($course->degree->count())
                                                     <span style="display: block; margin-top: 5px; font-weight: normal;">({{ $degree }})</span>
                                                 @endif
-                                                            </span>
+                                            </span>
                                         @endforeach
                                     </td>
                                 </tr>
