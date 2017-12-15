@@ -2222,8 +2222,14 @@ var APP_AMU = {
 
         fillTableData: function ($table, $tableData) {
             APP_AMU.htmlTable.clearRows($table);
-            for(var i = 0; i < $tableData.length; i++) {
-                APP_AMU.htmlTable.cloneTr($table, $tableData[i]);
+            if(typeof $tableData == 'object') {
+                for (var $rowData in $tableData) {
+                    APP_AMU.htmlTable.cloneTr($table, $tableData[$rowData]);
+                }
+            } else {
+                for (var i = 0; i < $tableData.length; i++) {
+                    APP_AMU.htmlTable.cloneTr($table, $tableData[i]);
+                }
             }
         },
 

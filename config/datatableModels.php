@@ -29,6 +29,16 @@ return [
         'factory'       => Modules\Utilities\Factories\LangFactory::class,
     ],
 
+    'tables' => [
+        'model'         => Modules\Utilities\Entities\Table::class,
+        'factory'       => Modules\Utilities\Factories\TableFactory::class,
+    ],
+
+    'schema-tables' => [
+        'model'         => Modules\Utilities\Entities\Table::class,
+        'factory'       => Modules\Utilities\Factories\SchemaTableFactory::class,
+    ],
+
     'attributes' => [
         'model'         => Modules\Utilities\Entities\Attribute::class,
         'factory'       => Modules\Utilities\Factories\AttributeFactory::class,

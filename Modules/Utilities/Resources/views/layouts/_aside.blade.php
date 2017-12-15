@@ -17,6 +17,16 @@
                 </a>
             </li>
             <li class="">
+                <a href="{{ RouteUrls::schemaTables() }}" class="ajax" title="{{ trans('utilities::app.schema-tables') }}">
+                    <span>{{ trans('utilities::app.schema-tables') }}</span>
+                </a>
+            </li>
+            <li class="">
+                <a href="{{ RouteUrls::tables() }}" class="ajax" title="{{ trans('utilities::app.tables') }}">
+                    <span>{{ trans('utilities::app.tables') }}</span>
+                </a>
+            </li>
+            <li class="">
                 <a href="{{ RouteUrls::icons() }}" class="ajax" title="{{ trans('utilities::app.icons') }}">
                     <span>{{ trans('utilities::app.icons') }}</span>
                 </a>
