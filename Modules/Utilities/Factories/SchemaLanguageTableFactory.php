@@ -2,11 +2,11 @@
 
 namespace Modules\Utilities\Factories;
 
-use Aut\DataTable\Factories\GlobalFactory;
-use Modules\Utilities\Entities\SchemaTable;
 use Modules\Utilities\Entities\Table;
+use Aut\DataTable\Factories\GlobalFactory;
+use Modules\Utilities\Entities\SchemaLanguageTable;
 
-class SchemaTableFactory extends GlobalFactory
+class SchemaLanguageTableFactory extends GlobalFactory
 {
 
     /**
@@ -16,36 +16,28 @@ class SchemaTableFactory extends GlobalFactory
      */
     public function getDatatable($table, $request)
     {
-        $query = SchemaTable::with(['table']);
+
+        $query = SchemaLanguageTable::with(['languageTable'])->tablesOf($request->get('table_name'));
 
         return $this->table
-            ->queryConfig('datatable-schema-tables')
+            ->queryConfig('datatable-schema-language-tables')
             ->queryDatatable($query)
             ->queryAddColumn('id', function ($item) {
-                if($item->table)
-                    return $item->table->id;
+                if($item->languageTable)
+                    return $item->languageTable->id;
             })
             ->queryAddColumn('namespace', function ($item) {
-                if($item->table)
-                    return $item->table->namespace;
+                if($item->languageTable)
+                    return $item->languageTable->namespace;
                 return trans('utilities::app.not_set');
-            })
-            ->queryAddColumn('pageable', function ($item) {
-                if($item->table)
-                    return $item->table->pageable;
-            })
-            ->queryAddColumn('menuable', function ($item) {
-                if($item->table)
-                    return $item->table->menuable;
             })
             ->queryAddColumn('inserted', function ($item){
                 $class = 'fa-ban text-danger';
-                if($item->table){
+                if($item->languageTable){
                     $class = 'fa-check-circle text-success';
                 }
                 return "<span class='fa {$class}'></span>";
             })
-            ->queryCustomButton('language_tables', 'TABLE_NAME', 'fa fa-language', 'language_tables', "href='javascript:void(0);' onclick='languageTablesModal(this)'")
             ->queryUpdateButton()
             ->queryRender();
     }
@@ -55,16 +47,15 @@ class SchemaTableFactory extends GlobalFactory
      */
     public function buildDatatable($table, $request)
     {
+        $tableId = Table::where('table_name', $request->get('table_name'))->first()->id;
         return $this->table
-            ->config('datatable-schema-tables', trans('utilities::app.tables'))
+            ->config('datatable-schema-language-tables', trans('utilities::app.tables'))
             ->addPrimaryKey('id', 'id')
+            ->addHiddenInput('table_id', 'table_id', $tableId, false, true)
             ->setName('table_name')
             ->addInputText(trans('utilities::app.table_name'), 'TABLE_NAME', 'TABLE_NAME', 'required req')
             ->addInputText(trans('utilities::app.namespace'), 'namespace', 'namespace', 'required req none'/*, '', '', false*/)
-            ->addSelect([0 => trans('utilities::app.no'), 1 => trans('utilities::app.yes')], trans('utilities::app.pageable'), 'pageable', 'pageable', 'pageable', '', '', '', false)
-            ->addSelect([0 => trans('utilities::app.no'), 1 => trans('utilities::app.yes')], trans('utilities::app.menuable'), 'menuable', 'menuable', 'menuable', '', '', '', false)
             ->addActionButton(trans('utilities::app.inserted'), 'inserted', 'inserted')
-            ->addActionButton(trans('utilities::app.language-table'), 'language_tables', 'language_tables')
             ->addActionButton($this->update, 'update', 'update')
             ->addNavButton([], ['add'])
             ->render();

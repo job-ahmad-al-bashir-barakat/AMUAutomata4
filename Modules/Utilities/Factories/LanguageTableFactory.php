@@ -5,7 +5,7 @@ namespace Modules\Utilities\Factories;
 use Aut\DataTable\Factories\GlobalFactory;
 use Modules\Utilities\Entities\Table;
 
-class TableFactory extends GlobalFactory
+class LanguageTableFactory extends GlobalFactory
 {
 
     /**

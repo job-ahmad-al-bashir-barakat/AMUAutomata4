@@ -26,6 +26,7 @@ return [
     'menuable'               => 'Menuable',
     'created'                => 'منشأ',
     'has-lang-table'         => 'لديه جدول لغة',
+    'language-table'         => 'جداول اللغة',
     'table_columns'          => 'أعمدة الجدول',
     'dynamic'                => 'ديناميكي',
     'make_link'              => 'انشاء عنصر قائمة',

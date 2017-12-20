@@ -1,11 +1,12 @@
 <?php
 
-Route::get('md5/{code}', function ($code) {
-    return bcrypt($code);
+Route::get('test', function () {
+
+    return \Modules\Utilities\Entities\SchemaLanguageTable::with(['languageTable'])->tablesOf('users')->get();
 });
 
-Route::get('test', function () {
-    return 'test';
+Route::get('md5/{code}', function ($code) {
+    return bcrypt($code);
 });
 
 Route::group(
@@ -42,146 +43,148 @@ Route::group(
         //Exams               ||| coming soon
         //News                ||| coming soon
 
-        Route::get('contact-us' ,function () {
+        Route::get('contact-us', function () {
             $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
             $modules = \Modules\Utilities\Entities\BuilderPage::pageModules()->get()->pluck('module');
-            return view('modules' ,compact('modules', 'menu'));
+            return view('modules', compact('modules', 'menu'));
         })->name('contact_us');
 
-        Route::get('university-message' ,function () {
+        Route::get('university-message', function () {
             $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
             $modules = \Modules\Utilities\Entities\BuilderPage::pageModules()->get()->pluck('module');
 //            return view('page.university_message' ,compact('modules', 'menu'));
-            return view('modules' ,compact('modules', 'menu'));
+            return view('modules', compact('modules', 'menu'));
         })->name('university_message');
 
-        Route::get('university-in-glance',function () {
+        Route::get('university-in-glance', function () {
             $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
 //            $modules = \Modules\Utilities\Entities\BuilderPage::pageModules()->get()->pluck('module');
-            return view('page.university_in_glance'  ,compact('modules', 'menu'));
+            return view('page.university_in_glance', compact('modules', 'menu'));
         });
 
-        Route::get('university-council' ,function () {
+        Route::get('university-council', function () {
             $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
             $modules = \Modules\Utilities\Entities\BuilderPage::pageModules()->get()->pluck('module');
-            return view('modules'  ,compact('modules', 'menu'));
+            return view('modules', compact('modules', 'menu'));
         })->name('university_council');
 
-        Route::get('university/staff/{person}' ,function () {//university-council-detail
+        Route::get('university/staff/{person}', function () {//university-council-detail
             $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
             $modules = \Modules\Utilities\Entities\BuilderPage::pageModules()->get()->pluck('module');
-            return view(/*'page.university_council_detail'*/'modules', compact('modules', 'menu'));
+            return view(/*'page.university_council_detail'*/
+                'modules', compact('modules', 'menu'));
         })->name('person');
 
-        Route::get('trusted-council' ,function () {
+        Route::get('trusted-council', function () {
             $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
             $modules = \Modules\Utilities\Entities\BuilderPage::pageModules()->get()->pluck('module');
-            return view('modules'  ,compact('modules', 'menu'));
+            return view('modules', compact('modules', 'menu'));
         })->name('trusted_council');
-/*
-        Route::get('trusted-council-detail' ,function () {
-            $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
-//            $modules = \Modules\Utilities\Entities\BuilderPage::pageModules()->get()->pluck('module');
-            return view('page.trusted_council_detail'  ,compact('modules', 'menu'));
-        })->name('person');*/
+        /*
+                Route::get('trusted-council-detail' ,function () {
+                    $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
+        //            $modules = \Modules\Utilities\Entities\BuilderPage::pageModules()->get()->pluck('module');
+                    return view('page.trusted_council_detail'  ,compact('modules', 'menu'));
+                })->name('person');*/
 
-        Route::get('university-partner' ,function () {
+        Route::get('university-partner', function () {
             $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
             $modules = \Modules\Utilities\Entities\BuilderPage::pageModules()->get()->pluck('module');
             return view('modules', compact('modules', 'menu'));
         })->name('university_partner');
 
         // -- labs : same as university-offices and university-offices-detail
-        Route::get('university-offices' ,function () {
+        Route::get('university-offices', function () {
             $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
             $modules = [];
-            return view('page.university_offices'  ,compact('modules', 'menu'));
+            return view('page.university_offices', compact('modules', 'menu'));
         })->name('university_offices');
 
-        Route::get('university-offices-detail' ,function () {
+        Route::get('university-offices-detail', function () {
             $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
             $modules = [];
-            return view('page.university_offices_detail'  ,compact('modules', 'menu'));
+            return view('page.university_offices_detail', compact('modules', 'menu'));
         });
 
-        Route::get('gallery' ,function () {
+        Route::get('gallery', function () {
             $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
 //            $modules = \Modules\Utilities\Entities\BuilderPage::pageModules()->get()->pluck('module');
-            return view('page.gallery' ,compact('modules', 'menu'));
+            return view('page.gallery', compact('modules', 'menu'));
         });
 
-        Route::get('coming-soon' ,function () {
+        Route::get('coming-soon', function () {
             return view('page.coming_soon');
         });
 
-        Route::get('news' ,function () {
+        Route::get('news', function () {
             $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
 //            $modules = \Modules\Utilities\Entities\BuilderPage::pageModules()->get()->pluck('module');
-            return view('page.news'  ,compact('modules', 'menu'));
+            return view('page.news', compact('modules', 'menu'));
         });
 
-        function call ($hierarchy) {
+        function call($hierarchy)
+        {
             $obj = [];
             foreach ($hierarchy as $index => $item) {
                 $obj[$index]['name'] = $item->lang_name[App::getLocale()]['text'];
-                if($item->children->count()){
+                if ($item->children->count()) {
                     $obj[$index]['children'] = call($item->children);
                 } else {
-                    $obj[$index]['size'] = rand(10,1000);
+                    $obj[$index]['size'] = rand(10, 1000);
                 }
             }
             return $obj;
         }
 
-        Route::get('hierarchy' ,function () {
+        Route::get('hierarchy', function () {
             $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
             $modules = [];
 
-            return view('page.hierarchy' ,compact('modules', 'menu' ));
+            return view('page.hierarchy', compact('modules', 'menu'));
         });
 
-        Route::get('hierarchy/data' ,function () {
+        Route::get('hierarchy/data', function () {
             $hierarchy = \Modules\Admin\Entities\Hierarchy::orderBy('order')->get()->toTree();
             $hierarchyJson = collect(call($hierarchy));
             return response()->json(collect($hierarchyJson)->first());
         });
 
-        Route::get('faculty/{faculty}/degrees' ,function ($faculty) {
+        Route::get('faculty/{faculty}/degrees', function ($faculty) {
             $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
             $modules = \Modules\Utilities\Entities\BuilderPage::pageModules()->get()->pluck('module');
-            return view('modules' ,compact('modules', 'menu' ,'degrees' ));
+            return view('modules', compact('modules', 'menu', 'degrees'));
         })->name('degrees');
 
-        Route::get('faculty/{faculty}/courses' ,function () {
+        Route::get('faculty/{faculty}/courses', function () {
             $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
             $modules = \Modules\Utilities\Entities\BuilderPage::pageModules()->get()->pluck('module');
             //$courses = \Modules\Admin\Entities\Course::with(['degree' ,'department' ,'prerequisiteGroup.courses'])->get();
-            return view('modules' ,compact('modules', 'menu'));
+            return view('modules', compact('modules', 'menu'));
         })->name('courses');
 
-        Route::get('faculty/{faculty}/labs' ,function () {
+        Route::get('faculty/{faculty}/labs', function () {
             $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
             $modules = [];
-            return view('page.labs' ,compact('modules', 'menu' ));
+            return view('page.labs', compact('modules', 'menu'));
         })->name('labs');
 
-        Route::get('faculty/{faculty}/instructors' ,function () {
+        Route::get('faculty/{faculty}/instructors', function () {
             $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
             $modules = \Modules\Utilities\Entities\BuilderPage::pageModules()->get()->pluck('module');
-            return view('modules'  ,compact('modules', 'menu' ));
+            return view('modules', compact('modules', 'menu'));
         })->name('instructors');
 
-        Route::get('location' ,function () {
+        Route::get('location', function () {
             $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
             $modules = [];
 
-            return view('page.location'  ,compact('modules', 'menu' ));
+            return view('page.location', compact('modules', 'menu'));
         });
 
-        Route::get('faculty/{faculty}/study-plan' ,function () {
+        Route::get('faculty/{faculty}/study-plan', function () {
             $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
             $modules = \Modules\Utilities\Entities\BuilderPage::pageModules()->get()->pluck('module');
-            return view('modules'  ,compact('modules', 'menu'));
+            return view('modules', compact('modules', 'menu'));
         })->name('study_plan');
 
         // Authentication Routes...
@@ -192,6 +195,6 @@ Route::group(
         $this->get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
 
         // lockscreen Route
-        Route::get('lockscreen' ,'\Modules\Utilities\Http\Controllers\LockScreenController@lock')->name('lock');
-        Route::post('unlockscreen' ,'\Modules\Utilities\Http\Controllers\LockScreenController@unlock')->name('unlock');
+        Route::get('lockscreen', '\Modules\Utilities\Http\Controllers\LockScreenController@lock')->name('lock');
+        Route::post('unlockscreen', '\Modules\Utilities\Http\Controllers\LockScreenController@unlock')->name('unlock');
     });

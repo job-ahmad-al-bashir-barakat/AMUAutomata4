@@ -26,6 +26,7 @@ return [
     'menuable'               => 'Menuable',
     'created'                => 'Created',
     'has-lang-table'         => 'Has Lang Table',
+    'language-table'         => 'Language Table',
     'schema_tables'          => 'Schema Tables',
     'schema-tables'          => 'Schema Tables',
     'inserted'               => 'Inserted',
