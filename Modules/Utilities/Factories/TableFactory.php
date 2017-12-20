@@ -21,10 +21,10 @@ class TableFactory extends GlobalFactory
         return $this->table
             ->queryConfig('datatable-tables')
             ->queryDatatable($query)
-            ->queryAddColumn('pageable', function ($item) {
+            ->queryAddColumn('isPageable', function ($item) {
                 return $item->pageable ? trans('utilities::app.yes') : trans('utilities::app.no');
             })
-            ->queryAddColumn('menuable', function ($item) {
+            ->queryAddColumn('isMenuable', function ($item) {
                 return $item->menuable ? trans('utilities::app.yes') : trans('utilities::app.no');
             })
             ->queryAddColumn('created', function ($item){
@@ -35,8 +35,7 @@ class TableFactory extends GlobalFactory
                 return "<span class='fa {$class}'></span>";
             })
             ->queryAddColumn('has_lang_table', function ($item){
-                return 'Unknown Yet';
-                return $item->langTables->count() ? trans('utilities::app.yes') : trans('utilities::app.no');
+                return $item->languageTables->count() ? trans('utilities::app.yes') : trans('utilities::app.no');
             })
             ->queryCustomButton('language_tables', 'table_name', 'fa fa-language', 'language_tables')
             ->queryUpdateButton()
@@ -54,10 +53,10 @@ class TableFactory extends GlobalFactory
             ->addPrimaryKey('id', 'id')
             ->addInputText(trans('utilities::app.table_name'), 'table_name', 'table_name', 'required req')
             ->addInputText(trans('utilities::app.namespace'), 'namespace', 'namespace', 'required req')
-            ->addSelect([0 => trans('utilities::app.no'), 1 => trans('utilities::app.yes')], trans('utilities::app.pageable'), 'pageable', 'pageable', 'pageable')
-            ->addSelect([0 => trans('utilities::app.no'), 1 => trans('utilities::app.yes')], trans('utilities::app.menuable'), 'menuable', 'menuable', 'menuable')
+            ->addSelect([0 => trans('utilities::app.no'), 1 => trans('utilities::app.yes')], trans('utilities::app.pageable'), 'pageable', 'pageable', 'isPageable')
+            ->addSelect([0 => trans('utilities::app.no'), 1 => trans('utilities::app.yes')], trans('utilities::app.menuable'), 'menuable', 'menuable', 'isMenuable')
             ->addActionButton(trans('utilities::app.created'), 'created', 'created')
-            ->addActionButton(trans('utilities::app.has-lang-table'), 'has_lang_table', 'has_lang_table')
+            ->addActionButton(trans('utilities::app.has-lang-table'), 'has_lang_table', 'has_lang_table', 'center all', '80px')
             ->addActionButton(trans('utilities::app.language-table'), 'language_tables', 'language_tables')
             ->addActionButton($this->update, 'update', 'update')
             ->addActionButton($this->delete, 'delete', 'delete')
