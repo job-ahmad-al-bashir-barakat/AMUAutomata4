@@ -260,6 +260,15 @@ class ModulesTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
+            27 => 
+            array (
+                'id' => 28,
+                'code' => 'faculty_instructors',
+                'customized' => '0',
+                'created_at' => NULL,
+                'updated_at' => '2017-12-09 17:46:45',
+                'deleted_at' => NULL,
+            ),
         ));
         
         
