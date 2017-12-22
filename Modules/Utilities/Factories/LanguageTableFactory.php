@@ -15,30 +15,17 @@ class LanguageTableFactory extends GlobalFactory
      */
     public function getDatatable($table, $request)
     {
-
-        $query = $table::with(['schemaTable']);
-
+        $query = $table::with(['schemaLanguageTable'])->tablesOf($request->get('table_name'));
         return $this->table
-            ->queryConfig('datatable-tables')
+            ->queryConfig('datatable-language-tables')
             ->queryDatatable($query)
-            ->queryAddColumn('pageable', function ($item) {
-                return $item->pageable ? trans('utilities::app.yes') : trans('utilities::app.no');
-            })
-            ->queryAddColumn('menuable', function ($item) {
-                return $item->menuable ? trans('utilities::app.yes') : trans('utilities::app.no');
-            })
             ->queryAddColumn('created', function ($item){
                 $class = 'fa-ban text-danger';
-                if($item->schemaTable){
+                if($item->schemaLanguageTable){
                     $class = 'fa-check-circle text-success';
                 }
                 return "<span class='fa {$class}'></span>";
             })
-            ->queryAddColumn('has_lang_table', function ($item){
-                return 'Unknown Yet';
-                return $item->langTables->count() ? trans('utilities::app.yes') : trans('utilities::app.no');
-            })
-            ->queryCustomButton('language_tables', 'table_name', 'fa fa-language', 'language_tables')
             ->queryUpdateButton()
             ->queryDeleteButton()
             ->queryRender();
@@ -49,16 +36,14 @@ class LanguageTableFactory extends GlobalFactory
      */
     public function buildDatatable($table, $request)
     {
+        $tableId = Table::where('table_name', $request->get('table_name'))->first()->id;
         return $this->table
-            ->config('datatable-tables', trans('utilities::app.tables'))
+            ->config('datatable-language-tables', trans('utilities::app.tables'))
             ->addPrimaryKey('id', 'id')
+            ->addHiddenInput('table_id', 'table_id', $tableId, false, true)
             ->addInputText(trans('utilities::app.table_name'), 'table_name', 'table_name', 'required req')
             ->addInputText(trans('utilities::app.namespace'), 'namespace', 'namespace', 'required req')
-            ->addSelect([0 => trans('utilities::app.no'), 1 => trans('utilities::app.yes')], trans('utilities::app.pageable'), 'pageable', 'pageable', 'pageable')
-            ->addSelect([0 => trans('utilities::app.no'), 1 => trans('utilities::app.yes')], trans('utilities::app.menuable'), 'menuable', 'menuable', 'menuable')
             ->addActionButton(trans('utilities::app.created'), 'created', 'created')
-            ->addActionButton(trans('utilities::app.has-lang-table'), 'has_lang_table', 'has_lang_table')
-            ->addActionButton(trans('utilities::app.language-table'), 'language_tables', 'language_tables')
             ->addActionButton($this->update, 'update', 'update')
             ->addActionButton($this->delete, 'delete', 'delete')
             ->addNavButton()

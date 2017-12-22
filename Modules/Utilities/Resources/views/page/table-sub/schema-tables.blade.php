@@ -9,7 +9,7 @@
 @endcomponent
 
 <script>
-    function languageTablesModal($this)
+    function schemaLanguageTablesModal($this)
     {
         _aut_datatable_custom_merge_datatable_url_open_modal_refresh_datatable('#schema-language-table-modal', "?table_name=" + $($this).data('key'));
     }

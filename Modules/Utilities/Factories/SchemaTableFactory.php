@@ -45,7 +45,7 @@ class SchemaTableFactory extends GlobalFactory
                 }
                 return "<span class='fa {$class}'></span>";
             })
-            ->queryCustomButton('language_tables', 'TABLE_NAME', 'fa fa-language', 'language_tables', "href='javascript:void(0);' onclick='languageTablesModal(this)'")
+            ->queryCustomButton('language_tables', 'TABLE_NAME', 'fa fa-language', 'language_tables', "href='javascript:void(0);' onclick='schemaLanguageTablesModal(this)'")
             ->queryUpdateButton()
             ->queryRender();
     }

@@ -15,7 +15,6 @@ class TableFactory extends GlobalFactory
      */
     public function getDatatable($table, $request)
     {
-
         $query = $table::with(['schemaTable']);
 
         return $this->table
@@ -37,7 +36,7 @@ class TableFactory extends GlobalFactory
             ->queryAddColumn('has_lang_table', function ($item){
                 return $item->languageTables->count() ? trans('utilities::app.yes') : trans('utilities::app.no');
             })
-            ->queryCustomButton('language_tables', 'table_name', 'fa fa-language', 'language_tables')
+            ->queryCustomButton('language_tables', 'table_name', 'fa fa-language', 'language_tables', "href='javascript:void(0);' onclick='languageTablesModal(this)'")
             ->queryUpdateButton()
             ->queryDeleteButton()
             ->queryRender();
