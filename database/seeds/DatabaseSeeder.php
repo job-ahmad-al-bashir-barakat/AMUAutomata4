@@ -79,5 +79,7 @@ class DatabaseSeeder extends Seeder
         //$this->call(MenuTableColumnsTableSeeder::class);
         $this->call(PrerequisiteTableSeeder::class);
         $this->call(PrerequisiteGroupsTableSeeder::class);
+        $this->call(LanguageTablesTableSeeder::class);
+        $this->call(TablesTableSeeder::class);
     }
 }

@@ -29,6 +29,26 @@ return [
         'factory'       => Modules\Utilities\Factories\LangFactory::class,
     ],
 
+    'tables' => [
+        'model'         => Modules\Utilities\Entities\Table::class,
+        'factory'       => Modules\Utilities\Factories\TableFactory::class,
+    ],
+
+    'language-tables' => [
+        'model'         => Modules\Utilities\Entities\LanguageTable::class,
+        'factory'       => Modules\Utilities\Factories\LanguageTableFactory::class,
+    ],
+
+    'schema-tables' => [
+        'model'         => Modules\Utilities\Entities\Table::class,
+        'factory'       => Modules\Utilities\Factories\SchemaTableFactory::class,
+    ],
+
+    'schema-language-tables' => [
+        'model'         => Modules\Utilities\Entities\LanguageTable::class,
+        'factory'       => Modules\Utilities\Factories\SchemaLanguageTableFactory::class,
+    ],
+
     'attributes' => [
         'model'         => Modules\Utilities\Entities\Attribute::class,
         'factory'       => Modules\Utilities\Factories\AttributeFactory::class,

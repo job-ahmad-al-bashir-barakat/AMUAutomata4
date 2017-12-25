@@ -12,7 +12,6 @@ class LangFactory extends GlobalFactory
      */
     public function getDatatable($lang ,$request)
     {
-        //todo This code is repeated and can be set as default action to get the query
         $query = $lang::with(['image'])->get();
 
         return $this->table
@@ -32,7 +31,6 @@ class LangFactory extends GlobalFactory
      */
     public function buildDatatable($lang ,$request)
     {
-        //todo This code is repeated and can be set as default action to get the Html and the cols can be get from the fillable array, try to get the cols type form the migration
         return $this->table
             ->config('datatable-langs',trans('utilities::app.langs'))
             ->addPrimaryKey('id','id')

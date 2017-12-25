@@ -19,6 +19,13 @@ class LoadMoreController extends Controller
             'func' => 'trusted_council',
             'var' => 'persons',
         ],
+
+        'faculty-instructors' => [
+            'model' => \Modules\Admin\Entities\Person::class,
+            'view' => 'utilities::web-modules.modules.sub.persons-card-2',
+            'func' => 'faculty_instructors',
+            'var' => 'persons',
+        ],
     ];
 
     public function getHtml(Request $request, $class)
@@ -40,5 +47,10 @@ class LoadMoreController extends Controller
     private function getQueryBuilderTrustedCouncil($model)
     {
         return $model::where('type', '=', 'TrustedCouncil')->paginate(8);
+    }
+
+    private function getQueryBuilderFacultyInstructors($model)
+    {
+        return $model::paginate(8);
     }
 }

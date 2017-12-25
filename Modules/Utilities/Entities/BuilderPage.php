@@ -29,7 +29,7 @@ class BuilderPage extends \Eloquent
         $currentPage = $route->getName();
 
         $query->with(['customModule.attributeValues.attribute']);
-        $pageCode = $page ? : $currentPage;
+        $pageCode = $page ?: $currentPage;
 
         $pageId = Page::where('page_code', '=', $pageCode)->first(['id'])->id;
 

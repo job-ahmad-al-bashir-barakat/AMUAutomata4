@@ -5,6 +5,8 @@ namespace Modules\Utilities\Http\Controllers;
 use Illuminate\Support\Str;
 use Illuminate\Routing\Controller;
 use Modules\Utilities\Entities\MenuTables;
+use Modules\Utilities\Entities\SchemaTable;
+use Modules\Utilities\Entities\Table;
 
 class UtilitiesController extends Controller
 {

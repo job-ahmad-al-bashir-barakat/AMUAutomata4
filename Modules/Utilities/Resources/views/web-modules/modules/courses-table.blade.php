@@ -3,10 +3,7 @@
 @php($courses = \Modules\Admin\Entities\Course::with(['degree' ,'department' ,'prerequisiteGroup.courses'])->whereFacultyId($facultyId)->get())
 <div class="col-md-{{ $data['width'] }} mt-40">
     <div class="panel panel-info">
-        <!-- Default panel contents -->
         <div class="panel-heading">Courses</div>
-
-        <!-- Table -->
         <div class="table-responsive">
             <table class="table table-striped">
                 <thead>
@@ -19,7 +16,6 @@
                 </tr>
                 </thead>
                 <tbody>
-
                 @foreach($courses as $course)
                     @php($rowspan = $course->prerequisiteGroup->count() ? "rowspan=".$course->prerequisiteGroup->count() : "")
                     <tr>
@@ -50,7 +46,6 @@
                         @endif
                     </tr>
                 @endforeach
-
                 </tbody>
             </table>
         </div>

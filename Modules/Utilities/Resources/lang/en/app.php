@@ -11,6 +11,7 @@ return [
     'regional'               => 'Regional',
     'script'                 => 'Script',
     'name_route'             => 'Name Route',
+    'not_set'                => 'Not Set',
     'value'                  => 'Value',
     'native'                 => 'Native',
     'active'                 => 'Active',
@@ -18,6 +19,17 @@ return [
     'no'                     => 'No',
 
     'menu_tables'            => 'Menu Tables',
+    'tables'                 => 'Tables',
+    'table_name'             => 'Table Name',
+    'namespace'              => 'Namespace',
+    'pageable'               => 'Pageable',
+    'menuable'               => 'Menuable',
+    'created'                => 'Created',
+    'has-lang-table'         => 'Has Lang Table',
+    'language-table'         => 'Language Table',
+    'schema_tables'          => 'Schema Tables',
+    'schema-tables'          => 'Schema Tables',
+    'inserted'               => 'Inserted',
     'table_columns'          => 'Table Columns',
     'dynamic'                => 'Dynamic',
     'make_link'              => 'Make Link List',
@@ -107,7 +119,7 @@ return [
         ],
         'cancleSafe'        => [
             'text'       => 'Cancelled!',
-            'message'    => 'Your row is safed :)',
+            'message'    => 'Your row is safe :)',
         ]
     ],
 
@@ -124,7 +136,7 @@ return [
     'collapsed_text' => 'Collapsed Text',
     'float'          => 'Float',
     'hover'          => 'Hover',
-    'show_scrollbar' => 'Show Scrollbar',
+    'show_scrollbar' => 'Show Scroll bar',
     'aside'          => 'Aside',
 
     /*
@@ -136,9 +148,10 @@ return [
     'pass_not_match'       => 'Password does not match. Please try again.',
     'login'                => 'Login',
     'unlock'               => 'Unlock',
-    'lockscreen'           => 'Lockscreen',
+    'lockscreen'           => 'Lock Screen',
+    'lock_screen'          => 'Lock Screen',
     'enter_name'           => 'Enter Name',
-    'password'             => 'Password',
+//    'password'             => 'Password',
     'forgot_your_password' => 'Forgot Your Password?',
     'sign_in_to_continue'  => 'SIGN IN TO CONTINUE',
     'remember_me'          => 'Remember Me',

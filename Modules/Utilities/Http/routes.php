@@ -39,7 +39,7 @@ function () {
     Route::group(['prefix' => 'module'], function () {
         Route::get('attributes', 'ModulesController@attributeInput');
     });
-
+    
     Route::get('{view}', 'UtilitiesController@table');
     Route::get('{view}/menu', 'UtilitiesController@menu');
     Route::put('{treeModel}/tree/order/{id?}', 'TreeController@order');

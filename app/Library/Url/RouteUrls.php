@@ -19,6 +19,16 @@ class RouteUrls
         return $this->localizeUrl('langs', 'utilities');
     }
 
+    public function tables()
+    {
+        return $this->localizeUrl('tables', 'utilities');
+    }
+
+    public function schemaTables()
+    {
+        return $this->localizeUrl('schema-tables', 'utilities');
+    }
+
     public function users()
     {
         return $this->localizeUrl('users', 'utilities');
@@ -119,7 +129,6 @@ class RouteUrls
         return $this->localizeUrl('menu-tables', 'utilities');
     }
 
-
     /**
      * @Section Web Site Urls
      */
@@ -151,6 +160,11 @@ class RouteUrls
     public function trustedCouncilHtml()
     {
         return $this->localizeUrl("load-more/trusted-council");
+    }
+
+    public function facultyInstructorsHtml()
+    {
+        return $this->localizeUrl("load-more/faculty-instructors");
     }
 
     public function hierarchyType()
