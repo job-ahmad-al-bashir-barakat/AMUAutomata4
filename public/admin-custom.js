@@ -2054,12 +2054,13 @@ var APP_AMU = {
 
             $(document).on('click', '.set-map-location', function () {
 
-                $modal = $(this).closest('.modal');
-                $locationData = $modal.find('[data-gmap]').data('location');
+                var $this         = $(this),
+                    $modal        = $this.closest('.modal'),
+                    $locationData = $modal.find('[data-gmap]').data('location');
 
-                var InputFullLocation = $(this).data('input-full-location');
-                var InputLatLocation = $(this).data('input-lat-location');
-                var InputLngLocation = $(this).data('input-lng-location');
+                var InputFullLocation = $this.data('input-full-location');
+                var InputLatLocation  = $this.data('input-lat-location');
+                var InputLngLocation  = $this.data('input-lng-location');
 
                 if (InputFullLocation)
                     $(InputFullLocation).val($($locationData.location).val());
