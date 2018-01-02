@@ -195,22 +195,11 @@ class DataTableServiceProvider extends ServiceProvider
 
         switch ($version)
         {
-            case '5.2': {
-                return array_merge($commands ,[
-                    \Aut\DataTable\Commands\LaravelFive\vTwo\MakeDataTableCommand::class,
-                    \Aut\DataTable\Commands\LaravelFive\vTwo\FactoryMakeCommand::class
-                ]);
-            } break;
-
-            case '5.4' : {
-                return array_merge($commands ,[
-                    \Aut\DataTable\Commands\LaravelFive\vFour\MakeDataTableCommand::class,
-                    \Aut\DataTable\Commands\LaravelFive\vFour\FactoryMakeCommand::class
-                ]);
-            } break;
-
             default : {
-                return $commands;
+                return array_merge($commands ,[
+                    \Aut\DataTable\Commands\MakeDataTableCommand::class,
+                    \Aut\DataTable\Commands\FactoryMakeCommand::class
+                ]);
             }; break;
         }
     }

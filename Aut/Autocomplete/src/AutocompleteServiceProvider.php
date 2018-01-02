@@ -59,20 +59,10 @@ class AutocompleteServiceProvider extends ServiceProvider
 
         switch ($version)
         {
-            case '5.2': {
-                return array_merge($commands ,[
-                    \Aut\Autocomplete\Commands\LaravelVersion\vTwo\MakeAutocompleteCommand::class,
-                ]);
-            } break;
-
-            case '5.4' : {
-                return array_merge($commands ,[
-                    \Aut\Autocomplete\Commands\LaravelVersion\vFour\MakeAutocompleteCommand::class,
-                ]);
-            } break;
-
             default : {
-                return $commands;
+                return array_merge($commands ,[
+                    \Aut\Autocomplete\Commands\MakeAutocompleteCommand::class,
+                ]);
             }; break;
         }
     }
