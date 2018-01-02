@@ -100,7 +100,7 @@ class ControlPagesTableSeeder extends Seeder
             10 => 
             array (
                 'id' => 18,
-                'control_page_code' => 'univercity',
+                'control_page_code' => 'university',
                 'created_at' => '2017-07-22 08:00:35',
                 'updated_at' => '2017-07-26 20:06:08',
                 'deleted_at' => NULL,

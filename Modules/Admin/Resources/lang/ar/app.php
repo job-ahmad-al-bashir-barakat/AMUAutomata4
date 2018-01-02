@@ -18,7 +18,7 @@ return [
     'social_media'       => 'تواصل اجتماعي',
     'hierarchy'          => 'التسلسل الهرمي',
     'hierarchy_type'     => 'نوع التسلسل الهرمي',
-    'univercity_office'  => 'مكتب جامعة',
+    'university_office'  => 'مكتب جامعة',
     'offices'            => 'مكاتب الجامعة',
     'partners'           => 'الشركاء',
     'partner_larg_image' => 'صورة كبيرة',

@@ -53,6 +53,7 @@ return [
     'upload_vertical_slider_image'    => 'رفع صورة الشريحة',
     'page-builder'           => 'الباني: الصفحات',
     'page-modules'           => 'بنية الصفحة',
+    'prefix'                 => 'لاحقة الرابط',
 
     'automata4_utilities'    => 'أدوات أتوماتا 4',
     'global'                 => 'أدوات شاملة',

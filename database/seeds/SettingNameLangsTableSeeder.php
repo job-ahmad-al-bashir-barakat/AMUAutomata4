@@ -102,7 +102,7 @@ class SettingNameLangsTableSeeder extends Seeder
                 'id' => 9,
                 'setting_id' => 5,
                 'lang_id' => 1,
-                'text' => 'Univercity GeoLocation',
+                'text' => 'University GeoLocation',
                 'created_at' => '2017-08-17 14:31:35',
                 'updated_at' => '2017-08-17 14:31:35',
                 'deleted_at' => NULL,

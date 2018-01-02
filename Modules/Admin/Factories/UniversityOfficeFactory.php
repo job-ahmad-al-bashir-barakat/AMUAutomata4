@@ -20,7 +20,7 @@ class UniversityOfficeFactory extends GlobalFactory
         } ,'person'])->allLangs()->get();
 
         return $this->table
-            ->queryConfig('datatable-univercity-office')
+            ->queryConfig('datatable-university-office')
             ->queryDatatable($query)
             ->queryMultiLang(['name' ,'contact' => 'address'])
             ->queryUpdateButton('id')
@@ -36,7 +36,7 @@ class UniversityOfficeFactory extends GlobalFactory
     public function buildDatatable($model, $request)
     {
         return $this->table
-            ->config('datatable-univercity-office',trans('admin::app.univercity_office') ,['dialogWidth' => '650px'])
+            ->config('datatable-university-office',trans('admin::app.university_office') ,['dialogWidth' => '650px'])
             ->addPrimaryKey('id' ,'id')
             ->addHiddenInput('contact_id' ,'contact_id')
             ->addAutocomplete('autocomplete/person' ,trans('admin::app.responsible_person') ,'person_id' ,"lang_name.{$this->lang}.text" ,"lang_name.{$this->lang}.text" ,'req required')
@@ -49,16 +49,16 @@ class UniversityOfficeFactory extends GlobalFactory
                 ->addMultiTextareaLangs(['address'] ,'req required')
             ->endRelation()
             ->startRelation('contact')
-                ->addInputGroup(trans('admin::app.gelocation'),'contact.gelocation' ,'contact.gelocation' ,'req required none' ,'icon-location-pin' ,'input-location hand' ,['data-modal' => '#modal-univercity-office-input-location'] ,'' ,true ,false ,false ,false ,false)
+                ->addInputGroup(trans('admin::app.gelocation'),'contact.gelocation' ,'contact.gelocation' ,'req required none' ,'icon-location-pin' ,'input-location hand' ,['data-modal' => '#modal-university-office-input-location'] ,'' ,true ,false ,false ,false ,false)
             ->endRelation()
             ->addActionButton(trans('admin::app.addresses'),'addresses','addresses' ,'center all' ,'60px')
             ->addActionButton(trans('admin::app.numbers'),'numbers','numbers' ,'center all' ,'60px')
             ->addActionButton($this->update,'update','update')
             ->addActionButton($this->delete,'delete','delete')
-            ->addBlade('univercity-office-input-location-custom' ,view('controle.component.location.input_location', [
-                'id'                => 'univercity-office',
-                'title'             => trans('admin::app.nivercity_office_gelocation'),
-                'inputFullLocation' => '#datatable-univercity-office-modal .input-location input',
+            ->addBlade('university-office-input-location-custom' ,view('controle.component.location.input_location', [
+                'id'                => 'university-office',
+                'title'             => trans('admin::app.niversity_office_gelocation'),
+                'inputFullLocation' => '#datatable-university-office-modal .input-location input',
                 'zoom'              => 10,
                 'geoLocation'       => Setting::whereCode('UGL')->first()->value
             ])->render())

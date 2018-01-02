@@ -17,13 +17,15 @@ class PersonFactory extends GlobalFactory
     {
         $query = Person::with(['image'])->allLangs()->Type();
 
+        $tableId = 'datatable-persons-'.Str::snake(\Route::input('model'));
+
         return $this->table
-            ->queryConfig('datatable-persons-'.Str::snake(\Route::input('model')))
+            ->queryConfig($tableId)
             ->queryDatatable($query)
             ->queryUpdateButton('id')
             ->queryDeleteButton('id')
             ->queryMultiLang(['name' ,'summary'])
-            ->queryCustomButton('upload_image' ,'id' ,'fa fa-image' ,'' ,'onclick="showFileUploadModal(this)"')
+            ->queryCustomButton('upload_image' ,'id' ,'fa fa-image' ,'' ,"onclick='showFileUploadModal(this)' data-tableid='#$tableId'")
             ->queryRender();
     }
 
@@ -43,17 +45,21 @@ class PersonFactory extends GlobalFactory
             ->gridSystemConfig(false)
             ->setGridNormalCol(12 ,'lg')
             ->startTab(trans('admin::app.personal_Info'),'fa fa-user fa-2x')
-                ->startHorizontalTab()
-                    ->openHorizontalTab("name-$type" ,$this->name ,'req',true)
-                        ->addMultiInputTextLangs(['name'] ,'req required')
+                ->startHorizontalTab();
+
+        if( Person::PERSON_STAFF == \Route::input('model'))
+             $table =  $table->addAutocomplete('autocomplete/faculty' ,trans('admin::app.faculty'),'faculty_id',"faculty.lang_name.$this->lang.text","faculty.lang_name.$this->lang.text",'req');
+
+        $table = $table->openHorizontalTab("name-$type" ,$this->name ,'req',true)
+                    ->addMultiInputTextLangs(['name'] ,'req required')
                     ->closeHorizontalTab()
                     ->openHorizontalTab("summary-$type" ,$this->summary ,'req')
-                        ->addMultiTextareaLangs(['summary'] ,'req required')
+                        ->addMultiTextareaLangs(['summary'] ,'req required none')
                     ->closeHorizontalTab()
                     ->openHorizontalTab("extra-$type" ,trans('admin::app.extra_info') ,'req')
-                        ->addAutocomplete('autocomplete/gender' ,trans('admin::app.gender') , 'gender_id', 'gender_id', "gender.lang_name.$this->lang.text" ,'req required none' ,'' , '' ,true ,false ,true ,false)
-                        ->addAutocomplete('autocomplete/position' ,trans('utilities::app.position') , 'position_id', 'position_id', "position.lang_name.$this->lang.text" ,'req required none' ,'' , '' ,true ,false ,true ,false)
-                        ->addAutocomplete('autocomplete/job-title' ,trans('utilities::app.job_title') , 'job_title_id', 'job_title_id', "job_title.lang_name.$this->lang.text" ,'req required none' ,'' , '' ,true ,false ,true ,false)
+                        ->addAutocomplete('autocomplete/gender' ,trans('admin::app.gender') , 'gender_id', "gender.lang_name.$this->lang.text", "gender.lang_name.$this->lang.text" ,'req required none' ,'' , '' ,true ,false ,true ,false)
+                        ->addAutocomplete('autocomplete/position' ,trans('utilities::app.position') , 'position_id', "position.lang_name.$this->lang.text", "position.lang_name.$this->lang.text" ,'req required none' ,'' , '' ,true ,false ,true ,false)
+                        ->addAutocomplete('autocomplete/job-title' ,trans('utilities::app.job_title') , 'job_title_id', "job_title.lang_name.$this->lang.text", "job_title.lang_name.$this->lang.text" ,'req required none' ,'' , '' ,true ,false ,true ,false)
                     ->closeHorizontalTab()
                 ->endHorizontalTab()
             ->endTab()

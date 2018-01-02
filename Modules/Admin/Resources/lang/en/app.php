@@ -33,7 +33,7 @@ return [
     'course'             => 'Course',
     'prerequisite'       => 'Prerequisite',
     'faculty_courses'    => 'Faculty Courses',
-    'univercity_office'  => 'Univercity Office',
+    'university_office'  => 'University Office',
     'offices'            => 'Offices',
     'partners'           => 'Partners',
     'partner_larg_image' => 'Larg Image',
