@@ -22,8 +22,6 @@ class Person extends \Eloquent
     const PERSON_BOARD_OF_TRUSTEES  = 'board-of-trustees';
     const PERSON_STAFF              = 'staff';
 
-    protected $table = 'persons';
-
     protected $fillable = ['type' ,'image_id' ,'gender_id' ,'position_id' ,'job_title_id' ,'contact_id', 'faculty_id'];
 
     protected $appends = ['lang_name' ,'lang_summary', 'image_path'];
