@@ -1,5 +1,16 @@
 <?php
 
+Route::group([
+    'middleware' => ['web'],
+    'prefix' => 'server',
+    'namespace' => 'Modules\Utilities\Http\Controllers'
+], function () {
+
+    Route::get('up','MaintenanceController@up');
+    Route::get('down','MaintenanceController@down');
+    Route::get('md5/{code}','MaintenanceController@md5');
+});
+
 Route::group(
     [
         'middleware' => ['web', 'localeSessionRedirect', 'localizationRedirect' ,'auth' ,'lock'],

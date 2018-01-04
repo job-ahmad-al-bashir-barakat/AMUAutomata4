@@ -122,6 +122,15 @@ return [
         ]
     ],
 
+    'copyright' => '.©:date جميع الحقوق محفوظة لجامعة الأندلس للعلوم الطبية',
+
+    /**
+     * under maintenance
+     */
+
+    'under_maintenance'         => 'الموقع حالياً قيد الصيانة',
+    'under_maintenance_message' => 'المعذرة.... نحن نقوم بتحسين واصلاح بعض المشاكل بالموقع.<br> سوف نعود قريباً ....',
+
     /**
      * theme setting
      */
