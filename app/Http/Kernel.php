@@ -14,12 +14,18 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $middleware = [
-        \Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode::class,
+        /**
+         *  App Middleware
+         */
+        \App\Http\Middleware\CheckForMaintenanceMode::class,
+        \App\Http\Middleware\FilterIfPjax::class,
+        /**
+         *  Laravel Middleware
+         */
+        //\Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode::class,
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
         \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
-        \App\Http\Middleware\FilterIfPjax::class,
-
         //\RenatoMarinho\LaravelPageSpeed\Middleware\InlineCss::class,
         //\RenatoMarinho\LaravelPageSpeed\Middleware\ElideAttributes::class,
         //\RenatoMarinho\LaravelPageSpeed\Middleware\InsertDNSPrefetch::class,
@@ -72,7 +78,6 @@ class Kernel extends HttpKernel
         'localizationRedirect' => \Mcamara\LaravelLocalization\Middleware\LaravelLocalizationRedirectFilter::class,
         'localeSessionRedirect' => \Mcamara\LaravelLocalization\Middleware\LocaleSessionRedirect::class,
         /**
-         *
          *  App Middleware
          */
         'lock' => \App\Http\Middleware\LockScreen::class,

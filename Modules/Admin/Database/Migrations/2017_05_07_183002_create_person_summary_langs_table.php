@@ -15,7 +15,7 @@ class CreatePersonSummaryLangsTable extends Migration
     {
         Schema::create('person_summary_langs', function (Blueprint $table) {
             $table->increments('id')->unsigned();
-            $table->integer('person_id')->nullable()->index('department_id');
+            $table->integer('person_id')->nullable()->index('person_id');
             $table->integer('lang_id')->nullable()->index('lang_id');
             $table->string('text')->nullable();
             $table->timestamps();

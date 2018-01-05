@@ -28,7 +28,7 @@ class FormComponent
 
     public static function bsAutocomplete($label = '', $id = '', $name = '', $remote = '', $option = [], $letter = '3', $class = '', $attr = [])
     {
-        return Form::bsNumber($label, $id, $name, $remote, $option, $letter, $class, $attr);
+        return Form::bsAutocomplete($label, $id, $name, $remote, $option, $letter, $class, $attr);
     }
 
     public static function bsSelect($label = '', $id = '', $name = '', $option = [], $selected = null, $class = '', $attr = [])

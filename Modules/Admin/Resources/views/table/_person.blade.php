@@ -9,7 +9,7 @@
     function showFileUploadModal($this) {
 
         var inputFile = $('#person-image-upload').find('.upload-file'),
-            datatableRaw = _aut_datatable_getSelectedRowData('#datatable-persons' ,$($this).closest('tr'));
+            datatableRaw = _aut_datatable_getSelectedRowData($($this).data('tableid') ,$($this).closest('tr'));
 
         inputFile.attr('data-param' ,'id=' + $($this).data('key'));
 

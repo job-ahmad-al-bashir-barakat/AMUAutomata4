@@ -12,7 +12,7 @@
     {{--tree-autocomplete-change is class for change event to fill order with its value--}}
     {{ Form::bsAutocomplete(trans('utilities::app.parent') ,'parent-id' ,'parent_id','autocomplete/control',[],'3' ,'tree-autocomplete-change group' ,['data-json' => 'parent' , 'data-placeholder' => trans('utilities::app.parent')]) }}
     {{ Form::bsText(trans('utilities::app.code') ,'control-page-code' ,'control_page_code',null,'group required',["data-json" => "control-page-code"]) }}
-    {{ Form::bsText(trans('utilities::app.url_path') ,'url-path' ,'url_path' ,null ,'group',["data-json" => "url-path"]) }}
+    {{ Form::bsText(trans('utilities::app.url_path') ,'url-path' ,'url_path' ,null ,'group',["data-json" => "url-path", "dir" => "ltr"]) }}
 @endcomponent
 
 <script>

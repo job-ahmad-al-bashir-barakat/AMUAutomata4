@@ -54,6 +54,7 @@ return [
     'upload_slider_image'    => 'رفع صورة الشريحة',
     'upload_vertical_slider_image'    => 'رفع صورة الشريحة',
     'page-modules'           => 'بنية الصفحة',
+    'prefix'                 => 'لاحقة الرابط',
 
     'automata4_utilities'    => 'أدوات أتوماتا 4',
     'global'                 => 'أدوات شاملة',
@@ -121,6 +122,15 @@ return [
             'message'    => 'سجلك مايزال آمن :)',
         ]
     ],
+
+    'copyright' => '.©:date جميع الحقوق محفوظة لجامعة الأندلس للعلوم الطبية',
+
+    /**
+     * under maintenance
+     */
+
+    'under_maintenance'         => 'الموقع حالياً قيد الصيانة',
+    'under_maintenance_message' => 'المعذرة.... نحن نقوم بتحسين واصلاح بعض المشاكل بالموقع.<br> سوف نعود قريباً ....',
 
     /**
      * theme setting

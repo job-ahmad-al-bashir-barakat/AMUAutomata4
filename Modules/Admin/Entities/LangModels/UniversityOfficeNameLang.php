@@ -10,5 +10,5 @@ class UniversityOfficeNameLang extends Model
 {
     use SoftDeletes ,LangInfo;
 
-    protected $fillable = ['lang_id' ,'univercity_office_id' ,'text'];
+    protected $fillable = ['lang_id' ,'university_office_id' ,'text'];
 }

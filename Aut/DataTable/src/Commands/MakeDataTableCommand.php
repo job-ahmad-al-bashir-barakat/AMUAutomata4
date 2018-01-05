@@ -2,22 +2,40 @@
 
 namespace Aut\DataTable\Commands;
 
-use Symfony\Component\Console\Input\InputArgument;
+use Illuminate\Console\Command;
 
-trait MakeDatatable
+class MakeDataTableCommand extends Command
 {
+    /**
+     * The name and signature of the console command.
+     *
+     * @var string
+     */
+    protected $signature = 'datatable:publish 
+        {module? : The moudle of modules will be create datatable on it.}';
+
+    /**
+     * The console command description.
+     *
+     * @var string
+     */
+    protected $description = 'publish all content datatable';
+
+    /**
+     * The console command module args.
+     *
+     * @var string
+     */
     protected $module;
 
     /**
-     * Get the console command arguments.
+     * Create a new command instance.
      *
-     * @return array
+     * @return void
      */
-    protected function getArguments()
+    public function __construct()
     {
-        return array(
-            array('module', InputArgument::OPTIONAL, 'The moudle of modules will be create datatable on it.'),
-        );
+        parent::__construct();
     }
 
     /**
@@ -46,25 +64,6 @@ trait MakeDatatable
         return [
 
         ];
-    }
-
-    /**
-     * Execute the console command.
-     *
-     * @return void
-     */
-    public function fire()
-    {
-        $this->module = ucfirst($this->argument('module'));
-
-        $this->createDirectories();
-
-        $this->exportFiles();
-
-        if(!empty($this->module))
-            $this->exportModuleFiles();
-
-        $this->comment('DataTable scaffolding generated successfully!');
     }
 
     /**
@@ -117,5 +116,23 @@ trait MakeDatatable
 
             copy(__DIR__.'/stubs/make/'.$key, $path);
         }
+    }
+    /**
+     * Execute the console command.
+     *
+     * @return mixed
+     */
+    public function handle()
+    {
+        $this->module = ucfirst($this->argument('module'));
+
+        $this->createDirectories();
+
+        $this->exportFiles();
+
+        if(!empty($this->module))
+            $this->exportModuleFiles();
+
+        $this->comment('DataTable scaffolding generated successfully!');
     }
 }

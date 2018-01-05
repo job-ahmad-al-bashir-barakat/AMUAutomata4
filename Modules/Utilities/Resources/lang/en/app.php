@@ -57,6 +57,7 @@ return [
     'upload_slider_image'    => 'Upload Slider Image',
     'upload_vertical_slider_image'    => 'Upload Vertical Slider Image',
     'page-modules'           => 'Page Modules',
+    'prefix'                 => 'Prefix',
 
     'automata4_utilities'    => 'Automata4 Utilities',
     'global'                 => 'Global',
@@ -90,13 +91,13 @@ return [
     'details'                => 'Details',
     'preview'                => 'Preview',
 
-    'expand_all'             => 'Expand All',
-    'collapse_all'           => 'Collapse All',
-    'reset_tree'             => 'Reset Tree',
-    'add_new_node'           => 'Add New Node',
-    'save_order'             => 'Save Order',
-    'search_tree'            => 'Search Tree',
-    'drag'                   => 'Drag',
+    'expand_all'                => 'Expand All',
+    'collapse_all'              => 'Collapse All',
+    'reset_tree'                => 'Reset Tree',
+    'add_new_node'              => 'Add New Node',
+    'save_order'                => 'Save Order',
+    'search_tree'               => 'Search Tree',
+    'drag'                      => 'Drag',
     'prevent_drag_link_on_link' => '<b>Sorry !!!</b><br> you can\'t drag Link on Link',
     'prevent_drag_list_on_link' => '<b>Sorry !!!</b><br> you can\'t drag List on Link',
     'link_items_are_colored'    => 'Link Items Are Colored in :color',
@@ -123,6 +124,15 @@ return [
             'message'    => 'Your row is safe :)',
         ]
     ],
+
+    'copyright' => 'Copyright ©:date Al-Andalus Medical Sciences University. All Rights Reserved',
+
+    /**
+     * under maintenance
+     */
+
+    'under_maintenance'         => 'Under Maintenance',
+    'under_maintenance_message' => 'Sorry.... We are improving and fixing problems of our website.<br> We will be back very soon ....',
 
     /**
      * theme setting

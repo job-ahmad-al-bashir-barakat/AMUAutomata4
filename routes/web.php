@@ -1,12 +1,7 @@
 <?php
 
 Route::get('test', function () {
-
     return \Modules\Utilities\Entities\SchemaLanguageTable::with(['languageTable'])->tablesOf('users')->get();
-});
-
-Route::get('md5/{code}', function ($code) {
-    return bcrypt($code);
 });
 
 Route::group(

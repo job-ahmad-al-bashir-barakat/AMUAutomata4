@@ -21,7 +21,7 @@ class SiteMenu extends \Eloquent
         'department' => Department::class,
     ];
 
-    protected $fillable = ['id' ,'parent_id' ,'name_route' ,'order' ,'is_link' ,'menuable_id' ,'menuable_type' ,'dynamic'];
+    protected $fillable = ['id', 'parent_id', 'name_route', 'order', 'is_link', 'prefix', 'menuable_id', 'menuable_type', 'dynamic'];
 
     protected $appends = ['lang_name', 'title', 'title_dynamic', 'title_autocomplete', 'titles' ,'dynamic_info'];
 
