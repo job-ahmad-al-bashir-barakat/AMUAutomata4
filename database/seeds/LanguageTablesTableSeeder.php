@@ -77,6 +77,86 @@ class LanguageTablesTableSeeder extends Seeder
                 'updated_at' => '2017-12-21 21:38:04',
                 'deleted_at' => NULL,
             ),
+            6 => 
+            array (
+                'id' => 7,
+                'table_id' => 9,
+                'table_name' => 'course_name_langs',
+                'namespace' => 'Modules\\Admin\\Entities\\LangModels',
+                'created_at' => '2018-01-03 17:47:29',
+                'updated_at' => '2018-01-03 17:47:29',
+                'deleted_at' => NULL,
+            ),
+            7 => 
+            array (
+                'id' => 8,
+                'table_id' => 9,
+                'table_name' => 'course_description_langs',
+                'namespace' => 'Modules\\Admin\\Entities\\LangModels',
+                'created_at' => '2018-01-03 17:47:41',
+                'updated_at' => '2018-01-03 17:47:41',
+                'deleted_at' => NULL,
+            ),
+            8 => 
+            array (
+                'id' => 9,
+                'table_id' => 14,
+                'table_name' => 'faculty_name_langs',
+                'namespace' => 'Modules\\Admin\\Entities\\LangModels',
+                'created_at' => '2018-01-03 17:48:13',
+                'updated_at' => '2018-01-03 17:48:13',
+                'deleted_at' => NULL,
+            ),
+            9 => 
+            array (
+                'id' => 10,
+                'table_id' => 32,
+                'table_name' => 'page_name_langs',
+                'namespace' => 'Modules\\Utilities\\Entities\\LangModels',
+                'created_at' => '2018-01-03 17:49:05',
+                'updated_at' => '2018-01-03 17:49:05',
+                'deleted_at' => NULL,
+            ),
+            10 => 
+            array (
+                'id' => 11,
+                'table_id' => 35,
+                'table_name' => 'person_name_langs',
+                'namespace' => 'Modules\\Admin\\Entities\\LangModels',
+                'created_at' => '2018-01-03 17:49:53',
+                'updated_at' => '2018-01-03 17:49:53',
+                'deleted_at' => NULL,
+            ),
+            11 => 
+            array (
+                'id' => 12,
+                'table_id' => 35,
+                'table_name' => 'person_summary_langs',
+                'namespace' => 'Modules\\Admin\\Entities\\LangModels',
+                'created_at' => '2018-01-03 17:50:08',
+                'updated_at' => '2018-01-03 17:50:08',
+                'deleted_at' => NULL,
+            ),
+            12 => 
+            array (
+                'id' => 13,
+                'table_id' => 12,
+                'table_name' => 'degree_name_langs',
+                'namespace' => 'Modules\\Admin\\Entities\\LangModels',
+                'created_at' => '2018-01-03 17:51:20',
+                'updated_at' => '2018-01-03 17:51:20',
+                'deleted_at' => NULL,
+            ),
+            13 => 
+            array (
+                'id' => 14,
+                'table_id' => 50,
+                'table_name' => 'university_office_name_langs',
+                'namespace' => 'Modules\\Admin\\Entities\\LangModels',
+                'created_at' => '2018-01-03 18:07:51',
+                'updated_at' => '2018-01-03 18:07:51',
+                'deleted_at' => NULL,
+            ),
         ));
         
         
