@@ -23,6 +23,8 @@ return [
     'table_name'             => 'اسم الجدول',
     'namespace'              => 'Namespace',
     'pageable'               => 'Pageable',
+    'pageable_column'        => 'Pageable Column',
+    'morph_code'             => 'Morph Code',
     'menuable'               => 'Menuable',
     'created'                => 'منشأ',
     'has-lang-table'         => 'لديه جدول لغة',
@@ -51,7 +53,6 @@ return [
     'page_code'              => 'رمز الصفحة',
     'upload_slider_image'    => 'رفع صورة الشريحة',
     'upload_vertical_slider_image'    => 'رفع صورة الشريحة',
-    'page-builder'           => 'الباني: الصفحات',
     'page-modules'           => 'بنية الصفحة',
 
     'automata4_utilities'    => 'أدوات أتوماتا 4',

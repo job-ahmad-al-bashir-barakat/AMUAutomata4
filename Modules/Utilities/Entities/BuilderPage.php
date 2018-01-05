@@ -2,7 +2,6 @@
 
 namespace Modules\Utilities\Entities;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Modules\Utilities\WebModules\Modules\Module;
 
@@ -14,13 +13,18 @@ class BuilderPage extends \Eloquent
 {
     use SoftDeletes;
 
-    protected $fillable = ['page_id', 'custom_module_id', 'position', 'order'];
+    protected $fillable = ['custom_module_id', 'position', 'order', 'buildable_id', 'buildable_type'];
 
     protected $appends  = ['module'];
 
     public function customModule()
     {
         return $this->belongsTo(CustomModule::class);
+    }
+
+    public function buildable()
+    {
+        return $this->morphTo();
     }
 
     public function scopePageModules($query, $page = false)

@@ -7,17 +7,17 @@
 @section('content')
     <div class="sub-container">
         <div class="row">
+            @foreach($pageableTables as $pageableTable)
             <div class="col-md-6">
                 @component('controle.component.panel', [
-                    'id'    => 'panel-pages',
-                    'title' => $title
+                    'id'    => "panel-pages-{$pageableTable->table_name}",
+                    'title' => "{$title}: {$pageableTable->table_name_humane}",
+                    'active' => false,
                 ])
-                    {!! datatable('builder-pages') !!}
+                    {!! datatable('builder-pages', "?tableName={$pageableTable->table_name}") !!}
                 @endcomponent
             </div>
-            <div class="col-md-6">
-                {{--<div>Seo</div>--}}
-            </div>
+            @endforeach
         </div>
     </div>
 @stop
@@ -28,6 +28,7 @@
             <div class="modal-content">
                 {{ Form::open(['class' => 'ajax-form']) }}
                     {!! Form::bsHidden('page_id', 'page_id') !!}
+                    {!! Form::bsHidden('table_name', 'table_name') !!}
                     <div class="modal-header">
                         <button type="button" data-dismiss="modal" aria-label="Close" class="close">
                             <span aria-hidden="true">×</span>
@@ -79,13 +80,15 @@
                 var $btn = $(e.relatedTarget);
                 var pageId = $btn.data('page_id');
                 var pageName = $btn.data('page_name');
+                var tableName = $btn.data('table_name');
                 $modal.find('[name="page_id"]').val(pageId);
+                $modal.find('[name="table_name"]').val(tableName);
                 $modal.find('#page_name').html(pageName);
                 $modal.find('table.sortable').sortable({
                     items: "tbody>tr",
                     placeholder: "sortable-placeholder-dot"
                 });
-                $.get('{{ RouteUrls::getBuilderPageModules() }}' + '/' + pageId, function (res) {
+                $.get('{{ RouteUrls::getBuilderPageModules() }}' + '/' + tableName + '/' + pageId, function (res) {
                     APP_AMU.htmlTable.clearRows($('#page_modules_table'));
                     APP_AMU.htmlTable.fillTableData($('#page_modules_table'), res);
                 });
@@ -115,8 +118,6 @@
 
                 return false;
             });
-
-
         });
     </script>
 @endsection
