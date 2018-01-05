@@ -35,7 +35,7 @@ class AppServiceProvider extends ServiceProvider
      */
     function setMorphMap()
     {
-        $morphed = Table::morphed()->get()->pluck('namespace', 'morph_code')->toArray();
+        $morphed = Table::morphed()->get()->pluck('table_namespace', 'morph_code')->toArray();
         Relation::morphMap($morphed);
     }
 
