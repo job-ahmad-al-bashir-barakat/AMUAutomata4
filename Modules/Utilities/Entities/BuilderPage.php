@@ -30,14 +30,11 @@ class BuilderPage extends \Eloquent
     public function scopePageModules($query, $page = false)
     {
         $route = request()->route();
-        $currentPage = $route->getName();
-
+        $currentPage = explode('.', $route->getName());
+        $buildableType = $currentPage[0];
+        $buildableId = $currentPage[1];
         $query->with(['customModule.attributeValues.attribute']);
-        $pageCode = $page ?: $currentPage;
-
-        $pageId = Page::where('page_code', '=', $pageCode)->first(['id'])->id;
-
-        return $query->where('page_id', '=', $pageId)->orderBy('order');
+        return $query->whereBuildableId($buildableId)->whereBuildableType($buildableType)->orderBy('order');
     }
 
     /**
