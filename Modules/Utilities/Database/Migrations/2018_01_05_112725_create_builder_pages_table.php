@@ -15,10 +15,11 @@ class CreateBuilderPagesTable extends Migration {
 		Schema::create('builder_pages', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->integer('page_id')->unsigned();
 			$table->integer('custom_module_id');
-			$table->string('position', 1);
+			$table->string('position', 1)->nullable();
 			$table->integer('order');
+			$table->integer('buildable_id')->unsigned()->nullable()->index('buildable_id');
+			$table->string('buildable_type', 191)->nullable();
 			$table->timestamps();
 			$table->softDeletes();
 		});
