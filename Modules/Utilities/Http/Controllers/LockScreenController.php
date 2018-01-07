@@ -12,8 +12,16 @@ class LockScreenController extends Controller
     public function lock()
     {
         // only if user is logged in
-        if(\Auth::check()){
+        if(\Auth::check()) {
+
             \Session::put('locked', true);
+
+            if(!\Session::has('locked_redirect')) {
+
+                $locked_redirect = \LaravelLocalization::getNonLocalizedURL(\Redirect::back()->getTargetUrl());
+
+                \Session::put('locked_redirect', $locked_redirect);
+            }
 
             return view('utilities::lockscreen');
         }
@@ -35,10 +43,12 @@ class LockScreenController extends Controller
 
         if(\Hash::check($password ,\Auth::user()->password)){
 
-            \Session::forget('locked');
+            $redirect = \Session::get('locked_redirect');
 
-            return redirect()->back();
-            //redirect(\RouteUrls::admin());
+            \Session::forget('locked');
+            \Session::forget('locked_redirect');
+
+            return redirect()->intended($redirect);
         }
 
         return back()->withErrors(['password' => trans('utilities::app.pass_not_match')]);
