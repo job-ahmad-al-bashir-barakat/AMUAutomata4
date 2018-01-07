@@ -33,10 +33,17 @@ class SchemaTableFactory extends GlobalFactory
             ->queryAddColumn('pageable', function ($item) {
                 if($item->table)
                     return $item->table->pageable;
+            })->queryAddColumn('pageable_column', function ($item) {
+                if($item->table)
+                    return $item->table->pageable_column;
             })
             ->queryAddColumn('menuable', function ($item) {
                 if($item->table)
                     return $item->table->menuable;
+            })
+            ->queryAddColumn('morph_code', function ($item) {
+                if($item->table)
+                    return $item->table->morph_code;
             })
             ->queryAddColumn('inserted', function ($item){
                 $class = 'fa-ban text-danger';
@@ -62,7 +69,9 @@ class SchemaTableFactory extends GlobalFactory
             ->addInputText(trans('utilities::app.table_name'), 'TABLE_NAME', 'TABLE_NAME', 'required req')
             ->addInputText(trans('utilities::app.namespace'), 'namespace', 'namespace', 'required req none'/*, '', '', false*/)
             ->addSelect([0 => trans('utilities::app.no'), 1 => trans('utilities::app.yes')], trans('utilities::app.pageable'), 'pageable', 'pageable', 'pageable', '', '', '', false)
+            ->addInputText(trans('utilities::app.pageable_column'), 'pageable_column', 'pageable_column', 'none')
             ->addSelect([0 => trans('utilities::app.no'), 1 => trans('utilities::app.yes')], trans('utilities::app.menuable'), 'menuable', 'menuable', 'menuable', '', '', '', false)
+            ->addInputText(trans('utilities::app.morph_code'), 'morph_code', 'morph_code', 'none')
             ->addActionButton(trans('utilities::app.inserted'), 'inserted', 'inserted')
             ->addActionButton(trans('utilities::app.language-table'), 'language_tables', 'language_tables')
             ->addActionButton($this->update, 'update', 'update')

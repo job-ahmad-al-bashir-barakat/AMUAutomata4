@@ -18,7 +18,9 @@ class CreateTablesTable extends Migration {
 			$table->string('table_name', 200);
 			$table->string('namespace', 400);
 			$table->boolean('pageable');
+			$table->string('pageable_column', 191)->nullable();
 			$table->boolean('menuable');
+			$table->string('morph_code', 191)->nullable();
 			$table->timestamps();
 			$table->softDeletes();
 		});

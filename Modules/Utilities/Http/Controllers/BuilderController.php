@@ -1,19 +1,12 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: AA1992
- * Date: 8/24/2017
- * Time: 7:58 PM
- */
-
 namespace Modules\Utilities\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Modules\Utilities\Entities\BuilderPage;
-use Modules\Utilities\Entities\Page;
-use Modules\Utilities\Entities\Slider;
 use Modules\Utilities\Entities\Block;
+use Modules\Utilities\Entities\Table;
+use Modules\Utilities\Entities\Slider;
+use Modules\Utilities\Entities\BuilderPage;
 use Modules\Utilities\Entities\VerticalSlider;
 
 class BuilderController extends Controller
@@ -25,46 +18,56 @@ class BuilderController extends Controller
      */
     public function pages()
     {
+        $pageableTables = Table::pageable()->get();
+        //return $pageableTables;
         return view('utilities::page.builder', [
-            'title' => trans('utilities::app.page-builder'),
+            'title' => trans('utilities::app.builder'),
+            'pageableTables' => $pageableTables,
         ]);
     }
 
-    public function getPages($pageId)
+    public function getPages($tableName, $pageId)
     {
-        return BuilderPage::wherePageId($pageId)->orderBy('order')->with(['customModule'])->get();
+        $morph = Table::whereTableName($tableName)->first()->morph_code;
+        return BuilderPage::whereBuildableId($pageId)->whereBuildableType($morph)->orderBy('order')->with(['customModule'])->get();
     }
 
     public function storePages(Request $request)
     {
-        $pageId = $request->get('page_id');
-        $page = Page::find($pageId);
+        $tableName = $request->get('table_name');
+        $buildableType = Table::whereTableName($tableName)->first()->morph_code;
+        $buildableId = $request->get('page_id');
         $modulePosition = $request->get('module_position');
         $customModule = $request->get('custom_module');
         $id = $request->get('id');
         $deleteIds = $request->get('delete_id', []);
 
-        $oldPageBuilders = $page->builder()->whereIn('id', $id)->get()->keyBy('id');
+        $oldPageBuilders = BuilderPage::whereBuildableType($buildableType)
+            ->whereBuildableId($buildableId)
+            ->whereIn('id', $id)
+            ->get()->keyBy('id');
 
-        $builderPages = [];
+        /*$builderPages = [];*/
         for ($i = 0; $i < count($customModule); $i++) {
             $data = [
                 'custom_module_id' => $customModule[$i],
                 'position' => $modulePosition[$i],
                 'order' => ($i+1),
+                'buildable_id' => $buildableId,
+                'buildable_type' => $buildableType,
             ];
             if($id[$i]) {
                 if (in_array($id[$i], $deleteIds)) {
                     $oldPageBuilders[$id[$i]]->delete();
                 } else {
-                    $builderPages[] = $oldPageBuilders[$id[$i]]->fill($data);
+                    /*$builderPages[] = */$oldPageBuilders[$id[$i]]->fill($data)->save();
                 }
             } else {
-                $builderPages[] = new BuilderPage($data);
+                /*$builderPages[] = */(new BuilderPage($data))->save();
             }
         }
 
-        $page->builder()->saveMany($builderPages);
+//        BuilderPage::saveMany($builderPages);
 
         return ['success' => true];
     }

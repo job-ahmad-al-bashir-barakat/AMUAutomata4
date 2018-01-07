@@ -5,12 +5,8 @@ namespace App\Providers;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Relations\Relation;
-use Modules\Admin\Entities\Degree;
-use Modules\Admin\Entities\Department;
-use Modules\Admin\Entities\Faculty;
 use Modules\Utilities\Entities\Lang;
-use Modules\Utilities\Entities\MenuTables;
-use Modules\Utilities\Entities\Page;
+use Modules\Utilities\Entities\Table;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -39,14 +35,8 @@ class AppServiceProvider extends ServiceProvider
      */
     function setMorphMap()
     {
-        Relation::morphMap([
-            'page'       => Page::class,
-            'faculty'    => Faculty::class,
-            'degree'     => Degree::class,
-            'department' => Department::class,
-            'menus-table'=> MenuTables::class,
-        ]);
-
+        $morphed = Table::morphed()->get()->pluck('namespace', 'morph_code')->toArray();
+        Relation::morphMap($morphed);
     }
 
     /**

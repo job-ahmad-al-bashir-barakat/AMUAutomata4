@@ -23,6 +23,8 @@ return [
     'table_name'             => 'Table Name',
     'namespace'              => 'Namespace',
     'pageable'               => 'Pageable',
+    'pageable_column'        => 'Pageable Column',
+    'morph_code'             => 'Morph Code',
     'menuable'               => 'Menuable',
     'created'                => 'Created',
     'has-lang-table'         => 'Has Lang Table',
@@ -54,7 +56,6 @@ return [
     'page_code'              => 'Page Code',
     'upload_slider_image'    => 'Upload Slider Image',
     'upload_vertical_slider_image'    => 'Upload Vertical Slider Image',
-    'page-builder'           => 'Builder: Pages',
     'page-modules'           => 'Page Modules',
     'prefix'                 => 'Prefix',
 
