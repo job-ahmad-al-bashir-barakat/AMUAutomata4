@@ -35,8 +35,12 @@ class AppServiceProvider extends ServiceProvider
      */
     function setMorphMap()
     {
-        $morphed = Table::morphed()->get()->pluck('namespace', 'morph_code')->toArray();
-        Relation::morphMap($morphed);
+        if(Schema::hasTable('tables')) {
+
+            $morphed = Table::morphed()->get()->pluck('namespace', 'morph_code')->toArray();
+
+            Relation::morphMap($morphed);
+        }
     }
 
     /**
@@ -44,20 +48,25 @@ class AppServiceProvider extends ServiceProvider
      */
     function setLaravelLocalizationConfig()
     {
-        if(Lang::count()) {
-            \Config::set('laravellocalization.supportedLocales', Lang::all()
-                ->groupBy('lang_code')
-                ->map(function ($value, $index) {
+        if(Schema::hasTable('langs')) {
 
-                    $value = $value->first();
+            if(Lang::count()) {
 
-                    return [
-                        'name' => $value->name,
-                        'script' => is_null($value->script) ? '' : $value->script,
-                        'native' => $value->native,
-                        'regional' => is_null($value->regional) ? '' : $value->regional,
-                    ];
-                })->toArray());
+                \Config::set('laravellocalization.supportedLocales', Lang::all()
+                    ->groupBy('lang_code')
+                    ->map(function ($value, $index) {
+
+                        $value = $value->first();
+
+                        return [
+                            'name' => $value->name,
+                            'script' => is_null($value->script) ? '' : $value->script,
+                            'native' => $value->native,
+                            'regional' => is_null($value->regional) ? '' : $value->regional,
+                        ];
+
+                    })->toArray());
+            }
         }
     }
     /**
