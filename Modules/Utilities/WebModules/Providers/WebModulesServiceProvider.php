@@ -4,16 +4,13 @@ namespace Modules\Utilities\WebModules\Providers;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Str;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
-use Modules\Utilities\Entities\Table;
 
 class WebModulesServiceProvider extends ServiceProvider
 {
     /**
      * Boot the application events.
      *
-     * @param Route $route
      * @return void
      */
     public function boot()
@@ -33,38 +30,40 @@ class WebModulesServiceProvider extends ServiceProvider
 
     private function routesRegister()
     {
-        Route::group([
-            'middleware' => ['web', 'localeSessionRedirect', 'localizationRedirect'],
-            'prefix' => LaravelLocalization::setLocale(),
-        ], function () {
-            $localLang = app()->getLocale();
-            $pageable = Table::pageable()->get();
-            $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
+        $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
+        $this->buildMenuRoutes($menu);
+    }
 
-            foreach ($pageable as $table) {
-                $morphCode = $table->morph_code;
-                $model = $table->namespace;
-                $column = $table->pageable_column;
-                $lang = Str::startsWith($column, 'lang:');
-                if ($lang) {
-                    $column = explode(':', $column)[1];
-                }
-                $data = $model::all();
-                foreach ($data as $datum) {
-                    if ($lang) {
-                        $route = $datum->{'lang_' . Str::snake($column)}[$localLang]->text;
-                    } else {
-                        $route = $datum->{$column};
-                    }
-                    $route = str_slug($route);
-                    Route::get($route, function () use ($menu) {
-                        $modules = \Modules\Utilities\Entities\BuilderPage::pageModules()->get()->pluck('module');
-                        return view('modules', compact('menu', 'modules'));
-                    })->name("{$morphCode}.{$datum->id}");
-
+    private function buildMenuRoutes($tree, $urlPrefix = '')
+    {
+        foreach ($tree as $item) {
+            if ($item->menuable) {
+                $this->registerLangRoutes("{$urlPrefix}{$item->menuable->route}", "{$item->menuable_type}.{$item->menuable_id}");
+            }
+            if ($item->dynamic && $item->dynamic_info->count()) {
+                $prefix = "{$item->dynamic}/{{$item->dynamic}}";
+                if ($item->children->count()) {
+                    $this->buildMenuRoutes($item->children, "{$prefix}/");
                 }
             }
-        });
+            elseif ($item->children->count()) {
+                $this->buildMenuRoutes($item->children);
+            }
+        }
+    }
+
+    private function registerLangRoutes($url, $name)
+    {
+        $supportedLanguages = LaravelLocalization::getSupportedLanguagesKeys();
+        //$supportedLanguages[''] = '';
+        foreach ($supportedLanguages as $supportedLanguage) {
+            Route::get("{$supportedLanguage}/{$url}", function (){
+                //@todo menu must be global var to make on call for it
+                $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
+                $modules = \Modules\Utilities\Entities\BuilderPage::pageModules()->get()->pluck('module');
+                return view("modules", compact('menu', 'modules'));
+            })->name($name);
+        }
     }
 
 }
