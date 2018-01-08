@@ -108,7 +108,7 @@ class FactoryMakeCommand extends Command
         $stub = $this->files->get($this->getStub());
 
         if($module != '')
-            $name = preg_replace("/App./",'' ,$name);
+            $name = preg_replace("/App\\\/",'' ,$name);
 
         $model = preg_replace('/(.+\\\\)|(factory)/i' ,'' ,$name);
 
@@ -130,7 +130,7 @@ class FactoryMakeCommand extends Command
         $namespace = $this->getNamespace($name);
 
         if($module != '')
-            $namespace = preg_replace("/App./",'' ,$this->getNamespace($name));
+            $namespace = preg_replace("/App\\\/",'' ,$this->getNamespace($name));
 
         return str_replace("use $namespace\Factories;\n", '', $this->parentBuildClass($name));
     }
@@ -156,7 +156,7 @@ class FactoryMakeCommand extends Command
 
         if($module != '')
         {
-            $path = base_path(preg_replace("/App./",'' ,$name)).'.php';
+            $path = base_path(preg_replace("/App\\\/",'' ,$name)).'.php';
 
             if(file_exists($path)) {
                 $this->error($this->type.' already exists!');
