@@ -8,6 +8,7 @@ use Modules\Utilities\WebModules\Modules\Module;
 /**
  * @property int custom_module_id
  * @property CustomModule customModule
+ * @method Module module()
  */
 class BuilderPage extends \Eloquent
 {

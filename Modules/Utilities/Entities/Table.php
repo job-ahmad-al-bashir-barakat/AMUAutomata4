@@ -13,7 +13,7 @@ class Table extends \Eloquent
 {
     protected $fillable = ['table_name', 'namespace', 'pageable', 'pageable_column', 'menuable', 'morph_code'];
 
-    protected $appends = ['table_name_humane', 'table_namespace'];
+    protected $appends = ['table_name_humane'];
 
     public function getTableNameHumaneAttribute()
     {

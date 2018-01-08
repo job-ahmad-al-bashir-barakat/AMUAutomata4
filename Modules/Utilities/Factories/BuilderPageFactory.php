@@ -99,7 +99,6 @@ class BuilderPageFactory extends GlobalFactory
     private function initBuilderPage()
     {
         $tableName = request()->input('tableName');
-        //$modelName = Str::studly(Str::singular($tableName));
         $builderTable = Table::whereTableName($tableName)->first();
         if ($builderTable->pageable_column) {
             $this->builderColumnWithLang = Str::startsWith($builderTable->pageable_column, 'lang:');
@@ -109,7 +108,7 @@ class BuilderPageFactory extends GlobalFactory
                 $this->builderColumn = $builderTable->pageable_column;
             }
         }
-        $this->builderModel = $builderTable->table_namespace;//"{$builderTable->namespace}\\{$modelName}";
+        $this->builderModel = $builderTable->namespace;
         $this->builderTable = $tableName;
     }
 }
