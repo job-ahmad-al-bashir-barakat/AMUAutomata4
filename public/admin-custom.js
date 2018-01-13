@@ -2037,7 +2037,7 @@ var APP_AMU = {
 
         initGMapInputLocation: function () {
 
-            $(document).on('click', '.input-location span:first', function () {
+            $(document).on('click', '.input-location span:nth-child(2)', function () {
 
                 var $this = $(this),
                     $input = $this.prev('input'),
