@@ -449,7 +449,7 @@ class TablesTableSeeder extends Seeder
             33 => 
             array (
                 'id' => 35,
-                'table_name' => 'persons',
+                'table_name' => 'people',
                 'namespace' => '\\Modules\\Admin\\Entities',
                 'pageable' => 1,
                 'pageable_column' => 'lang:name',

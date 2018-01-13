@@ -20,6 +20,7 @@ Route::group(
 function () {
 
     Route::get('test', function (){
+        //return \Modules\Utilities\Entities\MenuTables::all();
 //        $data = [];
 //        DB::table('icons')->insert($data);
         return \Modules\Utilities\Entities\Icon::all();

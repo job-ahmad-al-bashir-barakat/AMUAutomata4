@@ -37,10 +37,11 @@ class AppServiceProvider extends ServiceProvider
     {
         if(Schema::hasTable('tables')) {
 
-            $morphed = Table::morphed()->get()->pluck('namespace', 'morph_code')->toArray();
+            $morphed = Table::morphed()->get()->pluck('table_namespace', 'morph_code')->toArray();
 
             Relation::morphMap($morphed);
         }
+
     }
 
     /**
@@ -56,16 +57,16 @@ class AppServiceProvider extends ServiceProvider
                     ->groupBy('lang_code')
                     ->map(function ($value, $index) {
 
-                        $value = $value->first();
+                    $value = $value->first();
 
-                        return [
-                            'name' => $value->name,
-                            'script' => is_null($value->script) ? '' : $value->script,
-                            'native' => $value->native,
-                            'regional' => is_null($value->regional) ? '' : $value->regional,
-                        ];
+                    return [
+                        'name' => $value->name,
+                        'script' => is_null($value->script) ? '' : $value->script,
+                        'native' => $value->native,
+                        'regional' => is_null($value->regional) ? '' : $value->regional,
+                    ];
 
-                    })->toArray());
+                })->toArray());
             }
         }
     }

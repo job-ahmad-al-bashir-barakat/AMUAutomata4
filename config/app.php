@@ -195,7 +195,7 @@ return [
         Aut\Autocomplete\AutocompleteServiceProvider::class,
         Aut\DataTable\DataTableServiceProvider::class,
         Aut\FileManager\FileManagerServiceProvider::class,
-
+        \Modules\Utilities\WebModules\Providers\WebModulesServiceProvider::class,
     ],
 
     /*
