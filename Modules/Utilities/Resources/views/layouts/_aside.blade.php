@@ -32,11 +32,6 @@
                 </a>
             </li>
             <li class="">
-                <a href="{{ RouteUrls::users() }}" class="ajax" title="{{ trans('utilities::app.users') }}">
-                    <span>{{ trans('utilities::app.users') }}</span>
-                </a>
-            </li>
-            <li class="">
                 <a href="{{ RouteUrls::attributes() }}" class="ajax"  title="{{ trans('utilities::app.attributes') }}">
                     <span>{{ trans('utilities::app.attributes') }}</span>
                 </a>
@@ -77,6 +72,25 @@
             <li class="">
                 <a href="{{ RouteUrls::menuTables() }}" class="ajax" title="{{ trans('utilities::app.menu_tables') }}">
                     <span>{{ trans('utilities::app.menu_tables') }}</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li class="">
+        <a href="#users-auth" title="{{ trans('utilities::app.auth') }}" data-toggle="collapse" class="">
+            <em class="icon-people"></em>
+            <span>{{ trans('utilities::app.auth') }}</span>
+        </a>
+        <ul id="users-auth" class="nav sidebar-subnav collapse">
+            <li class="sidebar-subnav-header">{{ trans('utilities::app.auth') }}</li>
+            <li class="">
+                <a href="{{ RouteUrls::roles() }}" class="ajax" title="{{ trans('utilities::app.roles') }}">
+                    <span>{{ trans('utilities::app.roles') }}</span>
+                </a>
+            </li>
+            <li class="">
+                <a href="{{ RouteUrls::users() }}" class="ajax" title="{{ trans('utilities::app.users') }}">
+                    <span>{{ trans('utilities::app.users') }}</span>
                 </a>
             </li>
         </ul>
