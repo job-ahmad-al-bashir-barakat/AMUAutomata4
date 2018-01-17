@@ -26,10 +26,15 @@ class BuilderController extends Controller
         ]);
     }
 
-    public function getPages($tableName, $pageId)
+    public function getPages($tableName, $pageId, $objectId = false)
     {
         $morph = Table::whereTableName($tableName)->first()->morph_code;
-        return BuilderPage::whereBuildableId($pageId)->whereBuildableType($morph)->orderBy('order')->with(['customModule'])->get();
+        $query = BuilderPage::whereBuildableId($pageId)->whereBuildableType($morph);
+        if ($objectId) {
+            $query->whereOptionalId($objectId);
+        }
+        $builderPagesData = $query->orderBy('order')->with(['customModule'])->get();
+        return $builderPagesData;
     }
 
     public function storePages(Request $request)

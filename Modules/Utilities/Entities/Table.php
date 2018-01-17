@@ -7,7 +7,12 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Str;
 
 /**
+ * @property string table_name
  * @property string namespace
+ * @property string pageable
+ * @property string pageable_column
+ * @property string menuable
+ * @property string morph_code
  */
 class Table extends \Eloquent
 {

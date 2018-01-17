@@ -29,7 +29,7 @@ function () {
     Route::group(['prefix' => 'builder'], function () {
         Route::get('pages', 'BuilderController@pages')->name('pages');
         Route::post('pages', 'BuilderController@storePages');
-        Route::get('modules/{tableName}/{pageId}', 'BuilderController@getPages');
+        Route::get('modules/{tableName}/{pageId}/{objectId?}', 'BuilderController@getPages');
 
         Route::get('sliders', 'BuilderController@sliders')->name('sliders');
         Route::get('sliders/{slider}', 'BuilderController@slider')->name('slider-detail');
