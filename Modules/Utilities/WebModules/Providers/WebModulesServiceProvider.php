@@ -8,6 +8,8 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 class WebModulesServiceProvider extends ServiceProvider
 {
+    protected $menu;
+
     /**
      * Boot the application events.
      *
@@ -30,8 +32,8 @@ class WebModulesServiceProvider extends ServiceProvider
 
     private function routesRegister()
     {
-        $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
-        $this->buildMenuRoutes($menu);
+        $this->menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
+        $this->buildMenuRoutes($this->menu);
     }
 
     private function buildMenuRoutes($tree, $urlPrefix = '')
@@ -59,7 +61,7 @@ class WebModulesServiceProvider extends ServiceProvider
         foreach ($supportedLanguages as $supportedLanguage) {
             Route::get("{$supportedLanguage}/{$url}", function (){
                 //@todo menu must be global var to make on call for it
-                $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
+                $menu = $this->menu;
                 $modules = \Modules\Utilities\Entities\BuilderPage::pageModules()->get()->pluck('module');
                 return view("modules", compact('menu', 'modules'));
             })->name($name);
