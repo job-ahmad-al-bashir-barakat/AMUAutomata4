@@ -7,6 +7,7 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use Modules\Utilities\Entities\Table;
+use Schema;
 
 class WebModulesServiceProvider extends ServiceProvider
 {
@@ -37,31 +38,35 @@ class WebModulesServiceProvider extends ServiceProvider
             'middleware' => ['web', 'localeSessionRedirect', 'localizationRedirect'],
             'prefix' => LaravelLocalization::setLocale(),
         ], function () {
+
             $localLang = app()->getLocale();
-            $pageable = Table::pageable()->get();
-            $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
+            if(Schema::hasTable('tables'))
+            {
+                $pageable = Table::pageable()->get();
+                $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
 
-            foreach ($pageable as $table) {
-                $morphCode = $table->morph_code;
-                $model = $table->namespace;
-                $column = $table->pageable_column;
-                $lang = Str::startsWith($column, 'lang:');
-                if ($lang) {
-                    $column = explode(':', $column)[1];
-                }
-                $data = $model::all();
-                foreach ($data as $datum) {
+                foreach ($pageable as $table) {
+                    $morphCode = $table->morph_code;
+                    $model = $table->namespace;
+                    $column = $table->pageable_column;
+                    $lang = Str::startsWith($column, 'lang:');
                     if ($lang) {
-                        $route = $datum->{'lang_' . Str::snake($column)}[$localLang]->text;
-                    } else {
-                        $route = $datum->{$column};
+                        $column = explode(':', $column)[1];
                     }
-                    $route = str_slug($route);
-                    Route::get($route, function () use ($menu) {
-                        $modules = \Modules\Utilities\Entities\BuilderPage::pageModules()->get()->pluck('module');
-                        return view('modules', compact('menu', 'modules'));
-                    })->name("{$morphCode}.{$datum->id}");
+                    $data = $model::all();
+                    foreach ($data as $datum) {
+                        if ($lang) {
+                            $route = $datum->{'lang_' . Str::snake($column)}[$localLang]->text;
+                        } else {
+                            $route = $datum->{$column};
+                        }
+                        $route = str_slug($route);
+                        Route::get($route, function () use ($menu) {
+                            $modules = \Modules\Utilities\Entities\BuilderPage::pageModules()->get()->pluck('module');
+                            return view('modules', compact('menu', 'modules'));
+                        })->name("{$morphCode}.{$datum->id}");
 
+                    }
                 }
             }
         });
