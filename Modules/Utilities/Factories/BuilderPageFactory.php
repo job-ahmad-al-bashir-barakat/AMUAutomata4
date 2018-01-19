@@ -45,6 +45,7 @@ class BuilderPageFactory extends GlobalFactory
                 $pages = SiteMenu::where('parent_id', $menuId->id)->get()->pluck('menuable_id');
             }
             $query = Page::whereIn('id', $pages->toArray());
+            $this->builderTable = 'pages';
         }
 
         $this->table

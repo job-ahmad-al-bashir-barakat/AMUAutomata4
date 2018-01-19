@@ -19,7 +19,7 @@ class BuilderController extends Controller
     public function pages()
     {
         $pageableTables = Table::pageable()->get();
-        //return $pageableTables;
+
         return view('utilities::page.builder', [
             'title' => trans('utilities::app.builder'),
             'pageableTables' => $pageableTables,
@@ -32,6 +32,8 @@ class BuilderController extends Controller
         $query = BuilderPage::whereBuildableId($pageId)->whereBuildableType($morph);
         if ($objectId) {
             $query->whereOptionalId($objectId);
+        } else {
+            $query->whereNull('optional_id');
         }
         $builderPagesData = $query->orderBy('order')->with(['customModule'])->get();
         return $builderPagesData;
@@ -43,6 +45,7 @@ class BuilderController extends Controller
         $buildableType = Table::whereTableName($tableName)->first()->morph_code;
         $buildableId = $request->get('page_id');
         $modulePosition = $request->get('module_position');
+        $optionalId = $request->get('optional_id');
         $customModule = $request->get('custom_module');
         $id = $request->get('id');
         $deleteIds = $request->get('delete_id', []);
@@ -60,6 +63,7 @@ class BuilderController extends Controller
                 'order' => ($i+1),
                 'buildable_id' => $buildableId,
                 'buildable_type' => $buildableType,
+                'optional_id' => $optionalId,
             ];
             if($id[$i]) {
                 if (in_array($id[$i], $deleteIds)) {
@@ -71,9 +75,7 @@ class BuilderController extends Controller
                 /*$builderPages[] = */(new BuilderPage($data))->save();
             }
         }
-
 //        BuilderPage::saveMany($builderPages);
-
         return ['success' => true];
     }
 

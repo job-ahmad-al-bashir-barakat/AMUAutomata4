@@ -40,7 +40,7 @@
             <div class="modal-content">
                 {{ Form::open(['class' => 'ajax-form']) }}
                     {!! Form::bsHidden('page_id', 'page_id') !!}
-                    {!! Form::bsHidden('object_id', 'object_id') !!}
+                    {!! Form::bsHidden('optional_id', 'optional_id') !!}
                     {!! Form::bsHidden('table_name', 'table_name') !!}
                     <div class="modal-header">
                         <button type="button" data-dismiss="modal" aria-label="Close" class="close">
@@ -104,7 +104,7 @@
                 var objectId = $btn.data('object_id');
                 $modal.find('[name="page_id"]').val(pageId);
                 $modal.find('[name="table_name"]').val(tableName);
-                $modal.find('[name="object_id"]').val(objectId);
+                $modal.find('[name="optional_id"]').val(objectId);
                 $modal.find('#page_name').html(pageName);
                 $modal.find('table.sortable').sortable({
                     items: "tbody>tr",
