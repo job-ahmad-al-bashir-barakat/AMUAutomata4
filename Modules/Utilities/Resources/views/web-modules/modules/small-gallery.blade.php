@@ -1,4 +1,5 @@
 @php($images = \Modules\Utilities\Entities\Image::whereIn('id', $data['images'])->get())
+@if($images->count())
 <div class="col-md-{{ $data['width'] }} wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.3s">
     <div class="row mb-10">
         <div class="col-md-12 pr-5 pr-sm-15 mb-sm-10">
@@ -13,3 +14,4 @@
         @endforeach
     </div>
 </div>
+@endif
