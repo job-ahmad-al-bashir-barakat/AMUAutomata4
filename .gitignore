@@ -28,11 +28,9 @@ Homestead.yaml
 /public/filemanager
 /public/formBuilder
 
-/public/mix-manifest.json
-
 #big folder
 /Modules/Admin/Assets/vendor
 /resources/assets
 /vendor
-/node_modules
 /Temp/me_todo.md
+/node_modules

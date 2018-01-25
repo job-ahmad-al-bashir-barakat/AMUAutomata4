@@ -14,56 +14,77 @@ const { mix } = require('laravel-mix');
 /**
  * Control css
  */
+
 mix.styles([
+
+    // fonts
     'resources/assets/myfont/font-jozoor/jozoor-font.css',
     'Modules/Admin/Assets/vendor/fontawesome/css/font-awesome.min.css',
     'Modules/Admin/Assets/vendor/simple-line-icons/css/simple-line-icons.css',
+    'Modules/Admin/Assets/vendor/weather-icons/css/weather-icons.min.css',
+    // animate
     'Modules/Admin/Assets/vendor/animate.css/animate.min.css',
     'Modules/Admin/Assets/vendor/whirl/dist/whirl.css',
-    'Modules/Admin/Assets/vendor/weather-icons/css/weather-icons.min.css',
+    'node_modules/loaders.css/loaders.css',
+    // bootstrap
     'Modules/Admin/Assets/vendor/app/css/bootstrap.css',
     'Modules/Admin/Assets/vendor/app/css/custom-bootstrap-margin-padding.css',
+    // jquery ui
     'Modules/Admin/Assets/vendor/jquery-ui/themes/smoothness/jquery-ui.min.css',
+    // select2
     'Modules/Admin/Assets/vendor/select2/dist/css/select2.css',
     'Modules/Admin/Assets/vendor/select2-bootstrap-theme/dist/select2-bootstrap.css',
+    // datatable
     'Modules/Admin/Assets/vendor/custom.datatable/media/css/dataTables.bootstrap.css',
     'Modules/Admin/Assets/vendor/custom.datatable/extensions/FixedColumns/css/fixedColumns.bootstrap.css',
     'Modules/Admin/Assets/vendor/custom.datatable/extensions/Responsive/css/responsive.bootstrap.css',
     'Modules/Admin/Assets/vendor/custom.datatable/extensions/Buttons/css/buttons.bootstrap.css',
-    'Modules/Admin/Assets/vendor/sweetalert/dist/sweetalert2.min.css',
+    // fileupload
     'Modules/Admin/Assets/vendor/bootstrap-fileinput/css/fileinput.css',
     'Modules/Admin/Assets/vendor/cropper/dist/cropper.css',
+    // plugin
+    'Modules/Admin/Assets/vendor/sweetalert/dist/sweetalert2.min.css',
     'Modules/Admin/Assets/vendor/dragula/dragula.css',
-    'node_modules/loaders.css/loaders.css',
+    // custom
     'Aut/DataTable/src/Assets/css/ltr/datatables-custom-ltr.css',
     'Aut/DataTable/src/Assets/css/shared/datatables-custom.css',
     'Modules/Admin/Assets/vendor/app/css/app.css',
-    'Modules/Admin/Assets/vendor/preloader/preloader.scss',
+    'Modules/Admin/Assets/vendor/preloader/preloader.scss'
 
 ], 'public/css/admin-all-ltr.css').version();
 
 mix.styles([
+
+    // fonts
     'resources/assets/myfont/font-jozoor/jozoor-font.css',
     'Modules/Admin/Assets/vendor/fontawesome/css/font-awesome.min.css',
     'Modules/Admin/Assets/vendor/simple-line-icons/css/simple-line-icons.css',
+    'Modules/Admin/Assets/vendor/weather-icons/css/weather-icons.min.css',
+    // animate
     'Modules/Admin/Assets/vendor/animate.css/animate.min.css',
     'Modules/Admin/Assets/vendor/whirl/dist/whirl.css',
-    'Modules/Admin/Assets/vendor/weather-icons/css/weather-icons.min.css',
+    'node_modules/loaders.css/loaders.css',
+    // bootstrap
     'Modules/Admin/Assets/vendor/app/css/bootstrap-rtl.css',
     'Modules/Admin/Assets/vendor/app/css/custom-bootstrap-margin-padding.css',
+    // jquery ui
     'Modules/Admin/Assets/vendor/jquery-ui/themes/smoothness/jquery-ui.min.css',
+    // select2
     'Modules/Admin/Assets/vendor/select2/dist/css/select2.css',
     'Modules/Admin/Assets/vendor/select2-bootstrap-theme/dist/select2-bootstrap.css',
+    // datatable
     'Modules/Admin/Assets/vendor/custom.datatable/media/css/dataTables.bootstrap.css',
     'Modules/Admin/Assets/vendor/custom.datatable/extensions/FixedColumns/css/fixedColumns.bootstrap.css',
     'Modules/Admin/Assets/vendor/custom.datatable/extensions/Responsive/css/responsive.bootstrap.css',
     'Modules/Admin/Assets/vendor/custom.datatable/extensions/Buttons/css/buttons.bootstrap.css',
-    'Modules/Admin/Assets/vendor/sweetalert/dist/sweetalert2.min.css',
+    // fileupload
     'Modules/Admin/Assets/vendor/bootstrap-fileinput/css/fileinput.css',
     'Modules/Admin/Assets/vendor/bootstrap-fileinput/css/fileinput-rtl.css',
     'Modules/Admin/Assets/vendor/cropper/dist/cropper.css',
+    // plugin
+    'Modules/Admin/Assets/vendor/sweetalert/dist/sweetalert2.min.css',
     'Modules/Admin/Assets/vendor/dragula/dragula.css',
-    'node_modules/loaders.css/loaders.css',
+    // custom
     'Aut/DataTable/src/Assets/css/rtl/datatables-custom-rtl.css',
     'Aut/DataTable/src/Assets/css/shared/datatables-custom.css',
     'Modules/Admin/Assets/vendor/app/css/app-rtl.css',
@@ -71,20 +92,20 @@ mix.styles([
 
 ], 'public/css/admin-all-rtl.css').version();
 
-
 /**
  * Control Js
  */
+
 var js = [
+
     'Modules/Admin/Assets/vendor/modernizr/modernizr.custom.js',
     'Modules/Admin/Assets/vendor/matchMedia/matchMedia.js',
+    // jquery
     'Modules/Admin/Assets/vendor/jquery/dist/jquery.js',
-    // 'Modules/Admin/Assets/vendor/interact/interact.min.js',
     'Modules/Admin/Assets/vendor/jquery-ui/jquery-ui.js',
     'Aut/DataTable/src/Assets/js/jquery-request-types.js',
     'node_modules/jquery-validation/dist/jquery.validate.js',
-    'node_modules/lodash/lodash.js',
-    'node_modules/jspath/lib/jspath.js',
+    // theme lib
     'Modules/Admin/Assets/vendor/bootstrap/dist/js/bootstrap.js',
     'Modules/Admin/Assets/vendor/jQuery-Storage-API/jquery.storageapi.js',
     'Modules/Admin/Assets/vendor/jquery.easing/js/jquery.easing.js',
@@ -104,13 +125,17 @@ var js = [
     'Modules/Admin/Assets/vendor/jquery-classyloader/js/jquery.classyloader.min.js',
     'Modules/Admin/Assets/vendor/moment/min/moment-with-locales.min.js',
     'Modules/Admin/Assets/vendor/app/js/demo/demo-flot.js',
+    // datatable
     'Modules/Admin/Assets/vendor/custom.datatable/media/js/jquery.dataTables.js',
     'Modules/Admin/Assets/vendor/custom.datatable/media/js/dataTables.bootstrap.js',
     'Modules/Admin/Assets/vendor/custom.datatable/extensions/Buttons/js/dataTables.buttons.js',
     'Modules/Admin/Assets/vendor/custom.datatable/extensions/Buttons/js/buttons.bootstrap.js',
     'Modules/Admin/Assets/vendor/custom.datatable/extensions/Buttons/js/buttons.colVis.js',
+    'Modules/Admin/Assets/vendor/custom.datatable/extensions/Responsive/js/dataTables.responsive.js',
+    'Modules/Admin/Assets/vendor/custom.datatable/extensions/Responsive/js/responsive.bootstrap.js',
+    'Modules/Admin/Assets/vendor/custom.datatable/extensions/FixedColumns/js/dataTables.fixedColumns.js',
 
-    // test
+    // datatable button print ... et
     // 'Modules/Admin/Assets/vendor/custom.datatable/extensions/Buttons/js/buttons.flash.js',
     // 'Modules/Admin/Assets/vendor/jszip/jszip.min.js',
     // 'Modules/Admin/Assets/vendor/pdfmake/pdfmake.min.js',
@@ -118,26 +143,26 @@ var js = [
     // 'Modules/Admin/Assets/vendor/custom.datatable/extensions/Buttons/js/buttons.print.js',
     // 'Modules/Admin/Assets/vendor/custom.datatable/extensions/Buttons/js/buttons.html5.js',
 
-    'Modules/Admin/Assets/vendor/custom.datatable/extensions/Responsive/js/dataTables.responsive.js',
-    'Modules/Admin/Assets/vendor/custom.datatable/extensions/Responsive/js/responsive.bootstrap.js',
-    'Modules/Admin/Assets/vendor/custom.datatable/extensions/FixedColumns/js/dataTables.fixedColumns.js',
-    'Aut/DataTable/src/Assets/js/datatable.js',
+    // helper lib
+    'node_modules/lodash/lodash.js',
+    'node_modules/jspath/lib/jspath.js',
+    // plugin
     'Modules/Admin/Assets/vendor/sweetalert/dist/sweetalert2.min.js',
     'Modules/Admin/Assets/vendor/select2/dist/js/select2.js',
     'Modules/Admin/Assets/vendor/jquery-pjax/jquery.pjax.js',
     'Modules/Admin/Assets/vendor/pace/pace.min.js',
-    'Modules/Admin/Assets/vendor/preloader/preloader.js',
-
     'Modules/Admin/Assets/vendor/bootstrap-fileinput/js/fileinput.js',
     'Modules/Admin/Assets/vendor/bootstrap-fileinput/themes/fa/theme.js',
     'Modules/Admin/Assets/vendor/cropper/dist/cropper.js',
     'Modules/Admin/Assets/vendor/dragula/dragula.js',
-
-
-    // 'Modules/Admin/Assets/vendor/nestable/jquery.nestable.js',
+    'Modules/Admin/Assets/vendor/nestable/jquery.nestable.js',
     'Modules/Admin/Assets/vendor/jquery.inputmask/dist/jquery.inputmask.bundle.js',
     'Modules/Admin/Assets/vendor/jQuery-gMap/jquery.gmap.min.js',
-    // 'Modules/Admin/Assets/vendor/app/js/app.js',
+
+    // custom
+    'Aut/DataTable/src/Assets/js/datatable.js',
+    'Modules/Admin/Assets/vendor/preloader/preloader.js'
+
     //'public/formBuilder/dist/form-builder.min.js',
     // 'public/formBuilder/dist/form-render.min.js'
     // 'Modules/Admin/Assets/vendor/app/js/app.js'
@@ -151,7 +176,7 @@ mix.scripts(js.concat([
 mix.scripts(js.concat([
     'Modules/Admin/Assets/vendor/bootstrap-fileinput/js/locales/ar.js',
     'Modules/Admin/Assets/vendor/select2/dist/js/i18n/ar.js',
-    'Modules/Admin/Assets/vendor/jquery-validation/dist/localization/messages_ar.js',
+    'Modules/Admin/Assets/vendor/jquery-validation/dist/localization/messages_ar.js'
 ]), 'public/js/admin-all-rtl.js').version();
 
 /**
