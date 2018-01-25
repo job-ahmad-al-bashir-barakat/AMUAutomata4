@@ -7,13 +7,18 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Str;
 
 /**
+ * @property string table_name
  * @property string namespace
+ * @property string pageable
+ * @property string pageable_column
+ * @property string menuable
+ * @property string morph_code
  */
 class Table extends \Eloquent
 {
     protected $fillable = ['table_name', 'namespace', 'pageable', 'pageable_column', 'menuable', 'morph_code'];
 
-    protected $appends = ['table_name_humane', 'table_namespace'];
+    protected $appends = ['table_name_humane'];
 
     public function getTableNameHumaneAttribute()
     {

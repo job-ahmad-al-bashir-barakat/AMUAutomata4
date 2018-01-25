@@ -4,6 +4,8 @@ namespace Modules\Utilities\Factories;
 
 use Illuminate\Support\Str;
 use Aut\DataTable\DataTableBuilder;
+use Modules\Utilities\Entities\Page;
+use Modules\Utilities\Entities\SiteMenu;
 use Modules\Utilities\Entities\Table;
 use Aut\DataTable\Factories\GlobalFactory;
 
@@ -13,6 +15,7 @@ class BuilderPageFactory extends GlobalFactory
     protected $builderTable;
     protected $builderModel;
     protected $builderColumn;
+    protected $builderMorphCode;
     protected $builderColumnWithLang = false;
 
     public function __construct(DataTableBuilder $table)
@@ -26,19 +29,37 @@ class BuilderPageFactory extends GlobalFactory
      */
     public function getDatatable($builderPage, $request)
     {
+        $objectId = $request->get('objectId');
         $builderPage = $this->builderModel;
-        $query = $builderPage::allLangs()->get();
+        $hasSubPages = false;
+
+        if(!$objectId) {
+            $menuId = SiteMenu::where('dynamic', $this->builderMorphCode)->first();
+            if ($menuId) {
+                $hasSubPages = (bool)SiteMenu::where('parent_id', $menuId->id)->count();
+            }
+            $query = $builderPage::allLangs()->get();
+        } else {
+            $menuId = SiteMenu::where('dynamic', $this->builderMorphCode)->first();
+            if ($menuId) {
+                $pages = SiteMenu::where('parent_id', $menuId->id)->get()->pluck('menuable_id');
+            }
+            $query = Page::whereIn('id', $pages->toArray());
+        }
 
         $this->table
-            ->queryConfig("datatable-builder-pages-{$this->builderTable}")
+            ->queryConfig("datatable-builder-pages-{$this->builderTable}-{$objectId}")
             ->queryDatatable($query);
 
         if ($this->builderColumnWithLang) {
             $this->table->queryMultiLang([$this->builderColumn]);
         }
 
-        $this->table->queryAddColumn('modules', function ($row) {
-            return "<i data-table_name='{$this->builderTable}' data-page_id='{$row->id}' data-page_name='{$row->langName[$this->lang]->text}' class='fa fa-cubes hand' data-toggle='modal' data-target='#page_modules'></i>";
+        $this->table->queryAddColumn('modules', function ($row) use ($hasSubPages, $objectId) {
+            if ($hasSubPages) {
+                return "<i data-table_name='{$this->builderTable}' data-object_id='{$row->id}' class='icon-layers hand' onclick='subPagesModal(this)'></i>";
+            }
+            return "<i data-object_id='{$objectId}' data-table_name='{$this->builderTable}' data-page_id='{$row->id}' data-page_name='{$row->langName[$this->lang]->text}' class='fa fa-cubes hand' data-toggle='modal' data-target='#page_modules'></i>";
         });
 
         return $this->table->queryRender(true);
@@ -49,8 +70,9 @@ class BuilderPageFactory extends GlobalFactory
      */
     public function buildDatatable($model, $request)
     {
+        $objectId = $request->get('objectId', false);
         $this->table
-            ->config("datatable-builder-pages-{$this->builderTable}", trans('utilities::app.pages') ,['pagingType' => 'simple'])
+            ->config("datatable-builder-pages-{$this->builderTable}-{$objectId}", trans('utilities::app.pages') ,['pagingType' => 'simple'])
             ->addPrimaryKey('id','id');
 
         if ($this->builderColumnWithLang) {
@@ -99,8 +121,8 @@ class BuilderPageFactory extends GlobalFactory
     private function initBuilderPage()
     {
         $tableName = request()->input('tableName');
-        //$modelName = Str::studly(Str::singular($tableName));
         $builderTable = Table::whereTableName($tableName)->first();
+
         if ($builderTable->pageable_column) {
             $this->builderColumnWithLang = Str::startsWith($builderTable->pageable_column, 'lang:');
             if ($this->builderColumnWithLang) {
@@ -109,7 +131,8 @@ class BuilderPageFactory extends GlobalFactory
                 $this->builderColumn = $builderTable->pageable_column;
             }
         }
-        $this->builderModel = $builderTable->table_namespace;//"{$builderTable->namespace}\\{$modelName}";
+        $this->builderModel = $builderTable->namespace;
         $this->builderTable = $tableName;
+        $this->builderMorphCode = $builderTable->morph_code;
     }
 }

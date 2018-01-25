@@ -34,6 +34,11 @@ class RouteUrls
         return $this->localizeUrl('users', 'utilities');
     }
 
+    public function roles()
+    {
+        return $this->localizeUrl('roles', 'utilities');
+    }
+
     public function attributes()
     {
         return $this->localizeUrl('attributes', 'utilities');

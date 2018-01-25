@@ -8,12 +8,13 @@ use Modules\Utilities\WebModules\Modules\Module;
 /**
  * @property int custom_module_id
  * @property CustomModule customModule
+ * @method Module module()
  */
 class BuilderPage extends \Eloquent
 {
     use SoftDeletes;
 
-    protected $fillable = ['custom_module_id', 'position', 'order', 'buildable_id', 'buildable_type'];
+    protected $fillable = ['custom_module_id', 'position', 'order', 'buildable_id', 'buildable_type', 'optional_id'];
 
     protected $appends  = ['module'];
 
