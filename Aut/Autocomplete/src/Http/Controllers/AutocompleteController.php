@@ -65,7 +65,11 @@ class AutocompleteController
                     if(!$this->isLang && Str::contains($col ,'{langs}'))
                     {
                         foreach ($this->langs as $lang)
-                            $object = $object->where($col, 'like', '%' . $q . '%');
+                        {
+                            $col_lang = str_replace('{langs}', $lang, $col);
+
+                            $object = $object->where($col_lang, 'like', '%' . $q . '%');
+                        }
                     }
                     else
                         $object = $object->where($col, 'like', '%' . $q . '%');

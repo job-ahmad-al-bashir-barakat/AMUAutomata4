@@ -1470,7 +1470,7 @@ var APP_AMU = {
             var retutnObject = {};
 
             // like image.png
-            var img = new Image()
+            var img = new Image();
             img.src = imageUrl;
             img.onload = function () {
 

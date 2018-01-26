@@ -1,4 +1,3 @@
-/storage/*.key
 /public/storage
 /public/hot
 Homestead.json
@@ -8,6 +7,7 @@ Homestead.yaml
 .env
 
 #storage
+/storage/*.key
 /storage/logs/*
 /storage/debugbar/*
 
@@ -24,15 +24,11 @@ Homestead.yaml
 /public/ckeditor
 /public/vender
 /public/myfont
-/public/vendor
 /public/filemanager
 /public/formBuilder
-
-/public/mix-manifest.json
 
 #big folder
 /Modules/Admin/Assets/vendor
 /resources/assets
 /vendor
 /node_modules
-/Temp/me_todo.md
