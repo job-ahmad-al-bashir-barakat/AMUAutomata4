@@ -19,9 +19,9 @@
                     <ul class="list angle-double-right list-border">
                         <li><a href="page-about-style1.html">About Us</a></li>
                         <li><a href="page-course-list.html">Our Courses</a></li>
-                        <li><a href="page-pricing-style1.html">Pricing Table</a></li>
+                        {{--<li><a href="page-pricing-style1.html">Pricing Table</a></li>--}}
                         <li><a href="page-gallery-3col.html">Gallery</a></li>
-                        <li><a href="shop-category.html">Shop</a></li>
+                        {{--<li><a href="shop-category.html">Shop</a></li>--}}
                     </ul>
                 </div>
             </div>
