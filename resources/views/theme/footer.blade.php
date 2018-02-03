@@ -31,7 +31,7 @@
                     <div class="twitter-feed list-border clearfix" data-username="Envato" data-count="2"></div>
                 </div>
             </div>
-            <div class="col-sm-6 col-md-3">
+            {{--<div class="col-sm-6 col-md-3">
                 <div class="widget dark">
                     <h4 class="widget-title line-bottom-theme-colored-2">Opening Hours</h4>
                     <div class="opening-hours">
@@ -51,9 +51,9 @@
                         </ul>
                     </div>
                 </div>
-            </div>
+            </div>--}}
         </div>
-        <div class="row mt-30">
+        {{--<div class="row mt-30">
             <div class="col-md-2">
                 <div class="widget dark">
                     <h5 class="widget-title mb-10">Call Us Now</h5>
@@ -90,14 +90,15 @@
                     </form>
                 </div>
             </div>
-        </div>
+        </div>--}}
     </div>
     <div class="footer-bottom bg-black-333">
         <div class="container pt-20 pb-20">
             <div class="row">
                 <div class="col-md-6">
-                    <p class="font-11 text-black-777 m-0">Copyright &copy;2016 ThemeMascot. All Rights Reserved</p>
+                    <p class="font-11 text-black-777 m-0">Copyright &copy;{{ date('Y') }} {{ setting('website_title')->value }}. All Rights Reserved</p>
                 </div>
+                {{--
                 <div class="col-md-6 text-right">
                     <div class="widget no-border m-0">
                         <ul class="list-inline sm-text-center mt-5 font-12">
@@ -115,6 +116,7 @@
                         </ul>
                     </div>
                 </div>
+                --}}
             </div>
         </div>
     </div>

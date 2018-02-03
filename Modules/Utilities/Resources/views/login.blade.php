@@ -56,7 +56,7 @@
         </div>
         <!-- END panel-->
         <div class="p-lg text-center">
-            <span>{{ trans('utilities::app.amu') }}</span>
+            <span>{{ setting('website_title')->value }}</span>
             <span>&copy;</span>
             <span>{{ date('Y') }}</span>
         </div>

@@ -370,3 +370,10 @@ if (!function_exists('getIdFromSlug')) {
         return $id;
     }
 }
+
+if (!function_exists('setting')) {
+    function setting($code)
+    {
+        return \Modules\Utilities\Entities\Setting::whereCode($code)->first();
+    }
+}

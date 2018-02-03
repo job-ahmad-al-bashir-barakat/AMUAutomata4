@@ -1,15 +1,18 @@
+@php($dir = LaravelLocalization::getCurrentLocaleDirection())
 <!DOCTYPE html>
-<html dir="ltr" lang="9en">
+<html dir="{{ $dir }}" lang="{{ app()->getLocale()}}">
 <head>
     <!-- Meta Tags -->
     <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+
     <meta name="description" content="StudyPress | Education & Courses HTML Template" />
-    <meta name="keywords" content="academy, course, education, education html theme, elearning, learning," />
-    <meta name="author" content="automata4" />
+    <meta name="keywords" content="academy, course, education, elearning, learning, learnata" />
+
+    <meta name="author" content="automata4 group" />
 
     <!-- Page Title -->
-    <title>StudyPress | Education & Courses HTML Template</title>
+    <title>{{ setting('website_title')->value }} | Education</title>
 
     <!-- Favicon and Touch Icons -->
     <link href="{{ asset('images/favicon.png') }}" rel="shortcut icon" type="image/png">
@@ -21,18 +24,28 @@
     <!-- Stylesheet -->
     {{-- <link href="{{ asset(mix('css/theme-ltr.css')) }}" rel="stylesheet" type="text/css"> --}}
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
+    @if($dir == 'rtl')
+        <link href="{{ asset('css/bootstrap-rtl.min.css') }}" rel="stylesheet" type="text/css">
+    @endif
     <link href="{{ asset('css/jquery-ui.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/animate.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/font-awesome.min.css') }}">
     <link href="{{ asset('css/simple-line-icons/css/simple-line-icons.css') }}">
     <link href="{{ asset('css/css-plugin-collections.css') }}" rel="stylesheet" type="text/css">
+    @if($dir == 'rtl')
+        <link href="{{ asset('css/css-plugin-collections-rtl.css') }}" rel="stylesheet" type="text/css">
+    @endif
     <link href="{{ asset('css/menuzord-skins/menuzord-rounded-boxed.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/style-main.css') }}" rel="stylesheet" type="text/css">
+    @if($dir == 'rtl')
+        <link href="{{ asset('css/style-main-rtl.css') }}" rel="stylesheet" type="text/css">
+        <link href="{{ asset('css/style-main-rtl-extra.css') }}" rel="stylesheet" type="text/css">
+    @endif
     <link href="{{ asset('css/preloader.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/custom-bootstrap-margin-padding.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/responsive.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset(mix('js/revolution-slider/css/revolution-slider.css')) }}" rel="stylesheet" type="text/css">
-    <link href="{{ asset('css/colors/theme-skin-color-set-1.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset("css/colors/theme-skin-color-set-6-{$dir}.css") }}" rel="stylesheet" type="text/css">
     <!-- <link href="css/style.css" rel="stylesheet" type="text/css"> -->
     <link href="{{ asset('theme-custom.css') }}" rel="stylesheet" type="text/css">
 </head>
@@ -91,7 +104,6 @@
             }
             $mailchimpform.prepend($response);
         }
-
         var revapi = $(".rev_slider").revolution({
             sliderType:"standard",
             jsFileLocation: "js/revolution-slider/js/",

@@ -72,6 +72,10 @@ return [
     'modules'                => 'Modules',
     'custom_modules'         => 'Custom Modules',
     'custom-modules'         => 'Custom Modules',
+
+
+    'auth'                   => 'Authentication',
+    'roles'                  => 'Roles',
     'pages'                  => 'Pages',
     'page'                   => 'Page',
     'icon'                   => 'Icon',
