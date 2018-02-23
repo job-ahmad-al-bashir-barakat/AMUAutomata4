@@ -70,7 +70,7 @@
          style="{{ $layers['3']['style'] }}">{{ $layers['3']['data'] }}
     </div>
     <!-- LAYER NR. 4 -->
-    <div class="{{ $layers['4']['class'] }}"
+    {{--<div class="{{ $layers['4']['class'] }}"
          id="rs-{{ $i }}-layer-4"
          data-x="['{{ $layers['4']['x'] }}']"
          data-hoffset="['{{ $layers['4']['hoffset'] }}']"
@@ -89,5 +89,5 @@
          data-splitout="none"
          data-responsive_offset="on"
          style="{{ $layers['4']['style'] }}"><a class="{{ $layers['4']['link_class'] }}" href="#">{{ $layers['4']['data'] }}</a>
-    </div>
+    </div>--}}
 </li>

@@ -36,16 +36,20 @@ class WebModulesServiceProvider extends ServiceProvider
         $this->buildMenuRoutes($this->menu);
     }
 
-    private function buildMenuRoutes($tree, $urlPrefix = '')
+    private function buildMenuRoutes($tree, $urlPrefix = '', $optional = '')
     {
         foreach ($tree as $item) {
             if ($item->menuable) {
-                $this->registerLangRoutes("{$urlPrefix}{$item->menuable->route}", "{$item->menuable_type}.{$item->menuable_id}");
+                $this->registerLangRoutes("{$urlPrefix}{$item->menuable->route}", "{$item->menuable_type}.{$item->menuable_id}.{$optional}");
             }
             if ($item->dynamic && $item->dynamic_info->count()) {
-                $prefix = "{$item->dynamic}/{{$item->dynamic}}";
+                $prefix = "{$item->dynamic}";
                 if ($item->children->count()) {
-                    $this->buildMenuRoutes($item->children, "{$prefix}/");
+                    foreach ($item->dynamic_info as $dynamicInfo) {
+                        //@todo this code will break the cache because of not registering all the supported language
+                        $dynamicPrefix = "{$prefix}/" . getSlug($dynamicInfo->id, $dynamicInfo->lang_name[app()->getLocale()]->text) ;
+                        $this->buildMenuRoutes($item->children, "{$dynamicPrefix}/", $dynamicInfo->id);
+                    }
                 }
             }
             elseif ($item->children->count()) {

@@ -4,6 +4,7 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="widget no-border m-0">
+                        {{--
                         <ul class="list-inline font-13 sm-text-center mt-5">
                             <li>
                                 <a class="text-white" href="#">FAQ</a>
@@ -12,69 +13,13 @@
                             <li>
                                 <a class="text-white" href="#">Help Desk</a>
                             </li>
-                            <li class="text-white">|</li>
-                            <li>
-                                <a class="text-white" href="#">Login</a>
-                            </li>
                         </ul>
+                        --}}
                     </div>
                 </div>
                 <div class="col-md-8">
                     <div class="widget m-0 pull-right sm-pull-none sm-text-center">
                         <ul class="list-inline pull-right">
-                            <li class="mb-0 pb-0">
-                                <div class="top-dropdown-outer pt-5 pb-10">
-                                    <a class="top-cart-link has-dropdown text-white text-hover-theme-colored"><i class="fa fa-shopping-cart font-13"></i> (12)</a>
-                                    <ul class="dropdown">
-                                        <li>
-                                            <!-- dropdown cart -->
-                                            <div class="dropdown-cart">
-                                                <table class="table cart-table-list table-responsive">
-                                                    <tbody>
-                                                    <tr>
-                                                        <td><a href="#"><img alt="" src="http://placehold.it/85x85"></a></td>
-                                                        <td><a href="#"> Product Title</a></td>
-                                                        <td>X3</td>
-                                                        <td>$ 100.00</td>
-                                                        <td><a class="close" href="#"><i class="fa fa-close font-13"></i></a></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><a href="#"><img alt="" src="http://placehold.it/85x85"></a></td>
-                                                        <td><a href="#"> Product Title</a></td>
-                                                        <td>X2</td>
-                                                        <td>$ 70.00</td>
-                                                        <td><a class="close" href="#"><i class="fa fa-close font-13"></i></a></td>
-                                                    </tr>
-                                                    </tbody>
-                                                </table>
-                                                <div class="total-cart text-right">
-                                                    <table class="table table-responsive">
-                                                        <tbody>
-                                                        <tr>
-                                                            <td>Cart Subtotal</td>
-                                                            <td>$170.00</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Shipping and Handling</td>
-                                                            <td>$20.00</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Order Total</td>
-                                                            <td>$190.00</td>
-                                                        </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                                <div class="cart-btn text-right">
-                                                    <a class="btn btn-theme-colored btn-xs" href="shop-cart.html"> View cart</a>
-                                                    <a class="btn btn-dark btn-xs" href="shop-checkout.html"> Checkout</a>
-                                                </div>
-                                            </div>
-                                            <!-- dropdown cart ends -->
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
                             <li class="mb-0 pb-0">
                                 <div class="top-dropdown-outer pt-5 pb-10">
                                     <a class="top-search-box has-dropdown text-white text-hover-theme-colored"><i class="fa fa-search font-13"></i> &nbsp;</a>
@@ -113,7 +58,7 @@
                         <a class="menuzord-brand pull-left flip xs-pull-center mb-15" href="javascript:void(0)"><img src="{{ asset('images/logo-wide.png') }}" alt=""></a>
                     </div>
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4">
+                {{--<div class="col-xs-12 col-sm-4 col-md-4">
                     <div class="widget no-border pull-right sm-pull-none sm-text-center mt-10 mb-10 m-0">
                         <ul class="list-inline">
                             <li><i class="fa fa-phone-square text-theme-colored font-36 mt-5 sm-display-block"></i></li>
@@ -134,7 +79,7 @@
                             </li>
                         </ul>
                     </div>
-                </div>
+                </div>--}}
             </div>
         </div>
     </div>
@@ -144,10 +89,22 @@
                 <nav id="menuzord" class="menuzord bg-theme-colored pull-left flip menuzord-responsive">
                     <ul class="menuzord-menu">
                         {!! buildHtmlTree($menu) !!}
+                        <li>
+                            <a href="#">{{ LaravelLocalization::getCurrentLocaleNative() }}</a>
+                            <ul class="dropdown" >
+                                @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                                    <li>
+                                        <a rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                                            {{ $properties['native'] }}
+                                        </a>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </li>
                     </ul>
                     <ul class="pull-right flip hidden-sm hidden-xs">
                         <li>
-                            <a class="btn btn-colored btn-flat bg-theme-color-2 text-white font-14 bs-modal-ajax-load mt-0 p-25 pr-15 pl-15" data-toggle="modal" data-target="#BSParentModal" href="ajax-load/reservation-form.html">Learnata</a>
+                            <a class="btn btn-colored btn-flat bg-theme-color-2 text-white font-14 bs-modal-ajax-load mt-0 p-25 pr-15 pl-15" href="{{ setting('learnata')->value }}">{{ setting('learnata')->lang_name[app()->getLocale()]->text }}</a>
                         </li>
                     </ul>
                     <div id="top-search-bar" class="collapse">

@@ -31,11 +31,13 @@ class BuilderPage extends \Eloquent
     public function scopePageModules($query, $page = false)
     {
         $route = request()->route();
-        $currentPage = explode('.', $route->getName());
-        $buildableType = $currentPage[0];
-        $buildableId = $currentPage[1];
+        list($buildableType, $buildableId, $optionalId) = explode('.', $route->getName());
         $query->with(['customModule.attributeValues.attribute']);
-        return $query->whereBuildableId($buildableId)->whereBuildableType($buildableType)->orderBy('order');
+        $query->whereBuildableId($buildableId)->whereBuildableType($buildableType);
+        if ($optionalId) {
+            $query->whereOptionalId($optionalId);
+        }
+        return $query->orderBy('order');
     }
 
     /**

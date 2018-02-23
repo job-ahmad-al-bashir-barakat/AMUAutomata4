@@ -45,6 +45,7 @@ class BuilderPageFactory extends GlobalFactory
                 $pages = SiteMenu::where('parent_id', $menuId->id)->get()->pluck('menuable_id');
             }
             $query = Page::whereIn('id', $pages->toArray());
+            $this->builderTable = 'pages';
         }
 
         $this->table
@@ -60,6 +61,12 @@ class BuilderPageFactory extends GlobalFactory
                 return "<i data-table_name='{$this->builderTable}' data-object_id='{$row->id}' class='icon-layers hand' onclick='subPagesModal(this)'></i>";
             }
             return "<i data-object_id='{$objectId}' data-table_name='{$this->builderTable}' data-page_id='{$row->id}' data-page_name='{$row->langName[$this->lang]->text}' class='fa fa-cubes hand' data-toggle='modal' data-target='#page_modules'></i>";
+        });
+
+        $this->table->queryAddColumn('seos', function ($row) use ($hasSubPages, $objectId) {
+            if (!$hasSubPages) {
+                return "<i data-object_id='{$objectId}' data-table_name='{$this->builderTable}' data-page_id='{$row->id}' data-page_name='{$row->langName[$this->lang]->text}' class='fa fa-google-wallet hand' data-toggle='modal' data-target='#page_seos'></i>";
+            }
         });
 
         return $this->table->queryRender(true);
@@ -82,6 +89,7 @@ class BuilderPageFactory extends GlobalFactory
         }
 
         $this->table->addActionButton(trans('utilities::app.modules'), 'modules')
+            ->addActionButton(trans('utilities::app.seos'), 'seos')
             ->addNavButton([], ['add']);
         return $this->table->render();
     }

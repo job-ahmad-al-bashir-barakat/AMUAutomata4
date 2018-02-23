@@ -16,6 +16,7 @@
                     <span>{{ trans('utilities::app.langs') }}</span>
                 </a>
             </li>
+            @if(\Auth::user()->user_type == 'automata')
             <li class="">
                 <a href="{{ RouteUrls::schemaTables() }}" class="ajax" title="{{ trans('utilities::app.schema-tables') }}">
                     <span>{{ trans('utilities::app.schema-tables') }}</span>
@@ -26,11 +27,13 @@
                     <span>{{ trans('utilities::app.tables') }}</span>
                 </a>
             </li>
+            @endif
             <li class="">
                 <a href="{{ RouteUrls::icons() }}" class="ajax" title="{{ trans('utilities::app.icons') }}">
                     <span>{{ trans('utilities::app.icons') }}</span>
                 </a>
             </li>
+            @if(\Auth::user()->user_type == 'automata')
             <li class="">
                 <a href="{{ RouteUrls::attributes() }}" class="ajax"  title="{{ trans('utilities::app.attributes') }}">
                     <span>{{ trans('utilities::app.attributes') }}</span>
@@ -41,6 +44,7 @@
                     <span>{{ trans('utilities::app.modules') }}</span>
                 </a>
             </li>
+            @endif
             <li class="">
                 <a href="{{ RouteUrls::pages() }}" class="ajax" title="{{ trans('utilities::app.pages') }}">
                     <span>{{ trans('utilities::app.pages') }}</span>
@@ -62,7 +66,7 @@
                     <span>{{ trans('utilities::app.general') }}</span>
                 </a>
             </li>
-
+            @if(\Auth::user()->user_type == 'automata')
             <li class="">
                 <a href="{{ RouteUrls::controlMenu() }}" class="ajax" title="{{ trans('utilities::app.control') }}">
                     <span>{{ trans('utilities::app.control') }}</span>
@@ -74,6 +78,7 @@
                     <span>{{ trans('utilities::app.menu_tables') }}</span>
                 </a>
             </li>
+            @endif
         </ul>
     </li>
     <li class="">
@@ -149,13 +154,13 @@
 @endsection
 
 @section('_aside_setting_utilities')
-
+    @if(\Auth::user()->user_type == 'automata')
     <li class="">
         <a href="{{ RouteUrls::generalSetting() }}" class="ajax" title="{{ trans('utilities::app.general_setting') }}">
             <span>{{ trans('utilities::app.general_setting') }}</span>
         </a>
     </li>
-
+    @endif
     <li class="">
         <a href="{{ RouteUrls::socialNetwork() }}" class="ajax" title="{{ trans('utilities::app.social_network') }}">
             <span>{{ trans('utilities::app.social_network') }}</span>
