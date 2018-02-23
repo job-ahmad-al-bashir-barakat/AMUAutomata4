@@ -11,10 +11,11 @@
  * LANG = "{{ $lang }}",
  */
 
-var APP = {
+// autocomplete select2
 
-    // autocomplete select2
-    autocomplete : {
+var AUTOCOMPLETE_PACK = {
+
+    autocomplete: {
 
         init: function (Data) {
 
@@ -30,6 +31,8 @@ var APP = {
                 var placeholder = (typeof $this.data('placeholder') !== typeof undefined) ? $this.data('placeholder') : '';
                 var target = (typeof $this.data('target') !== typeof undefined) ? $($this.data('target')) : '';
                 var letters = (typeof $this.data('letter') !== typeof undefined) ? $this.data('letter') : 3;
+                var tags = (typeof $this.data('tags') !== typeof undefined) ? $this.data('tags') : false;
+                var multiple = $this.attr('multiple') ? true : false;
                 var linkWith = $this.data('param') || '';
                 if (linkWith.charAt(0) == '#') {
                     $(linkWith).change(function () {
@@ -86,11 +89,57 @@ var APP = {
                     minimumInputLength: letters,
                     placeholder: placeholder,
                     allowClear: true,
-                    templateResult: APP.autocomplete.formatRepo,
-                    templateSelection: APP.autocomplete.formatRepoSelection,
+                    templateResult: AUTOCOMPLETE_PACK.autocomplete.formatRepo,
+                    templateSelection: AUTOCOMPLETE_PACK.autocomplete.formatRepoSelection,
                     dropdownParent: target,
                     theme: "bootstrap",
-                    data: data
+                    data: data,
+
+                    tags: tags,
+                    multiple: multiple,
+                    selectOnClose: !multiple,
+                    tokenSeparators: [","],
+                    createTag: function(newTag) {
+
+                        var term = $.trim(newTag.term);
+
+                        if (term === '' || term.length < 2 || term.indexOf('@') === -1 || term.indexOf('@') !== 0) {
+                            return null;
+                        }
+
+                        var newTag = (newTag.term).replace(/@/,'');
+
+                        return {
+                            id: 'new:' + newTag,
+                            text: newTag,
+                            newTag: true
+                        };
+                    }
+                }).off('select2:select').on('select2:select', function (evt) {
+
+                    if(evt.params.data.newTag == false) {
+                        return;
+                    }
+
+                    if(evt.params.data.newTag == true)
+                    {
+                        $.post(url,{ text: evt.params.data.text }, function (res) {
+
+                            // add new item to selected object
+                            var data = $this.select2('data');
+                            data.push({ id: res.id, text: res.text, newTag: true , selected: true, disabled: false });
+
+                            // delete new tag element
+                            var index = data.findIndex(function(x){
+                                return (x.id.toString()).match(/new:/ig);
+                            });
+                            data.splice(index ,1);
+
+                            // reload autocomplete with selected
+                            AUTOCOMPLETE_PACK.autocomplete.resetAutocomplete($this);
+                            AUTOCOMPLETE_PACK.autocomplete.selectedAutocomplete($this ,data);
+                        });
+                    }
                 });
             }
         },
@@ -102,9 +151,10 @@ var APP = {
         formatRepoSelection: function (repo) {
             var repoText = repo.text || repo.name;
             var $option = $(repo.element);
-            for (var key in repo) {
-                if (key.startsWith('data-')) {
-                    $option.attr(key.replace('data-', ''), repo[key]);
+            for(var key in repo){
+                if(key.startsWith('data-')){
+                    $option.attr(key, repo[key]);
+                    //$option.data('type')
                 }
             }
             return repoText;
@@ -112,21 +162,21 @@ var APP = {
 
         selectedAutocomplete: function (selector, data) {
 
-            $(selector).each(APP.autocomplete.init(data));
+            $(selector).each(AUTOCOMPLETE_PACK.autocomplete.init(data));
         },
 
         reloadAutocomplete: function (selector) {
 
-            $(selector).each(APP.autocomplete.init());
+            $(selector).each(AUTOCOMPLETE_PACK.autocomplete.init());
         },
 
         resetAutocomplete: function (selector) {
 
+            //$('.autocomplete').val(null).trigger("change");
             $(selector).empty().trigger('change');
         },
 
-        initAutocomplete : function (selector, $cont) {
-
+        initAutocomplete: function (selector, $cont) {
             $cont = $cont || false;
             if(typeof selector == 'object'){
                 $obj = selector;
@@ -139,7 +189,7 @@ var APP = {
                     $obj = $(selector);
                 }
             }
-            $obj.each(APP.autocomplete.init());
+            $obj.each(AUTOCOMPLETE_PACK.autocomplete.init());
         },
 
         destroyAutocomplete: function (selector, $cont) {
@@ -157,12 +207,80 @@ var APP = {
             $obj.select2('destroy');
         }
     },
-}
+
+    select: {
+
+        init: function (data) {
+
+            return function () {
+
+                var $this = $(this);
+                var placeholder = (typeof $this.data('placeholder') !== typeof undefined) ? $this.data('placeholder') : '';
+
+                $this.select2({
+                    dir: DIR,
+                    language: LANG,
+                    placeholder: placeholder,
+                    allowClear: true,
+                    theme: "bootstrap",
+                    data: data
+                });
+            }
+        },
+
+        reloadSelect: function (selector) {
+
+            $(selector).each(initSelect());
+        },
+
+        selectedSelect: function (selector, data) {
+
+            $(selector).each(initSelect(data));
+        },
+
+        resetSelect: function (selector) {
+
+            $(selector).val('').trigger("change");
+        },
+
+        initSelect: function (selector, $cont) {
+            $cont = $cont || false;
+            if(typeof selector == 'object'){
+                $obj = selector;
+            } else {
+                selector = selector || '.select';
+                if($cont){
+                    $obj = $cont.find(selector);
+                } else {
+                    $obj = $(selector);
+                }
+            }
+
+            $obj.each(AUTOCOMPLETE_PACK.select.init());
+        },
+
+        destroySelect: function (selector, $cont) {
+            $cont = $cont || false;
+            if(typeof selector == 'object'){
+                $obj = selector;
+            } else {
+                selector = selector || '.select';
+                if($cont){
+                    $obj = $cont.find(selector);
+                } else {
+                    $obj = $(selector);
+                }
+            }
+            $obj.select2('destroy');
+        }
+    },
+};
 
 /**
  * init App
  */
 $(function () {
 
-    APP.autocomplete.initAutocomplete();
+    AUTOCOMPLETE_PACK.select.initSelect();
+    AUTOCOMPLETE_PACK.autocomplete.initAutocomplete();
 });

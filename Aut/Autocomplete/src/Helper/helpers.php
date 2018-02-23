@@ -43,7 +43,7 @@ if(! function_exists('autAutocompleteEval'))
 
 if(! function_exists('autAutocomplete'))
 {
-    function autAutocomplete($id = 'id', $name = 'id' ,$remoteUrl = '' ,$option = [] ,$class = '' ,$placeholder = '' ,$letter = 0 ,$attr = []) {
+    function autAutocomplete($id = 'id', $name = 'id' ,$remoteUrl = '' ,$option = [] ,$class = '' ,$placeholder = '' ,$letter = 0 ,$attr = [] ,$tags = false) {
 
         return view('autocomplete::component.autocomplete',[
             'id'          => $id,
@@ -54,7 +54,7 @@ if(! function_exists('autAutocomplete'))
             'placeholder' => $placeholder,
             'letter'      => $letter,
             'attr'        => $attr,
+            'tags'        => $tags,
         ])->render();
     }
 }
-

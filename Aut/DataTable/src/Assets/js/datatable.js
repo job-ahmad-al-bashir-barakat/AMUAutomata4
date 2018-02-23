@@ -80,14 +80,17 @@ function aut_datatable_initAutocomplete(Data) {
         var required = (typeof $this.data('required') !== typeof undefined) ? $this.data('required') : null;
         var placeholder = (typeof $this.data('placeholder') !== typeof undefined) ? $this.data('placeholder') : '';
         var target = (typeof $this.data('target') !== typeof undefined) ? $($this.data('target')) : '';
-        var letters = (typeof $this.data('letter') !== typeof undefined) ? $this.data('letter'):3;
+        var letters = (typeof $this.data('letter') !== typeof undefined) ? $this.data('letter') : 3;
+        var tags = (typeof $this.data('tags') !== typeof undefined) ? $this.data('tags') : false;
+        var multiple = $this.attr('multiple') ? true : false;
         var linkWith = $this.data('param') || '';
         if(linkWith.charAt(0) == '#') {
             $(linkWith).change(function() {
                 $this.val('').change();
             });
         }
-        $this.select2({
+
+        var select2 = $this.select2({
             ajax: {
                 url: url,
                 dataType: 'json',
@@ -95,8 +98,10 @@ function aut_datatable_initAutocomplete(Data) {
                 method : "GET",
                 data: function (params) {
                     var param = (typeof $this.data('param') !== typeof undefined)?$this.data('param'):null;
+
                     //added by basheer
                     var remoteParam = (typeof $this.attr('data-remote-param') !== typeof undefined) ? $this.attr('data-remote-param') : null;
+
                     if(param && param.charAt(0) === '#') {
                         var name = $(param).attr('name') || $(param).attr('id');
                         var val = $(param).val() ? $(param).val() : 0;
@@ -137,7 +142,72 @@ function aut_datatable_initAutocomplete(Data) {
             templateSelection: aut_datatable_formatRepoSelection,
             dropdownParent: target,
             theme: "bootstrap",
-            data: data
+            data: data,
+
+            tags: tags,
+            multiple: multiple,
+            selectOnClose: tags ? !multiple : false,
+            tokenSeparators: [","],
+            createTag: function(newTag) {
+
+                var term = $.trim(newTag.term);
+
+                if (term === '' || term.length < 2 || term.indexOf('@') === -1 || term.indexOf('@') !== 0) {
+                    return null;
+                }
+
+                var newTag = (newTag.term).replace(/@/,'');
+
+                return {
+                    id: 'new:' + newTag,
+                    text: newTag,
+                    newTag: true
+                };
+            }
+
+        }).off('select2:select').on('select2:select', function (evt) {
+
+            // this for fix height for long text
+            $this.parent().find('.select2-selection').css('height', 'auto');
+
+            if(evt.params.data.newTag == false) {
+                return;
+            }
+
+            if(evt.params.data.newTag == true)
+            {
+                $.post(url,{ text: evt.params.data.text }, function (res) {
+
+                    // add new item to selected object
+                    var data = $this.select2('data');
+                    data.push({ id: res.id, text: res.text,name: res.name ,title: res.title ,newTag: true , selected: true, disabled: false });
+
+                    // delete new tag element
+                    var index = data.findIndex(function(x){
+                        return (x.id.toString()).match(/new:/ig);
+                    });
+                    data.splice(index ,1);
+
+                    //forcr item to be selected
+                    $.each(data, function(i,v) {
+                        data[i].selected = true;
+                    });
+
+                    // reload autocomplete with selected
+                    aut_datatable_resetAutocomplete($this);
+                    aut_datatable_selectedAutocomplete($this ,data);
+
+                }).fail(function (res) {
+
+                    $this.find('option[value="' + evt.params.data.id + '"]').remove();
+
+                    aut_datatable_notifyAutocomplete($this.parent().find('.select2') ,res.responseJSON.message,'danger');
+                });
+            }
+
+        }).off('select2:unselect').on('select2:unselect',function (evt) {
+
+            $this.find('option[value="' + evt.params.data.id + '"]').remove();
         });
     };
 }
@@ -148,7 +218,58 @@ var aut_datatable_formatRepo = function (repo) {
     //     return repo.text;
     // return repo.name;
 
-    return repo.name || repo.text;
+    // before update
+    // return repo.name || repo.text;
+
+    var result = repo.name || repo.text;
+
+    if(!repo.tags) {
+        return result;
+    }
+
+    if (repo.id == null || repo.newTag) {
+        return result;
+    }
+
+    var $option = $("<spam></span>");
+    var $preview = $(result);
+    $preview.find('.delete-autocomplete,.approvied-autocomplete').on('mouseup', function (evt) {
+        // Select2 will remove the dropdown on `mouseup`, which will prevent any `click` events from being triggered
+        // So we need to block the propagation of the `mouseup` event
+        evt.stopPropagation();
+    });
+
+    $preview.find('.delete-autocomplete,.approvied-autocomplete').on('click', function (evt) {
+
+        var target = $(evt.target),
+            data  = target.data(),
+            text  = target.parent().text().trim();
+
+        if(target.hasClass('delete-autocomplete'))
+        {
+            aut_datatable_deleteAutocomplete({
+                this: target,
+                key: data.key,
+                action: data.action,
+                isItem: false
+            });
+        }
+
+        if(target.hasClass('approvied-autocomplete'))
+        {
+            aut_datatable_approviedAutocomplete({
+                this: target,
+                action: data.action,
+                text: text,
+                isItem: false
+            });
+        }
+    });
+
+    // $option.text(result);
+    $option.append($preview);
+
+    return $option;
 };
 
 var aut_datatable_formatRepoSelection = function (repo) {
@@ -159,7 +280,7 @@ var aut_datatable_formatRepoSelection = function (repo) {
 
     var repoText = repo.text || repo.name;
     var $option = $(repo.element);
-    for(var key in repo){
+    for(var key in repo) {
         if(key.startsWith('data-')){
             $option.attr(key, repo[key]);
             //$option.data('type')
@@ -175,7 +296,121 @@ function aut_datatable_selectedAutocomplete(selector,data) {
 
 function aut_datatable_reloadAutocomplete(selector) {
 
-    $(selector).each(aut_datatable_initAutocomplete());
+    var $selector = $(selector);
+
+    $selector.each(aut_datatable_initAutocomplete());
+
+    $selector.parent().on('click','.delete-autocomplete',function() {
+
+        $selector.select2('close');
+
+        var $this = $(this),
+            data  = $this.data();
+
+        aut_datatable_deleteAutocomplete({
+            this: $this,
+            key: data.key,
+            action: data.action,
+            selector: $selector,
+            isItem: true
+        });
+
+    }).on('click','.approvied-autocomplete',function() {
+
+        $selector.select2('close');
+
+        var $this = $(this),
+            data  = $this.data(),
+            text  = $this.parent().text().trim();
+
+        aut_datatable_approviedAutocomplete({
+           this: $this,
+           action: data.action,
+           text: text,
+           isItem: true,
+        });
+    });
+}
+
+function aut_datatable_deleteAutocomplete(param) {
+
+    $.post(param.action, { '_method' : 'delete' }, function(res) {
+
+        if(res.success)
+        {
+            var autoSelector = param.isItem ? param.this.closest('.select2') : $('[aria-owns="' + param.this.closest('ul').attr('id') + '"]').closest('.select2');
+
+            aut_datatable_notifyAutocomplete(autoSelector ,res.message ,'success');
+
+            //delete option from select2
+            if(param.isItem)
+            {
+                param.selector.find('option[value="' + param.key + '"]').remove();
+            }
+            else
+            {
+                param.this.closest('li').remove();
+                autoSelector.parent().find('option[value="' + $(param.this).data('key') + '"]').remove();
+            }
+        }
+    });
+}
+
+function aut_datatable_approviedAutocomplete(param) {
+
+    var action = param.action;
+
+    var autoSelector = param.isItem ? param.this.closest('.select2') : $('[aria-owns="' + param.this.closest('ul').attr('id') + '"]').closest('.select2');
+
+    $.post(action, { '_method' : 'put' ,'text' : param.text }, function(res) {
+
+        if(res.success)
+        {
+            aut_datatable_notifyAutocomplete(autoSelector ,res.message ,'success');
+
+            // get selected data
+            var autocomplete = autoSelector.parent().find('.datatable-autocomplete');
+            var data = autocomplete.select2('data');
+            data.push({ id: res.id, text: res.text,name: res.name ,title: res.title , selected: true, disabled: false });
+
+            // delete item element
+            var index = data.findIndex(function(x){
+                return x.id == res.id;
+            });
+            data.splice(index ,1);
+
+            //forcr item to be selected
+            $.each(data, function(i,v) {
+                data[i].selected = true;
+            });
+
+            // reload autocomplete with selected
+            aut_datatable_resetAutocomplete(autocomplete);
+            aut_datatable_selectedAutocomplete(autocomplete ,data);
+
+            if(param.isItem)
+            {
+                param.this.removeClass('text-danger').addClass('text-success');
+                param.this.parent().find('.delete-autocomplete').remove();
+
+                autoSelector.parent().find('.datatable-autocomplete').select2('close');
+                autoSelector.parent().find('.datatable-autocomplete').select2('open');
+            }
+        }
+
+    }).fail(function (res) {
+
+        aut_datatable_notifyAutocomplete(autoSelector ,res.responseJSON.message,'danger');
+    });
+}
+
+function aut_datatable_notifyAutocomplete(select2Selector ,message ,status) {
+
+    // show notify message
+    select2Selector.next().append('<span class="autocomplete-alert-delete text-' + status + '" style="font-size: 0.8em;">'+ message +'</span>');
+    select2Selector.parent().find('.autocomplete-alert-delete').fadeOut(4500,function() {
+        $(this).remove();
+    });
 }
 
 function aut_datatable_resetAutocomplete(selector) {
@@ -186,7 +421,7 @@ function aut_datatable_resetAutocomplete(selector) {
 
 
 /*-------------------------------------
- jquery validation
+         jquery validation
  ---------------------------------------*/
 
 function aut_datatable_resetForm($cont) {
@@ -416,7 +651,7 @@ function aut_datatable_fillDialogData(table ,aut_datatable) {
                 var arrayItems = [];
                 _.each(ids ,function (v ,k) {
                     arrayItems.push({ id : ids[k] != null ? ids[k] : '' , name : names[k] ,selected: true })
-                })
+                });
 
                 aut_datatable_selectedAutocomplete($(this) ,arrayItems);
             }
@@ -440,6 +675,8 @@ function aut_datatable_fillDialogData(table ,aut_datatable) {
                     //fill ckeditor if exists
                     if($(this).hasClass('datatable-text-editor'))
                         CKEDITOR.instances[this.id].setData(val);
+                    else if($(this).hasClass('summernote-editor'))
+                        $(this).summernote('code', val);
                 }
             }
         });
@@ -536,7 +773,7 @@ function aut_datatable_submitDialogFrom(table ,aut_datatable) {
             if(errors)
                 $.each(errors ,function(k ,v){
 
-                    var error = $(aut_datatable.ids.modal).find('[id="error_' + k + '"]')
+                    var error = $(aut_datatable.ids.modal).find('[id="error_' + (k).replace(/\.|_/g,'-') + '"]');
                     error.children().remove();
                     error.append('<div class="validate-error validate-error-help-block validate-error-style animated fadeInDown">' + v[0] + '</div>');
                 });
@@ -565,7 +802,7 @@ function aut_datatable_submitDialogFrom(table ,aut_datatable) {
             if(errors)
                 $.each(errors ,function(k ,v){
 
-                    var error = $(aut_datatable.ids.modal).find('[id="error_' + k + '"]')
+                    var error = $(aut_datatable.ids.modal).find('[id="error_' + (k).replace(/\.|_/g,'-') + '"]');
                     error.children().remove();
                     error.append('<div class="validate-error validate-error-help-block validate-error-style animated fadeInDown">' + v[0] + '</div>');
                 });
@@ -697,7 +934,7 @@ function aut_datatable_copyBladeToHisCont(aut_datatable) {
 
 function aut_datatable_deleteRow(table ,aut_datatable) {
 
-    $('.dataTable tbody').on( 'click', 'tr .dialog-delete', function (e) {
+    $(aut_datatable.ids.table + '.dataTable tbody').on( 'click', 'tr .dialog-delete', function (e) {
 
         e.preventDefault();
 
@@ -706,7 +943,6 @@ function aut_datatable_deleteRow(table ,aut_datatable) {
         var data = $(this).data('parent-key') != ''
             ? { 'parent_id' : $(this).data('parent-key') }
             : {};
-
 
         aut_datatable_swal({
             title              : aut_datatable.lang.swal.title,
@@ -924,7 +1160,7 @@ function aut_datatable_replaceDatatableFunctionWithJPath(aut_datatable) {
             $.post(aut_datatable.json_object.ajax.url ,function (res) {
 
                 aut_datatable_swal({
-                    title: "Automata4 Datatable <br><small>{ Json Data }</small>",
+                    title: "Datatable <br><small>{ Json Data }</small>",
                     showCloseButton : true,
                     allowEscapeKey: true,
                     allowOutsideClick: true,

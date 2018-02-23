@@ -22,5 +22,8 @@
         >
         </select>
         <div id='error_{{ $id }}'></div>
+        @if(preg_match("/\b(?<![\S])(tags)(?![\S])\b/",$class))
+            <div class="text-info" style="font-size: 0.8em;">{{ trans('datatable::table.insert_new_item_autocomplete') }}</div>
+        @endif
     </div>
 </div>

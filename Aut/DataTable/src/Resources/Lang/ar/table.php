@@ -94,4 +94,5 @@ return [
     'symbol'            => 'شكل الترميز',
     'population'        => 'عدد السكان',
     'waiting'           => 'انتظر',
+    'insert_new_item_autocomplete' => 'اكتب أولا @ لادخال عنصر جديد',
 ];
