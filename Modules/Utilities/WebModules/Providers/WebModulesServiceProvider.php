@@ -32,7 +32,7 @@ class WebModulesServiceProvider extends ServiceProvider
 
     private function routesRegister()
     {
-        if (app()->runningInConsole())
+        if (!app()->runningInConsole())
         {
             $this->menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
             $this->buildMenuRoutes($this->menu);
