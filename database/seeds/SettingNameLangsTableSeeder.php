@@ -102,9 +102,9 @@ class SettingNameLangsTableSeeder extends Seeder
                 'id' => 9,
                 'setting_id' => 5,
                 'lang_id' => 1,
-                'text' => 'University GeoLocation',
+                'text' => 'University Geo-location',
                 'created_at' => '2017-08-17 14:31:35',
-                'updated_at' => '2017-08-17 14:31:35',
+                'updated_at' => '2017-12-21 21:44:00',
                 'deleted_at' => NULL,
             ),
             9 => 
@@ -115,6 +115,46 @@ class SettingNameLangsTableSeeder extends Seeder
                 'text' => 'موقع الجامعة الجغرافي',
                 'created_at' => '2017-08-17 14:31:36',
                 'updated_at' => '2017-08-17 14:31:36',
+                'deleted_at' => NULL,
+            ),
+            10 => 
+            array (
+                'id' => 11,
+                'setting_id' => 6,
+                'lang_id' => 1,
+                'text' => 'Learnata',
+                'created_at' => '2018-01-30 18:06:32',
+                'updated_at' => '2018-01-30 18:06:32',
+                'deleted_at' => NULL,
+            ),
+            11 => 
+            array (
+                'id' => 12,
+                'setting_id' => 6,
+                'lang_id' => 2,
+                'text' => 'ليرناتا',
+                'created_at' => '2018-01-30 18:06:32',
+                'updated_at' => '2018-01-30 18:06:32',
+                'deleted_at' => NULL,
+            ),
+            12 => 
+            array (
+                'id' => 13,
+                'setting_id' => 7,
+                'lang_id' => 1,
+                'text' => 'Website Title',
+                'created_at' => '2018-01-30 18:23:38',
+                'updated_at' => '2018-01-30 18:23:38',
+                'deleted_at' => NULL,
+            ),
+            13 => 
+            array (
+                'id' => 14,
+                'setting_id' => 7,
+                'lang_id' => 2,
+                'text' => 'عنوان الموقع',
+                'created_at' => '2018-01-30 18:23:38',
+                'updated_at' => '2018-01-30 18:23:38',
                 'deleted_at' => NULL,
             ),
         ));

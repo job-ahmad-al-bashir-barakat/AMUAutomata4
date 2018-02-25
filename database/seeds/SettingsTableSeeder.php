@@ -62,6 +62,24 @@ class SettingsTableSeeder extends Seeder
                 'updated_at' => '2017-08-17 16:56:06',
                 'deleted_at' => NULL,
             ),
+            5 => 
+            array (
+                'id' => 6,
+                'code' => 'learnata',
+                'value' => 'http://learnata.com',
+                'created_at' => '2018-01-30 18:06:32',
+                'updated_at' => '2018-01-30 18:06:32',
+                'deleted_at' => NULL,
+            ),
+            6 => 
+            array (
+                'id' => 7,
+                'code' => 'website_title',
+                'value' => 'Al Andalus University',
+                'created_at' => '2018-01-30 18:23:38',
+                'updated_at' => '2018-01-30 18:23:38',
+                'deleted_at' => NULL,
+            ),
         ));
         
         
