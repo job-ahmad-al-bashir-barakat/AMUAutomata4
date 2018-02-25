@@ -75,6 +75,7 @@ class Handler extends ExceptionHandler
                     'show_notify' => true
                 ], 401);
         }
+
         return redirect()->guest(route('login'));
     }
 

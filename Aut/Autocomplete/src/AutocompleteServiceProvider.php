@@ -45,6 +45,16 @@ class AutocompleteServiceProvider extends ServiceProvider
         $this->registerRoute($router);
 
         $this->publishAutocomplete();
+
+        $this->loadTranslations();
+    }
+
+    /**
+     * register our lang
+     */
+    protected function loadTranslations()
+    {
+        $this->loadTranslationsFrom(__DIR__.'/Resources/Lang', 'autocomplete');
     }
 
     protected function registerCommandByVersion($commands)
@@ -84,13 +94,16 @@ class AutocompleteServiceProvider extends ServiceProvider
     {
         $router->group(
             [
-                'prefix'     => LaravelLocalization::setLocale(),
+                'prefix'     => LaravelLocalization::setLocale() . "/autocomplete",
                 'namespace'  => $this->namespace,
                 'middleware' => $this->middleware
             ],
             function () {
 
-                Route::get('autocomplete/{model}', "AutocompleteController@autocomplete");
+                Route::get('{model}', "AutocompleteController@autocomplete");
+                Route::post('{model}', "AutocompleteController@store");
+                Route::put('{model}/{id}', "AutocompleteController@approvied");
+                Route::delete('{model}/{id}', "AutocompleteController@destroy");
             });
     }
 

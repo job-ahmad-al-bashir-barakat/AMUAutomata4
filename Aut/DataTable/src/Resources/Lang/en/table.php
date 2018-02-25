@@ -99,4 +99,5 @@ return [
     'symbol'            => 'Symbol',
     'population'        => 'Population',
     'waiting'           => 'waiting',
+    'insert_new_item_autocomplete' => 'type @ as first letter if you need to insert new item.',
 ];

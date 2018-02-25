@@ -85,6 +85,7 @@ class DataTableBuilder
         'value'       => '',
         'attr'        => '',
         'placeholder' => '',
+        'lang'        => '',
     ];
 
     protected $events = [
@@ -2039,6 +2040,12 @@ class DataTableBuilder
         return $paramDefault;
     }
 
+    function setLang($lang = 'en') {
+
+        $this->params['lang'] = $lang;
+
+        return $this;
+    }
     /**
      * @param $value string|array
      * @return $this

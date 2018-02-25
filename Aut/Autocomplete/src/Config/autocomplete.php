@@ -15,6 +15,8 @@ return [
         'withoutLang' => [
             'colId'     => 'id',
             'colName'   => 'name_{lang}',
+            'colText'   => 'name_{lang}',
+            'colTitle'  => 'name_{lang}',
             'q'         => [
                 'name_{langs}',
             ],
@@ -26,6 +28,8 @@ return [
         'withLang' => [
             'colId'     => 'id',
             'colName'   => 'transName->text',
+            'colText'   => 'transName->text',
+            'colTitle'  => 'transName->text',
             'q'         => [
                 'transName' => 'text',
             ],

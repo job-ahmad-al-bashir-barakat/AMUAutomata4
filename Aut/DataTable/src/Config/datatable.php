@@ -115,4 +115,9 @@ return [
         }
     ],
 
+    'local_direction' => [
+        'en' => 'ltr',
+        'ar' => 'rtl',
+    ]
+
 ];

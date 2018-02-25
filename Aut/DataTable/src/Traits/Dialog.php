@@ -149,7 +149,9 @@ trait Dialog
             // pass
             'refresh'           => matchClass('refresh' ,$param['class']),
             // all input
-            'gridSystemResult'  => $this->gridSystemResult
+            'gridSystemResult'  => $this->gridSystemResult,
+            // set default Lang for input
+            'datatable_lang'    => shortIfElse($this->params['lang'] ,$this->params['lang'] ,$this->locale),
         ])->render();
 
         return $this->checkReturnValue($html ,$param['custom'] ,$param['stringCont']);

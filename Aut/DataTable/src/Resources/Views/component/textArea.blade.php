@@ -12,8 +12,9 @@
                   name='{{ $name }}'
                   placeholder='{{ $placeholder }}'
                   class='form-control {{ $class }}'
-                  style='resize:vertical;'
+                  style='resize:vertical; overflow-x: hidden;'
                   data-editable = 'true'
+                  dir="{{ config("datatable.local_direction.$datatable_lang") }}"
                   {{ $attr }}
         ></textarea>
         <div id='error_{{ $id }}'></div>

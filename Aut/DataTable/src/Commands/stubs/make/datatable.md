@@ -224,7 +224,7 @@
     jquery.js                   (plugin) v2.1.3
     jquery-request-types.js     (plugin)
     <script>
-        //used inside custom.js
+        //used inside control.js
         var DIR  = "{{ $dir }}";
         var LANG = "{{ $lang }}";
         $(document).ready(function () {

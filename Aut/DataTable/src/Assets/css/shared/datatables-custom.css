@@ -421,7 +421,7 @@ table.dataTable .table-inline {
 }
 
 /*------------------------------------
-            Code/pre Sweet Alert
+          Code/pre Sweet Alert
 --------------------------------------*/
 
 .swal2-modal pre {
@@ -441,13 +441,13 @@ table.dataTable .table-inline {
 }
 
 /*------------------------------------
-            Row Details
+              Row Details
 --------------------------------------*/
 
 td.details-control:hover { cursor: pointer }
 
 /*------------------------------------
-              global
+                global
 --------------------------------------*/
 
 .datatable-m-top-5 { margin-top: 5px; }

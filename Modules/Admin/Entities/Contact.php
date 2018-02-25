@@ -12,7 +12,6 @@ class Contact extends \Eloquent
 {
     use SoftDeletes ,MultiLangs;
 
-
     protected $transInputs = [
         'transAddress' => 'contact',
     ];

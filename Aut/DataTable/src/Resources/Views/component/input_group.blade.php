@@ -13,6 +13,7 @@
                    placeholder='{{ $placeholder }}'
                    class='form-control {{ $class }}'
                    data-editable = 'true'
+                   dir="{{ config("datatable.local_direction.$datatable_lang") }}"
                    {{ $attr }}
             >
             <span class='input-group-addon'>
