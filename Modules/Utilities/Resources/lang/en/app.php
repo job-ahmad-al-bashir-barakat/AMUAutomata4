@@ -72,6 +72,7 @@ return [
     'modules'                => 'Modules',
     'custom_modules'         => 'Custom Modules',
     'custom-modules'         => 'Custom Modules',
+    'seos'                   => 'Seos',
 
 
     'auth'                   => 'Authentication',
