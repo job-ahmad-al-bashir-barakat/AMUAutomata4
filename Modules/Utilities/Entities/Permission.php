@@ -4,16 +4,21 @@ namespace Modules\Utilities\Entities;
 
 use Modules\Utilities\Traits\MultiLangs;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Spatie\Permission\Models\Permission as Perm;
+use Spatie\Permission\Models\Permission as SpatiePermission;
 use Modules\Utilities\Entities\LangModels\PermissionNameLang;
 
-class Permission extends Perm
+class Permission extends SpatiePermission
 {
     use SoftDeletes, MultiLangs;
 
-    protected $fillable = ['name'];
+    protected $fillable = ['name', 'guard_name'];
 
     protected $appends  = ['lang_name'];
+
+    public function __construct(array $attributes = [])
+    {
+        parent::__construct($attributes);
+    }
 
     public function transName()
     {
@@ -22,6 +27,6 @@ class Permission extends Perm
 
     public function getLangNameAttribute()
     {
-        return $this->transName->keyBy('lang_name');
+        return $this->transName->keyBy('lang_code');
     }
 }

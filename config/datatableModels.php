@@ -24,6 +24,16 @@ return [
         'factory'       => Modules\Utilities\Factories\UserFactory::class,
     ],
 
+    'permissions' => [
+        'model'         => Modules\Utilities\Entities\Permission::class,
+        'factory'       => Modules\Utilities\Factories\PermissionFactory::class,
+    ],
+
+    'roles' => [
+        'model'         => Modules\Utilities\Entities\Role::class,
+        'factory'       => Modules\Utilities\Factories\RoleFactory::class,
+    ],
+
     'langs' => [
         'model'         => Modules\Utilities\Entities\Lang::class,
         'factory'       => Modules\Utilities\Factories\LangFactory::class,

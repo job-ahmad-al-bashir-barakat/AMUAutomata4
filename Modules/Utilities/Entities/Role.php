@@ -3,17 +3,22 @@
 namespace Modules\Utilities\Entities;
 
 use Modules\Utilities\Traits\MultiLangs;
-use Spatie\Permission\Models\Role as Rol;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\Permission\Models\Role as SpatieRole;
 use Modules\Utilities\Entities\LangModels\RoleNameLang;
 
-class Role extends Rol
+class Role extends SpatieRole
 {
     use SoftDeletes, MultiLangs;
 
-    protected $fillable = ['name'];
+    protected $fillable = ['name', 'guard_name'];
 
     protected $appends  = ['lang_name'];
+
+    public function __construct(array $attributes = [])
+    {
+        parent::__construct($attributes);
+    }
 
     public function transName()
     {
@@ -22,6 +27,6 @@ class Role extends Rol
 
     public function getLangNameAttribute()
     {
-        return $this->transName->keyBy('lang_name');
+        return $this->transName->keyBy('lang_code');
     }
 }

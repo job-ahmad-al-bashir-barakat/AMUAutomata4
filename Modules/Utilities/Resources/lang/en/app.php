@@ -72,7 +72,8 @@ return [
     'modules'                => 'Modules',
     'custom_modules'         => 'Custom Modules',
     'custom-modules'         => 'Custom Modules',
-
+    'guard_name'             => 'Guard Name',
+    'seos'                   => 'Search Engine Optimization',
 
     'auth'                   => 'Authentication',
     'roles'                  => 'Roles',

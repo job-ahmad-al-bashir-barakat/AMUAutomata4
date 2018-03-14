@@ -4,18 +4,18 @@ namespace Modules\Utilities\Factories;
 
 use Aut\DataTable\Factories\GlobalFactory;
 
-class AttributeFactory extends GlobalFactory
+class RoleFactory extends GlobalFactory
 {
 
     /**
      *  get data-table query
      */
-    public function getDatatable($attribute, $request)
+    public function getDatatable($role, $request)
     {
-        $query = $attribute::allLangs()->get();
+        $query = $role::allLangs()->get();
 
         return $this->table
-            ->queryConfig('datatable-attributes')
+            ->queryConfig('datatable-roles')
             ->queryDatatable($query)
             ->queryMultiLang(['name'])
             ->queryUpdateButton()
@@ -26,13 +26,16 @@ class AttributeFactory extends GlobalFactory
     /**
      *  build datatable modal and table
      */
-    public function buildDatatable($attribute, $request)
+    public function buildDatatable($role, $request)
     {
         return $this->table
-            ->config('datatable-attributes',trans('utilities::app.attributes'))
+            ->config('datatable-roles',trans('utilities::app.roles'))
             ->addPrimaryKey('id','id')
-            ->addInputText(trans('utilities::app.code'),'code','code','required req')
             ->addMultiInputTextLangs(['name'] ,'req required')
+            ->addInputText(trans('utilities::app.name'),'name','name', 'required req')
+            ->startRelation('permissions')
+                ->addMultiAutocomplete('autocomplete/permissions' ,"permissions[ ,].lang_name.$this->lang.text",trans('utilities::app.permissions') , 'permissions.id', "permissions.lang_name.$this->lang.text", "permissions.lang_name.$this->lang.text" ,'req required' ,'multiple')
+            ->endRelation()
             ->addActionButton($this->update,'update','update')
             ->addActionButton($this->delete,'delete','delete')
             ->addNavButton()
@@ -42,17 +45,19 @@ class AttributeFactory extends GlobalFactory
     /**
      *  store action for save relation
      */
-    public function storeDatatable($model = null ,$request = null ,$result = null)
+    public function storeDatatable($role = null ,$request = null ,$result = null)
     {
-        //
+        print_r($request);exit;
+        $result->givePermissionTo($request->get('premission.id'));
     }
 
     /**
      *  store action for update relation
      */
-    public function updateDatatable($model = null ,$request = null ,$result = null)
+    public function updateDatatable($role = null ,$request = null ,$result = null)
     {
-        //
+        print_r($request->input());exit;
+        $result->givePermissionTo($request->get('premission.id'));
     }
 
     /**

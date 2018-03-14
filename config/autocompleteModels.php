@@ -65,6 +65,11 @@
 
 return [
 
+    'permissions' => [
+        'model' => \Modules\Utilities\Entities\Permission::class,
+        'colId' => 'name',
+    ],
+
     'attributes' => [
         'model' => \Modules\Utilities\Entities\Attribute::class,
     ],
