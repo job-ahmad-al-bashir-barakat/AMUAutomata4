@@ -88,6 +88,13 @@
         </a>
         <ul id="users-auth" class="nav sidebar-subnav collapse">
             <li class="sidebar-subnav-header">{{ trans('utilities::app.auth') }}</li>
+            @if(\Auth::user()->user_type == 'automata')
+            <li class="">
+                <a href="{{ RouteUrls::permissions() }}" class="ajax" title="{{ trans('utilities::app.permissions') }}">
+                    <span>{{ trans('utilities::app.permissions') }}</span>
+                </a>
+            </li>
+            @endif
             <li class="">
                 <a href="{{ RouteUrls::roles() }}" class="ajax" title="{{ trans('utilities::app.roles') }}">
                     <span>{{ trans('utilities::app.roles') }}</span>

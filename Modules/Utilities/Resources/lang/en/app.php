@@ -76,6 +76,7 @@ return [
 
     'auth'                   => 'Authentication',
     'roles'                  => 'Roles',
+    'permissions'            => 'Permissions',
     'pages'                  => 'Pages',
     'page'                   => 'Page',
     'icon'                   => 'Icon',

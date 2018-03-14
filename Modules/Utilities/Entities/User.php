@@ -2,16 +2,16 @@
 
 namespace Modules\Utilities\Entities;
 
-use Illuminate\Database\Eloquent\Model;
+use Spatie\Permission\Traits\HasRoles;
 use Modules\Utilities\Traits\MultiLangs;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Modules\Utilities\Entities\LangModels\UserNameLang;
 use Modules\Utilities\Entities\LangModels\UserSummaryLang;
-use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    use SoftDeletes, MultiLangs;
+    use SoftDeletes, MultiLangs, HasRoles;
 
     const IMAGE_PATH = 'storage/upload/image/users/';
 
