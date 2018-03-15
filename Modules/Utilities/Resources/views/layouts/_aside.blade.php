@@ -11,7 +11,8 @@
         </a>
         <ul id="global" class="nav sidebar-subnav collapse">
             <li class="sidebar-subnav-header">{{ trans('utilities::app.global') }}</li>
-            @if(auth()->user()->hasAnyPermission([config('automata-permission.automata.permission'), config('automata-permission.administrator.permission'), 'languages']))
+            {{--@if(auth()->user()->hasAnyPermission([config('automata-permission.automata.permission'), config('automata-permission.administrator.permission'), 'languages']))--}}
+            @can('languages')
             <li class="">
                 <a href="{{ RouteUrls::langs() }}" class="ajax" title="{{ trans('utilities::app.langs') }}">
                     <span>{{ trans('utilities::app.langs') }}</span>
