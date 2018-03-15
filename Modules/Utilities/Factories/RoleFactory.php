@@ -12,7 +12,7 @@ class RoleFactory extends GlobalFactory
      */
     public function getDatatable($role, $request)
     {
-        $query = $role::allLangs()->get();
+        $query = $role::with(['permissions'])->allLangs()->get();
 
         return $this->table
             ->queryConfig('datatable-roles')
@@ -47,17 +47,17 @@ class RoleFactory extends GlobalFactory
      */
     public function storeDatatable($role = null ,$request = null ,$result = null)
     {
-        print_r($request);exit;
-        $result->givePermissionTo($request->get('premission.id'));
+        $request->request->add(['transSaveOper' => false]);
+        $result->givePermissionTo($request->input('permissions.id'));
     }
 
     /**
      *  store action for update relation
      */
-    public function updateDatatable($role = null ,$request = null ,$result = null)
+    public function updateDatatable($role = null, $request = null, $result = null)
     {
-        print_r($request->input());exit;
-        $result->givePermissionTo($request->get('premission.id'));
+        $request->request->add(['transSaveOper' => false]);
+        $result->syncPermissions($request->input('permissions.id'));
     }
 
     /**
@@ -65,7 +65,7 @@ class RoleFactory extends GlobalFactory
      */
     public function destroyDatatable($model = null ,$request = null ,$result = null)
     {
-        //
+        dd($request->input(), $result);
     }
 
     /**

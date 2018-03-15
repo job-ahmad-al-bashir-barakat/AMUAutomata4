@@ -54,6 +54,7 @@ class SchemaLanguageTableFactory extends GlobalFactory
             ->addHiddenInput('table_id', 'table_id', $tableId, false, true)
             ->setName('table_name')
             ->addInputText(trans('utilities::app.table_name'), 'TABLE_NAME', 'TABLE_NAME', 'required req')
+            ->setDefaultValue('')
             ->addInputText(trans('utilities::app.namespace'), 'namespace', 'namespace', 'required req none'/*, '', '', false*/)
             ->addActionButton(trans('utilities::app.inserted'), 'inserted', 'inserted')
             ->addActionButton($this->update, 'update', 'update')

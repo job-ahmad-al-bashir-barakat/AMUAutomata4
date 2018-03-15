@@ -70,6 +70,11 @@ return [
         'colId' => 'name',
     ],
 
+    'roles' => [
+        'model' => \Modules\Utilities\Entities\Role::class,
+        'colId' => 'name',
+    ],
+
     'attributes' => [
         'model' => \Modules\Utilities\Entities\Attribute::class,
     ],

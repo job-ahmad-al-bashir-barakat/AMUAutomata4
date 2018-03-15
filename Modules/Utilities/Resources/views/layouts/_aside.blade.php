@@ -11,12 +11,14 @@
         </a>
         <ul id="global" class="nav sidebar-subnav collapse">
             <li class="sidebar-subnav-header">{{ trans('utilities::app.global') }}</li>
+            @if(auth()->user()->hasAnyPermission([config('automata-permission.automata.permission'), config('automata-permission.administrator.permission'), 'languages']))
             <li class="">
                 <a href="{{ RouteUrls::langs() }}" class="ajax" title="{{ trans('utilities::app.langs') }}">
                     <span>{{ trans('utilities::app.langs') }}</span>
                 </a>
             </li>
-            @if(\Auth::user()->user_type == 'automata')
+            @endcan
+            @can(config('automata-permission.automata.permission'))
             <li class="">
                 <a href="{{ RouteUrls::schemaTables() }}" class="ajax" title="{{ trans('utilities::app.schema-tables') }}">
                     <span>{{ trans('utilities::app.schema-tables') }}</span>
@@ -27,13 +29,13 @@
                     <span>{{ trans('utilities::app.tables') }}</span>
                 </a>
             </li>
-            @endif
+            @endcan
             <li class="">
                 <a href="{{ RouteUrls::icons() }}" class="ajax" title="{{ trans('utilities::app.icons') }}">
                     <span>{{ trans('utilities::app.icons') }}</span>
                 </a>
             </li>
-            @if(\Auth::user()->user_type == 'automata')
+            @can(config('automata-permission.automata.permission'))
             <li class="">
                 <a href="{{ RouteUrls::attributes() }}" class="ajax"  title="{{ trans('utilities::app.attributes') }}">
                     <span>{{ trans('utilities::app.attributes') }}</span>
@@ -44,7 +46,7 @@
                     <span>{{ trans('utilities::app.modules') }}</span>
                 </a>
             </li>
-            @endif
+            @endcan
             <li class="">
                 <a href="{{ RouteUrls::pages() }}" class="ajax" title="{{ trans('utilities::app.pages') }}">
                     <span>{{ trans('utilities::app.pages') }}</span>
@@ -66,7 +68,7 @@
                     <span>{{ trans('utilities::app.general') }}</span>
                 </a>
             </li>
-            @if(\Auth::user()->user_type == 'automata')
+            @can(config('automata-permission.automata.permission'))
             <li class="">
                 <a href="{{ RouteUrls::controlMenu() }}" class="ajax" title="{{ trans('utilities::app.control') }}">
                     <span>{{ trans('utilities::app.control') }}</span>
@@ -78,7 +80,7 @@
                     <span>{{ trans('utilities::app.menu_tables') }}</span>
                 </a>
             </li>
-            @endif
+            @endcan
         </ul>
     </li>
     <li class="">
@@ -88,13 +90,13 @@
         </a>
         <ul id="users-auth" class="nav sidebar-subnav collapse">
             <li class="sidebar-subnav-header">{{ trans('utilities::app.auth') }}</li>
-            @if(\Auth::user()->user_type == 'automata')
+            @can(config('automata-permission.automata.permission'))
             <li class="">
                 <a href="{{ RouteUrls::permissions() }}" class="ajax" title="{{ trans('utilities::app.permissions') }}">
                     <span>{{ trans('utilities::app.permissions') }}</span>
                 </a>
             </li>
-            @endif
+            @endcan
             <li class="">
                 <a href="{{ RouteUrls::roles() }}" class="ajax" title="{{ trans('utilities::app.roles') }}">
                     <span>{{ trans('utilities::app.roles') }}</span>
@@ -161,13 +163,13 @@
 @endsection
 
 @section('_aside_setting_utilities')
-    @if(\Auth::user()->user_type == 'automata')
+    @can(config('automata-permission.automata.permission'))
     <li class="">
         <a href="{{ RouteUrls::generalSetting() }}" class="ajax" title="{{ trans('utilities::app.general_setting') }}">
             <span>{{ trans('utilities::app.general_setting') }}</span>
         </a>
     </li>
-    @endif
+    @endcan
     <li class="">
         <a href="{{ RouteUrls::socialNetwork() }}" class="ajax" title="{{ trans('utilities::app.social_network') }}">
             <span>{{ trans('utilities::app.social_network') }}</span>
