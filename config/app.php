@@ -182,6 +182,7 @@ return [
         Barryvdh\Debugbar\ServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
         RenatoMarinho\LaravelPageSpeed\ServiceProvider::class,
+        Spatie\Permission\PermissionServiceProvider::class,
 
         /**
          * Our Service Provider

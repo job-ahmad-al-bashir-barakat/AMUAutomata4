@@ -2,16 +2,16 @@
 
 namespace Modules\Utilities\Http\Controllers;
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Routing\Controller;
 use Modules\Utilities\Entities\MenuTables;
-use Modules\Utilities\Entities\SchemaTable;
-use Modules\Utilities\Entities\Table;
 
 class UtilitiesController extends Controller
 {
-    public function table($view)
+    public function table(Request $request)
     {
+        list($table, $view) = explode('.', $request->route()->getName());
         $subPage = \View::exists("utilities::page.table-sub.$view") ? "utilities::page.table-sub.$view" : false;
 
         return view('utilities::page.table',[

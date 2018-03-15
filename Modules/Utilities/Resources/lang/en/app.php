@@ -72,11 +72,12 @@ return [
     'modules'                => 'Modules',
     'custom_modules'         => 'Custom Modules',
     'custom-modules'         => 'Custom Modules',
-    'seos'                   => 'Seos',
-
+    'guard_name'             => 'Guard Name',
+    'seos'                   => 'Search Engine Optimization',
 
     'auth'                   => 'Authentication',
     'roles'                  => 'Roles',
+    'permissions'            => 'Permissions',
     'pages'                  => 'Pages',
     'page'                   => 'Page',
     'icon'                   => 'Icon',

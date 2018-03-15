@@ -69,10 +69,12 @@ return [
     'modules'                => 'قوالب',
     'custom_modules'         => 'قوالب خاصة',
     'custom-modules'         => 'قوالب خاصة',
+    'guard_name'             => 'Guard Name',
     'seos'                   => 'محرك البحث',
 
     'auth'                   => 'المستخدمين',
     'roles'                  => 'الادوار',
+    'permissions'            => 'سماحيات',
     'pages'                  => 'الصفحات',
     'page'                   => 'صفحة',
     'icon'                   => 'ايقونة',

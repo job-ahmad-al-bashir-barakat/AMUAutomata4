@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.4.21 on 2017-11-04.
+ * Generated for Laravel 5.4.21 on 2018-03-14.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -14863,6 +14863,16 @@ namespace Aut\DataTable {
         /**
          * 
          *
+         * @static 
+         */
+        public static function setLang($lang = 'en')
+        {
+            return \Aut\DataTable\DataTableBuilder::setLang($lang);
+        }
+        
+        /**
+         * 
+         *
          * @param $value string|array
          * @return $this 
          * @static 
@@ -15355,9 +15365,49 @@ namespace App\Library\Url\Facades {
          *
          * @static 
          */
+        public static function tables()
+        {
+            return \App\Library\Url\RouteUrls::tables();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function schemaTables()
+        {
+            return \App\Library\Url\RouteUrls::schemaTables();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
         public static function users()
         {
             return \App\Library\Url\RouteUrls::users();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function roles()
+        {
+            return \App\Library\Url\RouteUrls::roles();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function permissions()
+        {
+            return \App\Library\Url\RouteUrls::permissions();
         }
         
         /**
@@ -15599,6 +15649,26 @@ namespace App\Library\Url\Facades {
         public static function universityCouncilHtml()
         {
             return \App\Library\Url\RouteUrls::universityCouncilHtml();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function trustedCouncilHtml()
+        {
+            return \App\Library\Url\RouteUrls::trustedCouncilHtml();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function facultyInstructorsHtml()
+        {
+            return \App\Library\Url\RouteUrls::facultyInstructorsHtml();
         }
         
         /**
@@ -15879,6 +15949,16 @@ namespace App\Library\Url\Facades {
         public static function unlockscreen()
         {
             return \App\Library\Url\RouteUrls::unlockscreen();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function universityStaff($staff)
+        {
+            return \App\Library\Url\RouteUrls::universityStaff($staff);
         }
         
     }         

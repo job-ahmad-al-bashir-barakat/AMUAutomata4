@@ -11,7 +11,7 @@ class UserFactory extends GlobalFactory
      */
     public function getDatatable($user, $request)
     {
-        $query = $user::allLangs()->get();
+        $query = $user::with(['permissions', 'roles'])->allLangs()->get();
 
         return $this->table
             ->queryConfig('datatable-users')
@@ -35,6 +35,12 @@ class UserFactory extends GlobalFactory
             ->addInputText(trans('utilities::app.email'),'email','email','required req d:email')
             ->addMultiInputTextLangs(['name'] ,'req required')
             ->addMultiTextareaLangs(['summary'] ,'req required')
+            ->startRelation('roles')
+                ->addMultiAutocomplete('autocomplete/roles' ,"roles[ ,].lang_name.$this->lang.text",trans('utilities::app.roles') , 'roles.id', "roles.lang_name.$this->lang.text", "roles.lang_name.$this->lang.text" ,'' ,'multiple')
+            ->endRelation()
+            ->startRelation('permissions')
+                ->addMultiAutocomplete('autocomplete/permissions' ,"permissions[ ,].lang_name.$this->lang.text",trans('utilities::app.permissions') , 'permissions.id', "permissions.lang_name.$this->lang.text", "permissions.lang_name.$this->lang.text" ,'' ,'multiple')
+            ->endRelation()
             ->addInputPassword(trans('utilities::app.password'),'password','password','','','',false,false,false,false)
             ->addActionButton(trans('utilities::app.upload_images') ,'upload_image' ,'upload_image', 'center all' ,'100px')
             ->addActionButton($this->update,'update','update')
@@ -48,7 +54,9 @@ class UserFactory extends GlobalFactory
      */
     public function storeDatatable($model = null ,$request = null ,$result = null)
     {
-        //
+        $request->request->add(['transSaveOper' => false]);
+        $result->givePermissionTo($request->input('permissions.id', []));
+        $result->assignRole($request->input('roles.id', []));
     }
 
     /**
@@ -56,7 +64,9 @@ class UserFactory extends GlobalFactory
      */
     public function updateDatatable($model = null ,$request = null ,$result = null)
     {
-        //
+        $request->request->add(['transSaveOper' => false]);
+        $result->syncPermissions($request->input('permissions.id', []));
+        $result->syncRoles($request->input('roles.id', []));
     }
 
     /**

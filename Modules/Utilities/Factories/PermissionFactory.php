@@ -4,18 +4,18 @@ namespace Modules\Utilities\Factories;
 
 use Aut\DataTable\Factories\GlobalFactory;
 
-class AttributeFactory extends GlobalFactory
+class PermissionFactory extends GlobalFactory
 {
 
     /**
      *  get data-table query
      */
-    public function getDatatable($attribute, $request)
+    public function getDatatable($permission, $request)
     {
-        $query = $attribute::allLangs()->get();
+        $query = $permission::allLangs()->get();
 
         return $this->table
-            ->queryConfig('datatable-attributes')
+            ->queryConfig('datatable-permissions')
             ->queryDatatable($query)
             ->queryMultiLang(['name'])
             ->queryUpdateButton()
@@ -26,13 +26,14 @@ class AttributeFactory extends GlobalFactory
     /**
      *  build datatable modal and table
      */
-    public function buildDatatable($attribute, $request)
+    public function buildDatatable($permission, $request)
     {
         return $this->table
-            ->config('datatable-attributes',trans('utilities::app.attributes'))
+            ->config('datatable-permissions',trans('utilities::app.permissions'))
             ->addPrimaryKey('id','id')
-            ->addInputText(trans('utilities::app.code'),'code','code','required req')
             ->addMultiInputTextLangs(['name'] ,'req required')
+            ->addInputText(trans('utilities::app.name'),'name','name', 'required req')
+            ->addInputText(trans('utilities::app.guard_name'),'guard_name','guard_name')
             ->addActionButton($this->update,'update','update')
             ->addActionButton($this->delete,'delete','delete')
             ->addNavButton()
