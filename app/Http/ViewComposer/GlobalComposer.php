@@ -1,13 +1,11 @@
 <?php
 namespace App\Http\ViewComposer;
 
-use Illuminate\Support\Str;
 use Illuminate\View\View;
-use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
-use Modules\Utilities\Entities\ControlMenu;
+use Illuminate\Support\Str;
 use Modules\Utilities\Entities\Lang;
-use Nwidart\Modules\Exceptions\ModuleNotFoundException;
-use Nwidart\Modules\Facades\Module;
+use Modules\Utilities\Entities\ControlMenu;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 class GlobalComposer
 {
@@ -23,8 +21,9 @@ class GlobalComposer
     public function getCurrentModule()
     {
         $module = request()->segment(2);
-        if(\Module::find($module));
+        if(\Module::find($module))
             return $module;
+        return '';
     }
 
     public function path(View $view)

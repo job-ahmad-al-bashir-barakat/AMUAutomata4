@@ -2,26 +2,17 @@
 <!DOCTYPE html>
 <html dir="{{ $dir }}" lang="{{ app()->getLocale()}}">
 <head>
-    <!-- Meta Tags -->
     <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
-
     <meta name="description" content="StudyPress | Education & Courses HTML Template" />
     <meta name="keywords" content="academy, course, education, elearning, learning, learnata" />
-
     <meta name="author" content="automata4 group" />
-
-    <!-- Page Title -->
     <title>{{ setting('website_title')->value }} | Education</title>
-
-    <!-- Favicon and Touch Icons -->
     <link href="{{ asset('images/favicon.png') }}" rel="shortcut icon" type="image/png">
     <link href="{{ asset('images/apple-touch-icon.png') }}" rel="apple-touch-icon">
     <link href="{{ asset('images/apple-touch-icon-72x72.png') }}" rel="apple-touch-icon" sizes="72x72">
     <link href="{{ asset('images/apple-touch-icon-114x114.png') }}" rel="apple-touch-icon" sizes="114x114">
     <link href="{{ asset('images/apple-touch-icon-144x144.png') }}" rel="apple-touch-icon" sizes="144x144">
-
-    <!-- Stylesheet -->
     {{-- <link href="{{ asset(mix('css/theme-ltr.css')) }}" rel="stylesheet" type="text/css"> --}}
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
     @if($dir == 'rtl')
