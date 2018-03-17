@@ -2,6 +2,7 @@
 
 namespace Modules\Utilities\Factories;
 
+use Modules\Utilities\Entities\Role;
 use Aut\DataTable\Factories\GlobalFactory;
 
 class PermissionFactory extends GlobalFactory
@@ -18,6 +19,12 @@ class PermissionFactory extends GlobalFactory
             ->queryConfig('datatable-permissions')
             ->queryDatatable($query)
             ->queryMultiLang(['name'])
+            ->queryAddColumn('to_automata', function (){
+                return 'Y';
+            })
+            ->queryAddColumn('to_admin', function (){
+                return 'Y';
+            })
             ->queryUpdateButton()
             ->queryDeleteButton()
             ->queryRender();
@@ -34,6 +41,10 @@ class PermissionFactory extends GlobalFactory
             ->addMultiInputTextLangs(['name'] ,'req required')
             ->addInputText(trans('utilities::app.name'),'name','name', 'required req')
             ->addInputText(trans('utilities::app.guard_name'),'guard_name','guard_name')
+            ->startRelation('extra')
+                ->addSelect(['Y' => 'Yes', 'n' => 'No'], 'To Automata', 'to_automata', 'to_automata', '', '', '', '', false)
+                ->addSelect(['Y' => 'Yes', 'n' => 'No'], 'To Admin', 'to_admin', 'to_admin', '', '', '', '', false)
+            ->endRelation()
             ->addActionButton($this->update,'update','update')
             ->addActionButton($this->delete,'delete','delete')
             ->addNavButton()
@@ -45,7 +56,15 @@ class PermissionFactory extends GlobalFactory
      */
     public function storeDatatable($model = null ,$request = null ,$result = null)
     {
-        //
+        list ($automata, $admin) = Role::whereIn('id', [1, 2])->get();
+
+        if ($request->input('extra.to_automata', 'N') == 'Y') {
+            $automata->givePermissionTo($result->id);
+        }
+
+        if ($request->input('extra.to_admin', 'N') == 'Y') {
+            $admin->givePermissionTo($result->id);
+        }
     }
 
     /**
@@ -53,7 +72,19 @@ class PermissionFactory extends GlobalFactory
      */
     public function updateDatatable($model = null ,$request = null ,$result = null)
     {
-        //
+        list ($automata, $admin) = Role::whereIn('id', [1, 2])->get();
+
+        if ($request->input('extra.to_automata', 'N') == 'Y') {
+            $automata->hasPermissionTo($result->id) || $automata->givePermissionTo($result->id);
+        } else {
+            $automata->revokePermissionTo($result->id);
+        }
+
+        if ($request->input('extra.to_admin', 'N') == 'Y') {
+            $admin->hasPermissionTo($result->id) || $admin->givePermissionTo($result->id);
+        } else {
+            $admin->revokePermissionTo($result->id);
+        }
     }
 
     /**

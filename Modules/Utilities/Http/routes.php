@@ -1,11 +1,10 @@
 <?php
 
 Route::group([
-    'middleware' => ['web'],
+    'middleware' => ['web', 'auth.basic'],
     'prefix' => 'server',
     'namespace' => 'Modules\Utilities\Http\Controllers'
 ], function () {
-
     Route::get('up','MaintenanceController@up');
     Route::get('down','MaintenanceController@down');
     Route::get('md5/{code}','MaintenanceController@md5');
@@ -55,17 +54,17 @@ function () {
         Route::get('attributes', 'ModulesController@attributeInput');
     });
 
+    Route::group(['middleware' => [/*'permission:automata'*/]], function () {
+        Route::get('schema-tables', 'UtilitiesController@table')->name('table.schema-tables');
+        Route::get('tables', 'UtilitiesController@table')->name('table.tables');
+        Route::get('attributes', 'UtilitiesController@table')->name('table.attributes');
+        Route::get('modules', 'UtilitiesController@table')->name('table.modules');
+        Route::get('permissions', 'UtilitiesController@table')->name('table.permissions');
+    });
 
-
-//    Route::get('{view}', 'UtilitiesController@table');
     Route::get('langs', 'UtilitiesController@table')->name('table.langs');
-    Route::get('schema-tables', 'UtilitiesController@table')->middleware(['permission:automata'])->name('table.schema-tables');
-    Route::get('tables', 'UtilitiesController@table')->middleware(['permission:automata'])->name('table.tables');
     Route::get('icons', 'UtilitiesController@table')->name('table.icons');
-    Route::get('attributes', 'UtilitiesController@table')->middleware(['permission:automata'])->name('table.attributes');
-    Route::get('modules', 'UtilitiesController@table')->middleware(['permission:automata'])->name('table.modules');
     Route::get('pages', 'UtilitiesController@table')->name('table.pages');
-    Route::get('permissions', 'UtilitiesController@table')->middleware(['permission:automata'])->name('table.permissions');
     Route::get('roles', 'UtilitiesController@table')->name('table.roles');
     Route::get('users', 'UtilitiesController@table')->name('table.users');
 
@@ -73,6 +72,7 @@ function () {
     Route::get('{view}/menu', 'UtilitiesController@menu');
     Route::put('{treeModel}/tree/order/{id?}', 'TreeController@order');
     Route::resource('{treeModel}/tree', 'TreeController');
+
     Route::post('{model}/{type}/upload' ,'UploadController@upload');
     Route::post('{model}/{type}/destroy' ,'UploadController@destroy');
     Route::get('{model}/{type}/upload' ,'UploadController@index');
