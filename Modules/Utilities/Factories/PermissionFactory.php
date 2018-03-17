@@ -19,11 +19,11 @@ class PermissionFactory extends GlobalFactory
             ->queryConfig('datatable-permissions')
             ->queryDatatable($query)
             ->queryMultiLang(['name'])
-            ->queryAddColumn('to_automata', function (){
-                return 'Y';
+            ->queryAddColumn('to_automata', function ($item){
+                return Role::find(1)->hasPermissionTo($item->id)?'Y':'N';
             })
-            ->queryAddColumn('to_admin', function (){
-                return 'Y';
+            ->queryAddColumn('to_admin', function ($item){
+                return Role::find(2)->hasPermissionTo($item->id)?'Y':'N';
             })
             ->queryUpdateButton()
             ->queryDeleteButton()
@@ -41,9 +41,10 @@ class PermissionFactory extends GlobalFactory
             ->addMultiInputTextLangs(['name'] ,'req required')
             ->addInputText(trans('utilities::app.name'),'name','name', 'required req')
             ->addInputText(trans('utilities::app.guard_name'),'guard_name','guard_name')
+            ->addSelect(['Y' => 'Yes', 'N' => 'No'], trans('utilities::app.hidden'), 'hidden', 'hidden')
             ->startRelation('extra')
-                ->addSelect(['Y' => 'Yes', 'n' => 'No'], 'To Automata', 'to_automata', 'to_automata', '', '', '', '', false)
-                ->addSelect(['Y' => 'Yes', 'n' => 'No'], 'To Admin', 'to_admin', 'to_admin', '', '', '', '', false)
+                ->addSelect(['Y' => 'Yes', 'N' => 'No'], 'To Automata', 'to_automata', 'to_automata', '', '', '', '', false)
+                ->addSelect(['Y' => 'Yes', 'N' => 'No'], 'To Admin', 'to_admin', 'to_admin', '', '', '', '', false)
             ->endRelation()
             ->addActionButton($this->update,'update','update')
             ->addActionButton($this->delete,'delete','delete')

@@ -70,6 +70,8 @@ return [
     'custom_modules'         => 'قوالب خاصة',
     'custom-modules'         => 'قوالب خاصة',
     'guard_name'             => 'Guard Name',
+    'hidden'                 => 'خاص',
+    'login_as'               => 'الدخول كـ',
     'seos'                   => 'محرك البحث',
 
     'auth'                   => 'المستخدمين',

@@ -20,6 +20,8 @@ class UserFactory extends GlobalFactory
             ->queryUpdateButton('id')
             ->queryDeleteButton('id')
             ->queryCustomButton('upload_image' ,'id' ,'fa fa-image' ,'' ,'onclick="showFileUploadModal(this)"')
+            //@todo check if user has automata permission to do this action
+            ->queryCustomButton('login_as' ,'id' ,'icon-login' ,'' ,'onclick="loginAs(this)"')
             ->queryRender(true);
     }
 
@@ -43,6 +45,8 @@ class UserFactory extends GlobalFactory
             ->endRelation()
             ->addInputPassword(trans('utilities::app.password'),'password','password','','','',false,false,false,false)
             ->addActionButton(trans('utilities::app.upload_images') ,'upload_image' ,'upload_image', 'center all' ,'100px')
+            //@todo check if user has automata permission to do this action
+            ->addActionButton(trans('utilities::app.login_as') ,'login_as' ,'login_as', 'center all' ,'100px')
             ->addActionButton($this->update,'update','update')
             ->addActionButton($this->delete,'delete','delete')
             ->addNavButton()

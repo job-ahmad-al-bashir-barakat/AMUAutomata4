@@ -11,48 +11,55 @@
         </a>
         <ul id="global" class="nav sidebar-subnav collapse">
             <li class="sidebar-subnav-header">{{ trans('utilities::app.global') }}</li>
-            {{--@if(auth()->user()->hasAnyPermission([config('automata-permission.automata.permission'), config('automata-permission.administrator.permission'), 'languages']))--}}
-{{--            @can('languages')--}}
+            @can('languages')
             <li class="">
                 <a href="{{ RouteUrls::langs() }}" class="ajax" title="{{ trans('utilities::app.langs') }}">
                     <span>{{ trans('utilities::app.langs') }}</span>
                 </a>
             </li>
-            {{--@endcan--}}
-{{--            @can(config('automata-permission.automata.permission'))--}}
+            @endcan
+            @can('schema-tables')
             <li class="">
                 <a href="{{ RouteUrls::schemaTables() }}" class="ajax" title="{{ trans('utilities::app.schema-tables') }}">
                     <span>{{ trans('utilities::app.schema-tables') }}</span>
                 </a>
             </li>
+            @endcan
+            @can('tables')
             <li class="">
                 <a href="{{ RouteUrls::tables() }}" class="ajax" title="{{ trans('utilities::app.tables') }}">
                     <span>{{ trans('utilities::app.tables') }}</span>
                 </a>
             </li>
-            {{--@endcan--}}
+            @endcan
+            @can('icons')
             <li class="">
                 <a href="{{ RouteUrls::icons() }}" class="ajax" title="{{ trans('utilities::app.icons') }}">
                     <span>{{ trans('utilities::app.icons') }}</span>
                 </a>
             </li>
-{{--            @can(config('automata-permission.automata.permission'))--}}
+            @endcan
+            @can('attributes')
             <li class="">
                 <a href="{{ RouteUrls::attributes() }}" class="ajax"  title="{{ trans('utilities::app.attributes') }}">
                     <span>{{ trans('utilities::app.attributes') }}</span>
                 </a>
             </li>
+            @endcan
+            @can('modules')
             <li class="">
                 <a href="{{ RouteUrls::modules() }}" class="ajax" title="{{ trans('utilities::app.modules') }}">
                     <span>{{ trans('utilities::app.modules') }}</span>
                 </a>
             </li>
-            {{--@endcan--}}
+            @endcan
+            @can('pages')
             <li class="">
                 <a href="{{ RouteUrls::pages() }}" class="ajax" title="{{ trans('utilities::app.pages') }}">
                     <span>{{ trans('utilities::app.pages') }}</span>
                 </a>
             </li>
+            @endcan
         </ul>
     </li>
 
@@ -69,19 +76,16 @@
                     <span>{{ trans('utilities::app.general') }}</span>
                 </a>
             </li>
-{{--            @can(config('automata-permission.automata.permission'))--}}
             <li class="">
                 <a href="{{ RouteUrls::controlMenu() }}" class="ajax" title="{{ trans('utilities::app.control') }}">
                     <span>{{ trans('utilities::app.control') }}</span>
                 </a>
             </li>
-
             <li class="">
                 <a href="{{ RouteUrls::menuTables() }}" class="ajax" title="{{ trans('utilities::app.menu_tables') }}">
                     <span>{{ trans('utilities::app.menu_tables') }}</span>
                 </a>
             </li>
-            {{--@endcan--}}
         </ul>
     </li>
     <li class="">
@@ -91,23 +95,27 @@
         </a>
         <ul id="users-auth" class="nav sidebar-subnav collapse">
             <li class="sidebar-subnav-header">{{ trans('utilities::app.auth') }}</li>
-{{--            @can(config('automata-permission.automata.permission'))--}}
+            @can('permissions')
             <li class="">
                 <a href="{{ RouteUrls::permissions() }}" class="ajax" title="{{ trans('utilities::app.permissions') }}">
                     <span>{{ trans('utilities::app.permissions') }}</span>
                 </a>
             </li>
-            {{--@endcan--}}
+            @endcan
+            @can('roles')
             <li class="">
                 <a href="{{ RouteUrls::roles() }}" class="ajax" title="{{ trans('utilities::app.roles') }}">
                     <span>{{ trans('utilities::app.roles') }}</span>
                 </a>
             </li>
+            @endcan
+            @can('users')
             <li class="">
                 <a href="{{ RouteUrls::users() }}" class="ajax" title="{{ trans('utilities::app.users') }}">
                     <span>{{ trans('utilities::app.users') }}</span>
                 </a>
             </li>
+            @endcan
         </ul>
     </li>
     <li class="">
@@ -117,48 +125,53 @@
         </a>
         <ul id="builder" class="nav sidebar-subnav collapse">
             <li class="sidebar-subnav-header">{{ trans('utilities::app.builder') }}</li>
-
+            @can('sliders')
             <li class="">
                 <a href="{{ RouteUrls::sliders() }}" class="ajax" title="{{ trans('utilities::app.sliders') }}">
                     <span>{{ trans('utilities::app.sliders') }}</span>
                 </a>
             </li>
-
+            @endcan
+            @can('vertical-sliders')
             <li class="">
                 <a href="{{ RouteUrls::verticalSliders() }}" class="ajax" title="{{ trans('utilities::app.vertical-sliders') }}">
                     <span>{{ trans('utilities::app.vertical-sliders') }}</span>
                 </a>
             </li>
-
+            @endcan
+            @can('blocks')
             <li class="">
                 <a href="{{ RouteUrls::blocks() }}" class="ajax" title="{{ trans('utilities::app.blocks') }}">
                     <span>{{ trans('utilities::app.blocks') }}</span>
                 </a>
             </li>
-
+            @endcan
             <li class="">
                 <a href="{{ RouteUrls::steps() }}" class="ajax" title="{{ trans('utilities::app.steps') }}">
                     <span>{{ trans('utilities::app.steps') }}</span>
                 </a>
             </li>
-
+            @can('text-cards')
             <li class="">
                 <a href="{{ RouteUrls::textCards() }}" class="ajax" title="{{ trans('utilities::app.text-cards') }}">
                     <span>{{ trans('utilities::app.text-cards') }}</span>
                 </a>
             </li>
-
+            @endcan
+            @can('custom-modules')
             <li class="">
                 <a href="{{ RouteUrls::customModules() }}" class="ajax" title="{{ trans('utilities::app.custom_modules') }}">
                     <span>{{ trans('utilities::app.custom_modules') }}</span>
                 </a>
             </li>
-
+            @endcan
+            @can('pages')
             <li class="">
                 <a href="{{ RouteUrls::builderPages() }}" class="ajax" title="{{ trans('utilities::app.pages') }}">
                     <span>{{ trans('utilities::app.pages') }}</span>
                 </a>
             </li>
+            @endcan
         </ul>
     </li>
 @endsection

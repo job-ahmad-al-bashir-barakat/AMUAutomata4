@@ -2,6 +2,7 @@
 
 namespace Modules\Utilities\Entities;
 
+use Illuminate\Database\Eloquent\Builder;
 use Modules\Utilities\Traits\MultiLangs;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\Permission\Models\Permission as SpatiePermission;
@@ -11,7 +12,7 @@ class Permission extends SpatiePermission
 {
     use SoftDeletes, MultiLangs;
 
-    protected $fillable = ['name', 'guard_name'];
+    protected $fillable = ['name', 'guard_name', 'hidden'];
 
     protected $appends  = ['lang_name'];
 

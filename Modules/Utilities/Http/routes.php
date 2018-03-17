@@ -27,23 +27,23 @@ function () {
 
     Route::group(['prefix' => 'builder'], function ()
     {
-        Route::get('pages', 'BuilderController@pages')->name('pages');
-        Route::post('pages', 'BuilderController@storePages');
+        Route::get('pages', 'BuilderController@pages')->middleware('permission:page-builder')->name('pages');
+        Route::post('pages', 'BuilderController@storePages')->middleware('permission:page-builder');
 
         Route::get('modules/{tableName}/{pageId}/{objectId?}', 'BuilderController@getPages');
 
-        Route::get('sliders', 'BuilderController@sliders')->name('sliders');
-        Route::get('sliders/{slider}', 'BuilderController@slider')->name('slider-detail');
+        Route::get('sliders', 'BuilderController@sliders')->middleware('permission:sliders')->name('sliders');
+        Route::get('sliders/{slider}', 'BuilderController@slider')->middleware('permission:sliders')->name('slider-detail');
 
-        Route::get('vertical-sliders', 'BuilderController@verticalSliders')->name('vertical-sliders');
-        Route::get('vertical-sliders/{verticalSlider}', 'BuilderController@verticalSlider')->name('vertical-slider-detail');
+        Route::get('vertical-sliders', 'BuilderController@verticalSliders')->middleware('permission:vertical-sliders')->name('vertical-sliders');
+        Route::get('vertical-sliders/{verticalSlider}', 'BuilderController@verticalSlider')->middleware('permission:vertical-sliders')->name('vertical-slider-detail');
 
-        Route::get('blocks', 'BuilderController@blocks')->name('blocks');
-        Route::get('blocks/{block}', 'BuilderController@block')->name('block-detail');
+        Route::get('blocks', 'BuilderController@blocks')->middleware('permission:blocks')->name('blocks');
+        Route::get('blocks/{block}', 'BuilderController@block')->middleware('permission:blocks')->name('block-detail');
 
-        Route::get('steps', 'BuilderController@steps')->name('steps');
+        Route::get('steps', 'BuilderController@steps')->middleware('permission:steps')->name('steps');
 
-        Route::get('text-cards', 'BuilderController@textCards')->name('text-cards');
+        Route::get('text-cards', 'BuilderController@textCards')->middleware('permission:text-cards')->name('text-cards');
     });
 
     Route::group(['prefix' => 'attribute'], function () {
@@ -54,7 +54,7 @@ function () {
         Route::get('attributes', 'ModulesController@attributeInput');
     });
 
-    Route::group(['middleware' => [/*'permission:automata'*/]], function () {
+    Route::group(['middleware' => ['permission:automata']], function () {
         Route::get('schema-tables', 'UtilitiesController@table')->name('table.schema-tables');
         Route::get('tables', 'UtilitiesController@table')->name('table.tables');
         Route::get('attributes', 'UtilitiesController@table')->name('table.attributes');
@@ -62,11 +62,12 @@ function () {
         Route::get('permissions', 'UtilitiesController@table')->name('table.permissions');
     });
 
-    Route::get('langs', 'UtilitiesController@table')->name('table.langs');
-    Route::get('icons', 'UtilitiesController@table')->name('table.icons');
-    Route::get('pages', 'UtilitiesController@table')->name('table.pages');
-    Route::get('roles', 'UtilitiesController@table')->name('table.roles');
-    Route::get('users', 'UtilitiesController@table')->name('table.users');
+    Route::get('langs', 'UtilitiesController@table')->middleware('permission:languages')->name('table.langs');
+    Route::get('icons', 'UtilitiesController@table')->middleware('permission:icons')->name('table.icons');
+    Route::get('pages', 'UtilitiesController@table')->middleware('permission:pages')->name('table.pages');
+    Route::get('roles', 'UtilitiesController@table')->middleware('permission:roles')->name('table.roles');
+    Route::get('users', 'UtilitiesController@table')->middleware('permission:users')->name('table.users');
+    Route::get('custom-modules', 'UtilitiesController@table')->middleware('permission:custom-modules')->name('table.custom-modules');
 
 
     Route::get('{view}/menu', 'UtilitiesController@menu');
