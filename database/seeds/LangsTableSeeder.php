@@ -12,6 +12,8 @@ class LangsTableSeeder extends Seeder
      */
     public function run()
     {
+        
+
         \DB::table('langs')->delete();
         
         \DB::table('langs')->insert(array (
@@ -21,9 +23,9 @@ class LangsTableSeeder extends Seeder
                 'lang_code' => 'en',
                 'name' => 'English',
                 'native' => 'English',
-                'script' => 'Latn',
-                'regional' => 'en_GB',
                 'is_default' => 1,
+                'regional' => 'en_GB',
+                'script' => 'Latn',
                 'image_id' => 263,
                 'deleted_at' => NULL,
                 'created_at' => '2017-06-15 22:35:40',
@@ -35,9 +37,9 @@ class LangsTableSeeder extends Seeder
                 'lang_code' => 'ar',
                 'name' => 'Arabic',
                 'native' => 'العربية',
-                'script' => 'Arab',
-                'regional' => 'ar_AE',
                 'is_default' => 0,
+                'regional' => 'ar_AE',
+                'script' => 'Arab',
                 'image_id' => 264,
                 'deleted_at' => NULL,
                 'created_at' => '2017-06-15 22:35:51',
