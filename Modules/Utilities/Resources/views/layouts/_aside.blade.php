@@ -1,6 +1,4 @@
-
 @section('_aside_menu_utilities')
-
     <li class="nav-heading ">
         <span>{{ trans('utilities::app.automata4_utilities') }}</span>
     </li>
@@ -70,22 +68,27 @@
         </a>
         <ul id="menus" class="nav sidebar-subnav collapse">
             <li class="sidebar-subnav-header">{{ trans('utilities::app.menus') }}</li>
-
+            @can('website-menu')
             <li class="">
                 <a href="{{ RouteUrls::generalMenu() }}" class="ajax" title="{{ trans('utilities::app.general') }}">
                     <span>{{ trans('utilities::app.general') }}</span>
                 </a>
             </li>
+            @endcan
+            @can('control-panel-menu')
             <li class="">
                 <a href="{{ RouteUrls::controlMenu() }}" class="ajax" title="{{ trans('utilities::app.control') }}">
                     <span>{{ trans('utilities::app.control') }}</span>
                 </a>
             </li>
+            @endcan
+            @can('automata')
             <li class="">
                 <a href="{{ RouteUrls::menuTables() }}" class="ajax" title="{{ trans('utilities::app.menu_tables') }}">
                     <span>{{ trans('utilities::app.menu_tables') }}</span>
                 </a>
             </li>
+            @endcan
         </ul>
     </li>
     <li class="">

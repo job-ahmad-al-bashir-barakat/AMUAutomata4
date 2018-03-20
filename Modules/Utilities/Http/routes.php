@@ -69,8 +69,10 @@ function () {
     Route::get('users', 'UtilitiesController@table')->middleware('permission:users')->name('table.users');
     Route::get('custom-modules', 'UtilitiesController@table')->middleware('permission:custom-modules')->name('table.custom-modules');
 
+    Route::get('menu-tables', 'UtilitiesController@table')->middleware('permission:automata')->name('table.menu-tables');
+    Route::get('general/menu', 'UtilitiesController@menu')->middleware('permission:website-menu')->name('menu.general');
+    Route::get('control/menu', 'UtilitiesController@menu')->middleware('permission:control-panel-menu')->name('menu.control');
 
-    Route::get('{view}/menu', 'UtilitiesController@menu');
     Route::put('{treeModel}/tree/order/{id?}', 'TreeController@order');
     Route::resource('{treeModel}/tree', 'TreeController');
 

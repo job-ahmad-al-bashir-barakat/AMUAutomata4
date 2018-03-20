@@ -22,8 +22,9 @@ class UtilitiesController extends Controller
         ]);
     }
 
-    public function menu($view)
+    public function menu(Request $request)
     {
+        list($table, $view) = explode('.', $request->route()->getName());
         $modules = [];
         if($view === 'general') {
 

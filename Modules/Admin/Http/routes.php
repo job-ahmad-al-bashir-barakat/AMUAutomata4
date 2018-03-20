@@ -16,9 +16,9 @@ function() {
         ]
     ]);
 
-    Route::get('{view}/menu' ,'AdminController@menu');
-
     Route::get('{view}','AdminController@table');
+
+    Route::get('{view}/menu' ,'AdminController@menu');
 
     Route::get('{id}/{view}','AdminController@subTable');
 });
