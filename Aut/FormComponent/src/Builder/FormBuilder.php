@@ -417,8 +417,6 @@ class FormBuilder
         echo removeSpaces(view("form-component::{$this->formType}.modal.modal-header-open", [
             'title' => $title,
         ])->render());
-
-        return $this;
     }
 
     /**

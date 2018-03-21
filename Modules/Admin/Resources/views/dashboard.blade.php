@@ -10,8 +10,8 @@
 @stop
 
 @section('footer')
-{{ FormComponent::modalOpen('myname') }}
-    {{ FormComponent::formOpen() }}
+{!! FormComponent::modalOpen('myname') !!}
+    {!! FormComponent::formOpen() !!}
 
         {{ FormComponent::modalHeaderOpen('dsa') }}
         {{ FormComponent::modalHeaderClose() }}
