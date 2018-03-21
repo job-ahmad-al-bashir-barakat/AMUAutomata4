@@ -3,4 +3,4 @@
 @else
     @php($value = [])
 @endif
-{!! Form::bsAutocomplete($title, 'vertical_sliders', "webModule[{$code}]", 'autocomplete/vertical-sliders', $value, 0, 'group required l:col-lg-3 l:control-label i:col-lg-8') !!}
+{!! FormComponent::autocomplete($title, 'vertical_sliders', "webModule[{$code}]", 'autocomplete/vertical-sliders', $value, 0, 'group required l:col-lg-3 l:control-label i:col-lg-8') !!}

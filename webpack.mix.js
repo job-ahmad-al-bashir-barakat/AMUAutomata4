@@ -32,22 +32,25 @@ mix.styles([
     // jquery ui
     'Modules/Admin/Assets/vendor/jquery-ui/themes/smoothness/jquery-ui.min.css',
     // select2
-    'Modules/Admin/Assets/vendor/select2/dist/css/select2.css',
-    'Modules/Admin/Assets/vendor/select2-bootstrap-theme/dist/select2-bootstrap.css',
+    'Aut/Autocomplete/src/Assets/plugin/select2/css/select2.css',
+    'Aut/Autocomplete/src/Assets/plugin/select2-bootstrap-theme/select2-bootstrap.css',
     // datatable
-    'Modules/Admin/Assets/vendor/custom.datatable/media/css/dataTables.bootstrap.css',
-    'Modules/Admin/Assets/vendor/custom.datatable/extensions/FixedColumns/css/fixedColumns.bootstrap.css',
-    'Modules/Admin/Assets/vendor/custom.datatable/extensions/Responsive/css/responsive.bootstrap.css',
-    'Modules/Admin/Assets/vendor/custom.datatable/extensions/Buttons/css/buttons.bootstrap.css',
+    'Aut/DataTable/src/Assets/plugin/datatable/media/css/dataTables.bootstrap.css',
+    'Aut/DataTable/src/Assets/plugin/datatable/extensions/FixedColumns/css/fixedColumns.bootstrap.css',
+    'Aut/DataTable/src/Assets/plugin/datatable/extensions/Responsive/css/responsive.bootstrap.css',
+    'Aut/DataTable/src/Assets/plugin/datatable/extensions/Buttons/css/buttons.bootstrap.css',
     // fileupload
-    'Modules/Admin/Assets/vendor/bootstrap-fileinput/css/fileinput.css',
-    'Modules/Admin/Assets/vendor/cropper/dist/cropper.css',
+    'Aut/FileUpload/src/Assets/plugin/bootstrap-fileinput/css/fileinput.css',
+    'Aut/FileUpload/src/Assets/plugin/cropper/cropper.css',
     // plugin
     'Modules/Admin/Assets/vendor/sweetalert/dist/sweetalert2.min.css',
     'Modules/Admin/Assets/vendor/dragula/dragula.css',
     // custom
     'Aut/DataTable/src/Assets/css/ltr/datatables-custom-ltr.css',
     'Aut/DataTable/src/Assets/css/shared/datatables-custom.css',
+    // Gmap
+    'Aut/GoogleMap/src/Assets/css/GMap.css',
+
     'Modules/Admin/Assets/vendor/app/css/app.css',
     'Modules/Admin/Assets/vendor/preloader/preloader.scss'
 
@@ -70,23 +73,26 @@ mix.styles([
     // jquery ui
     'Modules/Admin/Assets/vendor/jquery-ui/themes/smoothness/jquery-ui.min.css',
     // select2
-    'Modules/Admin/Assets/vendor/select2/dist/css/select2.css',
-    'Modules/Admin/Assets/vendor/select2-bootstrap-theme/dist/select2-bootstrap.css',
+    'Aut/Autocomplete/src/Assets/plugin/select2/css/select2.css',
+    'Aut/Autocomplete/src/Assets/plugin/select2-bootstrap-theme/select2-bootstrap.css',
     // datatable
-    'Modules/Admin/Assets/vendor/custom.datatable/media/css/dataTables.bootstrap.css',
-    'Modules/Admin/Assets/vendor/custom.datatable/extensions/FixedColumns/css/fixedColumns.bootstrap.css',
-    'Modules/Admin/Assets/vendor/custom.datatable/extensions/Responsive/css/responsive.bootstrap.css',
-    'Modules/Admin/Assets/vendor/custom.datatable/extensions/Buttons/css/buttons.bootstrap.css',
+    'Aut/DataTable/src/Assets/plugin/datatable/media/css/dataTables.bootstrap.css',
+    'Aut/DataTable/src/Assets/plugin/datatable/extensions/FixedColumns/css/fixedColumns.bootstrap.css',
+    'Aut/DataTable/src/Assets/plugin/datatable/extensions/Responsive/css/responsive.bootstrap.css',
+    'Aut/DataTable/src/Assets/plugin/datatable/extensions/Buttons/css/buttons.bootstrap.css',
     // fileupload
-    'Modules/Admin/Assets/vendor/bootstrap-fileinput/css/fileinput.css',
-    'Modules/Admin/Assets/vendor/bootstrap-fileinput/css/fileinput-rtl.css',
-    'Modules/Admin/Assets/vendor/cropper/dist/cropper.css',
+    'Aut/FileUpload/src/Assets/plugin/bootstrap-fileinput/css/fileinput.css',
+    'Aut/FileUpload/src/Assets/plugin/bootstrap-fileinput/css/fileinput-rtl.css',
+    'Aut/FileUpload/src/Assets/plugin/cropper/cropper.css',
     // plugin
     'Modules/Admin/Assets/vendor/sweetalert/dist/sweetalert2.min.css',
     'Modules/Admin/Assets/vendor/dragula/dragula.css',
     // custom
     'Aut/DataTable/src/Assets/css/rtl/datatables-custom-rtl.css',
     'Aut/DataTable/src/Assets/css/shared/datatables-custom.css',
+    // Gmap
+    'Aut/GoogleMap/src/Assets/css/GMap.css',
+
     'Modules/Admin/Assets/vendor/app/css/app-rtl.css',
     'Modules/Admin/Assets/vendor/preloader/preloader.scss',
 
@@ -126,14 +132,14 @@ var js = [
     'Modules/Admin/Assets/vendor/moment/min/moment-with-locales.min.js',
     'Modules/Admin/Assets/vendor/app/js/demo/demo-flot.js',
     // datatable
-    'Modules/Admin/Assets/vendor/custom.datatable/media/js/jquery.dataTables.js',
-    'Modules/Admin/Assets/vendor/custom.datatable/media/js/dataTables.bootstrap.js',
-    'Modules/Admin/Assets/vendor/custom.datatable/extensions/Buttons/js/dataTables.buttons.js',
-    'Modules/Admin/Assets/vendor/custom.datatable/extensions/Buttons/js/buttons.bootstrap.js',
-    'Modules/Admin/Assets/vendor/custom.datatable/extensions/Buttons/js/buttons.colVis.js',
-    'Modules/Admin/Assets/vendor/custom.datatable/extensions/Responsive/js/dataTables.responsive.js',
-    'Modules/Admin/Assets/vendor/custom.datatable/extensions/Responsive/js/responsive.bootstrap.js',
-    'Modules/Admin/Assets/vendor/custom.datatable/extensions/FixedColumns/js/dataTables.fixedColumns.js',
+    'Aut/DataTable/src/Assets/plugin/datatable/media/js/jquery.dataTables.js',
+    'Aut/DataTable/src/Assets/plugin/datatable/media/js/dataTables.bootstrap.js',
+    'Aut/DataTable/src/Assets/plugin/datatable/extensions/Buttons/js/dataTables.buttons.js',
+    'Aut/DataTable/src/Assets/plugin/datatable/extensions/Buttons/js/buttons.bootstrap.js',
+    'Aut/DataTable/src/Assets/plugin/datatable/extensions/Buttons/js/buttons.colVis.js',
+    'Aut/DataTable/src/Assets/plugin/datatable/extensions/Responsive/js/dataTables.responsive.js',
+    'Aut/DataTable/src/Assets/plugin/datatable/extensions/Responsive/js/responsive.bootstrap.js',
+    'Aut/DataTable/src/Assets/plugin/datatable/extensions/FixedColumns/js/dataTables.fixedColumns.js',
 
     // datatable button print ... et
     // 'Modules/Admin/Assets/vendor/custom.datatable/extensions/Buttons/js/buttons.flash.js',
@@ -148,34 +154,40 @@ var js = [
     'node_modules/jspath/lib/jspath.js',
     // plugin
     'Modules/Admin/Assets/vendor/sweetalert/dist/sweetalert2.min.js',
-    'Modules/Admin/Assets/vendor/select2/dist/js/select2.js',
+    'Aut/Autocomplete/src/Assets/plugin/select2/js/select2.js',
     'Modules/Admin/Assets/vendor/jquery-pjax/jquery.pjax.js',
     'Modules/Admin/Assets/vendor/pace/pace.min.js',
-    'Modules/Admin/Assets/vendor/bootstrap-fileinput/js/fileinput.js',
-    'Modules/Admin/Assets/vendor/bootstrap-fileinput/themes/fa/theme.js',
-    'Modules/Admin/Assets/vendor/cropper/dist/cropper.js',
+    'Aut/FileUpload/src/Assets/plugin/bootstrap-fileinput/js/fileinput.js',
+    'Aut/FileUpload/src/Assets/plugin/bootstrap-fileinput/themes/fa/theme.js',
+    'Aut/FileUpload/src/Assets/plugin/cropper/cropper.js',
     'Modules/Admin/Assets/vendor/dragula/dragula.js',
     'Modules/Admin/Assets/vendor/nestable/jquery.nestable.js',
     'Modules/Admin/Assets/vendor/jquery.inputmask/dist/jquery.inputmask.bundle.js',
-    'Modules/Admin/Assets/vendor/jQuery-gMap/jquery.gmap.min.js',
+    'Aut/GoogleMap/src/Assets/plugin/jQuery-gMap/jquery.gmap.min.js',
 
     // custom
+    'Aut/GoogleMap/src/Assets/js/GMap.js',
+    'Aut/FormComponent/src/Assets/js/form-component.js',
+    'Aut/FileUpload/src/Assets/file-upload.js',
+    'Aut/Autocomplete/src/Assets/js/autocomplete.js',
+    'Aut/TreeView/src/Assets/js/tree-view.js',
     'Aut/DataTable/src/Assets/js/datatable.js',
-    'Modules/Admin/Assets/vendor/preloader/preloader.js'
 
-    //'public/formBuilder/dist/form-builder.min.js',
+    'Modules/Admin/Assets/vendor/preloader/preloader.js',
+
+    // 'public/formBuilder/dist/form-builder.min.js',
     // 'public/formBuilder/dist/form-render.min.js'
-    // 'Modules/Admin/Assets/vendor/app/js/app.js'
+    'Modules/Admin/Assets/vendor/app/js/app.js'
 ];
 
 mix.scripts(js.concat([
-    'Modules/Admin/Assets/vendor/bootstrap-fileinput/js/locales/en.js',
-    'Modules/Admin/Assets/vendor/select2/dist/js/i18n/en.js',
+    'Aut/FileUpload/src/Assets/plugin/bootstrap-fileinput/js/locales/en.js',
+    'Aut/Autocomplete/src/Assets/plugin/select2/js/i18n/en.js',
 ]), 'public/js/admin-all-ltr.js').version();
 
 mix.scripts(js.concat([
-    'Modules/Admin/Assets/vendor/bootstrap-fileinput/js/locales/ar.js',
-    'Modules/Admin/Assets/vendor/select2/dist/js/i18n/ar.js',
+    'Aut/FileUpload/src/Assets/plugin/bootstrap-fileinput/js/locales/ar.js',
+    'Aut/Autocomplete/src/Assets/plugin/select2/js/i18n/ar.js',
     'Modules/Admin/Assets/vendor/jquery-validation/dist/localization/messages_ar.js'
 ]), 'public/js/admin-all-rtl.js').version();
 
@@ -186,12 +198,12 @@ mix.copy('Modules/Admin/Assets/vendor/ckeditor', 'public/ckeditor' ,false);
 mix.copy('Aut/FileManager/src/Assets', 'public/filemanager' ,false);
 mix.copy('Modules/Admin/Assets/vendor/app/css/theme-*.css', 'public/css');
 
-mix.copy('Modules/Admin/Assets/vendor/jQuery-gMap/marker_red.png', 'public/images' ,false);
+mix.copy('Aut/GoogleMap/src/Assets/plugin/jQuery-gMap/marker_red.png', 'public/images' ,false);
 mix.copy('Modules/Admin/Assets/vendor/app/i18n', 'public/i18n');
 
 // mix.copy('Modules/Admin/Assets/vendor/jquery-ui/themes/smoothness/images', 'public/css/images');
 mix.copy('Modules/Admin/Assets/vendor/img', 'public/img' ,false);
-mix.copy('Modules/Admin/Assets/vendor/bootstrap-fileinput/img', 'public/img' ,false);
+mix.copy('Aut/FileUpload/src/Assets/plugin/bootstrap-fileinput/img', 'public/img' ,false);
 
 mix.copy('Modules/Admin/Assets/vendor/simple-line-icons/fonts', 'public/fonts');
 mix.copy('Modules/Admin/Assets/vendor/fontawesome/fonts', 'public/fonts');
@@ -229,6 +241,7 @@ var loginJs = [
     'Modules/Admin/Assets/vendor/jquery/dist/jquery.js',
     'Modules/Admin/Assets/vendor/bootstrap/dist/js/bootstrap.js',
     'Modules/Admin/Assets/vendor/jQuery-Storage-API/jquery.storageapi.js',
+    'Aut/FormComponent/src/Assets/js/form-component.js',
 ];
 
 mix.scripts(loginJs.concat([

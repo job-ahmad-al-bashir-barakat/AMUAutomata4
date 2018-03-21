@@ -1,9 +1,9 @@
-{{ Form::bsImageUpload('slider' ,'slider' ,'' ,'' ,'1920' ,'1280' ,[
+{{ FileUpload::ImageUpload('slider' ,'slider' ,'' ,'' ,'1920' ,'1280' ,[
     'modalId'    => 'slider-image-upload',
     'modalTitle' => trans('utilities::app.upload_slider_image')
 ] ,'#datatable-slider', true, '.image', ['maxFileCount' => 1]) }}
 
-{{ Form::bsImageUploadCropper('90%' ,false ,true,false ,false ,false ,true) }}
+{{ FileUpload::ImageUploadCropper('90%' ,false ,true,false ,false ,false ,true) }}
 
 <script>
     function showFileUploadModal($this) {
@@ -13,7 +13,7 @@
 
         inputFile.attr('data-param' ,'id=' + $($this).data('key'));
 
-        APP_AMU.fileUpload.load(inputFile ,datatableRaw);
+        AUTOMATA_APP.fileUpload.load(inputFile ,datatableRaw);
 
         $('#slider-image-upload').modal('show');
     }

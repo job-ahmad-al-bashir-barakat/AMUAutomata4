@@ -188,14 +188,14 @@ return [
          */
         App\Providers\ComposerServiceProvider::class,
         App\Providers\CustomBladeServiceProvider::class,
-        App\Providers\CustomFormServiceProvider::class,
-        App\Library\Form\Providers\FormComponentServiceProvider::class,
+        Aut\FormComponent\FormComponentServiceProvider::class,
         App\Library\Url\Providers\RouteUrlsServiceProvider::class,
-        App\Providers\CustomValidationServiceProvider::class,
         Aut\Autocomplete\AutocompleteServiceProvider::class,
         Aut\DataTable\DataTableServiceProvider::class,
         Aut\FileManager\FileManagerServiceProvider::class,
-        \Modules\Utilities\WebModules\Providers\WebModulesServiceProvider::class,
+        Aut\GoogleMap\GoogleMapServiceProvider::class,
+        Aut\FileUpload\FileUploadServiceProvider::class,
+        Modules\Utilities\WebModules\Providers\WebModulesServiceProvider::class,
     ],
 
     /*
@@ -260,8 +260,9 @@ return [
 		 /*
           * Project Facades
           */
-        'RouteUrls'     => \App\Library\Url\Facades\RouteUrls::class,
-        'FormComponent' => \App\Library\Form\Facades\FormComponent::class,
+        'RouteUrls'     => App\Library\Url\Facades\RouteUrls::class,
+        'FormComponent' => Aut\FormComponent\FormComponentFacade::class,
+        'FileUpload'    => Aut\FileUpload\FileUploadFacade::class,
     ],
 
 ];

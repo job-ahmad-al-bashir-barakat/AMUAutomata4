@@ -20,6 +20,7 @@
 
 <body>
 <div class="wrapper">
+
     <div class="preloader animated fadeIn theme-color">
         <div class="preloader-progress">
             <div class="preloader-progress-bar"></div>
@@ -60,14 +61,6 @@
     LTR_CSS = '{{ asset(mix('css/admin-all-ltr.css')) }}';
     RTL_CSS = '{{ asset(mix('css/admin-all-rtl.css')) }}';
 
-    {{--
-    LANG_OBJECT = {!! convertLangArrayToJsonObject([
-            'app',
-            'admin::app',
-            'utilities::app'
-    ]) !!};
-    --}}
-
     paceOptions = {
         elements: true,
         restartOnRequestAfter: false,
@@ -87,7 +80,6 @@
 
 <script async defer type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyCC3X-thsM5s1FkNqwFtRKTaa1CMFctf1k&language={{$lang}}&libraries=places"></script>
 <script src="{{ asset(mix("js/admin-all-$dir.js")) }}"></script>
-<script src="{{ asset("app.js") }}"></script>
 <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
 <script src="{{ asset('filemanager/js/aut_browse_btn_event_handler.js') }}"></script>
 

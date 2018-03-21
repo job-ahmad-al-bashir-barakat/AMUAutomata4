@@ -45,9 +45,9 @@ class CustomModuleFactory extends GlobalFactory
             ->addNavButton()
             ->onModalOpen("
             <script>
-                APP_AMU.ckeditor.reset('' ,'' ,'single' ,'module-textarea-id');
-                APP_AMU.ckeditor.init('body' ,'.datatable-text-editor');
-                APP_AMU.autocomplete.initAutocomplete($('#custom-module-temp').find('.autocomplete'));
+                AUTOMATA_APP.ckeditor.reset('' ,'' ,'single' ,'module-textarea-id');
+                AUTOMATA_APP.ckeditor.init('body' ,'.datatable-text-editor');
+                AUT_AUTOCOMPLETE_PACK.autocomplete.initAutocomplete($('#custom-module-temp').find('.autocomplete'));
             </script>")
             ->render();
     }

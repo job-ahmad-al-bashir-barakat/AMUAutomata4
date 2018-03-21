@@ -68,9 +68,9 @@ return [
             return
             "
                 <script>
-                    APP_AMU.ckeditor.init('body' ,'.datatable-text-editor');
-                    APP_AMU.inputMask.init('[data-masked]');
-                    APP_AMU.COLLAPSE_PANELS();
+                    AUTOMATA_APP.ckeditor.init('body' ,'.datatable-text-editor');
+                    AUTOMATA_APP.inputMask.init('[data-masked]');
+                    AUTOMATA_APP.COLLAPSE_PANELS();
                 </script>
             ";
         },
@@ -93,7 +93,7 @@ return [
             return
             "
                 <script>
-                    APP_AMU.ckeditor.clear('body' ,'.datatable-text-editor');
+                    AUTOMATA_APP.ckeditor.clear('body' ,'.datatable-text-editor');
                 </script>
             ";
         },

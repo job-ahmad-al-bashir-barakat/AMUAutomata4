@@ -18,6 +18,8 @@
     {!! datatable('contact-numbers' ,'' ,'false') !!}
 @endcomponent
 
+{{ autGoogleMap('university-office',trans('admin::app.niversity_office_gelocation'),'',10,setting('UGL')->value,'#datatable-university-office-modal .input-location input') }}
+
 <script>
     function openAddressesModal($this)
     {

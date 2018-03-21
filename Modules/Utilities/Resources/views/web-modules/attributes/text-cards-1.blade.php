@@ -3,4 +3,4 @@
 @else
     @php($value = [])
 @endif
-{!! Form::bsAutocomplete($title, 'text_cards_1', "webModule[{$code}][]", 'autocomplete/text-cards', $value, 0, 'group required l:col-lg-3 i:col-lg-8', ['multiple']) !!}
+{!! FormComponent::autocomplete($title, 'text_cards_1', "webModule[{$code}][]", 'autocomplete/text-cards', $value, 0, 'group required l:col-lg-3 i:col-lg-8', ['multiple']) !!}

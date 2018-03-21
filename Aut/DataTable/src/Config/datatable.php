@@ -6,8 +6,6 @@ return [
 
     'version'    => '5.4',
 
-    'multiModel' => true,
-
     'isLangs'    => false,
 
     'customResponsiveTemplete' => false,

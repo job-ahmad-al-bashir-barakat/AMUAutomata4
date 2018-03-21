@@ -18,6 +18,7 @@
         "nwidart/laravel-modules": "^1.19",
         "renatomarinho/laravel-page-speed": "^1.8",
         "rmccue/requests": "^1.7",
+        "spatie/laravel-permission": "^2.9",
         "symfony/css-selector": "^3.2",
         "symfony/dom-crawler": "^3.2",
         "yajra/laravel-datatables-oracle": "^7.3"
@@ -38,9 +39,12 @@
         "psr-4": {
             "App\\": "app/",
             "Modules\\": "Modules/",
+            "Aut\\FileManager\\": "Aut/FileManager/src",
             "Aut\\DataTable\\": "Aut/DataTable/src",
             "Aut\\Autocomplete\\": "Aut/Autocomplete/src",
-            "Aut\\FileManager\\": "Aut/FileManager/src"
+            "Aut\\FormComponent\\": "Aut/FormComponent/src",
+            "Aut\\GoogleMap\\": "Aut/GoogleMap/src",
+            "Aut\\FileUpload\\": "Aut/FileUpload/src"
         },
         "files": [
             "app/Library/Helper.php"

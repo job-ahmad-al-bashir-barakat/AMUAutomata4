@@ -48,7 +48,7 @@ class DataTableServiceProvider extends ServiceProvider
     {
         $routeMiddleware = config('datatable.routeMiddleware');
 
-        $this->middleware =  $routeMiddleware;
+        $this->middleware = $routeMiddleware;
 
         $this->datatableBlade();
 
@@ -132,11 +132,11 @@ class DataTableServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        $this->app->alias('DataTable', 'Aut\DataTable\DataTableBuilder');
+
         $this->registerDataTableBuilder();
 
         $this->commands($this->commands);
-
-        $this->app->alias('DataTable', 'Aut\DataTable\DataTableBuilder');
 
         $this->registerHelper();
 
@@ -183,6 +183,10 @@ class DataTableServiceProvider extends ServiceProvider
         });
     }
 
+    /**
+     * @param $commands
+     * @return array
+     */
     protected function registerCommandByVersion($commands)
     {
         $laravel = app();

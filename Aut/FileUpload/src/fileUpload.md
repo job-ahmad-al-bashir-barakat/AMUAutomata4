@@ -21,7 +21,7 @@ var DIR  = "{{ $dir }}",
     LANG = "{{ $lang }}",
         
 # composer
-"Aut\\FileUpload\\": "Packages/Utilities/FileUpload/src"
+"Aut\\FileUpload\\": "Aut/FileUpload/src"
 
 # app config
 

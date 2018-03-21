@@ -11,11 +11,6 @@ namespace Aut\DataTable\Traits;
 
 trait JavaScript
 {
-    private function replaceScript($script)
-    {
-        return preg_replace('/<\/?script>/','',$script);
-    }
-
     private function addCustomNavButtonScript($title ,$icon ,$class ,$attr)
     {
         return

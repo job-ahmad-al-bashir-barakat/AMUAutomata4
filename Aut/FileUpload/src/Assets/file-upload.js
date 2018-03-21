@@ -1,11 +1,5 @@
-// String Helper
-String.prototype.uploadReplaceAll = function(search, replaceAllment) {
-    var target = this;
-    return target.replace(new RegExp(search, 'g'), replaceAllment);
-};
-
 // Upload Function
-var UPLOAD = {
+var AUT_UPLOAD = {
 
     fileUpload : {
 
@@ -131,7 +125,7 @@ var UPLOAD = {
 
             if (typeof($.fn.fileinput) != 'undefined') {
 
-                var $selector = selector || UPLOAD.fileUpload.selector;
+                var $selector = selector || AUT_UPLOAD.fileUpload.selector;
 
                 $($selector).each(function () {
 
@@ -303,7 +297,7 @@ var UPLOAD = {
 
                     var initialPreviewFunc = function ($params) {
 
-                        var url = ($params.url).uploadReplaceAll('{folder}', downloadFolder);
+                        var url = ($params.url).replaceAll('{folder}', downloadFolder);
 
                         params.initialPreview.push(url);
 
@@ -382,7 +376,7 @@ var UPLOAD = {
                         }).off('fileloaded').on('fileloaded', function(event, file, previewId, index, reader) {
 
                             // check image ratio
-                            var blob = UPLOAD.fileUpload.convertFileToObject(file ,'fileToUrlBlob').fileToUrlBlob;
+                            var blob = AUT_UPLOAD.fileUpload.convertFileToObject(file ,'fileToUrlBlob').fileToUrlBlob;
                             var img = new Image;
                             img.onload = function() {
 
@@ -563,7 +557,7 @@ var UPLOAD = {
                                 //$fileindex = $thisBtn.closest('tr').data('fileindex');
 
                                 // var $btn = $(this), key = $btn.data('key');
-                                var id = '#' + _this.id + UPLOAD.fileUpload.selector,
+                                var id = '#' + _this.id + AUT_UPLOAD.fileUpload.selector,
                                     files = $(id).fileinput('getFileStack'),
                                     file = files[$fileindex];
 
@@ -580,7 +574,7 @@ var UPLOAD = {
                                         .attr('data-minHeight' ,minImageHeight)
                                         .attr('data-minWidth'  ,minImageWidth);
 
-                                    UPLOAD.CROPPER.init(cropperSelector ,file);
+                                    AUT_UPLOAD.CROPPER.init(cropperSelector ,file);
                                 });
 
                                 $(cropperModal).modal('show');
@@ -662,7 +656,7 @@ var UPLOAD = {
                 name            = checkFileExists ? param.file.name : undefined;
 
             if(name) {
-                $(param.inputName).val(name.uploadReplaceAll(/\..+/,''));
+                $(param.inputName).val(name.replaceAll(/\..+/,''));
                 $(param.inputName).attr('data-ext' ,_.head(name.match(/\..+/)))
             } else {
                 $(param.inputName).val('');
@@ -671,14 +665,14 @@ var UPLOAD = {
 
             if (fileType || param.imageManager) {
 
-                UPLOAD.CROPPER.blobURL = param.imageManager || URL.createObjectURL(param.file);
+                AUT_UPLOAD.CROPPER.blobURL = param.imageManager || URL.createObjectURL(param.file);
 
                 $(param.image).one('built.cropper', function() {
 
-                    if (UPLOAD.CROPPER.blobURL)
-                        UPLOAD.CROPPER.uploadedImageURL = URL.revokeObjectURL(UPLOAD.CROPPER.blobURL); // Revoke when load complete
+                    if (AUT_UPLOAD.CROPPER.blobURL)
+                        AUT_UPLOAD.CROPPER.uploadedImageURL = URL.revokeObjectURL(AUT_UPLOAD.CROPPER.blobURL); // Revoke when load complete
 
-                }).cropper('destroy').attr('src', UPLOAD.CROPPER.blobURL).cropper(param.options);
+                }).cropper('destroy').attr('src', AUT_UPLOAD.CROPPER.blobURL).cropper(param.options);
 
                 if($(param.inputImage).length)
                     $(param.inputImage).val('');
@@ -788,20 +782,20 @@ var UPLOAD = {
 
                 if(fileUpload) {
 
-                    UPLOAD.CROPPER.file = fileUpload;
+                    AUT_UPLOAD.CROPPER.file = fileUpload;
 
-                    UPLOAD.CROPPER.placeImage({
+                    AUT_UPLOAD.CROPPER.placeImage({
                         image : $image ,
                         inputName : $inputName,
                         inputImage : $inputImage,
-                        file : UPLOAD.CROPPER.file,
+                        file : AUT_UPLOAD.CROPPER.file,
                         options : options,
                     });
 
                     var ratioWidth  = $image.data('ratio-width'),
                         ratioHeight = $image.data('ratio-height');
 
-                    UPLOAD.CROPPER.ratio($image ,ratioWidth || $this.attr('data-width') ,ratioHeight || $this.attr('data-height'));
+                    AUT_UPLOAD.CROPPER.ratio($image ,ratioWidth || $this.attr('data-width') ,ratioHeight || $this.attr('data-height'));
                 }
 
                 $this.off('click').on('click', '[data-method]', function() {
@@ -831,11 +825,11 @@ var UPLOAD = {
                             }
                         });
 
-                        UPLOAD.CROPPER.placeImage({
+                        AUT_UPLOAD.CROPPER.placeImage({
                             image : $image ,
                             inputName : $inputName,
                             inputImage : $inputImage,
-                            file : UPLOAD.CROPPER.file,
+                            file : AUT_UPLOAD.CROPPER.file,
                             options : options,
                         });
 
@@ -844,7 +838,7 @@ var UPLOAD = {
 
                     if($_this.data('method') === 'setRatio') {
 
-                        UPLOAD.CROPPER.ratio($image ,$this.find('#dataWidth').val() ,$this.find('#dataHeight').val())
+                        AUT_UPLOAD.CROPPER.ratio($image ,$this.find('#dataWidth').val() ,$this.find('#dataHeight').val())
 
                         return;
                     }
@@ -855,7 +849,7 @@ var UPLOAD = {
                             width  = $_this.data('width'),
                             height = $_this.data('height');
 
-                        UPLOAD.CROPPER.ratio($image ,width ,height);
+                        AUT_UPLOAD.CROPPER.ratio($image ,width ,height);
 
                         $_this.siblings('button').removeAttr('style');
                         $_this.attr('style' ,'background-color :#27c24c;')
@@ -908,7 +902,7 @@ var UPLOAD = {
 
                                     target.closest('.file-input').find("[data-fileindex=" + cropper.attr('data-fileindex') + "] img").attr('src' ,object);
 
-                                    target.closest('.file-input').find("[data-fileindex=" + cropper.attr('data-fileindex') + "] .file-footer-caption").html(real_name + "</br><samp>(" + UPLOAD.fileUpload.formatBytes(blob.size) + ")</samp>");
+                                    target.closest('.file-input').find("[data-fileindex=" + cropper.attr('data-fileindex') + "] .file-footer-caption").html(real_name + "</br><samp>(" + AUT_UPLOAD.fileUpload.formatBytes(blob.size) + ")</samp>");
 
                                     var modal = $this.closest('.modal');
 
@@ -921,9 +915,9 @@ var UPLOAD = {
 
                             if(data.type == 'applyFilemanager') {
 
-                                UPLOAD.fileUpload.convertImageToObject($this.find('#inputImageManagerUrl').val() ,function (obj) {
+                                AUT_UPLOAD.fileUpload.convertImageToObject($this.find('#inputImageManagerUrl').val() ,function (obj) {
 
-                                    UPLOAD.CROPPER.placeImage({
+                                    AUT_UPLOAD.CROPPER.placeImage({
                                         image : $image ,
                                         inputName : $inputName,
                                         inputImage : $inputImage,
@@ -1021,13 +1015,13 @@ var UPLOAD = {
 
                         if (files && files.length) {
 
-                            UPLOAD.CROPPER.file = files[0];
+                            AUT_UPLOAD.CROPPER.file = files[0];
 
-                            UPLOAD.CROPPER.placeImage({
+                            AUT_UPLOAD.CROPPER.placeImage({
                                 image : $image ,
                                 inputName : $inputName,
                                 inputImage : $(this),
-                                file : UPLOAD.CROPPER.file,
+                                file : AUT_UPLOAD.CROPPER.file,
                                 options : options,
                             });
                         }
@@ -1059,11 +1053,11 @@ var UPLOAD = {
                         };
                     }
 
-                    UPLOAD.CROPPER.placeImage({
+                    AUT_UPLOAD.CROPPER.placeImage({
                         image : $image ,
                         inputName : $inputName,
                         inputImage : $inputImage,
-                        file : UPLOAD.CROPPER.file,
+                        file : AUT_UPLOAD.CROPPER.file,
                         options : options,
                     });
                 });
@@ -1084,110 +1078,20 @@ var UPLOAD = {
         }
     },
 
-    initFileUploadWithDatatable : function ($thisRow ,ImageModalId ,datatableId) {
+    initFileUploadWithDatatable : function ($thisRow ,ImageModalId ,datatableId ,$param = '') {
 
         var inputFile = $(ImageModalId).find('.upload-file'),
             datatableRaw = _aut_datatable_getSelectedRowData(datatableId ,$($thisRow).closest('tr'));
 
-        inputFile.attr('data-param' ,'id=' + $($thisRow).data('key'));
+        $param = $param ? $param : 'id=' + $($thisRow).data('key');
 
-        UPLOAD.fileUpload.load(inputFile ,datatableRaw);
+        inputFile.attr('data-param' ,$param);
+
+        AUT_UPLOAD.fileUpload.load(inputFile ,datatableRaw);
 
         $(ImageModalId).modal('show');
     },
 };
-
-var PANELS = {
-
-    COLLAPSE_PANELS : function () {
-
-        var panelSelector = '.cropper [data-tool="panel-collapse"]',
-            storageKeyName = 'jq-panelState';
-
-        // Prepare the panel to be collapsable and its events
-        $(panelSelector).each(function() {
-            // find the first parent panel
-            var $this        = $(this),
-                parent       = $this.closest('.panel'),
-                state        = typeof $this.data('save-state') != typeof undefined ? JSON.parse($this.data('save-state')) : false,
-                wrapper      = parent.find('.panel-wrapper'),
-                collapseOpts = {toggle: false},
-                iconElement  = $this.children('em'),
-                panelId      = parent.attr('id');
-
-            // if wrapper not added, add it
-            // we need a wrapper to avoid jumping due to the paddings
-            if( ! wrapper.length) {
-                wrapper =
-                    parent.children('.panel-heading').nextAll() //find('.panel-body, .panel-footer')
-                        .wrapAll('<div/>')
-                        .parent()
-                        .addClass('panel-wrapper');
-                collapseOpts = {};
-            }
-
-            // Init collapse and bind events to switch icons
-            wrapper
-                .collapse(collapseOpts)
-                .on('hide.bs.collapse', function() {
-                    setIconHide( iconElement );
-                    if(state)
-                        savePanelState( panelId, 'hide' );
-                    wrapper.prev('.panel-heading').addClass('panel-heading-collapsed');
-                })
-                .on('show.bs.collapse', function() {
-                    setIconShow( iconElement );
-                    if(state)
-                        savePanelState( panelId, 'show' );
-                    wrapper.prev('.panel-heading').removeClass('panel-heading-collapsed');
-                });
-
-            // Load the saved state if exists
-            if(state) {
-                var currentState = loadPanelState( panelId );
-                if(currentState) {
-                    setTimeout(function() { wrapper.collapse( currentState ); }, 50);
-                    savePanelState( panelId, currentState );
-                }
-            }
-        });
-
-        // finally catch clicks to toggle panel collapse
-        $(document).on('click', panelSelector, function () {
-
-            var parent = $(this).closest('.panel');
-            var wrapper = parent.find('.panel-wrapper');
-
-            wrapper.collapse('toggle');
-        });
-
-        /////////////////////////////////////////////
-        // Common use functions for panel collapse //
-        /////////////////////////////////////////////
-        function setIconShow(iconEl) {
-            iconEl.removeClass('fa-plus').addClass('fa-minus');
-        }
-
-        function setIconHide(iconEl) {
-            iconEl.removeClass('fa-minus').addClass('fa-plus');
-        }
-
-        function savePanelState(id, state) {
-            var data = $.localStorage.get(storageKeyName);
-            if(!data) { data = {}; }
-            data[id] = state;
-            $.localStorage.set(storageKeyName, data);
-        }
-
-        function loadPanelState(id) {
-            var data = $.localStorage.get(storageKeyName);
-            if(data) {
-                return data[id] || false;
-            }
-        }
-    }
-};
-
 
 /**=========================================================
  * Module: Image Upload And Cropper
@@ -1197,11 +1101,9 @@ var PANELS = {
 
     $(function() {
 
-        UPLOAD.CROPPER.init();
+        AUT_UPLOAD.CROPPER.init();
 
-        UPLOAD.fileUpload.load('.upload-file.load-file');
-
-        PANELS.COLLAPSE_PANELS();
+        AUT_UPLOAD.fileUpload.load('.upload-file.load-file');
     });
 
 })(window, document, window.jQuery);

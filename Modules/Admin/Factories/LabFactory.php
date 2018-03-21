@@ -45,13 +45,6 @@ class LabFactory extends GlobalFactory
             ->addActionButton(trans('admin::app.upload_images') ,'upload_image' ,'upload_image','center all' ,'100px')
             ->addActionButton($this->update,'update','update')
             ->addActionButton($this->delete,'delete','delete')
-            ->addBlade('lab-input-location-custom' ,view('controle.component.location.input_location', [
-                'id'                => 'labs',
-                'title'             => trans('admin::app.gelocation'),
-                'inputFullLocation' => '#datatable-labs-modal .input-location input',
-                'zoom'              => 10,
-                'geoLocation'       => Setting::whereCode('UGL')->first()->value
-            ])->render())
             ->addNavButton()
             ->render();
     }

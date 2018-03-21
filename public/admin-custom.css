@@ -2,9 +2,15 @@
                      General section
 --------------------------------------------------------*/
 
-body ,
-h1,h2,h3,h4,h5,h6,
-* {
+html[lang="en"] > body ,
+html[lang="en"] > h1,h2,h3,h4,h5,h6,
+html[lang="en"] > * {
+    font-family: "Source Sans Pro" ,sans-serif;
+}
+
+html[lang="ar"] > body ,
+html[lang="ar"] > h1,h2,h3,h4,h5,h6,
+html[lang="ar"] > * {
     font-family: "Source Sans Pro" ,"JF Flat Regular"  ,sans-serif;
 }
 

@@ -12,40 +12,25 @@ trait Table
 
     protected function addTableColumn($param ,$choosen)
     {
-        $printable = $param['printable']  ? "printable" : '';
+        $this->header .= view('datatable::build_table',[
+            'build_table_column' => true,
+            'build_table_table'  => false,
+            'build_table_filter' => false,
 
-        $this->header .= "<th class='$choosen $printable' style='max-width: {$param['width']};'>{$param['title']}</th>";
+            'param'              => $param,
+            'choosen'            => $choosen,
+        ])->renderSections()['column'];
 
         if($this->optionDatatableConfig['filter']) {
 
-            $transFilter = trans('datatable::table.filter');
+            $this->filter .= view('datatable::build_table',[
+                'build_table_filter' => true,
+                'build_table_column' => false,
+                'build_table_table'  => false,
 
-            if(!in_array($param["type"],['index','hidden','button' ,'detail'])) {
-
-                switch ($param["type"]) {
-
-                    case 'select' : {
-                        $option = "<option></option>";
-                        foreach ($param['obj'] as $key => $value)
-                            $option .= "<option value='$key'>$value</option>";
-
-                        $this->filter .="
-                            <th>
-                                <select class='form-control filter-select datatable-select' style='width: 100%;' data-placeholder='{$param['title']}'>
-                                    $option
-                                </select>
-                            </th>
-                        ";
-                    } break;
-
-                    default : {
-                        $this->filter .="<th><input type='text' placeholder='$transFilter {$param['title']}' class='form-control filter-Input'></th>";
-                    } break;
-                }
-            }
-            else {
-                $this->filter .="<th></th>";
-            }
+                'param'              => $param,
+                'transFilter'        => trans('datatable::table.filter'),
+            ])->renderSections()['filter'];
         }
 
         $this->count += 1;
@@ -53,29 +38,29 @@ trait Table
 
     protected function renderTable($id = 'datatable', $class = 'table table-striped table-hover')
     {
-        $buttonResponsive =  $this->optionDatatableConfig['responsive']
-        ? "<tr><th class='table-button' colspan='$this->count'></th></tr>" : "";
+        $buttonResponsive = $this->optionDatatableConfig['responsive'];
+        $filter           = $this->optionDatatableConfig['filter'];
+        $footer           = $this->optionDatatableConfig['responsive'] || $this->optionDatatableConfig['filter'];
+        $sortable         = $this->optionDatatableConfig['sortable'];
 
-        $filter = $this->optionDatatableConfig['filter']
-        ? "<tr class='filter-datatable-cont'>$this->filter</tr>" : "";
+        return view('datatable::build_table',[
+            'build_table_table'  => true,
+            'build_table_column' => false,
+            'build_table_filter' => false,
 
-        $footer = $this->optionDatatableConfig['responsive'] || $this->optionDatatableConfig['filter']  ?
-        "<tfoot>{$filter}{$buttonResponsive}</tfoot>" : "";
+            'id'                 => $id,
+            'class'              => $class,
+            'count'              => $this->count,
 
-        $sortable = $this->optionDatatableConfig['sortable'] == true ? "class='sortable'" : "";
+            'html_header'        => $this->header,
 
-        $table = "
-            <table id='$id' class='$class custom-table' style='width: 100%;'>
-                <thead>
-                    <tr>
-                        $this->header
-                    </tr>
-                </thead>
-                <tbody $sortable>
-                </tbody>
-                $footer
-            </table>";
+            'filter'             => $filter,
+            'html_filter'        => $this->filter,
 
-        return $table;
+            'footer'             => $footer,
+            'sortable'           => $sortable,
+
+            'buttonResponsive'  => $buttonResponsive,
+        ])->renderSections()['table'];
     }
 }

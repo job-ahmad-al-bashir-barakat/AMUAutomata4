@@ -1,39 +1,40 @@
 <?php
 
 return [
-    "infoEmpty" => "Showing 0 to 0 of 0 entries",
-    "infoFiltered" => "( filtered from _MAX_ total entries )",
-    "infoPostFix" => "",
+    "infoEmpty"     => "Showing 0 to 0 of 0 entries",
+    "infoFiltered"  => "( filtered from _MAX_ total entries )",
+    "infoPostFix"   => "",
     "infoThousands" => ",",
-    "search" => "Search",
+    "search"        => "Search",
     "aria" => [
-        "sortAscending" => " => activate to sort column ascending",
-        "sortDescending" => " => activate to sort column descending"
+        "sortAscending"  => "activate to sort column ascending",
+        "sortDescending" => "activate to sort column descending"
     ],
-    "emptyTable" => "No data available in table",
-    "info" => "Showing _START_ to _END_ of _TOTAL_ entries",
-    "lengthMenu" => "_MENU_ records per page",
-    "loadingRecords" => "Loading...",
-    "processing" => "Processing...",
-    "zeroRecords" => "No matching records found",
+    "url" => "",
     "searchPlaceholder" => 'Search',
+    "emptyTable"        => "No data available in table",
+    "processing"        => "Processing...",
+    "lengthMenu"        => "_MENU_ records per page",
+    "info"              => "Showing _START_ to _END_ of _TOTAL_ entries",
+    "loadingRecords"    => "Loading...",
+    "zeroRecords"       => "No matching records found",
     "paginate" => [
-        "first" => "First",
-        "last" => "Last",
-        "next" => "Next",
+        "first"    => "First",
+        "last"     => "Last",
+        "next"     => "Next",
         "previous" => "Previous"
     ],
-    "copy" => 'Copy',
-    "excel" => 'Excel',
-    "csv" => 'CSV',
-    "pdf" => 'PDF',
-    "export" => 'Export',
-    "print" => 'Print',
-    'code'  => 'Code',
-    'destroy' => 'Destroy',
+    "copy"              => 'Copy',
+    "excel"             => 'Excel',
+    "csv"               => 'CSV',
+    "pdf"               => 'PDF',
+    "export"            => 'Export',
+    "print"             => 'Print',
+    'code'              => 'Code',
+    'destroy'           => 'Destroy',
     "column_visibility" => 'Column visibility',
-    "reload"  => 'Refresh',
-    "new_row" => 'Add new row',
+    "reload"            => 'Refresh',
+    "new_row"           => 'Add new row',
     "popover" => [
         'save' => 'Save'
     ],
@@ -44,8 +45,8 @@ return [
         'save_add_new' => 'Save & Add New'
     ],
     'oper' => [
-      'success' => 'Operation done successfuly',
-      'error'   => 'Operation fails',
+      'success'      => 'Operation done successfuly',
+      'error'        => 'Operation fails',
       'successOrder' => 'Order done successfully'
     ],
     "filter" => 'Filter',
@@ -78,7 +79,6 @@ return [
     'ar'                => ' (AR)',
     'yes'               => 'Yes',
     'no'                => 'No',
-    'save'              => 'Save',
 
     'add'               => 'Add',
     'update'            => 'Update',

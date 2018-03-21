@@ -163,11 +163,11 @@ trait QueryDataTable
                 }
             }
 
+            $parent_id = !empty($parentKey) ? "data-parent-key='{$parent_id}'" : "";
+
             if ($func) {
                 return call_user_func($func, $item);
             }
-
-            $parent_id = !empty($parentKey) ? "data-parent-key='{$parent_id}'" : "";
 
             return "<span data-key='{$item->$id}' $parent_id class='dialog-delete datatable-icon-hand'><i class='$deleteIcon'></i></span>";
         });
@@ -256,8 +256,7 @@ trait QueryDataTable
             if(preg_match("/href/" ,$attr)) {
                 $tag  = 'a';
                 $hand = '';
-            }
-            else {
+            } else {
                 $tag = 'span';
                 $hand = 'datatable-icon-hand';
             }
@@ -361,8 +360,6 @@ trait QueryDataTable
         $query = $this->query;
 
         $query->escapeColumns($this->escapeColumns);
-        // temp
-        $bool = true;
 
         return $query->make($bool);
     }

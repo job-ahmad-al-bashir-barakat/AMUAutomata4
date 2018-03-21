@@ -18,6 +18,6 @@
 <script>
     function controlMenu(form ,res) {
 
-        APP_AMU.tree.init($(form).data('tree-target'));
+        AUT_TREE_VIEW.tree.init($(form).data('tree-target'));
     }
 </script>

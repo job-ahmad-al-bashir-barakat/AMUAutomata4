@@ -63,7 +63,7 @@ data-modal => '#modal-{model}-input-location'
 
 ```php
 "psr-4": {
-    "Aut\\GoogleMap\\": "Packages/Utilities/GoogleMap/src"
+    "Aut\\GoogleMap\\": "Aut/GoogleMap/src"
 }
 ```
 

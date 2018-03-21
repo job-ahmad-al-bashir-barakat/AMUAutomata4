@@ -1,21 +1,33 @@
+{{ FormComponent::modalOpen('modal-general-tree') }}
+    {{ FormComponent::formOpen('general-tree','post',treeLocalizeUrl($view),'',['data-tree-target' => '.general-tree']) }}
+        {{ FormComponent::modalHeaderOpen(trans('utilities::app.general_item')) }}
+        {{ FormComponent::modalHeaderClose() }}
+
+        {{ FormComponent::modalBodyOpen() }}
+            {{ FormComponent::primarykey('id' ,'id' ,null ,'' ,['data-json' => 'id']) }}
+            {{--tree-autocomplete-change is class for change event to fill order with its value--}}
+            {{ FormComponent::autocomplete(trans('utilities::app.parent') ,'parent-id' ,'parent_id','autocomplete/general?type=dialog',[],'3' ,'tree-autocomplete-change group' ,['data-json' => 'parent' , 'data-placeholder' => trans('utilities::app.parent')]) }}
+            {{ FormComponent::text(trans('utilities::app.name'),'name' ,'name' ,null ,'group langs trans required' ,['data-json' => 'name-{lang}']) }}
+            {{ FormComponent::text(trans('utilities::app.prefix'),'prefix','prefix',null,'group',['data-json' => 'prefix']) }}
+            {{ FormComponent::hidden('order' ,'order' ,null ,'' ,['data-json' => 'order']) }}
+        {{ FormComponent::modalBodyClose() }}
+
+        {{ FormComponent::modalFooterOpen() }}
+            {{ FormComponent::formAjaxButtons(['']) }}
+        {{ FormComponent::modalFooterClose() }}
+    {{ FormComponent::formClose() }}
+{{ FormComponent::modalClose() }}
+
+{{ FormComponent::notify('fa fa-bell-o' , 'prevent-drag-link',trans("utilities::app.prevent_drag_link_on_link")) }}
+{{ FormComponent::notify('fa fa-bell-o' , 'prevent-drag-list',trans("utilities::app.prevent_drag_list_on_link")) }}
+
 @component('controle.component.modal', [
-    'id'                  => 'modal-general-tree',
-    'title'               => trans('utilities::app.general_item'),
-    'action'              => treeLocalizeUrl($view),
     'successFunc'         => 'generalMenu',
     'stopDeleteSerialize' => true,
-    'attr'                => ['data-tree-target' => '.general-tree'],
 ])
-    {{ FormComponent::bsPrimarykey('id' ,'id' ,null ,'' ,['data-json' => 'id']) }}
-    {{--tree-autocomplete-change is class for change event to fill order with its value--}}
-    {{ FormComponent::bsAutocomplete(trans('utilities::app.parent') ,'parent-id' ,'parent_id','autocomplete/general?type=dialog',[],'3' ,'tree-autocomplete-change group' ,['data-json' => 'parent' , 'data-placeholder' => trans('utilities::app.parent')]) }}
-    {{ FormComponent::bsText(trans('utilities::app.name'),'name' ,'name' ,null ,'group langs trans required' ,['data-json' => 'name-{lang}']) }}
-    {{ FormComponent::bsText(trans('utilities::app.prefix'),'prefix','prefix',null,'group',['data-json' => 'prefix']) }}
-    {{ FormComponent::bsHidden('order' ,'order' ,null ,'' ,['data-json' => 'order']) }}
+
 @endcomponent
 
-{{ Form::bsNotify('fa fa-bell-o' , 'prevent-drag-link',trans("utilities::app.prevent_drag_link_on_link")) }}
-{{ Form::bsNotify('fa fa-bell-o' , 'prevent-drag-list',trans("utilities::app.prevent_drag_list_on_link")) }}
 
 <script>
 
@@ -32,7 +44,7 @@
 
     function generalMenu(form ,res) {
 
-        APP_AMU.tree.init($(form).data('tree-target'));
+        AUT_TREE_VIEW.tree.init($(form).data('tree-target'));
     }
 
     function dragSiteMenu(event, item, source, destination, position) {
@@ -47,7 +59,7 @@
 
                     var _notify = $('.notify-clone.prevent-drag-list').clone();
 
-                    HELPER_AMU.notify({html: _notify.html(), status: 'warning' ,pos : 'top-left' , timeout: 1500})
+                    AUT_HELPER.notify({html: _notify.html(), status: 'warning' ,pos : 'top-left' , timeout: 1500})
 
                     return false;
                 }
@@ -58,7 +70,7 @@
 
                     var _notify = $('.notify-clone.prevent-drag-link').clone();
 
-                    HELPER_AMU.notify({html: _notify.html(), status: 'warning' ,pos : 'top-left' , timeout: 1500})
+                    AUT_HELPER.notify({html: _notify.html(), status: 'warning' ,pos : 'top-left' , timeout: 1500})
 
                     return;
                 }
@@ -74,9 +86,9 @@
 
             $.post(destination.closest('.aut-tree').data('url') ,$.extend(item.data() ,parent.length > 0 ? { parent_id : parent.data('id') ,order : order } : { order : order }) ,function () {
 
-                APP_AMU.tree.init('.general-tree');
+                AUT_TREE_VIEW.tree.init('.general-tree');
 
-                HELPER_AMU.notify({message: OPERATION_MESSAGE_SUCCESS, status: 'success'})
+                AUT_HELPER.notify({message: OPERATION_MESSAGE_SUCCESS, status: 'success'})
             });
 
             return false;
@@ -105,7 +117,7 @@
             var $this = $(this),
                    li = $this.closest('li');
 
-            APP_AMU.sweetalert_swal({
+            AUT_HELPER.sweetalert_swal({
                 title              : SWAL.title,
                 text               : SWAL.text,
                 type               : 'warning',
@@ -122,9 +134,9 @@
 
                 $.delete($this.closest('.aut-tree').data('url') +'/'+ li.data('id') ,function () {
 
-                    APP_AMU.tree.init('.general-tree');
+                    AUT_TREE_VIEW.tree.init('.general-tree');
 
-                    HELPER_AMU.notify({message: OPERATION_MESSAGE_SUCCESS, status: 'success'});
+                    AUT_HELPER.notify({message: OPERATION_MESSAGE_SUCCESS, status: 'success'});
                 });
             },{
                 ok: SWAL.ok,

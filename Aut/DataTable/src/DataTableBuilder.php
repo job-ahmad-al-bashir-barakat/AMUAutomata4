@@ -34,13 +34,13 @@ class DataTableBuilder
 
     protected $columns;
 
-    protected $locale;
-
     protected $optionDatatableConfig;
 
-    protected $tableButtons = ['choosen' /*,'export'*/ ,'code' ,'destroy' ,'reload','add']; //,'copy' ,'pdf' , 'print' ,'csv' ,'excel'
+    protected $locale;
 
-    protected $globalScript = '';
+    protected $langSupportedLocales = null;
+
+    protected $tableButtons = ['choosen' /*,'export'*/ ,'code' ,'destroy' ,'reload','add']; //,'copy' ,'pdf' , 'print' ,'csv' ,'excel'
 
     protected $index = 0;
 
@@ -50,34 +50,37 @@ class DataTableBuilder
 
     protected $dir;
 
-    protected $tabs = [];
-
-    protected $tab = [];
-
     protected $relation_key;
 
+    protected $globalScript = "";
+
     protected $partOfContent = "";
+
+    protected $rowDetail = "";
+
+    protected $customResponsiveTemplete = "";
+
+    protected $customHtml = "";
+
+    protected $isCustom = false;
+
+    protected $langs = [];
 
     protected $gridSystem = [];
 
     protected $gridSystemResult = [];
 
-    protected $rowDetail = '';
+    protected $tabs = [];
 
-    protected $customResponsiveTemplete = '';
-
-    protected $componentOptions = [];
-
-    protected $customHtml = '';
-
-    protected $isCustom = false;
+    protected $tab = [];
 
     protected $HTab = [];
 
     protected $HTabs = [];
 
-    protected $options = [
-    ];
+    protected $options = [];
+
+    protected $componentOptions = [];
 
     protected $params = [
         'name'        => '',
@@ -102,17 +105,11 @@ class DataTableBuilder
         'onTabClick'     => '',
     ];
 
-    protected $langs = [];
-
-    protected $langSupportedLocales = null;
-
     protected $blade = [];
 
     public function __construct()
     {
         $this->dataTable = collect();
-
-        $this->columns = [];
 
         $this->locale = App::getLocale();
 
@@ -121,6 +118,8 @@ class DataTableBuilder
         $this->langs  = \LaravelLocalization::getSupportedLanguagesKeys();
 
         $this->langSupportedLocales  = \LaravelLocalization::getSupportedLocales();
+
+        $this->columns = [];
     }
 
     protected function defaultProp()
@@ -135,6 +134,7 @@ class DataTableBuilder
         $this->dataTable->put('stateSave' , false);
         $this->dataTable->put('serverSide', true);
         $this->dataTable->put('deferRender', true);
+        $this->dataTable->put('colReorder', true);
         $this->dataTable->put('paging' , true);
         $this->dataTable->put('pagingType' , $this->optionDatatableConfig['pagingType']);
         $this->dataTable->put('lengthMenu', [$length ,$lengthWithAll]);
@@ -159,7 +159,7 @@ class DataTableBuilder
      * @param $option
      * @return array
      *
-     * pagingType: numbers|simple|simple_numbers|full|full_numbers|first_last_numbers
+     * @pagingType: numbers|simple|simple_numbers|full|full_numbers|first_last_numbers
      */
     private function setDefaultConfig($option)
     {
@@ -215,40 +215,38 @@ class DataTableBuilder
         'pagingType'        => 'simple_numbers',
     ])
     {
-        $dataTable = $this->dataTable;
-
-        $this->id = $tableId;
-
-        if(count(request()->input()) > 0)
-        {
-            $param = '?';
-
-            foreach (request()->input() as $index => $item)
-            {
-                $param .= "$index=$item&";
-            }
-        }
-        else
-        {
-            $param = '';
-        }
-
         $model = request()->route('model');
 
-        $this->model = $model;
+        $dataTable = $this->dataTable;
 
-        $this->url = "datatable/$model/table";
+        $this->id  = $tableId;
 
         $this->dialogCaption = $caption;
 
+        $this->model = $model;
+
         $this->optionDatatableConfig = $this->setDefaultConfig($option);
 
-        $this->defaultProp();
+        // params from create request
+        if(count(request()->input()) > 0) {
+
+            $param = '?';
+
+            foreach (request()->input() as $index => $item)
+                $param .= "$index=$item&";
+
+        } else {
+            $param = '';
+        }
+
+        $this->url = "datatable/$model/table";
 
         $dataTable->put('ajax', [
             'url'  =>  datatableLocalizeURL("datatable/$model/get/table{$param}"),
             'type' => 'POST',
         ]);
+
+        $this->defaultProp();
 
         $this->addIndex();
 
@@ -256,9 +254,7 @@ class DataTableBuilder
          * Grid System
          */
         if($this->optionDatatableConfig['gridSystem'])
-        {
             $this->gridSystem =  config('datatable.gridSystem');
-        }
 
         $this->gridSystemResult = gridSystemResult($this->optionDatatableConfig['gridSystem'] ,$this->gridSystem);
 
@@ -1674,10 +1670,10 @@ class DataTableBuilder
      */
     function addActionButton
     (
-        $title = '' ,
-        $data = '',
-        $name = '' ,
-        $colClass = 'center all' ,
+        $title = '',
+        $data  = '',
+        $name  = '' ,
+        $colClass = 'center all',
         $colWidth = '40px'
     )
     {
@@ -1851,7 +1847,7 @@ class DataTableBuilder
      */
     function onAdd($script){
 
-        $this->events['onAdd'] = $this->replaceScript($script);
+        $this->events['onAdd'] = datatableReplaceScript($script);
 
         return $this;
     }
@@ -1864,7 +1860,7 @@ class DataTableBuilder
      */
     function onUpdate($script){
 
-        $this->events['onUpdate'] = $this->replaceScript($script);
+        $this->events['onUpdate'] = datatableReplaceScript($script);
 
         return $this;
     }
@@ -1877,7 +1873,7 @@ class DataTableBuilder
      */
     function onDelete($script){
 
-        $this->events['onDelete'] = $this->replaceScript($script);
+        $this->events['onDelete'] = datatableReplaceScript($script);
 
         return $this;
     }
@@ -1890,10 +1886,11 @@ class DataTableBuilder
      */
     function onTableCreate($script) {
 
-        $this->events['onTableCreate'] = $this->replaceScript($script);
+        $this->events['onTableCreate'] = datatableReplaceScript($script);
 
         return $this;
     }
+
     /**
      * you can use js parameter: (modal ,param)
      *
@@ -1902,7 +1899,7 @@ class DataTableBuilder
      */
     function onLoad($script){
 
-        $this->events['onLoad'] = $this->replaceScript($script);
+        $this->events['onLoad'] = datatableReplaceScript($script);
 
         return $this;
     }
@@ -1915,7 +1912,7 @@ class DataTableBuilder
      */
     function onModalOpen($script) {
 
-        $this->events['modalOpen'] = $this->replaceScript($script);
+        $this->events['modalOpen'] = datatableReplaceScript($script);
 
         return $this;
     }
@@ -1928,7 +1925,7 @@ class DataTableBuilder
      */
     function onModalClose($script) {
 
-        $this->events['modalClose'] = $this->replaceScript($script);
+        $this->events['modalClose'] = datatableReplaceScript($script);
 
         return $this;
     }
@@ -1941,7 +1938,7 @@ class DataTableBuilder
      */
     function onModalAdd($script) {
 
-        $this->events['modalAdd'] = $this->replaceScript($script);
+        $this->events['modalAdd'] = datatableReplaceScript($script);
 
         return $this;
     }
@@ -1954,7 +1951,7 @@ class DataTableBuilder
      */
     function onModalUpdate($script) {
 
-        $this->events['modalUpdate'] = $this->replaceScript($script);
+        $this->events['modalUpdate'] = datatableReplaceScript($script);
 
         return $this;
     }
@@ -1967,7 +1964,7 @@ class DataTableBuilder
      */
     function onRowDetailClick($script) {
 
-        $this->events['rowDetailClick'] = $this->replaceScript($script);
+        $this->events['rowDetailClick'] = datatableReplaceScript($script);
 
         return $this;
     }
@@ -1980,7 +1977,7 @@ class DataTableBuilder
      */
     function onTabClick($script) {
 
-        $this->events['onTabClick'] = $this->replaceScript($script);
+        $this->events['onTabClick'] = datatableReplaceScript($script);
 
         return $this;
     }
@@ -2040,12 +2037,17 @@ class DataTableBuilder
         return $paramDefault;
     }
 
+    /**
+     * @param string $lang
+     * @return $this
+     */
     function setLang($lang = 'en') {
 
         $this->params['lang'] = $lang;
 
         return $this;
     }
+
     /**
      * @param $value string|array
      * @return $this
@@ -2129,16 +2131,14 @@ class DataTableBuilder
     {
         $param = $this->setDefaultAddField($param);
 
-        $column = collect();
-
         $choosen = $this->isVisible($this->locale ,$param["visible"] ,$param["choosen"] ,$param["class"]);
 
         $param['class_attr'] = $this->dialogClassAttr($param["class"] ,$param["attr"] ,$param["type"]);
 
         $data = empty($param['colLabel']) ? $param["data"] : $param['colLabel'];
-
         $data = empty($param['templete']) ? $data : $param['templete'];
 
+        $column = collect();
         $column->put('data'       ,$data);
         $column->put('name'       ,$param["name"]);
         $column->put('class'      ,$param['class_attr']['class_table']);
@@ -2151,7 +2151,6 @@ class DataTableBuilder
         $column->put('defaultContent',$param["defaultContent"]);
 
         array_push($this->columns,$column);
-
         $this->dataTable->put('columns',$this->columns);
 
         $configChoosen = config('datatable.choosen');
@@ -2691,18 +2690,17 @@ class DataTableBuilder
     protected function initScript($dataTable)
     {
         $spinners               = config("datatable.spinners");
-        $multiModal             = config('datatable.multiModel') ? 'true' : 'false';
         $tabAnimation           = config('datatable.tabAnimation');
         $event                  = config('datatable.event');
-        $onLoadConfig           = $this->replaceScript($event['onLoad']());
-        $onModalOpenConfig      = $this->replaceScript($event['modalOpen']());
-        $onModelCloseConfig     = $this->replaceScript($event['modalClose']());
-        $onModalAddConfig       = $this->replaceScript($event['modalAdd']());
-        $onModalUpdateConfig    = $this->replaceScript($event['modalUpdate']());
-        $onTabClickConfig       = $this->replaceScript($event['onTabClick']());
-        $onRowDetailClickConfig = $this->replaceScript($event['onRowDetailClick']());
-        $onDestroyConfig        = $this->replaceScript($event['onDestroy']());
-        $onTableCreateConfig    = $this->replaceScript($event['onTableCreate']());
+        $onLoadConfig           = datatableReplaceScript($event['onLoad']());
+        $onModalOpenConfig      = datatableReplaceScript($event['modalOpen']());
+        $onModelCloseConfig     = datatableReplaceScript($event['modalClose']());
+        $onModalAddConfig       = datatableReplaceScript($event['modalAdd']());
+        $onModalUpdateConfig    = datatableReplaceScript($event['modalUpdate']());
+        $onTabClickConfig       = datatableReplaceScript($event['onTabClick']());
+        $onRowDetailClickConfig = datatableReplaceScript($event['onRowDetailClick']());
+        $onDestroyConfig        = datatableReplaceScript($event['onDestroy']());
+        $onTableCreateConfig    = datatableReplaceScript($event['onTableCreate']());
 
         $dir                      = $this->dir;
         $disableDialog            = $this->optionDatatableConfig['disableDialog'] ? 'true' : 'false';
@@ -2743,13 +2741,12 @@ class DataTableBuilder
                 
                 $(document).ready(function () {
       
-                     aut_datatable_CreateNewTable({ 
+                     AUT_DATATABLE.createNewTable({ 
                          url : '$url',
                          export_url : '$exportUrl',
                          dir : '$dir',
                          json_object   : $dataTable,
                          tab_animation : '$tabAnimation',
-                         multi_modal   : $multiModal,
                          row_detail    : function(row) {
                             return $rowDetail; 
                          }, 

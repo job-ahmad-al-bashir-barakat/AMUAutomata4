@@ -65,7 +65,7 @@ class ContactNumbersFactory extends GlobalFactory
                             }; break;
                         }
                 
-                        APP_AMU.inputMask.init('[data-masked]');
+                        AUTOMATA_APP.inputMask.init('[data-masked]');
                     });
                 </script>")
             ->addNavButton()

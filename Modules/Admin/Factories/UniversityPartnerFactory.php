@@ -56,13 +56,6 @@ class UniversityPartnerFactory extends GlobalFactory
                                ->endRelation();
 
         $table = $table->endTab()
-        ->addBlade('partner-input-location-custom' ,view('controle.component.location.input_location', [
-            'id'                => 'partner',
-            'title'             => trans('admin::app.gelocation'),
-            'inputFullLocation' => '#datatable-partner-modal .input-location input',
-            'zoom'              => 10,
-            'geoLocation'       => Setting::whereCode('UGL')->first()->value
-        ])->render())
         ->addActionButton(trans('admin::app.partner_larg_image'),'upload_image_large','upload_image_large' ,'center all' ,'80px')
         ->addActionButton(trans('admin::app.partner_small_image'),'upload_image_small','upload_image_small' ,'center all' ,'80px')
         ->addActionButton($this->update,'update','update')

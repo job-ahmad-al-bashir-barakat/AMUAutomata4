@@ -55,13 +55,6 @@ class UniversityOfficeFactory extends GlobalFactory
             ->addActionButton(trans('admin::app.numbers'),'numbers','numbers' ,'center all' ,'60px')
             ->addActionButton($this->update,'update','update')
             ->addActionButton($this->delete,'delete','delete')
-            ->addBlade('university-office-input-location-custom' ,view('controle.component.location.input_location', [
-                'id'                => 'university-office',
-                'title'             => trans('admin::app.niversity_office_gelocation'),
-                'inputFullLocation' => '#datatable-university-office-modal .input-location input',
-                'zoom'              => 10,
-                'geoLocation'       => Setting::whereCode('UGL')->first()->value
-            ])->render())
             ->addNavButton()
             ->render();
     }

@@ -1,9 +1,9 @@
-{{ Form::bsImageUpload('user' ,'user' ,'' ,'' ,'60' ,'60' ,[
+{{ FileUpload::ImageUpload('user' ,'user' ,'' ,'' ,'60' ,'60' ,[
     'modalId'    => 'user-image-upload',
     'modalTitle' => trans('utilities::app.upload_images')
 ] ,'#datatable-users' ,'true' ,'.image',['allowRatio' => 'true']) }}
 
-{{ Form::bsImageUploadCropper('90%' ,false ,true,false ,false ,false ,true) }}
+{{ FileUpload::ImageUploadCropper('90%' ,false ,true,false ,false ,false ,true) }}
 
 <script>
     function showFileUploadModal($this) {
@@ -13,7 +13,7 @@
 
         inputFile.attr('data-param' ,'id=' + $($this).data('key'));
 
-        APP_AMU.fileUpload.load(inputFile ,datatableRaw);
+        AUT_UPLOAD.fileUpload.load(inputFile ,datatableRaw);
 
         $('#user-image-upload').modal('show');
     }

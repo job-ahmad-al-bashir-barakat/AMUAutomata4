@@ -1,9 +1,9 @@
-{{ Form::bsImageUpload('lang' ,'lang' ,'' ,'' ,'18' ,'12' ,[
+{{ FileUpload::ImageUpload('lang' ,'lang' ,'' ,'' ,'18' ,'12' ,[
     'modalId'    => 'lang-image-upload',
     'modalTitle' => trans('utilities::app.upload_images')
 ] ,'#datatable-langs' ,'true' ,'.image',['allowRatio' => 'true']) }}
 
-{{ Form::bsImageUploadCropper('90%' ,false ,true,false ,false ,false ,true) }}
+{{ FileUpload::ImageUploadCropper('90%' ,false ,true,false ,false ,false ,true) }}
 
 <script>
     function showFileUploadModal($this) {
@@ -13,7 +13,7 @@
 
         inputFile.attr('data-param' ,'id=' + $($this).data('key'));
 
-        APP_AMU.fileUpload.load(inputFile ,datatableRaw);
+        AUT_UPLOAD.fileUpload.load(inputFile ,datatableRaw);
 
         $('#lang-image-upload').modal('show');
     }

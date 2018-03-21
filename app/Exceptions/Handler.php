@@ -45,11 +45,17 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        // get exeption class name
         $exceptionClassName = class_basename($exception);
+        // get reflection for this class
         $ref = new \ReflectionClass($this);
+        // get all methods protcted for this class
         $methods = $ref->getMethods(\ReflectionMethod::IS_PROTECTED);
+        // loop on this methods
         foreach ($methods as $method) {
+            // get method param
             $parameters = $method->getParameters();
+            // check if param 2 is exists on this class and check if this param 2 is equal to exceptionClassName then call this protected method
             if (isset($parameters[1]) && studly_case($method->getParameters()[1]->getName()) == $exceptionClassName) {
                 return call_user_func_array([$this, $method->getName()], [$request, $exception]);
             }

@@ -68,12 +68,10 @@ if(! function_exists('gridSystem'))
 
         return $result;
     }
-
 }
 
 if(! function_exists('gridSystemResult'))
 {
-
     function gridSystemResult($enableGridSystem ,$gridSystem){
 
         if($enableGridSystem)
@@ -178,5 +176,14 @@ if(! function_exists('matchClass'))
         return preg_match("/\b(?<![\S])($match)(?![\S])\b/",$subject ,$matches ,$flags);
     }
 }
+
+if(! function_exists('datatableReplaceScript'))
+{
+    function datatableReplaceScript($script)
+    {
+        return preg_replace('/<\/?script>/','',$script);
+    }
+}
+
 
 

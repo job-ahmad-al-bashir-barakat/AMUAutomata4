@@ -353,47 +353,6 @@ html[lang=en] .modal input ,select {
 }
 
 /*------------------------------------
-            popover style
---------------------------------------*/
-/*
-.datatable-popover {
-    font-family: "Source Sans Pro" ,"JF Flat Regular";
-    width: 200px;
-}
-
-.datatable-popover.popover {
-    padding: 0;
-}
-
-.datatable-popover .panel-heading {
-    padding: 6px 3px;;
-}
-
-.datatable-popover .popover-title {
-    background-color: transparent;
-    font-weight: bold;
-    padding: 0px 8px;
-}
-
-.datatable-popover .mr-5 {
-    margin-right: 5px !important;
-}
-
-.datatable-popover .panel-footer {
-    padding: 6px 8px;
-}
-
-.popover > .select2-container > .select2-dropdown {
-    top: -3px;
-    left: -1px;
-}
-
-table.dataTable .table-inline {
-    position: relative;
-}
-*/
-
-/*------------------------------------
                  Modal
 --------------------------------------*/
 
@@ -404,12 +363,6 @@ table.dataTable .table-inline {
 .datatable-modal .datatable-sidebar-tab-erea {
     z-index: 999999;
 }
-
-/*
-.datatable-modal .datatable-sidebar-tab {
-    margin-bottom: 15px;
-}
-*/
 
 @media (max-width: 992px) {
 
@@ -456,6 +409,6 @@ td.details-control:hover { cursor: pointer }
 
 .datatable-no-margin  { margin: 0; !important; }
 
-.hand { cursor: pointer; }
-
 .datatable-icon-hand { font-size: 16px; cursor: pointer; }
+
+.hand { cursor: pointer; }

@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.4.21 on 2017-11-04.
+ * Generated for Laravel 5.4.21 on 2018-03-21.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -14863,6 +14863,18 @@ namespace Aut\DataTable {
         /**
          * 
          *
+         * @param string $lang
+         * @return $this 
+         * @static 
+         */
+        public static function setLang($lang = 'en')
+        {
+            return \Aut\DataTable\DataTableBuilder::setLang($lang);
+        }
+        
+        /**
+         * 
+         *
          * @param $value string|array
          * @return $this 
          * @static 
@@ -15355,9 +15367,39 @@ namespace App\Library\Url\Facades {
          *
          * @static 
          */
+        public static function tables()
+        {
+            return \App\Library\Url\RouteUrls::tables();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function schemaTables()
+        {
+            return \App\Library\Url\RouteUrls::schemaTables();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
         public static function users()
         {
             return \App\Library\Url\RouteUrls::users();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function roles()
+        {
+            return \App\Library\Url\RouteUrls::roles();
         }
         
         /**
@@ -15599,6 +15641,26 @@ namespace App\Library\Url\Facades {
         public static function universityCouncilHtml()
         {
             return \App\Library\Url\RouteUrls::universityCouncilHtml();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function trustedCouncilHtml()
+        {
+            return \App\Library\Url\RouteUrls::trustedCouncilHtml();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function facultyInstructorsHtml()
+        {
+            return \App\Library\Url\RouteUrls::facultyInstructorsHtml();
         }
         
         /**
@@ -15881,21 +15943,363 @@ namespace App\Library\Url\Facades {
             return \App\Library\Url\RouteUrls::unlockscreen();
         }
         
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function universityStaff($staff)
+        {
+            return \App\Library\Url\RouteUrls::universityStaff($staff);
+        }
+        
     }         
 }
     
-namespace App\Library\Form\Facades {
+namespace Aut\FormComponent {
 
-    class FormComponent {
+    class FormComponentFacade {
         
         /**
          * 
          *
+         * @param string $type
+         * @param bool $ajax
+         * @param string $dataMethod
+         * @param string $dataUrl
+         * @param bool $stopOperationMessage
          * @static 
          */
-        public static function bsPrimarykey($id = '', $name = '', $value = null, $class = '', $attr = array())
+        public static function formSetting($type = 'default', $ajax = false, $dataMethod = 'post', $dataUrl = '', $stopOperationMessage = false)
         {
-            return \App\Library\Form\FormComponent::bsPrimarykey($id, $name, $value, $class, $attr);
+            return \Aut\FormComponent\Builder\FormBuilder::formSetting($type, $ajax, $dataMethod, $dataUrl, $stopOperationMessage);
+        }
+        
+        /**
+         * 
+         *
+         * @param string $id
+         * @param string $name
+         * @param null $value
+         * @param string $class
+         * @param array $attr
+         * @return string 
+         * @static 
+         */
+        public static function primarykey($id = '', $name = '', $value = null, $class = '', $attr = array())
+        {
+            return \Aut\FormComponent\Builder\FormBuilder::primarykey($id, $name, $value, $class, $attr);
+        }
+        
+        /**
+         * 
+         *
+         * @param string $id
+         * @param string $name
+         * @param null $value
+         * @param string $class
+         * @param array $attr
+         * @return string 
+         * @static 
+         */
+        public static function hidden($id = '', $name = '', $value = null, $class = '', $attr = array())
+        {
+            return \Aut\FormComponent\Builder\FormBuilder::hidden($id, $name, $value, $class, $attr);
+        }
+        
+        /**
+         * 
+         *
+         * @param string $label
+         * @param string $id
+         * @param string $name
+         * @param null $value
+         * @param string $class
+         * @param array $attr
+         * @return string 
+         * @static 
+         */
+        public static function text($label = '', $id = '', $name = '', $value = null, $class = '', $attr = array())
+        {
+            return \Aut\FormComponent\Builder\FormBuilder::text($label, $id, $name, $value, $class, $attr);
+        }
+        
+        /**
+         * 
+         *
+         * @param string $label
+         * @param string $id
+         * @param string $name
+         * @param null $value
+         * @param string $class
+         * @param array $attr
+         * @static 
+         */
+        public static function textarea($label = '', $id = '', $name = '', $value = null, $class = '', $attr = array())
+        {
+            return \Aut\FormComponent\Builder\FormBuilder::textarea($label, $id, $name, $value, $class, $attr);
+        }
+        
+        /**
+         * 
+         *
+         * @param string $label
+         * @param string $id
+         * @param string $name
+         * @param null $value
+         * @param string $class
+         * @param array $attr
+         * @return string 
+         * @static 
+         */
+        public static function number($label = '', $id = '', $name = '', $value = null, $class = '', $attr = array())
+        {
+            return \Aut\FormComponent\Builder\FormBuilder::number($label, $id, $name, $value, $class, $attr);
+        }
+        
+        /**
+         * 
+         *
+         * @param string $label
+         * @param string $id
+         * @param string $name
+         * @param string $remote
+         * @param array $option
+         * @param string $letter
+         * @param string $class
+         * @param array $attr
+         * @return string 
+         * @static 
+         */
+        public static function autocomplete($label = '', $id = '', $name = '', $remote = '', $option = array(), $letter = '3', $class = '', $attr = array())
+        {
+            return \Aut\FormComponent\Builder\FormBuilder::autocomplete($label, $id, $name, $remote, $option, $letter, $class, $attr);
+        }
+        
+        /**
+         * 
+         *
+         * @param string $label
+         * @param string $id
+         * @param string $name
+         * @param array $option
+         * @param null $selected
+         * @param string $class
+         * @param array $attr
+         * @return string 
+         * @static 
+         */
+        public static function select($label = '', $id = '', $name = '', $option = array(), $selected = null, $class = '', $attr = array())
+        {
+            return \Aut\FormComponent\Builder\FormBuilder::select($label, $id, $name, $option, $selected, $class, $attr);
+        }
+        
+        /**
+         * 
+         *
+         * @param string $icon
+         * @param string $class
+         * @param string $text
+         * @param string $html
+         * @return string 
+         * @static 
+         */
+        public static function notify($icon = '', $class = '', $text = '', $html = '')
+        {
+            return \Aut\FormComponent\Builder\FormBuilder::notify($icon, $class, $text, $html);
+        }
+        
+        /**
+         * 
+         *
+         * @param string $method
+         * @param string|array $action
+         * @param string $class
+         * @param array $attr
+         * @param array $option
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */
+        public static function formOpen($id = '', $method = 'post', $action = '', $class = '', $attr = array(), $option = array())
+        {
+            return \Aut\FormComponent\Builder\FormBuilder::formOpen($id, $method, $action, $class, $attr, $option);
+        }
+        
+        /**
+         * 
+         *
+         * @return string 
+         * @static 
+         */
+        public static function formClose()
+        {
+            return \Aut\FormComponent\Builder\FormBuilder::formClose();
+        }
+        
+        /**
+         * 
+         *
+         * @param array $option
+         * @static 
+         */
+        public static function formAjaxButtons($option = array())
+        {
+            return \Aut\FormComponent\Builder\FormBuilder::formAjaxButtons($option);
+        }
+        
+        /**
+         * 
+         *
+         * @param string $id
+         * @param string $class
+         * @param string $attr
+         * @return string 
+         * @static 
+         */
+        public static function modalOpen($id = '', $class = '', $attr = '')
+        {
+            return \Aut\FormComponent\Builder\FormBuilder::modalOpen($id, $class, $attr);
+        }
+        
+        /**
+         * 
+         *
+         * @return string 
+         * @static 
+         */
+        public static function modalClose()
+        {
+            return \Aut\FormComponent\Builder\FormBuilder::modalClose();
+        }
+        
+        /**
+         * 
+         *
+         * @param string $title
+         * @return string 
+         * @static 
+         */
+        public static function modalHeaderOpen($title = '')
+        {
+            return \Aut\FormComponent\Builder\FormBuilder::modalHeaderOpen($title);
+        }
+        
+        /**
+         * 
+         *
+         * @return string 
+         * @static 
+         */
+        public static function modalHeaderClose()
+        {
+            return \Aut\FormComponent\Builder\FormBuilder::modalHeaderClose();
+        }
+        
+        /**
+         * 
+         *
+         * @param string $title
+         * @return string 
+         * @static 
+         */
+        public static function modalBodyOpen($class = '')
+        {
+            return \Aut\FormComponent\Builder\FormBuilder::modalBodyOpen($class);
+        }
+        
+        /**
+         * 
+         *
+         * @return string 
+         * @static 
+         */
+        public static function modalBodyClose()
+        {
+            return \Aut\FormComponent\Builder\FormBuilder::modalBodyClose();
+        }
+        
+        /**
+         * 
+         *
+         * @param string $title
+         * @return string 
+         * @static 
+         */
+        public static function modalFooterOpen()
+        {
+            return \Aut\FormComponent\Builder\FormBuilder::modalFooterOpen();
+        }
+        
+        /**
+         * 
+         *
+         * @return string 
+         * @static 
+         */
+        public static function modalFooterClose()
+        {
+            return \Aut\FormComponent\Builder\FormBuilder::modalFooterClose();
+        }
+        
+        /**
+         * 
+         *
+         * @param string|array $data
+         * @static 
+         */
+        public static function fill($data = '')
+        {
+            return \Aut\FormComponent\Builder\FormBuilder::fill($data);
+        }
+        
+        /**
+         * 
+         *
+         * @param array $langs
+         * @return $this 
+         * @static 
+         */
+        public static function langs($langs = array())
+        {
+            return \Aut\FormComponent\Builder\FormBuilder::langs($langs);
+        }
+        
+        /**
+         * 
+         *
+         * @param bool $has
+         * @static 
+         */
+        public static function formGroup($has = true)
+        {
+            return \Aut\FormComponent\Builder\FormBuilder::formGroup($has);
+        }
+        
+        /**
+         * 
+         *
+         * @param string $id
+         * @param string $html
+         * @param string $class
+         * @param array $attr
+         * @static 
+         */
+        public static function addCont($id = '', $html = '', $class = '', $attr = array())
+        {
+            return \Aut\FormComponent\Builder\FormBuilder::addCont($id, $html, $class, $attr);
+        }
+        
+        /**
+         * 
+         *
+         * @param string $id
+         * @param string $class
+         * @param string $attr
+         * @static 
+         */
+        public static function contStart($id = '', $class = '', $attr = '')
+        {
+            return \Aut\FormComponent\Builder\FormBuilder::contStart($id, $class, $attr);
         }
         
         /**
@@ -15903,9 +16307,9 @@ namespace App\Library\Form\Facades {
          *
          * @static 
          */
-        public static function bsHidden($id = '', $name = '', $value = null, $class = '', $attr = array())
+        public static function contEnd()
         {
-            return \App\Library\Form\FormComponent::bsHidden($id, $name, $value, $class, $attr);
+            return \Aut\FormComponent\Builder\FormBuilder::contEnd();
         }
         
         /**
@@ -15913,9 +16317,26 @@ namespace App\Library\Form\Facades {
          *
          * @static 
          */
-        public static function bsText($label = '', $id = '', $name = '', $value = null, $class = '', $attr = array())
+        public static function placeholder($placeholder)
         {
-            return \App\Library\Form\FormComponent::bsText($label, $id, $name, $value, $class, $attr);
+            return \Aut\FormComponent\Builder\FormBuilder::placeholder($placeholder);
+        }
+        
+    }         
+}
+    
+namespace Aut\FileUpload {
+
+    class FileUploadFacade {
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function ImageUpload($id = '', $name = '', $class = '', $param = '', $imageWidth = null, $imageHeight = null, $targetModel = array(), $datatable = '', $datatableInitialize = 'true', $datatableInitializeProperty = '.image', $extraParameter = array())
+        {
+            return \Aut\FileUpload\FileUpload::ImageUpload($id, $name, $class, $param, $imageWidth, $imageHeight, $targetModel, $datatable, $datatableInitialize, $datatableInitializeProperty, $extraParameter);
         }
         
         /**
@@ -15923,59 +16344,9 @@ namespace App\Library\Form\Facades {
          *
          * @static 
          */
-        public static function bsNumber($label = '', $id = '', $name = '', $value = null, $class = '', $attr = array())
+        public static function ImageUploadCropper($width = '90%', $single = false, $showName = true, $showType = false, $showOption = false, $showToggleOption = false, $showPreview = false, $previewType = array(), $showManager = false)
         {
-            return \App\Library\Form\FormComponent::bsNumber($label, $id, $name, $value, $class, $attr);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function bsAutocomplete($label = '', $id = '', $name = '', $remote = '', $option = array(), $letter = '3', $class = '', $attr = array())
-        {
-            return \App\Library\Form\FormComponent::bsAutocomplete($label, $id, $name, $remote, $option, $letter, $class, $attr);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function bsSelect($label = '', $id = '', $name = '', $option = array(), $selected = null, $class = '', $attr = array())
-        {
-            return \App\Library\Form\FormComponent::bsSelect($label, $id, $name, $option, $selected, $class, $attr);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function bsImageUpload($id = '', $name = '', $class = '', $param = '', $imageWidth = null, $imageHeight = null, $targetModel = array(), $datatable = '', $datatableInitialize = 'true', $datatableInitializeProperty = '.image', $extraParameter = array())
-        {
-            return \App\Library\Form\FormComponent::bsImageUpload($id, $name, $class, $param, $imageWidth, $imageHeight, $targetModel, $datatable, $datatableInitialize, $datatableInitializeProperty, $extraParameter);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function bsImageUploadCropper($width = '90%', $single = false, $showName = true, $showType = false, $showOption = false, $showToggleOption = false, $showPreview = false, $previewType = array())
-        {
-            return \App\Library\Form\FormComponent::bsImageUploadCropper($width, $single, $showName, $showType, $showOption, $showToggleOption, $showPreview, $previewType);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function bsNotify($icon = '', $class = '', $text = '', $html = '')
-        {
-            return \App\Library\Form\FormComponent::bsNotify($icon, $class, $text, $html);
+            return \Aut\FileUpload\FileUpload::ImageUploadCropper($width, $single, $showName, $showType, $showOption, $showToggleOption, $showPreview, $previewType, $showManager);
         }
         
     }         
@@ -18195,7 +18566,9 @@ namespace {
     
     class RouteUrls extends \App\Library\Url\Facades\RouteUrls {}
     
-    class FormComponent extends \App\Library\Form\Facades\FormComponent {}
+    class FormComponent extends \Aut\FormComponent\FormComponentFacade {}
+    
+    class FileUpload extends \Aut\FileUpload\FileUploadFacade {}
     
     class Iseed extends \Orangehill\Iseed\Facades\Iseed {}
     

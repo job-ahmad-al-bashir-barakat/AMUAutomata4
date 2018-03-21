@@ -116,8 +116,8 @@
                     placeholder: "sortable-placeholder-dot"
                 });
                 $.get('{{ RouteUrls::getBuilderPageModules() }}' + '/' + tableName + '/' + pageId + (objectId ? ( '/' + objectId) : ''), function (res) {
-                    APP_AMU.htmlTable.clearRows($('#page_modules_table'));
-                    APP_AMU.htmlTable.fillTableData($('#page_modules_table'), res);
+                    AUTOMATA_APP.htmlTable.clearRows($('#page_modules_table'));
+                    AUTOMATA_APP.htmlTable.fillTableData($('#page_modules_table'), res);
                 });
             });
             //todo should be global
@@ -133,7 +133,7 @@
                     type: method,
                     data: inputs,
                     success: function (res) {
-                        HELPER_AMU.notify({
+                        AUT_HELPER.notify({
                             message: OPERATION_MESSAGE_SUCCESS,
                             status: 'success',
                             icon: 'check'

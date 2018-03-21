@@ -1,10 +1,10 @@
 
-{{ Form::bsImageUpload('course' ,'course' ,'' ,'' ,'265' ,'195' ,[
+{{ FileUpload::ImageUpload('course' ,'course' ,'' ,'' ,'265' ,'195' ,[
     'modalId'    => 'course-image-upload',
     'modalTitle' => trans('admin::app.upload_image')
 ] ,'#datatable-course') }}
 
-{{ Form::bsImageUploadCropper('90%' ,false ,true,false ,false ,false ,true) }}
+{{ FileUpload::ImageUploadCropper('90%' ,false ,true,false ,false ,false ,true) }}
 
 @component('controle.component.modal', [
     'id'                  => 'prerequisite-custom',
@@ -19,14 +19,7 @@
 <script>
     function showFileUploadModal($this) {
 
-        var inputFile = $('#course-image-upload').find('.upload-file'),
-            datatableRaw = _aut_datatable_getSelectedRowData('#datatable-course' ,$($this).closest('tr'));
-
-        inputFile.attr('data-param' ,'id=' + $($this).data('key'));
-
-        APP_AMU.fileUpload.load(inputFile ,datatableRaw);
-
-        $('#course-image-upload').modal('show');
+        AUT_UPLOAD.initFileUploadWithDatatable($this,'#course-image-upload','#datatable-course');
     }
 
     function prerequisiteModal($this)

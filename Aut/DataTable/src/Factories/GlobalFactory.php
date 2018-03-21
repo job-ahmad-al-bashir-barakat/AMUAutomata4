@@ -23,6 +23,7 @@ class GlobalFactory
     protected $update;
     protected $delete;
     protected $lang;
+    protected $langs;
 
     public function __construct(DataTableBuilder $table)
     {
@@ -36,5 +37,6 @@ class GlobalFactory
         $this->update        =  trans('datatable::table.update');
         $this->delete        =  trans('datatable::table.delete');
         $this->lang          =  App::getLocale();
+        $this->langs         =  \LaravelLocalization::getSupportedLocales();
     }
 }

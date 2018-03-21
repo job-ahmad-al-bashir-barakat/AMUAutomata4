@@ -3,7 +3,7 @@ namespace PHPSTORM_META {
 
    /**
     * PhpStorm Meta file, to provide autocomplete information for PhpStorm
-    * Generated on 2017-10-28.
+    * Generated on 2018-03-14.
     *
     * @author Barry vd. Heuvel <barryvdh@gmail.com>
     * @see https://github.com/barryvdh/laravel-ide-helper
@@ -62,9 +62,11 @@ namespace PHPSTORM_META {
             'Mcamara\LaravelLocalization\LaravelLocalization' instanceof \Mcamara\LaravelLocalization\LaravelLocalization,
             'datatables' instanceof \Yajra\Datatables\Datatables,
             'image' instanceof \Intervention\Image\ImageManager,
+            'FormComponent' instanceof \Aut\FormComponent\Builder\FormBuilder,
             'RouteUrls' instanceof \App\Library\Url\RouteUrls,
             'blade.compiler' instanceof \Illuminate\View\Compilers\BladeCompiler,
             'DataTable' instanceof \Aut\DataTable\DataTableBuilder,
+            'FileUpload' instanceof \Aut\FileUpload\FileUpload,
             'translation.loader' instanceof \Illuminate\Translation\FileLoader,
             'translator' instanceof \Illuminate\Translation\Translator,
             'html' instanceof \Collective\Html\HtmlBuilder,
@@ -206,9 +208,11 @@ namespace PHPSTORM_META {
             'Mcamara\LaravelLocalization\LaravelLocalization' instanceof \Mcamara\LaravelLocalization\LaravelLocalization,
             'datatables' instanceof \Yajra\Datatables\Datatables,
             'image' instanceof \Intervention\Image\ImageManager,
+            'FormComponent' instanceof \Aut\FormComponent\Builder\FormBuilder,
             'RouteUrls' instanceof \App\Library\Url\RouteUrls,
             'blade.compiler' instanceof \Illuminate\View\Compilers\BladeCompiler,
             'DataTable' instanceof \Aut\DataTable\DataTableBuilder,
+            'FileUpload' instanceof \Aut\FileUpload\FileUpload,
             'translation.loader' instanceof \Illuminate\Translation\FileLoader,
             'translator' instanceof \Illuminate\Translation\Translator,
             'html' instanceof \Collective\Html\HtmlBuilder,
@@ -350,9 +354,11 @@ namespace PHPSTORM_META {
             'Mcamara\LaravelLocalization\LaravelLocalization' instanceof \Mcamara\LaravelLocalization\LaravelLocalization,
             'datatables' instanceof \Yajra\Datatables\Datatables,
             'image' instanceof \Intervention\Image\ImageManager,
+            'FormComponent' instanceof \Aut\FormComponent\Builder\FormBuilder,
             'RouteUrls' instanceof \App\Library\Url\RouteUrls,
             'blade.compiler' instanceof \Illuminate\View\Compilers\BladeCompiler,
             'DataTable' instanceof \Aut\DataTable\DataTableBuilder,
+            'FileUpload' instanceof \Aut\FileUpload\FileUpload,
             'translation.loader' instanceof \Illuminate\Translation\FileLoader,
             'translator' instanceof \Illuminate\Translation\Translator,
             'html' instanceof \Collective\Html\HtmlBuilder,
@@ -494,9 +500,11 @@ namespace PHPSTORM_META {
             'Mcamara\LaravelLocalization\LaravelLocalization' instanceof \Mcamara\LaravelLocalization\LaravelLocalization,
             'datatables' instanceof \Yajra\Datatables\Datatables,
             'image' instanceof \Intervention\Image\ImageManager,
+            'FormComponent' instanceof \Aut\FormComponent\Builder\FormBuilder,
             'RouteUrls' instanceof \App\Library\Url\RouteUrls,
             'blade.compiler' instanceof \Illuminate\View\Compilers\BladeCompiler,
             'DataTable' instanceof \Aut\DataTable\DataTableBuilder,
+            'FileUpload' instanceof \Aut\FileUpload\FileUpload,
             'translation.loader' instanceof \Illuminate\Translation\FileLoader,
             'translator' instanceof \Illuminate\Translation\Translator,
             'html' instanceof \Collective\Html\HtmlBuilder,
