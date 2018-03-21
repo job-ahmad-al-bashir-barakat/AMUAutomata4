@@ -207,6 +207,206 @@ class PermissionsTableSeeder extends Seeder
                 'updated_at' => '2018-03-17 08:35:33',
                 'deleted_at' => NULL,
             ),
+            19 => 
+            array (
+                'id' => 20,
+                'name' => 'website-menu',
+                'guard_name' => 'web',
+                'hidden' => 'N',
+                'created_at' => '2018-03-20 19:09:46',
+                'updated_at' => '2018-03-20 19:09:46',
+                'deleted_at' => NULL,
+            ),
+            20 => 
+            array (
+                'id' => 21,
+                'name' => 'control-panel-menu',
+                'guard_name' => 'web',
+                'hidden' => 'Y',
+                'created_at' => '2018-03-20 19:10:35',
+                'updated_at' => '2018-03-20 19:10:35',
+                'deleted_at' => NULL,
+            ),
+            21 => 
+            array (
+                'id' => 22,
+                'name' => 'general-setting',
+                'guard_name' => 'web',
+                'hidden' => 'N',
+                'created_at' => '2018-03-21 16:47:36',
+                'updated_at' => '2018-03-21 16:47:36',
+                'deleted_at' => NULL,
+            ),
+            22 => 
+            array (
+                'id' => 23,
+                'name' => 'social-network',
+                'guard_name' => 'web',
+                'hidden' => 'N',
+                'created_at' => '2018-03-21 16:48:20',
+                'updated_at' => '2018-03-21 16:48:20',
+                'deleted_at' => NULL,
+            ),
+            23 => 
+            array (
+                'id' => 24,
+                'name' => 'gender',
+                'guard_name' => 'web',
+                'hidden' => 'N',
+                'created_at' => '2018-03-21 16:48:48',
+                'updated_at' => '2018-03-21 16:48:48',
+                'deleted_at' => NULL,
+            ),
+            24 => 
+            array (
+                'id' => 25,
+                'name' => 'position',
+                'guard_name' => 'web',
+                'hidden' => 'N',
+                'created_at' => '2018-03-21 16:49:18',
+                'updated_at' => '2018-03-21 16:49:18',
+                'deleted_at' => NULL,
+            ),
+            25 => 
+            array (
+                'id' => 26,
+                'name' => 'job-title',
+                'guard_name' => 'web',
+                'hidden' => 'N',
+                'created_at' => '2018-03-21 16:49:52',
+                'updated_at' => '2018-03-21 16:49:52',
+                'deleted_at' => NULL,
+            ),
+            26 => 
+            array (
+                'id' => 27,
+                'name' => 'faculties',
+                'guard_name' => 'web',
+                'hidden' => 'N',
+                'created_at' => '2018-03-21 16:50:43',
+                'updated_at' => '2018-03-21 16:50:43',
+                'deleted_at' => NULL,
+            ),
+            27 => 
+            array (
+                'id' => 28,
+                'name' => 'departments',
+                'guard_name' => 'web',
+                'hidden' => 'N',
+                'created_at' => '2018-03-21 16:51:04',
+                'updated_at' => '2018-03-21 16:51:04',
+                'deleted_at' => NULL,
+            ),
+            28 => 
+            array (
+                'id' => 29,
+                'name' => 'degrees',
+                'guard_name' => 'web',
+                'hidden' => 'N',
+                'created_at' => '2018-03-21 16:51:33',
+                'updated_at' => '2018-03-21 16:51:33',
+                'deleted_at' => NULL,
+            ),
+            29 => 
+            array (
+                'id' => 30,
+                'name' => 'study-plan',
+                'guard_name' => 'web',
+                'hidden' => 'N',
+                'created_at' => '2018-03-21 16:52:08',
+                'updated_at' => '2018-03-21 16:52:08',
+                'deleted_at' => NULL,
+            ),
+            30 => 
+            array (
+                'id' => 31,
+                'name' => 'offices',
+                'guard_name' => 'web',
+                'hidden' => 'N',
+                'created_at' => '2018-03-21 16:52:36',
+                'updated_at' => '2018-03-21 16:52:36',
+                'deleted_at' => NULL,
+            ),
+            31 => 
+            array (
+                'id' => 32,
+                'name' => 'partners',
+                'guard_name' => 'web',
+                'hidden' => 'N',
+                'created_at' => '2018-03-21 16:52:54',
+                'updated_at' => '2018-03-21 16:52:54',
+                'deleted_at' => NULL,
+            ),
+            32 => 
+            array (
+                'id' => 33,
+                'name' => 'university-council',
+                'guard_name' => 'web',
+                'hidden' => 'N',
+                'created_at' => '2018-03-21 17:23:51',
+                'updated_at' => '2018-03-21 17:23:51',
+                'deleted_at' => NULL,
+            ),
+            33 => 
+            array (
+                'id' => 34,
+                'name' => 'board-of-trustees',
+                'guard_name' => 'web',
+                'hidden' => 'N',
+                'created_at' => '2018-03-21 17:24:31',
+                'updated_at' => '2018-03-21 17:24:31',
+                'deleted_at' => NULL,
+            ),
+            34 => 
+            array (
+                'id' => 35,
+                'name' => 'staff',
+                'guard_name' => 'web',
+                'hidden' => 'N',
+                'created_at' => '2018-03-21 17:25:10',
+                'updated_at' => '2018-03-21 17:25:10',
+                'deleted_at' => NULL,
+            ),
+            35 => 
+            array (
+                'id' => 36,
+                'name' => 'blog',
+                'guard_name' => 'web',
+                'hidden' => 'N',
+                'created_at' => '2018-03-21 17:26:11',
+                'updated_at' => '2018-03-21 17:26:11',
+                'deleted_at' => NULL,
+            ),
+            36 => 
+            array (
+                'id' => 37,
+                'name' => 'study-year',
+                'guard_name' => 'web',
+                'hidden' => 'N',
+                'created_at' => '2018-03-21 17:27:44',
+                'updated_at' => '2018-03-21 17:27:44',
+                'deleted_at' => NULL,
+            ),
+            37 => 
+            array (
+                'id' => 38,
+                'name' => 'semester',
+                'guard_name' => 'web',
+                'hidden' => 'N',
+                'created_at' => '2018-03-21 17:28:21',
+                'updated_at' => '2018-03-21 17:28:21',
+                'deleted_at' => NULL,
+            ),
+            38 => 
+            array (
+                'id' => 39,
+                'name' => 'hierarchy-type',
+                'guard_name' => 'web',
+                'hidden' => 'N',
+                'created_at' => '2018-03-21 17:29:05',
+                'updated_at' => '2018-03-21 17:29:05',
+                'deleted_at' => NULL,
+            ),
         ));
         
         

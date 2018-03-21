@@ -397,6 +397,406 @@ class PermissionNameLangsTableSeeder extends Seeder
                 'updated_at' => '2018-03-17 08:35:33',
                 'deleted_at' => NULL,
             ),
+            38 => 
+            array (
+                'id' => 39,
+                'permission_id' => 20,
+                'lang_id' => 1,
+                'text' => 'Website Menu',
+                'created_at' => '2018-03-20 19:09:46',
+                'updated_at' => '2018-03-20 19:09:46',
+                'deleted_at' => NULL,
+            ),
+            39 => 
+            array (
+                'id' => 40,
+                'permission_id' => 20,
+                'lang_id' => 2,
+                'text' => 'قائمة الموقع',
+                'created_at' => '2018-03-20 19:09:46',
+                'updated_at' => '2018-03-20 19:09:46',
+                'deleted_at' => NULL,
+            ),
+            40 => 
+            array (
+                'id' => 41,
+                'permission_id' => 21,
+                'lang_id' => 1,
+                'text' => 'Control Panel Menu',
+                'created_at' => '2018-03-20 19:10:35',
+                'updated_at' => '2018-03-20 19:10:35',
+                'deleted_at' => NULL,
+            ),
+            41 => 
+            array (
+                'id' => 42,
+                'permission_id' => 21,
+                'lang_id' => 2,
+                'text' => 'قائمة ادارة الموقع',
+                'created_at' => '2018-03-20 19:10:35',
+                'updated_at' => '2018-03-20 19:10:35',
+                'deleted_at' => NULL,
+            ),
+            42 => 
+            array (
+                'id' => 43,
+                'permission_id' => 22,
+                'lang_id' => 1,
+                'text' => 'General Settings',
+                'created_at' => '2018-03-21 16:47:37',
+                'updated_at' => '2018-03-21 16:47:37',
+                'deleted_at' => NULL,
+            ),
+            43 => 
+            array (
+                'id' => 44,
+                'permission_id' => 22,
+                'lang_id' => 2,
+                'text' => 'اعدادات عامة',
+                'created_at' => '2018-03-21 16:47:37',
+                'updated_at' => '2018-03-21 16:47:37',
+                'deleted_at' => NULL,
+            ),
+            44 => 
+            array (
+                'id' => 45,
+                'permission_id' => 23,
+                'lang_id' => 1,
+                'text' => 'Social Networks',
+                'created_at' => '2018-03-21 16:48:20',
+                'updated_at' => '2018-03-21 16:48:20',
+                'deleted_at' => NULL,
+            ),
+            45 => 
+            array (
+                'id' => 46,
+                'permission_id' => 23,
+                'lang_id' => 2,
+                'text' => 'مواقع التواصل الاجتماعي',
+                'created_at' => '2018-03-21 16:48:21',
+                'updated_at' => '2018-03-21 16:48:21',
+                'deleted_at' => NULL,
+            ),
+            46 => 
+            array (
+                'id' => 47,
+                'permission_id' => 24,
+                'lang_id' => 1,
+                'text' => 'Gender',
+                'created_at' => '2018-03-21 16:48:48',
+                'updated_at' => '2018-03-21 16:48:48',
+                'deleted_at' => NULL,
+            ),
+            47 => 
+            array (
+                'id' => 48,
+                'permission_id' => 24,
+                'lang_id' => 2,
+                'text' => 'الجنس',
+                'created_at' => '2018-03-21 16:48:48',
+                'updated_at' => '2018-03-21 16:48:48',
+                'deleted_at' => NULL,
+            ),
+            48 => 
+            array (
+                'id' => 49,
+                'permission_id' => 25,
+                'lang_id' => 1,
+                'text' => 'Position',
+                'created_at' => '2018-03-21 16:49:18',
+                'updated_at' => '2018-03-21 16:49:18',
+                'deleted_at' => NULL,
+            ),
+            49 => 
+            array (
+                'id' => 50,
+                'permission_id' => 25,
+                'lang_id' => 2,
+                'text' => 'مناصب',
+                'created_at' => '2018-03-21 16:49:18',
+                'updated_at' => '2018-03-21 16:49:18',
+                'deleted_at' => NULL,
+            ),
+            50 => 
+            array (
+                'id' => 51,
+                'permission_id' => 26,
+                'lang_id' => 1,
+                'text' => 'Job Title',
+                'created_at' => '2018-03-21 16:49:52',
+                'updated_at' => '2018-03-21 16:49:52',
+                'deleted_at' => NULL,
+            ),
+            51 => 
+            array (
+                'id' => 52,
+                'permission_id' => 26,
+                'lang_id' => 2,
+                'text' => 'الالقاب الوظيفية',
+                'created_at' => '2018-03-21 16:49:52',
+                'updated_at' => '2018-03-21 16:49:52',
+                'deleted_at' => NULL,
+            ),
+            52 => 
+            array (
+                'id' => 53,
+                'permission_id' => 27,
+                'lang_id' => 1,
+                'text' => 'Faculties',
+                'created_at' => '2018-03-21 16:50:43',
+                'updated_at' => '2018-03-21 16:50:43',
+                'deleted_at' => NULL,
+            ),
+            53 => 
+            array (
+                'id' => 54,
+                'permission_id' => 27,
+                'lang_id' => 2,
+                'text' => 'الكليات',
+                'created_at' => '2018-03-21 16:50:43',
+                'updated_at' => '2018-03-21 16:50:43',
+                'deleted_at' => NULL,
+            ),
+            54 => 
+            array (
+                'id' => 55,
+                'permission_id' => 28,
+                'lang_id' => 1,
+                'text' => 'Departments',
+                'created_at' => '2018-03-21 16:51:05',
+                'updated_at' => '2018-03-21 16:51:05',
+                'deleted_at' => NULL,
+            ),
+            55 => 
+            array (
+                'id' => 56,
+                'permission_id' => 28,
+                'lang_id' => 2,
+                'text' => 'الاقسام',
+                'created_at' => '2018-03-21 16:51:05',
+                'updated_at' => '2018-03-21 16:51:05',
+                'deleted_at' => NULL,
+            ),
+            56 => 
+            array (
+                'id' => 57,
+                'permission_id' => 29,
+                'lang_id' => 1,
+                'text' => 'Degrees',
+                'created_at' => '2018-03-21 16:51:33',
+                'updated_at' => '2018-03-21 16:51:33',
+                'deleted_at' => NULL,
+            ),
+            57 => 
+            array (
+                'id' => 58,
+                'permission_id' => 29,
+                'lang_id' => 2,
+                'text' => 'الشهادات',
+                'created_at' => '2018-03-21 16:51:33',
+                'updated_at' => '2018-03-21 16:51:33',
+                'deleted_at' => NULL,
+            ),
+            58 => 
+            array (
+                'id' => 59,
+                'permission_id' => 30,
+                'lang_id' => 1,
+                'text' => 'Study Plan',
+                'created_at' => '2018-03-21 16:52:08',
+                'updated_at' => '2018-03-21 16:52:08',
+                'deleted_at' => NULL,
+            ),
+            59 => 
+            array (
+                'id' => 60,
+                'permission_id' => 30,
+                'lang_id' => 2,
+                'text' => 'الخطة الدرسية',
+                'created_at' => '2018-03-21 16:52:08',
+                'updated_at' => '2018-03-21 16:52:08',
+                'deleted_at' => NULL,
+            ),
+            60 => 
+            array (
+                'id' => 61,
+                'permission_id' => 31,
+                'lang_id' => 1,
+                'text' => 'Offices',
+                'created_at' => '2018-03-21 16:52:36',
+                'updated_at' => '2018-03-21 16:52:36',
+                'deleted_at' => NULL,
+            ),
+            61 => 
+            array (
+                'id' => 62,
+                'permission_id' => 31,
+                'lang_id' => 2,
+                'text' => 'المكاتب',
+                'created_at' => '2018-03-21 16:52:36',
+                'updated_at' => '2018-03-21 16:52:36',
+                'deleted_at' => NULL,
+            ),
+            62 => 
+            array (
+                'id' => 63,
+                'permission_id' => 32,
+                'lang_id' => 1,
+                'text' => 'Partners',
+                'created_at' => '2018-03-21 16:52:54',
+                'updated_at' => '2018-03-21 16:52:54',
+                'deleted_at' => NULL,
+            ),
+            63 => 
+            array (
+                'id' => 64,
+                'permission_id' => 32,
+                'lang_id' => 2,
+                'text' => 'الشركاء',
+                'created_at' => '2018-03-21 16:52:54',
+                'updated_at' => '2018-03-21 16:52:54',
+                'deleted_at' => NULL,
+            ),
+            64 => 
+            array (
+                'id' => 65,
+                'permission_id' => 33,
+                'lang_id' => 1,
+                'text' => 'University Council',
+                'created_at' => '2018-03-21 17:23:52',
+                'updated_at' => '2018-03-21 17:23:52',
+                'deleted_at' => NULL,
+            ),
+            65 => 
+            array (
+                'id' => 66,
+                'permission_id' => 33,
+                'lang_id' => 2,
+                'text' => 'مجلس الجامعة',
+                'created_at' => '2018-03-21 17:23:52',
+                'updated_at' => '2018-03-21 17:23:52',
+                'deleted_at' => NULL,
+            ),
+            66 => 
+            array (
+                'id' => 67,
+                'permission_id' => 34,
+                'lang_id' => 1,
+                'text' => 'Board of Trustees',
+                'created_at' => '2018-03-21 17:24:31',
+                'updated_at' => '2018-03-21 17:24:31',
+                'deleted_at' => NULL,
+            ),
+            67 => 
+            array (
+                'id' => 68,
+                'permission_id' => 34,
+                'lang_id' => 2,
+                'text' => 'مجلس الامناء',
+                'created_at' => '2018-03-21 17:24:31',
+                'updated_at' => '2018-03-21 17:24:31',
+                'deleted_at' => NULL,
+            ),
+            68 => 
+            array (
+                'id' => 69,
+                'permission_id' => 35,
+                'lang_id' => 1,
+                'text' => 'Staff',
+                'created_at' => '2018-03-21 17:25:10',
+                'updated_at' => '2018-03-21 17:25:10',
+                'deleted_at' => NULL,
+            ),
+            69 => 
+            array (
+                'id' => 70,
+                'permission_id' => 35,
+                'lang_id' => 2,
+                'text' => 'الموظفون',
+                'created_at' => '2018-03-21 17:25:10',
+                'updated_at' => '2018-03-21 17:25:10',
+                'deleted_at' => NULL,
+            ),
+            70 => 
+            array (
+                'id' => 71,
+                'permission_id' => 36,
+                'lang_id' => 1,
+                'text' => 'Blog',
+                'created_at' => '2018-03-21 17:26:11',
+                'updated_at' => '2018-03-21 17:26:11',
+                'deleted_at' => NULL,
+            ),
+            71 => 
+            array (
+                'id' => 72,
+                'permission_id' => 36,
+                'lang_id' => 2,
+                'text' => 'المدونة',
+                'created_at' => '2018-03-21 17:26:12',
+                'updated_at' => '2018-03-21 17:26:12',
+                'deleted_at' => NULL,
+            ),
+            72 => 
+            array (
+                'id' => 73,
+                'permission_id' => 37,
+                'lang_id' => 1,
+                'text' => 'Study Year',
+                'created_at' => '2018-03-21 17:27:44',
+                'updated_at' => '2018-03-21 17:27:44',
+                'deleted_at' => NULL,
+            ),
+            73 => 
+            array (
+                'id' => 74,
+                'permission_id' => 37,
+                'lang_id' => 2,
+                'text' => 'السنوات الدراسية',
+                'created_at' => '2018-03-21 17:27:44',
+                'updated_at' => '2018-03-21 17:27:44',
+                'deleted_at' => NULL,
+            ),
+            74 => 
+            array (
+                'id' => 75,
+                'permission_id' => 38,
+                'lang_id' => 1,
+                'text' => 'Semester',
+                'created_at' => '2018-03-21 17:28:21',
+                'updated_at' => '2018-03-21 17:28:21',
+                'deleted_at' => NULL,
+            ),
+            75 => 
+            array (
+                'id' => 76,
+                'permission_id' => 38,
+                'lang_id' => 2,
+                'text' => 'الفصول الدراسية',
+                'created_at' => '2018-03-21 17:28:21',
+                'updated_at' => '2018-03-21 17:28:21',
+                'deleted_at' => NULL,
+            ),
+            76 => 
+            array (
+                'id' => 77,
+                'permission_id' => 39,
+                'lang_id' => 1,
+                'text' => 'Hierarchy  Type',
+                'created_at' => '2018-03-21 17:29:05',
+                'updated_at' => '2018-03-21 17:29:05',
+                'deleted_at' => NULL,
+            ),
+            77 => 
+            array (
+                'id' => 78,
+                'permission_id' => 39,
+                'lang_id' => 2,
+                'text' => 'نوع الهيكلية',
+                'created_at' => '2018-03-21 17:29:05',
+                'updated_at' => '2018-03-21 17:29:05',
+                'deleted_at' => NULL,
+            ),
         ));
         
         

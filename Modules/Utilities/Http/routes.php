@@ -68,6 +68,12 @@ function () {
     Route::get('roles', 'UtilitiesController@table')->middleware('permission:roles')->name('table.roles');
     Route::get('users', 'UtilitiesController@table')->middleware('permission:users')->name('table.users');
     Route::get('custom-modules', 'UtilitiesController@table')->middleware('permission:custom-modules')->name('table.custom-modules');
+    Route::get('general-setting', 'UtilitiesController@table')->middleware('permission:general-setting')->name('table.general-setting');
+    Route::get('social-network', 'UtilitiesController@table')->middleware('permission:social-network')->name('table.social-network');
+    Route::get('gender', 'UtilitiesController@table')->middleware('permission:gender')->name('table.gender');
+    Route::get('position', 'UtilitiesController@table')->middleware('permission:position')->name('table.position');
+    Route::get('job-title', 'UtilitiesController@table')->middleware('permission:job-title')->name('table.job-title');
+
 
     Route::get('menu-tables', 'UtilitiesController@table')->middleware('permission:automata')->name('table.menu-tables');
     Route::get('general/menu', 'UtilitiesController@menu')->middleware('permission:website-menu')->name('menu.general');

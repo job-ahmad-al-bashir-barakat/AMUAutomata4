@@ -180,33 +180,39 @@
 @endsection
 
 @section('_aside_setting_utilities')
-{{--    @can(config('automata-permission.automata.permission'))--}}
+    @can('general-setting')
     <li class="">
         <a href="{{ RouteUrls::generalSetting() }}" class="ajax" title="{{ trans('utilities::app.general_setting') }}">
             <span>{{ trans('utilities::app.general_setting') }}</span>
         </a>
     </li>
-    {{--@endcan--}}
+    @endcan
+    @can('social-network')
     <li class="">
         <a href="{{ RouteUrls::socialNetwork() }}" class="ajax" title="{{ trans('utilities::app.social_network') }}">
             <span>{{ trans('utilities::app.social_network') }}</span>
         </a>
     </li>
-
+    @endcan
+    @can('gender')
     <li class="">
         <a href="{{ RouteUrls::gender() }}" class="ajax" title="{{ trans('utilities::app.gender') }}">
             <span>{{ trans('utilities::app.gender') }}</span>
         </a>
     </li>
-
+    @endcan
+    @can('position')
     <li class="">
         <a href="{{ RouteUrls::position() }}" class="ajax" title="{{ trans('utilities::app.position') }}">
             <span>{{ trans('utilities::app.position') }}</span>
         </a>
     </li>
+    @endcan
+    @can('job-title')
     <li class="">
         <a href="{{ RouteUrls::jobTitle() }}" class="ajax" title="{{  trans('utilities::app.job_title') }}">
             <span>{{  trans('utilities::app.job_title') }}</span>
         </a>
     </li>
+    @endcan
 @endsection

@@ -2,6 +2,7 @@
 
 namespace Modules\Admin\Http\Controllers;
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
@@ -17,8 +18,10 @@ class AdminController extends Controller
         return view('admin::dashboard' ,['title' => trans('app.dashboard')]);
     }
 
-    public function table($view)
+    public function table(Request $request)
     {
+        list($table, $view) = explode('.', $request->route()->getName());
+
         $subPage = Str::slug($view ,'_');
         $subPage = \View::exists("admin::table.$subPage") ? "admin::table.$subPage" : false;
 
