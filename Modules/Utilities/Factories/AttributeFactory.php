@@ -15,7 +15,7 @@ class AttributeFactory extends GlobalFactory
         $query = $attribute::allLangs()->get();
 
         return $this->table
-            ->queryConfig('datatable-langs')
+            ->queryConfig('datatable-attributes')
             ->queryDatatable($query)
             ->queryMultiLang(['name'])
             ->queryUpdateButton()
@@ -29,7 +29,7 @@ class AttributeFactory extends GlobalFactory
     public function buildDatatable($attribute, $request)
     {
         return $this->table
-            ->config('datatable-langs',trans('utilities::app.attributes'))
+            ->config('datatable-attributes',trans('utilities::app.attributes'))
             ->addPrimaryKey('id','id')
             ->addInputText(trans('utilities::app.code'),'code','code','required req')
             ->addMultiInputTextLangs(['name'] ,'req required')

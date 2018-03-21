@@ -2,9 +2,10 @@
 
 namespace Modules\Admin\Http\Controllers;
 
+use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
-use Illuminate\Support\Str;
 
 class AdminController extends Controller
 {
@@ -17,8 +18,10 @@ class AdminController extends Controller
         return view('admin::dashboard' ,['title' => trans('app.dashboard')]);
     }
 
-    public function table($view)
+    public function table(Request $request)
     {
+        list($table, $view) = explode('.', $request->route()->getName());
+
         $subPage = Str::slug($view ,'_');
         $subPage = \View::exists("admin::table.$subPage") ? "admin::table.$subPage" : false;
 
@@ -34,13 +37,11 @@ class AdminController extends Controller
     {
         $subPage = \View::exists("admin::table.$view") ? "admin::table.$view" : false;
 
-        $param = '';
-        foreach (request()->except('_pjax') as $index => $value)
-            $param .=  "&$index=$value";
+        $param = http_build_query(request()->except('_pjax'));;
 
         return view('admin::page.table',[
             'table'   => $view,
-            'param'   => "?id=$id{$param}",
+            'param'   => "?id={$id}&{$param}",
             'title'   => trans('admin::app.'.str_replace('-','_',$view)),
             'subPage' => $subPage,
         ]);

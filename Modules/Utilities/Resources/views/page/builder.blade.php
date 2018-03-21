@@ -37,7 +37,7 @@
     @component('controle.component.modal', [
         'id' => 'page_seos',
     ])
-        {!! Form::bsText('test1',  'test2', 'test3', 'test4', 'test5') !!}
+        {!! Form::bsText('title',  'test2', 'test3', 'test4', 'test5') !!}
     @endcomponent
 
     <div id="page_modules" class="modal fade" role="dialog" aria-hidden="true" aria-labeledby="page modules">

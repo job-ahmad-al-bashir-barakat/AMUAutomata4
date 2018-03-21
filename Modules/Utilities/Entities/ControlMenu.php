@@ -23,7 +23,11 @@ class ControlMenu extends \Eloquent
 
     function getUrlPathReplaceAttribute($value)
     {
-        $params = request()->route()->parameters();
+        $route = request()->route();
+        if (!$route) {
+            return '';
+        }
+        $params = $route->parameters();
 
         return replaceParamWithValue($this->url_path, $params);
     }
