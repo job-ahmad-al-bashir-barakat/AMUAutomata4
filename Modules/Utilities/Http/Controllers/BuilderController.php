@@ -3,6 +3,7 @@ namespace Modules\Utilities\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Modules\Utilities\Entities\Seo;
 use Modules\Utilities\Entities\Block;
 use Modules\Utilities\Entities\Table;
 use Modules\Utilities\Entities\Slider;
@@ -77,6 +78,21 @@ class BuilderController extends Controller
         }
 //        BuilderPage::saveMany($builderPages);
         return ['success' => true];
+    }
+
+    public function getSeo(Request $request)
+    {
+        return [$request->input(), 'GET'];
+    }
+
+    public function storeSeo(Request $request)
+    {
+        return [$request->input(), 'POST'];
+    }
+
+    public function updateSeo(Request $request, Seo $seo)
+    {
+
     }
 
 
@@ -169,6 +185,7 @@ class BuilderController extends Controller
             'subPage' => false,
         ]);
     }
+
     /**
      * Cards
      */

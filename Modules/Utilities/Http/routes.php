@@ -30,6 +30,10 @@ function () {
         Route::get('pages', 'BuilderController@pages')->middleware('permission:page-builder')->name('pages');
         Route::post('pages', 'BuilderController@storePages')->middleware('permission:page-builder');
 
+        Route::get('seo', 'BuilderController@getSeo')->middleware('permission:page-builder');
+        Route::post('seo', 'BuilderController@storeSeo')->middleware('permission:page-builder');
+        Route::put('seo/{seo}', 'BuilderController@updateSeo')->middleware('permission:page-builder');
+
         Route::get('modules/{tableName}/{pageId}/{objectId?}', 'BuilderController@getPages');
 
         Route::get('sliders', 'BuilderController@sliders')->middleware('permission:sliders')->name('sliders');

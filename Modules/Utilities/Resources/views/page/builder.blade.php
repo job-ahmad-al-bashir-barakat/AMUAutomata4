@@ -34,16 +34,7 @@
         {!! datatable('builder-pages', '', 'false') !!}
     @endcomponent
 
-    {!! FormComponent::modalOpen('page_seos') !!}
-    {!! FormComponent::modalHeaderOpen() !!}
-        <h5>Search Engine Optimization</h5>
-    {!! FormComponent::modalHeaderClose() !!}
-    {!! FormComponent::modalBodyOpen() !!}
-        {!! FormComponent::langs()->text('Title', 'title', 'title') !!}
-        {!! FormComponent::langs()->text('Description', 'description', 'description') !!}
-        {!! FormComponent::langs()->autocomplete('Keywords', 'keywords', 'keywords') !!}
-    {!! FormComponent::modalBodyClose() !!}
-    {!! FormComponent::modalClose() !!}
+    @include('utilities::page.seo-form')
 
     <div id="page_modules" class="modal fade" role="dialog" aria-hidden="true" aria-labeledby="page modules">
         <div class="modal-dialog">

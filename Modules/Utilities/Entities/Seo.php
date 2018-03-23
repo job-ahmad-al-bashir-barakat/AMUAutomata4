@@ -12,9 +12,14 @@ class Seo extends Model
 {
     use SoftDeletes, MultiLangs;
 
-    protected $fillable = [];
+    protected $fillable = ['buildable_id', 'buildable_type', 'optional_id'];
 
     protected $appends  = ['lang_title', 'lang_description'];
+
+    public function buildable()
+    {
+        return $this->morphTo();
+    }
 
     public function transTitle()
     {
