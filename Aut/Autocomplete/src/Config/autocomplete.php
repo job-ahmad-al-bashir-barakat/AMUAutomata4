@@ -8,9 +8,9 @@ return [
 
     'AutocompleteHelperClass' => \App\Library\AutocompleteHelper::class,
 
-    'version'    => '5.4',
+    'version' => '5.4',
 
-    'default'   => [
+    'default' => [
 
         'withoutLang' => [
             'colId'     => 'id',

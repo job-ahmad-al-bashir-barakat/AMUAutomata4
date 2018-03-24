@@ -345,7 +345,7 @@ class AutocompleteController
             $this->colName   = isset($autocompleteSet['colName'])   ? $autocompleteSet['colName']    : config("autocomplete.default.$withOrNot.colName");
             $this->colText   = isset($autocompleteSet['colText'])   ? $autocompleteSet['colText']    : config("autocomplete.default.$withOrNot.colText");
             $this->colTitle  = isset($autocompleteSet['colTitle'])  ? $autocompleteSet['colTitle']   : config("autocomplete.default.$withOrNot.colTitle");
-            $this->tags           = isset($autocompleteSet['tags'])           ? $autocompleteSet['tags']          : false;
+            $this->tags      = isset($autocompleteSet['tags'])      ? $autocompleteSet['tags']       : false;
         }
     }
 }

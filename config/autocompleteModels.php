@@ -101,7 +101,7 @@ return [
         'model' => \Modules\Utilities\Entities\Slider::class,
         'q'     => [
             'sliderDetails' => 'id',
-        ],
+        ]
     ],
 
     'vertical-sliders' => [
