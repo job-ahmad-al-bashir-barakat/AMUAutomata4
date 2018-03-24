@@ -59,17 +59,6 @@ var AUT_HELPER = {
         });
     },
 
-    reloadElement : function (element) {
-
-        _.each(element ,function (v ,k) {
-
-            switch (k)
-            {
-                case 'tree': AUT_TREE_VIEW.tree.ajaxLoad(v);
-            }
-        })
-    },
-
     getDataAttribute: function (dom) {
 
         var attributes = {} ,value = '';
@@ -112,7 +101,7 @@ var AUT_HELPER = {
         if(typeof extraParam == typeof undefined)
             return objJson(param);
 
-        var result = typeof extraParam == typeof {}
+        var result = typeof extraParam == "object"
             ? $.extend(objJson(param), extraParam)
             : $.extend(objJson(param), objJson(extraParam));
 

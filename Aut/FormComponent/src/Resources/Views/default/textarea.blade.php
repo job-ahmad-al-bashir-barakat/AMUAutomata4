@@ -1,8 +1,6 @@
 @php
     /*
         // class can be used to do some stuff
-        group -> add group
-        no-label -> remove label
         cont class  -> c:
         label class -> l:
         input class -> i:

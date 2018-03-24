@@ -66,12 +66,6 @@ var AUT_FORM_COMPONENT = {
             $button.button('reset');
         },
 
-        /**
-         * serialize data function
-         *
-         * @param formArray
-         * @returns {{}}
-         */
         serializeObject: function (formArray) {
 
             var returnArray = {};
@@ -81,11 +75,13 @@ var AUT_FORM_COMPONENT = {
             return returnArray;
         },
 
-        /**
-         *
-         * @param $form
-         * @returns {*}
-         */
+        convertUrlParamToJson: function (param) {
+
+            return JSON.parse('{"' + param.replace(/&/g, '","').replace(/=/g,'":"') + '"}', function(key, value) {
+                return key === "" ? value : decodeURIComponent(value)
+            });
+        },
+
         changeAction: function ($form) {
 
             var primarykey = $form.find('.primarykey').val(),
@@ -110,20 +106,28 @@ var AUT_FORM_COMPONENT = {
 
                         e.preventDefault();
 
-                        var $this      = this,
-                            $form      = $(form),
-                            $button    = $($this.submitButton),
-                            $method    = $button.data('method'),
-                            $serialize = typeof $button.data('serialize') != typeof undefined ? $button.data('serialize') : true,
-                            $data;
+                        var $data,
+                            $this                 = this,
+                            $form                 = $(form),
+                            $button               = $($this.submitButton),
+                            $method               = $button.data('method'),
+                            $serialize            = typeof $button.data('serialize') != typeof undefined ? $button.data('serialize') : true,
+                            $extraSerialize       = $button.data('extra-serialize') || $form.data('extra-serialize'),
+                            $stopOperationMessage = $form.is('[data-stop-operation-message]') || $button.is('[data-stop-operation-message]');
 
                         if ($serialize)
                             $data = AUT_FORM_COMPONENT.validate.serializeObject($form.serializeArray());
                         else
                             $data = {};
 
-                        if ($serialize && typeof $button.data('extra-serialize') != typeof undefined)
-                            $data = $.extend($data ,window[$button.data('extra-serialize')](form));
+                        if($serialize)
+                            if (typeof $extraSerialize == 'function') {
+                                $data = $.extend($data ,window[$extraSerialize](form));
+                            } else if(typeof $extraSerialize == 'object') {
+                                $data = $.extend($data ,$extraSerialize);
+                            } else if(typeof $extraSerialize == "string") {
+                                $data = $.extend($data ,AUT_FORM_COMPONENT.validate.convertUrlParamToJson($extraSerialize));
+                            }
 
                         if (typeof $button.data('method') != typeof undefined)
                         {
@@ -147,10 +151,6 @@ var AUT_FORM_COMPONENT = {
                                 if (typeof $form.parents('.modal') != typeof undefined)
                                     $($form.parents('.modal')).modal('hide');
 
-                                // reload after success oper by enter json like {"tree" : [".aut-tree"],....}
-                                if (typeof $form.data('ajax-form-reload') != typeof undefined)
-                                    AUT_HELPER.reloadElement($form.data('ajax-form-reload'));
-
                                 /**
                                  *  Success Button Function Area
                                  *
@@ -162,8 +162,8 @@ var AUT_FORM_COMPONENT = {
                                  */
 
                                 // callback exec after oper success
-                                if (typeof $button.data('ajax-form-success') != typeof undefined)
-                                    window[$button.data('ajax-form-success')](form, res);
+                                if (typeof $form.data('ajax-form-success') != typeof undefined)
+                                    window[$form.data('ajax-form-success')](form, res);
 
                                 // callback exec after add oper success
                                 if (typeof $button.data('ajax-form-add-success') != typeof undefined)
@@ -177,7 +177,8 @@ var AUT_FORM_COMPONENT = {
                                 if (typeof $button.data('ajax-form-delete-success') != typeof undefined)
                                     window[$button.data('ajax-form-delete-success')](form, res);
 
-                                if(!($button.is('[data-stop-operation-message]') || $form.is('[data-stop-operation-message]')))
+
+                                if(!$stopOperationMessage)
                                     AUT_HELPER.notify({message: res.operation_message || OPERATION_MESSAGE_SUCCESS, status: 'success'});
 
                             }).fail(function (res) {
@@ -185,7 +186,7 @@ var AUT_FORM_COMPONENT = {
                                 // remove Loader
                                 AUT_FORM_COMPONENT.validate.removeLoader($button);
 
-                                if(!($button.is('[data-stop-operation-message]') || $form.is('[data-stop-operation-message]')))
+                                if(!$stopOperationMessage)
                                     AUT_HELPER.notify({message: OPERATION_MESSAGE_FAIL, status: 'danger'});
 
                                 //JSON.parse(res.responseText).server_message
@@ -196,6 +197,7 @@ var AUT_FORM_COMPONENT = {
                                     //v[0]
                                     error.append('<div id="' + k + '-error" class="validate-error validate-error-help-block validate-error-style animated fadeInDown">' + v + '</div>');
                                 });
+
                             }).done(function (res) {
 
                                 // remove Loader
@@ -333,9 +335,6 @@ var AUT_FORM_COMPONENT = {
         clearForm: function (form) {
 
             _.head(form).reset();
-            //re drew validation for each submit
-
-            // todo: fixed value
             form.find('[id^=error_]').children().remove();
             form.find('input[type=hidden]').not('[data-permanent=true],[name="_token"]').val('');
             if (form.find('.autocomplete').length != 0) {
@@ -371,14 +370,14 @@ var AUT_FORM_COMPONENT = {
          */
         fillForm: function () {
 
-            $(document).on('click', '[data-form-add],.form-add', function () {
+            $(document).off('click.form-component','[data-form-add],.form-add').on('click.form-component', '[data-form-add],.form-add', function () {
 
                 var $cont = $(this).data('target');
 
                 AUT_FORM_COMPONENT.validate.hideShowButtonForm($cont, 'add');
             });
 
-            $(document).on('click', '[data-form-update],.form-update', function () {
+            $(document).off('click.form-component','[data-form-update],.form-update').on('click.form-component', '[data-form-update],.form-update', function () {
 
                 // todo:
                 // get data from datatable
@@ -387,10 +386,11 @@ var AUT_FORM_COMPONENT = {
                 // make replace for param $formDataUrl from button data attr
 
                 var $this               = $(this),
-                    $formTarget         = $this.data('target'),
+                    $cont               = $($this.data('target')),
+                    $formTarget         = $cont.find('form'),
                     $itemEditableTarget = $this.closest($this.data('editable-target')),
                     $formDataMethod     = $formTarget.data('method'),
-                    $formDataUrl        = $formTarget.data('data-url'),
+                    $formDataUrl        = $formTarget.data('data-target'),
                     fillForm            = function (type ,data) {
 
                         $($formTarget).find('[data-json]').each(function (i, v) {
@@ -409,7 +409,7 @@ var AUT_FORM_COMPONENT = {
 
                                 case  'post'      : {
                                     // get data from post
-                                    $value = data[$v.data('json')];
+                                    // $value = data[$v.data('json')];
                                 }; break;
                             }
 
@@ -429,13 +429,17 @@ var AUT_FORM_COMPONENT = {
 
                 switch ($formDataMethod)
                 {
-                    case  'item'      : fillForm('item');
-                    case  'datatable' : fillForm('datatable');
-                    case  'post'      : {
-                        $.post($formDataUrl,function (data) {
-                            fillForm('post',data);
-                        })
-                    }
+                    case  'item'      : fillForm('item'); break;
+                    case  'datatable' : fillForm('datatable'); break;
+                    case  'get'       : {
+                        $.get($formDataUrl,function (data) {
+
+                            fillForm('get',data);
+
+                            if (typeof $formTarget.data('get-success') != typeof undefined)
+                                window[$formTarget.data('get-success')]($formTarget, data);
+                        });
+                    }; break;
                 }
 
                 AUT_FORM_COMPONENT.validate.hideShowButtonForm($cont, 'update');

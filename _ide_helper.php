@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.4.21 on 2018-03-21.
+ * Generated for Laravel 5.4.21 on 2018-03-24.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -15407,6 +15407,16 @@ namespace App\Library\Url\Facades {
          *
          * @static 
          */
+        public static function permissions()
+        {
+            return \App\Library\Url\RouteUrls::permissions();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
         public static function attributes()
         {
             return \App\Library\Url\RouteUrls::attributes();
@@ -15963,16 +15973,76 @@ namespace Aut\FormComponent {
         /**
          * 
          *
+         * @return string 
+         * @static 
+         */
+        public static function loader()
+        {
+            return \Aut\FormComponent\Builder\FormBuilder::loader();
+        }
+        
+        /**
+         * 
+         *
          * @param string $type
          * @param bool $ajax
          * @param string $dataMethod
-         * @param string $dataUrl
-         * @param bool $stopOperationMessage
+         * @param string $dataTarget
+         * @return $this 
          * @static 
          */
-        public static function formSetting($type = 'default', $ajax = false, $dataMethod = 'post', $dataUrl = '', $stopOperationMessage = false)
+        public static function formSetting($type = 'default', $ajax = false, $dataMethod = 'get', $dataTarget = '')
         {
-            return \Aut\FormComponent\Builder\FormBuilder::formSetting($type, $ajax, $dataMethod, $dataUrl, $stopOperationMessage);
+            return \Aut\FormComponent\Builder\FormBuilder::formSetting($type, $ajax, $dataMethod, $dataTarget);
+        }
+        
+        /**
+         * 
+         *
+         * @param bool $ajax
+         * @return $this 
+         * @static 
+         */
+        public static function setAjax($ajax = true)
+        {
+            return \Aut\FormComponent\Builder\FormBuilder::setAjax($ajax);
+        }
+        
+        /**
+         * 
+         *
+         * @param string $type
+         * @return $this 
+         * @static 
+         */
+        public static function setFormType($type = 'default')
+        {
+            return \Aut\FormComponent\Builder\FormBuilder::setFormType($type);
+        }
+        
+        /**
+         * 
+         *
+         * @param string $dataMethod
+         * @param string $dataTarget
+         * @return $this 
+         * @static 
+         */
+        public static function getData($dataMethod = 'get', $dataTarget = '')
+        {
+            return \Aut\FormComponent\Builder\FormBuilder::getData($dataMethod, $dataTarget);
+        }
+        
+        /**
+         * 
+         *
+         * @param string $event (form,res)
+         * @return $this 
+         * @static 
+         */
+        public static function onGetDataSuccess($event = '')
+        {
+            return \Aut\FormComponent\Builder\FormBuilder::onGetDataSuccess($event);
         }
         
         /**
@@ -15983,7 +16053,7 @@ namespace Aut\FormComponent {
          * @param null $value
          * @param string $class
          * @param array $attr
-         * @return string 
+         * @return mixed 
          * @static 
          */
         public static function primarykey($id = '', $name = '', $value = null, $class = '', $attr = array())
@@ -15999,7 +16069,7 @@ namespace Aut\FormComponent {
          * @param null $value
          * @param string $class
          * @param array $attr
-         * @return string 
+         * @return mixed 
          * @static 
          */
         public static function hidden($id = '', $name = '', $value = null, $class = '', $attr = array())
@@ -16016,7 +16086,7 @@ namespace Aut\FormComponent {
          * @param null $value
          * @param string $class
          * @param array $attr
-         * @return string 
+         * @return mixed 
          * @static 
          */
         public static function text($label = '', $id = '', $name = '', $value = null, $class = '', $attr = array())
@@ -16033,6 +16103,7 @@ namespace Aut\FormComponent {
          * @param null $value
          * @param string $class
          * @param array $attr
+         * @return mixed 
          * @static 
          */
         public static function textarea($label = '', $id = '', $name = '', $value = null, $class = '', $attr = array())
@@ -16049,7 +16120,7 @@ namespace Aut\FormComponent {
          * @param null $value
          * @param string $class
          * @param array $attr
-         * @return string 
+         * @return mixed 
          * @static 
          */
         public static function number($label = '', $id = '', $name = '', $value = null, $class = '', $attr = array())
@@ -16068,7 +16139,7 @@ namespace Aut\FormComponent {
          * @param string $letter
          * @param string $class
          * @param array $attr
-         * @return string 
+         * @return mixed 
          * @static 
          */
         public static function autocomplete($label = '', $id = '', $name = '', $remote = '', $option = array(), $letter = '3', $class = '', $attr = array())
@@ -16086,7 +16157,7 @@ namespace Aut\FormComponent {
          * @param null $selected
          * @param string $class
          * @param array $attr
-         * @return string 
+         * @return mixed 
          * @static 
          */
         public static function select($label = '', $id = '', $name = '', $option = array(), $selected = null, $class = '', $attr = array())
@@ -16101,7 +16172,7 @@ namespace Aut\FormComponent {
          * @param string $class
          * @param string $text
          * @param string $html
-         * @return string 
+         * @return mixed 
          * @static 
          */
         public static function notify($icon = '', $class = '', $text = '', $html = '')
@@ -16112,15 +16183,16 @@ namespace Aut\FormComponent {
         /**
          * 
          *
+         * @param string $id
          * @param string $method
-         * @param string|array $action
+         * @param string $action
          * @param string $class
          * @param array $attr
          * @param array $option
          * @return \Illuminate\Support\HtmlString 
          * @static 
          */
-        public static function formOpen($id = '', $method = 'post', $action = '', $class = '', $attr = array(), $option = array())
+        public static function formOpen($id = '', $method = 'get', $action = '', $class = '', $attr = array(), $option = array())
         {
             return \Aut\FormComponent\Builder\FormBuilder::formOpen($id, $method, $action, $class, $attr, $option);
         }
@@ -16139,12 +16211,76 @@ namespace Aut\FormComponent {
         /**
          * 
          *
+         * @param bool $all
+         * @param bool $add
+         * @param bool $update
+         * @param bool $delete
+         * @return $this 
+         * @static 
+         */
+        public static function setStopOperationMessage($all = true, $add = false, $update = false, $delete = false)
+        {
+            return \Aut\FormComponent\Builder\FormBuilder::setStopOperationMessage($all, $add, $update, $delete);
+        }
+        
+        /**
+         * 
+         *
          * @param array $option
+         * @return mixed 
          * @static 
          */
         public static function formAjaxButtons($option = array())
         {
             return \Aut\FormComponent\Builder\FormBuilder::formAjaxButtons($option);
+        }
+        
+        /**
+         * 
+         *
+         * @param string $event (form,res)
+         * @return $this 
+         * @static 
+         */
+        public static function onSuccess($event = '')
+        {
+            return \Aut\FormComponent\Builder\FormBuilder::onSuccess($event);
+        }
+        
+        /**
+         * 
+         *
+         * @param string $event (form,res)
+         * @return $this 
+         * @static 
+         */
+        public static function onAddSuccess($event = '')
+        {
+            return \Aut\FormComponent\Builder\FormBuilder::onAddSuccess($event);
+        }
+        
+        /**
+         * 
+         *
+         * @param string $event (form,res)
+         * @return $this 
+         * @static 
+         */
+        public static function onUpdateSuccess($event = '')
+        {
+            return \Aut\FormComponent\Builder\FormBuilder::onUpdateSuccess($event);
+        }
+        
+        /**
+         * 
+         *
+         * @param string $event (form,res)
+         * @return $this 
+         * @static 
+         */
+        public static function onDeleteSuccess($event = '')
+        {
+            return \Aut\FormComponent\Builder\FormBuilder::onDeleteSuccess($event);
         }
         
         /**
@@ -16164,7 +16300,7 @@ namespace Aut\FormComponent {
         /**
          * 
          *
-         * @return string 
+         * @return mixed|string 
          * @static 
          */
         public static function modalClose()
@@ -16176,7 +16312,7 @@ namespace Aut\FormComponent {
          * 
          *
          * @param string $title
-         * @return string 
+         * @return mixed 
          * @static 
          */
         public static function modalHeaderOpen($title = '')
@@ -16187,7 +16323,7 @@ namespace Aut\FormComponent {
         /**
          * 
          *
-         * @return string 
+         * @return mixed 
          * @static 
          */
         public static function modalHeaderClose()
@@ -16198,8 +16334,8 @@ namespace Aut\FormComponent {
         /**
          * 
          *
-         * @param string $title
-         * @return string 
+         * @param string $class
+         * @return mixed 
          * @static 
          */
         public static function modalBodyOpen($class = '')
@@ -16210,7 +16346,7 @@ namespace Aut\FormComponent {
         /**
          * 
          *
-         * @return string 
+         * @return mixed 
          * @static 
          */
         public static function modalBodyClose()
@@ -16221,8 +16357,7 @@ namespace Aut\FormComponent {
         /**
          * 
          *
-         * @param string $title
-         * @return string 
+         * @return mixed 
          * @static 
          */
         public static function modalFooterOpen()
@@ -16233,7 +16368,7 @@ namespace Aut\FormComponent {
         /**
          * 
          *
-         * @return string 
+         * @return mixed 
          * @static 
          */
         public static function modalFooterClose()
@@ -16244,7 +16379,8 @@ namespace Aut\FormComponent {
         /**
          * 
          *
-         * @param string|array $data
+         * @param string $data
+         * @return $this 
          * @static 
          */
         public static function fill($data = '')
@@ -16268,6 +16404,7 @@ namespace Aut\FormComponent {
          * 
          *
          * @param bool $has
+         * @return $this 
          * @static 
          */
         public static function formGroup($has = true)
@@ -16282,6 +16419,7 @@ namespace Aut\FormComponent {
          * @param string $html
          * @param string $class
          * @param array $attr
+         * @return string 
          * @static 
          */
         public static function addCont($id = '', $html = '', $class = '', $attr = array())
@@ -16295,6 +16433,7 @@ namespace Aut\FormComponent {
          * @param string $id
          * @param string $class
          * @param string $attr
+         * @return string 
          * @static 
          */
         public static function contStart($id = '', $class = '', $attr = '')
@@ -16305,6 +16444,7 @@ namespace Aut\FormComponent {
         /**
          * 
          *
+         * @return string 
          * @static 
          */
         public static function contEnd()
@@ -16315,6 +16455,8 @@ namespace Aut\FormComponent {
         /**
          * 
          *
+         * @param $placeholder
+         * @return $this 
          * @static 
          */
         public static function placeholder($placeholder)
