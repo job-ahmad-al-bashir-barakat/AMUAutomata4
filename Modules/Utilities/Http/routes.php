@@ -32,7 +32,7 @@ function () {
 
         Route::get('seo', 'BuilderController@getSeo')->middleware('permission:page-builder');
         Route::post('seo', 'BuilderController@storeSeo')->middleware('permission:page-builder');
-        Route::put('seo/{seo}', 'BuilderController@updateSeo')->middleware('permission:page-builder');
+        Route::put('seo', 'BuilderController@updateSeo')->middleware('permission:page-builder');
 
         Route::get('modules/{tableName}/{pageId}/{objectId?}', 'BuilderController@getPages');
 
