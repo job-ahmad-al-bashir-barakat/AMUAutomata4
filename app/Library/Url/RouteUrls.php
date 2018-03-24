@@ -89,6 +89,11 @@ class RouteUrls
         return $this->localizeUrl('builder/pages', 'utilities');
     }
 
+    public function builderSeo()
+    {
+        return $this->localizeUrl('builder/seo', 'utilities');
+    }
+
     public function sliders()
     {
         return $this->localizeUrl('builder/sliders', 'utilities');
