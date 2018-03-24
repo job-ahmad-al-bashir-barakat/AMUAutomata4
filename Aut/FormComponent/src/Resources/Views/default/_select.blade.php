@@ -1,7 +1,13 @@
 @php
-    extract(formClassHelper($class));
-    $star = preg_match('/\b(?<![\S])(required)(?![\S])\b/',$class) ? 'star' : '';
-    $attr = $dataJson ? array_merge($attr,['data-json' => $dataJson]) : $attr;
+    $originalName = $name;
+    $_lang        = isset($_lang) ? $_lang                                        : false;
+    $id           = $_lang        ? "{$id}-{$_lang}"                              : $id;
+    $name         = $_lang        ? "{$name}_{$_lang}"                            : $name;
+    $label        = $_lang        ? "$label ({$item["native"]})"                  : $label;
+    $attr         = $dataJson     ? array_merge($attr,['data-json' => $dataJson]) : $attr;
+
+    if($trans)
+        $name = "trans_{$originalName}[{$name}]";
 @endphp
 
 @if($formGroup)
