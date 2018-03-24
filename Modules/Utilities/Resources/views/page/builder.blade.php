@@ -39,7 +39,7 @@
     <div id="page_modules" class="modal fade" role="dialog" aria-hidden="true" aria-labeledby="page modules">
         <div class="modal-dialog">
             <div class="modal-content">
-                {{ Form::open(['class' => 'ajax-form']) }}
+                {{ Form::open(['id' => 'page_module_form']) }}
                     {!! FormComponent::hidden('page_id', 'page_id') !!}
                     {!! FormComponent::hidden('optional_id', 'optional_id') !!}
                     {!! FormComponent::hidden('table_name', 'table_name') !!}
@@ -116,8 +116,25 @@
                     AUTOMATA_APP.htmlTable.fillTableData($('#page_modules_table'), res);
                 });
             });
-            //todo should be global
-            $('form.ajax-form').submit(function (e) {
+            var $pageSeoModal = $('#page_seos_modal');
+            $pageSeoModal.on('show.bs.modal', function (e) {
+                var $modal = $(this);
+                var $btn = $(e.relatedTarget);
+                var pageId = $btn.data('page_id');
+                var pageName = $btn.data('page_name');
+                var tableName = $btn.data('table_name');
+                var objectId = $btn.data('object_id');
+                $modal.find('[name="page_id"]').val(pageId);
+                $modal.find('[name="table_name"]').val(tableName);
+                $modal.find('[name="optional_id"]').val(objectId);
+                $modal.find('#page_name').html(pageName);
+                $.get('{{ RouteUrls::getBuilderPageModules() }}' + '/' + tableName + '/' + pageId + (objectId ? ( '/' + objectId) : ''), function (res) {
+                    AUTOMATA_APP.htmlTable.clearRows($('#page_modules_table'));
+                    AUTOMATA_APP.htmlTable.fillTableData($('#page_modules_table'), res);
+                });
+            });
+            //@todo should use FormComponent
+            $('form#page_module_form').submit(function (e) {
                 e.preventDefault();
                 var $form = $(this);
                 var url = $form.attr('action');

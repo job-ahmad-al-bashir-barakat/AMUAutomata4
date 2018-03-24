@@ -29,7 +29,6 @@ class SchemaLanguageTableFactory extends GlobalFactory
             ->queryAddColumn('namespace', function ($item) {
                 if($item->languageTable)
                     return $item->languageTable->namespace;
-                return trans('utilities::app.not_set');
             })
             ->queryAddColumn('inserted', function ($item){
                 $class = 'fa-ban text-danger';

@@ -28,7 +28,6 @@ class SchemaTableFactory extends GlobalFactory
             ->queryAddColumn('namespace', function ($item) {
                 if($item->table)
                     return $item->table->namespace;
-                return trans('utilities::app.not_set');
             })
             ->queryAddColumn('pageable', function ($item) {
                 if($item->table)
