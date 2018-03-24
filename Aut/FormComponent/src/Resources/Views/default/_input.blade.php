@@ -31,9 +31,10 @@
             @endphp
 
             {!! Form::$type($name,$value,array_merge([
-                'id'          => $id,
-                'class'       => "form-control $class",
-                'placeholder' => shortIfElse(empty($placeholder),$label,$placeholder),
+                'id'            => $id,
+                'class'         => "form-control $class",
+                'placeholder'   => shortIfElse(empty($placeholder),$label,$placeholder),
+                'data-editable' => true,
             ],$attr)) !!}
             <div id="error_{{$id}}"></div>
         </div>

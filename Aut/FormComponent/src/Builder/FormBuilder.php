@@ -6,25 +6,29 @@ use Form;
 
 class FormBuilder
 {
-    private $stopOperationMessage = false;
+    private $loader = 'data-form-loader';
 
-    private $formType = 'default';
-
-    private $dataMethod = 'post';
-
-    private $placeholder = '';
-
-    private $formGroup = true;
-
-    private $dataUrl = '';
-
-    private $hasLangs  = false;
-
-    private $dataJson = '';
-
-    private $ajax = false;
-
-    private $langs;
+    private $property = [
+        'formGroup'                  => true,
+        'stopOperationMessage'       => false,
+        'stopAddOperationMessage'    => false,
+        'stopUpdateOperationMessage' => false,
+        'stopDeleteOperationMessage' => false,
+        'extraSerialize'             => '',
+        'extraSerializeAdd'          => '',
+        'extraSerializeUpdate'       => '',
+        'extraSerializeDelete'       => '',
+        'hasLangs'                   => false,
+        'ajax'                       => false,
+        'autoAjaxCont'               => true,
+        'dataMethod'                 => 'get',
+        'formType'                   => 'default',
+        'placeholder'                => '',
+        'dataTarget'                 => '',
+        'dataJson'                   => '',
+        'langs'                      => [],
+        'takeAction'                 => false,
+    ];
 
     private $resetProperty = [
         'hasLangs'    => false,
@@ -33,13 +37,21 @@ class FormBuilder
         'placeholder' => '',
     ];
 
+    private $event = [
+        'successFunc'        => '',
+        'addSuccessFunc'     => '',
+        'updateSuccessFunc'  => '',
+        'deleteSuccessFunc'  => '',
+        'getDataSuccessFunc' => '',
+    ];
+
     /**
      * FormBuilder constructor.
      */
     public function __construct()
     {
-        $this->formType             = config('form-component.formType');
-        $this->langs                = \LaravelLocalization::getSupportedLocales();
+        $this->property['formType'] = config('form-component.formType');
+        $this->property['langs']    = \LaravelLocalization::getSupportedLocales();
 
         view()->share([
             'supportMultipleLangs' => config('form-component.supportMultipleLangs')
@@ -53,6 +65,14 @@ class FormBuilder
     public function __call($type, $arguments)
     {
         $this->defaultMethodCall($type, $arguments);
+    }
+
+    /**
+     * @return string
+     */
+    public function loader()
+    {
+        return $this->loader;
     }
 
     /**
@@ -71,14 +91,11 @@ class FormBuilder
         $this->_input($type, $label, $id, $name, $value, $class, $attr);
     }
 
-    /**
-     * function for reset property form component
-     */
     private function resetProperty()
     {
         foreach ($this->resetProperty as $prop => $value)
         {
-            $this->$prop = $value;
+            $this->property[$prop] = $value;
         }
     }
 
@@ -86,16 +103,63 @@ class FormBuilder
      * @param string $type
      * @param bool $ajax
      * @param string $dataMethod
-     * @param string $dataUrl
-     * @param bool $stopOperationMessage
+     * @param string $dataTarget
+     * @return $this
      */
-    function formSetting($type = 'default' , $ajax = false , $dataMethod = 'post', $dataUrl = '', $stopOperationMessage = false)
+    function formSetting($type = 'default' , $ajax = false , $dataMethod = 'get', $dataTarget = '')
     {
-        $this->formType             = $type;
-        $this->ajax                 = $ajax;
-        $this->stopOperationMessage = $stopOperationMessage;
-        $this->dataMethod           = $dataMethod;
-        $this->dataUrl              = $dataUrl;
+        $this->property['formType']   = $type;
+        $this->property['ajax']       = $ajax;
+        $this->property['dataMethod'] = $dataMethod;
+        $this->property['dataTarget'] = $dataTarget;
+
+        return $this;
+    }
+
+    /**
+     * @param bool $ajax
+     * @return $this
+     */
+    function setAjax($ajax = true)
+    {
+        $this->property['ajax'] = $ajax;
+
+        return $this;
+    }
+
+    /**
+     * @param string $type
+     * @return $this
+     */
+    function setFormType($type = 'default')
+    {
+        $this->property['formType'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * @param string $dataMethod
+     * @param string $dataTarget
+     * @return $this
+     */
+    function getData($dataMethod = 'get', $dataTarget = '')
+    {
+        $this->property['dataMethod'] = $dataMethod;
+        $this->property['dataTarget'] = $dataTarget;
+
+        return $this;
+    }
+
+    /**
+     * @param string $event (form,res)
+     * @return $this
+     */
+    function onGetDataSuccess($event = '')
+    {
+        $this->event['getDataSuccessFunc'] = $event;
+
+        return $this;
     }
 
     /**
@@ -105,21 +169,24 @@ class FormBuilder
      * @param null $value
      * @param string $class
      * @param array $attr
-     * @return string
+     * @return mixed
      */
-    private function _hidden($type, $id = '', $name = '', $value = null, $class = '', $attr = [])
+    private function _hidden($type, $id = '', $name = '', $value = null, $class = '', $attr = [] ,$permanent = false)
     {
-        echo removeSpaces(view("form-component::{$this->formType}.hidden", [
+        $output = removeSpaces(view("form-component::{$this->property['formType']}.hidden", [
             'id'        => $id,
             'name'      => $name,
             'value'     => $value,
             'class'     => $class,
             'attr'      => $attr,
             'type'      => $type,
-            'dataJson'  => $this->dataJson
+            'dataJson'  => $this->property['dataJson'],
+            'permanent' => $permanent,
         ])->render());
 
         $this->resetProperty();
+
+        return $output;
     }
 
     /**
@@ -130,11 +197,11 @@ class FormBuilder
      * @param null $value
      * @param string $class
      * @param array $attr
-     * @return string
+     * @return mixed
      */
     private function _input($type, $label = '', $id = '', $name = '', $value = null, $class = '', $attr = [])
     {
-        echo removeSpaces(view("form-component::{$this->formType}.input", [
+        $output = removeSpaces(view("form-component::{$this->property['formType']}.input", [
             'label'       => $label,
             'id'          => $id,
             'name'        => $name,
@@ -142,14 +209,16 @@ class FormBuilder
             'class'       => $class,
             'attr'        => $attr,
             'type'        => $type,
-            'dataJson'    => $this->dataJson,
-            'hasLangs'    => $this->hasLangs,
-            'langs'       => $this->langs,
-            'formGroup'   => $this->formGroup,
-            'placeholder' => $this->placeholder,
+            'dataJson'    => $this->property['dataJson'],
+            'hasLangs'    => $this->property['hasLangs'],
+            'langs'       => $this->property['langs'],
+            'formGroup'   => $this->property['formGroup'],
+            'placeholder' => $this->property['placeholder'],
         ])->render());
 
         $this->resetProperty();
+
+        return $output;
     }
 
     /**
@@ -158,11 +227,11 @@ class FormBuilder
      * @param null $value
      * @param string $class
      * @param array $attr
-     * @return string
+     * @return mixed
      */
     function primarykey($id = '', $name = '', $value = null, $class = '', $attr = [])
     {
-        $this->_hidden('primarykey', $id, $name, $value, $class, $attr);
+        return $this->_hidden('primarykey', $id, $name, $value, $class, $attr);
     }
 
     /**
@@ -171,11 +240,11 @@ class FormBuilder
      * @param null $value
      * @param string $class
      * @param array $attr
-     * @return string
+     * @return mixed
      */
     function hidden($id = '', $name = '', $value = null, $class = '', $attr = [])
     {
-        $this->_hidden('hidden', $id, $name, $value, $class, $attr);
+        return $this->_hidden('hidden', $id, $name, $value, $class, $attr);
     }
 
     /**
@@ -185,11 +254,11 @@ class FormBuilder
      * @param null $value
      * @param string $class
      * @param array $attr
-     * @return string
+     * @return mixed
      */
     function text($label = '', $id = '', $name = '', $value = null, $class = '', $attr = [])
     {
-        $this->_input('text', $label, $id, $name, $value, $class, $attr);
+        return $this->_input('text', $label, $id, $name, $value, $class, $attr);
     }
 
     /**
@@ -199,24 +268,27 @@ class FormBuilder
      * @param null $value
      * @param string $class
      * @param array $attr
+     * @return mixed
      */
     function textarea($label = '', $id = '', $name = '', $value = null, $class = '', $attr = [])
     {
-        echo removeSpaces(view("form-component::{$this->formType}.textarea", [
+        $output = removeSpaces(view("form-component::{$this->property['formType']}.textarea", [
             'label'       => $label,
             'id'          => $id,
             'name'        => $name,
             'value'       => $value,
             'class'       => $class,
             'attr'        => $attr,
-            'dataJson'    => $this->dataJson,
-            'hasLangs'    => $this->hasLangs,
-            'langs'       => $this->langs,
-            'formGroup'   => $this->formGroup,
-            'placeholder' => $this->placeholder,
+            'dataJson'    => $this->property['dataJson'],
+            'hasLangs'    => $this->property['hasLangs'],
+            'langs'       => $this->property['langs'],
+            'formGroup'   => $this->property['formGroup'],
+            'placeholder' => $this->property['placeholder'],
         ])->render());
 
         $this->resetProperty();
+
+        return $output;
     }
 
     /**
@@ -226,11 +298,11 @@ class FormBuilder
      * @param null $value
      * @param string $class
      * @param array $attr
-     * @return string
+     * @return mixed
      */
     function number($label = '', $id = '', $name = '', $value = null, $class = '', $attr = [])
     {
-        $this->_input('number', $label, $id, $name, $value, $class, $attr);
+        return $this->_input('number', $label, $id, $name, $value, $class, $attr);
     }
 
     /**
@@ -242,11 +314,11 @@ class FormBuilder
      * @param string $letter
      * @param string $class
      * @param array $attr
-     * @return string
+     * @return mixed
      */
     function autocomplete($label = '', $id = '', $name = '', $remote = '', $option = [], $letter = '3', $class = '', $attr = [])
     {
-        echo removeSpaces(view("form-component::{$this->formType}.autocomplete", [
+        $output = removeSpaces(view("form-component::{$this->property['formType']}.autocomplete", [
             'label'       => $label,
             'id'          => $id,
             'name'        => $name,
@@ -255,12 +327,16 @@ class FormBuilder
             'letter'      => $letter,
             'class'       => $class,
             'attr'        => $attr,
-            'dataJson'    => $this->dataJson,
-            'formGroup'   => $this->formGroup,
-            'placeholder' => $this->placeholder,
+            'dataJson'    => $this->property['dataJson'],
+            'hasLangs'    => $this->property['hasLangs'],
+            'langs'       => $this->property['langs'],
+            'formGroup'   => $this->property['formGroup'],
+            'placeholder' => $this->property['placeholder'],
         ])->render());
 
         $this->resetProperty();
+
+        return $output;
     }
 
     /**
@@ -271,11 +347,11 @@ class FormBuilder
      * @param null $selected
      * @param string $class
      * @param array $attr
-     * @return string
+     * @return mixed
      */
     function select($label = '', $id = '', $name = '', $option = [], $selected = null, $class = '', $attr = [])
     {
-        echo removeSpaces(view("form-component::{$this->formType}.select", [
+        $output = removeSpaces(view("form-component::{$this->property['formType']}.select", [
             'label'       => $label,
             'id'          => $id,
             'name'        => $name,
@@ -283,12 +359,16 @@ class FormBuilder
             'selected'    => $selected,
             'class'       => $class,
             'attr'        => $attr,
-            'dataJson'    => $this->dataJson,
-            'formGroup'   => $this->formGroup,
-            'placeholder' => $this->placeholder,
+            'dataJson'    => $this->property['dataJson'],
+            'hasLangs'    => $this->property['hasLangs'],
+            'langs'       => $this->property['langs'],
+            'formGroup'   => $this->property['formGroup'],
+            'placeholder' => $this->property['placeholder'],
         ])->render());
 
         $this->resetProperty();
+
+        return $output;
     }
 
     /**
@@ -296,42 +376,74 @@ class FormBuilder
      * @param string $class
      * @param string $text
      * @param string $html
-     * @return string
+     * @return mixed
      */
     function notify($icon = '', $class = '', $text = '', $html = '')
     {
-        echo removeSpaces(view("form-component::{$this->formType}.notify", [
+        $output = removeSpaces(view("form-component::{$this->property['formType']}.notify", [
             'icon'  => $icon,
             'class' => $class,
             'text'  => $text,
             'html'  => $html,
         ])->render());
+
+        return $output;
     }
 
     /**
+     * @param string $id
      * @param string $method
-     * @param string|array $action
+     * @param string $action
      * @param string $class
      * @param array $attr
      * @param array $option
      * @return \Illuminate\Support\HtmlString
      */
-    function formOpen($id= '', $method = 'post', $action = '', $class = '', $attr = [], $option = [])
+    function formOpen($id= '', $method = 'get', $action = '', $class = '', $attr = [])
     {
         $action = is_array($action) ? $action : ['url' => $action ? $action : '#'];
-        $attr   = $this->stopOperationMessage
-            ? array_merge($attr, ['data-stop-operation-message' => $this->stopOperationMessage])
+
+        // add stopOperationMessage
+        $attr = $this->property['stopOperationMessage']
+            ? array_merge($attr, ['data-stop-operation-message' => $this->property['stopOperationMessage']])
+            : $attr;
+
+        // add getDataSuccessFunc
+        $attr = empty($this->event['getDataSuccessFunc'])
+            ? $attr
+            : array_merge($attr, ['data-get-success' => $this->event['getDataSuccessFunc']]);
+
+        // add successFunc
+        $attr = empty($this->event['successFunc'])
+            ? $attr
+            : array_merge($attr, ['data-ajax-form-success' => $this->event['successFunc']]);
+
+        // add extraSerialize
+        $attr = empty($this->property['extraSerialize'])
+            ? $attr
+            : array_merge($attr, ['data-extra-serialize' => $this->property['extraSerialize']]);
+
+        // add extraSerialize
+        $attr = $this->property['takeAction']
+            ? array_merge($attr, ['data-take-action' => $this->property['takeAction']])
             : $attr;
 
         $option = array_merge([
             'id'          => $id,
             'method'      => $method,
-            'class'       => $this->ajax ? "ajax-form $class" : $class,
-            'data-method' => $this->dataMethod,
-            'data-url'    => $this->dataUrl
-        ],$action, $option, $attr, $option);
+            'class'       => $this->property['ajax'] ? "ajax-form $class" : $class,
+            'data-method' => $this->property['dataMethod'],
+            'data-target' => $this->property['dataTarget']
+        ],$action, $attr);
 
-        echo Form::open($option);
+        return Form::open($option);
+    }
+
+    function takeAction($bool = true)
+    {
+        $this->property['takeAction'] = $bool;
+
+        return $this;
     }
 
     /**
@@ -339,41 +451,139 @@ class FormBuilder
      */
     function formClose()
     {
-        echo Form::close();
+        return Form::close();
+    }
+
+    /**
+     * @return string
+     */
+    function ajaxContOpen()
+    {
+        $this->property['autoAjaxCont'] = false;
+
+        return "<div class='ajaxCont'>";
+    }
+
+    /**
+     * @return string
+     */
+    function ajaxContClose()
+    {
+        return "</div>";
+    }
+
+    /**
+     * @param bool $all
+     * @param bool $add
+     * @param bool $update
+     * @param bool $delete
+     * @return $this
+     */
+    function setStopOperationMessage($all = true, $add = false, $update = false, $delete = false)
+    {
+        $this->property['stopOperationMessage']       = $all;
+        $this->property['stopAddOperationMessage']    = $add;
+        $this->property['stopUpdateOperationMessage'] = $update;
+        $this->property['stopDeleteOperationMessage'] = $delete;
+
+        return $this;
+    }
+
+    /**
+     * @param string $all
+     * @param string $add
+     * @param string $update
+     * @param string $delete
+     * @return $this
+     */
+    function setExtraSerialize($all = '', $add = '', $update = '', $delete = '')
+    {
+        $this->property['extraSerialize']       = $all;
+        $this->property['extraSerializeAdd']    = $add;
+        $this->property['extraSerializeUpdate'] = $update;
+        $this->property['extraSerializeDelete'] = $delete;
+
+        return $this;
     }
 
     /**
      * @param array $option
+     * @return mixed
      */
     function formAjaxButtons($option = [
-        'successFunc'          => '',
-        'addSuccessFunc'       => '',
-        'updateSuccessFunc'    => '',
-        'deleteSuccessFunc'    => '',
-        'extraSerialize'       => '',
-        'deleteSerialize'      => '',
-        'stopOperationMessage' => '',
+        'addSerialize'         => true,
+        'updateSerialize'      => true,
+        'deleteSerialize'      => true,
     ]) {
 
         $option = array_merge([
-            'successFunc'          => '',
-            'addSuccessFunc'       => '',
-            'updateSuccessFunc'    => '',
-            'deleteSuccessFunc'    => '',
-            'extraSerialize'       => '',
-            'deleteSerialize'      => '',
-            'stopOperationMessage' => '',
+            'addSerialize'         => true,
+            'updateSerialize'      => true,
+            'deleteSerialize'      => true,
         ],$option);
 
-        echo removeSpaces(view("form-component::{$this->formType}.modal.submit-ajax-button",[
-            'successFunc'          =>  $option['successFunc'],
-            'addSuccessFunc'       =>  $option['addSuccessFunc'],
-            'updateSuccessFunc'    =>  $option['updateSuccessFunc'],
-            'deleteSuccessFunc'    =>  $option['deleteSuccessFunc'],
-            'extraSerialize'       =>  $option['extraSerialize'],
-            'deleteSerialize'      =>  $option['deleteSerialize'],
-            'stopOperationMessage' =>  $option['stopOperationMessage'],
+        return removeSpaces(view("form-component::{$this->property['formType']}.modal.submit-ajax-button",[
+
+            'addSuccessFunc'             => $this->event['addSuccessFunc'],
+            'updateSuccessFunc'          => $this->event['updateSuccessFunc'],
+            'deleteSuccessFunc'          => $this->event['deleteSuccessFunc'],
+
+            'addSerialize'               => $option['addSerialize'],
+            'updateSerialize'            => $option['updateSerialize'],
+            'deleteSerialize'            => $option['deleteSerialize'],
+
+            'extraSerializeAdd'          => $this->property['extraSerializeAdd'],
+            'extraSerializeUpdate'       => $this->property['extraSerializeUpdate'],
+            'extraSerializeDelete'       => $this->property['extraSerializeDelete'],
+
+            'stopAddOperationMessage'    => $this->property['stopAddOperationMessage'],
+            'stopUpdateOperationMessage' => $this->property['stopUpdateOperationMessage'],
+            'stopDeleteOperationMessage' => $this->property['stopDeleteOperationMessage'],
         ])->render());
+    }
+
+    /**
+     * @param string $event (form,res)
+     * @return $this
+     */
+    function onSuccess($event = '')
+    {
+        $this->event['successFunc'] = $event;
+
+        return $this;
+    }
+
+    /**
+     * @param string $event (form,res)
+     * @return $this
+     */
+    function onAddSuccess($event = '')
+    {
+        $this->event['addSuccessFunc'] = $event;
+
+        return $this;
+    }
+
+    /**
+     * @param string $event (form,res)
+     * @return $this
+     */
+    function onUpdateSuccess($event = '')
+    {
+        $this->event['updateSuccessFunc'] = $event;
+
+        return $this;
+    }
+
+    /**
+     * @param string $event (form,res)
+     * @return $this
+     */
+    function onDeleteSuccess($event = '')
+    {
+        $this->event['deleteSuccessFunc'] = $event;
+
+        return $this;
     }
 
     /**
@@ -382,93 +592,97 @@ class FormBuilder
      * @param string $attr
      * @return string
      */
-    function modalOpen($id = '',$class = '',$attr = '') {
+    function modalOpen($id = '', $class = '', $attr = '') {
 
         // turn on ajax
-        $this->ajax = true;
+        $this->property['ajax'] = true;
 
-        if($this->ajax)
-            echo "<div class='ajaxCont'>";
+        if($this->property['autoAjaxCont'] && $this->property['ajax'])
+            $output = "<div class='ajaxCont'>";
 
-        echo removeSpaces(view("form-component::{$this->formType}.modal.modal-open", [
+        $output .= removeSpaces(view("form-component::{$this->property['formType']}.modal.modal-open", [
             'id'    => $id,
             'class' => $class,
             'attr'  => $attr
         ])->render());
+
+        return $output;
     }
 
     /**
-     * @return string
+     * @return mixed|string
      */
     function modalClose() {
 
-        echo removeSpaces(view("form-component::{$this->formType}.modal.modal-close")->render());
+        $output = removeSpaces(view("form-component::{$this->property['formType']}.modal.modal-close")->render());
 
-        if($this->ajax)
-            echo '</div>';
+        if($this->property['autoAjaxCont'] && $this->property['ajax'])
+            $output .= '</div>';
+
+        return $output;
     }
 
     /**
      * @param string $title
-     * @return string
+     * @return mixed
      */
     function modalHeaderOpen($title = '') {
 
-        echo removeSpaces(view("form-component::{$this->formType}.modal.modal-header-open", [
+        return removeSpaces(view("form-component::{$this->property['formType']}.modal.modal-header-open", [
             'title' => $title,
         ])->render());
     }
 
     /**
-     * @return string
+     * @return mixed
      */
     function modalHeaderClose() {
 
-        echo removeSpaces(view("form-component::{$this->formType}.modal.modal-header-close")->render());
+        return removeSpaces(view("form-component::{$this->property['formType']}.modal.modal-header-close")->render());
     }
 
     /**
-     * @param string $title
-     * @return string
+     * @param string $class
+     * @return mixed
      */
     function modalBodyOpen($class = '') {
 
-        echo removeSpaces(view("form-component::{$this->formType}.modal.modal-body-open", [
+        return removeSpaces(view("form-component::{$this->property['formType']}.modal.modal-body-open", [
             'class' => $class,
         ])->render());
     }
 
     /**
-     * @return string
+     * @return mixed
      */
     function modalBodyClose() {
 
-        echo removeSpaces(view("form-component::{$this->formType}.modal.modal-body-close")->render());
+        return removeSpaces(view("form-component::{$this->property['formType']}.modal.modal-body-close")->render());
     }
 
     /**
-     * @param string $title
-     * @return string
+     * @return mixed
      */
     function modalFooterOpen() {
 
-        echo removeSpaces(view("form-component::{$this->formType}.modal.modal-footer-open")->render());
+        return removeSpaces(view("form-component::{$this->property['formType']}.modal.modal-footer-open")->render());
     }
 
     /**
-     * @return string
+     * @return mixed
      */
     function modalFooterClose() {
 
-        echo removeSpaces(view("form-component::{$this->formType}.modal.modal-footer-close")->render());
+        return removeSpaces(view("form-component::{$this->property['formType']}.modal.modal-footer-close")->render());
     }
 
     /**
-     * @param string|array $data
+     * @param string $data
+     * @return $this
      */
     function fill($data = '')
     {
-        $this->dataJson = is_array($data)
+        $this->property['dataJson'] = is_array($data)
             ? collect($data)->toJson()
             : $data;
 
@@ -481,18 +695,19 @@ class FormBuilder
      */
     function langs($langs = []) {
 
-        $this->hasLangs = true;
-        $this->langs    = shortIfElse(empty($langs),$this->langs,$langs);
+        $this->property['hasLangs'] = true;
+        $this->property['langs']    = shortIfElse(empty($langs),$this->property['langs'],$langs);
 
         return $this;
     }
 
     /**
      * @param bool $has
+     * @return $this
      */
     function formGroup($has = true) {
 
-        $this->formGroup = $has;
+        $this->property['formGroup'] = $has;
 
         return $this;
     }
@@ -502,35 +717,47 @@ class FormBuilder
      * @param string $html
      * @param string $class
      * @param array $attr
+     * @return string
      */
     function addCont($id = '', $html = '', $class = '', $attr = []) {
 
         $attr = convertArrayToString($attr);
 
-        echo "<div id='$id' class='$class' $attr>$html</div>";
+        return "<div id='$id' class='$class' $attr>$html</div>";
     }
 
     /**
      * @param string $id
      * @param string $class
      * @param string $attr
+     * @return string
      */
     function contStart($id = '', $class = '', $attr = '') {
 
         $attr = convertArrayToString($attr);
 
-        echo "<div id='$id' class='$class' $attr>";
+        return "<div id='$id' class='$class' $attr>";
     }
 
+    /**
+     * @return string
+     */
     function contEnd() {
 
-        echo "</div>";
+        return "</div>";
     }
 
+    /**
+     * @param $placeholder
+     * @return $this
+     */
     function placeholder($placeholder)
     {
-        $this->placeholder = $placeholder;
+        $this->property['placeholder'] = $placeholder;
 
         return $this;
     }
+
+    // fill form
+    // arrange code with trits
 }
