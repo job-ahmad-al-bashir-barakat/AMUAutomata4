@@ -7,9 +7,9 @@
             {!! FormComponent::hidden('page_id', 'page_id') !!}
             {!! FormComponent::hidden('optional_id', 'optional_id') !!}
             {!! FormComponent::hidden('table_name', 'table_name') !!}
-            {!! FormComponent::langs()->text('Title', 'trans_title', 'trans_title') !!}
-            {!! FormComponent::langs()->text('Description', 'trans_description', 'trans_description') !!}
-            {!! FormComponent::langs()->autocomplete('Keywords', 'keywords', 'keywords') !!}
+            {!! FormComponent::langs()->text('Title', 'title', 'title') !!}
+            {!! FormComponent::langs()->text('Description', 'description', 'description') !!}
+            {!! FormComponent::langs()->autocomplete('Keywords', 'keywords', 'keywords', '', [], '0', '', ['data-tags' => "true"]) !!}
         {!! FormComponent::modalBodyClose() !!}
         {!! FormComponent::modalFooterOpen() !!}
             {!! FormComponent::formAjaxButtons() !!}
