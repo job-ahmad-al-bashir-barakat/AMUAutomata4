@@ -1,13 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: HP-Pavilion
- * Date: 3/24/2018
- * Time: 9:08 PM
- */
 
 namespace Aut\FormComponent\Traits;
-
 
 trait Event
 {

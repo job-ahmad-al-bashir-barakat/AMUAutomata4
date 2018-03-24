@@ -231,4 +231,39 @@ trait Element
 
         return $output;
     }
+
+    /**
+     * @param string $id
+     * @param string $html
+     * @param string $class
+     * @param array $attr
+     * @return string
+     */
+    function addCont($id = '', $html = '', $class = '', $attr = []) {
+
+        $attr = convertArrayToString($attr);
+
+        return "<div id='$id' class='$class' $attr>$html</div>";
+    }
+
+    /**
+     * @param string $id
+     * @param string $class
+     * @param string $attr
+     * @return string
+     */
+    function contStart($id = '', $class = '', $attr = '') {
+
+        $attr = convertArrayToString($attr);
+
+        return "<div id='$id' class='$class' $attr>";
+    }
+
+    /**
+     * @return string
+     */
+    function contEnd() {
+
+        return "</div>";
+    }
 }
