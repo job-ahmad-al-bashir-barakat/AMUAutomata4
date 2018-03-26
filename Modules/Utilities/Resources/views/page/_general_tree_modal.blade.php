@@ -1,5 +1,5 @@
 {!! FormComponent::modalOpen('modal-general-tree') !!}
-{!! FormComponent::getData('item')->formOpen('general-tree','post',treeLocalizeUrl($view),'',['data-tree-target' => '.general-tree']) !!}
+{!! FormComponent::onSuccess('generalMenu')->getData('item')->formOpen('general-tree','post',treeLocalizeUrl($view),'',['data-tree-target' => '.general-tree']) !!}
     {!! FormComponent::modalHeaderOpen(trans('utilities::app.general_item')) !!}
     {!! FormComponent::modalHeaderClose() !!}
 
@@ -8,12 +8,12 @@
         {!! FormComponent::placeholder(trans('utilities::app.parent'))->fill('parent')->autocomplete(trans('utilities::app.parent') ,'parent-id' ,'parent_id','autocomplete/general?type=dialog',[],'3' ,'tree-autocomplete-change') !!}
         {{--tree-autocomplete-change is class for change event to fill order with its value--}}
         {!! FormComponent::fill('name-{lang}')->langs()->text(trans('utilities::app.name'),'name' ,'name' ,null ,'required') !!}
-        {!! FormComponent::fill('prefix')->text(trans('utilities::app.prefix'),'prefix','prefix') !!}
+        {!! FormComponent::fill('prefix')->trans(false)->text(trans('utilities::app.prefix'),'prefix','prefix') !!}
         {!! FormComponent::fill('order')->hidden('order' ,'order') !!}
     {!! FormComponent::modalBodyClose() !!}
 
     {!! FormComponent::modalFooterOpen() !!}
-        {!! FormComponent::onSuccess('generalMenu')->formAjaxButtons(['deleteSerialize' => false]) !!}
+        {!! FormComponent::formAjaxButtons(['deleteSerialize' => false]) !!}
     {!! FormComponent::modalFooterClose() !!}
 {!! FormComponent::formClose() !!}
 {!! FormComponent::modalClose() !!}

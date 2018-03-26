@@ -23,6 +23,7 @@ class FormBuilder
         'extraSerializeUpdate'       => '',
         'extraSerializeDelete'       => '',
         'hasLangs'                   => false,
+        'hasTrans'                   => false,
         'ajax'                       => false,
         'autoAjaxCont'               => true,
         'dataMethod'                 => 'get',
@@ -36,6 +37,7 @@ class FormBuilder
 
     private $resetProperty = [
         'hasLangs'    => false,
+        'hasTrans'    => false,
         'formGroup'   => true,
         'dataJson'    => '',
         'placeholder' => '',
@@ -56,10 +58,27 @@ class FormBuilder
     {
         $this->property['formType'] = config('form-component.formType');
         $this->property['langs']    = \LaravelLocalization::getSupportedLocales();
+        $supportMultipleLangs       = config('form-component.supportMultipleLangs');
+
+        $this->defaultHasTrans($supportMultipleLangs);
 
         view()->share([
-            'supportMultipleLangs' => config('form-component.supportMultipleLangs')
+            'supportMultipleLangs' => $supportMultipleLangs
         ]);
+    }
+
+    /**
+     * @param $supportMultipleLangs
+     */
+    function defaultHasTrans($supportMultipleLangs) {
+
+        if($supportMultipleLangs) {
+            $this->property['hasTrans']      = true;
+            $this->resetProperty['hasTrans'] = true;
+        } else {
+            $this->property['hasTrans']      = false;
+            $this->resetProperty['hasTrans'] = false;
+        }
     }
 
     /**
@@ -223,6 +242,17 @@ class FormBuilder
 
         $this->property['hasLangs'] = true;
         $this->property['langs']    = shortIfElse(empty($langs),$this->property['langs'],$langs);
+
+        return $this;
+    }
+
+    /**
+     * @param bool $has
+     * @return $this
+     */
+    function trans($has = true) {
+
+        $this->property['hasTrans'] = $has;
 
         return $this;
     }
