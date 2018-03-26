@@ -58,27 +58,6 @@ class FormBuilder
     {
         $this->property['formType'] = config('form-component.formType');
         $this->property['langs']    = \LaravelLocalization::getSupportedLocales();
-        $supportMultipleLangs       = config('form-component.supportMultipleLangs');
-
-        $this->defaultHasTrans($supportMultipleLangs);
-
-        view()->share([
-            'supportMultipleLangs' => $supportMultipleLangs
-        ]);
-    }
-
-    /**
-     * @param $supportMultipleLangs
-     */
-    function defaultHasTrans($supportMultipleLangs) {
-
-        if($supportMultipleLangs) {
-            $this->property['hasTrans']      = true;
-            $this->resetProperty['hasTrans'] = true;
-        } else {
-            $this->property['hasTrans']      = false;
-            $this->resetProperty['hasTrans'] = false;
-        }
     }
 
     /**

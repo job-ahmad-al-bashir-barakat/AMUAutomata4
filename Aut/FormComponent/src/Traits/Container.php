@@ -123,7 +123,7 @@ trait Container
      * @param array $option
      * @return \Illuminate\Support\HtmlString
      */
-    function formOpen($id= '', $method = 'get', $action = '', $class = '', $attr = [])
+    function formOpen($id= '', $method = 'post', $action = '', $class = '', $attr = [])
     {
         $action = is_array($action) ? $action : ['url' => $action ? $action : '#'];
 

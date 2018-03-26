@@ -14,7 +14,7 @@
     extract(formClassHelper($class));
     $star  = preg_match('/\b(?<![\S])(required)(?![\S])\b/',$class) ? 'star' : '';
     $langs = $hasLangs || preg_match('/\b(?<![\S])(langs)(?![\S])\b/',$class) ? $langs : false;
-    $trans = $supportMultipleLangs || preg_match('/\b(?<![\S])(trans)(?![\S])\b/',$class) ? $supportMultipleLangs : false;
+    $trans = $hasTrans || preg_match('/\b(?<![\S])(trans)(?![\S])\b/',$class) ? $supportMultipleLangs : false;
 @endphp
 
 @if($langs)
