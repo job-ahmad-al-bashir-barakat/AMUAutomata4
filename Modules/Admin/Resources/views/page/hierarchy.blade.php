@@ -19,8 +19,6 @@
 @section('footer')
 
     @component('controle.component.modal', [
-        'id'                  => '',
-        'title'               => ,
         'action'              => treeLocalizeUrl($view),
         'successFunc'         => 'hierarchyMenu',
         'stopDeleteSerialize' => true,
