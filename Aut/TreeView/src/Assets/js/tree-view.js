@@ -197,7 +197,7 @@ var AUT_TREE_VIEW = {
                     if (_nestable.length)
                         AUT_TREE_VIEW.tree.updateOutput(_nestable.data('output', $this.find('.nestable-output')));
 
-                    // AUT_AUTOCOMPLETE_PACK.autocomplete.reloadAutocomplete($this.find('.autocomplete'));
+                    AUT_AUTOCOMPLETE_PACK.autocomplete.reloadAutocomplete($this.find('.autocomplete'));
                 });
 
             } else nestable($cont.find(AUT_TREE_VIEW.tree.treeLoadClass));
@@ -302,7 +302,7 @@ var AUT_TREE_VIEW = {
 
         saveTreeOrder: function (treeCont) {
 
-            $.put(treeCont.data('url') + '/order', { data: treeCont.data('order_list') },AUT_TREE_VIEW.plugin.saveTreeOrderSuccess);
+            $.put(treeCont.data('url') + '/order', { data: treeCont.data('order_list') },AUT_TREE_VIEW.tree.plugin.saveTreeOrderSuccess);
         },
 
         eventFormAdd: function () {

@@ -37,10 +37,10 @@
     {!! FormComponent::formClose() !!}
 {!! FormComponent::modalClose() !!}
 
-    <script>
-        function hierarchyMenu(form ,res) {
+<script>
+    function hierarchyMenu(form ,res) {
 
-            AUT_TREE_VIEW.tree.init($(form).data('tree-target'));
-        }
-    </script>
+        AUT_TREE_VIEW.tree.init($(form).data('tree-target'));
+    }
+</script>
 @endsection
