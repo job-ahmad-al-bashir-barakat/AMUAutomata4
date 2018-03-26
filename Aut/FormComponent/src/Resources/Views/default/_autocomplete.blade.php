@@ -30,7 +30,7 @@
                      'style'                 => "width: 100%",
                      'data-remote'           => autocompleteURL($remote),
                      'data-placeholder'      => shortIfElse(empty($placeholder),$label,$placeholder),
-                     'data-editable'         => true,
+                     'data-editable'         => 'true',
                 ],$attr)) !!}
                 <div id='error_{{$id}}'></div>
             </div>

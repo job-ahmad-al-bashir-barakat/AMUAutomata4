@@ -4,5 +4,5 @@ return [
 
     'formType'             => 'default',
 
-    'supportMultipleLangs' => true,
+    'supportMultipleLangs' => false,
 ];

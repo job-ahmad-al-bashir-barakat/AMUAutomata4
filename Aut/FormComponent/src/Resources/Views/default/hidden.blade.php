@@ -7,5 +7,5 @@
 {!! Form::hidden($name,$value,array_merge([
     'id'            => $id,
     'class'         => "form-control $primarykey $class",
-    'data-editable' => true,
+    'data-editable' => 'true',
 ],$attr)) !!}

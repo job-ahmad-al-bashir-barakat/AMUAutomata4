@@ -19,18 +19,22 @@
 @section('footer')
 
     @component('controle.component.modal', [
-        'id'                  => 'modal-hierarchy-tree',
-        'title'               => trans('admin::app.hierarchy'),
+        'id'                  => '',
+        'title'               => ,
         'action'              => treeLocalizeUrl($view),
         'successFunc'         => 'hierarchyMenu',
         'stopDeleteSerialize' => true,
         'attr'                => ['data-tree-target' => '.hierarchy-tree']
     ])
-        {{ Form::bsPrimarykey('id' ,'id' ,null ,'' ,['data-json' => 'id']) }}
-        {{ Form::bsHidden('order' ,'order' ,null ,'' ,['data-json' => 'order']) }}
-        {{ Form::bsAutocomplete(trans('utilities::app.parent') ,'parent-id' ,'parent_id','autocomplete/hierarchy',[],'3' ,'tree-autocomplete-change group' ,['data-json' => 'parent' ,'data-placeholder' => trans('utilities::app.parent')]) }}
-        {{ Form::bsText(trans('admin::app.name'),'name' ,'name' ,null ,'group required langs trans' ,['data-json' => 'name-{lang}']) }}
-        {{ Form::bsAutocomplete(trans('admin::app.type') ,'hierarchy-type-id' ,'hierarchy_type_id','autocomplete/hierarchy-type',[],0 ,'group required' ,['data-json' => 'hierarchy-type' ,'data-placeholder' => trans('admin::app.type')]) }}
+        {{ FormComponent::modalOpen('modal-hierarchy-tree') }}
+        {{ FormComponent::modalHeaderOpen(trans('admin::app.hierarchy')) }}
+        {{ FormComponent::modalHeaderClose() }}
+        {{ FormComponent::fill('id')->primarykey('id' ,'id') }}
+        {{ FormComponent::fill('order')->hidden('order' ,'order') }}
+        {{ FormComponent::fill('parent')->placeholder(trans('utilities::app.parent'))->autocomplete(trans('utilities::app.parent') ,'parent-id' ,'parent_id','autocomplete/hierarchy',[],'3' ,'tree-autocomplete-change') }}
+        {{ FormComponent::fill('name-{lang}')->langs()->trans()->text(trans('admin::app.name'),'name' ,'name' ,null ,'required') }}
+        {{ FormComponent::fill('hierarchy-type')->placeholder(trans('admin::app.type'))->autocomplete(trans('admin::app.type') ,'hierarchy-type-id' ,'hierarchy_type_id','autocomplete/hierarchy-type',[],0 ,'required') }}
+        {{ FormComponent::modalClose() }}
     @endcomponent
 
     <script>

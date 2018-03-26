@@ -26,7 +26,7 @@
                      'class'                 => "form-control $class",
                      'style'                 => "width: 100%",
                      'data-placeholder'      => shortIfElse(empty($placeholder),$label,$placeholder),
-                     'data-editable'         => true,
+                     'data-editable'         => 'true',
                 ],$attr)) !!}
                 <div id='error_{{$id}}'></div>
                 {{--preg_replace('/\[\]/','',$name)--}}

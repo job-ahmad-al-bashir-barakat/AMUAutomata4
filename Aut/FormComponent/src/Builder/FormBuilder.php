@@ -29,7 +29,7 @@ class FormBuilder
         'dataMethod'                 => 'get',
         'formType'                   => 'default',
         'placeholder'                => '',
-        'dataTarget'                 => '',
+        'dataEditableTarget'         => '',
         'dataJson'                   => '',
         'langs'                      => [],
         'takeAction'                 => false,
@@ -133,10 +133,10 @@ class FormBuilder
      */
     function formSetting($type = 'default' , $ajax = false , $dataMethod = 'get', $dataTarget = '')
     {
-        $this->property['formType']   = $type;
-        $this->property['ajax']       = $ajax;
-        $this->property['dataMethod'] = $dataMethod;
-        $this->property['dataTarget'] = $dataTarget;
+        $this->property['formType']           = $type;
+        $this->property['ajax']               = $ajax;
+        $this->property['dataMethod']         = $dataMethod;
+        $this->property['dataEditableTarget'] = $dataTarget;
 
         return $this;
     }
@@ -146,10 +146,10 @@ class FormBuilder
      * @param string $dataTarget
      * @return $this
      */
-    function getData($dataMethod = 'get', $dataTarget = '')
+    function getData($dataMethod = 'get', $dataEditableTarget = '')
     {
-        $this->property['dataMethod'] = $dataMethod;
-        $this->property['dataTarget'] = $dataTarget;
+        $this->property['dataMethod']         = $dataMethod;
+        $this->property['dataEditableTarget'] = $dataEditableTarget;
 
         return $this;
     }

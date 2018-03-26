@@ -153,11 +153,11 @@ trait Container
             : $attr;
 
         $option = array_merge([
-            'id'          => $id,
-            'method'      => $method,
-            'class'       => $this->property['ajax'] ? "ajax-form $class" : $class,
-            'data-method' => $this->property['dataMethod'],
-            'data-target' => $this->property['dataTarget']
+            'id'                   => $id,
+            'method'               => $method,
+            'class'                => $this->property['ajax'] ? "ajax-form $class" : $class,
+            'data-method'          => $this->property['dataMethod'],
+            'data-editable-target' => $this->property['dataEditableTarget']
         ],$action, $attr);
 
         return Form::open($option);
