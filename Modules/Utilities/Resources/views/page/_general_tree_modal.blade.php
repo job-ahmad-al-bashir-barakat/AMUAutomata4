@@ -101,7 +101,7 @@
 
         return reject;
     }
-    
+
     function initSiteMenu(event) {
 
         $('.general-tree').off('click').on('click' , '.trash' ,function () {
@@ -137,7 +137,6 @@
                     message: SWAL.cancleSafe.message,
                 }
             });
-
         });
     }
 
