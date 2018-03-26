@@ -429,9 +429,17 @@ var AUT_FORM_COMPONENT = {
 
                 switch ($formDataMethod)
                 {
-                    case  'item'      : fillForm('item'); break;
-                    case  'datatable' : fillForm('datatable'); break;
+                    case  'item'      : {
+                        fillForm('item');
+                    } break;
+
+                    case  'datatable' : {
+                        // datatable selector
+                        fillForm('datatable');
+                    } break;
+
                     case  'get'       : {
+
                         $.get($formDataUrl,function (data) {
 
                             fillForm('get',data);
@@ -439,6 +447,7 @@ var AUT_FORM_COMPONENT = {
                             if (typeof $formTarget.data('get-success') != typeof undefined)
                                 window[$formTarget.data('get-success')]($formTarget, data);
                         });
+
                     }; break;
                 }
 

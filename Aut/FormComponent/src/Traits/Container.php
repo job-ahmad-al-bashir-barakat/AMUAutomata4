@@ -170,4 +170,40 @@ trait Container
     {
         return Form::close();
     }
+
+    /**
+     * @param array $option
+     * @return mixed
+     */
+    function formAjaxButtons($option = [
+        'addSerialize'         => true,
+        'updateSerialize'      => true,
+        'deleteSerialize'      => true,
+    ]) {
+
+        $option = array_merge([
+            'addSerialize'         => true,
+            'updateSerialize'      => true,
+            'deleteSerialize'      => true,
+        ],$option);
+
+        return removeSpaces(view("form-component::{$this->property['formType']}.modal.submit-ajax-button",[
+
+            'addSuccessFunc'             => $this->event['addSuccessFunc'],
+            'updateSuccessFunc'          => $this->event['updateSuccessFunc'],
+            'deleteSuccessFunc'          => $this->event['deleteSuccessFunc'],
+
+            'addSerialize'               => $option['addSerialize'],
+            'updateSerialize'            => $option['updateSerialize'],
+            'deleteSerialize'            => $option['deleteSerialize'],
+
+            'extraSerializeAdd'          => $this->property['extraSerializeAdd'],
+            'extraSerializeUpdate'       => $this->property['extraSerializeUpdate'],
+            'extraSerializeDelete'       => $this->property['extraSerializeDelete'],
+
+            'stopAddOperationMessage'    => $this->property['stopAddOperationMessage'],
+            'stopUpdateOperationMessage' => $this->property['stopUpdateOperationMessage'],
+            'stopDeleteOperationMessage' => $this->property['stopDeleteOperationMessage'],
+        ])->render());
+    }
 }

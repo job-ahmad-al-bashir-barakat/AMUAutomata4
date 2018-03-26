@@ -123,6 +123,30 @@ class FormBuilder
     }
 
     /**
+     * @param string $dataMethod
+     * @param string $dataTarget
+     * @return $this
+     */
+    function getData($dataMethod = 'get', $dataTarget = '')
+    {
+        $this->property['dataMethod'] = $dataMethod;
+        $this->property['dataTarget'] = $dataTarget;
+
+        return $this;
+    }
+
+    /**
+     * @param bool $bool
+     * @return $this
+     */
+    function takeAction($bool = true)
+    {
+        $this->property['takeAction'] = $bool;
+
+        return $this;
+    }
+
+    /**
      * @param bool $ajax
      * @return $this
      */
@@ -140,26 +164,6 @@ class FormBuilder
     function setFormType($type = 'default')
     {
         $this->property['formType'] = $type;
-
-        return $this;
-    }
-
-    /**
-     * @param string $dataMethod
-     * @param string $dataTarget
-     * @return $this
-     */
-    function getData($dataMethod = 'get', $dataTarget = '')
-    {
-        $this->property['dataMethod'] = $dataMethod;
-        $this->property['dataTarget'] = $dataTarget;
-
-        return $this;
-    }
-
-    function takeAction($bool = true)
-    {
-        $this->property['takeAction'] = $bool;
 
         return $this;
     }
@@ -196,42 +200,6 @@ class FormBuilder
         $this->property['extraSerializeDelete'] = $delete;
 
         return $this;
-    }
-
-    /**
-     * @param array $option
-     * @return mixed
-     */
-    function formAjaxButtons($option = [
-        'addSerialize'         => true,
-        'updateSerialize'      => true,
-        'deleteSerialize'      => true,
-    ]) {
-
-        $option = array_merge([
-            'addSerialize'         => true,
-            'updateSerialize'      => true,
-            'deleteSerialize'      => true,
-        ],$option);
-
-        return removeSpaces(view("form-component::{$this->property['formType']}.modal.submit-ajax-button",[
-
-            'addSuccessFunc'             => $this->event['addSuccessFunc'],
-            'updateSuccessFunc'          => $this->event['updateSuccessFunc'],
-            'deleteSuccessFunc'          => $this->event['deleteSuccessFunc'],
-
-            'addSerialize'               => $option['addSerialize'],
-            'updateSerialize'            => $option['updateSerialize'],
-            'deleteSerialize'            => $option['deleteSerialize'],
-
-            'extraSerializeAdd'          => $this->property['extraSerializeAdd'],
-            'extraSerializeUpdate'       => $this->property['extraSerializeUpdate'],
-            'extraSerializeDelete'       => $this->property['extraSerializeDelete'],
-
-            'stopAddOperationMessage'    => $this->property['stopAddOperationMessage'],
-            'stopUpdateOperationMessage' => $this->property['stopUpdateOperationMessage'],
-            'stopDeleteOperationMessage' => $this->property['stopDeleteOperationMessage'],
-        ])->render());
     }
 
     /**
@@ -280,6 +248,4 @@ class FormBuilder
 
         return $this;
     }
-
-    // fill form
 }
