@@ -108,7 +108,7 @@ var AUT_HELPER = {
         return result;
     },
 
-    sweetalert_swal: function (param ,func ,paramCancleSafe) {
+    sweetalert_swal: function (param ,funcSuccess ,paramCancleSafe, funcCancle) {
 
         swal({
             title              : typeof param.title               != typeof undefined ? param.title               : null,
@@ -124,16 +124,19 @@ var AUT_HELPER = {
             showLoaderOnConfirm: typeof param.showLoaderOnConfirm != typeof undefined ? param.showLoaderOnConfirm : false,
             width              : typeof param.width               != typeof undefined ? param.width               : '500px',
             html               : typeof param.html                != typeof undefined ? param.html                : '',
-        }).then(func, function (dismiss) {
+        }).then(funcSuccess, function (dismiss) {
 
             if (dismiss === 'cancel') {
 
-                aut_datatable_swal({
+                swal({
                     title : paramCancleSafe.cancleSafe.text,
                     text  : paramCancleSafe.cancleSafe.message,
                     confirmButtonText  : paramCancleSafe.ok,
                     type : "error",
                 });
+
+                if(typeof funcCancle == 'function')
+                    funcCancle();
             }
         });
     }

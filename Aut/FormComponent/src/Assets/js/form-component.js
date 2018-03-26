@@ -230,6 +230,9 @@ var AUT_FORM_COMPONENT = {
                                     text : SWAL.cancleSafe.text,
                                     message: SWAL.cancleSafe.message,
                                 }
+                            }, function () {
+
+                                AUT_FORM_COMPONENT.validate.removeLoader($button);
                             });
 
                         } else {
