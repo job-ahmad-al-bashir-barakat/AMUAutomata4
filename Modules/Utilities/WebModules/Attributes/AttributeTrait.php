@@ -58,6 +58,8 @@ trait AttributeTrait
                 return new TextCardsOneAttribute();
             case '19':
                 return new UrlTextAttribute();
+            case '20':
+                return new RotateAttribute();
             default:
                 throw new \Exception('Undefined Attributes');
         }
@@ -111,6 +113,8 @@ trait AttributeTrait
                 return new TextCardsOneAttribute();
             case 'url_text':
                 return new UrlTextAttribute();
+            case 'rotate':
+                return new RotateAttribute();
             default:
                 throw new \Exception('Undefined Attributes');
         }

@@ -19,4 +19,5 @@ return [
     'persons' => 'أشخاص',
     'url-text' => 'نص الرابط',
     'text-cards' => 'بطاقة نص',
+    'rotate' => 'تدوير',
 ];

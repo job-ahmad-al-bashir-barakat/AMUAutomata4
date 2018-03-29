@@ -65,7 +65,7 @@
                                     <td class="move">1</td>
                                     <td>
                                         {!! FormComponent::hidden('id', 'id[]', null, '', ['table-dynamic-modal' => 'id']) !!}
-                                        {{ FormComponent::select(false, 'custom_module', 'custom_module[]', [], null, '', ['table-dynamic-class' => 'autocomplete', 'data-letter' => '0', "data-remote" => autocompleteURL('custom-modules'), 'table-dynamic-modal-option' => "custom_module_id:custom_module.lang_name.{$lang}.text"]) }}
+                                        {!! FormComponent::select(false, 'custom_module', 'custom_module[]', [], null, '', ['table-dynamic-class' => 'autocomplete', 'data-letter' => '0', "data-remote" => autocompleteURL('custom-modules'), 'table-dynamic-modal-option' => "custom_module_id:custom_module.lang_name.{$lang}.text"]) !!}
                                     </td>
                                     <td>{!! FormComponent::select(false, 'module_position' ,'module_position[]', \Modules\Utilities\WebModules\Modules\Module::POSITION, null, '', ['table-dynamic-class' => 'select', 'table-dynamic-modal' => 'position']) !!}</td>
                                     {{--<td>{!! Form::bsNumber(false, 'order', 'order[]', null, '', ['table-dynamic-modal' => 'order']) !!}</td>--}}
