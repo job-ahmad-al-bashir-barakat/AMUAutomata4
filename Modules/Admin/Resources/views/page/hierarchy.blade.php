@@ -19,7 +19,7 @@
 @section('footer')
 
 {!! FormComponent::modalOpen('modal-hierarchy-tree') !!}
-    {!! FormComponent::onSuccess('hierarchyMenu')->formOpen('form-hierarchy-tree','post',treeLocalizeUrl($view),'',['data-tree-target' => '.hierarchy-tree']) !!}
+    {!! FormComponent::onSuccess('hierarchyMenu')->getData('item')->formOpen('form-hierarchy-tree','post',treeLocalizeUrl($view),'',['data-tree-target' => '.hierarchy-tree']) !!}
         {!! FormComponent::modalHeaderOpen(trans('admin::app.hierarchy')) !!}
         {!! FormComponent::modalHeaderClose() !!}
 
