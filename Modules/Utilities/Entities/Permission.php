@@ -2,7 +2,6 @@
 
 namespace Modules\Utilities\Entities;
 
-use Illuminate\Database\Eloquent\Builder;
 use Modules\Utilities\Traits\MultiLangs;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\Permission\Models\Permission as SpatiePermission;
