@@ -25,7 +25,7 @@
     }
 
 </style>
-
+@php($rotate = $data->get('rotate', 'V') == 'V'?90:0)
 <div class="hierarchy" style="margin: 150px; text-align: center; transform: rotate(90deg);"></div>
 
 <script src="//d3js.org/d3.v3.min.js"></script>
