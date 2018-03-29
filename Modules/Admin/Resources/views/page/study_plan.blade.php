@@ -7,28 +7,28 @@
 @section('content')
     <div class="row">
         <div class="col-lg-12 col-xs-12">
-            <div class="ajaxCont">
-                {!! Form::open(['id' => 'form-search' ,'url' => RouteUrls::studyPlanCreate(), 'method' => 'get' ,'class' => 'form-horizontal  ajax-form']) !!}
+            {!! FormComponent::ajaxContOpen() !!}
+                {!! FormComponent::setAjax(true)->setStopOperationMessage(true)->onSuccess('studyPlanSuccess')->formOpen('form-search','get',RouteUrls::studyPlanCreate(),'form-horizontal') !!}
                     @component('controle.component.panel' ,[
                           'title' => trans('admin::app.study_plan'),
                           'class' => 'footer'
                     ])
                         <div class="form-group">
                             <div class="col-lg-12">
-                                {{ FormComponent::formGroup(false)->placeholder('dsa')->autocomplete(trans('admin::app.faculty') ,'faculty' ,'faculty' ,'autocomplete/faculty' ,[] ,'0' ,'c:col-lg-3 c:col-xs-12 required' ,['data-placeholder' => trans('admin::app.faculty')]) }}
-                                {{ FormComponent::formGroup(false)->placeholder('asdaaa')->autocomplete(trans('admin::app.study_year') ,'study-year' ,'study-year' ,'autocomplete/faculty-study-year' ,[] ,'0' ,'c:col-lg-3 c:col-xs-12 required' ,['data-placeholder' => trans('admin::app.study_year') ,'data-param' => '#faculty']) }}
-                                {{ FormComponent::formGroup(false)->placeholder('asdaaa')->autocomplete(trans('admin::app.department') ,'department' ,'department' ,'autocomplete/department' ,[] ,'0' ,' c:col-lg-3 c:col-xs-12 required' ,['data-placeholder' => trans('admin::app.department') ,'data-param' => '#faculty']) }}
-                                {{ FormComponent::formGroup(false)->placeholder('asdaaa')->autocomplete(trans('admin::app.degree') ,'degree' ,'degree' ,'autocomplete/degree' ,[] ,'0' ,'c:col-lg-3 c:col-xs-12' ,['data-placeholder' => trans('admin::app.degree') ,'data-param' => '#faculty']) }}
+                                {!! FormComponent::formGroup(false)->autocomplete(trans('admin::app.faculty') ,'faculty' ,'faculty' ,'autocomplete/faculty' ,[] ,'0' ,'c:col-lg-3 c:col-xs-12 required') !!}
+                                {!! FormComponent::formGroup(false)->autocomplete(trans('admin::app.study_year') ,'study-year' ,'study-year' ,'autocomplete/faculty-study-year' ,[] ,'0' ,'c:col-lg-3 c:col-xs-12 required' ,['data-param' => '#faculty']) !!}
+                                {!! FormComponent::formGroup(false)->autocomplete(trans('admin::app.department') ,'department' ,'department' ,'autocomplete/department' ,[] ,'0' ,' c:col-lg-3 c:col-xs-12 required' ,['data-param' => '#faculty']) !!}
+                                {!! FormComponent::formGroup(false)->autocomplete(trans('admin::app.degree') ,'degree' ,'degree' ,'autocomplete/degree' ,[] ,'0' ,'c:col-lg-3 c:col-xs-12' ,['data-param' => '#faculty']) !!}
                             </div>
                         </div>
                         @slot('footer')
                             <div class="text-center">
-                                <button type="submit" class="btn btn-primary filter-courses" data-method="get" data-action="{{  RouteUrls::studyPlanCreate() }}" data-stop-operation-message data-ajax-form-success="studyPlanSuccess">{{ trans('app.filter') }}</button>
+                                <button type="submit" class="btn btn-primary filter-courses">{{ trans('app.filter') }}</button>
                             </div>
                         @endslot
                     @endcomponent
-                {!! Form::close() !!}
-            </div>
+                {!! FormComponent::formClose() !!}
+            {!! FormComponent::ajaxContClose() !!}
         </div>
         <div class="study-plan"></div>
     </div>
@@ -41,11 +41,10 @@
 
             $('.study-plan').html(res.study_plan);
 
+            AUT_FORM_COMPONENT.validate.init('.ajaxCont');
+
             var containers = $('.destination').toArray();
             containers = containers.concat($('#target').toArray());
-
-            // init form
-            AUTOMATA_APP.validate.init('.ajaxCont');
 
             // init dragula
             var drake = dragula({

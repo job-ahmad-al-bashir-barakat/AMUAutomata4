@@ -387,7 +387,7 @@ var AUT_FORM_COMPONENT = {
                     $formTarget         = $cont.find('form'),
                     $formDataMethod     = $formTarget.data('method'),
                     $editableTarget     = $this.data('editable-target') || $formTarget.data('editable-target'),
-                    getAutocompleteData = function (data) {
+                    getAutocompleteData = function ($trgetData, data) {
 
                         var $data = [];
 
@@ -416,34 +416,38 @@ var AUT_FORM_COMPONENT = {
                             {
                                 case 'item' : {
 
-                                    $data = data.attr("data-" + $trgetData);
+                                    $data = data.data($trgetData);
 
-                                    if(typeof $trgetData == 'object')
+                                    if(typeof $data == 'object')
                                         $data = [$data];
 
                                 }; break;
+
                                 case 'datatable' :
                                 case 'get' : {
                                     // get datata from datatable row
                                     if(typeof $trgetData == 'string') {
                                         $data = JSPath.apply('.' + $trgetData ,row);
                                     } else if(typeof $trgetData == 'object') {
-                                        getAutocompleteData(data);
+                                        $data = getAutocompleteData($trgetData, data);
                                     }
 
                                 }; break;
                             }
 
-                            if ($v.hasClass('autocomplete') && typeof $value != typeof undefined)
+                            if(typeof $data != typeof undefined)
                             {
-                                AUT_AUTOCOMPLETE_PACK.autocomplete.selectedAutocomplete($v, $data);
-                            }
-                            else
-                            {
-                                $v.val($data);
-                                //fill ckeditor if exists
-                                if ($v.hasClass('text-editor'))
-                                    CKEDITOR.instances[v.id].setData($data);
+                                if ($v.hasClass('autocomplete'))
+                                {
+                                    AUT_AUTOCOMPLETE_PACK.autocomplete.selectedAutocomplete($v, $data);
+                                }
+                                else
+                                {
+                                    $v.val($data);
+                                    //fill ckeditor if exists
+                                    if ($v.hasClass('text-editor'))
+                                        CKEDITOR.instances[v.id].setData($data);
+                                }
                             }
                         });
                     };
