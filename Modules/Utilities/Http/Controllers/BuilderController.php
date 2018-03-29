@@ -87,8 +87,6 @@ class BuilderController extends Controller
         $buildableId = $request->get('page_id');
         $optionalId = $request->get('optional_id');
 
-
-
         return [$request->input(), 'GET'];
     }
 

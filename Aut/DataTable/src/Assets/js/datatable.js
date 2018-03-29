@@ -1136,7 +1136,7 @@ var AUT_DATATABLE = {
                 });
             },
 
-            init: function(table ,aut_datatable) {
+            init: function(table ,aut_datatable, status) {
 
                 $(aut_datatable.ids.modal).find('form.ajax-form').each(function ()  {
 
@@ -1146,6 +1146,7 @@ var AUT_DATATABLE = {
                                 e.preventDefault();
 
                                 var button = $(this.submitButton).closest('button'),
+                                    status = button.data('status'),
                                     data   = $(aut_datatable.ids.modal + ' form').serialize();
 
                                 button.button('loading');
@@ -1264,13 +1265,6 @@ var AUT_DATATABLE = {
             },
 
             submit: function(table ,aut_datatable) {
-
-                var status;
-
-                $(aut_datatable.ids.modal).on('click','[type="submit"]',function () {
-
-                    status = $(this).data('status');
-                });
 
                 AUT_DATATABLE.dialog.validate.init(table ,aut_datatable);
             },

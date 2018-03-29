@@ -324,35 +324,40 @@ var AUT_GMAP = {
             if(param.hasNavigator)
                 AUT_GMAP.GMap.yourLocationNavigatorGeoLocationButton(_e);
 
-            google.maps.event.addListenerOnce(map, 'idle', function() {
-                // do something only the first time the map is loaded
-                var $map = $(_e._this); // $(this.__gm.S);
+            if($(param.this).data('idle'))
+                google.maps.event.addListenerOnce(map, 'idle', function() {
+                    // do something only the first time the map is loaded
+                    var $map   = $(param.this || this.__gm.S || _e._this);
+                        parent = $map.parent();
 
-                var latlng = new google.maps.LatLng(map.center.lat(), map.center.lng());
+                    var lat = map.center ? map.center.lat() : $map.parent().find('map-lat-location'),
+                        lng = map.center ? map.center.lng() : $map.parent().find('map-lng-location');
 
-                AUT_GMAP.GMap.fillInputLocation(_e ,{
-                    location : latlng.toUrlValue(),
-                    lat : map.center.lat(),
-                    lng : map.center.lng()
+                    var latlng = new google.maps.LatLng(lat, lng);
+
+                    AUT_GMAP.GMap.fillInputLocation(_e ,{
+                        location : latlng.toUrlValue(),
+                        lat : lat,
+                        lng : lng
+                    });
+
+                    AUT_GMAP.GMap.reverseGeoCoding(_e ,lat ,lng);
+
+                    //if you need no stop load map en each time open modal put an attribute data-map-reload = false
+                    if(!JSON.parse($map.attr('data-map-reload')))
+                        $map.attr('data-initialize' ,false);
+
+                    //laod event extra when first map is loaded
+                    var mapEventLoaded = $('body').attr('data-map-event-loaded');
+                    mapEventLoaded = typeof mapEventLoaded != typeof undefined
+                        ? JSON.parse(mapEventLoaded)
+                        : false;
+
+                    AUT_GMAP.GMap.googleMapExtraFunction(mapEventLoaded);
+
+                    //this to make sure event will not load again
+                    $('body').attr('data-map-event-loaded' ,true);
                 });
-
-                AUT_GMAP.GMap.reverseGeoCoding(_e ,map.center.lat() ,map.center.lng());
-
-                //if you need no stop load map en each time open modal put an attribute data-map-reload = false
-                if(!JSON.parse($map.attr('data-map-reload')))
-                    $map.attr('data-initialize' ,false);
-
-                //laod event extra when first map is loaded
-                var mapEventLoaded = $('body').attr('data-map-event-loaded');
-                mapEventLoaded = typeof mapEventLoaded != typeof undefined
-                    ? JSON.parse(mapEventLoaded)
-                    : false;
-
-                AUT_GMAP.GMap.googleMapExtraFunction(mapEventLoaded);
-
-                //this to make sure event will not load again
-                $('body').attr('data-map-event-loaded' ,true);
-            });
 
             //google.maps.event.addDomListener(map, 'load', function () { });
             //google.maps.event.addListenerOnce(map, 'tilesloaded', function () { });
