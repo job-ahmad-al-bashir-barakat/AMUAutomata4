@@ -19,7 +19,7 @@ class GalleryFactory extends GlobalFactory
             ->queryDatatable($query)
             ->queryMultiLang(['title'])
             ->queryAddColumn('images', function ($row){
-                return "<i class='fa fa-image hand' data-gallery_id='{$row->id}'></i>";
+                return "<i class='fa fa-image hand' data-gallery_id='{$row->id}' data-toggle='modal' data-target='#gallory_images'></i>";
             })
             ->queryUpdateButton()
             ->queryDeleteButton()

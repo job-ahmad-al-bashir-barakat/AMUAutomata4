@@ -224,11 +224,14 @@ class BuilderController extends Controller
      */
     public function galleries()
     {
+        $view = 'galleries';
+        $subPage = \View::exists("utilities::page.table-sub.$view") ? "utilities::page.table-sub.$view" : false;
+
         return view('utilities::page.table',[
             'table' => 'galleries',
             'param' => '',
             'title' => trans('utilities::app.galleries'),
-            'subPage' => false,
+            'subPage' => $subPage,
         ]);
     }
 }

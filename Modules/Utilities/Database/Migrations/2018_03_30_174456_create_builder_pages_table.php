@@ -20,6 +20,7 @@ class CreateBuilderPagesTable extends Migration {
 			$table->integer('order');
 			$table->integer('buildable_id')->unsigned()->nullable()->index('buildable_id');
 			$table->string('buildable_type', 191)->nullable();
+			$table->integer('optional_id')->unsigned()->nullable()->index('optional_id');
 			$table->timestamps();
 			$table->softDeletes();
 		});
