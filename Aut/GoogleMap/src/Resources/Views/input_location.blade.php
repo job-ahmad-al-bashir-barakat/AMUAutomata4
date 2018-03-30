@@ -19,12 +19,14 @@
          data-gmap=""
          data-address="{{ $geoLocation or '' }}" {{--276 N TUSTIN ST, ORANGE, CA 92867--}}
          data-maptype="ROADMAP"
-         data-styled class="gmap"
+         data-styled
+         class="gmap"
          data-zoom={{ $zoom or 14 }}
          data-click="{{ $click or 'true' }}"
          data-autocomplete="{{ $autocomplete or 'true' }}"
          data-navigator="{{ $navigator or 'true' }}"
          data-location='{ "location":"#map-full-location" ,"lat":"#map-lat-location" ,"lng":"#map-lng-location" ,"reverseGeoCoding":"#map-reverse-geo-coding" }'
+         data-idle="true"
          data-initialize="true"
          data-map-reload="true"
     >

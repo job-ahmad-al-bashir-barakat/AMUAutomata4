@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.4.21 on 2018-03-26.
+ * Generated for Laravel 5.4.21 on 2018-03-30.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -15983,17 +15983,6 @@ namespace Aut\FormComponent {
         /**
          * 
          *
-         * @param $supportMultipleLangs
-         * @static 
-         */
-        public static function defaultHasTrans($supportMultipleLangs)
-        {
-            return \Aut\FormComponent\Builder\FormBuilder::defaultHasTrans($supportMultipleLangs);
-        }
-        
-        /**
-         * 
-         *
          * @return string 
          * @static 
          */
@@ -16025,9 +16014,9 @@ namespace Aut\FormComponent {
          * @return $this 
          * @static 
          */
-        public static function getData($dataMethod = 'get', $dataTarget = '')
+        public static function getData($dataMethod = 'get', $dataEditableTarget = '')
         {
-            return \Aut\FormComponent\Builder\FormBuilder::getData($dataMethod, $dataTarget);
+            return \Aut\FormComponent\Builder\FormBuilder::getData($dataMethod, $dataEditableTarget);
         }
         
         /**
@@ -16518,7 +16507,7 @@ namespace Aut\FormComponent {
          * @return \Illuminate\Support\HtmlString 
          * @static 
          */
-        public static function formOpen($id = '', $method = 'get', $action = '', $class = '', $attr = array())
+        public static function formOpen($id = '', $method = 'post', $action = '', $class = '', $attr = array())
         {
             return \Aut\FormComponent\Builder\FormBuilder::formOpen($id, $method, $action, $class, $attr);
         }

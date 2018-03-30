@@ -87,9 +87,10 @@ class BuilderController extends Controller
         $buildableId = $request->get('page_id');
         $optionalId = $request->get('optional_id');
 
+        Seo::where('buildable_id','=',$buildableId)
+            ->where('buildable_type','=',$buildableType)->get();
 
-
-        return [$request->input(), 'GET'];
+        return ['data' => $request->input(), 'GET'];
     }
 
     public function storeSeo(Request $request)
@@ -105,7 +106,6 @@ class BuilderController extends Controller
             'optional_id' => $optionalId,
         ];
         $seo = (new Seo($data))->save();
-        dd($seo);
 
         return [$request->input(), 'POST'];
     }

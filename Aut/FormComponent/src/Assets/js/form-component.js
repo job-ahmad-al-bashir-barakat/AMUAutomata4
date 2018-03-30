@@ -382,11 +382,12 @@ var AUT_FORM_COMPONENT = {
 
             $(document).off('click.form-component','[data-form-update],.form-update').on('click.form-component', '[data-form-update],.form-update', function () {
 
-                var $this               = $(this),
-                    $cont               = $($this.data('target')),
-                    $formTarget         = $cont.find('form'),
-                    $formDataMethod     = $formTarget.data('method'),
-                    $editableTarget     = $this.data('editable-target') || $formTarget.data('editable-target'),
+                var $this                = $(this),
+                    $cont                = $($this.data('target')),
+                    $formTarget          = $cont.find('form'),
+                    $formDataMethod      = $formTarget.data('method'),
+                    $editableTarget      = $this.data('editable-target') || $formTarget.data('editable-target'),
+                    $editableTargetParam = $this.data('editable-target-param') || $formTarget.data('editable-target-param') || {},
                     getAutocompleteData = function ($trgetData, data) {
 
                         var $data = [];
@@ -475,7 +476,7 @@ var AUT_FORM_COMPONENT = {
                     case  'get'       : {
 
                         // $editableTarget = remoteUrl
-                        $.get($editableTarget, function (data) {
+                        $.get($editableTarget, $editableTargetParam, function (data) {
 
                             fillForm('get',data);
 

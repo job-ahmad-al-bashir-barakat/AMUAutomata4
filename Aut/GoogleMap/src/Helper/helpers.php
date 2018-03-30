@@ -48,3 +48,18 @@ if(! function_exists('autGoogleMap'))
     }
 }
 
+if(! function_exists('autFixedGoogleMap'))
+{
+    function autFixedGoogleMap
+    (
+        $zoom = 10 ,
+        $defaultGeoLocation = ''
+    )
+    {
+        return view('gmap::map', [
+            'zoom'             => $zoom  ? $zoom : 10,
+            'geoLocation'      => $defaultGeoLocation,
+        ])->render();
+    }
+}
+
