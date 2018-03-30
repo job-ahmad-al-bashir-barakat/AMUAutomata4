@@ -1,7 +1,6 @@
 {!! FormComponent::modalOpen('page_seos_modal') !!}
     {!! FormComponent::formOpen('seo_form', 'post', RouteUrls::builderSeo()) !!}
         {!! FormComponent::modalHeaderOpen('Search Engine Optimization') !!}
-            {{--(koko)--}}
         {!! FormComponent::modalHeaderClose() !!}
         {!! FormComponent::modalBodyOpen() !!}
             {!! FormComponent::hidden('page_id', 'page_id') !!}

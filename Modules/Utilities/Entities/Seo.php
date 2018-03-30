@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Modules\Utilities\Entities\LangModels\SeoTitleLang;
 use Modules\Utilities\Entities\LangModels\SeoDescriptionLang;
 
-class Seo extends Model
+class Seo extends \Eloquent
 {
     use SoftDeletes, MultiLangs;
 
