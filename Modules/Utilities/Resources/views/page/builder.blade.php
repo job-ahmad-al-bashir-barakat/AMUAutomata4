@@ -116,7 +116,7 @@
                     AUTOMATA_APP.htmlTable.fillTableData($('#page_modules_table'), res);
                 });
             });
-            var $pageSeoModal = $('#page_seos_modal');
+            /*var $pageSeoModal = $('#page_seos_modal');
             $pageSeoModal.on('show.bs.modal', function (e) {
                 var $modal = $(this);
                 var $btn = $(e.relatedTarget);
@@ -128,11 +128,11 @@
                 $modal.find('[name="table_name"]').val(tableName);
                 $modal.find('[name="optional_id"]').val(objectId);
                 $modal.find('#page_name').html(pageName);
-                $.get('{{ RouteUrls::getBuilderPageModules() }}' + '/' + tableName + '/' + pageId + (objectId ? ( '/' + objectId) : ''), function (res) {
+                $.get(' RouteUrls::getBuilderPageModules() }}' + '/' + tableName + '/' + pageId + (objectId ? ( '/' + objectId) : ''), function (res) {
                     AUTOMATA_APP.htmlTable.clearRows($('#page_modules_table'));
                     AUTOMATA_APP.htmlTable.fillTableData($('#page_modules_table'), res);
                 });
-            });
+            });*/
             //@todo should use FormComponent
             $('form#page_module_form').submit(function (e) {
                 e.preventDefault();

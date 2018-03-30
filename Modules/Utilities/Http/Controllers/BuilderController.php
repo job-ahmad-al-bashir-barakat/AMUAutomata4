@@ -83,14 +83,19 @@ class BuilderController extends Controller
     public function getSeo(Request $request)
     {
         $tableName = $request->get('table_name');
-        $buildableType = Table::whereTableName($tableName)->first()->morph_code;
-        $buildableId = $request->get('page_id');
-        $optionalId = $request->get('optional_id');
+        $pageId = $request->get('page_id');
+        $optionalId = $request->get('optional_id', false);
 
-        Seo::where('buildable_id','=',$buildableId)
-            ->where('buildable_type','=',$buildableType)->get();
+        $morph = Table::whereTableName($tableName)->first()->morph_code;
+        $query = Seo::whereBuildableId($pageId)->whereBuildableType($morph);
+        if ($optionalId) {
+            $query->whereOptionalId($optionalId);
+        } else {
+            $query->whereNull('optional_id');
+        }
+        $seo = $query->get();
 
-        return ['data' => $request->input(), 'GET'];
+        return $seo;
     }
 
     public function storeSeo(Request $request)

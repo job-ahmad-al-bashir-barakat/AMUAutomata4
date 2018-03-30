@@ -65,7 +65,7 @@ class BuilderPageFactory extends GlobalFactory
 
         $this->table->queryAddColumn('seos', function ($row) use ($hasSubPages, $objectId) {
             if (!$hasSubPages) {
-                $param = collect(['table_name' => $this->builderTable,'page_id' => $row->id]);
+                $param = collect(['table_name' => $this->builderTable, 'page_id' => $row->id, 'optional_id' => $objectId]);
                 return "<i data-object_id='{$objectId}' data-table_name='{$this->builderTable}' data-page_id='{$row->id}' data-page_name='{$row->langName[$this->lang]->text}' class='fa fa-google-wallet hand' data-toggle='modal' data-target='#page_seos_modal' data-form-update data-editable-target='".\RouteUrls::builderSeo()."' data-editable-target-param='$param'></i>";
             }
         });
