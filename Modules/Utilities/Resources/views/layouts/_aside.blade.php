@@ -161,6 +161,13 @@
                 </a>
             </li>
             @endcan
+            @can('galleries')
+            <li class="">
+                <a href="{{ RouteUrls::galleries() }}" class="ajax" title="{{ trans('utilities::app.galleries') }}">
+                    <span>{{ trans('utilities::app.galleries') }}</span>
+                </a>
+            </li>
+            @endcan
             @can('custom-modules')
             <li class="">
                 <a href="{{ RouteUrls::customModules() }}" class="ajax" title="{{ trans('utilities::app.custom_modules') }}">

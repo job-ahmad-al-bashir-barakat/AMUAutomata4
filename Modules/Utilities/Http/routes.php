@@ -48,6 +48,8 @@ function () {
         Route::get('steps', 'BuilderController@steps')->middleware('permission:steps')->name('steps');
 
         Route::get('text-cards', 'BuilderController@textCards')->middleware('permission:text-cards')->name('text-cards');
+
+        Route::get('galleries', 'BuilderController@galleries')->middleware('permission:galleries')->name('galleries');
     });
 
     Route::group(['prefix' => 'attribute'], function () {

@@ -69,6 +69,11 @@ return [
         'factory'       => Modules\Utilities\Factories\ModuleFactory::class
     ],
 
+    'galleries' => [
+        'model'         => Modules\Utilities\Entities\Gallery::class,
+        'factory'       => Modules\Utilities\Factories\GalleryFactory::class
+    ],
+
     'custom-modules' => [
         'model'         => Modules\Utilities\Entities\CustomModule::class,
         'factory'       => Modules\Utilities\Factories\CustomModuleFactory::class

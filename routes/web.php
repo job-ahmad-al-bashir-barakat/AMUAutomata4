@@ -43,13 +43,23 @@ function () {
         $modules = [];
         return view('page.university_offices', compact('modules', 'menu'));
     })->name('university_offices');
+    Route::get('faculty/{faculty}/labs1', function () {
+        $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
+        $modules = [];
+        return view('page.labs', compact('modules', 'menu'));
+    })->name('labs');
+    Route::get('gallery1', function () {
+        $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
+//            $modules = \Modules\Utilities\Entities\BuilderPage::pageModules()->get()->pluck('module');
+        return view('page.gallery', compact('modules', 'menu'));
+    });
 
     // Authentication Routes...
-    $this->get('login', 'Auth\LoginController@showLoginForm')->name('login');
-    $this->post('login', 'Auth\LoginController@login');
-    $this->post('logout', 'Auth\LoginController@logout')->name('logout');
-    $this->get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
-    $this->get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
+    Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+    Route::post('login', 'Auth\LoginController@login');
+    Route::post('logout', 'Auth\LoginController@logout')->name('logout');
+    Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+    Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
 
     // lockscreen Route
     Route::get('lockscreen', '\Modules\Utilities\Http\Controllers\LockScreenController@lock')->name('lock');

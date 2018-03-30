@@ -218,4 +218,17 @@ class BuilderController extends Controller
             'subPage' => false,
         ]);
     }
+
+    /**
+     * Galleries
+     */
+    public function galleries()
+    {
+        return view('utilities::page.table',[
+            'table' => 'galleries',
+            'param' => '',
+            'title' => trans('utilities::app.galleries'),
+            'subPage' => false,
+        ]);
+    }
 }
