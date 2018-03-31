@@ -12,15 +12,13 @@ class GalleryFactory extends GlobalFactory
      */
     public function getDatatable($gallery, $request)
     {
-        $query = $gallery::allLangs()->get();
+        $query = $gallery::with(['image'])->allLangs()->get();
 
         return $this->table
             ->queryConfig('datatable-galleries')
             ->queryDatatable($query)
             ->queryMultiLang(['title'])
-            ->queryAddColumn('images', function ($row){
-                return "<i class='fa fa-image hand' data-gallery_id='{$row->id}' data-toggle='modal' data-target='#gallory_images'></i>";
-            })
+            ->queryCustomButton('upload_image', 'id', 'fa fa-image', '', 'onclick="showFileUploadModal(this)"')
             ->queryUpdateButton()
             ->queryDeleteButton()
             ->queryRender();
@@ -35,7 +33,7 @@ class GalleryFactory extends GlobalFactory
             ->config('datatable-galleries',trans('utilities::app.galleries'))
             ->addPrimaryKey('id','id')
             ->addMultiInputTextLangs(['title'] ,'req required')
-            ->addActionButton('images', 'images')
+            ->addActionButton(trans('utilities::app.upload_images'), 'upload_image', 'id', 'center all')
             ->addActionButton($this->update,'update','update')
             ->addActionButton($this->delete,'delete','delete')
             ->addNavButton()

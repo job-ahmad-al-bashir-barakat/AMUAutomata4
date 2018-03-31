@@ -7,14 +7,6 @@
 
 <script>
     function showFileUploadModal($this) {
-
-        var inputFile = $('#slider-image-upload').find('.upload-file');
-        var datatableRaw = _aut_datatable_getSelectedRowData('#datatable-slider' ,$($this).closest('tr'));
-
-        inputFile.attr('data-param' ,'id=' + $($this).data('key'));
-
-        AUTOMATA_APP.fileUpload.load(inputFile ,datatableRaw);
-
-        $('#slider-image-upload').modal('show');
+        AUT_UPLOAD.initFileUploadWithDatatable($this,'#slider-image-upload','#datatable-slider');
     }
 </script>
