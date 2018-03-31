@@ -670,9 +670,10 @@ var AUT_UPLOAD = {
 
                 AUT_UPLOAD.CROPPER.blobURL = param.imageManager || URL.createObjectURL(param.file);
 
-                //  var imageWithBlob = document.createElement('img'),
                 image.attr('src', AUT_UPLOAD.CROPPER.blobURL);
-                image.cropper('destroy').cropper(param.options);
+                setTimeout(function () {
+                    image.cropper('destroy').cropper(param.options);
+                },10);
 
                 if($(param.inputImage).length)
                     $(param.inputImage).val('');
