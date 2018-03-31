@@ -87,7 +87,7 @@ class BuilderController extends Controller
         $optionalId = $request->get('optional_id', false);
 
         $morph = Table::whereTableName($tableName)->first()->morph_code;
-        $query = Seo::whereBuildableId($pageId)->whereBuildableType($morph);
+        $query = Seo::allLangs()->whereBuildableId($pageId)->whereBuildableType($morph);
         if ($optionalId) {
             $query->whereOptionalId($optionalId);
         } else {
