@@ -79,6 +79,8 @@ trait ModuleTrait
                 return new FacultyInstructorsModule();
             case 29:
                 return new UniversityHierarchyModule();
+            case 30:
+                return new GalleriesModule();
             default:
                 throw new \Exception("Undefined Web Module [id:$moduleId]");
         }
@@ -152,6 +154,8 @@ trait ModuleTrait
                 return new FacultyInstructorsModule();
             case 'university_hierarchy':
                 return new UniversityHierarchyModule();
+            case 'galleries':
+                return new GalleriesModule();
             default:
                 throw new \Exception("Undefined Web Module [$moduleCode]");
         }

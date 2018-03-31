@@ -8,7 +8,7 @@
             {!! FormComponent::fill('table_name')->hidden('table_name', 'table_name') !!}
             {!! FormComponent::fill('title_{lang}')->trans()->langs()->text('Title', 'title', 'title'/*,'','required'*/) !!}{{--use required for validation --}}
             {!! FormComponent::fill('description_{lang}')->trans()->langs()->text('Description', 'description', 'description') !!}
-            {!! FormComponent::fill('keywords')->tagInput()->trans()->langs()->text('Keywords', 'keywords', 'keywords') !!}
+            {!! FormComponent::fill('keyword')->tagInput()->trans()->langs()->text('Keyword', 'keyword', 'keyword') !!}
         {!! FormComponent::modalBodyClose() !!}
         {!! FormComponent::modalFooterOpen() !!}
             {!! FormComponent::formAjaxButtons() !!}

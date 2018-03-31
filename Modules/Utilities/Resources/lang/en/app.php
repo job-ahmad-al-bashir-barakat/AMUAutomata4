@@ -58,6 +58,7 @@ return [
     'upload_vertical_slider_image'    => 'Upload Vertical Slider Image',
     'page-modules'           => 'Page Modules',
     'prefix'                 => 'Prefix',
+    'galleries'              => 'Galleries',
 
     'automata4_utilities'    => 'Automata4 Utilities',
     'global'                 => 'Global',

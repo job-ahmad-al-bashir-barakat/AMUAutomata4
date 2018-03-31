@@ -21,4 +21,5 @@ return [
     'url-text' => 'URL Text',
     'text-cards' => 'Text Cards',
     'rotate' => 'Rotate',
+    'galleries' => 'Galleries',
 ];

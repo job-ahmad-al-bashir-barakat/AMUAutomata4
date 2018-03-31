@@ -60,6 +60,8 @@ trait AttributeTrait
                 return new UrlTextAttribute();
             case '20':
                 return new RotateAttribute();
+            case '21':
+                return new GalleriesAttribute();
             default:
                 throw new \Exception('Undefined Attributes');
         }
@@ -115,6 +117,8 @@ trait AttributeTrait
                 return new UrlTextAttribute();
             case 'rotate':
                 return new RotateAttribute();
+            case 'galleries':
+                return new GalleriesAttribute();
             default:
                 throw new \Exception('Undefined Attributes');
         }

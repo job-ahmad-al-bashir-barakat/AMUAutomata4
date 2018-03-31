@@ -55,6 +55,7 @@ return [
     'upload_vertical_slider_image'    => 'رفع صورة الشريحة',
     'page-modules'           => 'بنية الصفحة',
     'prefix'                 => 'لاحقة الرابط',
+    'galleries'              => 'معرض الصور',
 
     'automata4_utilities'    => 'أدوات أتوماتا 4',
     'global'                 => 'أدوات شاملة',

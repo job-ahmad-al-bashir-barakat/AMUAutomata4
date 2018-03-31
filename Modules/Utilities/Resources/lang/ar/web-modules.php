@@ -20,4 +20,5 @@ return [
     'url-text' => 'نص الرابط',
     'text-cards' => 'بطاقة نص',
     'rotate' => 'تدوير',
+    'galleries' => 'معارض الصور',
 ];

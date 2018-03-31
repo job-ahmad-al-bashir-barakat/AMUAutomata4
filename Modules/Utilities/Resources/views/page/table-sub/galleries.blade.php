@@ -1,7 +1,7 @@
 {{ FileUpload::ImageUpload('galleries' ,'galleries' ,'' ,'' ,'570' ,'390' ,[
     'modalId'    => 'galleries-image-upload',
     'modalTitle' => trans('utilities::app.upload_galleries_image')
-] ,'#datatable-galleries', true, '.image', ['maxFileCount' => 1]) }}
+] ,'#datatable-galleries', true, '.image') }}
 
 {{ FileUpload::ImageUploadCropper('90%' ,false ,true,false ,false ,false ,true) }}
 

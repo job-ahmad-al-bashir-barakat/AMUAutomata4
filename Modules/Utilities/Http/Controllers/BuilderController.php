@@ -112,7 +112,7 @@ class BuilderController extends Controller
         ];
         $seo = (new Seo($data))->save();
 
-        return [$request->input(), 'POST'];
+        return $seo->id;
     }
 
     public function updateSeo(Request $request, Seo $seo)

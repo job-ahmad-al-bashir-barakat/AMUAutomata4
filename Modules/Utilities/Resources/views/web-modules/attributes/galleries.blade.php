@@ -1,0 +1,1 @@
+{!! FormComponent::autocomplete($title, 'courses', "webModule[{$code}][]", 'autocomplete/galleries', $data, 0, 'group required l:col-lg-3 i:col-lg-8', ['multiple']) !!}

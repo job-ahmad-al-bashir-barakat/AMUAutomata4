@@ -126,6 +126,14 @@ return [
         ],
     ],
 
+    'galleries' => [
+        'model' => \Modules\Utilities\Entities\Gallery::class,
+        'colName'  => 'transTitle->text',
+        'q'        => [
+            'transTitle' => 'text',
+        ],
+    ],
+
     'text-cards' => [
         'model' => \Modules\Utilities\Entities\TextCard::class,
         'colName'  => 'transTitle->text',

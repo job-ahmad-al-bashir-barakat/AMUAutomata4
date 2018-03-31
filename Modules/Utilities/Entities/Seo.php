@@ -2,10 +2,10 @@
 
 namespace Modules\Utilities\Entities;
 
-use Illuminate\Database\Eloquent\Model;
 use Modules\Utilities\Traits\MultiLangs;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Modules\Utilities\Entities\LangModels\SeoTitleLang;
+use Modules\Utilities\Entities\LangModels\SeoKeywordLang;
 use Modules\Utilities\Entities\LangModels\SeoDescriptionLang;
 
 class Seo extends \Eloquent
@@ -14,7 +14,7 @@ class Seo extends \Eloquent
 
     protected $fillable = ['buildable_id', 'buildable_type', 'optional_id'];
 
-    protected $appends  = ['lang_title', 'lang_description'];
+    protected $appends  = ['lang_title', 'lang_description', 'lang_keyword'];
 
     public function buildable()
     {
@@ -25,9 +25,15 @@ class Seo extends \Eloquent
     {
         return $this->hasMany(SeoTitleLang::class);
     }
+
     public function transDescription()
     {
         return $this->hasMany(SeoDescriptionLang::class);
+    }
+
+    public function transKeyword()
+    {
+        return $this->hasMany(SeoKeywordLang::class);
     }
 
     public function getLangTitleAttribute()
@@ -38,5 +44,10 @@ class Seo extends \Eloquent
     public function getLangDescriptionAttribute()
     {
         return $this->transDescription->keyBy('lang_code');
+    }
+
+    public function getLangKeywordAttribute()
+    {
+        return $this->transKeyword->keyBy('lang_code');
     }
 }
