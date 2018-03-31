@@ -25,8 +25,8 @@ class Gallery extends Model
         return $this->transTitle->keyBy('lang_code');
     }
 
-    public function images()
+    public function image()
     {
-        return $this->belongsToMany(Image::class, 'gallery_images');
+        return $this->belongsToMany(Image::class, 'gallery_images', 'image_id', 'image_id');
     }
 }
