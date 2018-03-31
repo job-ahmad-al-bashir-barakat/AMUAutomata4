@@ -1,7 +1,7 @@
 {{ FileUpload::ImageUpload('user' ,'user' ,'' ,'' ,'60' ,'60' ,[
     'modalId'    => 'user-image-upload',
     'modalTitle' => trans('utilities::app.upload_images')
-] ,'#datatable-users' ,'true' ,'.image',['allowRatio' => 'true']) }}
+] ,'#datatable-users' ,'true' ,'.image',['allowRatio' => true]) }}
 
 {{ FileUpload::ImageUploadCropper('90%' ,false ,true,false ,false ,false ,true) }}
 

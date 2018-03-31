@@ -288,8 +288,9 @@ var AUT_DATATABLE = {
         if(JSPath.apply('.buttons{.action == "buttons_action_destroy"}',aut_datatable.json_object).length != 0)
             JSPath.apply('.buttons{.action == "buttons_action_destroy"}',aut_datatable.json_object)[0].action = function() {
 
-                $this = $(this)[0].node;
-                $datatable = $($this).closest('.datatable');
+                var $this      = $(this)[0].node,
+                    $datatable = $($this).closest('.datatable');
+
                 $datatable.load($datatable.attr('data-url'));
 
                 aut_datatable.events.on_destroy();
@@ -391,6 +392,16 @@ var AUT_DATATABLE = {
     addGlobalScript: function(aut_datatable) {
 
         return aut_datatable.global_script();
+    },
+
+    supportPanelCollapse: function (aut_datatable) {
+
+        // for panel Recalculate the widths used by responsive after a change in the display
+        $('body').on('shown.bs.collapse.datatable','.panel-wrapper.collapse', function(){
+
+            $table = _aut_datatable_getTableObjectApi($(this).find('.dataTable'));
+            $table.columns.adjust().responsive.recalc();
+        });
     },
 
     autocomplete: {
@@ -1519,6 +1530,8 @@ var AUT_DATATABLE = {
         AUT_DATATABLE.dialog.stackModal();
         // responsive Window
         AUT_DATATABLE.dialog.responsiveWindow();
+
+        AUT_DATATABLE.supportPanelCollapse();
     },
 
     createNewTable: function(aut_datatable) {
@@ -1560,4 +1573,5 @@ var AUT_DATATABLE = {
 $(function(){
 
     AUT_DATATABLE.load();
+
 });

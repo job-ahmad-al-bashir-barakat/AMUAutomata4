@@ -1,12 +1,12 @@
 {{ FileUpload::ImageUpload('partner-large-image' ,'partner-large-image' ,'' ,'image_type=large' ,'755' ,'480' ,[
     'modalId'    => 'partner-larg-image-upload',
     'modalTitle' => trans('admin::app.upload_images')
-] ,'#datatable-partner' ,'true' ,'.image_large',['allowRatio' => 'true']) }}
+] ,'#datatable-partner' ,true ,'.image_large',['allowRatio' => true]) }}
 
 {{ FileUpload::ImageUpload('partner-small-image' ,'partner-small-image' ,'' ,'image_type=small' ,'320' ,'300' ,[
     'modalId'    => 'partner-small-image-upload',
     'modalTitle' => trans('admin::app.upload_images')
-] ,'#datatable-partner' ,'true' ,'.image_small',['allowRatio' => 'true']) }}
+] ,'#datatable-partner' ,true ,'.image_small',['allowRatio' => true]) }}
 
 {{ FileUpload::ImageUploadCropper('90%' ,false ,true,false ,false ,false ,true) }}
 

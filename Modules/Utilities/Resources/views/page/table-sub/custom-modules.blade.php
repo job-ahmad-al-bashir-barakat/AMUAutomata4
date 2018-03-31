@@ -1,12 +1,12 @@
 {{ FileUpload::ImageUpload('gallery' ,'gallery' ,'' ,'' ,'100', '100' ,[
     'modalId'    => 'gallery-image-upload',
     'modalTitle' => trans('utilities::app.upload_gallery_image')
-] ,'#datatable-gallery', 'false', '.image', ['appendLocation' => '#images', 'appendName' => 'webModule[images][]']) }}
+] ,'#datatable-gallery', false, '.image', ['appendLocation' => '#images', 'appendName' => 'webModule[images][]']) }}
 
 {{ FileUpload::ImageUpload('small_gallery' ,'small_gallery' ,'' ,'' ,'560', '200' ,[
     'modalId'    => 'small-gallery-image-upload',
     'modalTitle' => trans('utilities::app.upload_small_gallery')
-] ,'#datatable-small-gallery', 'false', '.image', ['appendLocation' => '#images', 'appendName' => 'webModule[images][]', 'allowRatio' => 'true']) }}
+] ,'#datatable-small-gallery', false, '.image', ['appendLocation' => '#images', 'appendName' => 'webModule[images][]', 'allowRatio' => true]) }}
 
 
 {{ FileUpload::ImageUploadCropper('90%' ,false ,true,false ,false ,false ,true) }}

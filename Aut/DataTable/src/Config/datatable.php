@@ -36,9 +36,9 @@ return [
         'overlay' => 'spinners-overlay'
     ],
 
-    'tabAnimation' => 'animated zoomInUp',
+    'tabAnimation'    => 'animated zoomInUp',
 
-    'button_position' => "B<'row'<'col-lg-4 datatable-pull-left'l><'col-lg-4 datatable-pull-right'f>>tr<'row'<'col-lg-4 datatable-pull-left'i><'col-lg-6 datatable-pull-right'p>>",
+    'button_position' => "B<'row'<'col-6 col-xs-6 datatable-pull-left'l><'col-6 col-xs-6 datatable-pull-right'f>>tr<'row'<'col-6 col-xs-6 datatable-pull-left'i><'col-6 col-xs-6 datatable-pull-right'p>>",
 
     'icon' => [
         'update'         => 'icon icon-wrench',

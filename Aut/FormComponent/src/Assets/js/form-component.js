@@ -373,9 +373,48 @@ var AUT_FORM_COMPONENT = {
          */
         fillForm: function () {
 
+            var setData = function (element, $data) {
+
+                var $element = $(element);
+
+                if(typeof $data != typeof undefined)
+                {
+                    if ($element.hasClass('autocomplete'))
+                    {
+                        AUT_AUTOCOMPLETE_PACK.autocomplete.selectedAutocomplete($element, $data);
+                    }
+                    else
+                    {
+                        $element.val($data);
+                        //fill ckeditor if exists
+                        if ($element.hasClass('text-editor'))
+                            CKEDITOR.instances[element.id].setData($data);
+                    }
+                }
+            };
+
             $(document).off('click.form-component','[data-form-add],.form-add').on('click.form-component', '[data-form-add],.form-add', function () {
 
-                var $cont = $(this).data('target');
+                var $this         = $(this),
+                    $cont         = $($this.data('target')),
+                    $formTarget   = $cont.find('form'),
+                    $fallbackData = $this.data('fixed');
+
+                // fill fixed input
+                $.map($formTarget.find('[data-editable],[data-json]'),function (i, element) {
+
+                    var trgetDataId = ($(element).attr('id')).replace(/-/g,'_');
+
+                    if($fallbackData[trgetDataId])
+                    {
+                        var $data = $fallbackData[trgetDataId];
+
+                        if(typeof $data == 'object')
+                            $data = [$data];
+
+                        setData(element, $data)
+                    }
+                });
 
                 AUT_FORM_COMPONENT.validate.hideShowButtonForm($cont, 'add');
             });
@@ -388,6 +427,7 @@ var AUT_FORM_COMPONENT = {
                     $formDataMethod      = $formTarget.data('method'),
                     $editableTarget      = $this.data('editable-target') || $formTarget.data('editable-target'),
                     $editableTargetParam = $this.data('editable-target-param') || $formTarget.data('editable-target-param') || {},
+                    $fallbackData        = $this.data();
                     getAutocompleteData = function ($trgetData, data) {
 
                         var $data = [];
@@ -407,11 +447,12 @@ var AUT_FORM_COMPONENT = {
                     },
                     fillForm            = function (type ,data) {
 
-                        $($formTarget).find('[data-editable],[data-json]').each(function (i, v) {
+                        $($formTarget).find('[data-editable],[data-json]').each(function (i, element) {
 
-                            var $v     = $(v),
-                            $trgetData = $v.data('json') || $v.attr('id'),
-                            $data;
+                            var $element     = $(element),
+                                $trgetDataId = ($element.attr('id')).replace(/-/g,'_'),
+                                $trgetData   = $element.data('json') || $trgetDataId,
+                                $data;
 
                             switch(type)
                             {
@@ -426,30 +467,20 @@ var AUT_FORM_COMPONENT = {
 
                                 case 'datatable' :
                                 case 'get' : {
+
                                     // get datata from datatable row
                                     if(typeof $trgetData == 'string') {
-                                        $data = JSPath.apply('.' + $trgetData ,row);
+                                        $data = JSPath.apply('.' + $trgetData ,data);
                                     } else if(typeof $trgetData == 'object') {
                                         $data = getAutocompleteData($trgetData, data);
                                     }
 
+                                    $data = $data.length ? $data : $fallbackData[$trgetDataId];
+
                                 }; break;
                             }
 
-                            if(typeof $data != typeof undefined)
-                            {
-                                if ($v.hasClass('autocomplete'))
-                                {
-                                    AUT_AUTOCOMPLETE_PACK.autocomplete.selectedAutocomplete($v, $data);
-                                }
-                                else
-                                {
-                                    $v.val($data);
-                                    //fill ckeditor if exists
-                                    if ($v.hasClass('text-editor'))
-                                        CKEDITOR.instances[v.id].setData($data);
-                                }
-                            }
+                            setData(element, $data);
                         });
                     };
 

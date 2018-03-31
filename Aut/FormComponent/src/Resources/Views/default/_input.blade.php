@@ -1,10 +1,11 @@
 @php
     $originalName = $name;
-    $_lang        = isset($_lang) ? $_lang                                        : false;
-    $id           = $_lang        ? "{$id}-{$_lang}"                              : $id;
-    $name         = $_lang        ? "{$name}_{$_lang}"                            : $name;
-    $label        = $_lang        ? "$label ({$item["native"]})"                  : $label;
-    $attr         = $dataJson     ? array_merge($attr,['data-json' => $dataJson]) : $attr;
+    $_lang        = isset($_lang) ? $_lang                                          : false;
+    $id           = $_lang        ? "{$id}-{$_lang}"                                : $id;
+    $name         = $_lang        ? "{$name}_{$_lang}"                              : $name;
+    $label        = $_lang        ? "$label ({$item["native"]})"                    : $label;
+    $attr         = $dataJson     ? array_merge($attr,['data-json' => $dataJson])   : $attr;
+    $attr         = $tagsinput    ? array_merge($attr,['data-role' => 'tagsinput']) : $attr;
 
     if($trans)
         $name = "trans_{$originalName}[{$name}]";

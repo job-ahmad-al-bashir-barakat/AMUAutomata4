@@ -43,21 +43,21 @@
                data-allowed-file-types="{{ $allowedFileTypes or "image" }}"
                data-allowed-file-extensions="{{ $allowedFileExtensions or "jpeg,jpg,bmp,png" }}"
                data-target="#{{ $modalId or '' }}"
-               data-cropper="{{ $cropper or 'true' }}"
+               data-cropper="{{ $cropper or true }}"
                data-cropper-selector="{{ $cropperSelector or '.aut-cropper-file-upload' }}"
                data-cropper-modal="{{ $cropperModal or '#crop-image' }}"
-               data-allow-ratio="{{ $allowRatio or 'false' }}"
+               data-allow-ratio="{{ $allowRatio or false }}"
                data-ratio="{{ $cropRatio->toJson() }}"
                data-ratio-message="{{ trans('fileupload::fileupload.ratio' ,['attribute' => '{name}']) }}"
-               data-show-caption="{{ $showCaption or 'false' }}"
-               data-show-preview="{{ $showPreview or 'true' }}"
+               data-show-caption="{{ $showCaption or false }}"
+               data-show-preview="{{ $showPreview or true }}"
                data-datatable="{{ $datatable or ''}}"
-               data-reload-datatable="{{ $reloadDatatable or 'true' }}"
+               data-reload-datatable="{{ $reloadDatatable or true }}"
                {{--(event, data, previewId, index)--}}
                data-fileuploaded="{{ $fileuploadedEvent or '' }}"
                {{--(event, key, jqXHR, data)--}}
                data-filedeleted="{{ $filedeletedEvent or '' }}"
-               data-datatable-initialize="{{ $datatableInitialize or 'true' }}"
+               data-datatable-initialize="{{ $datatableInitialize or true }}"
                data-datatable-initialize-property="{{ $datatableInitializeProperty or '.image' }}"
                data-remove-label="{{ $removeLabel or trans('fileupload::fileupload.clear') }}"
                data-upload-retry-title="{{ $uploadRetryTitle or trans('fileupload::fileupload.upload_retry_title') }}"
@@ -65,8 +65,8 @@
                data-attribute-title="{{ $attributeTitle or trans('fileupload::fileupload.attribute_title') }}"
                data-append-location="{{ $appendLocation or '' }}"
                data-append-name="{{ $appendName or '' }}"
-               data-allowed-preview-icons="{{ $allowedPreviewIcons or 'false' }}"
-               data-auto-replace="{{ $autoReplace or 'false' }}"
+               data-allowed-preview-icons="{{ $allowedPreviewIcons or false }}"
+               data-auto-replace="{{ $autoReplace or false }}"
                multiple
         >
     </div>

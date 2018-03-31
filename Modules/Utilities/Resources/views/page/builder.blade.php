@@ -13,6 +13,7 @@
                     'id'    => "panel-pages-{$pageableTable->table_name}",
                     'title' => "{$title}: {$pageableTable->table_name_humane}",
                     'active' => false,
+                    'class'  => 'p0',
                 ])
                     {!! datatable('builder-pages', "?tableName={$pageableTable->table_name}") !!}
                 @endcomponent

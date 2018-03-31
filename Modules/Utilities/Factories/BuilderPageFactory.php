@@ -89,8 +89,8 @@ class BuilderPageFactory extends GlobalFactory
             $this->table->addInputText(trans('utilities::app.name'), $this->builderColumn, $this->builderColumn);
         }
 
-        $this->table->addActionButton(trans('utilities::app.modules'), 'modules')
-            ->addActionButton(trans('utilities::app.seos'), 'seos')
+        $this->table->addActionButton(trans('utilities::app.modules'), 'modules','modules','center all','50px')
+            ->addActionButton(trans('utilities::app.seos'), 'seos','seos','center all','80px')
             ->addNavButton([], ['add']);
         return $this->table->render();
     }

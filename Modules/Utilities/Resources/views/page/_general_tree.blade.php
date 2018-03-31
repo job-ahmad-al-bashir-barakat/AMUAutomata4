@@ -21,7 +21,7 @@
                         'active'    => $i == 1,
                         'panelAttr' => "data-save-state=false style=margin-bottom:2px;",
                     ])
-                        <div class='aut-tree' data-group="{{ $i }}" data-max-depth="10" data-clone="true"  data-drop-exists="true" data-reject="true" data-reject-rule-callback="rejectLinks" data-type="{{ $index }}">
+                        <div class='aut-tree' data-group="{{ $i }}" data-max-depth="10" data-clone="false"  data-drop-exists="true" data-reject="true" data-reject-rule-callback="rejectLinks" data-type="{{ $index }}">
                             <div id="nestable-{{$index}}" class="nestable dd">
                                 <ol class="dd-list">
                                     @php($menu_item = $menu_items[$index]->first())

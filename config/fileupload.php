@@ -2,6 +2,8 @@
 
 return [
 
+    'routeMiddleware' => ['web', 'localeSessionRedirect', 'localizationRedirect'],
+
     'setting' => [
 
         'image' => [
@@ -9,7 +11,8 @@ return [
             'upload_directory' => 'upload\image',
         ],
 
-        'relationType' => 'many', //one
+        'relationType' => 'many', // one
+        'relationName' => 'image'
     ],
 
 

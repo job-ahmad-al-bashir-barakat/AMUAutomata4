@@ -472,6 +472,8 @@ var AUTOMATA_APP = {
             AUT_AUTOCOMPLETE_PACK.select.initSelect();
             AUT_FORM_COMPONENT.validate.init('.ajaxCont');
             AUT_TREE_VIEW.tree.initTree();
+            // init tagsinput
+            $("[data-role='tagsinput']").tagsinput();
             AUTOMATA_APP.ckeditor.init('body', '.text-editor');
             AUTOMATA_APP.inputMask.init('[data-masked]');
             AUT_UPLOAD.fileUpload.load('.upload-file.load-file');
@@ -620,12 +622,14 @@ var AUTOMATA_APP = {
             // Init collapse and bind events to switch icons
             wrapper
                 .collapse(collapseOpts)
+                .off('hide.bs.collapse')
                 .on('hide.bs.collapse', function() {
                     setIconHide( iconElement );
                     if(state)
                         savePanelState( panelId, 'hide' );
                     wrapper.prev('.panel-heading').addClass('panel-heading-collapsed');
                 })
+                .off('show.bs.collapse')
                 .on('show.bs.collapse', function() {
                     setIconShow( iconElement );
                     if(state)
@@ -644,7 +648,7 @@ var AUTOMATA_APP = {
         });
 
         // finally catch clicks to toggle panel collapse
-        $(document).on('click', panelSelector, function () {
+        $(document).off('click.panel').on('click.panel', panelSelector, function () {
 
             var parent = $(this).closest('.panel');
             var wrapper = parent.find('.panel-wrapper');
