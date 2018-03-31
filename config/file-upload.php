@@ -12,12 +12,21 @@ return [
         'relationType' => 'many', //one
     ],
 
+
     'user' => [
         'model'  => \Modules\Utilities\Entities\User::class,
         'ratio' => [
             'first_ratio'  => [ 'width'  => '60', 'height' => '60', ],
         ],
         'relationType' => 'one',
+    ],
+
+    'galleries' => [
+        'model'  => \Modules\Utilities\Entities\Gallery::class,
+        'ratio' => [
+            'first_ratio'  => [ 'width'  => '570', 'height' => '390' ],
+        ],
+        'relationType' => 'many',
     ],
 
     'lang' => [

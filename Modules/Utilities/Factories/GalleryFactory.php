@@ -18,9 +18,7 @@ class GalleryFactory extends GlobalFactory
             ->queryConfig('datatable-galleries')
             ->queryDatatable($query)
             ->queryMultiLang(['title'])
-            ->queryAddColumn('images', function ($row){
-                return "<i class='fa fa-image hand' data-gallery_id='{$row->id}' data-toggle='modal' data-target='#gallory_images'></i>";
-            })
+            ->queryCustomButton('images', 'id', 'fa fa-image', '', 'onclick="showFileUploadModal(this)"')
             ->queryUpdateButton()
             ->queryDeleteButton()
             ->queryRender();
