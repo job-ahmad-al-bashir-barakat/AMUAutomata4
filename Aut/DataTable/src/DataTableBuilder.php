@@ -2677,7 +2677,7 @@ class DataTableBuilder
                 }
             }
 
-            $ButtonPosition = "$button<'row'<'col-lg-4 datatable-pull-left'$length><'col-lg-4 datatable-pull-right'$search>>tr<'row'<'col-lg-4 datatable-pull-left'$info><'col-lg-6 datatable-pull-right'$paging>>";
+            $ButtonPosition = "$button<'row'<'col-6 col-xs-6 datatable-pull-left'$length><'col-6 col-xs-6 datatable-pull-right'$search>>tr<'row'<'col-6 col-xs-6 datatable-pull-left'$info><'col-6 col-xs-6 datatable-pull-right'$paging>>";
         }
 
         return $ButtonPosition;

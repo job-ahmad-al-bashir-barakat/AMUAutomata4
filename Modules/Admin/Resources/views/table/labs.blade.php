@@ -1,7 +1,7 @@
 {{ FileUpload::ImageUpload('lab' ,'lab' ,'' ,'' ,'1366' ,'768' ,[
     'modalId'    => 'lab-image-upload',
     'modalTitle' => trans('admin::app.upload_images')
-] ,'#datatable-labs' ,'true' ,'.image') }}
+] ,'#datatable-labs' ,true ,'.image') }}
 
 {{ FileUpload::ImageUploadCropper('90%' ,false ,true,false ,false ,false ,true) }}
 

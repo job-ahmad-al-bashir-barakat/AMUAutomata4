@@ -1,14 +1,14 @@
 {!! FormComponent::modalOpen('page_seos_modal') !!}
-    {!! FormComponent::formOpen('seo_form', 'post', RouteUrls::builderSeo()) !!}
+    {!! FormComponent::setAjax()->getData('get')->formOpen('seo_form', 'post', RouteUrls::builderSeo()) !!}
         {!! FormComponent::modalHeaderOpen('Search Engine Optimization') !!}
         {!! FormComponent::modalHeaderClose() !!}
         {!! FormComponent::modalBodyOpen() !!}
-            {!! FormComponent::hidden('page_id', 'page_id') !!}
-            {!! FormComponent::hidden('optional_id', 'optional_id') !!}
-            {!! FormComponent::hidden('table_name', 'table_name') !!}
-            {!! FormComponent::langs()->text('Title', 'title', 'title'/*,'','required'*/) !!}{{--use required for validation --}}
-            {!! FormComponent::langs()->text('Description', 'description', 'description') !!}
-            {!! FormComponent::langs()->autocomplete('Keywords', 'keywords', 'keywords', '', [], '0', '', ['data-tags' => "true"]) !!}
+            {!! FormComponent::fill('page_id')->hidden('page_id', 'page_id') !!}
+            {!! FormComponent::fill('optional_id')->hidden('optional_id', 'optional_id') !!}
+            {!! FormComponent::fill('table_name')->hidden('table_name', 'table_name') !!}
+            {!! FormComponent::fill('title_{lang}')->trans()->langs()->text('Title', 'title', 'title'/*,'','required'*/) !!}{{--use required for validation --}}
+            {!! FormComponent::fill('description_{lang}')->trans()->langs()->text('Description', 'description', 'description') !!}
+            {!! FormComponent::fill('keywords')->tagInput()->trans()->langs()->text('Keywords', 'keywords', 'keywords') !!}
         {!! FormComponent::modalBodyClose() !!}
         {!! FormComponent::modalFooterOpen() !!}
             {!! FormComponent::formAjaxButtons() !!}

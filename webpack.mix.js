@@ -34,6 +34,8 @@ mix.styles([
     // select2
     'Aut/Autocomplete/src/Assets/plugin/select2/css/select2.css',
     'Aut/Autocomplete/src/Assets/plugin/select2-bootstrap-theme/select2-bootstrap.css',
+    // bootstrap-tagsinput
+    'Aut/FormComponent/src/Assets/plugin/bootstrap-tagsinput/dist/bootstrap-tagsinput.css',
     // datatable
     'Aut/DataTable/src/Assets/plugin/datatable/media/css/dataTables.bootstrap.css',
     'Aut/DataTable/src/Assets/plugin/datatable/extensions/FixedColumns/css/fixedColumns.bootstrap.css',
@@ -75,6 +77,8 @@ mix.styles([
     // select2
     'Aut/Autocomplete/src/Assets/plugin/select2/css/select2.css',
     'Aut/Autocomplete/src/Assets/plugin/select2-bootstrap-theme/select2-bootstrap.css',
+    // bootstrap-tagsinput
+    'Aut/FormComponent/src/Assets/plugin/bootstrap-tagsinput/dist/bootstrap-tagsinput.css',
     // datatable
     'Aut/DataTable/src/Assets/plugin/datatable/media/css/dataTables.bootstrap.css',
     'Aut/DataTable/src/Assets/plugin/datatable/extensions/FixedColumns/css/fixedColumns.bootstrap.css',
@@ -110,7 +114,7 @@ var js = [
     'Modules/Admin/Assets/vendor/jquery/dist/jquery.js',
     'Modules/Admin/Assets/vendor/jquery-ui/jquery-ui.js',
     'Aut/DataTable/src/Assets/js/jquery-request-types.js',
-    'node_modules/jquery-validation/dist/jquery.validate.js',
+    'Aut/FormComponent/src/Assets/plugin/jquery-validation/dist/jquery.validate.js',
     // theme lib
     'Modules/Admin/Assets/vendor/bootstrap/dist/js/bootstrap.js',
     'Modules/Admin/Assets/vendor/jQuery-Storage-API/jquery.storageapi.js',
@@ -163,6 +167,7 @@ var js = [
     'Modules/Admin/Assets/vendor/dragula/dragula.js',
     'Modules/Admin/Assets/vendor/nestable/jquery.nestable.js',
     'Modules/Admin/Assets/vendor/jquery.inputmask/dist/jquery.inputmask.bundle.js',
+    'Aut/FormComponent/src/Assets/plugin/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js',
     'Aut/GoogleMap/src/Assets/plugin/jQuery-gMap/jquery.gmap.min.js',
 
     // custom
@@ -188,7 +193,7 @@ mix.scripts(js.concat([
 mix.scripts(js.concat([
     'Aut/FileUpload/src/Assets/plugin/bootstrap-fileinput/js/locales/ar.js',
     'Aut/Autocomplete/src/Assets/plugin/select2/js/i18n/ar.js',
-    'Modules/Admin/Assets/vendor/jquery-validation/dist/localization/messages_ar.js'
+    'Aut/FormComponent/src/Assets/plugin/jquery-validation/dist/localization/messages_ar.js'
 ]), 'public/js/admin-all-rtl.js').version();
 
 /**
@@ -245,12 +250,12 @@ var loginJs = [
 ];
 
 mix.scripts(loginJs.concat([
-    'node_modules/jquery-validation/dist/jquery.validate.js',
+    'Aut/FormComponent/src/Assets/plugin/jquery-validation/dist/jquery.validate.js',
 ]), 'public/js/admin-membership-ltr.js').version();
 
 mix.scripts(loginJs.concat([
-    'node_modules/jquery-validation/dist/jquery.validate.js',
-    'Modules/Admin/Assets/vendor/jquery-validation/dist/localization/messages_ar.js',
+    'Aut/FormComponent/src/Assets/plugin/jquery-validation/dist/jquery.validate.js',
+    'Aut/FormComponent/src/Assets/plugin/jquery-validation/dist/localization/messages_ar.js',
 ]), 'public/js/admin-membership-rtl.js').version();
 
 /**

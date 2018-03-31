@@ -186,8 +186,7 @@ class UploadController extends Controller
 
     function destroy(Request $request ,$model ,$type) {
 
-        // remove this
-        // request()->request->add(['transSaveOper' => false]);
+        request()->request->add(['transSaveOper' => false]);
 
         if(!$this->stopRelationSave)
         {
@@ -233,8 +232,7 @@ class UploadController extends Controller
 
     protected function saveUploadImageDb($extraParams) {
 
-        // remove this
-        // request()->request->add(['transSaveOper' => false]);
+        request()->request->add(['transSaveOper' => false]);
 
         $image = Image::create($extraParams);
 

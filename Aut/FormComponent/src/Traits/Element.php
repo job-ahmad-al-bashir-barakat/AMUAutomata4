@@ -52,6 +52,7 @@ trait Element
             'attr'        => $attr,
             'type'        => $type,
             'dataJson'    => $this->property['dataJson'],
+            'tagsinput'   => $this->property['tagsinput'],
             'hasLangs'    => $this->property['hasLangs'],
             'hasTrans'    => $this->property['hasTrans'],
             'langs'       => $this->property['langs'],
@@ -85,9 +86,9 @@ trait Element
      * @param array $attr
      * @return mixed
      */
-    function hidden($id = '', $name = '', $value = null, $class = '', $attr = [])
+    function hidden($id = '', $name = '', $value = null, $class = '', $attr = [], $permanent = false)
     {
-        return $this->_hidden('hidden', $id, $name, $value, $class, $attr);
+        return $this->_hidden('hidden', $id, $name, $value, $class, $attr, $permanent);
     }
 
     /**

@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.4.21 on 2018-03-30.
+ * Generated for Laravel 5.4.21 on 2018-03-31.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -15437,6 +15437,16 @@ namespace App\Library\Url\Facades {
          *
          * @static 
          */
+        public static function galleries()
+        {
+            return \App\Library\Url\RouteUrls::galleries();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
         public static function customModules()
         {
             return \App\Library\Url\RouteUrls::customModules();
@@ -16148,6 +16158,16 @@ namespace Aut\FormComponent {
         /**
          * 
          *
+         * @static 
+         */
+        public static function tagInput($tag = true)
+        {
+            return \Aut\FormComponent\Builder\FormBuilder::tagInput($tag);
+        }
+        
+        /**
+         * 
+         *
          * @param string $event (form,res)
          * @return $this 
          * @static 
@@ -16232,9 +16252,9 @@ namespace Aut\FormComponent {
          * @return mixed 
          * @static 
          */
-        public static function hidden($id = '', $name = '', $value = null, $class = '', $attr = array())
+        public static function hidden($id = '', $name = '', $value = null, $class = '', $attr = array(), $permanent = false)
         {
-            return \Aut\FormComponent\Builder\FormBuilder::hidden($id, $name, $value, $class, $attr);
+            return \Aut\FormComponent\Builder\FormBuilder::hidden($id, $name, $value, $class, $attr, $permanent);
         }
         
         /**

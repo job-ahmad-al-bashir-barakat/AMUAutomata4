@@ -109,7 +109,15 @@ var AUT_UPLOAD = {
                         urlBlob       = URL.createObjectURL(blob);
 
                     imageWithBlob.onload = function () {
-                        // no longer need to read the blob so it's revoked
+
+                        /*
+                         *  no longer need to read the blob so it's revoked
+                         *
+                         *  The URL.revokeObjectURL() static method releases an existing object URL which was previously created by calling URL.createObjectURL().
+                         *  Call this method when you've finished using an object URL to let the browser know not to keep the reference to the file any longer.
+                         *
+                         *  https://developer.mozilla.org/en-US/docs/Web/API/URL/revokeObjectURL
+                         */
                         URL.revokeObjectURL(urlBlob);
                     };
 
@@ -134,8 +142,8 @@ var AUT_UPLOAD = {
                         $imageCont = $this.closest('.image-cont'),
                         cropperTemplete, infoTemplete, replacedFile = [], invalidRatio = [],
                         previewFileType             = $this.data('preview-file-type'),
-                        allowedFileTypes            = typeof $this.data('allowed-file-types') != typeof undefined ? $this.data('allowed-file-types').split(',') : null,
-                        allowedFileExtensions       = typeof $this.data('allowed-file-extensions') != typeof undefined ? $this.data('allowed-file-extensions') : null,
+                        allowedFileTypes            = $this.data('allowed-file-types').split(',') || null,
+                        allowedFileExtensions       = $this.data('allowed-file-extensions').split(',') || null,
                         uploadUrl                   = $this.data('upload-url'),
                         ratioUrl                    = $this.data('ratio-url'),
                         deleteUrl                   = $this.data('delete-url'),
@@ -147,8 +155,8 @@ var AUT_UPLOAD = {
                         uploadRetryTitle            = $this.data('upload-retry-title'),
                         cropTitle                   = $this.data('crop-title'),
                         attributeTitle              = $this.data('attribute-title'),
-                        showCaption                 = typeof $this.data('show-caption') != typeof undefined ? JSON.parse($this.data('show-caption')) : false,
-                        showPreview                 = typeof $this.data('show-preview') != typeof undefined ? JSON.parse($this.data('show-preview')) : true,
+                        showCaption                 = $this.data('show-caption') || false,
+                        showPreview                 = $this.data('show-preview') || true,
                         imageWidth                  = $this.data('image-width') || null,
                         imageHeight                 = $this.data('image-height') || null,
                         minImageHeight              = $this.data('min-image-height') || null,
@@ -157,22 +165,22 @@ var AUT_UPLOAD = {
                         maxImageWidth               = $this.data('max-image-width')  || null,
                         param                       = $this.attr('data-param')       || '',
                         multiple                    = typeof $this.attr('multiple') != typeof undefined ? true : false,
-                        target                      = typeof $this.data('target') != typeof undefined ? $this.data('target') : '',
-                        cropper                     = typeof $this.data('cropper') != typeof undefined ? JSON.parse($this.data('cropper')) : true,
+                        target                      = $this.data('target') || '',
+                        cropper                     = $this.data('cropper') || true,
                         cropperSelector             = $this.data('cropper-selector') || '.aut-cropper-file-upload',
                         cropperModal                = $this.data('cropper-modal') || '',
                         datatable                   = $this.data('datatable'),
-                        reloadDatatable             = typeof $this.data('reload-datatable') != typeof undefined ? JSON.parse($this.data('reload-datatable')) : true,
-                        datatableInitialize         = typeof $this.data('datatable-initialize') != typeof undefined ? JSON.parse($this.data('datatable-initialize')) : true,
+                        reloadDatatable             = $this.data('reload-datatable') || true,
+                        datatableInitialize         = $this.data('datatable-initialize') || true,
                         datatableInitializeProperty = $this.data('datatable-initialize-property') || '.image',
-                        appendLocation              = typeof $this.data('append-location') != typeof undefined ? $this.data('append-location') : '',
-                        appendName                  = typeof $this.data('append-name') != typeof undefined ? $this.data('append-name') : '',
+                        appendLocation              = $this.data('append-location') || '',
+                        appendName                  = $this.data('append-name') || '',
                         appendName                  = (appendName || _this.id + '[]'),
-                        allowedPreviewIcons         = typeof $this.data('allowed-preview-icons') != typeof undefined ? JSON.parse($this.data('allowed-preview-icons')) : false,
-                        autoReplace                 = typeof $this.data('auto-replace') != typeof undefined ? JSON.parse($this.data('auto-replace')) : false,
-                        allowRatio                  = typeof $this.data('allow-ratio') != typeof undefined ? JSON.parse($this.data('allow-ratio')) : false,
-                        ratio                       = typeof $this.data('ratio') != typeof undefined ? $this.data('ratio') : {},
-                        ratioMessage                = typeof $this.data('ratio-message') != typeof undefined ? $this.data('ratio-message') : '';
+                        allowedPreviewIcons         = $this.data('allowed-preview-icons') || false,
+                        autoReplace                 = $this.data('auto-replace') || false,
+                        allowRatio                  = $this.data('allow-ratio') || false,
+                        ratio                       = $this.data('ratio') || {},
+                        ratioMessage                = $this.data('ratio-message') || '';
 
                     if(cropper)
                         cropperTemplete = '<button type="button" class="btn-crop-image btn btn-kv btn-default btn-outline-secondary" title="' + cropTitle + '"><i class="fa fa-crop"></i></button>';
@@ -192,7 +200,7 @@ var AUT_UPLOAD = {
                         showCaption: showCaption,
                         maxFileSize: maxFileSize,
                         allowedFileTypes: allowedFileTypes,
-                        allowedFileExtensions : allowedFileExtensions.split(','),
+                        allowedFileExtensions: allowedFileExtensions,
                         previewFileType: previewFileType,
                         minImageHeight: minImageHeight,
                         maxImageHeight: maxImageHeight,
@@ -539,7 +547,6 @@ var AUT_UPLOAD = {
                                     $.each(ratio ,function (i ,v) {
 
                                         var button = $cropRaioHiddenButton.clone(true ,true).removeClass('crop-ratio-button-hidden hide').show();
-                                        console.log(button);
                                         button.attr('data-ratio' ,i);
                                         button.attr('data-width' ,v['width']);
                                         button.attr('data-height' ,v['height']);
@@ -553,10 +560,7 @@ var AUT_UPLOAD = {
 
                                 var $thisBtn   = $(this),
                                     $fileindex = $thisBtn.closest('div.kv-preview-thumb').data('fileindex');
-                                // prev command
-                                //$fileindex = $thisBtn.closest('tr').data('fileindex');
 
-                                // var $btn = $(this), key = $btn.data('key');
                                 var id = '#' + _this.id + AUT_UPLOAD.fileUpload.selector,
                                     files = $(id).fileinput('getFileStack'),
                                     file = files[$fileindex];
@@ -644,12 +648,9 @@ var AUT_UPLOAD = {
 
         blobURL : '',
 
-        uploadedImageURL : '',
-
         file : [],
 
         placeImage : function (param) {
-
 
             var checkFileExists = typeof param.file != typeof undefined,
                 fileType        = checkFileExists ? /^image\/\w+$/.test(param.file.type) : undefined,
@@ -665,17 +666,17 @@ var AUT_UPLOAD = {
 
             if (fileType || param.imageManager) {
 
+                var image = $(param.image);
+
                 AUT_UPLOAD.CROPPER.blobURL = param.imageManager || URL.createObjectURL(param.file);
 
-                $(param.image).one('built.cropper', function() {
-
-                    if (AUT_UPLOAD.CROPPER.blobURL)
-                        AUT_UPLOAD.CROPPER.uploadedImageURL = URL.revokeObjectURL(AUT_UPLOAD.CROPPER.blobURL); // Revoke when load complete
-
-                }).cropper('destroy').attr('src', AUT_UPLOAD.CROPPER.blobURL).cropper(param.options);
+                //  var imageWithBlob = document.createElement('img'),
+                image.attr('src', AUT_UPLOAD.CROPPER.blobURL);
+                image.cropper('destroy').cropper(param.options);
 
                 if($(param.inputImage).length)
                     $(param.inputImage).val('');
+
             } else {
                 alert('Please choose an image file.');
             }

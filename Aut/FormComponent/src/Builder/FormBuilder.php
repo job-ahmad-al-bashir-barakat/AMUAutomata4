@@ -25,6 +25,7 @@ class FormBuilder
         'hasLangs'                   => false,
         'hasTrans'                   => false,
         'ajax'                       => false,
+        'tagsinput'                  => false,
         'autoAjaxCont'               => true,
         'dataMethod'                 => 'get',
         'formType'                   => 'default',
@@ -38,6 +39,7 @@ class FormBuilder
     private $resetProperty = [
         'hasLangs'    => false,
         'hasTrans'    => false,
+        'tagsinput'   => false,
         'formGroup'   => true,
         'dataJson'    => '',
         'placeholder' => '',
@@ -254,6 +256,13 @@ class FormBuilder
     function placeholder($placeholder)
     {
         $this->property['placeholder'] = $placeholder;
+
+        return $this;
+    }
+
+    function tagInput($tag = true)
+    {
+        $this->property['tagsinput'] = $tag;
 
         return $this;
     }
