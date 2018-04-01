@@ -577,6 +577,46 @@ class ModuleNameLangsTableSeeder extends Seeder
                 'updated_at' => '2017-12-09 17:37:57',
                 'deleted_at' => NULL,
             ),
+            56 => 
+            array (
+                'id' => 77,
+                'module_id' => 29,
+                'lang_id' => 1,
+                'text' => 'University Hierarchy',
+                'created_at' => '2018-03-29 18:43:43',
+                'updated_at' => '2018-03-29 20:05:26',
+                'deleted_at' => NULL,
+            ),
+            57 => 
+            array (
+                'id' => 78,
+                'module_id' => 29,
+                'lang_id' => 2,
+                'text' => 'هيكلية الجامعة',
+                'created_at' => '2018-03-29 18:43:43',
+                'updated_at' => '2018-03-29 18:43:43',
+                'deleted_at' => NULL,
+            ),
+            58 => 
+            array (
+                'id' => 79,
+                'module_id' => 30,
+                'lang_id' => 1,
+                'text' => 'Galleries',
+                'created_at' => '2018-03-31 17:46:23',
+                'updated_at' => '2018-03-31 17:46:23',
+                'deleted_at' => NULL,
+            ),
+            59 => 
+            array (
+                'id' => 80,
+                'module_id' => 30,
+                'lang_id' => 2,
+                'text' => 'معارض الصور',
+                'created_at' => '2018-03-31 17:46:23',
+                'updated_at' => '2018-03-31 17:46:23',
+                'deleted_at' => NULL,
+            ),
         ));
         
         

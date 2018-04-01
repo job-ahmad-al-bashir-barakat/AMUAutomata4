@@ -260,6 +260,15 @@ class PagesTableSeeder extends Seeder
                 'updated_at' => '2017-11-15 18:10:31',
                 'deleted_at' => NULL,
             ),
+            27 => 
+            array (
+                'id' => 29,
+                'page_code' => 'hierarchy',
+                'route' => 'hierarchy',
+                'created_at' => '2018-03-26 19:34:15',
+                'updated_at' => '2018-03-26 19:34:15',
+                'deleted_at' => NULL,
+            ),
         ));
         
         

@@ -44,8 +44,8 @@ class SiteMenuNameLangsTableSeeder extends Seeder
                 'lang_id' => 1,
                 'text' => 'Hierarchy',
                 'created_at' => '2017-10-14 18:01:05',
-                'updated_at' => '2017-10-14 18:01:05',
-                'deleted_at' => NULL,
+                'updated_at' => '2018-03-26 19:34:57',
+                'deleted_at' => '2018-03-26 19:34:57',
             ),
             3 => 
             array (
@@ -54,8 +54,8 @@ class SiteMenuNameLangsTableSeeder extends Seeder
                 'lang_id' => 2,
                 'text' => 'الهيكلية',
                 'created_at' => '2017-10-14 18:01:05',
-                'updated_at' => '2017-10-14 18:01:05',
-                'deleted_at' => NULL,
+                'updated_at' => '2018-03-26 19:34:57',
+                'deleted_at' => '2018-03-26 19:34:57',
             ),
             4 => 
             array (
