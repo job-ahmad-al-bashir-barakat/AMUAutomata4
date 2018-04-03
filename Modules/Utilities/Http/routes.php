@@ -19,10 +19,10 @@ Route::group(
 function () {
 
     Route::get('test', function (){
-        //return \Modules\Utilities\Entities\MenuTables::all();
-//        $data = [];
-//        DB::table('icons')->insert($data);
-        return \Modules\Utilities\Entities\Icon::all();
+        $api = new \Aut\Google\Firebase\DynamicLinks\DynamicLinks();
+
+        $api->getShortLink('http://www.automata4.com/team');
+
     });
 
     Route::group(['prefix' => 'builder'], function ()
@@ -32,7 +32,7 @@ function () {
 
         Route::get('seo', 'BuilderController@getSeo')->middleware('permission:page-builder');
         Route::post('seo', 'BuilderController@storeSeo')->middleware('permission:page-builder');
-        Route::put('seo', 'BuilderController@updateSeo')->middleware('permission:page-builder');
+        Route::put('seo/{seo}', 'BuilderController@updateSeo')->middleware('permission:page-builder');
 
         Route::get('modules/{tableName}/{pageId}/{objectId?}', 'BuilderController@getPages');
 
