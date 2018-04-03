@@ -93,7 +93,7 @@ class BuilderController extends Controller
         } else {
             $query->whereNull('optional_id');
         }
-        $seo = $query->get();
+        $seo = $query->get()->first();
 
         return $seo;
     }
