@@ -493,6 +493,8 @@ var AUT_FORM_COMPONENT = {
 
                         fillForm('item',$itemEditableTarget);
 
+                        AUT_FORM_COMPONENT.validate.hideShowButtonForm($cont, 'update');
+
                     } break;
 
                     case  'datatable' : {
@@ -501,6 +503,8 @@ var AUT_FORM_COMPONENT = {
                         var row = _aut_datatable_getSelectedRowData($editableTarget ,$this.closest('tr'));
 
                         fillForm('get',row);
+
+                        AUT_FORM_COMPONENT.validate.hideShowButtonForm($cont, 'update');
 
                     } break;
 
@@ -513,12 +517,12 @@ var AUT_FORM_COMPONENT = {
 
                             if (typeof $formTarget.data('get-success') != typeof undefined)
                                 window[$formTarget.data('get-success')]($formTarget, data);
+
+                            AUT_FORM_COMPONENT.validate.hideShowButtonForm($cont, 'update');
                         });
 
                     }; break;
                 }
-
-                AUT_FORM_COMPONENT.validate.hideShowButtonForm($cont, 'update');
             });
         },
 
