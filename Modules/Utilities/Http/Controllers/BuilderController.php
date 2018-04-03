@@ -110,14 +110,15 @@ class BuilderController extends Controller
             'buildable_id' => $buildableId,
             'optional_id' => $optionalId,
         ];
+
         $seo = (new Seo($data))->save();
 
-        return $seo->id;
+        return $seo;
     }
 
     public function updateSeo(Request $request, Seo $seo)
     {
-
+        dd($seo);
     }
 
 
