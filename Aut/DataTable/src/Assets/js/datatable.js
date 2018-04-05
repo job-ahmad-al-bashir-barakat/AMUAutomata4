@@ -75,6 +75,10 @@ var AUT_DATATABLE = {
 
     searchDelay: 0,
 
+    exists: {
+        select2_pack: typeof AUT_AUTOCOMPLETE_PACK != "undefined",
+    },
+
     jsonPrettyPrint : {
 
         replacer: function(match, pIndent, pKey, pVal, pEnd) {
@@ -257,7 +261,8 @@ var AUT_DATATABLE = {
                 $(aut_datatable.ids.modal + ' .datatable-autocomplete').each(function(i ,v) {
 
                     if($(v).is('[data-selected-default]'))
-                        AUT_DATATABLE.autocomplete.selectedAutocomplete(this , $(v).data('selected-default'));
+                        if(AUT_DATATABLE.exists.select2_pack)
+                            AUT_AUTOCOMPLETE_PACK.autocomplete.selectedAutocomplete(this , $(v).data('selected-default'));
                 });
 
                 aut_datatable.events.modal_add(AUT_DATATABLE.initParamEvent(aut_datatable));
@@ -360,7 +365,8 @@ var AUT_DATATABLE = {
 
                 var select = $('select.filter-select',this.footer())
 
-                AUT_DATATABLE.select.reloadSelect(select);
+                if(AUT_DATATABLE.exists.select2_pack)
+                    AUT_AUTOCOMPLETE_PACK.select.reloadSelect(select);
 
                 select.on( 'change', function () {
 
@@ -402,402 +408,6 @@ var AUT_DATATABLE = {
             $table = _aut_datatable_getTableObjectApi($(this).find('.dataTable'));
             $table.columns.adjust().responsive.recalc();
         });
-    },
-
-    autocomplete: {
-
-        initAutocomplete: function(Data) {
-
-            return function () {
-                var $this = $(this);
-                var data = (typeof Data !== typeof undefined) ? Data : [];
-                $this.find('option:selected').each(function(i){
-                    var $this = $(this);
-                    data[i] = {id:$this.val(),name:$this.text()};
-                });
-                var url = $this.data('remote');
-                var required = (typeof $this.data('required') !== typeof undefined) ? $this.data('required') : null;
-                var placeholder = (typeof $this.data('placeholder') !== typeof undefined) ? $this.data('placeholder') : '';
-                var target = (typeof $this.data('target') !== typeof undefined) ? $($this.data('target')) : '';
-                var letters = (typeof $this.data('letter') !== typeof undefined) ? $this.data('letter') : 3;
-                var tags = (typeof $this.data('tags') !== typeof undefined) ? $this.data('tags') : false;
-                var multiple = $this.attr('multiple') ? true : false;
-                var linkWith = $this.data('param') || '';
-                if(linkWith.charAt(0) == '#') {
-                    $(linkWith).change(function() {
-                        $this.val('').change();
-                    });
-                }
-
-                var select2 = $this.select2({
-                    ajax: {
-                        url: url,
-                        dataType: 'json',
-                        delay: 400,
-                        method : "GET",
-                        data: function (params) {
-                            var param = (typeof $this.data('param') !== typeof undefined)?$this.data('param'):null;
-
-                            var remoteParam = (typeof $this.attr('data-remote-param') !== typeof undefined) ? $this.attr('data-remote-param') : null;
-
-                            if(param && param.charAt(0) === '#') {
-                                var name = $(param).attr('name') || $(param).attr('id');
-                                var val = $(param).val() ? $(param).val() : 0;
-                                param = JSON.parse('{"'+name+'":"'+val+'"}');
-                            }
-                            var $data = {q: params.term,page: params.page};
-                            if(param) {
-                                $data = $.extend($data,param);
-                            }
-
-                            if(remoteParam)
-                                $((remoteParam).split(',')).each(function(i ,v) {
-                                    $data = $.extend($data,JSON.parse('{"' + (v).split('=')[0] + '" : "' + (v).split('=')[1] + '"}'));
-                                });
-
-                            return $data;
-                        },
-                        processResults: function (data, params) {
-                            params.page = params.page || 1;
-
-                            return {
-                                results: data.items,
-                                pagination: {
-                                    more: (params.page * 30) < data.total_count
-                                }
-                            };
-                        },
-                        cache: true
-                    },
-                    escapeMarkup: function (markup) { return markup; },
-                    dir:DIR,
-                    language: LANG,
-                    minimumInputLength: letters,
-                    placeholder: placeholder,
-                    allowClear: true,
-                    templateResult: AUT_DATATABLE.autocomplete.formatRepo,
-                    templateSelection: AUT_DATATABLE.autocomplete.formatRepoSelection,
-                    dropdownParent: target,
-                    theme: "bootstrap",
-                    data: data,
-
-                    tags: tags,
-                    multiple: multiple,
-                    selectOnClose: tags ? !multiple : false,
-                    tokenSeparators: [","],
-                    createTag: AUT_DATATABLE.autocomplete.createTag,
-
-                }).off('select2:select').on('select2:select',AUT_DATATABLE.autocomplete.eventSelect)
-                  .off('select2:unselect').on('select2:unselect',AUT_DATATABLE.autocomplete.eventUnSelect);
-            };
-        },
-
-        createTag: function(newTag) {
-
-            var term = $.trim(newTag.term);
-
-            if (term === '' || term.length < 2 || term.indexOf('@') === -1 || term.indexOf('@') !== 0) {
-                return null;
-            }
-
-            var newTag = (newTag.term).replace(/@/,'');
-
-            return {
-                id: 'new:' + newTag,
-                text: newTag,
-                newTag: true
-            };
-        },
-
-        formatRepo: function (repo) {
-
-            // if (repo.loading)
-            //     return repo.text;
-            // return repo.name;
-
-            // before update
-            // return repo.name || repo.text;
-
-            var result = repo.name || repo.text;
-
-            if(!repo.tags) {
-                return result;
-            }
-
-            if (repo.id == null || repo.newTag) {
-                return result;
-            }
-
-            var $option = $("<spam></span>");
-            var $preview = $(result);
-            $preview.find('.delete-autocomplete,.approvied-autocomplete').on('mouseup', function (evt) {
-                // Select2 will remove the dropdown on `mouseup`, which will prevent any `click` events from being triggered
-                // So we need to block the propagation of the `mouseup` event
-                evt.stopPropagation();
-            });
-
-            $preview.find('.delete-autocomplete,.approvied-autocomplete').on('click', function (evt) {
-
-                var target = $(evt.target),
-                    data  = target.data(),
-                    text  = target.parent().text().trim();
-
-                if(target.hasClass('delete-autocomplete'))
-                {
-                    AUT_DATATABLE.autocomplete.deleteAutocomplete({
-                        this: target,
-                        key: data.key,
-                        action: data.action,
-                        isItem: false
-                    });
-                }
-
-                if(target.hasClass('approvied-autocomplete'))
-                {
-                    AUT_DATATABLE.autocomplete.approviedAutocomplete({
-                        this: target,
-                        action: data.action,
-                        text: text,
-                        isItem: false
-                    });
-                }
-            });
-
-            // $option.text(result);
-            $option.append($preview);
-
-            return $option;
-        },
-
-        formatRepoSelection: function (repo) {
-
-            // if(typeof repo.selected === typeof undefined)
-            //     return repo.text;
-            // return repo.name;
-
-            var repoText = repo.text || repo.name;
-            var $option = $(repo.element);
-            for(var key in repo) {
-                if(key.startsWith('data-')){
-                    $option.attr(key, repo[key]);
-                    //$option.data('type')
-                }
-            }
-            return repoText;
-        },
-
-        eventSelect: function (evt) {
-
-            // this for fix height for long text
-            $this.parent().find('.select2-selection').css('height', 'auto');
-
-            if(evt.params.data.newTag == false) {
-                return;
-            }
-
-            if(evt.params.data.newTag == true)
-            {
-                $.post(url,{ text: evt.params.data.text }, function (res) {
-
-                    // add new item to selected object
-                    var data = $this.select2('data');
-                    data.push({ id: res.id, text: res.text,name: res.name ,title: res.title ,newTag: true , selected: true, disabled: false });
-
-                    // delete new tag element
-                    var index = data.findIndex(function(x){
-                        return (x.id.toString()).match(/new:/ig);
-                    });
-                    data.splice(index ,1);
-
-                    //forcr item to be selected
-                    $.each(data, function(i,v) {
-                        data[i].selected = true;
-                    });
-
-                    // reload autocomplete with selected
-                    AUT_DATATABLE.autocomplete.resetAutocomplete($this);
-                    AUT_DATATABLE.autocomplete.selectedAutocomplete($this ,data);
-
-                }).fail(function (res) {
-
-                    $this.find('option[value="' + evt.params.data.id + '"]').remove();
-
-                    AUT_DATATABLE.autocomplete.notifyAutocomplete($this.parent().find('.select2') ,res.responseJSON.message,'danger');
-                });
-            }
-
-        },
-
-        eventUnSelect: function (evt) {
-
-            $this.find('option[value="' + evt.params.data.id + '"]').remove();
-        },
-
-        selectedAutocomplete: function (selector,data) {
-
-            $(selector).each(AUT_DATATABLE.autocomplete.initAutocomplete(data));
-        },
-
-        reloadAutocomplete: function (selector) {
-
-            var $selector = $(selector);
-
-            $selector.each(AUT_DATATABLE.autocomplete.initAutocomplete(null));
-
-            $selector.parent().on('click','.delete-autocomplete',function() {
-
-                $selector.select2('close');
-
-                var $this = $(this),
-                    data  = $this.data();
-
-                AUT_DATATABLE.autocomplete.deleteAutocomplete({
-                    this: $this,
-                    key: data.key,
-                    action: data.action,
-                    selector: $selector,
-                    isItem: true
-                });
-
-            }).on('click','.approvied-autocomplete',function() {
-
-                $selector.select2('close');
-
-                var $this = $(this),
-                    data  = $this.data(),
-                    text  = $this.parent().text().trim();
-
-                AUT_DATATABLE.autocomplete.approviedAutocomplete({
-                    this: $this,
-                    action: data.action,
-                    text: text,
-                    isItem: true,
-                });
-            });
-        },
-
-        deleteAutocomplete: function (param) {
-
-            $.post(param.action, { '_method' : 'delete' }, function(res) {
-
-                if(res.success)
-                {
-                    var autoSelector = param.isItem ? param.this.closest('.select2') : $('[aria-owns="' + param.this.closest('ul').attr('id') + '"]').closest('.select2');
-
-                    AUT_DATATABLE.autocomplete.notifyAutocomplete(autoSelector ,res.message ,'success');
-
-                    //delete option from select2
-                    if(param.isItem)
-                    {
-                        param.selector.find('option[value="' + param.key + '"]').remove();
-                    }
-                    else
-                    {
-                        param.this.closest('li').remove();
-                        autoSelector.parent().find('option[value="' + $(param.this).data('key') + '"]').remove();
-                    }
-                }
-            });
-        },
-
-        approviedAutocomplete: function(param) {
-
-            var action = param.action;
-
-            var autoSelector = param.isItem ? param.this.closest('.select2') : $('[aria-owns="' + param.this.closest('ul').attr('id') + '"]').closest('.select2');
-
-            $.post(action, { '_method' : 'put' ,'text' : param.text }, function(res) {
-
-                if(res.success)
-                {
-                    AUT_DATATABLE.autocomplete.notifyAutocomplete(autoSelector ,res.message ,'success');
-
-                    // get selected data
-                    var autocomplete = autoSelector.parent().find('.datatable-autocomplete');
-                    var data = autocomplete.select2('data');
-                    data.push({ id: res.id, text: res.text,name: res.name ,title: res.title , selected: true, disabled: false });
-
-                    // delete item element
-                    var index = data.findIndex(function(x){
-                        return x.id == res.id;
-                    });
-                    data.splice(index ,1);
-
-                    //forcr item to be selected
-                    $.each(data, function(i,v) {
-                        data[i].selected = true;
-                    });
-
-                    // reload autocomplete with selected
-                    AUT_DATATABLE.autocomplete.resetAutocomplete(autocomplete);
-                    AUT_DATATABLE.autocomplete.selectedAutocomplete(autocomplete ,data);
-
-                    if(param.isItem)
-                    {
-                        param.this.removeClass('text-danger').addClass('text-success');
-                        param.this.parent().find('.delete-autocomplete').remove();
-
-                        autoSelector.parent().find('.datatable-autocomplete').select2('close');
-                        autoSelector.parent().find('.datatable-autocomplete').select2('open');
-                    }
-                }
-
-            }).fail(function (res) {
-
-                AUT_DATATABLE.autocomplete.notifyAutocomplete(autoSelector ,res.responseJSON.message,'danger');
-            });
-        },
-
-        notifyAutocomplete: function(select2Selector ,message ,status) {
-
-            // show notify message
-            select2Selector.next().append('<span class="autocomplete-alert-delete text-' + status + '" style="font-size: 0.8em;">'+ message +'</span>');
-            select2Selector.parent().find('.autocomplete-alert-delete').fadeOut(4500,function() {
-                $(this).remove();
-            });
-        },
-
-        resetAutocomplete: function(selector) {
-
-            $(selector).empty().trigger('change');
-            //$('.datatable-autocomplete').val(null).trigger("change");
-        },
-    },
-
-    select: {
-
-        initSelect: function(data) {
-
-            return  function () {
-
-                var $this = $(this);
-                var placeholder = (typeof $this.data('placeholder') !== typeof undefined) ? $this.data('placeholder') : '';
-
-                $this.select2({
-                    dir:DIR,
-                    language: LANG,
-                    placeholder: placeholder,
-                    allowClear: true,
-                    theme: "bootstrap",
-                    data: data
-                })
-            }
-        },
-
-        reloadSelect: function(selector) {
-
-            $(selector).each(AUT_DATATABLE.select.initSelect);
-        },
-
-        selectedSelect: function(selector,data) {
-
-            $(selector).each(AUT_DATATABLE.select.initSelect(data));
-        },
-
-        resetSelect: function(selector) {
-
-            $(selector).val('').trigger("change");
-        },
     },
 
     dialog: {
@@ -1020,7 +630,8 @@ var AUT_DATATABLE = {
                             arrayItems.push({ id : ids[k] != null ? ids[k] : '' , name : names[k] ,selected: true });
                         });
 
-                        AUT_DATATABLE.autocomplete.selectedAutocomplete($this ,arrayItems);
+                        if(AUT_DATATABLE.exists.select2_pack)
+                            AUT_AUTOCOMPLETE_PACK.autocomplete.selectedAutocomplete($this ,arrayItems);
                     }
                     else
                     {
@@ -1109,7 +720,8 @@ var AUT_DATATABLE = {
             form.find('input[type=hidden]').not('[data-permanent=true]').val('');
             form.attr('data-key','');
             if(form.find('.datatable-autocomplete').length != 0) {
-                AUT_DATATABLE.autocomplete.resetAutocomplete(form.find('.datatable-autocomplete'));
+                if(AUT_DATATABLE.exists.select2_pack)
+                    AUT_AUTOCOMPLETE_PACK.autocomplete.resetAutocomplete(form.find('.datatable-autocomplete'));
             }
             AUT_DATATABLE.dialog.reset(form);
 
@@ -1285,7 +897,8 @@ var AUT_DATATABLE = {
 
             AUT_DATATABLE.addTriggerOpenModelToButtonPlus(aut_datatable);
 
-            AUT_DATATABLE.autocomplete.reloadAutocomplete(aut_datatable.ids.modal + ' .datatable-autocomplete');
+            if(AUT_DATATABLE.exists.select2_pack)
+                AUT_AUTOCOMPLETE_PACK.autocomplete.reloadAutocomplete(aut_datatable.ids.modal + ' .datatable-autocomplete');
 
             AUT_DATATABLE.dialog.fillDialogData(table ,aut_datatable);
 

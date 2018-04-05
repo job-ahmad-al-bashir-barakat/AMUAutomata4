@@ -1,5 +1,5 @@
 <div style="display: {{ strlen($name) > 50 ? 'inline-table' : 'block' }}; height: 30px;">
-    <div class='pull-left' >{{ $name }}</div>
+    <div class='pull-left'>{{ $name }}</div>
 
     @unless($approvied)
         <div class='pull-right' style="position:relative;">

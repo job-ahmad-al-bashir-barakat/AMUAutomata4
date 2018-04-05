@@ -7,4 +7,5 @@ return [
     'need_to_approvied'            => 'يتطلب التأكيد',
     'approvied_before'             => 'يوجد عنصر مأكد مطابق !!! من فضلك ابحث عن هذا العنصر وقم باختياره.',
     'approvied_successfuly'        => 'تم التأكيد بنجاح',
+    'operation_not_allowed'        => 'عملية غير مسموحة',
 ];

@@ -340,6 +340,7 @@ var AUT_FORM_COMPONENT = {
             _.head(form).reset();
             form.find('[id^=error_]').children().remove();
             form.find('input[type=hidden]').not('[data-permanent=true],[name="_token"]').val('');
+            form.find('[data-role="tagsinput"]').tagsinput('removeAll');
             if (form.find('.autocomplete').length != 0) {
                 AUT_AUTOCOMPLETE_PACK.autocomplete.resetAutocomplete(form.find('.autocomplete'));
             }
@@ -386,6 +387,10 @@ var AUT_FORM_COMPONENT = {
                     else
                     {
                         $element.val($data);
+
+                        if($element.is('[data-role="tagsinput"]'))
+                            $element.tagsinput('add', $data[0]);
+
                         //fill ckeditor if exists
                         if ($element.hasClass('text-editor'))
                             CKEDITOR.instances[element.id].setData($data);
@@ -398,7 +403,7 @@ var AUT_FORM_COMPONENT = {
                 var $this         = $(this),
                     $cont         = $($this.data('target')),
                     $formTarget   = $cont.find('form'),
-                    $fallbackData = $this.data('fixed');
+                    $fallbackData = $this.data();
 
                 // fill fixed input
                 $.map($formTarget.find('[data-editable],[data-json]'),function (i, element) {

@@ -201,7 +201,7 @@ return [
     ],
 
     'study-year' => [
-        'model'  => \Modules\Admin\Entities\StudyYear::class,
+        'model'       => \Modules\Admin\Entities\StudyYear::class,
     ],
 
     'faculty-study-year' => [

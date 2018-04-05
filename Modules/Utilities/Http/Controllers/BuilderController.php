@@ -118,7 +118,7 @@ class BuilderController extends Controller
 
     public function updateSeo(Request $request, Seo $seo)
     {
-        dd($seo);
+        dd($request->input());
     }
 
 

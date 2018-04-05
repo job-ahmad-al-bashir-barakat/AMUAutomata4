@@ -37,6 +37,10 @@ class AutocompleteController
 
     protected $tags;
 
+    protected $tags_create;
+
+    protected $approvied;
+
     public function __construct()
     {
         $this->initModel();
@@ -152,11 +156,11 @@ class AutocompleteController
 
         $object = $helper($request ,$object);
 
-        if($this->tags)
+        if($this->tags && $this->approvied)
         {
             $object = $object->where(function ($query){
                 return $query->where('approvied','=',true)
-                    ->orWhere('user_id','=',\Auth::id());
+                             ->orWhere('user_id','=',\Auth::id());
             })->orderBy('approvied','asc');
         }
 
@@ -168,6 +172,8 @@ class AutocompleteController
         if($object->count() && $this->data)
             $data = $object->first()->{$this->data};
 
+        $result = [];
+
         $helperFunc = function ($item ,$col) {
 
             foreach (explode('->', $col) as $col)
@@ -175,13 +181,10 @@ class AutocompleteController
 
             return $item;
         };
-
         $replaceCol = function ($colNameOrText) {
 
             return str_replace('{lang}' ,\App::getLocale() ,$colNameOrText);
         };
-
-        $result = [];
         $data->each(function ($item ,$index) use (&$result ,$helperFunc ,$replaceCol) {
 
             // get id
@@ -206,33 +209,33 @@ class AutocompleteController
             };
 
             // get name
-            $nameResult  = $finalResult($item,$this->colName);
-            $textResult  = $finalResult($item,$this->colText);
-            $titleResult = $finalResult($item,$this->colTitle);
+            $colName  = $this->colName;
+            $colText  = $this->tags ? $this->colText : $colName;
+            $colTitle = $this->tags ? $this->colTitle : $colName;
 
-            $result[$index]['id']    = $id;
-            $result[$index]['name']  = $this->tags ? $this->tagsMenu($item ,$id ,$nameResult) : $nameResult;
-            $result[$index]['text']  = $this->tags ? $this->tagsItem($item ,$id ,$textResult) : $textResult;
-            $result[$index]['title'] = $titleResult;
-            $result[$index]['tags']  = $this->tags;
+            $nameResult  = $finalResult($item,$colName);
+            $textResult  = $finalResult($item,$colText);
+            $titleResult = $finalResult($item,$colTitle);
+
+            $result[$index]['id']         = $id;
+            $result[$index]['name']       = $this->tags && $this->approvied ? $this->tagsMenu($item ,$id ,$nameResult) : $nameResult;
+            $result[$index]['text']       = $this->tags && $this->approvied ? $this->tagsItem($item ,$id ,$textResult) : $textResult;
+            $result[$index]['title']      = $titleResult;
+            $result[$index]['tags']       = $this->tags;
+            $result[$index]['approvied']  = $this->approvied;
         });
 
         return array('items' => $result);
     }
 
-    function tagsMenu ($item ,$id ,$name) {
-
-        $approviedIcon = $item->approvied ? 'text-success' : 'text-danger';
-
-        return view('autocomplete::component.tags_menu',[
-            'model'         => $this->autocomplete,
-            'approvied'     => $item->approvied,
-            'approviedIcon' => $approviedIcon,
-            'id'            => $id,
-            'name'          => $name,
-        ])->render();
-    }
-
+    /**
+     * this tag item is a templete for show and item seleced for select2
+     *
+     * @param $item
+     * @param $id
+     * @param $text
+     * @return string
+     */
     function tagsItem ($item ,$id ,$text) {
 
         $approviedIcon = $item->approvied ? 'text-success' : 'text-danger';
@@ -246,50 +249,139 @@ class AutocompleteController
         ])->render();
     }
 
+    /**
+     * this tag menu is a templete for all item when click on selected to pick item
+     *
+     * @param $item
+     * @param $id
+     * @param $name
+     * @return string
+     */
+    function tagsMenu ($item , $id , $name) {
+
+        $approviedIcon = $item->approvied ? 'text-success' : 'text-danger';
+
+        return view('autocomplete::component.tags_menu',[
+            'model'         => $this->autocomplete,
+            'approvied'     => $item->approvied,
+            'approviedIcon' => $approviedIcon,
+            'id'            => $id,
+            'name'          => $name,
+        ])->render();
+    }
+
+    /**
+     *
+     * This action for store tags
+     *
+     * @param Request $request
+     * @param $model
+     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\JsonResponse|\Illuminate\Http\Response|\Response|\Symfony\Component\HttpFoundation\Response
+     */
     function store(Request $request, $model)
     {
-        if($this->tags == false)
-            return;
+        if(!$this->tags)
+            return response([
+                'message' => trans('autocomplete::autocomplete.operation_not_allowed')
+            ],422);
 
         $text = preg_replace('/ +/',' ',$request->input('text'));
+        $lang = $request->input('lang',\App::getLocale());
 
         $model = $this->model;
 
         // check exists and send response to remove it
-        $exists = $model::where($this->colText,'=',$text)
-            ->where('approvied','=',true)
-            ->get();
+        if($this->isLang)
+            $exists = $model::whereHas(camel_case("trans_{$this->tags_create}") ,function ($query) use ($text) {
+                $query->where('text', '=', $text);
+            });
+        else
+            $exists = $model::where($this->colText,'=',$text);
+
+        if($this->approvied)
+            $exists->where('approvied','=',true);
+        $exists->get();
 
         if($exists->count())
-            return response()->json(['message' =>  trans('autocomplete::autocomplete.dublicate_entry')],422);
+            return response()->json([
+                'message' =>  trans('autocomplete::autocomplete.dublicate_entry')
+            ],422);
+
+        if($this->isLang)
+        {
+            $create = [
+                "trans_{$this->tags_create}" => [
+                    "name_{$lang}" => $text
+                ],
+                'user_id' => Auth::id()
+            ];
+            $request->request->add($create);
+        }
+        else
+            $create = [
+                "{$this->colText}" => $text,
+                'user_id'          => Auth::id()
+            ];
 
         // create item
-        $tag = $model::create(["{$this->colText}" => $text ,'user_id' => Auth::id()]);
+        $tag = $model::create($create);
+
+        // get name
+        $colName  = $this->colName;
+        $colText  = $this->tags ? $this->colText  : $colName;
+        $colTitle = $this->tags ? $this->colTitle : $colName;
 
         return response()->json([
-            "id"   => $tag[$this->colId],
-            "text" => $this->tagsItem($tag ,$tag[$this->colId] ,$tag[$this->colText]),
-            'name' => $tag[$this->colName],
-            'title' => $tag[$this->colTitle]
+            'id'        => $tag[$this->colId],
+            'name'      => $tag[$colName],
+            'text'      => $this->tags && $this->approvied ? $this->tagsItem($tag ,$tag[$this->colId] ,$tag[$colText]) : $colText,
+            'title'     => $tag[$colTitle],
+            'approvied' => $this->approvied,
         ]);
     }
 
-    function destroy($model ,$id)
+    /**
+     * This action for delete tags
+     *
+     * @param $model
+     * @param $id
+     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\JsonResponse|\Illuminate\Http\Response|\Response|\Symfony\Component\HttpFoundation\Response
+     */
+    function destroy($model , $id)
     {
-        if($this->tags == false)
-            return;
+        if(!($this->tags && $this->approvied))
+            return response([
+                'message' => trans('autocomplete::autocomplete.operation_not_allowed')
+            ],422);
 
         $model = $this->model;
 
         $model::destroy($id);
 
-        return response()->json(['success' => true ,'message' => trans('autocomplete::autocomplete.delete_tage_success')]);
+        return response()->json([
+            'message' => trans('autocomplete::autocomplete.delete_tage_success')
+        ]);
     }
 
-    function approvied(Request $request,$model ,$id)
+    /**
+     * This action for approvied tags
+     * This for user who create this tag if user sure about it's tag he can approvied
+     * and then if there is same as this tag he must change this it's tag to the old one
+     *
+     * this system to avoid dublicate entry for tags by users
+     * each user will see his entry tags (not approvied) with all approvied tag
+     *
+     * @param Request $request
+     * @param $model
+     * @param $id
+     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\JsonResponse|\Illuminate\Http\Response|\Response|\Symfony\Component\HttpFoundation\Response
+     */
+    function approvied(Request $request, $model , $id)
     {
-        if($this->tags == false)
-            return;
+        if(!($this->tags && $this->approvied))
+            return response([
+                'message' => trans('autocomplete::autocomplete.operation_not_allowed')
+            ],422);
 
         $text = preg_replace('/ +/',' ',$request->input('text'));
         $text = preg_replace('/×/','',$text);
@@ -297,12 +389,20 @@ class AutocompleteController
         $model = $this->model;
 
         // check item if is approvied before by onther user
-        $exists = $model::where($this->colText,'=',$text)
-            ->where($this->colId ,'<>' ,$id)
-            ->where('approvied' ,'=' ,true)->get();
+        if($this->isLang)
+            $exists = $model::whereHas(camel_case("trans_{$this->tags_create}") ,function ($query) use ($text) {
+                $query->where('text', '=', $text);
+            });
+        else
+            $exists = $model::where($this->colText,'=',$text);
+
+        $exists->where($this->colId ,'<>' ,$id)
+               ->where('approvied' ,'=' ,true)->get();
 
         if($exists && $exists->count())
-            return response()->json(['message' =>  trans('autocomplete::autocomplete.approvied_before')],422);
+            return response()->json([
+                'message' =>  trans('autocomplete::autocomplete.approvied_before')
+            ],422);
 
         // update approvied
         $obj = $model::where($this->colId,'=',$id);
@@ -312,15 +412,18 @@ class AutocompleteController
         $tag = $obj->first();
 
         return response()->json([
-            "success" => true,
-            "message" => trans('autocomplete::autocomplete.approvied_successfuly'),
-            "id"      => $tag[$this->colId],
-            "text"    => $this->tagsItem($tag ,$tag[$this->colId] ,$tag[$this->colText]),
-            "name"    => $tag[$this->colName],
-            "title"   => $tag[$this->colTitle]
+            "message"   => trans('autocomplete::autocomplete.approvied_successfuly'),
+            "id"        => $tag[$this->colId],
+            "text"      => $this->tagsItem($tag ,$tag[$this->colId] ,$tag[$this->colText]),
+            "name"      => $tag[$this->colName],
+            "title"     => $tag[$this->colTitle],
+            "approvied" => $this->approvied,
         ]);
     }
 
+    /**
+     * @throws Exception
+     */
     private function initModel()
     {
         if(Route::getCurrentRoute() !== null)
@@ -333,19 +436,26 @@ class AutocompleteController
                 throw new Exception('This model not registered');
             }
 
-            $this->isLang    = config('autocomplete.isLangs');
-            $this->langs     = \LaravelLocalization::getSupportedLanguagesKeys();
-            $withOrNot       = $this->isLang                        ? 'withLang'                     : 'withoutLang';
-            $this->model     = isset($autocompleteSet['model'])     ? $autocompleteSet['model']      : '';
-            $this->data      = isset($autocompleteSet['data'])      ? $autocompleteSet['data']       : false;
-            $this->with      = isset($autocompleteSet['with'])      ? $autocompleteSet['with']       : [];
-            $this->q         = isset($autocompleteSet['q'])         ? $autocompleteSet['q']          : config("autocomplete.default.$withOrNot.q");
-            $this->conditions= isset($autocompleteSet['conditions'])? $autocompleteSet['conditions'] : [];
-            $this->colId     = isset($autocompleteSet['colId'])     ? $autocompleteSet['colId']      : config("autocomplete.default.$withOrNot.colId");
-            $this->colName   = isset($autocompleteSet['colName'])   ? $autocompleteSet['colName']    : config("autocomplete.default.$withOrNot.colName");
-            $this->colText   = isset($autocompleteSet['colText'])   ? $autocompleteSet['colText']    : config("autocomplete.default.$withOrNot.colText");
-            $this->colTitle  = isset($autocompleteSet['colTitle'])  ? $autocompleteSet['colTitle']   : config("autocomplete.default.$withOrNot.colTitle");
-            $this->tags      = isset($autocompleteSet['tags'])      ? $autocompleteSet['tags']       : false;
+            $this->isLang      = config('autocomplete.isLangs');
+            $this->langs       = \LaravelLocalization::getSupportedLanguagesKeys();
+            $withOrNot         = $this->isLang                          ? 'withLang'                      : 'withoutLang';
+            $this->model       = isset($autocompleteSet['model'])       ? $autocompleteSet['model']       : '';
+            $this->data        = isset($autocompleteSet['data'])        ? $autocompleteSet['data']        : false;
+            $this->with        = isset($autocompleteSet['with'])        ? $autocompleteSet['with']        : [];
+            $this->q           = isset($autocompleteSet['q'])           ? $autocompleteSet['q']           : config("autocomplete.default.$withOrNot.q");
+            $this->conditions  = isset($autocompleteSet['conditions'])  ? $autocompleteSet['conditions']  : [];
+            $this->colId       = isset($autocompleteSet['colId'])       ? $autocompleteSet['colId']       : config("autocomplete.default.$withOrNot.colId");
+            $this->colName     = isset($autocompleteSet['colName'])     ? $autocompleteSet['colName']     : config("autocomplete.default.$withOrNot.colName");
+            $this->colText     = isset($autocompleteSet['colText'])     ? $autocompleteSet['colText']     : config("autocomplete.default.$withOrNot.colText");
+            $this->colTitle    = isset($autocompleteSet['colTitle'])    ? $autocompleteSet['colTitle']    : config("autocomplete.default.$withOrNot.colTitle");
+            $this->tags        = isset($autocompleteSet['tags'])        ? $autocompleteSet['tags']        : false;
+            $this->tags_create = isset($autocompleteSet['tags_create']) ? $autocompleteSet['tags_create'] : '';
+            // approvied require tags to be true
+            $this->approvied = isset($autocompleteSet['approvied'])
+                ? $this->tags
+                    ? $autocompleteSet['approvied']
+                    : false
+                : false;
         }
     }
 }

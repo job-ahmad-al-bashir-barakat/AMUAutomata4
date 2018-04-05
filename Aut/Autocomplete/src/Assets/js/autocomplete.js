@@ -20,25 +20,30 @@ var AUT_AUTOCOMPLETE_PACK = {
         init: function (Data) {
 
             return function () {
-                var $this = $(this);
-                var data = (typeof Data !== typeof undefined) ? Data : [];
+                var $this          = $(this);
+                var url            = $this.data('remote');
+                var required       = $this.data('required')       || null;
+                var placeholder    = $this.data('placeholder')    || '';
+                var target         = $($this.data('target'))      || '';
+                var letters        = $this.data('letter')         || 3;
+                var tags           = $this.data('tags')           || false;
+                var tagsCreate     = $this.data('tags-create')    || false;
+                var tagsApprovied  = $this.data('tags-approvied') || false;
+                var multiple       = $this.attr('multiple')       ? true : false;
+                var linkWith       = $this.data('param')          || '';
+                var data           = Data                         || [];
+
                 $this.find('option:selected').each(function (i) {
                     var $this = $(this);
                     data[i] = {id: $this.val(), name: $this.text()};
                 });
-                var url = $this.data('remote');
-                var required = (typeof $this.data('required') !== typeof undefined) ? $this.data('required') : null;
-                var placeholder = (typeof $this.data('placeholder') !== typeof undefined) ? $this.data('placeholder') : '';
-                var target = (typeof $this.data('target') !== typeof undefined) ? $($this.data('target')) : '';
-                var letters = (typeof $this.data('letter') !== typeof undefined) ? $this.data('letter') : 3;
-                var tags = (typeof $this.data('tags') !== typeof undefined) ? $this.data('tags') : false;
-                var multiple = $this.attr('multiple') ? true : false;
-                var linkWith = $this.data('param') || '';
+
                 if (linkWith.charAt(0) == '#') {
                     $(linkWith).change(function () {
                         $this.val('').change();
                     });
                 }
+
                 $this.select2({
                     ajax: {
                         url: url,
@@ -46,10 +51,9 @@ var AUT_AUTOCOMPLETE_PACK = {
                         delay: 400,
                         method: "GET",
                         data: function (params) {
-                            var param = (typeof $this.data('param') !== typeof undefined) ? $this.data('param') : null;
 
-                            //added by basheer
-                            var remoteParam = (typeof $this.attr('data-remote-param') !== typeof undefined) ? $this.attr('data-remote-param') : null;
+                            var param       = $this.data('param') || null;
+                            var remoteParam = $this.attr('data-remote-param') || null;
 
                             if (param && param.charAt(0) === '#') {
                                 var name = $(param).attr('name') || $(param).attr('id');
@@ -61,7 +65,6 @@ var AUT_AUTOCOMPLETE_PACK = {
                                 $data = $.extend($data, param);
                             }
 
-                            //added by basheer
                             if (remoteParam)
                                 $((remoteParam).split(',')).each(function (i, v) {
                                     $data = $.extend($data, JSON.parse('{"' + (v).split('=')[0] + '" : "' + (v).split('=')[1] + '"}'));
@@ -97,11 +100,12 @@ var AUT_AUTOCOMPLETE_PACK = {
 
                     tags: tags,
                     multiple: multiple,
-                    selectOnClose: tags ? !multiple : false,
+                    selectOnClose: tagsApprovied ? !multiple : false,
                     tokenSeparators: [","],
                     createTag: AUT_AUTOCOMPLETE_PACK.autocomplete.createTag,
-                }).off('select2:select').on('select2:select',AUT_AUTOCOMPLETE_PACK.autocomplete.eventSelect)
-                  .off('select2:unselect').on('select2:unselect',AUT_AUTOCOMPLETE_PACK.autocomplete.eventUnSelect);
+                })
+                .off('select2:select').on('select2:select',AUT_AUTOCOMPLETE_PACK.autocomplete.eventSelect)
+                .off('select2:unselect').on('select2:unselect',AUT_AUTOCOMPLETE_PACK.autocomplete.eventUnSelect);
             }
         },
 
@@ -123,15 +127,9 @@ var AUT_AUTOCOMPLETE_PACK = {
 
         formatRepo: function (repo) {
 
-            // old
-            // return repo.name || repo.text;
-
             var result = repo.name || repo.text;
 
-            if(!repo.tags)
-                return result;
-
-            if (repo.id == null || repo.newTag)
+            if(repo.id == null || !(repo.tags && repo.approvied))
                 return result;
 
             var $option = $("<spam></span>");
@@ -163,7 +161,7 @@ var AUT_AUTOCOMPLETE_PACK = {
                         this   : target,
                         key    : data.key,
                         action : data.action,
-                        isItem : true
+                        isItem : false
                     });
 
                 /*
@@ -175,7 +173,7 @@ var AUT_AUTOCOMPLETE_PACK = {
                         this   : target,
                         action : data.action,
                         text   : text,
-                        isItem : true
+                        isItem : false
                     });
             });
 
@@ -198,56 +196,131 @@ var AUT_AUTOCOMPLETE_PACK = {
             return repoText;
         },
 
-        selectedAutocomplete: function (selector, data) {
-
-            $(selector).each(AUT_AUTOCOMPLETE_PACK.autocomplete.init(data));
-        },
-
         eventSelect: function (evt) {
 
-            // this for fix height for long text
-            $this.parent().find('.select2-selection').css('height', 'auto');
+            var $this          = $(this),
+                url            = $this.data('remote'),
+                lang           = $this.data('lang'),
+                tagsCreate     = $this.data('tags-create')    || false,
+                tagsApprovied  = $this.data('tags-approvied') || false;
 
-            if(evt.params.data.newTag == false) {
-                return;
-            }
-
-            if(evt.params.data.newTag == true)
+            if(tagsCreate)
             {
-                $.post(url,{ text: evt.params.data.text }, function (res) {
+                // this for fix height for long text
+                $this.parent().find('.select2-selection').css('height', 'auto');
 
-                    // add new item to selected object
-                    var data = $this.select2('data');
-                    data.push({ id: res.id, text: res.text,name: res.name ,title: res.title ,newTag: true , selected: true, disabled: false });
+                if(evt.params.data.newTag)
+                {
+                    $.post(url,{ text: evt.params.data.text, lang: lang }, function (res) {
 
-                    // delete new tag element
-                    var index = data.findIndex(function(x){
-                        return (x.id.toString()).match(/new:/ig);
+                        // add new item to selected object
+                        var data = $this.select2('data');
+                        data.push({ id: res.id, text: res.text, name: res.name, title: res.title ,tags: true ,approvied: res.approvied ,selected: true ,disabled: false });
+
+                        // delete new tag element
+                        var index = data.findIndex(function(x){
+                            return (x.id.toString()).match(/new:/ig);
+                        });
+                        data.splice(index ,1);
+
+                        //foreach item to be selected
+                        $.each(data, function(i,v) {
+                            data[i].selected = true;
+                        });
+
+                        // reload autocomplete with selected
+                        AUT_AUTOCOMPLETE_PACK.autocomplete.resetAutocomplete($this);
+                        AUT_AUTOCOMPLETE_PACK.autocomplete.selectedAutocomplete($this ,data);
+
+                    }).fail(function (res) {
+
+                        $this.find('option[value="' + evt.params.data.id + '"]').remove();
+
+                        AUT_AUTOCOMPLETE_PACK.autocomplete.notifyAutocomplete($this.parent().find('.select2') ,res.responseJSON.message,'danger');
                     });
-                    data.splice(index ,1);
-
-                    //forcr item to be selected
-                    $.each(data, function(i,v) {
-                        data[i].selected = true;
-                    });
-
-                    // reload autocomplete with selected
-                    AUT_DATATABLE.autocomplete.resetAutocomplete($this);
-                    AUT_DATATABLE.autocomplete.selectedAutocomplete($this ,data);
-
-                }).fail(function (res) {
-
-                    $this.find('option[value="' + evt.params.data.id + '"]').remove();
-
-                    AUT_DATATABLE.autocomplete.notifyAutocomplete($this.parent().find('.select2') ,res.responseJSON.message,'danger');
-                });
+                }
             }
-
         },
 
         eventUnSelect: function (evt) {
 
+            var $this = $(this);
+
             $this.find('option[value="' + evt.params.data.id + '"]').remove();
+        },
+
+        notifyAutocomplete: function(select2Selector ,message ,status) {
+
+            // show notify message
+            select2Selector.next().append('<span class="autocomplete-alert-delete text-' + status + '" style="font-size: 0.8em;">'+ message +'</span>');
+            select2Selector.parent().find('.autocomplete-alert-delete').fadeOut(4500,function() {
+                $(this).remove();
+            });
+        },
+
+        approviedAutocomplete: function(param) {
+
+            var action = param.action;
+            var autoSelector = param.isItem ? param.this.closest('.select2') : $('[aria-owns="' + param.this.closest('ul').attr('id') + '"]').closest('.select2');
+
+            $.post(action, { '_method' : 'put' ,'text' : param.text }, function(res) {
+
+                AUT_AUTOCOMPLETE_PACK.autocomplete.notifyAutocomplete(autoSelector ,res.message ,'success');
+
+                // get selected data
+                var autocomplete = autoSelector.parent().find('.datatable-autocomplete,.autocomplete');
+                var data = autocomplete.select2('data');
+                data.push({ id: res.id, text: res.text ,name: res.name ,title: res.title ,approvied: res.approvied ,selected: true ,disabled: false });
+
+                // delete item element
+                var index = data.findIndex(function(x){
+                    return x.id == res.id;
+                });
+                data.splice(index ,1);
+
+                //forcr item to be selected
+                $.each(data, function(i,v) {
+                    data[i].selected = true;
+                });
+
+                // reload autocomplete with selected
+                AUT_AUTOCOMPLETE_PACK.autocomplete.resetAutocomplete(autocomplete);
+                AUT_AUTOCOMPLETE_PACK.autocomplete.selectedAutocomplete(autocomplete ,data);
+
+                if(param.isItem)
+                {
+                    param.this.removeClass('text-danger').addClass('text-success');
+                    param.this.parent().find('.delete-autocomplete').remove();
+
+                    autoSelector.parent().find('.datatable-autocomplete,.autocomplete').select2('close');
+                    autoSelector.parent().find('.datatable-autocomplete,.autocomplete').select2('open');
+                }
+
+            }).fail(function (res) {
+
+                AUT_AUTOCOMPLETE_PACK.autocomplete.notifyAutocomplete(autoSelector ,res.responseJSON.message,'danger');
+            });
+        },
+
+        deleteAutocomplete: function (param) {
+
+            $.post(param.action, { '_method' : 'delete' }, function(res) {
+
+                var autoSelector = param.isItem ? param.this.closest('.select2') : $('[aria-owns="' + param.this.closest('ul').attr('id') + '"]').closest('.select2');
+
+                AUT_AUTOCOMPLETE_PACK.autocomplete.notifyAutocomplete(autoSelector ,res.message ,'success');
+
+                //delete option from select2
+                if(param.isItem)
+                {
+                    param.selector.find('option[value="' + param.key + '"]').remove();
+                }
+                else
+                {
+                    param.this.closest('li').remove();
+                    autoSelector.parent().find('option[value="' + $(param.this).data('key') + '"]').remove();
+                }
+            });
         },
 
         reloadAutocomplete: function (selector) {
@@ -265,14 +338,13 @@ var AUT_AUTOCOMPLETE_PACK = {
                     data  = $this.data(),
                     text  = $this.parent().text().trim();
 
-
                 if(target.hasClass('delete-autocomplete'))
                     AUT_AUTOCOMPLETE_PACK.autocomplete.deleteAutocomplete({
                         this: $this,
                         key: data.key,
                         action: data.action,
                         selector: $selector,
-                        isItem: false
+                        isItem: true
                     });
 
                 if(target.hasClass('approvied-autocomplete'))
@@ -280,11 +352,16 @@ var AUT_AUTOCOMPLETE_PACK = {
                         this    : $this,
                         action  : data.action,
                         text    : text,
-                        isItem  : false,
+                        isItem  : true,
                     });
 
                 $selector.select2('close');
             });
+        },
+
+        selectedAutocomplete: function (selector, data) {
+
+            $(selector).each(AUT_AUTOCOMPLETE_PACK.autocomplete.init(data));
         },
 
         resetAutocomplete: function (selector) {
@@ -322,87 +399,6 @@ var AUT_AUTOCOMPLETE_PACK = {
                 }
             }
             $obj.select2('destroy');
-        },
-
-        notifyAutocomplete: function(select2Selector ,message ,status) {
-
-            // show notify message
-            select2Selector.next().append('<span class="autocomplete-alert-delete text-' + status + '" style="font-size: 0.8em;">'+ message +'</span>');
-            select2Selector.parent().find('.autocomplete-alert-delete').fadeOut(4500,function() {
-                $(this).remove();
-            });
-        },
-
-        approviedAutocomplete: function(param) {
-
-            var action = param.action;
-
-            var autoSelector = param.isItem ? param.this.closest('.select2') : $('[aria-owns="' + param.this.closest('ul').attr('id') + '"]').closest('.select2');
-
-            $.post(action, { '_method' : 'put' ,'text' : param.text }, function(res) {
-
-                if(res.success)
-                {
-                    AUT_DATATABLE.autocomplete.notifyAutocomplete(autoSelector ,res.message ,'success');
-
-                    // get selected data
-                    var autocomplete = autoSelector.parent().find('.datatable-autocomplete');
-                    var data = autocomplete.select2('data');
-                    data.push({ id: res.id, text: res.text,name: res.name ,title: res.title , selected: true, disabled: false });
-
-                    // delete item element
-                    var index = data.findIndex(function(x){
-                        return x.id == res.id;
-                    });
-                    data.splice(index ,1);
-
-                    //forcr item to be selected
-                    $.each(data, function(i,v) {
-                        data[i].selected = true;
-                    });
-
-                    // reload autocomplete with selected
-                    AUT_DATATABLE.autocomplete.resetAutocomplete(autocomplete);
-                    AUT_DATATABLE.autocomplete.selectedAutocomplete(autocomplete ,data);
-
-                    if(!param.isItem)
-                    {
-                        param.this.removeClass('text-danger').addClass('text-success');
-                        param.this.parent().find('.delete-autocomplete').remove();
-
-                        autoSelector.parent().find('.datatable-autocomplete').select2('close');
-                        autoSelector.parent().find('.datatable-autocomplete').select2('open');
-                    }
-                }
-
-            }).fail(function (res) {
-
-                AUT_DATATABLE.autocomplete.notifyAutocomplete(autoSelector ,res.responseJSON.message,'danger');
-            });
-        },
-
-        deleteAutocomplete: function (param) {
-
-            $.post(param.action, { '_method' : 'delete' }, function(res) {
-
-                if(res.success)
-                {
-                    var autoSelector = param.isItem ? param.this.closest('.select2') : $('[aria-owns="' + param.this.closest('ul').attr('id') + '"]').closest('.select2');
-
-                    AUT_AUTOCOMPLETE_PACK.autocomplete.notifyAutocomplete(autoSelector ,res.message ,'success');
-
-                    //delete option from select2
-                    if(param.isItem)
-                    {
-                        param.this.closest('li').remove();
-                        autoSelector.parent().find('option[value="' + $(param.this).data('key') + '"]').remove();
-                    }
-                    else
-                    {
-                        param.selector.find('option[value="' + param.key + '"]').remove();
-                    }
-                }
-            });
         },
     },
 
