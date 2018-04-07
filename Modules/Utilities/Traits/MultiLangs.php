@@ -61,17 +61,23 @@ trait MultiLangs
                 {
                     foreach ($relations as $relation)
                     {
-                        $relation->text = $data["{$inputName}_{$relation->lang_code}"];
-                        $status = $relation->save();
+                        if (isset($data["{$inputName}_{$relation->lang_code}"])) {
+                            $relation->text = $data["{$inputName}_{$relation->lang_code}"];
+                            $status = $relation->save();
+                        }
                     }
                 }
                 else
                 {
                     foreach ($supportedLocale as $key => $lang)// each lang in current trans username -> en, ar ,...
                     {
-                        $createArr[] = ['lang_id' => $key + 1, 'text' => $data["{$inputName}_{$lang}"]];
+                        if (isset($data["{$inputName}_{$lang}"])) {
+                            $createArr[] = ['lang_id' => $key + 1, 'text' => $data["{$inputName}_{$lang}"]];
+                        }
                     }
-                    $object->$method()->createMany($createArr);
+                    if (count($createArr)) {
+                        $object->$method()->createMany($createArr);
+                    }
                 }
             }
         }
