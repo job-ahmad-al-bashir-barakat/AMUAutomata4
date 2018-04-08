@@ -45,7 +45,7 @@ class BuilderController extends Controller
         $tableName = $request->get('table_name');
         $buildableType = Table::whereTableName($tableName)->first()->morph_code;
         $buildableId = $request->get('page_id');
-        $modulePosition = $request->get('module_position');
+//        $modulePosition = $request->get('module_position');
         $optionalId = $request->get('optional_id');
         $customModule = $request->get('custom_module');
         $id = $request->get('id');
@@ -60,7 +60,7 @@ class BuilderController extends Controller
         for ($i = 0; $i < count($customModule); $i++) {
             $data = [
                 'custom_module_id' => $customModule[$i],
-                'position' => $modulePosition[$i],
+//                'position' => $modulePosition[$i],
                 'order' => ($i+1),
                 'buildable_id' => $buildableId,
                 'buildable_type' => $buildableType,
