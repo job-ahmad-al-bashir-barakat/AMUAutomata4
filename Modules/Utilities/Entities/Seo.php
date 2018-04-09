@@ -16,6 +16,18 @@ class Seo extends \Eloquent
 
     protected $appends  = ['lang_title', 'lang_description', 'lang_keyword'];
 
+    public function scopePageSeo($query, $page = false)
+    {
+        $route = request()->route();
+        list($buildableType, $buildableId, $optionalId) = explode('.', $route->getName());
+        $query->whereBuildableId($buildableId)->whereBuildableType($buildableType);
+        if ($optionalId) {
+            $query->whereOptionalId($optionalId);
+        } else {
+            $query->whereNull('optional_id');
+        }
+        return $query;
+    }
     public function buildable()
     {
         return $this->morphTo();

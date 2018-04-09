@@ -118,7 +118,20 @@ class BuilderController extends Controller
 
     public function updateSeo(Request $request, Seo $seo)
     {
-        dd($request->input());
+        $tableName = $request->get('table_name');
+        $buildableType = Table::whereTableName($tableName)->first()->morph_code;
+        $buildableId = $request->get('page_id');
+        $optionalId = $request->get('optional_id');
+
+        $data = [
+            'buildable_type' => $buildableType,
+            'buildable_id' => $buildableId,
+            'optional_id' => $optionalId,
+        ];
+
+        $seo->fill($data)->save();
+
+        return $seo->id;
     }
 
 

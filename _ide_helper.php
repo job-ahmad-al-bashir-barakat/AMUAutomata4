@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.4.21 on 2018-03-31.
+ * Generated for Laravel 5.4.21 on 2018-04-09.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -16567,7 +16567,7 @@ namespace Aut\FileUpload {
          *
          * @static 
          */
-        public static function ImageUpload($id = '', $name = '', $class = '', $param = '', $imageWidth = null, $imageHeight = null, $targetModel = array(), $datatable = '', $datatableInitialize = 'true', $datatableInitializeProperty = '.image', $extraParameter = array())
+        public static function ImageUpload($id = '', $name = '', $class = '', $param = '', $imageWidth = null, $imageHeight = null, $targetModel = array(), $datatable = '', $datatableInitialize = true, $datatableInitializeProperty = '.image', $extraParameter = array())
         {
             return \Aut\FileUpload\FileUpload::ImageUpload($id, $name, $class, $param, $imageWidth, $imageHeight, $targetModel, $datatable, $datatableInitialize, $datatableInitializeProperty, $extraParameter);
         }

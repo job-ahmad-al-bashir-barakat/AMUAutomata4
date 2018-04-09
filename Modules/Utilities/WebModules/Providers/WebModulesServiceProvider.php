@@ -5,6 +5,8 @@ namespace Modules\Utilities\WebModules\Providers;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+use Modules\Utilities\Entities\BuilderPage;
+use Modules\Utilities\Entities\Seo;
 
 class WebModulesServiceProvider extends ServiceProvider
 {
@@ -69,8 +71,9 @@ class WebModulesServiceProvider extends ServiceProvider
             Route::get("{$supportedLanguage}/{$url}", function (){
                 //@todo menu must be global var to make on call for it
                 $menu = $this->menu;
-                $modules = \Modules\Utilities\Entities\BuilderPage::pageModules()->get()->pluck('module');
-                return view("modules", compact('menu', 'modules'));
+                $modules = BuilderPage::pageModules()->get()->pluck('module');
+                $seo = Seo::pageSeo()->first();
+                return view("modules", compact('menu', 'modules', 'seo'));
             })->name($name);
         }
     }
