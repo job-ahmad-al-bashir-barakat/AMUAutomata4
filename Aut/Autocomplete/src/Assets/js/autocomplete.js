@@ -25,7 +25,7 @@ var AUT_AUTOCOMPLETE_PACK = {
                 var required       = $this.data('required')       || null;
                 var placeholder    = $this.data('placeholder')    || '';
                 var target         = $($this.data('target'))      || '';
-                var letters        = $this.data('letter')         || 3;
+                var letters        = typeof $this.data('letter') != typeof undefined ? $this.data('letter') : 3;
                 var tags           = $this.data('tags')           || false;
                 var tagsCreate     = $this.data('tags-create')    || false;
                 var tagsApprovied  = $this.data('tags-approvied') || false;
@@ -201,8 +201,7 @@ var AUT_AUTOCOMPLETE_PACK = {
             var $this          = $(this),
                 url            = $this.data('remote'),
                 lang           = $this.data('lang'),
-                tagsCreate     = $this.data('tags-create')    || false,
-                tagsApprovied  = $this.data('tags-approvied') || false;
+                tagsCreate     = $this.data('tags-create')    || false;
 
             if(tagsCreate)
             {
