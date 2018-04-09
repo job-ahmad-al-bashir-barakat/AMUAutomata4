@@ -30,7 +30,10 @@ return [
             'first_ratio'  => [ 'width'  => '570', 'height' => '390' ],
         ],
         'relationType' => 'many',
-        'relationName' => 'image'
+        'relationName' => 'image',
+        'thumps' => [
+            'small' => [ 'width'  => '280', 'height' => '191' ],
+        ],
     ],
 
     'lang' => [

@@ -4,10 +4,12 @@
 <head>
     <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
-    <meta name="description" content="StudyPress | Education & Courses HTML Template" />
+    {!! renderSeoTags($seo) !!}
+    {{--<meta name="description" content="StudyPress | Education & Courses HTML Template" />
     <meta name="keywords" content="academy, course, education, elearning, learning, learnata" />
     <meta name="author" content="automata4 group" />
-    <title>{{ setting('website_title')->value }} | Education</title>
+    <title>{{ setting('website_title')->value }} | Education</title>--}}
+
     <link href="{{ asset('images/favicon.png') }}" rel="shortcut icon" type="image/png">
     <link href="{{ asset('images/apple-touch-icon.png') }}" rel="apple-touch-icon">
     <link href="{{ asset('images/apple-touch-icon-72x72.png') }}" rel="apple-touch-icon" sizes="72x72">
@@ -50,6 +52,22 @@
     </div>
     @include('theme.footer')
 </div>
+
+
+<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+<script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyB2tAkR2SHYo2FM2YY03ySY5KIhXtx0UIY",
+        authDomain: "andalus-private-university.firebaseapp.com",
+        databaseURL: "https://andalus-private-university.firebaseio.com",
+        projectId: "andalus-private-university",
+        storageBucket: "andalus-private-university.appspot.com",
+        messagingSenderId: "5345388698"
+    };
+    firebase.initializeApp(config);
+</script>
+
 <script src="{{ asset(mix('js/main.js')) }}"></script>
 <script>
     $(document).on('click', 'a.ajax-link-module', function (e) {

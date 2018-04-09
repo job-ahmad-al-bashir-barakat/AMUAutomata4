@@ -21,7 +21,7 @@ function () {
     Route::get('test', function (){
         $api = new \Aut\Google\Firebase\DynamicLinks\DynamicLinks();
 
-        $api->getShortLink('http://www.automata4.com/team');
+        $api->getShortLink('http://emedbay.com/en/products/31663.313-Antipulp');
 
     });
 
