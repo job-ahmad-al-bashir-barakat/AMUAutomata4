@@ -11,7 +11,7 @@
             <div class="col-md-6">
                 @component('controle.component.panel', [
                     'id'    => "panel-pages-{$pageableTable->table_name}",
-                    'title' => "{$title}: {$pageableTable->table_name_humane}",
+                    'title' => "{$title}: {$pageableTable->lang_name[$lang]->text}",
                     'active' => false,
                     'class'  => 'p0',
                 ])
