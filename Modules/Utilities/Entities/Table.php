@@ -21,7 +21,7 @@ class Table extends \Eloquent
 
     protected $fillable = ['table_name', 'namespace', 'pageable', 'pageable_column', 'menuable', 'morph_code', 'dynamic'];
 
-    protected $appends = ['table_name_humane', 'lang_name'];
+    protected $appends = ['lang_name'];
 
     public function transName()
     {
@@ -31,12 +31,6 @@ class Table extends \Eloquent
     public function getLangNameAttribute()
     {
         return $this->transName->keyBy('lang_code');
-    }
-
-    public function getTableNameHumaneAttribute()
-    {
-        $tableName = str_replace('_', ' ', $this->table_name);
-        return Str::ucfirst($tableName);
     }
 
     public function getTableNamespaceAttribute()
