@@ -20,11 +20,15 @@ class TableFactory extends GlobalFactory
         return $this->table
             ->queryConfig('datatable-tables')
             ->queryDatatable($query)
+            ->queryMultiLang(['name'])
             ->queryAddColumn('isPageable', function ($item) {
                 return $item->pageable ? trans('utilities::app.yes') : trans('utilities::app.no');
             })
             ->queryAddColumn('isMenuable', function ($item) {
                 return $item->menuable ? trans('utilities::app.yes') : trans('utilities::app.no');
+            })
+            ->queryAddColumn('isDynamic', function ($item) {
+                return $item->dynamic ? trans('utilities::app.yes') : trans('utilities::app.no');
             })
             ->queryAddColumn('created', function ($item){
                 $class = 'fa-ban text-danger';
@@ -51,10 +55,12 @@ class TableFactory extends GlobalFactory
             ->config('datatable-tables', trans('utilities::app.tables'))
             ->addPrimaryKey('id', 'id')
             ->addInputText(trans('utilities::app.table_name'), 'table_name', 'table_name', 'required req')
+            ->addMultiInputTextLangs(['name'])
             ->addInputText(trans('utilities::app.namespace'), 'namespace', 'namespace', 'required req')
             ->addSelect([0 => trans('utilities::app.no'), 1 => trans('utilities::app.yes')], trans('utilities::app.pageable'), 'pageable', 'pageable', 'isPageable')
             ->addInputText(trans('utilities::app.pageable_column'), 'pageable_column', 'pageable_column')
             ->addSelect([0 => trans('utilities::app.no'), 1 => trans('utilities::app.yes')], trans('utilities::app.menuable'), 'menuable', 'menuable', 'isMenuable')
+            ->addSelect([0 => trans('utilities::app.no'), 1 => trans('utilities::app.yes')], trans('utilities::app.dynamic'), 'dynamic', 'dynamic', 'isDynamic')
             ->addInputText(trans('utilities::app.morph_code'), 'morph_code', 'morph_code')
             ->addActionButton(trans('utilities::app.created'), 'created', 'created')
             ->addActionButton(trans('utilities::app.has-lang-table'), 'has_lang_table', 'has_lang_table', 'center all', '80px')

@@ -2,9 +2,10 @@
 
 namespace Modules\Utilities\Entities;
 
-
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Str;
+use Illuminate\Database\Eloquent\Builder;
+use Modules\Utilities\Entities\LangModels\TableNameLang;
+use Modules\Utilities\Traits\MultiLangs;
 
 /**
  * @property string table_name
@@ -16,9 +17,21 @@ use Illuminate\Support\Str;
  */
 class Table extends \Eloquent
 {
-    protected $fillable = ['table_name', 'namespace', 'pageable', 'pageable_column', 'menuable', 'morph_code'];
+    use MultiLangs;
 
-    protected $appends = ['table_name_humane'];
+    protected $fillable = ['table_name', 'namespace', 'pageable', 'pageable_column', 'menuable', 'morph_code', 'dynamic'];
+
+    protected $appends = ['table_name_humane', 'lang_name'];
+
+    public function transName()
+    {
+        return $this->hasMany(TableNameLang::class);
+    }
+
+    public function getLangNameAttribute()
+    {
+        return $this->transName->keyBy('lang_code');
+    }
 
     public function getTableNameHumaneAttribute()
     {
