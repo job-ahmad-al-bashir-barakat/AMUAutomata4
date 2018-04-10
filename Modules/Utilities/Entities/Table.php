@@ -56,6 +56,11 @@ class Table extends \Eloquent
         return $query->where('menuable', '1');
     }
 
+    public function scopeDynamic(Builder $query)
+    {
+        return $query->where('dynamic', '1');
+    }
+
     public function scopeMorphed(Builder $query)
     {
         return $query->whereNotNull('morph_code');
