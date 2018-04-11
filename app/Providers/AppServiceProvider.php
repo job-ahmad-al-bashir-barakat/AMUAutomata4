@@ -38,8 +38,9 @@ class AppServiceProvider extends ServiceProvider
     {
         if(Schema::hasTable('tables')) {
 
-            $morphed = Table::morphed()->get()->pluck('namespace', 'morph_code')->toArray();
-
+            $morphed = Table::morphed()->get()->pluck('namespace', 'morph_code')->map(function ($item){
+                return trim($item, '\\');
+            })->toArray();
             Relation::morphMap($morphed);
         }
 
