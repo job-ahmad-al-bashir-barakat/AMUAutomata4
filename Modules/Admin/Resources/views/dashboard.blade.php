@@ -5,5 +5,5 @@
 @endsection
 
 @section('content')
-    {!! autFixedGoogleMap(15,setting('UGL')->first()->value) !!}
+
 @stop

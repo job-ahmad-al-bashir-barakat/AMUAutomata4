@@ -15,10 +15,9 @@ class SiteMenu extends \Eloquent
     use NodeTrait ,MultiLangs ,SoftDeletes;
 
     const MENUABLE_PATH = [
+        'tables'     => Table::class,
         'page'       => Page::class,
         'faculty'    => Faculty::class,
-        'degree'     => Degree::class,
-        'department' => Department::class,
     ];
 
     protected $fillable = ['id', 'parent_id', 'name_route', 'order', 'is_link', 'prefix', 'menuable_id', 'menuable_type', 'dynamic'];
@@ -84,7 +83,6 @@ class SiteMenu extends \Eloquent
             return $model::all();
         }
     }
-
 
     public function scopeTypeGeneralCondition($query) {
 

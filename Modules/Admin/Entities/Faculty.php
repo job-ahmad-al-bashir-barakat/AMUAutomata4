@@ -4,6 +4,7 @@ namespace Modules\Admin\Entities;
 
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Modules\Admin\Entities\LangModels\FacultyNameLang;
+use Modules\Utilities\Entities\SiteMenu;
 use Modules\Utilities\Traits\MultiLangs;
 
 class Faculty extends \Eloquent
@@ -32,5 +33,10 @@ class Faculty extends \Eloquent
     public function studyYear()
     {
         return $this->belongsToMany(StudyYear::class)->withPivot('id');
+    }
+
+    public function siteMenus()
+    {
+        return $this->morphMany(SiteMenu::class, 'menuable');
     }
 }

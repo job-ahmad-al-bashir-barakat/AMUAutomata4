@@ -144,11 +144,6 @@ class RouteUrls
         return $this->localizeUrl('builder/modules', 'utilities');
     }
 
-    public function menuTables()
-    {
-        return $this->localizeUrl('menu-tables', 'utilities');
-    }
-
     /**
      * @Section Web Site Urls
      */

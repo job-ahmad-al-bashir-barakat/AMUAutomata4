@@ -159,16 +159,6 @@ return [
         'factory'       => Modules\Utilities\Factories\SettingFactory::class,
     ],
 
-    'menu-tables' => [
-        'model'         => Modules\Utilities\Entities\MenuTables::class,
-        'factory'       => Modules\Utilities\Factories\MenuTablesFactory::class,
-    ],
-
-    'menu-table-columns' => [
-        'model'   => Modules\Utilities\Entities\MenuTableColumns::class,
-        'factory' => Modules\Utilities\Factories\MenuTableColumnsFactory::class,
-    ],
-
     /**
      *  Admin Module
      */
