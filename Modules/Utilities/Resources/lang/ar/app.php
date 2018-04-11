@@ -18,7 +18,6 @@ return [
     'yes'                    => 'نعم',
     'no'                     => 'لا',
 
-    'menu_tables'            => 'جداول القوائم',
     'tables'                 => 'الجداول',
     'table_name'             => 'اسم الجدول',
     'namespace'              => 'Namespace',

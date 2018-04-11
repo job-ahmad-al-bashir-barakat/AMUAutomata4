@@ -86,8 +86,8 @@ var AUT_TREE_VIEW = {
             var nestable = function ($this) {
 
                 $this.nestable(optionsObj)
-                    .off('change').on('change', AUT_TREE_VIEW.tree.updateOutput)
-                    .off('dragEnd').on('dragEnd', function(event, item, source, destination, position) {
+                .off('change').on('change', AUT_TREE_VIEW.tree.updateOutput)
+                .off('dragEnd').on('dragEnd', function(event, item, source, destination, position) {
 
                     // Make an ajax request to persist move on database
                     // here you can pass item-id, source-id, destination-id and position index to the server
@@ -126,7 +126,7 @@ var AUT_TREE_VIEW = {
                     if(typeof $cont.data('drag-end-callback') != typeof undefined) {
 
                         // drag callback
-                        $drag = window[$cont.data('drag-end-callback')](event, item, source, destination, position);
+                        var $drag = window[$cont.data('drag-end-callback')](event, item, source, destination, position);
 
                         // stop drag when return false
                         if(!$drag)

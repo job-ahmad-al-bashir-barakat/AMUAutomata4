@@ -82,13 +82,6 @@
                 </a>
             </li>
             @endcan
-            @can('automata')
-            <li class="">
-                <a href="{{ RouteUrls::menuTables() }}" class="ajax" title="{{ trans('utilities::app.menu_tables') }}">
-                    <span>{{ trans('utilities::app.menu_tables') }}</span>
-                </a>
-            </li>
-            @endcan
         </ul>
     </li>
     <li class="">

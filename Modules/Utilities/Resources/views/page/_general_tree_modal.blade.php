@@ -28,7 +28,7 @@
         var reject = false;
 
         // prevent from nested element
-        if($(draggedElement).data('type') == $(draggedElement).closest('.dd').data('type'))
+        if($(draggedElement).data('conflict') == $(draggedElement).closest('.aut-tree').data('conflict'))
             reject = true;
 
         return reject;
@@ -78,6 +78,11 @@
 
             $.post(destination.closest('.aut-tree').data('url') ,$.extend(item.data() ,parent.length > 0 ? { parent_id : parent.data('id') ,order : order } : { order : order }) ,function () {
 
+                source.find('[data-id="' + item.data('id') + '"]').remove();
+
+                if(source.find('li').length == 0)
+                    source.find('.dd-list').removeClass('dd-list').addClass('dd-empty')
+
                 AUT_TREE_VIEW.tree.init('.general-tree');
 
                 AUT_HELPER.notify({message: OPERATION_MESSAGE_SUCCESS, status: 'success'})
@@ -93,10 +98,12 @@
 
         var reject = false;
 
+        var draggedElement = $(draggedElement);
+        var li   = draggedElement.parents('li:first');
         // prevent from nested element
-        if(!$(draggedElement).parents('li:first').is('[data-dynamic]'))
-            if(!$(draggedElement).is('[data-dynamic]'))
-                if($(draggedElement).parents('li:first').data('link'))
+        if(!li.is('[data-dynamic]'))
+            if(!draggedElement.is('[data-dynamic]'))
+                if(li.data('link'))
                     reject = true;
 
         return reject;

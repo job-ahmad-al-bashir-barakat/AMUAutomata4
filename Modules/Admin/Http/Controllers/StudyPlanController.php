@@ -27,8 +27,7 @@ class StudyPlanController extends Controller
     {
         if(request()->ajax())
         {
-            $courses = Course::where('faculty_id' ,'=' ,request()->get('faculty'))
-                             ->where('department_id','=' ,request()->get('department'));
+            $courses = Course::where('faculty_id' ,'=' ,request()->get('faculty'));
 
             if(request()->get('degree'))
                 $courses->where('degree_id','=' ,request()->get('degree'));

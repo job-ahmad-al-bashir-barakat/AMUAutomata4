@@ -80,8 +80,6 @@ function () {
     Route::get('position', 'UtilitiesController@table')->middleware('permission:position')->name('table.position');
     Route::get('job-title', 'UtilitiesController@table')->middleware('permission:job-title')->name('table.job-title');
 
-
-    Route::get('menu-tables', 'UtilitiesController@table')->middleware('permission:automata')->name('table.menu-tables');
     Route::get('general/menu', 'UtilitiesController@menu')->middleware('permission:website-menu')->name('menu.general');
     Route::get('control/menu', 'UtilitiesController@menu')->middleware('permission:control-panel-menu')->name('menu.control');
 

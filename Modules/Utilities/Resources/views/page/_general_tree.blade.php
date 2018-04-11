@@ -9,48 +9,43 @@
     <div class="col-lg-6 col-md-6 col-xs-12 pull-right">
         @foreach($modules as $moduleIndex => $moduleItems )
 
-            @foreach($moduleItems as $index => $items)
+            @php(++$i)
+            @component('controle.component.panel' ,[
+                'id'        => "menu-$moduleIndex",
+                'title'     => $moduleIndex,
+                'panelType' => 'primary',
+                'active'    => $i == 1,
+                'panelAttr' => "data-save-state=false style=margin-bottom:2px;",
+            ])
+                <div class='aut-tree' data-group="{{ $i }}" data-max-depth="10" data-clone="true"  data-drop-exists="true" data-reject="true" data-reject-rule-callback="rejectLinks" data-type="{{ $moduleIndex }}" data-conflict="{{ $moduleIndex }}">
+                    <div id="nestable-{{$moduleIndex}}" class="nestable dd">
+                        <ol class="dd-list">
+                            @php($menu_item = $menu_items[$moduleIndex]->first())
+                            @php($text = $menu_item->lang_name[App::getLocale()]['text'])
+                            @if($menu_item->dynamic)
+                                <li data-id="{{ $menu_item->id }}" data-order="" class="dd-item" data-link="1" data-exists="{{ $moduleIndex }}" data-type="tables" data-conflict="{{ $moduleIndex }}" data-dynamic="{{ $moduleIndex }}">
+                                    <div class='dd-handle dd3-handle move'>{{ $text or $menu_item->morph_code }}</div>
+                                    <div class='dd3-content'>
+                                        <span class="hand">{{ $text or $menu_item->morph_code }} ({{ trans('utilities::app.dynamic') }})</span>
+                                    </div>
+                                </li>
+                            @endif
 
-                @if($items->count())
-
-                    @php(++$i)
-                    @component('controle.component.panel' ,[
-                        'id'        => "menu-$index",
-                        'title'     => trans("$moduleIndex::app.$index"),
-                        'panelType' => 'primary',
-                        'active'    => $i == 1,
-                        'panelAttr' => "data-save-state=false style=margin-bottom:2px;",
-                    ])
-                        <div class='aut-tree' data-group="{{ $i }}" data-max-depth="10" data-clone="false"  data-drop-exists="true" data-reject="true" data-reject-rule-callback="rejectLinks" data-type="{{ $index }}">
-                            <div id="nestable-{{$index}}" class="nestable dd">
-                                <ol class="dd-list">
-                                    @php($menu_item = $menu_items[$index]->first())
-                                    @php($text = $menu_item->lang_name[App::getLocale()]['text'])
-                                    <li data-id="{{ $menu_item->id }}" data-order="" class="dd-item" data-link="1" data-exists="{{ $index }}" data-type="menus-table" data-dynamic="{{ $index }}">
-                                        <div class='dd-handle dd3-handle move'>{{ $text or $menu_item->code }}</div>
+                            @if($moduleItems->count())
+                                @foreach($moduleItems as $index => $link)
+                                    @php($text = $link->lang_name[App::getLocale()]['text'])
+                                    <li data-id="{{ $link->id }}" data-order="" class="dd-item" data-link="1" data-exists="{{ \Illuminate\Support\Str::slug($text) }}" data-conflict="{{ $moduleIndex }}" data-type="{{ $moduleIndex }}">
+                                        <div class='dd-handle dd3-handle move'>{{ $text or $link->code }}</div>
                                         <div class='dd3-content'>
-                                            <span class="hand">{{ $text or $menu_item->code }} ({{ trans('utilities::app.dynamic') }})</span>
+                                           <span class="hand">{{ $text or $link->code }}</span>
                                         </div>
                                     </li>
-
-                                    @foreach($items as $link)
-                                        @php($text = $link->lang_name[App::getLocale()]['text'])
-                                        <li data-id="{{ $link->id }}" data-order="" class="dd-item" data-link="1" data-exists="{{ \Illuminate\Support\Str::slug($text) }}" data-type="{{ $index }}">
-                                            <div class='dd-handle dd3-handle move'>{{ $text or $link->code }}</div>
-                                            <div class='dd3-content'>
-                                               <span class="hand">{{ $text or $link->code }}</span>
-                                            </div>
-                                        </li>
-                                    @endforeach
-                                </ol>
-                            </div>
-                        </div>
-                    @endcomponent
-
-                @endif
-
-            @endforeach
-
+                                @endforeach
+                            @endif
+                        </ol>
+                    </div>
+                </div>
+            @endcomponent
         @endforeach
     </div>
 

@@ -18,7 +18,6 @@ return [
     'yes'                    => 'Yes',
     'no'                     => 'No',
 
-    'menu_tables'            => 'Menu Tables',
     'tables'                 => 'Tables',
     'table_name'             => 'Table Name',
     'namespace'              => 'Namespace',

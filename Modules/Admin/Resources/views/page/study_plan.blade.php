@@ -15,10 +15,9 @@
                     ])
                         <div class="form-group">
                             <div class="col-lg-12">
-                                {!! FormComponent::formGroup(false)->autocomplete(trans('admin::app.faculty') ,'faculty' ,'faculty' ,'autocomplete/faculty' ,[] ,'0' ,'c:col-lg-3 c:col-xs-12 required') !!}
-                                {!! FormComponent::formGroup(false)->autocomplete(trans('admin::app.study_year') ,'study-year' ,'study-year' ,'autocomplete/faculty-study-year' ,[] ,'0' ,'c:col-lg-3 c:col-xs-12 required' ,['data-param' => '#faculty']) !!}
-                                {!! FormComponent::formGroup(false)->autocomplete(trans('admin::app.department') ,'department' ,'department' ,'autocomplete/department' ,[] ,'0' ,' c:col-lg-3 c:col-xs-12 required' ,['data-param' => '#faculty']) !!}
-                                {!! FormComponent::formGroup(false)->autocomplete(trans('admin::app.degree') ,'degree' ,'degree' ,'autocomplete/degree' ,[] ,'0' ,'c:col-lg-3 c:col-xs-12' ,['data-param' => '#faculty']) !!}
+                                {!! FormComponent::formGroup(false)->autocomplete(trans('admin::app.faculty') ,'faculty' ,'faculty' ,'autocomplete/faculty' ,[] ,'0' ,'c:col-lg-4 c:col-xs-12 required') !!}
+                                {!! FormComponent::formGroup(false)->autocomplete(trans('admin::app.study_year') ,'study-year' ,'study-year' ,'autocomplete/faculty-study-year' ,[] ,'0' ,'c:col-lg-4 c:col-xs-12 required' ,['data-param' => '#faculty']) !!}
+                                {!! FormComponent::formGroup(false)->autocomplete(trans('admin::app.degree') ,'degree' ,'degree' ,'autocomplete/degree' ,[] ,'0' ,'c:col-lg-4 c:col-xs-12' ,['data-param' => '#faculty']) !!}
                             </div>
                         </div>
                         @slot('footer')

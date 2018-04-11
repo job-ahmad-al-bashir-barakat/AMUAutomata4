@@ -5,7 +5,9 @@ namespace Modules\Utilities\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Routing\Controller;
+use Modules\Admin\Entities\Faculty;
 use Modules\Utilities\Entities\MenuTables;
+use Modules\Utilities\Entities\Table;
 
 class UtilitiesController extends Controller
 {
@@ -28,34 +30,31 @@ class UtilitiesController extends Controller
         $modules = [];
         if($view === 'general') {
 
-            $classes = function($name) {
-
-                return [
-                    'admin'     => "Modules\\Admin\\Entities\\$name",
-                    'utilities' => "Modules\\Utilities\\Entities\\$name",
-                ];
-            };
-
             $group = [ 'count' => 0 ];
 
-            $menu_items = MenuTables::all();
-            $menu_items->each(function ($item) use (&$modules ,$classes ,&$group){
-                $name  = Str::studly($item->code);
-                foreach ($classes($name) as $index => $class)
-                    if(class_exists($class)) {
+            $menu_items = Table::pageable()->menuable()->morphed()->get();
+            $menu_items->each(function ($item) use (&$modules ,&$group){
 
-                        $obj = $class::all();
-                        if($obj->count()) {
+                $class = $item->namespace;
 
-                            $group['count'] = $group['count'] + 1;
-                            array_push($group ,$group['count']);
-                        }
+                if(class_exists($class)) {
 
-                        $modules[$index][$item->code] = $obj;
+//                    $objs = $class::with(['siteMenus'])->get();
+                    $objs = $class::all();
+                    foreach ($objs as $obj)
+                        dd($obj->siteMenus());
+    //                    dd($obj->siteMenus);
+
+                    if($obj->count()) {
+                        $group['count'] = $group['count'] + 1;
+                        array_push($group ,$group['count']);
                     }
+
+                    $modules[$item->morph_code] = $obj;
+                }
             });
 
-            $menu_items = $menu_items->groupBy('code');
+            $menu_items = $menu_items->groupBy('morph_code');
         }
 
         return view("utilities::page.menu", compact('view' ,'menu_items','modules' ,'group'));

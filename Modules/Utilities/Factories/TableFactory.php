@@ -15,7 +15,7 @@ class TableFactory extends GlobalFactory
      */
     public function getDatatable($table, $request)
     {
-        $query = $table::with(['schemaTable']);
+        $query = $table::with(['schemaTable'])->allLangs();
 
         return $this->table
             ->queryConfig('datatable-tables')
@@ -55,7 +55,7 @@ class TableFactory extends GlobalFactory
             ->config('datatable-tables', trans('utilities::app.tables'))
             ->addPrimaryKey('id', 'id')
             ->addInputText(trans('utilities::app.table_name'), 'table_name', 'table_name', 'required req')
-            ->addMultiInputTextLangs(['name'])
+            ->addMultiInputTextLangs(['name'],'none')
             ->addInputText(trans('utilities::app.namespace'), 'namespace', 'namespace', 'required req')
             ->addSelect([0 => trans('utilities::app.no'), 1 => trans('utilities::app.yes')], trans('utilities::app.pageable'), 'pageable', 'pageable', 'isPageable')
             ->addInputText(trans('utilities::app.pageable_column'), 'pageable_column', 'pageable_column')

@@ -29,8 +29,6 @@ class DatabaseSeeder extends Seeder
         $this->call(AttributeNameLangsTableSeeder::class);
         $this->call(ModuleNameLangsTableSeeder::class);
         $this->call(ModuleAttributeTableSeeder::class);
-        $this->call(MenuTablesTableSeeder::class);
-        $this->call(MenuTableNameLangsTableSeeder::class);
         $this->call(SiteMenusTableSeeder::class);
         $this->call(SiteMenuNameLangsTableSeeder::class);
         $this->call(PagesTableSeeder::class);
@@ -76,7 +74,6 @@ class DatabaseSeeder extends Seeder
         $this->call(CoursesTableSeeder::class);
         $this->call(CourseNameLangsTableSeeder::class);
         $this->call(CourseDescriptionLangsTableSeeder::class);
-        //$this->call(MenuTableColumnsTableSeeder::class);
         $this->call(PrerequisiteTableSeeder::class);
         $this->call(PrerequisiteGroupsTableSeeder::class);
         $this->call(LanguageTablesTableSeeder::class);
