@@ -39,7 +39,11 @@ class UtilitiesController extends Controller
 
                 if(class_exists($class)) {
 
-                    $obj = $class::with('siteMenus')->get();
+//                    $objs = $class::with(['siteMenus'])->get();
+                    $objs = $class::all();
+                    foreach ($objs as $obj)
+                        dd($obj->siteMenus());
+    //                    dd($obj->siteMenus);
 
                     if($obj->count()) {
                         $group['count'] = $group['count'] + 1;
