@@ -21,7 +21,7 @@
                     <div id="nestable-{{$moduleIndex}}" class="nestable dd">
                         <ol class="dd-list">
                             @php($menu_item = $menu_items[$moduleIndex]->first())
-                            @php($text = $menu_item->table_name)
+                            @php($text = $menu_item->lang_name[App::getLocale()]['text'])
                             @if($menu_item->dynamic)
                                 <li data-id="{{ $menu_item->id }}" data-order="" class="dd-item" data-link="1" data-exists="{{ $moduleIndex }}" data-type="tables" data-conflict="{{ $moduleIndex }}" data-dynamic="{{ $moduleIndex }}">
                                     <div class='dd-handle dd3-handle move'>{{ $text or $menu_item->morph_code }}</div>

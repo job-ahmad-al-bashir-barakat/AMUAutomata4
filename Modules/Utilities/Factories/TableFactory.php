@@ -15,7 +15,7 @@ class TableFactory extends GlobalFactory
      */
     public function getDatatable($table, $request)
     {
-        $query = $table::with(['schemaTable']);
+        $query = $table::with(['schemaTable'])->allLangs();
 
         return $this->table
             ->queryConfig('datatable-tables')
