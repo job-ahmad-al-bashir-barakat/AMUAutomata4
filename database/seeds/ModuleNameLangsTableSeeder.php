@@ -617,6 +617,46 @@ class ModuleNameLangsTableSeeder extends Seeder
                 'updated_at' => '2018-03-31 17:46:23',
                 'deleted_at' => NULL,
             ),
+            60 => 
+            array (
+                'id' => 81,
+                'module_id' => 31,
+                'lang_id' => 1,
+                'text' => 'Courses List #1',
+                'created_at' => '2018-04-11 18:00:07',
+                'updated_at' => '2018-04-11 18:00:07',
+                'deleted_at' => NULL,
+            ),
+            61 => 
+            array (
+                'id' => 82,
+                'module_id' => 31,
+                'lang_id' => 2,
+                'text' => 'قائمة الكتب #1',
+                'created_at' => '2018-04-11 18:00:07',
+                'updated_at' => '2018-04-11 18:00:07',
+                'deleted_at' => NULL,
+            ),
+            62 => 
+            array (
+                'id' => 83,
+                'module_id' => 32,
+                'lang_id' => 1,
+                'text' => 'Google Map',
+                'created_at' => '2018-04-11 18:58:50',
+                'updated_at' => '2018-04-11 18:58:50',
+                'deleted_at' => NULL,
+            ),
+            63 => 
+            array (
+                'id' => 84,
+                'module_id' => 32,
+                'lang_id' => 2,
+                'text' => 'خريطة',
+                'created_at' => '2018-04-11 18:58:50',
+                'updated_at' => '2018-04-11 18:58:50',
+                'deleted_at' => NULL,
+            ),
         ));
         
         
