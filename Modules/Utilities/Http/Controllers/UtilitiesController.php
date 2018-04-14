@@ -32,7 +32,9 @@ class UtilitiesController extends Controller
 
         if($view === 'general') {
 
-            $menuItems = [];
+            $menuItems    = [];
+            $group_count  = 1;
+            $group_sourse = [];
 
             $siteMenuExceptIds = SiteMenu::orWhereNotNull('menuable_type')
                 ->get(['menuable_id','menuable_type'])
@@ -55,12 +57,19 @@ class UtilitiesController extends Controller
             });
 
             $tableItemsDynamic       = $tableItems->groupBy('morph_code');
-            $tableItemsDynamicFilter = $tableItemsDynamic->map(function ($items) use ($siteMenuExceptIds){
+            $tableItemsDynamicFilter = $tableItemsDynamic->map(function ($items) use ($siteMenuExceptIds,&$group_count,&$group_sourse){
+                $group_sourse[] = $group_count;
+                $group_count++;
                 return $items->whereNotIn('id',$siteMenuExceptIds->get('tables',[]));
             });
-
+            $group_sourse = implode(',',$group_sourse);
         }
 
-        return view("utilities::page.menu", compact('view' ,'menuItems' ,'tableItemsDynamic','tableItemsDynamicFilter'));
+        if($request->ajax())
+            return response()->json([
+                'html' => view('utilities::page._general_tree_ajax',compact('menuItems' ,'tableItemsDynamic','tableItemsDynamicFilter'))->render()
+            ]);
+
+        return view("utilities::page.menu", compact('view' ,'menuItems' ,'tableItemsDynamic','tableItemsDynamicFilter','group_sourse','group_count'));
     }
 }

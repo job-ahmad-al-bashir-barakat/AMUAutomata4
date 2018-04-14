@@ -133,9 +133,14 @@
 
                 $.delete($this.closest('.aut-tree').data('url') +'/'+ li.data('id') ,function () {
 
-                    AUT_TREE_VIEW.tree.init('.general-tree');
-
                     AUT_HELPER.notify({message: OPERATION_MESSAGE_SUCCESS, status: 'success'});
+
+                    $.get("{{ RouteUrls::generalMenu() }}",function (res) {
+
+                        $('.link_items').html(res.html);
+
+                        AUT_TREE_VIEW.tree.initTree();
+                    });
                 });
             },{
                 ok: SWAL.ok,
