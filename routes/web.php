@@ -48,11 +48,6 @@ function () {
         $modules = [];
         return view('page.labs', compact('modules', 'menu'));
     })->name('labs');
-    Route::get('gallery1', function () {
-        $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
-//            $modules = \Modules\Utilities\Entities\BuilderPage::pageModules()->get()->pluck('module');
-        return view('page.gallery', compact('modules', 'menu'));
-    });
 
     // Authentication Routes...
     Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');

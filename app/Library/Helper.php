@@ -329,3 +329,14 @@ if (!function_exists('renderSeoTags')) {
             <title>{$seo->lang_title[$lang]->text}</title>";
     }
 }
+
+if (!function_exists('getRouteOptionalValue')) {
+    function getRouteOptionalValue()
+    {
+        $values = explode('.', \Route::currentRouteName());
+        if (isset($values[2])) {
+            return $values[2];
+        }
+        return null;
+    }
+}

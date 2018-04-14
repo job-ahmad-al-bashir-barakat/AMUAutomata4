@@ -367,35 +367,7 @@ class TablesTableSeeder extends Seeder
                 'updated_at' => '2018-01-05 09:05:54',
                 'deleted_at' => NULL,
             ),
-//            25 =>
-//            array (
-//                'id' => 27,
-//                'table_name' => 'menu_table_columns',
-//                'namespace' => '\\Modules\\Utilities\\Entities',
-//                'pageable' => 0,
-//                'pageable_column' => NULL,
-//                'menuable' => 0,
-//                'dynamic' => 0,
-//                'morph_code' => NULL,
-//                'created_at' => '2017-12-16 20:35:35',
-//                'updated_at' => '2018-01-05 09:06:12',
-//                'deleted_at' => NULL,
-//            ),
-//            26 =>
-//            array (
-//                'id' => 28,
-//                'table_name' => 'menu_tables',
-//                'namespace' => '\\Modules\\Utilities\\Entities\\MenuTables',
-//                'pageable' => 0,
-//                'pageable_column' => NULL,
-//                'menuable' => 0,
-//                'dynamic' => 0,
-//                'morph_code' => 'menus-table',
-//                'created_at' => '2017-12-16 20:35:48',
-//                'updated_at' => '2018-01-05 09:06:27',
-//                'deleted_at' => NULL,
-//            ),
-            27 => 
+            25 => 
             array (
                 'id' => 29,
                 'table_name' => 'migrations',
@@ -409,7 +381,7 @@ class TablesTableSeeder extends Seeder
                 'updated_at' => '2018-01-05 09:07:04',
                 'deleted_at' => NULL,
             ),
-            28 => 
+            26 => 
             array (
                 'id' => 30,
                 'table_name' => 'module_attribute',
@@ -423,7 +395,7 @@ class TablesTableSeeder extends Seeder
                 'updated_at' => '2018-01-05 09:07:14',
                 'deleted_at' => NULL,
             ),
-            29 => 
+            27 => 
             array (
                 'id' => 31,
                 'table_name' => 'modules',
@@ -437,7 +409,7 @@ class TablesTableSeeder extends Seeder
                 'updated_at' => '2018-01-05 09:07:30',
                 'deleted_at' => NULL,
             ),
-            30 => 
+            28 => 
             array (
                 'id' => 32,
                 'table_name' => 'pages',
@@ -451,7 +423,7 @@ class TablesTableSeeder extends Seeder
                 'updated_at' => '2018-01-05 12:55:20',
                 'deleted_at' => NULL,
             ),
-            31 => 
+            29 => 
             array (
                 'id' => 33,
                 'table_name' => 'partners',
@@ -465,7 +437,7 @@ class TablesTableSeeder extends Seeder
                 'updated_at' => '2018-01-05 09:06:48',
                 'deleted_at' => NULL,
             ),
-            32 => 
+            30 => 
             array (
                 'id' => 34,
                 'table_name' => 'password_resets',
@@ -479,7 +451,7 @@ class TablesTableSeeder extends Seeder
                 'updated_at' => '2018-01-05 09:07:47',
                 'deleted_at' => NULL,
             ),
-            33 => 
+            31 => 
             array (
                 'id' => 35,
                 'table_name' => 'people',
@@ -493,7 +465,7 @@ class TablesTableSeeder extends Seeder
                 'updated_at' => '2018-01-05 12:55:34',
                 'deleted_at' => NULL,
             ),
-            34 => 
+            32 => 
             array (
                 'id' => 36,
                 'table_name' => 'positions',
@@ -507,7 +479,7 @@ class TablesTableSeeder extends Seeder
                 'updated_at' => '2018-01-05 09:08:03',
                 'deleted_at' => NULL,
             ),
-            35 => 
+            33 => 
             array (
                 'id' => 37,
                 'table_name' => 'prerequisite',
@@ -521,7 +493,7 @@ class TablesTableSeeder extends Seeder
                 'updated_at' => '2018-01-05 09:08:14',
                 'deleted_at' => NULL,
             ),
-            36 => 
+            34 => 
             array (
                 'id' => 38,
                 'table_name' => 'prerequisite_groups',
@@ -535,7 +507,7 @@ class TablesTableSeeder extends Seeder
                 'updated_at' => '2018-01-05 09:08:35',
                 'deleted_at' => NULL,
             ),
-            37 => 
+            35 => 
             array (
                 'id' => 39,
                 'table_name' => 'semesters',
@@ -549,7 +521,7 @@ class TablesTableSeeder extends Seeder
                 'updated_at' => '2018-01-05 09:08:49',
                 'deleted_at' => NULL,
             ),
-            38 => 
+            36 => 
             array (
                 'id' => 40,
                 'table_name' => 'settings',
@@ -563,7 +535,7 @@ class TablesTableSeeder extends Seeder
                 'updated_at' => '2018-01-05 09:09:03',
                 'deleted_at' => NULL,
             ),
-            39 => 
+            37 => 
             array (
                 'id' => 41,
                 'table_name' => 'site_menus',
@@ -577,7 +549,7 @@ class TablesTableSeeder extends Seeder
                 'updated_at' => '2018-01-05 09:09:34',
                 'deleted_at' => NULL,
             ),
-            40 => 
+            38 => 
             array (
                 'id' => 42,
                 'table_name' => 'slider_details',
@@ -591,7 +563,7 @@ class TablesTableSeeder extends Seeder
                 'updated_at' => '2018-01-05 09:09:45',
                 'deleted_at' => NULL,
             ),
-            41 => 
+            39 => 
             array (
                 'id' => 43,
                 'table_name' => 'sliders',
@@ -605,7 +577,7 @@ class TablesTableSeeder extends Seeder
                 'updated_at' => '2018-01-05 09:09:58',
                 'deleted_at' => NULL,
             ),
-            42 => 
+            40 => 
             array (
                 'id' => 44,
                 'table_name' => 'social_networks',
@@ -619,7 +591,7 @@ class TablesTableSeeder extends Seeder
                 'updated_at' => '2018-01-05 09:09:23',
                 'deleted_at' => NULL,
             ),
-            43 => 
+            41 => 
             array (
                 'id' => 45,
                 'table_name' => 'steps',
@@ -633,7 +605,7 @@ class TablesTableSeeder extends Seeder
                 'updated_at' => '2018-01-05 09:10:10',
                 'deleted_at' => NULL,
             ),
-            44 => 
+            42 => 
             array (
                 'id' => 46,
                 'table_name' => 'study_years',
@@ -647,23 +619,21 @@ class TablesTableSeeder extends Seeder
                 'updated_at' => '2018-01-05 09:10:21',
                 'deleted_at' => NULL,
             ),
-            45 => 
+            43 => 
             array (
                 'id' => 47,
                 'table_name' => 'tables',
-//                'namespace' => '\\Modules\\Utilities\\Entities',
-                'namespace' => '\\Modules\\Utilities\\Entities\table',
+                'namespace' => '\\Modules\\Utilities\\Entities\\table',
                 'pageable' => 0,
                 'pageable_column' => NULL,
                 'menuable' => 0,
                 'dynamic' => 0,
-                // 'morph_code' => NULL,
                 'morph_code' => 'tables',
                 'created_at' => '2017-12-16 20:43:22',
                 'updated_at' => '2018-01-05 09:10:32',
                 'deleted_at' => NULL,
             ),
-            46 => 
+            44 => 
             array (
                 'id' => 48,
                 'table_name' => 'text_cards',
@@ -677,7 +647,7 @@ class TablesTableSeeder extends Seeder
                 'updated_at' => '2018-01-05 09:10:44',
                 'deleted_at' => NULL,
             ),
-            47 => 
+            45 => 
             array (
                 'id' => 50,
                 'table_name' => 'university_offices',
@@ -691,7 +661,7 @@ class TablesTableSeeder extends Seeder
                 'updated_at' => '2018-01-05 12:55:57',
                 'deleted_at' => NULL,
             ),
-            48 => 
+            46 => 
             array (
                 'id' => 51,
                 'table_name' => 'users',
@@ -705,7 +675,7 @@ class TablesTableSeeder extends Seeder
                 'updated_at' => '2018-01-05 09:10:59',
                 'deleted_at' => NULL,
             ),
-            49 => 
+            47 => 
             array (
                 'id' => 52,
                 'table_name' => 'vertical_slider_details',
@@ -719,7 +689,7 @@ class TablesTableSeeder extends Seeder
                 'updated_at' => '2018-01-05 09:11:12',
                 'deleted_at' => NULL,
             ),
-            50 => 
+            48 => 
             array (
                 'id' => 53,
                 'table_name' => 'vertical_sliders',
@@ -733,7 +703,7 @@ class TablesTableSeeder extends Seeder
                 'updated_at' => '2018-01-05 09:11:27',
                 'deleted_at' => NULL,
             ),
-            51 => 
+            49 => 
             array (
                 'id' => 54,
                 'table_name' => 'language_tables',

@@ -81,6 +81,10 @@ trait ModuleTrait
                 return new UniversityHierarchyModule();
             case 30:
                 return new GalleriesModule();
+            case 31:
+                return new CoursesListOneModule();
+            case 32:
+                return new GoogleMapModule();
             default:
                 throw new \Exception("Undefined Web Module [id:$moduleId]");
         }
@@ -156,6 +160,10 @@ trait ModuleTrait
                 return new UniversityHierarchyModule();
             case 'galleries':
                 return new GalleriesModule();
+            case 'courses_list_1':
+                return new CoursesListOneModule();
+            case 'google_map':
+                return new GoogleMapModule();
             default:
                 throw new \Exception("Undefined Web Module [$moduleCode]");
         }

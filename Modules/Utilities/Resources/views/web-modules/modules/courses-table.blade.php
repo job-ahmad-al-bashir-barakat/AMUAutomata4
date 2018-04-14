@@ -1,5 +1,6 @@
-@php($facultySlug = \Route::input('faculty'))
-@php($facultyId = getIdFromSlug($facultySlug))
+{{--@php($facultySlug = \Route::input('faculty'))--}}
+{{--@php($facultyId = getIdFromSlug($facultySlug))--}}
+@php($facultyId = getRouteOptionalValue())
 @php($courses = \Modules\Admin\Entities\Course::with(['degree' ,'department' ,'prerequisiteGroup.courses'])->whereFacultyId($facultyId)->get())
 <div class="col-md-{{ $data['width'] }} mt-40">
     <div class="panel panel-info">

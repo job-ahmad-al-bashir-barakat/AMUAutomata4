@@ -62,6 +62,8 @@ trait AttributeTrait
                 return new RotateAttribute();
             case '21':
                 return new GalleriesAttribute();
+            case '22':
+                return new GeolocationAttribute();
             default:
                 throw new \Exception('Undefined Attributes');
         }
@@ -119,6 +121,8 @@ trait AttributeTrait
                 return new RotateAttribute();
             case 'galleries':
                 return new GalleriesAttribute();
+            case 'geolocation':
+                return new GeolocationAttribute();
             default:
                 throw new \Exception('Undefined Attributes');
         }

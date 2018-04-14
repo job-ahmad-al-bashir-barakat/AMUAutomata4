@@ -19,7 +19,7 @@ class WebModulesServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->routesRegister();
+        //$this->routesRegister();
     }
 
     /**

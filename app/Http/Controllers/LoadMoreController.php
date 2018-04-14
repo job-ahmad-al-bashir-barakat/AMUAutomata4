@@ -26,6 +26,13 @@ class LoadMoreController extends Controller
             'func' => 'faculty_instructors',
             'var' => 'persons',
         ],
+
+        'courses' => [
+            'model' => \Modules\Admin\Entities\Course::class,
+            'view' => 'utilities::web-modules.modules.sub.course-card-1',
+            'func' => 'courses',
+            'var' => 'course',
+        ],
     ];
 
     public function getHtml(Request $request, $class)
@@ -53,4 +60,11 @@ class LoadMoreController extends Controller
     {
         return $model::paginate(8);
     }
+
+    private function getQueryBuilderCourses($model)
+    {
+        return $model::paginate(8);
+    }
+
+
 }

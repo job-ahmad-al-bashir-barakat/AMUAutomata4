@@ -182,6 +182,11 @@ class RouteUrls
         return $this->localizeUrl("load-more/faculty-instructors");
     }
 
+    public function coursesListHtml()
+    {
+        return $this->localizeUrl('load-more/courses');
+    }
+
     public function hierarchyType()
     {
         return $this->localizeURL('hierarchy-type', 'admin');
