@@ -24,9 +24,4 @@ class Page extends Model
     {
         return $this->transName->keyBy('lang_code');
     }
-
-    public function siteMenus()
-    {
-        return $this->hasMany(SiteMenu::class, 'menuable_id')->where('menuable_type','=','faculty');
-    }
 }

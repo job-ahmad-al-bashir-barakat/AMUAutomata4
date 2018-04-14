@@ -2,11 +2,13 @@
 
 namespace Modules\Utilities\Http\Controllers;
 
+use function foo\func;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Routing\Controller;
 use Modules\Admin\Entities\Faculty;
 use Modules\Utilities\Entities\MenuTables;
+use Modules\Utilities\Entities\SiteMenu;
 use Modules\Utilities\Entities\Table;
 
 class UtilitiesController extends Controller
@@ -27,36 +29,38 @@ class UtilitiesController extends Controller
     public function menu(Request $request)
     {
         list($table, $view) = explode('.', $request->route()->getName());
-        $modules = [];
+
         if($view === 'general') {
 
-            $group = [ 'count' => 0 ];
+            $menuItems = [];
 
-            $menu_items = Table::pageable()->menuable()->morphed()->get();
-            $menu_items->each(function ($item) use (&$modules ,&$group){
+            $siteMenuExceptIds = SiteMenu::orWhereNotNull('menuable_type')
+                ->get(['menuable_id','menuable_type'])
+                ->groupBy('menuable_type')
+                ->map(function ($items){
+                    return $items->pluck('menuable_id');
+                });
+
+            $tableItems = Table::pageable()->menuable()->morphed()->get();
+            $tableItems->each(function ($item) use (&$menuItems ,&$group,$siteMenuExceptIds){
 
                 $class = $item->namespace;
 
                 if(class_exists($class)) {
 
-//                    $objs = $class::with(['siteMenus'])->get();
-                    $objs = $class::all();
-                    foreach ($objs as $obj)
-                        dd($obj->siteMenus());
-    //                    dd($obj->siteMenus);
+                    $obj = $class::whereNotIn('id',$siteMenuExceptIds->get($item->morph_code,[]))->get();
 
-                    if($obj->count()) {
-                        $group['count'] = $group['count'] + 1;
-                        array_push($group ,$group['count']);
-                    }
-
-                    $modules[$item->morph_code] = $obj;
+                    $menuItems[$item->morph_code] = $obj;
                 }
             });
 
-            $menu_items = $menu_items->groupBy('morph_code');
+            $tableItemsDynamic       = $tableItems->groupBy('morph_code');
+            $tableItemsDynamicFilter = $tableItemsDynamic->map(function ($items) use ($siteMenuExceptIds){
+                return $items->whereNotIn('id',$siteMenuExceptIds->get('tables',[]));
+            });
+
         }
 
-        return view("utilities::page.menu", compact('view' ,'menu_items','modules' ,'group'));
+        return view("utilities::page.menu", compact('view' ,'menuItems' ,'tableItemsDynamic','tableItemsDynamicFilter'));
     }
 }

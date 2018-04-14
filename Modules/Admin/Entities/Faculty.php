@@ -34,9 +34,4 @@ class Faculty extends \Eloquent
     {
         return $this->belongsToMany(StudyYear::class)->withPivot('id');
     }
-
-    public function siteMenus()
-    {
-        return $this->morphMany(SiteMenu::class, 'menuable');
-    }
 }
