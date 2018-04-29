@@ -2,11 +2,12 @@
 
 namespace Modules\Utilities\WebModules\Providers;
 
+use Modules\Utilities\Entities\Seo;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
-use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+use Modules\Utilities\Entities\SiteMenu;
 use Modules\Utilities\Entities\BuilderPage;
-use Modules\Utilities\Entities\Seo;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 class WebModulesServiceProvider extends ServiceProvider
 {
@@ -19,7 +20,7 @@ class WebModulesServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //$this->routesRegister();
+        $this->routesRegister();
     }
 
     /**
@@ -36,7 +37,7 @@ class WebModulesServiceProvider extends ServiceProvider
     {
         if (!app()->runningInConsole())
         {
-            $this->menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
+            $this->menu = SiteMenu::orderBy('order')->get()->toTree();
             $this->buildMenuRoutes($this->menu);
         }
     }

@@ -21,4 +21,5 @@ return [
     'text-cards' => 'بطاقة نص',
     'rotate' => 'تدوير',
     'galleries' => 'معارض الصور',
+    'geolocation' => 'الموقع الجفرافي',
 ];
