@@ -22,4 +22,5 @@ return [
     'text-cards' => 'Text Cards',
     'rotate' => 'Rotate',
     'galleries' => 'Galleries',
+    'geolocation' => 'Geolocation',
 ];

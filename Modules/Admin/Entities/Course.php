@@ -13,9 +13,11 @@ class Course extends \Eloquent
 {
     use SoftDeletes ,MultiLangs;
 
+    const IMAGE_PATH = 'storage/upload/image/courses/';
+
     protected $fillable = ['id' ,'code' ,'credit' ,'faculty_id' ,'department_id' ,'degree_id' ,'semester_id' ,'faculty_study_year_id' ,'image_id'];
 
-    protected $appends = ['lang_name' ,'lang_description'];
+    protected $appends = ['lang_name' ,'lang_description', 'image_path'];
 
     public function transName()
     {
@@ -35,6 +37,16 @@ class Course extends \Eloquent
     public function getLangDescriptionAttribute()
     {
         return $this->transDescription->keyBy('lang_code');
+    }
+
+    public function getImagePathAttribute()
+    {
+        if ($this->image) {
+            $imageName = $this->image->hash_name ?: '';
+        } else {
+            $imageName = '';
+        }
+        return self::IMAGE_PATH . $imageName;
     }
 
 

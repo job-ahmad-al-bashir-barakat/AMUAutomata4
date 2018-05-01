@@ -29,9 +29,9 @@ class LoadMoreController extends Controller
 
         'courses' => [
             'model' => \Modules\Admin\Entities\Course::class,
-            'view' => 'utilities::web-modules.modules.sub.course-card-1',
+            'view' => 'utilities::web-modules.modules.sub.courses-card-1',
             'func' => 'courses',
-            'var' => 'course',
+            'var' => 'courses',
         ],
     ];
 

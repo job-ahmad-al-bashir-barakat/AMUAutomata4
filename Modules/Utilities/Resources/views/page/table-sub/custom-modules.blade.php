@@ -11,6 +11,8 @@
 
 {{ FileUpload::ImageUploadCropper('90%' ,false ,true,false ,false ,false ,true) }}
 
+{!! autGoogleMap('maps',trans('admin::app.gelocation'),'',10,setting('UGL')->first()->value,'#datatable-labs-modal .input-location input') !!}
+
 <script>
     function showFileUploadModalGallery($this) {
         var inputFile = $('#gallery-image-upload').find('.upload-file');
