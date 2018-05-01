@@ -155,10 +155,10 @@ var AUT_UPLOAD = {
                         uploadRetryTitle            = $this.data('upload-retry-title'),
                         cropTitle                   = $this.data('crop-title'),
                         attributeTitle              = $this.data('attribute-title'),
-                        showCaption                 = $this.data('show-caption') || false,
-                        showPreview                 = $this.data('show-preview') || true,
-                        imageWidth                  = $this.data('image-width') || null,
-                        imageHeight                 = $this.data('image-height') || null,
+                        showCaption                 = typeof $this.data('show-caption') != typeof undefined ? $this.data('show-caption') : false,
+                        showPreview                 = typeof $this.data('show-preview') != typeof undefined ? $this.data('show-preview') : true,
+                        imageWidth                  = $this.data('image-width')      || null,
+                        imageHeight                 = $this.data('image-height')     || null,
                         minImageHeight              = $this.data('min-image-height') || null,
                         maxImageHeight              = $this.data('max-image-height') || null,
                         minImageWidth               = $this.data('min-image-width')  || null,
@@ -166,12 +166,12 @@ var AUT_UPLOAD = {
                         param                       = $this.attr('data-param')       || '',
                         multiple                    = typeof $this.attr('multiple') != typeof undefined ? true : false,
                         target                      = $this.data('target') || '',
-                        cropper                     = $this.data('cropper') || true,
+                        cropper                     = typeof $this.data('cropper') != typeof undefined ? $this.data('cropper') : true,
                         cropperSelector             = $this.data('cropper-selector') || '.aut-cropper-file-upload',
                         cropperModal                = $this.data('cropper-modal') || '',
                         datatable                   = $this.data('datatable'),
-                        reloadDatatable             = $this.data('reload-datatable') || true,
-                        datatableInitialize         = $this.data('datatable-initialize') || true,
+                        reloadDatatable             = typeof $this.data('reload-datatable') != undefined ? $this.data('reload-datatable') : true,
+                        datatableInitialize         = typeof $this.data('datatable-initialize') != undefined ? $this.data('datatable-initialize') : true,
                         datatableInitializeProperty = $this.data('datatable-initialize-property') || '.image',
                         appendLocation              = $this.data('append-location') || '',
                         appendName                  = $this.data('append-name') || '',
@@ -180,7 +180,8 @@ var AUT_UPLOAD = {
                         autoReplace                 = $this.data('auto-replace') || false,
                         allowRatio                  = $this.data('allow-ratio') || false,
                         ratio                       = $this.data('ratio') || {},
-                        ratioMessage                = $this.data('ratio-message') || '';
+                        ratioMessage                = $this.data('ratio-message') || '',
+                        dropZoneEnabled             = typeof $this.data('drop-zone-enabled') != undefined ? $this.data('drop-zone-enabled') : true;
 
                     if(cropper)
                         cropperTemplete = '<button type="button" class="btn-crop-image btn btn-kv btn-default btn-outline-secondary" title="' + cropTitle + '"><i class="fa fa-crop"></i></button>';
@@ -195,6 +196,7 @@ var AUT_UPLOAD = {
                         uploadExtraData: {},
                         deleteExtraData: {},
                         validateInitialCount: true,
+                        dropZoneEnabled: dropZoneEnabled,
                         minFileCount: minFileCount,
                         maxFileCount: maxFileCount,
                         showCaption: showCaption,
@@ -216,10 +218,10 @@ var AUT_UPLOAD = {
                         overwriteInitial: false,
                         layoutTemplates : {
                             actions: '<div class="file-actions">' +
-                            '    <div class="file-footer-buttons">' +
-                            '        {upload} {download} {delete} {cropper} {info} {zoom} {other}' +
-                            '    </div>' +
-                            '</div>',
+                                     '    <div class="file-footer-buttons">' +
+                                     '        {upload} {download} {delete} {cropper} {info} {zoom} {other}' +
+                                     '    </div>' +
+                                     '</div>',
                         },
                         fileActionSettings: {
                             uploadRetryIcon: '<i class="fa fa-refresh"></i>',
@@ -330,6 +332,11 @@ var AUT_UPLOAD = {
                         });
                     };
 
+                    /*
+                     * new: this mean is the file in new and not stored inside pviot table
+                     * deleted: this mean file is stored inside pviot table and you must delete it
+                     * replaced: if file new this will not has hidden replace or if it old "mean exists inisde pviot table" it will has replaced hidden
+                     */
                     var appendHiddenFunc = function (name ,value ,status) {
 
                         var _appendLocation = $(appendLocation),
@@ -345,10 +352,14 @@ var AUT_UPLOAD = {
                             },
                             hidden    = '<input class="'+ status +'" type="hidden" name="' + name + '" value="' + value + '"/>';
 
-                        if(status == 'delete' && $(selector(name.replace('delete_' ,''))).hasClass('new'))
+
+                        var isNew = $(selector(name.replace('delete_' ,''))).hasClass('new');
+                        // this condition will prevent to add delete_hidden if the file is still new and not instretd to pviot table
+                        if(status == 'delete' && isNew)
                             return;
 
-                        if(status == 'replaced' && $(selector(name ,'.replaced')).length > 0)
+                        // this is prevent you from add more than one replaced file
+                        if(status == 'replaced' && (isNew || $(selector(name ,'.replaced')).length > 0))
                             return;
 
                         // add hidden id foreach image uploaded
@@ -366,7 +377,7 @@ var AUT_UPLOAD = {
                         if(value != null)
                             selector += '[value="' + value + '"]';
 
-                        if(status != null ,status == 'replaced')
+                        if(status == 'replaced')
                             selector += '.replaced';
 
                         if(_appendLocation.length)
@@ -390,7 +401,7 @@ var AUT_UPLOAD = {
 
                                 var invalid = true;
                                 $.each(ratio ,function (i ,v) {
-                                    var imageRatio = parseInt(img.width)/parseInt(img.height);
+                                    var imageRatio = parseInt(img.width) / parseInt(img.height);
                                     var ratio      = parseInt(v.width) / parseInt(v.height);
                                     if(imageRatio === ratio)
                                         invalid = false;
@@ -423,6 +434,8 @@ var AUT_UPLOAD = {
                                     replacedFile = [];
                                 }
 
+                            invalidRatio = [];
+
                         }).off('fileuploaded').on('fileuploaded', function(event, data, previewId, index) {
 
                             var response  = data.response;
@@ -439,7 +452,7 @@ var AUT_UPLOAD = {
                                         $.post(params.deleteUrl , v);
 
                                         // delete new and uploaded
-                                        deleteHiddenFunc(appendName ,v.key ,null);
+                                        deleteHiddenFunc(appendName ,v.key);
                                     });
 
                                     // reset replaced file from replaced items
@@ -510,9 +523,11 @@ var AUT_UPLOAD = {
                             if(params.files[0].crop) {
                                 $this.fileinput('upload');
                             }
+                        }).off('filezoomshow').on('filezoomshow', function(event, params) {
+
+                            $(params.modal).find('.kv-zoom-title').html($('#'+params.previewId).find('.file-footer-caption').text());
                         });
                         /*
-                        .on('filecleared', function(event){ })
                         .on('filereset', function(event){ })
                         .on('fileselectnone', function(event) { })
                         .on('fileselect', function(event, numFiles, label) { })
@@ -523,8 +538,8 @@ var AUT_UPLOAD = {
                         .on('filebeforedelete', function(event, key, data) { })
                         .on('filepredelete', function(event, key, jqXHR, data) { })
                         .on('filedeleted', function(event, key, jqXHR, data) { })
-                        .on('filesuccessremove', function(event, id) {  });
-                        .on('fileclear', function(event) { }).on('filecleared', function(event) { })
+                        .on('filesuccessremove', function(event, id) {  })
+                        .on('filecleared', function(event) { })
                         .on('change', function(event) { });*/
 
                         $this.closest('.file-input').on('click' ,'.btn-attr-image' ,function () {
@@ -608,7 +623,8 @@ var AUT_UPLOAD = {
                     } else if (datatableInitialize == false) {
 
                         var ids = [],
-                            capture = $(appendLocation).find('[name="' + appendName + '"]');
+                            appendLocation = appendLocation ? $(appendLocation) : $this.closest('.file-input').parent(),
+                            capture        = appendLocation.find('[name="' + appendName + '"]');
 
                         if(capture.length) {
 
@@ -666,14 +682,19 @@ var AUT_UPLOAD = {
 
             if (fileType || param.imageManager) {
 
-                var image = $(param.image);
-
                 AUT_UPLOAD.CROPPER.blobURL = param.imageManager || URL.createObjectURL(param.file);
 
+                var image = $(param.image);
+
                 image.attr('src', AUT_UPLOAD.CROPPER.blobURL);
-                setTimeout(function () {
+
+                image.load(function () {
+
                     image.cropper('destroy').cropper(param.options);
-                },10);
+
+                    if(param.setRatioCallback)
+                        param.setRatioCallback();
+                });
 
                 if($(param.inputImage).length)
                     $(param.inputImage).val('');
@@ -792,12 +813,14 @@ var AUT_UPLOAD = {
                         inputImage : $inputImage,
                         file : AUT_UPLOAD.CROPPER.file,
                         options : options,
+                        setRatioCallback: function () {
+
+                            var ratioWidth  = $image.data('ratio-width'),
+                                ratioHeight = $image.data('ratio-height');
+
+                            AUT_UPLOAD.CROPPER.ratio($image ,ratioWidth || $this.attr('data-width') ,ratioHeight || $this.attr('data-height'));
+                        }
                     });
-
-                    var ratioWidth  = $image.data('ratio-width'),
-                        ratioHeight = $image.data('ratio-height');
-
-                    AUT_UPLOAD.CROPPER.ratio($image ,ratioWidth || $this.attr('data-width') ,ratioHeight || $this.attr('data-height'));
                 }
 
                 $this.off('click').on('click', '[data-method]', function() {
@@ -878,7 +901,17 @@ var AUT_UPLOAD = {
                             }
                         }
 
-                        result = $image.cropper(data.method, data.option);
+                        result = $image.cropper(data.method, $.extend(data.option, {
+                            width: $this.data('width'),
+                            height: $this.data('height'),
+                            minWidth: 256,
+                            minHeight: 256,
+                            maxWidth: 4096,
+                            maxHeight: 4096,
+                            fillColor: '#fff',
+                            imageSmoothingEnabled: false,
+                            imageSmoothingQuality: 'high',
+                        }));
 
                         if (data.method === 'getCroppedCanvas') {
 
@@ -971,7 +1004,6 @@ var AUT_UPLOAD = {
                                 console.log(e.message);
                             }
                         }
-
                     }
 
                 }).on('keydown', function(e) {

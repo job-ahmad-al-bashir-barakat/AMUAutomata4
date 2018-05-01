@@ -102,7 +102,7 @@ return [
     'course' => [
         'model'        => \Modules\Admin\Entities\Course::class,
         'ratio' => [
-            'person_ratio' => [ 'width'  => '265', 'height' => '195', ],
+            'course_ratio' => [ 'width'  => '265', 'height' => '195' ],
         ],
         'relationType' => 'one',
     ],

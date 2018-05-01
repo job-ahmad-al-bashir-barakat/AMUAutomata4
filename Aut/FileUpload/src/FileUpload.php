@@ -23,22 +23,23 @@ class FileUpload
         $datatableInitialize         = true,
         $datatableInitializeProperty = '.image',
         $extraParameter = [
-            'maxFileCount'          => '0',
             'minFileCount'          => '0',
+            'maxFileCount'          => '0',
+            'autoReplace'           => false,
             'minImageWidth'         => null,
             'minImageHeight'        => null,
             'maxImageWidth'         => null,
             'maxImageHeight'        => null,
             'allowedFileExtensions' => 'jpeg,jpg,bmp,png',
+            'allowedPreviewIcons'   => false,
             'appendLocation'        => '',
             'appendName'            => '',
-            'reloadDatatable'       => true,
             'fileuploadedEvent'     => '',
             'filedeletedEvent'      => '',
-            'allowedPreviewIcons'   => false,
-            'autoReplace'           => false,
+            'reloadDatatable'       => true,
             'showCaption'           => false,
             'showPreview'           => true,
+            'dropZoneEnabled'       => true,
             'allowRatio'            => false
         ]
     )

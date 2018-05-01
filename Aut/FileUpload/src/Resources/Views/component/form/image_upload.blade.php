@@ -63,10 +63,11 @@
                data-upload-retry-title="{{ $uploadRetryTitle or trans('fileupload::fileupload.upload_retry_title') }}"
                data-crop-title="{{ $cropTitle or trans('fileupload::fileupload.crop_title') }}"
                data-attribute-title="{{ $attributeTitle or trans('fileupload::fileupload.attribute_title') }}"
-               data-append-location="{{ $appendLocation or '' }}"
                data-append-name="{{ $appendName or '' }}"
+               data-append-location="{{ $appendLocation or '' }}"
                data-allowed-preview-icons="{{ $allowedPreviewIcons or false }}"
                data-auto-replace="{{ $autoReplace or false }}"
+               data-drop-zone-enabled="{{ $dropZoneEnabled or true }}"
                multiple
         >
     </div>
