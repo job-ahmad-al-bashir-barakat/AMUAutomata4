@@ -1,4 +1,4 @@
-{{ FileUpload::ImageUpload('gallery' ,'gallery' ,'' ,'' ,'100', '100' ,[
+utilities/res/views{{ FileUpload::ImageUpload('gallery' ,'gallery' ,'' ,'' ,'100', '100' ,[
     'modalId'    => 'gallery-image-upload',
     'modalTitle' => trans('utilities::app.upload_gallery_image')
 ] ,'#datatable-gallery', false, '.image', ['appendLocation' => '#images', 'appendName' => 'webModule[images][]']) }}
@@ -11,7 +11,7 @@
 
 {{ FileUpload::ImageUploadCropper('90%' ,false ,true,false ,false ,false ,true) }}
 
-{!! autGoogleMap('maps',trans('admin::app.gelocation'),'',10,setting('UGL')->first()->value,'#datatable-labs-modal .input-location input') !!}
+{!! autGoogleMap('maps',trans('admin::app.gelocation'),'',10,setting('UGL')->first()->value,'#datatable-custom-modules-modal .input-location input') !!}
 
 <script>
     function showFileUploadModalGallery($this) {
