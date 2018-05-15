@@ -43,6 +43,13 @@ function () {
         $modules = [];
         return view('page.university_offices', compact('modules', 'menu'));
     })->name('university_offices');
+
+    Route::get('university-office-detail', function () {
+        $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
+        $modules = [];
+        return view('page.university_offices_detail', compact('modules', 'menu'));
+    })->name('university_offices_detail');
+
     Route::get('faculty/{faculty}/labs1', function () {
         $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
         $modules = [];
