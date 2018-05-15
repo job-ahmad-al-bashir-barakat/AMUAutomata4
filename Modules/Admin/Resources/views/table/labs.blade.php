@@ -2,7 +2,7 @@
     'modalId'    => 'lab-image-upload',
     'modalTitle' => trans('admin::app.upload_images')
 ] ,'#datatable-labs' ,true ,'.image') }}
-{{--,['autoReplace' => true,'maxFileCount' => 1]--}}
+
 {{ FileUpload::ImageUploadCropper('90%' ,false ,true,false ,false ,false ,true) }}
 
 {!! autGoogleMap('labs',trans('admin::app.gelocation'),'',10,setting('UGL')->first()->value,'#datatable-labs-modal .input-location input') !!}

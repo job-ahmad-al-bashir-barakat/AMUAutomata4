@@ -386,6 +386,48 @@ var AUT_UPLOAD = {
                             $(selector).remove();
                     };
 
+                    var changeInputFileData = function (response) {
+
+                        var sync = $.Deferred();
+                        var fileInputData = [];
+
+                        sync.done(function () {
+
+                            $.each($this.fileinput('getPreview').config , function(i ,v) {
+                                fileInputData.push(v.key);
+                            });
+
+                            if(response)
+                                fileInputData.push(response[_this.id]['id']);
+
+                            if(autoReplace)
+                            {
+                                $.each(replacedFile,function(k,v){
+                                    var i = fileInputData.indexOf(v.key);
+                                    fileInputData.splice(i, 1);
+                                });
+                            }
+
+                        }).done(function( status ) {
+
+                            var _appendLocation = $(appendLocation),
+                                inputFile       = $this.closest('.file-input'),
+                                hidden          = '<input class="data-file-input" type="hidden" name="' + appendName + '" value="' + fileInputData + '"/>';
+
+                            $this.attr('data-file-input',fileInputData);
+
+                            if(_appendLocation.length) {
+                                _appendLocation.find('.data-file-input').remove();
+                                _appendLocation.append(hidden);
+                            } else {
+                                inputFile.parent().find('.data-file-input').remove();
+                                inputFile.before(hidden);
+                            }
+                        });
+
+                        sync.resolve();
+                    };
+
                     var initFileUpload = function (params) {
 
                         $this.fileinput('destroy');
@@ -442,6 +484,11 @@ var AUT_UPLOAD = {
 
                             appendHiddenFunc(appendName ,response[_this.id]['id'] ,'new');
 
+                            /*
+                             * add hidden ids for exists images
+                             */
+                            changeInputFileData(response);
+
                             if(autoReplace)
                                 if($this.fileinput('getFilesCount') > params.maxFileCount)
                                 {
@@ -497,6 +544,8 @@ var AUT_UPLOAD = {
                             appendHiddenFunc('delete_' + appendName ,key ,'delete');
 
                             deleteHiddenFunc(appendName ,key);
+
+                            changeInputFileData();
 
                             // reload datatable after upload success
                             if(datatableInitialize == true && data && reloadDatatable)
@@ -624,12 +673,13 @@ var AUT_UPLOAD = {
 
                         var ids = [],
                             appendLocation = appendLocation ? $(appendLocation) : $this.closest('.file-input').parent(),
-                            capture        = appendLocation.find('[name="' + appendName + '"]');
+                            capture        = appendLocation.find('[name="' + appendName + '"]').not('.data-file-input'),
+                            fileInputData  = $this.attr('data-file-input');
 
-                        if(capture.length) {
-
+                        if(fileInputData) {
+                            ids = fileInputData.split(',');
+                        } else if(capture.length) {
                             capture.each(function (i ,v) {
-
                                 ids.push($(v).val());
                             });
                         }
@@ -902,15 +952,15 @@ var AUT_UPLOAD = {
                         }
 
                         result = $image.cropper(data.method, $.extend(data.option, {
-                            width: $this.data('width'),
-                            height: $this.data('height'),
+                            width: $image[0].width, // $this.data('width'),
+                            height: $image[0].height, // $this.data('height'),
                             minWidth: 256,
                             minHeight: 256,
                             maxWidth: 4096,
                             maxHeight: 4096,
                             fillColor: '#fff',
                             imageSmoothingEnabled: false,
-                            imageSmoothingQuality: 'high',
+                            imageSmoothingQuality: 'low'
                         }));
 
                         if (data.method === 'getCroppedCanvas') {

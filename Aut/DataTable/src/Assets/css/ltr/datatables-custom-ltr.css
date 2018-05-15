@@ -155,7 +155,7 @@ div.modal-body .darkness {
     height: 100%;
 }
 
-td.details-control:after {
+td.details-control-icon:after {
     top: 12px;
     left: 6px;
     color: #777777;
@@ -167,7 +167,7 @@ td.details-control:after {
     background: none;
 }
 
-tr.shown td.details-control:after {
+tr.shown td.details-control-icon:after {
     top: 12px;
     left: 6px;
     color: #777777;
