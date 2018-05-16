@@ -17,7 +17,7 @@
     .link {
         fill: none;
         stroke: #ccc;
-        stroke-width: 1.5px;
+        stroke-width: 0.5px;
     }
 
     .hierarchy text {
@@ -26,7 +26,7 @@
 
 </style>
 @php($rotate = $data->get('rotate', 'V') == 'V'?90:0)
-<div class="hierarchy" style="margin: 150px; text-align: center; transform: rotate({{ $rotate }}deg);"></div>
+<div class="hierarchy" style="margin: 100px; text-align: center; transform: rotate({{ $rotate }}deg);"></div>
 
 <script src="//d3js.org/d3.v3.min.js"></script>
 <script>

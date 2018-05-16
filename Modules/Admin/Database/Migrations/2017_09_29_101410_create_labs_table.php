@@ -17,6 +17,7 @@ class CreateLabsTable extends Migration
             $table->increments('id')->unsigned();
             $table->integer('faculty_id');
             $table->integer('contact_id');
+            $table->integer('image_id');
             $table->timestamps();
             $table->softDeletes();
         });
