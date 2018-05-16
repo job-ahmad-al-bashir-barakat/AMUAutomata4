@@ -406,18 +406,21 @@ var AUT_FORM_COMPONENT = {
                     $fallbackData = $this.data();
 
                 // fill fixed input
-                $.map($formTarget.find('[data-editable],[data-json]'),function (i, element) {
+                $.map($formTarget.find('[data-editable],[data-json]'),function (element, i) {
 
-                    var trgetDataId = ($(element).attr('id')).replace(/-/g,'_');
-
-                    if($fallbackData[trgetDataId])
+                    if($(element).attr('id'))
                     {
-                        var $data = $fallbackData[trgetDataId];
+                        var trgetDataId = ($(element).attr('id')).replace(/-/g,'_');
 
-                        if(typeof $data == 'object')
-                            $data = [$data];
+                        if($fallbackData[trgetDataId])
+                        {
+                            var $data = $fallbackData[trgetDataId];
 
-                        setData(element, $data)
+                            if(typeof $data == 'object')
+                                $data = [$data];
+
+                            setData(element, $data)
+                        }
                     }
                 });
 

@@ -54,6 +54,7 @@ return [
     'study_year'         => 'سنة دراسية',
     'courses'            => 'مواد',
     'labs'               => 'مخابر',
+    'main_image'         => 'الصورة الرئيسية',
     'faculty'            => 'كلية',
     'department'         => 'قسم',
     'website'            => 'موقع الكتروني',

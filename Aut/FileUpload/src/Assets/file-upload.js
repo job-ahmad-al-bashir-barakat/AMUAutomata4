@@ -496,7 +496,7 @@ var AUT_UPLOAD = {
                                     $.each(replacedFile ,function (i ,v) {
 
                                         // send post for delete replaced files
-                                        $.post(params.deleteUrl , v);
+                                        $.post(params.deleteUrl , $.extend(v,{'autoReplace': true}));
 
                                         // delete new and uploaded
                                         deleteHiddenFunc(appendName ,v.key);

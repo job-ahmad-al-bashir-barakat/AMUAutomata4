@@ -44,10 +44,19 @@ return [
         'relationType' => 'one',
     ],
 
+    'main-lab' => [
+        'model'  => \Modules\Admin\Entities\Lab::class,
+        'ratio' => [
+            'first_ratio'  => [ 'width'  => '755', 'height' => '480', ],
+        ],
+        'relationType' => 'one',
+        'relationName' => 'mainImage'
+    ],
+
     'lab' => [
         'model'  => \Modules\Admin\Entities\Lab::class,
         'ratio' => [
-            'first_ratio'  => [ 'width'  => '1366', 'height' => '768', ],
+            'first_ratio'  => [ 'width'  => '285', 'height' => '215', ],
             //'second_ratio' => [ 'width'  => '480', 'height' => '480', ],
         ],
         // 'thumps' => [

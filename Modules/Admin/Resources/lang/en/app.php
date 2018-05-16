@@ -53,6 +53,7 @@ return [
     'study_year'         => 'Study year',
     'courses'            => 'Courses',
     'labs'               => 'Labs',
+    'main_image'         => 'Main Image',
     'faculty'            => 'Faculty',
     'department'         => 'Department',
     'degree'             => 'Degree',
