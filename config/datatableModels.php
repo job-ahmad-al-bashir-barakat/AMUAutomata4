@@ -235,7 +235,6 @@ return [
         'stopOperation' => ['store' ,'update' ,'destroy']
     ],
 
-
     'semester' => [
         'model'   => \Modules\Admin\Entities\Semester::class,
         'factory' => \Modules\Admin\Factories\SemesterFactory::class,
@@ -249,5 +248,15 @@ return [
     'hierarchy-type' => [
         'model'   => \Modules\Admin\Entities\HierarchyType::class,
         'factory' => \Modules\Admin\Factories\HierarchyTypeFactory::class,
+    ],
+
+    'status' => [
+        'model'   => \Modules\Admin\Entities\Status::class,
+        'factory' => \Modules\Admin\Factories\StatusFactory::class,
+    ],
+
+    'news' => [
+        'model'   => \Modules\Admin\Entities\News::class,
+        'factory' => \Modules\Admin\Factories\NewsFactory::class,
     ],
 ];

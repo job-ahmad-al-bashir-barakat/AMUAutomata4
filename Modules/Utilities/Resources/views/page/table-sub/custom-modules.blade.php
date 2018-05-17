@@ -32,7 +32,7 @@ utilities/res/views{{ FileUpload::ImageUpload('gallery' ,'gallery' ,'' ,'' ,'100
                 $template.html(res.html);
                 if($template.find('.datatable-text-editor').length){
                     AUTOMATA_APP.ckeditor.reset('' ,'' ,'single' ,'module-textarea-id');
-                    AUTOMATA_APP.ckeditor.init('body' ,'.datatable-text-editor');
+                    AUTOMATA_APP.ckeditor.init('body', '.datatable-text-editor');
                 }
                 if($template.find('.autocomplete').length){
                     AUT_AUTOCOMPLETE_PACK.autocomplete.initAutocomplete($template.find('.autocomplete'));

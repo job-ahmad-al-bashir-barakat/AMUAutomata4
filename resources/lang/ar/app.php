@@ -26,6 +26,7 @@ return [
     'load_more'       => 'رؤية المزيد',
     'loading'         => 'تحميل ...',
     'waiting'         => 'انتظر',
+    'content'         => 'المحتوى',
 
     'oper' => [
         'success' => 'تمت العملية بنجاح',

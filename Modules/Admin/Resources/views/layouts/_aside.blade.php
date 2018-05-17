@@ -95,15 +95,29 @@
             @endcan
         </ul>
     </li>
-    @can('blog')
+
     <li class="">
-        <a href="{{ RouteUrls::blog() }}" class="ajax" title="{{ trans('admin::app.blog') }}">
-            {{--<div class="pull-right label label-info">3</div>--}}
+        <a href="#news" title="{{ trans('admin::app.news') }}" data-toggle="collapse" class="">
             <em class="icon-feed"></em>
-            <span>{{ trans('admin::app.blog') }}</span>
+            <span>{{ trans('admin::app.news') }}</span>
         </a>
+        <ul id="news" class="nav sidebar-subnav collapse">
+            @can('news-status')
+            <li class="">
+                <a href="{{ RouteUrls::status() }}" class="ajax" title="{{ trans('admin::app.status') }}">
+                    <span>{{ trans('admin::app.status') }}</span>
+                </a>
+            </li>
+            @endcan
+            @can('news')
+            <li class="">
+                <a href="{{ RouteUrls::news() }}" class="ajax" title="{{ trans('admin::app.news') }}">
+                    <span>{{ trans('admin::app.news') }}</span>
+                </a>
+            </li>
+            @endcan
+        </ul>
     </li>
-    @endcan
 @endsection
 
 @section('_aside_setting_admin')

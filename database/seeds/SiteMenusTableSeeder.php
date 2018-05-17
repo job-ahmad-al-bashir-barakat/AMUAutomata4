@@ -705,7 +705,7 @@ class SiteMenusTableSeeder extends Seeder
                 'updated_at' => '2018-03-26 19:44:10',
                 'deleted_at' => '2017-10-15 12:21:24',
             ),
-            43 =>
+            43 => 
             array (
                 'id' => 44,
                 '_lft' => 79,

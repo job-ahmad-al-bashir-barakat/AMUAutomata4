@@ -32,6 +32,8 @@ function () {
     Route::get('study-year', 'AdminController@table')->middleware('permission:study-year')->name('table.study-year');
     Route::get('semester', 'AdminController@table')->middleware('permission:semester')->name('table.semester');
     Route::get('hierarchy-type', 'AdminController@table')->middleware('permission:hierarchy-type')->name('table.hierarchy-type');
+    Route::get('news', 'AdminController@table')->middleware('permission:news')->name('table.news');
+    Route::get('status', 'AdminController@table')->middleware('permission:news-status')->name('table.status');
 
     Route::get('{view}/menu', 'AdminController@menu');
 
