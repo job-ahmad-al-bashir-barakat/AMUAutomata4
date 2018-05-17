@@ -14,7 +14,7 @@ class LabFactory extends GlobalFactory
      */
     public function getDatatable($model ,$request)
     {
-        $query = Lab::with(['image','contact'])->where('faculty_id' ,'=' ,$request->input('id'))->allLangs();
+        $query = Lab::with(['mainImage','image','contact'])->where('faculty_id' ,'=' ,$request->input('id'))->allLangs();
 
         return $this->table
             ->queryConfig('datatable-labs')
@@ -22,6 +22,7 @@ class LabFactory extends GlobalFactory
             ->queryMultiLang(['name' ,'description'])
             ->queryUpdateButton('id')
             ->queryDeleteButton('id')
+            ->queryCustomButton('main_upload_image' ,'id' ,'fa fa-image' ,'' ,'onclick="showMainImageModal(this)"')
             ->queryCustomButton('upload_image' ,'id' ,'fa fa-image' ,'' ,'onclick="showFileUploadModal(this)"')
             ->queryRender(true);
     }
@@ -42,6 +43,7 @@ class LabFactory extends GlobalFactory
             ->endRelation()
             ->setGridNormalCol(12)
             ->addMultiTextareaLangs(['description'] ,'req required text-editor d:tabs d:noLabel none')
+            ->addActionButton(trans('admin::app.main_image') ,'main_upload_image' ,'main_upload_image','center all' ,'100px')
             ->addActionButton(trans('admin::app.upload_images') ,'upload_image' ,'upload_image','center all' ,'100px')
             ->addActionButton($this->update,'update','update')
             ->addActionButton($this->delete,'delete','delete')

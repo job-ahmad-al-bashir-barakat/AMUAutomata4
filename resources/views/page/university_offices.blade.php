@@ -10,6 +10,7 @@
 
     <!-- Start main-content -->
     <div class="main-content">
+
         <!-- Section: inner-header -->
         <section class="inner-header divider parallax layer-overlay overlay-dark-5" data-bg-img="http://placehold.it/1920x1280">
             <div class="container pt-70 pb-20">
@@ -17,12 +18,11 @@
                 <div class="section-content">
                     <div class="row">
                         <div class="col-md-12">
-                            <h2 class="title text-white">Event List without Sidebar</h2>
-                            <ol class="breadcrumb text-center text-black mt-10">
+                            <h2 class="title text-white">Offices</h2>
+                            <ol class="breadcrumb text-left text-black mt-10">
                                 <li><a href="#">Home</a></li>
                                 <li><a href="#">Pages</a></li>
-                                <li class="active text-theme-colored">Page Title</li>
-                                <li class="active text-theme-colored">Event List without Sidebar</li>
+                                <li class="active text-gray-silver">Page Title</li>
                             </ol>
                         </div>
                     </div>
@@ -30,161 +30,164 @@
             </div>
         </section>
 
-        <!-- Section: event calendar -->
-        <section>
+        <!-- Section: Team -->
+        <section id="team">
             <div class="container">
-                <div class="row">
-                    <div class="col-md-3">
-                        <h4 class="widget-title line-bottom">Filter Lab</h4>
-                        <div class="list-group">
-                            <a href="#" class="list-group-item active">
-                                Cras justo odio
-                            </a>
-                            <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
-                            <a href="#" class="list-group-item">Morbi leo risus</a>
-                            <a href="#" class="list-group-item">Porta ac consectetur ac</a>
-                            <a href="#" class="list-group-item">Vestibulum at eros</a>
+                <div class="row mtli-row-clearfix">
+                    <div class="col-xs-12 col-sm-6 col-md-3 sm-text-center mb-30 mb-sm-30">
+                        <div class="team-members maxwidth400">
+                            <div class="team-thumb">
+                                <div
+                                    id="google-map1"
+                                    data-address="121 King Street, Melbourne Victoria 3000 Australia"
+                                    data-popupstring-id="#popupstring1"
+                                    class="map-canvas autoload-map"
+                                    data-mapstyle="style1"
+                                    data-height="200"
+                                    data-latlng="-37.817314,144.955431"
+                                    data-title="sample title"
+                                    data-zoom="12"
+                                    data-marker="{{ asset('images/map-marker.png') }}">
+                                </div>
+                                <div class="map-popupstring hidden" id="popupstring1">
+                                    <div class="text-center">
+                                        <h3>Medinova Office</h3>
+                                        <p>121 King Street, Melbourne Victoria 3000 Australia</p>
+                                    </div>
+                                </div>
+                                {{--<img class="img-fullwidth" alt="" src="http://placehold.it/260x230">--}}
+                            </div>
+                            <div class="team-bottom-part border-bottom-theme-color-2-2px bg-lighter border-1px text-center p-10 pt-20 pb-10">
+                                <h4 class="text-uppercase font-raleway font-weight-600 m-0"><a class="text-theme-color-2" href="page-teachers-details.html"> David Zakaria</a></h4>
+                                <h5 class="text-theme-color">Teacher - MBA</h5>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-9">
-                        <div id="university-offices-wrapper" class="university-offices">
-                            <div class="upcoming-events bg-white-f3 mb-20">
-                                <div class="row">
-                                    <div class="col-sm-4 pr-0 pr-sm-15">
-                                        <div class="thumb">
-                                            <img class="img-fullwidth" src="https://placehold.it/220x160" alt="...">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4 pl-0 pl-sm-15">
-                                        <div class="event-details p-15 mt-20">
-                                            <h4 class="mt-0 text-uppercase font-weight-500">feed a hungry child</h4>
-                                            <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante Nulla vel metus scelerisque ante.</p>
-                                            <a href="#" class="btn btn-flat btn-dark btn-theme-colored btn-sm mt-10">Details <i class="fa fa-angle-double-right"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div class="event-count p-15 mt-15">
-                                            <ul class="event-date list-inline font-16 text-uppercase mt-10 mb-20">
-                                                <li class="p-15 mr-5 bg-lightest">Dec</li>
-                                                <li class="p-15 pl-20 pr-20 mr-5 bg-lightest"> 31</li>
-                                                <li class="p-15 bg-lightest">2015</li>
-                                            </ul>
-                                            <ul>
-                                                <li class="mb-10"><a href="#"><i class="fa fa-clock-o mr-5"></i> at 5.00 pm - 7.30 pm</a></li>
-                                                <li><a href="#"><i class="fa fa-map-marker mr-5"></i> 25 Newyork City.</a></li>
-                                            </ul>
-                                        </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3 sm-text-center mb-30 mb-sm-30">
+                        <div class="team-members maxwidth400">
+                            <div class="team-thumb">
+                                <div
+                                    id="google-map2"
+                                    data-address="121 King Street, Melbourne Victoria 3000 Australia"
+                                    data-popupstring-id="#popupstring2"
+                                    class="map-canvas autoload-map"
+                                    data-mapstyle="style1"
+                                    data-height="200"
+                                    data-latlng="-37.817314,144.955431"
+                                    data-title="sample title"
+                                    data-zoom="12"
+                                    data-marker="{{ asset('images/map-marker.png') }}">
+                                </div>
+                                <div class="map-popupstring hidden" id="popupstring2">
+                                    <div class="text-center">
+                                        <h3>Medinova Office</h3>
+                                        <p>121 King Street, Melbourne Victoria 3000 Australia</p>
                                     </div>
                                 </div>
+                                {{--<img class="img-fullwidth" alt="" src="http://placehold.it/260x230">--}}
                             </div>
-                            <div class="upcoming-events bg-white-f3 mb-20">
-                                <div class="row">
-                                    <div class="col-sm-4 pr-0 pr-sm-15">
-                                        <div class="thumb">
-                                            <img class="img-fullwidth" src="https://placehold.it/220x160" alt="...">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4 pl-0 pl-sm-15">
-                                        <div class="event-details p-15 mt-20">
-                                            <h4 class="mt-0 text-uppercase font-weight-500">feed a hungry child</h4>
-                                            <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante Nulla vel metus scelerisque ante.</p>
-                                            <a href="#" class="btn btn-flat btn-dark btn-theme-colored btn-sm mt-10">Details <i class="fa fa-angle-double-right"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div class="event-count p-15 mt-15">
-                                            <ul class="event-date list-inline font-16 text-uppercase mt-10 mb-20">
-                                                <li class="p-15 mr-5 bg-lightest">Dec</li>
-                                                <li class="p-15 pl-20 pr-20 mr-5 bg-lightest"> 31</li>
-                                                <li class="p-15 bg-lightest">2015</li>
-                                            </ul>
-                                            <ul>
-                                                <li class="mb-10"><a href="#"><i class="fa fa-clock-o mr-5"></i> at 5.00 pm - 7.30 pm</a></li>
-                                                <li><a href="#"><i class="fa fa-map-marker mr-5"></i> 25 Newyork City.</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="upcoming-events bg-white-f3 mb-20">
-                                <div class="row">
-                                    <div class="col-sm-4 pr-0 pr-sm-15">
-                                        <div class="thumb">
-                                            <img class="img-fullwidth" src="https://placehold.it/220x160" alt="...">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4 pl-0 pl-sm-15">
-                                        <div class="event-details p-15 mt-20">
-                                            <h4 class="mt-0 text-uppercase font-weight-500">feed a hungry child</h4>
-                                            <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante Nulla vel metus scelerisque ante.</p>
-                                            <a href="#" class="btn btn-flat btn-dark btn-theme-colored btn-sm mt-10">Details <i class="fa fa-angle-double-right"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div class="event-count p-15 mt-15">
-                                            <ul class="event-date list-inline font-16 text-uppercase mt-10 mb-20">
-                                                <li class="p-15 mr-5 bg-lightest">Dec</li>
-                                                <li class="p-15 pl-20 pr-20 mr-5 bg-lightest"> 31</li>
-                                                <li class="p-15 bg-lightest">2015</li>
-                                            </ul>
-                                            <ul>
-                                                <li class="mb-10"><a href="#"><i class="fa fa-clock-o mr-5"></i> at 5.00 pm - 7.30 pm</a></li>
-                                                <li><a href="#"><i class="fa fa-map-marker mr-5"></i> 25 Newyork City.</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="team-bottom-part border-bottom-theme-color-2-2px bg-lighter border-1px text-center p-10 pt-20 pb-10">
+                                <h4 class="text-uppercase font-raleway font-weight-600 m-0"><a class="text-theme-color-2" href="page-teachers-details.html"> David Zakaria</a></h4>
+                                <h5 class="text-theme-color">Teacher - MBA</h5>
                             </div>
                         </div>
-
-                        <div class="clearfix"></div>
-
-                        <div id="load-next-university-offices" class="pt-0 pb-0">
-                            <a href="#" class="btn btn-default btn-lg btn-block">Load more...</a>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3 sm-text-center mb-30 mb-sm-30">
+                        <div class="team-members maxwidth400">
+                            <div class="team-thumb">
+                                <div
+                                    id="google-map3"
+                                    data-address="121 King Street, Melbourne Victoria 3000 Australia"
+                                    data-popupstring-id="#popupstring3"
+                                    class="map-canvas autoload-map"
+                                    data-mapstyle="style1"
+                                    data-height="200"
+                                    data-latlng="-37.817314,144.955431"
+                                    data-title="sample title"
+                                    data-zoom="12"
+                                    data-marker="{{ asset('images/map-marker.png') }}">
+                                </div>
+                                <div class="map-popupstring hidden" id="popupstring3">
+                                    <div class="text-center">
+                                        <h3>Medinova Office</h3>
+                                        <p>121 King Street, Melbourne Victoria 3000 Australia</p>
+                                    </div>
+                                </div>
+                                {{--<img class="img-fullwidth" alt="" src="http://placehold.it/260x230">--}}
+                            </div>
+                            <div class="team-bottom-part border-bottom-theme-color-2-2px bg-lighter border-1px text-center p-10 pt-20 pb-10">
+                                <h4 class="text-uppercase font-raleway font-weight-600 m-0"><a class="text-theme-color-2" href="page-teachers-details.html"> David Zakaria</a></h4>
+                                <h5 class="text-theme-color">Teacher - MBA</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3 sm-text-center mb-30 mb-sm-30">
+                        <div class="team-members maxwidth400">
+                            <div class="team-thumb">
+                                <div
+                                    id="google-map4"
+                                    data-address="121 King Street, Melbourne Victoria 3000 Australia"
+                                    data-popupstring-id="#popupstring4"
+                                    class="map-canvas autoload-map"
+                                    data-mapstyle="style1"
+                                    data-height="200"
+                                    data-latlng="-37.817314,144.955431"
+                                    data-title="sample title"
+                                    data-zoom="12"
+                                    data-marker="{{ asset('images/map-marker.png') }}">
+                                </div>
+                                <div class="map-popupstring hidden" id="popupstring4">
+                                    <div class="text-center">
+                                        <h3>Medinova Office</h3>
+                                        <p>121 King Street, Melbourne Victoria 3000 Australia</p>
+                                    </div>
+                                </div>
+                                {{--<img class="img-fullwidth" alt="" src="http://placehold.it/260x230">--}}
+                            </div>
+                            <div class="team-bottom-part border-bottom-theme-color-2-2px bg-lighter border-1px text-center p-10 pt-20 pb-10">
+                                <h4 class="text-uppercase font-raleway font-weight-600 m-0"><a class="text-theme-color-2" href="page-teachers-details.html"> David Zakaria</a></h4>
+                                <h5 class="text-theme-color">Teacher - MBA</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3 sm-text-center mb-sm-30">
+                        <div class="team-members maxwidth400">
+                            <div class="team-thumb">
+                                <div
+                                    id="google-map5"
+                                    data-address="121 King Street, Melbourne Victoria 3000 Australia"
+                                    data-popupstring-id="#popupstring5"
+                                    class="map-canvas autoload-map"
+                                    data-mapstyle="style1"
+                                    data-height="200"
+                                    data-latlng="-37.817314,144.955431"
+                                    data-title="sample title"
+                                    data-zoom="12"
+                                    data-marker="{{ asset('images/map-marker.png') }}">
+                                </div>
+                                <div class="map-popupstring hidden" id="popupstring5">
+                                    <div class="text-center">
+                                        <h3>Medinova Office</h3>
+                                        <p>121 King Street, Melbourne Victoria 3000 Australia</p>
+                                    </div>
+                                </div>
+                                {{--<img class="img-fullwidth" alt="" src="http://placehold.it/260x230">--}}
+                            </div>
+                            <div class="team-bottom-part border-bottom-theme-color-2-2px bg-lighter border-1px text-center p-10 pt-20 pb-10">
+                                <h4 class="text-uppercase font-raleway font-weight-600 m-0"><a class="text-theme-color-2" href="page-teachers-details.html"> David Zakaria</a></h4>
+                                <h5 class="text-theme-color">Teacher - MBA</h5>
+                            </div>
                         </div>
                     </div>
                 </div>
-
-
             </div>
         </section>
     </div>
-    <!-- end main-content -->
-
 @endsection
+
 
 @section('footer')
-
-    <script>
-        /////////////////////////////////////
-        // هي ما عم تشتغل لسبب ما تأكد ليش أنا حاولت ما عرفت
-        ////////////////////////////////////
-        $(function () {
-            $('#load-next-university-offices a').appear();
-            $(document.body).on('appear', '#load-next-university-offices a', function() {
-
-                var $infinityload_container = $('#university-offices-wrapper');
-                $infinityload_container.infinitescroll({
-                        //debug         : true,
-                        loading: {
-                            finishedMsg: '<i class="fa fa-check"></i>',
-                            msgText: '<i class="fa fa-spinner fa-spin"></i>',
-                            img: "{{ asset("images/preloaders/1.gif") }}",
-                            speed: 'normal'
-                        },
-                        state: {
-                            isDone: false
-                        },
-                        nextSelector: "#load-next-university-offices a",
-                        navSelector: "#load-next-university-offices",
-                        itemSelector  :"#university-offices-wrapper > .upcoming-events",
-                        //behavior: 'twitter'
-                    },
-                    function( newElements ) {
-                        $infinityload_container.find('#infscr-loading').remove();
-                    });
-            });
-        });
-
-    </script>
-@endsection
+    <!-- Google Map Javascript Codes -->
+    <script src="http://maps.google.com/maps/api/js?key=AIzaSyAYWE4mHmR9GyPsHSOVZrSCOOljk8DU9B4"></script>
+    <script src="{{ asset('js/google-map-init.js') }}"></script>
+@stop

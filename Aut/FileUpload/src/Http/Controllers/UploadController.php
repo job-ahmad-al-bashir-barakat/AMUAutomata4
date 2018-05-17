@@ -188,23 +188,24 @@ class UploadController extends Controller
 
         request()->request->add(['transSaveOper' => false]);
 
-        if(!$this->stopRelationSave)
-        {
-            // get config model
-            $dbModel = $this->imageLocalConfig['model'];
+        if(!$request->input('autoReplace',false))
+            if(!$this->stopRelationSave)
+            {
+                // get config model
+                $dbModel = $this->imageLocalConfig['model'];
 
-            // relationName image or else
-            $relationName = $this->relationName;
+                // relationName image or else
+                $relationName = $this->relationName;
 
-            // save relation file
-            $dbModel = $dbModel::findOrFail($request->get('id'));
+                // save relation file
+                $dbModel = $dbModel::findOrFail($request->get('id'));
 
-            // relationType has to be many or one
-            if($this->relationType == 'many')
-                $dbModel->{$relationName}()->detach($request->get('key'));
-            else
-                $dbModel->update(["{$type}_id" => null]);
-        }
+                // relationType has to be many or one
+                if($this->relationType == 'many')
+                    $dbModel->{$relationName}()->detach($request->get('key'));
+                else
+                    $dbModel->update(["{$type}_id" => null]);
+            }
 
         //delete file from db
         $partFunc = Str::studly($type);

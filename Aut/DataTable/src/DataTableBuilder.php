@@ -858,7 +858,7 @@ class DataTableBuilder
     )
     {
         $this->addField([
-            "type"       => 'datetime',
+            "type"       => 'datetime-local',
             "title"      => $title,
             "data"       => $data,
             "name"       => $name,
@@ -1739,19 +1739,27 @@ class DataTableBuilder
     /**
      * @param string $component
      * @param string $class
+     * @param string $title
+     * @param null $data
+     * @param string $defaultContent
      * @return $this
      */
     function addChildRowDetail(
-        $component = '',
-        $class     = ''
+        $component      = '',
+        $class          = '',
+        $title          = '',
+        $data           = null,
+        $defaultContent = ''
     )
     {
+        $icon = ($data || $defaultContent) ?: "details-control-icon";
+
         $this->addField([
-            "data"           => null,
-            "title"          => '<i class="icon-layers"></i>',
+            "data"           => $data,
+            "title"          => $title ?: '<i class="icon-layers"></i>',
             "type"           => 'detail',
-            "defaultContent" => '', //add default content to cell
-            "className"      => "center all details-control $class",
+            "defaultContent" => $defaultContent,
+            "className"      => "center all details-control $icon hand $class",
             "width"          => '10px',
             "visible"        => true,
             "choosen"        => false,
@@ -2308,7 +2316,6 @@ class DataTableBuilder
             case 'date' :
             case 'time' :
             case 'datetime-local' :
-            case 'datetime' :
             case 'month' :
             case 'week' :
             case 'email' :

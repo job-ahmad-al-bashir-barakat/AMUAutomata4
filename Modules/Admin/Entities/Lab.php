@@ -12,7 +12,7 @@ class Lab extends \Eloquent
 {
     use SoftDeletes ,MultiLangs;
 
-    protected $fillable = ['faculty_id' ,'contact_id'];
+    protected $fillable = ['faculty_id' ,'contact_id','image_id'];
 
     protected $appends = ['lang_name','lang_description'];
 
@@ -60,6 +60,11 @@ class Lab extends \Eloquent
     function contact()
     {
         return $this->belongsTo(Contact::class);
+    }
+
+    function mainImage()
+    {
+        return $this->belongsTo(Image::class,'image_id');
     }
 
     function image()

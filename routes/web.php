@@ -43,11 +43,24 @@ function () {
         $modules = [];
         return view('page.university_offices', compact('modules', 'menu'));
     })->name('university_offices');
-    Route::get('faculty/{faculty}/labs1', function () {
+
+    Route::get('university-office-detail', function () {
+        $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
+        $modules = [];
+        return view('page.university_offices_detail', compact('modules', 'menu'));
+    })->name('university_offices_detail');
+
+    Route::get('faculty/labs1', function () {
         $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
         $modules = [];
         return view('page.labs', compact('modules', 'menu'));
     })->name('labs');
+
+    Route::get('faculty/{faculty}/labs1', function () {
+        $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
+        $modules = [];
+        return view('page.lab_detail', compact('modules', 'menu'));
+    })->name('lab-detail');
 
     // Authentication Routes...
     Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');

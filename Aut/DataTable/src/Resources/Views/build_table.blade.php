@@ -1,6 +1,6 @@
 @if($build_table_column)
     @section('column')
-    <th class='{{ $choosen }} {{ $param['printable'] }}' style='max-width: {{ $param['width'] }};'>{{ $param['title'] }}</th>
+    <th class='{{ $choosen }} {{ $param['printable'] }}' style='max-width: {{ $param['width'] }};'>{!! $param['title'] !!}</th>
 @endsection
 @endif
 

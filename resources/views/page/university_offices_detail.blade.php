@@ -1,125 +1,133 @@
 @extends('temp_layout')
 
 @section('content')
+
     <!-- Start main-content -->
     <div class="main-content">
-        <!-- Section: inner-header -->
-        <section class="inner-header divider parallax layer-overlay overlay-dark-5" data-bg-img="http://placehold.it/1920x1280">
-            <div class="container pt-70 pb-20">
+
+        <section class="inner-header layer-overlay" data-bg-img="http://placehold.it/1920x1280" style="background-image: url('http://placehold.it/1920x1280');">
+            <div class="container pt-10 pb-10">
                 <!-- Section Content -->
                 <div class="section-content">
                     <div class="row">
-                        <div class="col-md-12">
-                            <h2 class="title text-white">University office</h2>
+                        <div class="col-md-8 col-md-offset-2 text-center">
+                            <h2 class="title text-white name">Sakib Smith</h2>
+                            <h6 class="title text-white font-24">Chemistry Teachers</h6>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- Section: Experts Details -->
         <section>
             <div class="container">
-                <div class="row">
-                    <div class="col-md-4">
-                        <ul>
-                            <li>
-                                <h5>Client:</h5>
-                                <p>Kodesolution Lmd.</p>
-                            </li>
-                            <li>
-                                <h5>Location:</h5>
-                                <p>#405, Lan Streen, Los Vegas, USA</p>
-                            </li>
-                            <li>
-                                <h5>Category:</h5>
-                                <p>Web design & development, Graphics design</p>
-                            </li>
-                            <li>
-                                <h5>Start Date:</h5>
-                                <p>January 26, 2016</p>
-                            </li>
-                            <li>
-                                <h5>End Date:</h5>
-                                <p>February 10, 2016</p>
-                            </li>
-                            <li>
-                                <h5>Website:</h5>
-                                <p>kodesolution.com</p>
-                            </li>
-                            <li>
-                                <h5>Share:</h5>
-                                <div class="styled-icons icon-sm icon-gray icon-circled">
-                                    <a href="#"><i class="fa fa-facebook"></i></a>
-                                    <a href="#"><i class="fa fa-twitter"></i></a>
-                                    <a href="#"><i class="fa fa-instagram"></i></a>
-                                    <a href="#"><i class="fa fa-google-plus"></i></a>
+                <div class="section-content">
+                    <div class="row mt-30">
+                        <div class="col-md-4">
+                            <div class="volunteer-address">
+                                <ul>
+                                    <li>
+                                        <div class="bg-light media border-bottom p-15 mb-15">
+                                            <div class="media-left">
+                                                <i class="fa fa-phone text-theme-colored font-24 mt-5"></i>
+                                            </div>
+                                            <div class="media-body">
+                                                <h5 class="mt-0 mb-0 pb-5">Contact:</h5>
+                                                <p>
+                                                    <strong>Phone:</strong> +262 695 2601<br>
+                                                    <strong>Email:</strong> +262 695 2601<br>
+                                                    <strong>Mobile:</strong> +262 695 2601<br>
+                                                    <strong>Fax:</strong> +262 695 2601<br>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="bg-light media border-bottom p-15">
+                                            <div class="media-left">
+                                                <i class="fa fa-map-marker text-theme-colored font-24 mt-5"></i>
+                                            </div>
+                                            <div class="media-body">
+                                                <h5 class="mt-0 mb-0 pb-5">Address:</h5>
+                                                <p>
+                                                    <div class="mt-5">
+                                                        <strong>Address 1:</strong> <a class="popup-gmaps" href="https://maps.google.com/maps?q=Aleppo">Address one</a><br>
+                                                    </div>
+                                                    <div class="mt-5">
+                                                        <strong>Address 2:</strong> <a class="popup-gmaps" href="https://maps.google.com/maps?q=Homs">Address two</a>
+                                                    </div>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="clearfix">
+                                <h4 class="line-bottom">Quick Contact:</h4>
+                            </div>
+                            <form id="contact-form" class="contact-form-transparent">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <input type="text" placeholder="Enter Name" id="contact_name" name="contact_name" required="" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <input type="text" placeholder="Enter Email" id="contact_email" name="contact_email" class="form-control" required="">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <input type="text" placeholder="Enter Subject" id="contact_subject" name="contact_subject" class="form-control" required="">
+                                        </div>
+                                    </div>
                                 </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-md-8">
-                        <img src="{{ asset('tempImage/755x480.png') }}" alt="">
-                    </div>
-                </div>
-                <div class="row mt-60">
-                    <div class="col-md-6">
-                        <h4 class="mt-0">Project Description</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi id perspiciatis facilis nulla possimus quasi, amet qui. Ea rerum officia, aspernatur nulla neque nesciunt alias repudiandae doloremque, dolor, quam nostrum laudantium earum illum odio quasi excepturi mollitia corporis quas ipsa modi nihil, ad ex tempore.</p>
-                    </div>
-                    <div class="col-md-6">
-                        <blockquote>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                            <footer>Someone famous in <cite title="Source Title">Source Title</cite></footer>
-                        </blockquote>
-                    </div>
-                </div>
-                <div class="row mt-30">
-                    <div class="col-md-12">
-                        <h4 class="mb-20">Recent Projects</h4>
-                        <div class="owl-carousel-6col">
-                            <div class="item"><img src="https://placehold.it/285x215" alt=""></div>
-                            <div class="item"><img src="https://placehold.it/285x215" alt=""></div>
-                            <div class="item"><img src="https://placehold.it/285x215" alt=""></div>
-                            <div class="item"><img src="https://placehold.it/285x215" alt=""></div>
-                            <div class="item"><img src="https://placehold.it/285x215" alt=""></div>
-                            <div class="item"><img src="https://placehold.it/285x215" alt=""></div>
+                                <div class="form-group">
+                                    <textarea rows="5" placeholder="Enter Message" id="contact_message" name="contact_message" required class="form-control"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <button data-loading-text="Please wait..." class="btn btn-flat btn-dark btn-theme-colored mt-5" type="submit">Send your message</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
-                <div style="font-size: 30px; padding-top: 25px;">
-                    Google Map For Location
-                </div>
             </div>
-        </section>
 
-        <!-- Divider: Google Map -->
-        <section>
             <div class="container-fluid p-0">
                 <div class="row">
 
                     <!-- Google Map HTML Codes -->
                     <div
-                            data-address="121 King Street, Melbourne Victoria 3000 Australia"
-                            data-popupstring-id="#popupstring1"
-                            class="map-canvas autoload-map"
-                            data-mapstyle="style8"
-                            data-height="400"
-                            data-latlng="-37.817314,144.955431"
-                            data-title="sample title"
-                            data-zoom="12"
-                            data-marker="{{ asset('images/map-marker.png') }}">
+                        data-address="121 King Street, Melbourne Victoria 3000 Australia"
+                        data-popupstring-id="#popupstring1"
+                        class="map-canvas autoload-map"
+                        data-mapstyle="style8"
+                        data-height="400"
+                        data-latlng="-37.817314,144.955431"
+                        data-title="sample title"
+                        data-zoom="12"
+                        data-marker="{{ asset('images/map-marker.png') }}">
                     </div>
                     <div class="map-popupstring hidden" id="popupstring1">
                         <div class="text-center">
-                            <h3>Medinova Office</h3>
+                            <h3>CharityFund Office</h3>
                             <p>121 King Street, Melbourne Victoria 3000 Australia</p>
                         </div>
                     </div>
+                    <!-- Google Map Javascript Codes -->
+
                 </div>
             </div>
         </section>
+
     </div>
     <!-- end main-content -->
+
 @endsection
 
 @section('footer')
