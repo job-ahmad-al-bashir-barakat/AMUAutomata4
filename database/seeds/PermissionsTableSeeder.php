@@ -370,11 +370,11 @@ class PermissionsTableSeeder extends Seeder
             35 => 
             array (
                 'id' => 36,
-                'name' => 'blog',
+                'name' => 'news',
                 'guard_name' => 'web',
                 'hidden' => 'N',
                 'created_at' => '2018-03-21 17:26:11',
-                'updated_at' => '2018-03-21 17:26:11',
+                'updated_at' => '2018-05-12 18:28:41',
                 'deleted_at' => NULL,
             ),
             36 => 
@@ -415,6 +415,16 @@ class PermissionsTableSeeder extends Seeder
                 'hidden' => 'N',
                 'created_at' => '2018-03-30 05:13:30',
                 'updated_at' => '2018-03-30 05:13:30',
+                'deleted_at' => NULL,
+            ),
+            40 => 
+            array (
+                'id' => 41,
+                'name' => 'news-status',
+                'guard_name' => 'web',
+                'hidden' => 'Y',
+                'created_at' => '2018-05-13 15:53:36',
+                'updated_at' => '2018-05-13 15:53:36',
                 'deleted_at' => NULL,
             ),
         ));

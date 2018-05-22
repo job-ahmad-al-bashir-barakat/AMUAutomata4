@@ -11,7 +11,7 @@ return [
     'university_council' => 'مجلس الجامعة',
     'board_of_trustees'  => 'مجلس الأمناء',
     'staff'              => 'الكادر التدريسي',
-    'blog'               => 'مقالات',
+    'news'               => 'الاخبار',
     'personal_Info'      => 'معلومات',
     'personal_image'     => 'صورة',
     'contact'            => 'تواصل',
@@ -48,6 +48,8 @@ return [
     'number'             => 'الرقم',
     'location'           => 'العنوان',
     'error_semesters'    => 'من فضلك أضف بعض <a style="color:white;" href=":link">الفصول</a>',
+    'status'             => 'حالات',
+    'publish_date'       => 'تاريخ النشر',
 
     'code'               => 'ترميز',
     'credit'             => 'عدد الساعات',

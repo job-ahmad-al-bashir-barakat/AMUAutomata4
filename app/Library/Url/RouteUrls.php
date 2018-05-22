@@ -252,9 +252,14 @@ class RouteUrls
         return $this->localizeUrl('staff', 'admin');
     }
 
-    public function blog()
+    public function news()
     {
-        return $this->localizeUrl('blog', 'admin');
+        return $this->localizeUrl('news', 'admin');
+    }
+
+    public function status()
+    {
+        return $this->localizeUrl('status', 'admin');
     }
 
     public function studyYear()

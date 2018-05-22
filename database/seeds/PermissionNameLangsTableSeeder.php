@@ -722,9 +722,9 @@ class PermissionNameLangsTableSeeder extends Seeder
                 'id' => 71,
                 'permission_id' => 36,
                 'lang_id' => 1,
-                'text' => 'Blog',
+                'text' => 'News',
                 'created_at' => '2018-03-21 17:26:11',
-                'updated_at' => '2018-03-21 17:26:11',
+                'updated_at' => '2018-05-12 18:28:41',
                 'deleted_at' => NULL,
             ),
             71 => 
@@ -732,9 +732,9 @@ class PermissionNameLangsTableSeeder extends Seeder
                 'id' => 72,
                 'permission_id' => 36,
                 'lang_id' => 2,
-                'text' => 'المدونة',
+                'text' => 'الاخبار',
                 'created_at' => '2018-03-21 17:26:12',
-                'updated_at' => '2018-03-21 17:26:12',
+                'updated_at' => '2018-05-12 18:28:41',
                 'deleted_at' => NULL,
             ),
             72 => 
@@ -815,6 +815,26 @@ class PermissionNameLangsTableSeeder extends Seeder
                 'text' => 'معرض الصور',
                 'created_at' => '2018-03-30 05:13:30',
                 'updated_at' => '2018-03-30 05:13:30',
+                'deleted_at' => NULL,
+            ),
+            80 => 
+            array (
+                'id' => 81,
+                'permission_id' => 41,
+                'lang_id' => 1,
+                'text' => 'News Status',
+                'created_at' => '2018-05-13 15:53:37',
+                'updated_at' => '2018-05-13 15:53:37',
+                'deleted_at' => NULL,
+            ),
+            81 => 
+            array (
+                'id' => 82,
+                'permission_id' => 41,
+                'lang_id' => 2,
+                'text' => 'حالات الخبر',
+                'created_at' => '2018-05-13 15:53:37',
+                'updated_at' => '2018-05-13 15:53:37',
                 'deleted_at' => NULL,
             ),
         ));
