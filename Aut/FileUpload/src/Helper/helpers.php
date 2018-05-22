@@ -19,3 +19,14 @@ if(! function_exists('fileUploadLocalizeURL'))
     }
 }
 
+if(! function_exists('fileUploadDirection'))
+{
+    /**
+     * @return string
+     */
+    function fileUploadDirection()
+    {
+        return LaravelLocalization::getCurrentLocaleDirection();
+    }
+}
+

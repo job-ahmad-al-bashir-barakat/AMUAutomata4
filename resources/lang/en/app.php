@@ -26,6 +26,8 @@ return [
     'load_more'       => 'Load More',
     'loading'         => 'Loading ...',
     'waiting'         => 'Waiting',
+    'content'         => 'Content',
+    'experience'     => 'Experiences',
 
     'oper' => [
         'success' => 'Operation done successfuly',

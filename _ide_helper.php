@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.4.21 on 2018-04-09.
+ * Generated for Laravel 5.4.21 on 2018-05-22.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -14675,12 +14675,15 @@ namespace Aut\DataTable {
          *
          * @param string $component
          * @param string $class
+         * @param string $title
+         * @param null $data
+         * @param string $defaultContent
          * @return $this 
          * @static 
          */
-        public static function addChildRowDetail($component = '', $class = '')
+        public static function addChildRowDetail($component = '', $class = '', $title = '', $data = null, $defaultContent = '')
         {
-            return \Aut\DataTable\DataTableBuilder::addChildRowDetail($component, $class);
+            return \Aut\DataTable\DataTableBuilder::addChildRowDetail($component, $class, $title, $data, $defaultContent);
         }
         
         /**
@@ -15615,16 +15618,6 @@ namespace App\Library\Url\Facades {
         /**
          * 
          *
-         * @static 
-         */
-        public static function menuTables()
-        {
-            return \App\Library\Url\RouteUrls::menuTables();
-        }
-        
-        /**
-         * 
-         *
          * @Section Web Site Urls
          * @static 
          */
@@ -15691,6 +15684,16 @@ namespace App\Library\Url\Facades {
         public static function facultyInstructorsHtml()
         {
             return \App\Library\Url\RouteUrls::facultyInstructorsHtml();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function coursesListHtml()
+        {
+            return \App\Library\Url\RouteUrls::coursesListHtml();
         }
         
         /**
@@ -16561,6 +16564,36 @@ namespace Aut\FormComponent {
 namespace Aut\FileUpload {
 
     class FileUploadFacade {
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function modal($modalId = '', $modalTitle = '', $modalWidth = '700px')
+        {
+            return \Aut\FileUpload\FileUpload::modal($modalId, $modalTitle, $modalWidth);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function tab($id = '', $title = '', $class = '', $active = false)
+        {
+            return \Aut\FileUpload\FileUpload::tab($id, $title, $class, $active);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function render()
+        {
+            return \Aut\FileUpload\FileUpload::render();
+        }
         
         /**
          * 

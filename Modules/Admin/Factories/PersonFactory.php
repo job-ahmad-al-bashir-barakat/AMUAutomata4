@@ -24,7 +24,7 @@ class PersonFactory extends GlobalFactory
             ->queryDatatable($query)
             ->queryUpdateButton('id')
             ->queryDeleteButton('id')
-            ->queryMultiLang(['name' ,'summary'])
+            ->queryMultiLang(['name' ,'summary','experience','address'])
             ->queryCustomButton('upload_image' ,'id' ,'fa fa-image' ,'' ,"onclick='showFileUploadModal(this)' data-tableid='#$tableId'")
             ->queryRender();
     }
@@ -39,7 +39,7 @@ class PersonFactory extends GlobalFactory
         $type = Str::snake(\Route::input('model'));
 
         $table = $this->table
-            ->config("datatable-persons-$type",trans('admin::app.'.Str::slug(\Route::input('model'),'_')),['withTab' => true ,'gridSystem' => true ,'dialogWidth' => "50%"])
+            ->config("datatable-persons-$type",trans('admin::app.'.Str::slug(\Route::input('model'),'_')),['withTab' => true ,'gridSystem' => true ,'dialogWidth' => "60%"])
             ->addPrimaryKey('id','id')
             ->addHiddenInput('type' ,'type' ,$type ,false ,true)
             ->gridSystemConfig(false)
@@ -62,13 +62,16 @@ class PersonFactory extends GlobalFactory
                         ->addAutocomplete('autocomplete/job-title' ,trans('utilities::app.job_title') , 'job_title_id', "job_title.lang_name.$this->lang.text", "job_title.lang_name.$this->lang.text" ,'req required none' ,'' , '' ,true ,false ,true ,false)
                     ->closeHorizontalTab()
                 ->endHorizontalTab()
+                ->addMultiTextareaLangs(['experience'] ,'req required text-editor d:tabs d:noLabel none')
             ->endTab()
             ->startTab(trans('admin::app.contact'),'fa fa-phone fa-2x')
                 ->startRelation('contact')
                     ->addInputEmail(trans('admin::app.email'),'contact.email','contact.email' ,'req required')
                     ->addInputText(trans('admin::app.phone'),'contact.phone' ,'contact.phone' ,'req required' ,['data-masked' , 'data-inputmask-type' => "phone"])
                     ->addInputText(trans('admin::app.mobile'),'contact.mobile' ,'contact.mobile' ,'req required' ,['data-masked' , 'data-inputmask-type' => "mobile"])
-                ->endRelation()
+                    ->addInputGroup(trans('admin::app.gelocation'),'contact.gelocation' ,'contact.gelocation' ,'req required' ,'icon-location-pin' ,'input-location hand' ,['data-modal' => '#modal-persons-input-location'])
+                    ->addMultiTextareaLangs(['address'] ,'req required text-editor d:tabs d:noLabel none')
+            ->endRelation()
             ->endTab()
             ->startTab(trans('admin::app.social_media'),'fa fa-facebook fa-2x');
 

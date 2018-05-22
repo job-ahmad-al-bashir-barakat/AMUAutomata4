@@ -163,7 +163,10 @@ class UploadController extends Controller
             $params = [];
             if(isset($this->imageLocalConfig['relationParam']) && count($this->imageLocalConfig['relationParam']))
                 foreach ($this->imageLocalConfig['relationParam'] as $param)
-                    $params[$param] = $request->input($param);
+                    $params[$param] = $request->input($param,$param);
+
+            if(isset($this->imageLocalConfig['relationParamFixed']))
+                $params = array_merge($params, $this->imageLocalConfig['relationParamFixed']);
 
             // relationType has to be many or one
             if($this->relationType == 'many') {
@@ -177,7 +180,11 @@ class UploadController extends Controller
 
             } else {
 
-                $dbModel->update(array_merge(["{$type}_id" => $returnParam->id] ,$params));
+                $imageId = isset($this->imageLocalConfig['relationId'])
+                    ? $this->imageLocalConfig['relationId']
+                    : "{$type}_id";
+
+                $dbModel->update(array_merge([$imageId => $returnParam->id] ,$params));
             }
         }
 

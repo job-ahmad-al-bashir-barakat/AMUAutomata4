@@ -68,6 +68,7 @@
                data-allowed-preview-icons="{{ $allowedPreviewIcons or false }}"
                data-auto-replace="{{ $autoReplace or false }}"
                data-drop-zone-enabled="{{ $dropZoneEnabled or true }}"
+               data-close-modal="{{ $closeModal or false }}"
                multiple
         >
     </div>

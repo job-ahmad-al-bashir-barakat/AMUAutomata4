@@ -33,13 +33,13 @@ class LabFactory extends GlobalFactory
     public function buildDatatable($model ,$request)
     {
         return $this->table
-            ->config('datatable-labs',trans('admin::app.labs') ,['gridSystem' => true ,'dialogWidth' => '70%'])
+            ->config('datatable-labs',trans('admin::app.labs') ,['gridSystem' => true ,'dialogWidth' => '40%'])
             ->addPrimaryKey('id' ,'id')
             ->addHiddenInput('faculty_id' ,'faculty_id' ,$request->input('id') ,false ,true)
             ->addMultiInputTextLangs(['name'] ,'req required')
             ->startRelation('contact')
-            ->addInputText(trans('admin::app.phone'),'contact.phone' ,'contact.phone' ,'req required',['data-masked' , 'data-inputmask-type' => "phone"])
-            ->addInputGroup(trans('admin::app.gelocation'),'contact.gelocation' ,'contact.gelocation' ,'req required' ,'icon-location-pin' ,'input-location hand' ,['data-modal' => '#modal-labs-input-location'])
+                ->addInputText(trans('admin::app.phone'),'contact.phone' ,'contact.phone' ,'req required',['data-masked' , 'data-inputmask-type' => "phone"])
+                ->addInputGroup(trans('admin::app.gelocation'),'contact.gelocation' ,'contact.gelocation' ,'req required' ,'icon-location-pin' ,'input-location hand' ,['data-modal' => '#modal-labs-input-location'])
             ->endRelation()
             ->setGridNormalCol(12)
             ->addMultiTextareaLangs(['description'] ,'req required text-editor d:tabs d:noLabel none')

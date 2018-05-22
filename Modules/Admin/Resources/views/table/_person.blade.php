@@ -5,6 +5,8 @@
 
 {{ FileUpload::ImageUploadCropper('90%' ,false ,true,false ,false ,false ,true) }}
 
+{!! autGoogleMap('persons',trans('admin::app.gelocation'),'',10,setting('UGL')->first()->value,'.datatable-modal .input-location input') !!}
+
 <script>
 
     function showFileUploadModal($this) {

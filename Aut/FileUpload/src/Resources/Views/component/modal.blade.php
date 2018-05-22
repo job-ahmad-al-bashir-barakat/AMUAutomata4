@@ -1,5 +1,6 @@
 @php
-    $width  = isset($width)  ? $width  : false;
+    $width  = isset($width)    ? $width   : false;
+    $hasTabs = isset($hasTabs) ? $hasTabs : false;
 @endphp
 
 <div id='{{ $id or '' }}' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true' class='modal fade'>
@@ -13,8 +14,8 @@
                     {{ $title or '' }}
                 </h4>
             </div>
-            <div class='modal-body clearfix'>
-                {{ $slot }}
+            <div class='modal-body clearfix' style="@if($hasTabs) padding: 0; @endif">
+                {!! $slot or $content !!}
             </div>
         </div>
     </div>

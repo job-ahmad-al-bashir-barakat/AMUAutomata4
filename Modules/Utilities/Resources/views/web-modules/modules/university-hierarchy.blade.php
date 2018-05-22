@@ -11,7 +11,7 @@
     }
 
     .node text {
-        font: 10px sans-serif;
+        font: 10px inherit;
     }
 
     .link {

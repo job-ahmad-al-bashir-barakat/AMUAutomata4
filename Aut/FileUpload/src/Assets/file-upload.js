@@ -181,6 +181,7 @@ var AUT_UPLOAD = {
                         allowRatio                  = $this.data('allow-ratio') || false,
                         ratio                       = $this.data('ratio') || {},
                         ratioMessage                = $this.data('ratio-message') || '',
+                        closeModal                  = $this.data('close-modal') || false,
                         dropZoneEnabled             = typeof $this.data('drop-zone-enabled') != undefined ? $this.data('drop-zone-enabled') : true;
 
                     if(cropper)
@@ -512,6 +513,9 @@ var AUT_UPLOAD = {
 
                             if ((typeof $this.data('fileuploaded') != typeof undefined) && $this.data('fileuploaded'))
                                 window[$this.data('fileuploaded')](event, data, previewId, index);
+
+                            if(closeModal)
+                                $($this.closest('.modal')).modal('hide');
 
                             // hide modal after upload success
                             if($(target).hasClass('modal'))

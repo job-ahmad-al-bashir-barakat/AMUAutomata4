@@ -13,7 +13,7 @@ class CourseFactory extends GlobalFactory
      */
     public function getDatatable($model ,$request)
     {
-        $query = Course::where('faculty_id' ,'=' ,$request->get('id'))->with(['department' ,'degree' ,'image'])->allLangs()->get();
+        $query = Course::where('faculty_id' ,'=' ,$request->get('id'))->with(['department' ,'degree' ,'image_265', 'image_750'])->allLangs()->get();
 
         return $this->table
             ->queryConfig('datatable-course')
@@ -22,7 +22,7 @@ class CourseFactory extends GlobalFactory
             ->queryDeleteButton('id')
             ->queryCustomButton('btn-prerequisite' ,'id' ,'fa fa-cubes' ,'btn-prerequisite' ,"href='javascript:void(0);' onclick='prerequisiteModal(this)' data-parent=".$request->get('id'))
             ->queryCustomButton('upload_image' ,'id' ,'fa fa-image' ,'' ,'onclick="showFileUploadModal(this)"')
-            ->queryMultiLang(['name' ,'description'])
+            ->queryMultiLang(['name' ,'description','content'])
             ->queryRender();
     }
 
@@ -34,7 +34,7 @@ class CourseFactory extends GlobalFactory
         $facultyId = $request->get('id');
 
         return $this->table
-            ->config('datatable-course',trans('admin::app.course'))
+            ->config('datatable-course',trans('admin::app.course'),['gridSystem' => true ,'dialogWidth' => '70%'])
             ->addPrimaryKey('id','id')
             ->addHiddenInput('faculty_id', 'faculty_id', $facultyId, false, true)
             ->addAutocomplete('autocomplete/department' ,trans('admin::app.department'), "department_id" ,'department.lang_name.'.$this->lang.'.text' ,'department.lang_name.'.$this->lang.'.text' ,'req required' ,['data-remote-param' => 'faculty='.$facultyId])
@@ -43,6 +43,8 @@ class CourseFactory extends GlobalFactory
             ->addMultiTextareaLangs(['description'] ,'none req required' ,'' ,'' ,true ,false ,false ,false , false)
             ->addInputText(trans('admin::app.code'),'code' ,'code' ,'req required')
             ->addInputNumber(trans('admin::app.credit'),'credit' ,'credit' ,'req required')
+            ->setGridNormalCol(12)
+            ->addMultiTextareaLangs(['content'] ,'req required text-editor d:tabs d:noLabel none')
             ->addActionButton(trans('admin::app.prerequisite'),'btn-prerequisite','btn-prerequisite' ,'center all' , '80px')
             ->addActionButton(trans('admin::app.upload_image'),'upload_image','upload_image' ,'center all' ,'60px')
             ->addActionButton($this->update,'update','update')

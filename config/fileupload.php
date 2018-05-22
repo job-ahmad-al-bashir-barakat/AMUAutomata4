@@ -108,12 +108,22 @@ return [
         'stopRelationSave' => true,
     ],
 
-    'course' => [
+    'course-265-195' => [
         'model'        => \Modules\Admin\Entities\Course::class,
         'ratio' => [
-            'course_ratio' => [ 'width'  => '265', 'height' => '195' ],
+            'course_265' => [ 'width'  => '265', 'height' => '195' ],
         ],
-        'relationType' => 'one',
+        'relationType'  => 'one',
+        'relationId'    => 'image_265_id',
+    ],
+
+    'course-750-500' => [
+        'model'        => \Modules\Admin\Entities\Course::class,
+        'ratio' => [
+            'course_750' => [ 'width'  => '750', 'height' => '500' ],
+        ],
+        'relationType'  => 'one',
+        'relationId'    => 'image_750_id',
     ],
 
     'partner-large-image' => [

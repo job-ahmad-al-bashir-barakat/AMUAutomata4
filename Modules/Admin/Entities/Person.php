@@ -4,6 +4,7 @@ namespace Modules\Admin\Entities;
 
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
+use Modules\Admin\Entities\LangModels\PersonExperienceLang;
 use Modules\Admin\Entities\LangModels\PersonNameLang;
 use Modules\Admin\Entities\LangModels\PersonSummaryLang;
 use Modules\Utilities\Entities\Gender;
@@ -24,7 +25,7 @@ class Person extends \Eloquent
 
     protected $fillable = ['type' ,'image_id' ,'gender_id' ,'position_id' ,'job_title_id' ,'contact_id', 'faculty_id'];
 
-    protected $appends = ['lang_name' ,'lang_summary', 'image_path'];
+    protected $appends = ['lang_name' ,'lang_summary', 'lang_experience', 'image_path'];
 
     protected $with = ['gender', 'position', 'jobTitle', 'contact.socialNetwork', 'image', 'faculty'];
 
@@ -85,6 +86,17 @@ class Person extends \Eloquent
     public function getLangSummaryAttribute()
     {
         return $this->transSummary->keyBy('lang_code');
+    }
+
+
+    public function transExperience()
+    {
+        return $this->hasMany(PersonExperienceLang::class);
+    }
+
+    public function getLangExperienceAttribute()
+    {
+        return $this->transExperience->keyBy('lang_code');
     }
 
     /*

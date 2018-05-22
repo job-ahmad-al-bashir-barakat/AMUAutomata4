@@ -6,6 +6,68 @@ use Form;
 
 class FileUpload
 {
+    protected $filesUpload = [];
+
+    protected $targetModel = [];
+
+    protected $targetTabs = [];
+
+    protected $tabs = [];
+
+    protected $content = '';
+
+    protected $render = false;
+
+    function modal($modalId = '' ,$modalTitle = '' ,$modalWidth = '700px') {
+
+        $this->render = true;
+
+        $this->targetModel = [
+            'id'    => $modalId,
+            'title' => $modalTitle,
+            'width' => $modalWidth
+        ];
+
+        return $this;
+    }
+
+    function tab($id = '', $title = '', $class = '', $active = false)
+    {
+        $this->render = true;
+
+        $this->tabs[] = ['id' => $id ,'title' => $title ,'class' => $class ,'active' => $active];
+
+        return $this;
+    }
+
+    function render()
+    {
+        // must be render
+        if(!$this->render)
+            return;
+
+        // render tabs
+        if(!empty($this->tabs))
+            $html = view('fileupload::component.tabs',[
+                'tabs'        => $this->tabs,
+                'filesUpload' => $this->filesUpload
+            ])->render();
+
+        // render modal
+        if(!empty($this->targetModel))
+        {
+            $html = empty($this->tabs) ? implode('',$this->filesUpload) : $html;
+            $html = view('fileupload::component.modal',
+                array_merge($this->targetModel,[
+                    'content' => $html,
+                    'hasTabs' => !empty($this->tabs)
+                ])
+            )->render();
+        }
+
+         return $html;
+    }
+
     function ImageUpload
     (
         $id          = '',
@@ -40,11 +102,22 @@ class FileUpload
             'showCaption'           => false,
             'showPreview'           => true,
             'dropZoneEnabled'       => true,
-            'allowRatio'            => false
+            'allowRatio'            => false,
         ]
     )
     {
-        return Form::ImageUpload($id, $name, $class, $param, $imageWidth, $imageHeight, $targetModel, $datatable, $datatableInitialize, $datatableInitializeProperty, $extraParameter);
+        if ($this->render)
+            $extraParameter = array_merge($extraParameter,['closeModal' => true]);
+
+        $fileUpload = Form::ImageUpload($id, $name, $class, $param, $imageWidth, $imageHeight, $this->render ? [] : $targetModel, $datatable, $datatableInitialize, $datatableInitializeProperty, $extraParameter);
+
+        if ($this->render) {
+            $this->filesUpload[] = $fileUpload;
+
+            return $this;
+        }
+
+        return $fileUpload;
     }
 
     function ImageUploadCropper(
