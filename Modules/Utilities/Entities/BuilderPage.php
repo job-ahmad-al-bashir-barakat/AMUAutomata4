@@ -30,8 +30,13 @@ class BuilderPage extends \Eloquent
 
     public function scopePageModules($query, $page = false)
     {
-        $route = request()->route();
-        list($buildableType, $buildableId, $optionalId) = explode('.', $route->getName());
+        if ($page) {
+            list($buildableType, $buildableId, $optionalId) = explode('.', $page);
+        } else {
+            $route = request()->route();
+            list($buildableType, $buildableId, $optionalId) = explode('.', $route->getName());
+        }
+
         $query->with(['customModule.attributeValues.attribute']);
         $query->whereBuildableId($buildableId)->whereBuildableType($buildableType);
         if ($optionalId) {

@@ -18,8 +18,13 @@ class Seo extends \Eloquent
 
     public function scopePageSeo($query, $page = false)
     {
-        $route = request()->route();
-        list($buildableType, $buildableId, $optionalId) = explode('.', $route->getName());
+        if ($page) {
+            list($buildableType, $buildableId, $optionalId) = explode('.', $page);
+        } else {
+            $route = request()->route();
+            list($buildableType, $buildableId, $optionalId) = explode('.', $route->getName());
+        }
+
         $query->whereBuildableId($buildableId)->whereBuildableType($buildableType);
         if ($optionalId) {
             $query->whereOptionalId($optionalId);
