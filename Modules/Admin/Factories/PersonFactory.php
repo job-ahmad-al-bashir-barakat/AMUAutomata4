@@ -15,7 +15,9 @@ class PersonFactory extends GlobalFactory
      */
     public function getDatatable($model ,$request)
     {
-        $query = Person::with(['image'])->allLangs()->Type();
+        $query = Person::with(['image','contact' => function($query) {
+            return $query->allLangs();
+        }])->allLangs()->Type();
 
         $tableId = 'datatable-persons-'.Str::snake(\Route::input('model'));
 
@@ -24,7 +26,7 @@ class PersonFactory extends GlobalFactory
             ->queryDatatable($query)
             ->queryUpdateButton('id')
             ->queryDeleteButton('id')
-            ->queryMultiLang(['name' ,'summary','experience','address'])
+            ->queryMultiLang(['name' ,'summary','experience','contact' => 'address'])
             ->queryCustomButton('upload_image' ,'id' ,'fa fa-image' ,'' ,"onclick='showFileUploadModal(this)' data-tableid='#$tableId'")
             ->queryRender();
     }
