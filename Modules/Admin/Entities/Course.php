@@ -14,7 +14,7 @@ class Course extends \Eloquent
 {
     use SoftDeletes ,MultiLangs;
 
-    const IMAGE_PATH = 'storage/upload/image/courses/';
+    const IMAGE_PATH = 'storage/upload/image/';
 
     protected $fillable = ['id' ,'code' ,'credit' ,'faculty_id' ,'department_id' ,'degree_id' ,'semester_id' ,'faculty_study_year_id','image_265_id','image_750_id'];
 
@@ -52,12 +52,17 @@ class Course extends \Eloquent
 
     public function getImagePathAttribute()
     {
+        $paths = [
+            'sm' => '',
+            'lg' => '',
+        ];
         if ($this->image_265) {
-            $imageName = $this->image_265->hash_name ?: '';
-        } else {
-            $imageName = '';
+            $paths['sm'] = self::IMAGE_PATH . 'course_sm/' . $this->image_265->hash_name;
         }
-        return self::IMAGE_PATH . $imageName;
+        if ($this->image_750) {
+            $paths['lg'] = self::IMAGE_PATH . 'course_lg/' . $this->image_750->hash_name;
+        }
+        return $paths;
     }
 
     /*
