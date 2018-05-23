@@ -48,13 +48,13 @@
     @include('theme.header', ['menu' => $menu])
     <div class="main-content">
         @include('utilities::web-modules.modules.modules')
-        @include('theme.component.module.map')
+        {{--@include('theme.component.module.map')--}}
     </div>
     @include('theme.footer')
 </div>
 
 
-<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+{{--<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
 <script>
     // Initialize Firebase
     var config = {
@@ -66,7 +66,7 @@
         messagingSenderId: "5345388698"
     };
     firebase.initializeApp(config);
-</script>
+</script>--}}
 
 <script src="{{ asset(mix('js/main.js')) }}"></script>
 <script>
