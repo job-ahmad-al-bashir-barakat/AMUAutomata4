@@ -22,4 +22,5 @@ return [
     'rotate' => 'تدوير',
     'galleries' => 'معارض الصور',
     'geolocation' => 'الموقع الجفرافي',
+    'course' => 'المقرر',
 ];

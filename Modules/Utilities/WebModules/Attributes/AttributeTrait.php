@@ -64,6 +64,10 @@ trait AttributeTrait
                 return new GalleriesAttribute();
             case '22':
                 return new GeolocationAttribute();
+            case '23':
+                return new ImageAttribute();
+            case '24':
+                return new CourseAttribute();
             default:
                 throw new \Exception('Undefined Attributes');
         }
@@ -123,6 +127,10 @@ trait AttributeTrait
                 return new GalleriesAttribute();
             case 'geolocation':
                 return new GeolocationAttribute();
+            case 'image':
+                return new ImageAttribute();
+            case 'course':
+                return new CourseAttribute();
             default:
                 throw new \Exception('Undefined Attributes');
         }

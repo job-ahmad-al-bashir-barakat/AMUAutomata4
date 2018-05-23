@@ -23,4 +23,5 @@ return [
     'rotate' => 'Rotate',
     'galleries' => 'Galleries',
     'geolocation' => 'Geolocation',
+    'course' => 'Course',
 ];

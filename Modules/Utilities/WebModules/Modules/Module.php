@@ -60,7 +60,6 @@ class Module
     public function getModuleHtml()
     {
         $data = $this->data ?: [];
-//        dd($data['sliders']->sliderDetails()->with('image')->get());
         return view($this->viewPath, compact('data'))->render();
     }
 
@@ -71,6 +70,7 @@ class Module
             $attribute->getAttributeValue($this->customModuleId);
             $this->data[$code] = $attribute->data;
         }
+        $this->data['id'] = $this->customModuleId;
     }
 
 }

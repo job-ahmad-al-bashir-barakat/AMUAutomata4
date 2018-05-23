@@ -21,6 +21,7 @@ class SchemaTableFactory extends GlobalFactory
         return $this->table
             ->queryConfig('datatable-schema-tables')
             ->queryDatatable($query)
+            ->queryMultiLang(['name'])
             ->queryAddColumn('id', function ($item) {
                 if($item->table)
                     return $item->table->id;
@@ -66,6 +67,7 @@ class SchemaTableFactory extends GlobalFactory
             ->addPrimaryKey('id', 'id')
             ->setName('table_name')
             ->addInputText(trans('utilities::app.table_name'), 'TABLE_NAME', 'TABLE_NAME', 'required req')
+            ->addMultiInputTextLangs(['name'],'none')
             ->addInputText(trans('utilities::app.namespace'), 'namespace', 'namespace', 'required req none'/*, '', '', false*/)
             ->addSelect([0 => trans('utilities::app.no'), 1 => trans('utilities::app.yes')], trans('utilities::app.pageable'), 'pageable', 'pageable', 'pageable', 'none', '', '', false)
             ->addInputText(trans('utilities::app.pageable_column'), 'pageable_column', 'pageable_column', 'none')

@@ -23,60 +23,68 @@
         </div>
     </div>
 </div>
-{{--
 <div class="row mt-30">
     <div class="col-md-4">
         <h4 class="line-bottom">About Me:</h4>
         <div class="volunteer-address">
             <ul>
+                @if($person->lang_experience)
                 <li>
                     <div class="bg-light media border-bottom p-15 mb-20">
                         <div class="media-left">
                             <i class="pe-7s-pen text-theme-colored font-24 mt-5"></i>
                         </div>
                         <div class="media-body">
-                            <h5 class="mt-0 mb-0">Experiences:</h5>
-                            <p>Chemistry (BSc), Computer Science (BSc), English and Creative Writing (BA)</p>
+                            <h5 class="mt-0 mb-0">@lang('app.experiences'):</h5>
+                            <p>{!! $person->lang_experience[$lang]->text !!}</p>
                         </div>
                     </div>
                 </li>
+                @endif
+                @if($person->contact->lang_address->count())
                 <li>
                     <div class="bg-light media border-bottom p-15 mb-20">
                         <div class="media-left">
                             <i class="fa fa-map-marker text-theme-colored font-24 mt-5"></i>
                         </div>
                         <div class="media-body">
-                            <h5 class="mt-0 mb-0">Address:</h5>
-                            <p>Village 856 Broadway New York</p>
+                            <h5 class="mt-0 mb-0">@lang('app.address'):</h5>
+                            <p>{{ $person->contact->lang_address[$lang]->text }}</p>
                         </div>
                     </div>
                 </li>
+                @endif
+                @if($person->contact->phone || $person->contact->email || $person->contact->mobile)
                 <li>
                     <div class="bg-light media border-bottom p-15">
                         <div class="media-left">
                             <i class="fa fa-phone text-theme-colored font-24 mt-5"></i>
                         </div>
                         <div class="media-body">
-                            <h5 class="mt-0 mb-0">Contact:</h5>
-                            <p><span>Phone:</span> +262 695 2601<br><span>Email:</span> you@yourdomain.com</p>
+                            <h5 class="mt-0 mb-0">@lang('app.contact'):</h5>
+                            <p>
+                                @if($person->contact->phone)<span>@lang('app.phone'):</span> {{ $person->contact->phone }}<br>@endif
+                                @if($person->contact->email)<span>@lang('app.email'):</span> {{ $person->contact->email }}<br>@endif
+                                @if($person->contact->mobile)<span>@lang('app.mobile'):</span> {{ $person->contact->mobile }}<br>@endif
+                            </p>
                         </div>
                     </div>
                 </li>
+                @endif
             </ul>
         </div>
     </div>
+    @if($person->contact->gelocation)
     <div class="col-md-4">
         <h4 class="line-bottom">Find Location:</h4>
-
-        <!-- Google Map HTML Codes -->
         <div
                 data-address="121 King Street, Melbourne Victoria 3000 Australia"
                 data-popupstring-id="#popupstring1"
                 class="map-canvas autoload-map"
                 data-mapstyle="style1"
                 data-height="335"
-                data-latlng="22.798835,89.534401"
-                data-title="sample title"
+                data-latlng="{{ $person->contact->gelocation }}"
+                data-title=""
                 data-zoom="14"
                 data-marker="images/map-marker.png">
         </div>
@@ -86,11 +94,11 @@
                 <p>121 King Street, Melbourne Victoria 3000 Australia</p>
             </div>
         </div>
-        <!-- Google Map Javascript Codes -->
         <script src="http://maps.google.com/maps/api/js"></script>
         <script src="js/google-map-init.js"></script>
     </div>
-    <div class="col-md-4">
+    @endif
+    {{--<div class="col-md-4">
         <div class="clearfix">
             <h4 class="line-bottom">Quick Contact:</h4>
         </div>
@@ -119,6 +127,5 @@
                 <button data-loading-text="Please wait..." class="btn btn-flat btn-dark btn-theme-colored mt-5" type="submit">Send your message</button>
             </div>
         </form>
-    </div>
+    </div>--}}
 </div>
---}}

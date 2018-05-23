@@ -60,13 +60,15 @@ class BuilderPageFactory extends GlobalFactory
             if ($hasSubPages) {
                 return "<i data-table_name='{$this->builderTable}' data-object_id='{$row->id}' class='icon-layers hand' onclick='subPagesModal(this)'></i>";
             }
-            return "<i data-object_id='{$objectId}' data-table_name='{$this->builderTable}' data-page_id='{$row->id}' data-page_name='{$row->langName[$this->lang]->text}' class='fa fa-cubes hand' data-toggle='modal' data-target='#page_modules'></i>";
+            $pageName = $row->{camel_case("lang{$this->builderColumn}")}[$this->lang]->text;
+            return "<i data-object_id='{$objectId}' data-table_name='{$this->builderTable}' data-page_id='{$row->id}' data-page_name='{$pageName}' class='fa fa-cubes hand' data-toggle='modal' data-target='#page_modules'></i>";
         });
 
         $this->table->queryAddColumn('seos', function ($row) use ($hasSubPages, $objectId) {
             if (!$hasSubPages) {
                 $param = collect(['table_name' => $this->builderTable, 'page_id' => $row->id, 'optional_id' => $objectId]);
-                return "<i data-object_id='{$objectId}' data-table_name='{$this->builderTable}' data-page_id='{$row->id}' data-page_name='{$row->langName[$this->lang]->text}' class='fa fa-google-wallet hand' data-toggle='modal' data-target='#page_seos_modal' data-form-update data-editable-target='".\RouteUrls::builderSeo()."' data-editable-target-param='$param'></i>";
+                $pageName = $row->{camel_case("lang{$this->builderColumn}")}[$this->lang]->text;
+                return "<i data-object_id='{$objectId}' data-table_name='{$this->builderTable}' data-page_id='{$row->id}' data-page_name='{$pageName}' class='fa fa-google-wallet hand' data-toggle='modal' data-target='#page_seos_modal' data-form-update data-editable-target='".\RouteUrls::builderSeo()."' data-editable-target-param='$param'></i>";
             }
         });
 

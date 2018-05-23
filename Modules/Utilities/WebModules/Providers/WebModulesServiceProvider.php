@@ -38,6 +38,7 @@ class WebModulesServiceProvider extends ServiceProvider
         if (!app()->runningInConsole())
         {
             $this->menu = SiteMenu::orderBy('order')->get()->toTree();
+
             $this->buildMenuRoutes($this->menu);
         }
     }
@@ -45,7 +46,7 @@ class WebModulesServiceProvider extends ServiceProvider
     private function buildMenuRoutes($tree, $urlPrefix = '', $optional = '')
     {
         foreach ($tree as $item) {
-            if ($item->menuable) {
+            if (!$item->dynamic && $item->menuable) {
                 $this->registerLangRoutes("{$urlPrefix}{$item->menuable->route}", "{$item->menuable_type}.{$item->menuable_id}.{$optional}");
             }
             if ($item->dynamic && $item->dynamic_info->count()) {
