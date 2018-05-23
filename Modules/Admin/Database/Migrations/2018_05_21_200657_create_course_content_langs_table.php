@@ -17,7 +17,7 @@ class CreateCourseContentLangsTable extends Migration
             $table->increments('id')->unsigned();
             $table->integer('course_id')->unsigned()->nullable()->index('course_id');
             $table->integer('lang_id')->unsigned()->nullable()->index('lang_id');
-            $table->string('text')->nullable();
+            $table->text('text')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
