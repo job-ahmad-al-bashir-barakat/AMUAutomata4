@@ -43,17 +43,19 @@ class UtilitiesController extends Controller
                     return $items->pluck('menuable_id');
                 });
 
-            $tableItems = Table::pageable()->menuable()->morphed()->get();
+            $tableItems = Table::pageable()->menuable()->orDynamic()->morphed()->get();
             $tableItems->each(function ($item) use (&$menuItems ,&$group,$siteMenuExceptIds){
 
                 $class = $item->namespace;
 
-                if(class_exists($class)) {
+                if($item->menuable) {
 
-                    $obj = $class::whereNotIn('id',$siteMenuExceptIds->get($item->morph_code,[]))->get();
+                    if(class_exists($class))
+                        $obj = $class::whereNotIn('id',$siteMenuExceptIds->get($item->morph_code,[]))->get();
 
-                    $menuItems[$item->morph_code] = $obj;
-                }
+                } else  $obj = collect([]);
+
+                $menuItems[$item->morph_code] = $obj;
             });
 
             $tableItemsDynamic       = $tableItems->groupBy('morph_code');

@@ -3,6 +3,7 @@
 namespace Modules\Utilities\Entities;
 
 use Kalnoy\Nestedset\NodeTrait;
+use Modules\Admin\Entities\Course;
 use Modules\Admin\Entities\Degree;
 use Modules\Admin\Entities\Faculty;
 use Modules\Admin\Entities\Department;
@@ -13,12 +14,6 @@ use Modules\Utilities\Entities\LangModels\SiteMenuNameLang;
 class SiteMenu extends \Eloquent
 {
     use NodeTrait ,MultiLangs ,SoftDeletes;
-
-    const MENUABLE_PATH = [
-        'tables'     => Table::class,
-        'page'       => Page::class,
-        'faculty'    => Faculty::class,
-    ];
 
     protected $fillable = ['id', 'parent_id', 'name_route', 'order', 'is_link', 'prefix', 'menuable_id', 'menuable_type', 'dynamic'];
 
@@ -79,7 +74,7 @@ class SiteMenu extends \Eloquent
     public function getDynamicInfoAttribute()
     {
         if ($this->dynamic) {
-            $model = self::MENUABLE_PATH[$this->dynamic];
+            $model = Table::where('morph_code','=',$this->dynamic)->first()->namespace;
             return $model::all();
         }
     }

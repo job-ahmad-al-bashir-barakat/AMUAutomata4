@@ -152,4 +152,14 @@
         });
     }
 
+    $(function () {
+
+        // remove list that is empty
+        $('.link_items .dd-list').each(function(i,ol){
+            var ol = $(ol);
+            if(!ol.find('li').length)
+                ol.closest('.panel').remove();
+        });
+    });
+
 </script>

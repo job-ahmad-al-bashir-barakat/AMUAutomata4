@@ -55,6 +55,11 @@ class Table extends \Eloquent
         return $query->where('dynamic', '1');
     }
 
+    public function scopeOrDynamic(Builder $query)
+    {
+        return $query->orWhere('dynamic', '1');
+    }
+
     public function scopeMorphed(Builder $query)
     {
         return $query->whereNotNull('morph_code');
