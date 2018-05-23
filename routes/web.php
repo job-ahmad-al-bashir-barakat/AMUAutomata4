@@ -13,10 +13,29 @@ function () {
     Route::get('load-more/{model}', 'LoadMoreController@getHtml');
 
     Route::get('/', function () {
-        $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
-        return view('welcome')->withMenu($menu);
-    })->name('home');
+        $lang = app()->getLocale();
+        return redirect("{$lang}/home");
+    });
 
+    Route::get('courses/{course}', function ($slug) {
+        $courseId = getIdFromSlug($slug);
+
+        $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
+        $modules = \Modules\Utilities\Entities\BuilderPage::pageModules("course.{$courseId}.")->get()->pluck('module');
+        $seo = \Modules\Utilities\Entities\Seo::pageSeo("course.{$courseId}.")->first();
+
+        return view("modules", compact('menu', 'modules', 'seo'));
+    });
+
+    Route::get('university/staff/{person}', function ($slug) {
+        $staffId = getIdFromSlug($slug);
+
+        $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
+        $modules = \Modules\Utilities\Entities\BuilderPage::pageModules("person.{$staffId}.")->get()->pluck('module');
+        $seo = \Modules\Utilities\Entities\Seo::pageSeo("person.{$staffId}.")->first();
+
+        return view("modules", compact('menu', 'modules', 'seo'));
+    });
 
     function call($hierarchy)
     {

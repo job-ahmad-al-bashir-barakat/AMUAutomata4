@@ -197,6 +197,11 @@ class RouteUrls
         return $this->localizeUrl('faculties', 'admin');
     }
 
+    public function singleCourse($course)
+    {
+        return $this->localizeUrl("courses/{$course}");
+    }
+
     public function departments()
     {
         return $this->localizeUrl('departments', 'admin');
