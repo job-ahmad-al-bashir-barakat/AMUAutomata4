@@ -67,7 +67,7 @@ class UtilitiesController extends Controller
             $group_sourse = implode(',',$group_sourse);
         }
 
-        if($request->ajax())
+        if($request->ajax() && $request->input('load_link_items',false))
             return response()->json([
                 'html' => view('utilities::page._general_tree_ajax',compact('menuItems' ,'tableItemsDynamic','tableItemsDynamicFilter'))->render()
             ]);

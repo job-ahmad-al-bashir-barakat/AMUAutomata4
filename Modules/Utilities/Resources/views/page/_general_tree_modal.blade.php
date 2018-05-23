@@ -135,7 +135,7 @@
 
                     AUT_HELPER.notify({message: OPERATION_MESSAGE_SUCCESS, status: 'success'});
 
-                    $.get("{{ RouteUrls::generalMenu() }}",function (res) {
+                    $.get("{{ RouteUrls::generalMenu() }}",{ load_link_items : true },function (res) {
 
                         $('.link_items').html(res.html);
 
