@@ -36,6 +36,7 @@ return [
     'prerequisite'       => 'Prerequisite',
     'faculty_courses'    => 'Faculty Courses',
     'university_office'  => 'University Office',
+    'university_office_gelocation' => 'University Office Gelocation',
     'offices'            => 'Offices',
     'partners'           => 'Partners',
     'partner_larg_image' => 'Larg Image',
@@ -62,6 +63,8 @@ return [
     'website'            => 'Website',
     'semester'           => 'Semester',
     'automata4_admin'    => 'Automata4 Admin',
+    'experience'         => 'Experiences',
+    'general'            => 'General',
 
     'large'              => 'Large Size',
     'small'              => 'Small Size',

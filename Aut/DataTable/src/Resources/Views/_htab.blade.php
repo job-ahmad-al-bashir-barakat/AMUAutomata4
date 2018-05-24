@@ -4,14 +4,14 @@
         <ul role="tablist" class="nav nav-tabs">
             @foreach($htabs as $tab)
                 @php extract($tab) @endphp
-                <li role="presentation" class="{{ $active ? 'active' : '' }} {{ $class }}"><a  data-tab="{{ $id }}" href="#{{ $id }}" aria-controls="{{ $id }}" role="tab" data-toggle="tab" aria-expanded="{{ $active }}">{{ $title }} @if($star)<span class='text-danger'>*</span>@endif</a></li>
+                <li role="presentation" class="{{ $active ? 'active' : '' }} {{ $class }}"><a  data-tab="{{ $id }}" href="#{{ $id }}" data-toggle="tab">{{ $title }} @if($star)<span class='text-danger'>*</span>@endif</a></li>
             @endforeach
         </ul>
         <!-- Tab panes-->
         <div class="tab-content clearfix">
             @foreach($htabs as $tab)
                 @php extract($tab) @endphp
-                <div id="{{ $id }}" data-tab="{{ $id }}" role="tabpanel" class="tab-pane {{ $active ? 'active' : '' }}">{!! $content !!}</div>
+                <div id="{{ $id }}" data-tab="{{ $id }}" class="tab-pane fade in {{ $active ? 'active' : '' }}">{!! $content !!}</div>
             @endforeach
         </div>
     </div>

@@ -58,22 +58,30 @@ class PersonFactory extends GlobalFactory
                     ->openHorizontalTab("summary-$type" ,$this->summary ,'req')
                         ->addMultiTextareaLangs(['summary'] ,'req required none')
                     ->closeHorizontalTab()
+                    ->openHorizontalTab("experience-$type" ,trans('admin::app.experience') ,'req')
+                        ->addMultiTextareaLangs(['experience'] ,'req required none')
+                    ->closeHorizontalTab()
                     ->openHorizontalTab("extra-$type" ,trans('admin::app.extra_info') ,'req')
                         ->addAutocomplete('autocomplete/gender' ,trans('admin::app.gender') , 'gender_id', "gender.lang_name.$this->lang.text", "gender.lang_name.$this->lang.text" ,'req required none' ,'' , '' ,true ,false ,true ,false)
                         ->addAutocomplete('autocomplete/position' ,trans('utilities::app.position') , 'position_id', "position.lang_name.$this->lang.text", "position.lang_name.$this->lang.text" ,'req required none' ,'' , '' ,true ,false ,true ,false)
                         ->addAutocomplete('autocomplete/job-title' ,trans('utilities::app.job_title') , 'job_title_id', "job_title.lang_name.$this->lang.text", "job_title.lang_name.$this->lang.text" ,'req required none' ,'' , '' ,true ,false ,true ,false)
                     ->closeHorizontalTab()
                 ->endHorizontalTab()
-                ->addMultiTextareaLangs(['experience'] ,'req required text-editor d:tabs d:noLabel none')
             ->endTab()
             ->startTab(trans('admin::app.contact'),'fa fa-phone fa-2x')
                 ->startRelation('contact')
-                    ->addInputEmail(trans('admin::app.email'),'contact.email','contact.email' ,'req required')
-                    ->addInputText(trans('admin::app.phone'),'contact.phone' ,'contact.phone' ,'req required' ,['data-masked' , 'data-inputmask-type' => "phone"])
-                    ->addInputText(trans('admin::app.mobile'),'contact.mobile' ,'contact.mobile' ,'req required' ,['data-masked' , 'data-inputmask-type' => "mobile"])
-                    ->addInputGroup(trans('admin::app.gelocation'),'contact.gelocation' ,'contact.gelocation' ,'req required' ,'icon-location-pin' ,'input-location hand' ,['data-modal' => '#modal-persons-input-location'])
-                    ->addMultiTextareaLangs(['address'] ,'req required text-editor d:tabs d:noLabel none')
-            ->endRelation()
+                    ->startHorizontalTab()
+						->openHorizontalTab("contact-$type" ,trans('admin::app.general') ,'req',true)
+							->addInputEmail(trans('admin::app.email'),'contact.email','contact.email' ,'req required')
+							->addInputText(trans('admin::app.phone'),'contact.phone' ,'contact.phone' ,'req required' ,['data-masked' , 'data-inputmask-type' => "phone"])
+							->addInputText(trans('admin::app.mobile'),'contact.mobile' ,'contact.mobile' ,'req required' ,['data-masked' , 'data-inputmask-type' => "mobile"])
+							->addInputGroup(trans('admin::app.gelocation'),'contact.gelocation' ,'contact.gelocation' ,'req required' ,'icon-location-pin' ,'input-location hand' ,['data-modal' => '#modal-persons-input-location'])								
+						->closeHorizontalTab()
+                        ->openHorizontalTab("address-$type" ,trans('app.address') ,'req')
+                            ->addMultiTextareaLangs(['address'] ,'req required none')
+                        ->closeHorizontalTab()
+                    ->endHorizontalTab()
+                ->endRelation()
             ->endTab()
             ->startTab(trans('admin::app.social_media'),'fa fa-facebook fa-2x');
 
@@ -95,11 +103,7 @@ class PersonFactory extends GlobalFactory
 
     public function storeDatatable($model ,$request ,$result)
     {
-        $request->request->add(['transSaveOper' => false]);
-
         $contact = Contact::create($request->input('contact'));
-
-        $request->request->add(['transSaveOper' => true]);
 
         $contact->socialNetwork()->sync($request->input('contact.social'));
 
@@ -108,8 +112,6 @@ class PersonFactory extends GlobalFactory
 
     public function updateDatatable($model ,$request ,$result)
     {
-        $request->request->add(['transSaveOper' => false]);
-
         $result->contact()->update($request->input('contact'));
 
         $result->contact->socialNetwork()->sync($request->input('contact.social'));

@@ -19,6 +19,7 @@ return [
     'hierarchy'          => 'التسلسل الهرمي',
     'hierarchy_type'     => 'نوع التسلسل الهرمي',
     'university_office'  => 'مكتب جامعة',
+    'university_office_gelocation' => 'موقع مكتب جامعة',
     'offices'            => 'مكاتب الجامعة',
     'partners'           => 'الشركاء',
     'partner_larg_image' => 'صورة كبيرة',
@@ -63,6 +64,8 @@ return [
     'degree'             => 'اختصاص',
     'semester'           => 'فصل',
     'automata4_admin'    => 'إدارة أتوماتا 4',
+    'experience'         => 'التجارب',
+    'general'            => 'عام',
 
     'large'              => 'حجم كبير',
     'small'              => 'حجم صغير',
