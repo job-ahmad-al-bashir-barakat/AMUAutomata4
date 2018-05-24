@@ -67,12 +67,22 @@ return [
         // 'stopRelationSave' => true
     ],
 
-    'person' => [
+    'person-260-230' => [
         'model'        => \Modules\Admin\Entities\Person::class,
         'ratio' => [
             'person_ratio' => ['width' => '260', 'height' => '230'],
         ],
         'relationType' => 'one',
+        'relationId'    => 'image_260_id',
+    ],
+
+    'person-360-360' => [
+        'model'        => \Modules\Admin\Entities\Person::class,
+        'ratio' => [
+            'person_ratio' => ['width' => '360', 'height' => '360'],
+        ],
+        'relationType' => 'one',
+        'relationId'    => 'image_360_id',
     ],
 
     'slider' => [
@@ -115,7 +125,7 @@ return [
         ],
         'relationType'  => 'one',
         'relationId'    => 'image_265_id',
-        'folderName' => 'course_sm',
+        'folderName'    => 'course_sm',
     ],
 
     'course-750-500' => [
@@ -125,7 +135,7 @@ return [
         ],
         'relationType'  => 'one',
         'relationId'    => 'image_750_id',
-        'folderName' => 'course_lg',
+        'folderName'    => 'course_lg',
     ],
 
     'partner-large-image' => [

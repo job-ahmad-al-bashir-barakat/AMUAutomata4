@@ -19,14 +19,19 @@ if(! function_exists('fileUploadLocalizeURL'))
     }
 }
 
-if(! function_exists('fileUploadDirection'))
+if(! function_exists('fileUploadPosition'))
 {
     /**
      * @return string
      */
-    function fileUploadDirection()
+    function fileUploadPosition($pascalCase = false)
     {
-        return LaravelLocalization::getCurrentLocaleDirection();
+        if(LaravelLocalization::getCurrentLocaleDirection() == 'ltr')
+            $position = 'left';
+        else
+            $position = 'right';
+
+        return $pascalCase == true ? str($position)->toPascalCase() : $position;
     }
 }
 

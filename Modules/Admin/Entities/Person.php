@@ -23,11 +23,11 @@ class Person extends \Eloquent
     const PERSON_BOARD_OF_TRUSTEES  = 'board-of-trustees';
     const PERSON_STAFF              = 'staff';
 
-    protected $fillable = ['type' ,'image_id' ,'gender_id' ,'position_id' ,'job_title_id' ,'contact_id', 'faculty_id'];
+    protected $fillable = ['type' ,'image_260_id','image_360_id' ,'gender_id' ,'position_id' ,'job_title_id' ,'contact_id', 'faculty_id'];
 
     protected $appends = ['lang_name' ,'lang_summary', 'lang_experience', 'image_path'];
 
-    protected $with = ['gender', 'position', 'jobTitle', 'contact.socialNetwork', 'image', 'faculty'];
+    protected $with = ['gender', 'position', 'jobTitle', 'contact.socialNetwork', 'image_260', 'image_360', 'faculty'];
 
     protected static function boot() {
 
@@ -127,17 +127,28 @@ class Person extends \Eloquent
         return $this->belongsTo(Faculty::class);
     }
 
-    function image()
+    function image_260()
+    {
+        return $this->belongsTo(Image::class);
+    }
+
+    function image_360()
     {
         return $this->belongsTo(Image::class);
     }
 
     public function getImagePathAttribute()
     {
-        $imageName = '';
-        if ($this->image) {
-            $imageName = $this->image->hash_name ?: '';
+        $paths = [
+            'sm' => '',
+            'lg' => '',
+        ];
+        if ($this->image_260) {
+            $paths['sm'] = self::IMAGE_PATH . 'person_sm/' . $this->image_260->hash_name;
         }
-        return self::IMAGE_PATH . $imageName;
+        if ($this->image_360) {
+            $paths['lg'] = self::IMAGE_PATH . 'person_lg/' . $this->image_360->hash_name;
+        }
+        return $paths;
     }
 }

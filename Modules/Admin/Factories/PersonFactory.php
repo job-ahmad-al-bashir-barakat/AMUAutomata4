@@ -15,7 +15,7 @@ class PersonFactory extends GlobalFactory
      */
     public function getDatatable($model ,$request)
     {
-        $query = Person::with(['image','contact' => function($query) {
+        $query = Person::with(['contact' => function($query) {
             return $query->allLangs();
         }])->allLangs()->Type();
 
