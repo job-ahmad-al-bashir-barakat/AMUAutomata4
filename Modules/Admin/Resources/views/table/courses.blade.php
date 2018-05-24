@@ -1,8 +1,8 @@
 {!!
     FileUpload::modal('course-image-upload',trans('admin::app.upload_image'))
-        ->tab('course_first_image',trans('265 x 195'),'',true)
+        ->tab('course_first_image','265 x 195','',true)
         ->ImageUpload('course-265-195' ,'course-265-195' ,'' ,'' ,'265' ,'195' ,[] ,'#datatable-course',true,'.image_265',['autoReplace' => true, 'maxFileCount' => 1])
-        ->tab('course_second_image',trans('750 x 500'))
+        ->tab('course_second_image','750 x 500')
         ->ImageUpload('course-750-500' ,'course-750-500' ,'' ,'' ,'750' ,'500' ,[] ,'#datatable-course',true,'.image_750',['autoReplace' => true, 'maxFileCount' => 1])
         ->render()
  !!}
