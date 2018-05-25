@@ -103,6 +103,7 @@ class FileUpload
             'showPreview'           => true,
             'dropZoneEnabled'       => true,
             'allowRatio'            => false,
+            'folderName'            => '',
         ]
     )
     {

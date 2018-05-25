@@ -56,7 +56,9 @@ class UploadController extends Controller
                 ? $this->imageLocalConfig['stopRelationSave']
                 : false;
 
-            $folderUpload = Str::plural($routeParam['model']);
+            $folderUpload = isset($this->imageLocalConfig['folderName'])
+                ? $this->imageLocalConfig['folderName']
+                : Str::plural($routeParam['model']);
 
             $this->targetDirectory = "public\\$uploadDirectory\\$folderUpload";
             $this->uploadDirectory = "app\\public\\$uploadDirectory\\$folderUpload";

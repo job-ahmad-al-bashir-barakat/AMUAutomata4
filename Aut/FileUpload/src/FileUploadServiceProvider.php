@@ -205,6 +205,7 @@ class FileUploadServiceProvider extends ServiceProvider
                 'showPreview'                    => true,
                 'allowRatio'                     => false,
                 'closeModal'                     => false,
+                'folderName'                     => '',
             ]
         ]);
     }
