@@ -6,6 +6,7 @@
         return $item;
     })
 )
+@php($folderName = config("fileupload.$id.folderName",""))
 
 @unless(empty($targetModel))
     @component('fileupload::component.modal' ,[
@@ -28,7 +29,7 @@
                class="file-loading upload-file @if($class) {{ $class }} @else load-file @endif"
                data-upload-url="{{ fileUploadLocalizeURL("fileupload/$id/image/upload") }}"
                data-delete-url="{{ fileUploadLocalizeURL("fileupload/$id/image/destroy") }}"
-               data-download-folder="{{ \Illuminate\Support\Str::plural($id) }}"
+               data-download-folder="{{ $folderName or \Illuminate\Support\Str::plural($id) }}"
                data-max-file-size="{{ $maxFileSize or 0 }}"
                data-image-width="{{ $imageWidth or null }}"
                data-image-height="{{ $imageHeight or null }}"
