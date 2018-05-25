@@ -57,10 +57,10 @@ class Course extends \Eloquent
             'lg' => '',
         ];
         if ($this->image_265) {
-            $paths['sm'] = self::IMAGE_PATH . 'course_sm/' . $this->image_265->hash_name;
+            $paths['sm'] = self::IMAGE_PATH . 'course-265-195s/' . $this->image_265->hash_name;
         }
         if ($this->image_750) {
-            $paths['lg'] = self::IMAGE_PATH . 'course_lg/' . $this->image_750->hash_name;
+            $paths['lg'] = self::IMAGE_PATH . 'course-750-500s/' . $this->image_750->hash_name;
         }
         return $paths;
     }

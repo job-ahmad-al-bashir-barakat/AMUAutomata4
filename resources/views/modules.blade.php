@@ -52,8 +52,6 @@
     </div>
     @include('theme.footer')
 </div>
-
-
 {{--<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
 <script>
     // Initialize Firebase
@@ -89,7 +87,8 @@
 <script src="{{ asset(mix('js/revolution-slider/js/revolution-slider.js')) }}"></script>
 <script src="{{ asset(mix('js/revolution-slider/js/extensions/revolution-slider-extensions.js')) }}"></script>
 <script src="http://maps.google.com/maps/api/js?key=AIzaSyAYWE4mHmR9GyPsHSOVZrSCOOljk8DU9B4"></script>
-<script src="{{ asset('js/google-map-init-multilocation.js') }}"></script>
+{{--<script src="{{ asset('js/google-map-init-multilocation.js') }}"></script>--}}
+<script src="{!! asset('js/google-map-init.js') !!}"></script>
 <!--[if lt IE 9]>
 <script src="{{ asset(mix('js/ie.js')) }}"></script>
 <![endif]-->

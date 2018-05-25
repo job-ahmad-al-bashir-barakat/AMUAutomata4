@@ -17,7 +17,7 @@ class Person extends \Eloquent
 {
     use SoftDeletes ,MultiLangs;
 
-    const IMAGE_PATH = 'storage/upload/image/people/';
+    const IMAGE_PATH = 'storage/upload/image/';
 
     const PERSON_UNIVERSITY_COUNCIL = 'university-council';
     const PERSON_BOARD_OF_TRUSTEES  = 'board-of-trustees';
@@ -144,10 +144,10 @@ class Person extends \Eloquent
             'lg' => '',
         ];
         if ($this->image_260) {
-            $paths['sm'] = self::IMAGE_PATH . 'person_sm/' . $this->image_260->hash_name;
+            $paths['sm'] = self::IMAGE_PATH . 'person-260-230s/' . $this->image_260->hash_name;
         }
         if ($this->image_360) {
-            $paths['lg'] = self::IMAGE_PATH . 'person_lg/' . $this->image_360->hash_name;
+            $paths['lg'] = self::IMAGE_PATH . 'person-360-360s/' . $this->image_360->hash_name;
         }
         return $paths;
     }

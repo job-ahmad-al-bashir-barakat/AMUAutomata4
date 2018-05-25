@@ -125,7 +125,6 @@ return [
         ],
         'relationType'  => 'one',
         'relationId'    => 'image_265_id',
-        'folderName'    => 'course_sm',
     ],
 
     'course-750-500' => [
@@ -135,7 +134,6 @@ return [
         ],
         'relationType'  => 'one',
         'relationId'    => 'image_750_id',
-        'folderName'    => 'course_lg',
     ],
 
     'partner-large-image' => [
