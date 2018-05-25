@@ -6,6 +6,7 @@
         return $item;
     })
 )
+@php($folderName = config("fileupload.$id.folderName",""))
 
 @unless(empty($targetModel))
     @component('fileupload::component.modal' ,[

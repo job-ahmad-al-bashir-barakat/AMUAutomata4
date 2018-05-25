@@ -102,8 +102,7 @@ class FileUpload
             'showCaption'           => false,
             'showPreview'           => true,
             'dropZoneEnabled'       => true,
-            'allowRatio'            => false,
-            'folderName'            => '',
+            'allowRatio'            => false
         ]
     )
     {
