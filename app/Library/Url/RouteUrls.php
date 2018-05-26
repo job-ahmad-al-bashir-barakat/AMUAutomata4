@@ -187,6 +187,11 @@ class RouteUrls
         return $this->localizeUrl('load-more/courses');
     }
 
+    public function labsListHtml()
+    {
+        return $this->localizeUrl('load-more/labs');
+    }
+
     public function hierarchyType()
     {
         return $this->localizeURL('hierarchy-type', 'admin');
@@ -200,6 +205,11 @@ class RouteUrls
     public function singleCourse($course)
     {
         return $this->localizeUrl("courses/{$course}");
+    }
+
+    public function singleLab($lab)
+    {
+        return $this->localizeUrl("labs/{$lab}");
     }
 
     public function departments()

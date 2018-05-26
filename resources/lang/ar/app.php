@@ -55,6 +55,11 @@ return [
     'crop_ratio'                => 'نسبة القص',
     'allowed_ratio'             => 'النسبة المسموحة (العرض × الطول) بالبيكسل:',
 
+    'labs' => [
+        'description' => 'عن المخبر',
+        'photo' => 'صور المخبر',
+    ],
+
     /*
      * upload file
      */

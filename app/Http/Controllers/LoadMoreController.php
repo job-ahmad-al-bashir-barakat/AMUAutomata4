@@ -33,6 +33,13 @@ class LoadMoreController extends Controller
             'func' => 'courses',
             'var' => 'courses',
         ],
+
+        'labs' => [
+            'model' => \Modules\Admin\Entities\Lab::class,
+            'view' => 'utilities::web-modules.modules.sub.labs-card-1',
+            'func' => 'labs',
+            'var' => 'labs',
+        ],
     ];
 
     public function getHtml(Request $request, $class)
@@ -66,5 +73,12 @@ class LoadMoreController extends Controller
         return $model::paginate(8);
     }
 
-
+    private function getQueryBuilderLabs($model)
+    {
+        $facultyId = request('facultyId', false);
+        if ($facultyId) {
+            $model = $model::whereFacultyId($facultyId);
+        }
+        return $model->paginate(8);
+    }
 }

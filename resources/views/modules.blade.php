@@ -5,11 +5,6 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
     {!! renderSeoTags($seo) !!}
-    {{--<meta name="description" content="StudyPress | Education & Courses HTML Template" />
-    <meta name="keywords" content="academy, course, education, elearning, learning, learnata" />
-    <meta name="author" content="automata4 group" />
-    <title>{{ setting('website_title')->value }} | Education</title>--}}
-
     <link href="{{ asset('images/favicon.png') }}" rel="shortcut icon" type="image/png">
     <link href="{{ asset('images/apple-touch-icon.png') }}" rel="apple-touch-icon">
     <link href="{{ asset('images/apple-touch-icon-72x72.png') }}" rel="apple-touch-icon" sizes="72x72">

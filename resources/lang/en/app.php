@@ -55,6 +55,11 @@ return [
     'crop_ratio'                => 'Crop Ratio',
     'allowed_ratio'             => 'allowed ratio (width × height) px:',
 
+    'labs' => [
+        'description' => 'Lab Description',
+        'photo' => 'Lab Photo',
+    ],
+
     /*
      * upload file
      */

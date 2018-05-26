@@ -37,6 +37,16 @@ function () {
         return view("modules", compact('menu', 'modules', 'seo'));
     });
 
+    Route::get('labs/{lab}', function ($slug) {
+        $labId = getIdFromSlug($slug);
+
+        $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
+        $modules = \Modules\Utilities\Entities\BuilderPage::pageModules("lab.{$labId}.")->get()->pluck('module');
+        $seo = \Modules\Utilities\Entities\Seo::pageSeo("lab.{$labId}.")->first();
+
+        return view("modules", compact('menu', 'modules', 'seo'));
+    });
+
     function call($hierarchy)
     {
         $obj = [];
@@ -68,12 +78,6 @@ function () {
         $modules = [];
         return view('page.university_offices_detail', compact('modules', 'menu'));
     })->name('university_offices_detail');
-
-    Route::get('faculty/labs1', function () {
-        $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
-        $modules = [];
-        return view('page.labs', compact('modules', 'menu'));
-    })->name('labs');
 
     Route::get('faculty/{faculty}/labs1', function () {
         $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();

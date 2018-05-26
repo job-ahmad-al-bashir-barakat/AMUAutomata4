@@ -12,9 +12,13 @@ class Lab extends \Eloquent
 {
     use SoftDeletes ,MultiLangs;
 
+    const IMAGE_PATH = 'storage/upload/image/';
+
     protected $fillable = ['faculty_id' ,'contact_id','image_id'];
 
-    protected $appends = ['lang_name','lang_description'];
+    protected $appends = ['lang_name','lang_description', 'main_image_path', 'images_path'];
+
+    protected $with = ['mainImage'];
 
     protected static function boot() {
 
@@ -67,8 +71,28 @@ class Lab extends \Eloquent
         return $this->belongsTo(Image::class,'image_id');
     }
 
+    public function getMainImagePathAttribute()
+    {
+        $path = '';
+        if ($this->mainImage) {
+            $path = self::IMAGE_PATH . 'main-labs/' . $this->mainImage->hash_name;
+        }
+        return $path;
+    }
+
     function image()
     {
         return $this->belongsToMany(Image::class);
+    }
+
+    public function getImagesPathAttribute()
+    {
+        $paths = [];
+        if ($this->image) {
+            foreach ($this->image as $image) {
+                $paths[] = self::IMAGE_PATH . 'labs/' . $image->hash_name;
+            }
+        }
+        return $paths;
     }
 }

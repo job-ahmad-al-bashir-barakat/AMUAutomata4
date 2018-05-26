@@ -87,6 +87,10 @@ trait ModuleTrait
                 return new GoogleMapModule();
             case 33:
                 return new CourseContentModule();
+            case 34:
+                return new LabsListOneModule();
+            case 35:
+                return new LabPageModule();
             default:
                 throw new \Exception("Undefined Web Module [id:$moduleId]");
         }
@@ -168,6 +172,10 @@ trait ModuleTrait
                 return new GoogleMapModule();
             case 'course_content':
                 return new CourseContentModule();
+            case 'labs_list_1':
+                return new LabsListOneModule();
+            case 'lab_page':
+                return new LabPageModule();
             default:
                 throw new \Exception("Undefined Web Module [$moduleCode]");
         }
