@@ -137,6 +137,46 @@ class TableNameLangsTableSeeder extends Seeder
                 'updated_at' => '2018-04-10 17:17:53',
                 'deleted_at' => NULL,
             ),
+            12 => 
+            array (
+                'id' => 13,
+                'table_id' => 55,
+                'lang_id' => 1,
+                'text' => 'News',
+                'created_at' => '2018-05-18 05:55:41',
+                'updated_at' => '2018-05-18 05:55:41',
+                'deleted_at' => NULL,
+            ),
+            13 => 
+            array (
+                'id' => 14,
+                'table_id' => 55,
+                'lang_id' => 2,
+                'text' => 'الاخبار',
+                'created_at' => '2018-05-18 05:55:41',
+                'updated_at' => '2018-05-18 05:55:41',
+                'deleted_at' => NULL,
+            ),
+            14 => 
+            array (
+                'id' => 15,
+                'table_id' => 24,
+                'lang_id' => 1,
+                'text' => 'Labs',
+                'created_at' => '2018-05-26 16:21:04',
+                'updated_at' => '2018-05-26 16:21:04',
+                'deleted_at' => NULL,
+            ),
+            15 => 
+            array (
+                'id' => 16,
+                'table_id' => 24,
+                'lang_id' => 2,
+                'text' => 'المخابر',
+                'created_at' => '2018-05-26 16:21:04',
+                'updated_at' => '2018-05-26 16:21:04',
+                'deleted_at' => NULL,
+            ),
         ));
         
         

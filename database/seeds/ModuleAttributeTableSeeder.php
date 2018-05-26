@@ -845,6 +845,69 @@ class ModuleAttributeTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
+            92 => 
+            array (
+                'id' => 101,
+                'module_id' => 33,
+                'attribute_id' => 1,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+                'deleted_at' => NULL,
+            ),
+            93 => 
+            array (
+                'id' => 102,
+                'module_id' => 33,
+                'attribute_id' => 2,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+                'deleted_at' => NULL,
+            ),
+            94 => 
+            array (
+                'id' => 103,
+                'module_id' => 33,
+                'attribute_id' => 24,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+                'deleted_at' => NULL,
+            ),
+            95 => 
+            array (
+                'id' => 104,
+                'module_id' => 34,
+                'attribute_id' => 1,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+                'deleted_at' => NULL,
+            ),
+            96 => 
+            array (
+                'id' => 105,
+                'module_id' => 34,
+                'attribute_id' => 2,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+                'deleted_at' => NULL,
+            ),
+            97 => 
+            array (
+                'id' => 106,
+                'module_id' => 35,
+                'attribute_id' => 1,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+                'deleted_at' => NULL,
+            ),
+            98 => 
+            array (
+                'id' => 107,
+                'module_id' => 35,
+                'attribute_id' => 2,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+                'deleted_at' => NULL,
+            ),
         ));
         
         

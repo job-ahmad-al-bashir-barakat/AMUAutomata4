@@ -237,9 +237,9 @@ class PagesTableSeeder extends Seeder
             array (
                 'id' => 25,
                 'page_code' => 'courses_list',
-                'route' => 'courses-list',
+                'route' => 'courses',
                 'created_at' => '2017-10-14 18:50:13',
-                'updated_at' => '2017-10-29 19:27:39',
+                'updated_at' => '2018-05-19 15:53:01',
                 'deleted_at' => NULL,
             ),
             25 => 

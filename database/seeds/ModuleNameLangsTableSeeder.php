@@ -657,6 +657,66 @@ class ModuleNameLangsTableSeeder extends Seeder
                 'updated_at' => '2018-04-11 18:58:50',
                 'deleted_at' => NULL,
             ),
+            64 => 
+            array (
+                'id' => 85,
+                'module_id' => 33,
+                'lang_id' => 1,
+                'text' => 'Course Content',
+                'created_at' => '2018-05-20 15:32:54',
+                'updated_at' => '2018-05-20 15:32:54',
+                'deleted_at' => NULL,
+            ),
+            65 => 
+            array (
+                'id' => 86,
+                'module_id' => 33,
+                'lang_id' => 2,
+                'text' => 'محتوى المقرر',
+                'created_at' => '2018-05-20 15:32:54',
+                'updated_at' => '2018-05-20 15:32:54',
+                'deleted_at' => NULL,
+            ),
+            66 => 
+            array (
+                'id' => 87,
+                'module_id' => 34,
+                'lang_id' => 1,
+                'text' => 'Labs List',
+                'created_at' => '2018-05-25 12:10:04',
+                'updated_at' => '2018-05-25 12:10:04',
+                'deleted_at' => NULL,
+            ),
+            67 => 
+            array (
+                'id' => 88,
+                'module_id' => 34,
+                'lang_id' => 2,
+                'text' => 'قائمة المخابر',
+                'created_at' => '2018-05-25 12:10:04',
+                'updated_at' => '2018-05-25 12:10:04',
+                'deleted_at' => NULL,
+            ),
+            68 => 
+            array (
+                'id' => 89,
+                'module_id' => 35,
+                'lang_id' => 1,
+                'text' => 'Lab Page',
+                'created_at' => '2018-05-26 16:12:53',
+                'updated_at' => '2018-05-26 16:12:53',
+                'deleted_at' => NULL,
+            ),
+            69 => 
+            array (
+                'id' => 90,
+                'module_id' => 35,
+                'lang_id' => 2,
+                'text' => 'صفحة المخبر',
+                'created_at' => '2018-05-26 16:12:53',
+                'updated_at' => '2018-05-26 16:12:53',
+                'deleted_at' => NULL,
+            ),
         ));
         
         

@@ -457,6 +457,46 @@ class AttributeNameLangsTableSeeder extends Seeder
                 'updated_at' => '2018-04-11 18:51:11',
                 'deleted_at' => NULL,
             ),
+            44 => 
+            array (
+                'id' => 47,
+                'attribute_id' => 23,
+                'lang_id' => 1,
+                'text' => 'Image',
+                'created_at' => '2018-05-20 15:15:56',
+                'updated_at' => '2018-05-20 15:15:56',
+                'deleted_at' => NULL,
+            ),
+            45 => 
+            array (
+                'id' => 48,
+                'attribute_id' => 23,
+                'lang_id' => 2,
+                'text' => 'صورة',
+                'created_at' => '2018-05-20 15:15:56',
+                'updated_at' => '2018-05-20 15:15:56',
+                'deleted_at' => NULL,
+            ),
+            46 => 
+            array (
+                'id' => 49,
+                'attribute_id' => 24,
+                'lang_id' => 1,
+                'text' => 'Course',
+                'created_at' => '2018-05-20 15:25:51',
+                'updated_at' => '2018-05-20 15:25:51',
+                'deleted_at' => NULL,
+            ),
+            47 => 
+            array (
+                'id' => 50,
+                'attribute_id' => 24,
+                'lang_id' => 2,
+                'text' => 'مقرر',
+                'created_at' => '2018-05-20 15:25:51',
+                'updated_at' => '2018-05-20 15:25:51',
+                'deleted_at' => NULL,
+            ),
         ));
         
         
