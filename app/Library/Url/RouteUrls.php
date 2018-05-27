@@ -187,6 +187,11 @@ class RouteUrls
         return $this->localizeUrl('load-more/courses');
     }
 
+    public function officesListHtml()
+    {
+        return $this->localizeUrl('load-more/offices');
+    }
+
     public function labsListHtml()
     {
         return $this->localizeUrl('load-more/labs');
@@ -350,5 +355,10 @@ class RouteUrls
     public function universityStaff($staff)
     {
         return $this->localizeUrl("university/staff/$staff");
+    }
+
+    public function officePage($staff)
+    {
+        return $this->localizeUrl("office/$staff");
     }
 }

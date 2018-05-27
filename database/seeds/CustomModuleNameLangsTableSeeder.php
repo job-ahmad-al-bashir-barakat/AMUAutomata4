@@ -517,6 +517,146 @@ class CustomModuleNameLangsTableSeeder extends Seeder
                 'updated_at' => '2017-12-09 17:46:13',
                 'deleted_at' => NULL,
             ),
+            50 => 
+            array (
+                'id' => 61,
+                'custom_module_id' => 31,
+                'lang_id' => 1,
+                'text' => 'Galleries',
+                'created_at' => '2018-04-18 17:26:36',
+                'updated_at' => '2018-04-18 17:26:36',
+                'deleted_at' => NULL,
+            ),
+            51 => 
+            array (
+                'id' => 62,
+                'custom_module_id' => 31,
+                'lang_id' => 2,
+                'text' => 'معرض',
+                'created_at' => '2018-04-18 17:26:36',
+                'updated_at' => '2018-04-18 17:26:36',
+                'deleted_at' => NULL,
+            ),
+            52 => 
+            array (
+                'id' => 63,
+                'custom_module_id' => 32,
+                'lang_id' => 1,
+                'text' => 'Courses list',
+                'created_at' => '2018-04-18 17:32:32',
+                'updated_at' => '2018-04-18 17:32:32',
+                'deleted_at' => NULL,
+            ),
+            53 => 
+            array (
+                'id' => 64,
+                'custom_module_id' => 32,
+                'lang_id' => 2,
+                'text' => 'قائمة المقررات',
+                'created_at' => '2018-04-18 17:32:32',
+                'updated_at' => '2018-04-18 17:32:32',
+                'deleted_at' => NULL,
+            ),
+            54 => 
+            array (
+                'id' => 65,
+                'custom_module_id' => 33,
+                'lang_id' => 1,
+                'text' => 'University Location',
+                'created_at' => '2018-05-18 05:26:30',
+                'updated_at' => '2018-05-18 05:26:30',
+                'deleted_at' => NULL,
+            ),
+            55 => 
+            array (
+                'id' => 66,
+                'custom_module_id' => 33,
+                'lang_id' => 2,
+                'text' => 'موقع الجامعة',
+                'created_at' => '2018-05-18 05:26:30',
+                'updated_at' => '2018-05-18 05:26:30',
+                'deleted_at' => NULL,
+            ),
+            56 => 
+            array (
+                'id' => 67,
+                'custom_module_id' => 34,
+                'lang_id' => 1,
+                'text' => 'C#',
+                'created_at' => '2018-05-20 15:38:53',
+                'updated_at' => '2018-05-20 15:38:53',
+                'deleted_at' => NULL,
+            ),
+            57 => 
+            array (
+                'id' => 68,
+                'custom_module_id' => 34,
+                'lang_id' => 2,
+                'text' => 'C#',
+                'created_at' => '2018-05-20 15:38:53',
+                'updated_at' => '2018-05-20 15:38:53',
+                'deleted_at' => NULL,
+            ),
+            58 => 
+            array (
+                'id' => 69,
+                'custom_module_id' => 35,
+                'lang_id' => 1,
+                'text' => 'Labs List',
+                'created_at' => '2018-05-26 15:07:54',
+                'updated_at' => '2018-05-26 15:07:54',
+                'deleted_at' => NULL,
+            ),
+            59 => 
+            array (
+                'id' => 70,
+                'custom_module_id' => 35,
+                'lang_id' => 2,
+                'text' => 'قائمة المخابر',
+                'created_at' => '2018-05-26 15:07:55',
+                'updated_at' => '2018-05-26 15:07:55',
+                'deleted_at' => NULL,
+            ),
+            60 => 
+            array (
+                'id' => 71,
+                'custom_module_id' => 36,
+                'lang_id' => 1,
+                'text' => 'Lab Page',
+                'created_at' => '2018-05-26 16:18:47',
+                'updated_at' => '2018-05-26 16:18:47',
+                'deleted_at' => NULL,
+            ),
+            61 => 
+            array (
+                'id' => 72,
+                'custom_module_id' => 36,
+                'lang_id' => 2,
+                'text' => 'صفحة المخبر',
+                'created_at' => '2018-05-26 16:18:47',
+                'updated_at' => '2018-05-26 16:18:47',
+                'deleted_at' => NULL,
+            ),
+            62 => 
+            array (
+                'id' => 73,
+                'custom_module_id' => 37,
+                'lang_id' => 1,
+                'text' => 'Offices List',
+                'created_at' => '2018-05-27 15:38:30',
+                'updated_at' => '2018-05-27 15:55:22',
+                'deleted_at' => NULL,
+            ),
+            63 => 
+            array (
+                'id' => 74,
+                'custom_module_id' => 37,
+                'lang_id' => 2,
+                'text' => 'قائمة المكاتب',
+                'created_at' => '2018-05-27 15:38:30',
+                'updated_at' => '2018-05-27 15:38:30',
+                'deleted_at' => NULL,
+            ),
         ));
         
         

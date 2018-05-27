@@ -40,6 +40,13 @@ class LoadMoreController extends Controller
             'func' => 'labs',
             'var' => 'labs',
         ],
+
+        'offices' => [
+            'model' => \Modules\Admin\Entities\UniversityOffice::class,
+            'view' => 'utilities::web-modules.modules.sub.offices-card-1',
+            'func' => 'offices',
+            'var' => 'offices',
+        ],
     ];
 
     public function getHtml(Request $request, $class)
@@ -80,5 +87,10 @@ class LoadMoreController extends Controller
             $model = $model::whereFacultyId($facultyId);
         }
         return $model->paginate(8);
+    }
+
+    private function getQueryBuilderOffices($model)
+    {
+        return $model::paginate(8);
     }
 }

@@ -332,6 +332,15 @@ class ModulesTableSeeder extends Seeder
                 'updated_at' => '2018-05-26 16:19:19',
                 'deleted_at' => NULL,
             ),
+            35 => 
+            array (
+                'id' => 36,
+                'code' => 'offices_list_1',
+                'customized' => '0',
+                'created_at' => '2018-05-27 15:31:11',
+                'updated_at' => '2018-05-27 15:39:03',
+                'deleted_at' => NULL,
+            ),
         ));
         
         

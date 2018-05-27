@@ -225,6 +225,62 @@ class CustomModulesTableSeeder extends Seeder
                 'updated_at' => '2017-12-09 17:46:12',
                 'deleted_at' => NULL,
             ),
+            26 => 
+            array (
+                'id' => 31,
+                'module_id' => 30,
+                'created_at' => '2018-04-18 17:26:36',
+                'updated_at' => '2018-04-18 17:26:36',
+                'deleted_at' => NULL,
+            ),
+            27 => 
+            array (
+                'id' => 32,
+                'module_id' => 31,
+                'created_at' => '2018-04-18 17:32:32',
+                'updated_at' => '2018-04-18 17:32:32',
+                'deleted_at' => NULL,
+            ),
+            28 => 
+            array (
+                'id' => 33,
+                'module_id' => 32,
+                'created_at' => '2018-05-18 05:26:30',
+                'updated_at' => '2018-05-18 05:26:30',
+                'deleted_at' => NULL,
+            ),
+            29 => 
+            array (
+                'id' => 34,
+                'module_id' => 33,
+                'created_at' => '2018-05-20 15:38:52',
+                'updated_at' => '2018-05-20 15:38:52',
+                'deleted_at' => NULL,
+            ),
+            30 => 
+            array (
+                'id' => 35,
+                'module_id' => 34,
+                'created_at' => '2018-05-26 15:07:54',
+                'updated_at' => '2018-05-26 15:07:54',
+                'deleted_at' => NULL,
+            ),
+            31 => 
+            array (
+                'id' => 36,
+                'module_id' => 35,
+                'created_at' => '2018-05-26 16:18:47',
+                'updated_at' => '2018-05-26 16:18:47',
+                'deleted_at' => NULL,
+            ),
+            32 => 
+            array (
+                'id' => 37,
+                'module_id' => 36,
+                'created_at' => '2018-05-27 15:38:30',
+                'updated_at' => '2018-05-27 15:38:30',
+                'deleted_at' => NULL,
+            ),
         ));
         
         

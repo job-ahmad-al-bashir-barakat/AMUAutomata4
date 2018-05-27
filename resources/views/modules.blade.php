@@ -69,11 +69,15 @@
         var page = $this.data('page');
         var $container = $($this.data('append_to'));
         var url = $this.attr('href');
+        var onSuccess = $this.data('onsuccess') || false;
         $this.button('loading');
         $.get(url, {page: page}, function (res){
             $(res).appendTo($container);
             $this.button('reset');
             $this.data('page', page + 1);
+            if(onSuccess){
+                window[onSuccess].apply();
+            }
         });
     });
     $("[data-trigger-on-load]").trigger('click');

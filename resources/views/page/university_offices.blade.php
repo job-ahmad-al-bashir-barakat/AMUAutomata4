@@ -7,30 +7,7 @@
 @endsection
 
 @section('content')
-
-    <!-- Start main-content -->
     <div class="main-content">
-
-        <!-- Section: inner-header -->
-        <section class="inner-header divider parallax layer-overlay overlay-dark-5" data-bg-img="http://placehold.it/1920x1280">
-            <div class="container pt-70 pb-20">
-                <!-- Section Content -->
-                <div class="section-content">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h2 class="title text-white">Offices</h2>
-                            <ol class="breadcrumb text-left text-black mt-10">
-                                <li><a href="#">Home</a></li>
-                                <li><a href="#">Pages</a></li>
-                                <li class="active text-gray-silver">Page Title</li>
-                            </ol>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section: Team -->
         <section id="team">
             <div class="container">
                 <div class="row mtli-row-clearfix">
@@ -184,10 +161,3 @@
         </section>
     </div>
 @endsection
-
-
-@section('footer')
-    <!-- Google Map Javascript Codes -->
-    <script src="http://maps.google.com/maps/api/js?key=AIzaSyAYWE4mHmR9GyPsHSOVZrSCOOljk8DU9B4"></script>
-    <script src="{{ asset('js/google-map-init.js') }}"></script>
-@stop

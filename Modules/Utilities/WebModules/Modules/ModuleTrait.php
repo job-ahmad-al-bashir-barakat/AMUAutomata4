@@ -91,6 +91,8 @@ trait ModuleTrait
                 return new LabsListOneModule();
             case 35:
                 return new LabPageModule();
+            case 36:
+                return new OfficesListOneModule();
             default:
                 throw new \Exception("Undefined Web Module [id:$moduleId]");
         }
@@ -176,6 +178,8 @@ trait ModuleTrait
                 return new LabsListOneModule();
             case 'lab_page':
                 return new LabPageModule();
+            case 'offices_list_1':
+                return new OfficesListOneModule();
             default:
                 throw new \Exception("Undefined Web Module [$moduleCode]");
         }

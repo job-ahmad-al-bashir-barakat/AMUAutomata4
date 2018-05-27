@@ -439,6 +439,34 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                 'updated_at' => '2017-10-31 20:06:14',
                 'deleted_at' => NULL,
             ),
+            26 => 
+            array (
+                'id' => 27,
+                'custom_module_attribute_value_id' => 103,
+                'lang_id' => 1,
+            'text' => '<h5 style="box-sizing: border-box; font-family: "Open Sans", sans-serif; font-weight: 400; line-height: 1.42857; color: rgb(51, 51, 51); margin-top: 10px; margin-bottom: 10px; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;"><em style="box-sizing: border-box;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo unde,<span> </span><span class="text-theme-color-2" style="box-sizing: border-box; color: rgb(1, 163, 222);">accounting technologies</span><span> </span>corporis dolorum blanditiis ullam officia<span> </span><span class="text-theme-color-2" style="box-sizing: border-box; color: rgb(1, 163, 222);">our university<span> </span></span>natus minima fugiat repellat! Corrupti voluptatibus aperiam voluptatem. Exercitationem, placeat, cupiditate.</em></h5>
+
+<p style="box-sizing: border-box; margin: 0px 0px 10px; color: rgb(102, 102, 102); font-family: "Open Sans", sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore suscipit, inventore aliquid incidunt, quasi error! Natus esse rem eaque asperiores eligendi dicta quidem iure, excepturi doloremque eius neque autem sint error qui tenetur, modi provident aut, maiores laudantium reiciendis expedita. Eligendi</p>
+
+<p style="box-sizing: border-box; margin: 0px 0px 10px; color: rgb(102, 102, 102); font-family: "Open Sans", sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore voluptatem officiis quod animi possimus a, iure nam sunt quas aperiam non recusandae reprehenderit, nesciunt cumque pariatur totam repellendus delectus? Maxime quasi earum nobis, dicta, aliquam facere reiciendis, delectus voluptas, ea assumenda blanditiis placeat dignissimos quas iusto repellat cumque.</p>',
+                'created_at' => '2018-05-20 15:38:53',
+                'updated_at' => '2018-05-21 15:16:10',
+                'deleted_at' => NULL,
+            ),
+            27 => 
+            array (
+                'id' => 28,
+                'custom_module_attribute_value_id' => 103,
+                'lang_id' => 2,
+            'text' => '<h5 style="box-sizing: border-box; font-family: "Open Sans", sans-serif; font-weight: 400; line-height: 1.42857; color: rgb(51, 51, 51); margin-top: 10px; margin-bottom: 10px; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;"><em style="box-sizing: border-box;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo unde,<span> </span><span class="text-theme-color-2" style="box-sizing: border-box; color: rgb(1, 163, 222);">accounting technologies</span><span> </span>corporis dolorum blanditiis ullam officia<span> </span><span class="text-theme-color-2" style="box-sizing: border-box; color: rgb(1, 163, 222);">our university<span> </span></span>natus minima fugiat repellat! Corrupti voluptatibus aperiam voluptatem. Exercitationem, placeat, cupiditate.</em></h5>
+
+<p style="box-sizing: border-box; margin: 0px 0px 10px; color: rgb(102, 102, 102); font-family: "Open Sans", sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore suscipit, inventore aliquid incidunt, quasi error! Natus esse rem eaque asperiores eligendi dicta quidem iure, excepturi doloremque eius neque autem sint error qui tenetur, modi provident aut, maiores laudantium reiciendis expedita. Eligendi</p>
+
+<p style="box-sizing: border-box; margin: 0px 0px 10px; color: rgb(102, 102, 102); font-family: "Open Sans", sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore voluptatem officiis quod animi possimus a, iure nam sunt quas aperiam non recusandae reprehenderit, nesciunt cumque pariatur totam repellendus delectus? Maxime quasi earum nobis, dicta, aliquam facere reiciendis, delectus voluptas, ea assumenda blanditiis placeat dignissimos quas iusto repellat cumque.</p>',
+                'created_at' => '2018-05-20 15:38:53',
+                'updated_at' => '2018-05-21 15:16:10',
+                'deleted_at' => NULL,
+            ),
         ));
         
         
