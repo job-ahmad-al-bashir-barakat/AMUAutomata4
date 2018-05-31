@@ -32,6 +32,7 @@ class GlobalFactory
         $this->en            =  trans('datatable::table.en');
         $this->ar            =  trans('datatable::table.ar');
         $this->name          =  trans('datatable::table.name');
+        $this->add           =  trans('datatable::table.add');
         $this->summary       =  trans("datatable::table.summary");
         $this->description   =  trans('datatable::table.description');
         $this->update        =  trans('datatable::table.update');

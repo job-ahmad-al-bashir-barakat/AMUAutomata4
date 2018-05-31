@@ -153,4 +153,12 @@ return [
         'relationType'  => 'many',
         'relationParam' => ['image_type'],
     ],
+
+    'news' => [
+        'model'        => \Modules\Admin\Entities\News::class,
+        'ratio' => [
+            'news' => [ 'width'  => '750', 'height' => '500' ],
+        ],
+        'relationType'  => 'one',
+    ]
 ];

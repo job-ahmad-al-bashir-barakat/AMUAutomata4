@@ -23,6 +23,7 @@ class NewsFactory extends GlobalFactory
             ->queryAddColumn('review', function ($row) {
                 return "<i data-id='{$row->id}' class='{$row->reviewed_icon} hand' data-toggle='modal' data-target='#news_review_modal'></i>";
             })
+            ->queryCustomButton('upload_image' ,'id' ,'fa fa-image' ,'' ,'onclick="showFileUploadModal(this)"')
             ->queryUpdateButton()
             ->queryDeleteButton()
             ->queryRender();
@@ -41,6 +42,7 @@ class NewsFactory extends GlobalFactory
             ->addMultiTextareaLangs(['content'], 'content')
             ->addInputDate(trans('admin::app.publish_date'), 'publish_date', 'publish_date')
             ->addActionButton(trans('admin::app.review'), 'review', 'review', 'center all', '80px')
+            ->addActionButton(trans('admin::app.upload_images') ,'upload_image' ,'upload_image','center all' ,'100px')
             ->addActionButton($this->update, 'update', 'update')
             ->addActionButton($this->delete, 'delete', 'delete')
             ->addNavButton()

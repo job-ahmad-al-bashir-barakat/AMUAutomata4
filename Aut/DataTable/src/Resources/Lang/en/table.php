@@ -88,6 +88,7 @@ return [
     'reset'             => 'Reset',
     'delete'            => 'Delete',
 
+    'add'               => 'Add',
     'name'              => 'Name ',
     'summary'           => 'Summary',
     'order'             => 'Order',
