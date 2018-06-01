@@ -197,6 +197,11 @@ class RouteUrls
         return $this->localizeUrl('load-more/labs');
     }
 
+    public function newsListHtml()
+    {
+        return $this->localizeUrl('load-more/news');
+    }
+
     public function hierarchyType()
     {
         return $this->localizeURL('hierarchy-type', 'admin');
@@ -360,5 +365,10 @@ class RouteUrls
     public function officePage($staff)
     {
         return $this->localizeUrl("office/$staff");
+    }
+
+    public function newsPage($news)
+    {
+        return $this->localizeUrl("news/$news");
     }
 }

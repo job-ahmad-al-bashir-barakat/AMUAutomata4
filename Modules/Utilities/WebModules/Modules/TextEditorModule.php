@@ -10,6 +10,6 @@ class TextEditorModule extends Module
 
     public $code = 'text_editor';
 
-    public $viewName = 'texteditor';
+    public $viewName = 'text-editor';
 
 }

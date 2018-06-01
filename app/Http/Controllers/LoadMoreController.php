@@ -47,6 +47,13 @@ class LoadMoreController extends Controller
             'func' => 'offices',
             'var' => 'offices',
         ],
+
+        'news' => [
+            'model' => \Modules\Admin\Entities\News::class,
+            'view' => 'utilities::web-modules.modules.sub.news-list-1',
+            'func' => 'news',
+            'var' => 'news',
+        ],
     ];
 
     public function getHtml(Request $request, $class)
@@ -90,6 +97,11 @@ class LoadMoreController extends Controller
     }
 
     private function getQueryBuilderOffices($model)
+    {
+        return $model::paginate(8);
+    }
+
+    private function getQueryBuilderNews($model)
     {
         return $model::paginate(8);
     }

@@ -1,5 +1,4 @@
 <?php
-
 namespace Modules\Utilities\WebModules\Modules;
 
 /**
@@ -20,6 +19,12 @@ trait ModuleTrait
      */
     public static function setModule($moduleId)
     {
+        /*$module = ModuleModel::find($moduleId);
+        if (!$module) {
+            throw new \Exception("Undefined Web Module [id:$moduleId]");
+        }
+        $object = new Module($module->id, $module->code, str_replace('_', '-', $module->code));
+        return $object;*/
         switch ($moduleId) {
             case 1:
                 return new TextEditorModule();
@@ -93,6 +98,10 @@ trait ModuleTrait
                 return new LabPageModule();
             case 36:
                 return new OfficesListOneModule();
+            case 37:
+                return new NewsListOneModule();
+            case 38:
+                return new NewsPageModule();
             default:
                 throw new \Exception("Undefined Web Module [id:$moduleId]");
         }
@@ -107,6 +116,12 @@ trait ModuleTrait
      */
     public static function setModuleByCode($moduleCode)
     {
+        /*$module = ModuleModel::whereCode($module);
+        if (!$module) {
+            throw new \Exception("Undefined Web Module [$moduleCode]");
+        }
+        $object = new Module($module->id, $module->code, str_replace('_', '-', $module->code));
+        return $object;*/
         switch ($moduleCode) {
             case 'text_editor':
                 return new TextEditorModule();
@@ -180,6 +195,10 @@ trait ModuleTrait
                 return new LabPageModule();
             case 'offices_list_1':
                 return new OfficesListOneModule();
+            case 'news_list_1':
+                return new NewsListOneModule();
+            case 'news_page':
+                return new NewsPageModule();
             default:
                 throw new \Exception("Undefined Web Module [$moduleCode]");
         }
