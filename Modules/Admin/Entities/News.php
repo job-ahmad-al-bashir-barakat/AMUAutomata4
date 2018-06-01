@@ -2,6 +2,7 @@
 
 namespace Modules\Admin\Entities;
 
+use Modules\Utilities\Entities\Image;
 use Modules\Utilities\Entities\User;
 use Modules\Utilities\Traits\MultiLangs;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -19,9 +20,11 @@ class News extends \Eloquent
 {
     use SoftDeletes ,MultiLangs/*, User*/;
 
-    protected $fillable = ['user_id', 'status_id', 'reviewer_id', 'publish_date'];
+    const IMAGE_PATH = 'storage/upload/image/';
 
-    protected $appends = ['lang_title', 'lang_description', 'lang_content', 'slug', 'reviewed', 'reviewed_icon'];
+    protected $fillable = ['user_id', 'status_id', 'reviewer_id', 'publish_date','image_250_id','image_750_id'];
+
+    protected $appends = ['lang_title', 'lang_description', 'lang_content', 'slug', 'reviewed', 'reviewed_icon','image_path'];
 
 
     public function transTitle()
@@ -77,5 +80,30 @@ class News extends \Eloquent
     public function status()
     {
         return $this->belongsTo(Status::class);
+    }
+
+    public function getImagePathAttribute()
+    {
+        $paths = [
+            'sm' => '',
+            'lg' => '',
+        ];
+        if ($this->image_250) {
+            $paths['sm'] = self::IMAGE_PATH . 'news-250-250s/' . $this->image_250->hash_name;
+        }
+        if ($this->image_750) {
+            $paths['lg'] = self::IMAGE_PATH . 'news-750-400s/' . $this->image_750->hash_name;
+        }
+        return $paths;
+    }
+
+    function image_250()
+    {
+        return $this->belongsTo(Image::class);
+    }
+
+    function image_750()
+    {
+        return $this->belongsTo(Image::class);
     }
 }

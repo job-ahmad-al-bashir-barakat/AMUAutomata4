@@ -14,7 +14,7 @@ class NewsFactory extends GlobalFactory
      */
     public function getDatatable($news, $request)
     {
-        $query = $news::allLangs()->get();
+        $query = $news::with(['image_250','image_750'])->allLangs()->get();
 
         return $this->table
             ->queryConfig('datatable-news')
