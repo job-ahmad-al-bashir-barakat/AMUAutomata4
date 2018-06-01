@@ -657,6 +657,46 @@ class CustomModuleNameLangsTableSeeder extends Seeder
                 'updated_at' => '2018-05-27 15:38:30',
                 'deleted_at' => NULL,
             ),
+            64 => 
+            array (
+                'id' => 75,
+                'custom_module_id' => 38,
+                'lang_id' => 1,
+                'text' => 'News List',
+                'created_at' => '2018-05-29 16:17:45',
+                'updated_at' => '2018-05-29 16:17:45',
+                'deleted_at' => NULL,
+            ),
+            65 => 
+            array (
+                'id' => 76,
+                'custom_module_id' => 38,
+                'lang_id' => 2,
+                'text' => 'فائمة الاخبار',
+                'created_at' => '2018-05-29 16:17:45',
+                'updated_at' => '2018-05-29 16:17:45',
+                'deleted_at' => NULL,
+            ),
+            66 => 
+            array (
+                'id' => 77,
+                'custom_module_id' => 39,
+                'lang_id' => 1,
+                'text' => 'News Page',
+                'created_at' => '2018-06-01 06:54:09',
+                'updated_at' => '2018-06-01 06:54:09',
+                'deleted_at' => NULL,
+            ),
+            67 => 
+            array (
+                'id' => 78,
+                'custom_module_id' => 39,
+                'lang_id' => 2,
+                'text' => 'صفحة الخبر',
+                'created_at' => '2018-06-01 06:54:10',
+                'updated_at' => '2018-06-01 06:54:10',
+                'deleted_at' => NULL,
+            ),
         ));
         
         
