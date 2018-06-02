@@ -70,9 +70,14 @@
         var $container = $($this.data('append_to'));
         var url = $this.attr('href');
         var onSuccess = $this.data('onsuccess') || false;
+        var appendMethod = $this.data('append_method') || false;
         $this.button('loading');
         $.get(url, {page: page}, function (res){
-            $(res).appendTo($container);
+            if(appendMethod) {
+                window[appendMethod]($container, res);
+            } else {
+                $(res).appendTo($container);
+            }
             $this.button('reset');
             $this.data('page', page + 1);
             if(onSuccess){
@@ -81,7 +86,6 @@
         });
     });
     $("[data-trigger-on-load]").trigger('click');
-
 </script>
 <script src="{{ asset(mix('js/revolution-slider/js/revolution-slider.js')) }}"></script>
 <script src="{{ asset(mix('js/revolution-slider/js/extensions/revolution-slider-extensions.js')) }}"></script>

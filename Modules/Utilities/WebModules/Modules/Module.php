@@ -27,8 +27,11 @@ class Module
 
     private $baseViewPath = 'utilities::web-modules.modules';
 
-    public function __construct()
+    public function __construct(/*$id, $code, $view*/)
     {
+        /*$this->id = $id;
+        $this->code = $code;
+        $this->viewName = $view;*/
         $this->viewPath = "{$this->baseViewPath}.{$this->viewName}";
     }
 

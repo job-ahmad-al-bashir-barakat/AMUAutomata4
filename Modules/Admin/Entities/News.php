@@ -26,6 +26,7 @@ class News extends \Eloquent
 
     protected $appends = ['lang_title', 'lang_description', 'lang_content', 'slug', 'reviewed', 'reviewed_icon','image_path'];
 
+    protected $dates = ['created_at', 'updated_at', 'deleted_at', 'publish_date'];
 
     public function transTitle()
     {

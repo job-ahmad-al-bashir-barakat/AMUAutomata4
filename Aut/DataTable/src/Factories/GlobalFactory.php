@@ -35,6 +35,7 @@ class GlobalFactory
         $this->add           =  trans('datatable::table.add');
         $this->summary       =  trans("datatable::table.summary");
         $this->description   =  trans('datatable::table.description');
+        $this->add           =  trans('datatable::table.add');
         $this->update        =  trans('datatable::table.update');
         $this->delete        =  trans('datatable::table.delete');
         $this->lang          =  App::getLocale();
