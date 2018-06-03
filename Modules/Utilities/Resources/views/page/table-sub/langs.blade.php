@@ -1,7 +1,7 @@
 {{ FileUpload::ImageUpload('lang' ,'lang' ,'' ,'' ,'18' ,'12' ,[
     'modalId'    => 'lang-image-upload',
     'modalTitle' => trans('utilities::app.upload_images')
-] ,'#datatable-langs' ,true ,'.image',['allowRatio' => true]) }}
+] ,'#datatable-langs' ,true ,'.image',['allowRatio' => true,'autoReplace' => true, 'maxFileCount' => 1]) }}
 
 {{ FileUpload::ImageUploadCropper('90%' ,false ,true,false ,false ,false ,true) }}
 
