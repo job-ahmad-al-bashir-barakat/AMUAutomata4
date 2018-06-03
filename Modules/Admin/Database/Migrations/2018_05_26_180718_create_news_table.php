@@ -18,8 +18,8 @@ class CreateNewsTable extends Migration {
 			$table->integer('user_id')->unsigned()->nullable()->index('user_id');
 			$table->integer('status_id')->unsigned()->nullable()->index('status_id');
 			$table->integer('reviewer_id')->unsigned()->nullable()->index('reviewer_id');
-            $table->integer('image_250_id');
-            $table->integer('image_750_id');
+            $table->integer('image_570_id');
+            $table->integer('image_1920_id');
             $table->dateTime('publish_date')->nullable();
             $table->timestamps();
 			$table->softDeletes();

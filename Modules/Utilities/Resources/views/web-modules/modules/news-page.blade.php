@@ -6,7 +6,7 @@
     <div class="blog-posts single-post">
         <article class="post clearfix mb-0">
             <div class="entry-header">
-                <div class="post-thumb thumb"> <img src="http://placehold.it/1920x1280" alt="" class="img-responsive img-fullwidth"> </div>
+                <div class="post-thumb thumb"> <img src="{{ asset($news->image_path['lg']) }}" alt="" class="img-responsive img-fullwidth"> </div>
             </div>
             <div class="entry-title pt-10 pl-15">
                 <h4><a class="text-uppercase" href="#">{{ $news->lang_title[$lang]->text }} </a></h4>

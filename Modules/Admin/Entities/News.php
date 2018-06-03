@@ -22,7 +22,7 @@ class News extends \Eloquent
 
     const IMAGE_PATH = 'storage/upload/image/';
 
-    protected $fillable = ['user_id', 'status_id', 'reviewer_id', 'publish_date','image_250_id','image_750_id'];
+    protected $fillable = ['user_id', 'status_id', 'reviewer_id', 'publish_date','image_570_id','image_1920_id'];
 
     protected $appends = ['lang_title', 'lang_description', 'lang_content', 'slug', 'reviewed', 'reviewed_icon','image_path'];
 
@@ -89,21 +89,21 @@ class News extends \Eloquent
             'sm' => '',
             'lg' => '',
         ];
-        if ($this->image_250) {
-            $paths['sm'] = self::IMAGE_PATH . 'news-250-250s/' . $this->image_250->hash_name;
+        if ($this->image_570) {
+            $paths['sm'] = self::IMAGE_PATH . 'news-570-390s/' . $this->image_570->hash_name;
         }
-        if ($this->image_750) {
-            $paths['lg'] = self::IMAGE_PATH . 'news-750-400s/' . $this->image_750->hash_name;
+        if ($this->image_1920) {
+            $paths['lg'] = self::IMAGE_PATH . 'news-1920-1280s/' . $this->image_1920->hash_name;
         }
         return $paths;
     }
 
-    function image_250()
+    function image_570()
     {
         return $this->belongsTo(Image::class);
     }
 
-    function image_750()
+    function image_1920()
     {
         return $this->belongsTo(Image::class);
     }

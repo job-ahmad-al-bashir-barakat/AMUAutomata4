@@ -154,21 +154,21 @@ return [
         'relationParam' => ['image_type'],
     ],
 
-    'news-250-250' => [
+    'news-570-390' => [
         'model'        => \Modules\Admin\Entities\News::class,
         'ratio' => [
-            'news' => [ 'width'  => '250', 'height' => '250' ],
+            'news' => [ 'width'  => '570', 'height' => '390' ],
         ],
         'relationType'  => 'one',
-        'relationId'    => 'image_250_id',
+        'relationId'    => 'image_570_id',
     ],
 
-    'news-750-400' => [
+    'news-1920-1280' => [
         'model'        => \Modules\Admin\Entities\News::class,
         'ratio' => [
-            'news' => [ 'width'  => '750', 'height' => '400' ],
+            'news' => [ 'width'  => '1920', 'height' => '1280' ],
         ],
         'relationType'  => 'one',
-        'relationId'    => 'image_750_id',
+        'relationId'    => 'image_1920_id',
     ],
 ];
