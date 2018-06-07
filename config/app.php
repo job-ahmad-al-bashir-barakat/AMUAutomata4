@@ -257,7 +257,7 @@ return [
         'Datatables' => Yajra\Datatables\Facades\Datatables::class,
         "Datatable"  => Aut\DataTable\DataTableFacade::class,
         'Debugbar'   => Barryvdh\Debugbar\Facade::class,
-        'Image' => Intervention\Image\Facades\Image::class,
+        'Image'      => Intervention\Image\Facades\Image::class,
 		 /*
           * Project Facades
           */

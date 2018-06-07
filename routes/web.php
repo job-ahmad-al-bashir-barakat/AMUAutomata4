@@ -77,6 +77,32 @@ function () {
         return response()->json(collect($hierarchyJson)->first());
     });
 
+
+    function makeTempHierarchy($hierarchy)
+    {
+        // $obj = [];
+        $html = '';
+        foreach ($hierarchy as $index => $item) {
+            $html .= view('page._hierarchy',compact('item'))->render();
+            // $obj[$index]['name'] = $item->lang_name[App::getLocale()]['text'];
+            if ($item->children->count()) {
+                // $obj[$index]['children'] = makeTempHierarchy($item->children);
+                $html .= makeTempHierarchy($item->children);
+            }
+        }
+        return $html;
+    }
+
+    Route::get('hierarchy-page', function () {
+        $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
+        $modules = [];
+        $hierarchy = \Modules\Admin\Entities\Hierarchy::all();
+        $hierarchyType = $hierarchy->groupBy('hierarchyType.code');
+        $hierarchy = makeTempHierarchy($hierarchy->toTree());
+
+        return view('page.hierarchy', compact('hierarchyType','hierarchy','modules', 'menu'));
+    })->name('hierarchy-page');
+
     Route::get('university-offices1', function () {
         $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
         $modules = [];

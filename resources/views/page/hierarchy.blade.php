@@ -1,186 +1,45 @@
 @extends('temp_layout')
 
-@section('header')
-    <style>
-
-        .node {
-            cursor: pointer;
-        }
-
-        .node circle {
-            fill: #fff;
-            stroke: steelblue;
-            stroke-width: 1.5px;
-        }
-
-        .node text {
-            font: 10px sans-serif;
-        }
-
-        .link {
-            fill: none;
-            stroke: #ccc;
-            stroke-width: 1.5px;
-        }
-
-        .hierarchy text {
-            transform: rotate(270deg);
-        }
-
-    </style>
-@endsection
-
 @section('content')
-    <div class="hierarchy" style="margin: 150px; text-align: center; transform: rotate(90deg);"></div>
-@endsection
+    <!-- Start main-content -->
+    <div class="main-content">
+        <!-- Section: inner-header -->
+        <section class="inner-header divider parallax layer-overlay overlay-dark-5" data-bg-img="http://placehold.it/1920x1280">
+            <div class="container pt-70 pb-20">
+                <!-- Section Content -->
+                <div class="section-content">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h2 class="title text-white">Portfolio 4 Boxed Title Gutter</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-@section('footer')
-    <script src="//d3js.org/d3.v3.min.js"></script>
-    <script>
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <!-- Works Filter -->
+                        <div class="portfolio-filter font-alt align-center">
+                            <a href="#" class="active" data-filter="*">All</a>
+                            @foreach($hierarchyType as $index => $type)
+                                <a href="#{{ $index }}" data-filter=".{{ $index }}">{{ $type->first()->hierarchyType->lang_name[App::getLocale()]['text'] }}</a>
+                            @endforeach
+                        </div>
+                        <!-- End Works Filter -->
 
-        var margin = {top: 20, right: 120, bottom: 20, left: 120},
-            width = 960 - margin.right - margin.left,
-            height = 800 - margin.top - margin.bottom;
+                        <!-- Portfolio Gallery Grid -->
+                        <div id="grid" class="gallery-isotope grid-4 gutter clearfix">
+                        {!! $hierarchy !!}
+                        </div>
+                        <!-- End Portfolio Gallery Grid -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- end main-content -->
 
-        var i = 0,
-            duration = 750,
-            root;
-
-        var tree = d3.layout.tree()
-            .size([height, width]);
-
-        var diagonal = d3.svg.diagonal()
-            .projection(function(d) { return [d.y, d.x]; });
-
-        var svg = d3.select(".hierarchy").append("svg")
-            .attr("width", width + margin.right + margin.left)
-            .attr("height", height + margin.top + margin.bottom)
-            .append("g")
-            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-        d3.json("{{ RouteUrls::hierarchy() }}", function(error, flare) {
-
-            if (error) throw error;
-
-            root = flare;
-            root.x0 = height / 2;
-            root.y0 = 0;
-
-            function collapse(d) {
-                if (d.children) {
-                    d._children = d.children;
-                    d._children.forEach(collapse);
-                    d.children = null;
-                }
-            }
-
-            if(root.children)
-            {
-                root.children.forEach(collapse);
-                update(root);
-            }
-        });
-
-        d3.select(self.frameElement).style("height", "800px");
-
-        function update(source) {
-
-            // Compute the new tree layout.
-            var nodes = tree.nodes(root).reverse(),
-                links = tree.links(nodes);
-
-            // Normalize for fixed-depth.
-            nodes.forEach(function(d) { d.y = d.depth * 180; });
-
-            // Update the nodes…
-            var node = svg.selectAll("g.node")
-                .data(nodes, function(d) { return d.id || (d.id = ++i); });
-
-            // Enter any new nodes at the parent's previous position.
-            var nodeEnter = node.enter().append("g")
-                .attr("class", "node")
-                .attr("transform", function(d) { return "translate(" + source.y0 + "," + source.x0 + ")"; })
-                .on("click", click);
-
-            nodeEnter.append("circle")
-                .attr("r", 1e-6)
-                .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
-
-            nodeEnter.append("text")
-                .attr("x", function(d) { return d.children || d._children ? -10 : 10; })
-                .attr("dy", ".35em")
-                .attr("text-anchor", function(d) { return d.children || d._children ? "end" : "start"; })
-                .text(function(d) { return d.name; })
-                .style("fill-opacity", 1e-6);
-
-            // Transition nodes to their new position.
-            var nodeUpdate = node.transition()
-                .duration(duration)
-                .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; });
-
-            nodeUpdate.select("circle")
-                .attr("r", 4.5)
-                .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
-
-            nodeUpdate.select("text")
-                .style("fill-opacity", 1);
-
-            // Transition exiting nodes to the parent's new position.
-            var nodeExit = node.exit().transition()
-                .duration(duration)
-                .attr("transform", function(d) { return "translate(" + source.y + "," + source.x + ")"; })
-                .remove();
-
-            nodeExit.select("circle")
-                .attr("r", 1e-6);
-
-            nodeExit.select("text")
-                .style("fill-opacity", 1e-6);
-
-            // Update the links…
-            var link = svg.selectAll("path.link")
-                .data(links, function(d) { return d.target.id; });
-
-            // Enter any new links at the parent's previous position.
-            link.enter().insert("path", "g")
-                .attr("class", "link")
-                .attr("d", function(d) {
-                    var o = {x: source.x0, y: source.y0};
-                    return diagonal({source: o, target: o});
-                });
-
-            // Transition links to their new position.
-            link.transition()
-                .duration(duration)
-                .attr("d", diagonal);
-
-            // Transition exiting nodes to the parent's new position.
-            link.exit().transition()
-                .duration(duration)
-                .attr("d", function(d) {
-                    var o = {x: source.x, y: source.y};
-                    return diagonal({source: o, target: o});
-                })
-                .remove();
-
-            // Stash the old positions for transition.
-            nodes.forEach(function(d) {
-                d.x0 = d.x;
-                d.y0 = d.y;
-            });
-        }
-
-        // Toggle children on click.
-        function click(d) {
-            if (d.children) {
-                d._children = d.children;
-                d.children = null;
-            } else {
-                d.children = d._children;
-                d._children = null;
-            }
-            update(d);
-        }
-
-    </script>
 @endsection
