@@ -38,6 +38,7 @@ class GlobalFactory
         $this->add           =  trans('datatable::table.add');
         $this->update        =  trans('datatable::table.update');
         $this->delete        =  trans('datatable::table.delete');
+        $this->code          =  trans('datatable::table.code');
         $this->lang          =  App::getLocale();
         $this->langs         =  \LaravelLocalization::getSupportedLocales();
     }

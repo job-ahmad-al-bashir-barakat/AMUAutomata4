@@ -89,6 +89,7 @@ return [
     'delete'            => 'Delete',
 
     'add'               => 'Add',
+    'code'              => 'Code',
     'name'              => 'Name ',
     'summary'           => 'Summary',
     'order'             => 'Order',

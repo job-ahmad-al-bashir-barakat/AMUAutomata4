@@ -15,6 +15,7 @@ class CreateHierarchyTypesTable extends Migration
     {
         Schema::create('hierarchy_types', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('code');
             $table->timestamps();
             $table->softDeletes();
         });
