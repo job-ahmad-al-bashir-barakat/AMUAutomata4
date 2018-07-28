@@ -315,18 +315,17 @@ if (!function_exists('setting')) {
     }
 }
 
+function getMetaNamespace()
+{
+    return 'amu_namespace';
+}
+
 if (!function_exists('renderSeoTags')) {
     function renderSeoTags($seo)
     {
-        if (!$seo) {
-            return "<title>".setting('website_title')->value."</title>";
-        }
-        $lang = app()->getLocale();
-        //@todo use SeoHelper
-        return "<meta name='description' content='{$seo->lang_description[$lang]->text}' />
-            <meta name='keywords' content='{$seo->lang_keyword[$lang]->text}' />
-            <meta name='author' content='automata4 group' />
-            <title>{$seo->lang_title[$lang]->text}</title>";
+        $builder = app('SeoBuilder',  ['seo' => $seo]);
+        $html = $builder->renderSeoTags();
+        return $html;
     }
 }
 

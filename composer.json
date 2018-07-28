@@ -44,7 +44,8 @@
             "Aut\\Autocomplete\\": "Aut/Autocomplete/src",
             "Aut\\FormComponent\\": "Aut/FormComponent/src",
             "Aut\\GoogleMap\\": "Aut/GoogleMap/src",
-            "Aut\\FileUpload\\": "Aut/FileUpload/src"
+            "Aut\\FileUpload\\": "Aut/FileUpload/src",
+            "Aut\\": "Aut/"
         },
         "files": [
             "app/Library/Helper.php"

@@ -183,6 +183,7 @@ return [
         Intervention\Image\ImageServiceProvider::class,
         RenatoMarinho\LaravelPageSpeed\ServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
+        Arcanedev\SeoHelper\SeoHelperServiceProvider::class,
 
         /**
          * Our Service Provider
@@ -196,6 +197,7 @@ return [
         Aut\FileManager\FileManagerServiceProvider::class,
         Aut\GoogleMap\GoogleMapServiceProvider::class,
         Aut\FileUpload\FileUploadServiceProvider::class,
+        Aut\SeoBuilder\Providers\SeoBuilderServiceProvider::class,
         Modules\Utilities\WebModules\Providers\WebModulesServiceProvider::class,
     ],
 
@@ -258,6 +260,8 @@ return [
         "Datatable"  => Aut\DataTable\DataTableFacade::class,
         'Debugbar'   => Barryvdh\Debugbar\Facade::class,
         'Image' => Intervention\Image\Facades\Image::class,
+        'SeoHelper'    => Arcanedev\SeoHelper\Facades\SeoHelper::class,
+
 		 /*
           * Project Facades
           */

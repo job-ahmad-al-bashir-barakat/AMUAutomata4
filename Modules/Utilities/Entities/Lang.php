@@ -14,6 +14,12 @@ class Lang extends \Eloquent
 
     protected $fillable = ['lang_code', 'short_code', 'name', 'script', 'native', 'regional', 'is_default', 'image_id'];
 
+    public function scopeWithoutLocal($query)
+    {
+        $local = app()->getLocale();
+        return $query->where('lang_code', '<>', $local);
+    }
+
     function image()
     {
         return $this->belongsTo(Image::class);

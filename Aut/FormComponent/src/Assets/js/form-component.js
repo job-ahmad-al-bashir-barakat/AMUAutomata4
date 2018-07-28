@@ -396,6 +396,7 @@ var AUT_FORM_COMPONENT = {
                             CKEDITOR.instances[element.id].setData($data);
                     }
                 }
+                $element.trigger('change');
             };
 
             $(document).off('click.form-component','[data-form-add],.form-add').on('click.form-component', '[data-form-add],.form-add', function () {

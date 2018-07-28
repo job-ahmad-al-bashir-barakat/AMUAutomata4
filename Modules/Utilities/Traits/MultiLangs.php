@@ -2,9 +2,9 @@
 
 namespace Modules\Utilities\Traits;
 
-use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use Modules\Utilities\Scopes\LangInfoScope;
 use Modules\Utilities\Scopes\MultiLangScope;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 trait MultiLangs
 {
@@ -21,22 +21,11 @@ trait MultiLangs
     public function save(array $options = [])
     {
         $input = request()->input();
-//        print_r($input);
-//        throw new \HttpException('test');
-
         $methods = get_class_methods($this);
-//        print_r([$input, $this->transInputs, class_basename($this), $options, $this, request('*.trans_address')]);
-//        throw new \Exception();
         $transMethod = preg_grep('/^trans/', $methods);
 
         $supportedLocale = LaravelLocalization::getSupportedLanguagesKeys();
-//        dd($this);
-//        $status = parent::save($input);
         $status = parent::save($options);
-
-//        if(class_basename($this) == 'CustomModuleAttributeValue')
-//            dd($this, array_keys($this->getGlobalScopes()), $this->removedScopes());
-//        if(in_array('Modules\Utilities\Scopes\MultiLangScope', array_keys($this->getGlobalScopes())) && !in_array('Modules\Utilities\Scopes\MultiLangScope', array_keys($this->removedScopes())))
 
         //update by basheer
         //I need this because in tree when i reorder the tree i dont need to save transName so I
@@ -51,7 +40,7 @@ trait MultiLangs
                 $attribute = snake_case($method);
                 if(property_exists($this, 'transInputs') && isset($this->transInputs[$method])){
                     $data = $input[$this->transInputs[$method]][$attribute];
-                } else {
+                } elseif(isset($input[$attribute])) {
                     $data = $input[$attribute];
                 }
                 $createArr = [];
@@ -89,9 +78,20 @@ trait MultiLangs
 
         $transMethod = preg_grep('/^trans/', $methods);
         parent::delete();
-        foreach ($transMethod as $method)// each trans in the model ex:: user_name user_summary
+        foreach ($transMethod as $method)
         {
             $this->$method()->withoutGlobalScopes([LangInfoScope::class])->delete();
         }
     }
+
+    /*public function getAttribute($name)
+    {
+        $value = parent::getAttribute($name);
+        if (!$value) {
+            $lang = app()->getLocale();
+            $name = "lang_{$name}";
+            $value = $this->{$name}[$lang]->text;
+        }
+        return $value;
+    }*/
 }

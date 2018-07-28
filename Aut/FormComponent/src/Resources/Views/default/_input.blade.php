@@ -30,13 +30,23 @@
                     foreach ($attr as $index => $item)
                         $attr[$index] = preg_replace('/{lang}/',$_lang ,$item)
             @endphp
-
-            {!! Form::$type($name,$value,array_merge([
+            {{--@isset(in_array($type, FormComponent::getMap()))
+                {!! Form::input($type, $name, $value, ,array_merge([
                 'id'            => $id,
                 'class'         => "form-control $class",
                 'placeholder'   => shortIfElse(empty($placeholder),$label,$placeholder),
                 'data-editable' => 'true',
             ],$attr)) !!}
+
+            @endisset--}}
+{{--            {!! Form::$type($name,$value,array_merge([--}}
+            {!! Form::input($type, $name,$value,array_merge([
+                'id'            => $id,
+                'class'         => "form-control $class",
+                'placeholder'   => shortIfElse(empty($placeholder),$label,$placeholder),
+                'data-editable' => 'true',
+            ],$attr)) !!}
+
             <div id="error_{{$id}}"></div>
         </div>
     </div>
