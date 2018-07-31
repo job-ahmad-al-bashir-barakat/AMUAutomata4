@@ -21,7 +21,7 @@
         "spatie/laravel-permission": "^2.9",
         "symfony/css-selector": "^3.2",
         "symfony/dom-crawler": "^3.2",
-        "unisharp/laravel-filemanager": "~1.7",
+        "unisharp/laravel-filemanager": "^1.9",
         "yajra/laravel-datatables-oracle": "^7.3"
     },
     "require-dev": {
