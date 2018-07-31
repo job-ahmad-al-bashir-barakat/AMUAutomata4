@@ -4,9 +4,6 @@
         <ul>
             @php($i = 1)
             @foreach($data['sliders']->sliderDetails()->with('image')->get() as $sliderDetail)
-                @if($i != 1)
-                    @continue
-                @endif
                 @if($sliderDetail->position == 'L')
                     @php($bgposition = '10%')
                     @php($layers['1']['class'] = 'tp-caption tp-resizeme text-uppercase text-white font-raleway')

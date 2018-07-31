@@ -3,7 +3,7 @@ namespace PHPSTORM_META {
 
    /**
     * PhpStorm Meta file, to provide autocomplete information for PhpStorm
-    * Generated on 2018-07-23.
+    * Generated on 2018-07-31.
     *
     * @author Barry vd. Heuvel <barryvdh@gmail.com>
     * @see https://github.com/barryvdh/laravel-ide-helper
@@ -67,6 +67,7 @@ namespace PHPSTORM_META {
             'blade.compiler' instanceof \Illuminate\View\Compilers\BladeCompiler,
             'DataTable' instanceof \Aut\DataTable\DataTableBuilder,
             'FileUpload' instanceof \Aut\FileUpload\FileUpload,
+            'SeoBuilder' instanceof \Aut\SeoBuilder\SeoBuilder,
             'translation.loader' instanceof \Illuminate\Translation\FileLoader,
             'translator' instanceof \Illuminate\Translation\Translator,
             'cache' instanceof \Illuminate\Cache\CacheManager,
@@ -156,6 +157,10 @@ namespace PHPSTORM_META {
             'auth.password' instanceof \Illuminate\Auth\Passwords\PasswordBrokerManager,
             'auth.password.broker' instanceof \Illuminate\Auth\Passwords\PasswordBroker,
             'command.tinker' instanceof \Laravel\Tinker\Console\TinkerCommand,
+            'Arcanedev\SeoHelper\Contracts\SeoMeta' instanceof \Arcanedev\SeoHelper\SeoMeta,
+            'Arcanedev\SeoHelper\Contracts\SeoOpenGraph' instanceof \Arcanedev\SeoHelper\SeoOpenGraph,
+            'Arcanedev\SeoHelper\Contracts\SeoTwitter' instanceof \Arcanedev\SeoHelper\SeoTwitter,
+            'Arcanedev\SeoHelper\Contracts\SeoHelper' instanceof \Arcanedev\SeoHelper\SeoHelper,
         ],
         \Illuminate\Contracts\Container\Container::make('') => [
             '' == '@',
@@ -215,6 +220,7 @@ namespace PHPSTORM_META {
             'blade.compiler' instanceof \Illuminate\View\Compilers\BladeCompiler,
             'DataTable' instanceof \Aut\DataTable\DataTableBuilder,
             'FileUpload' instanceof \Aut\FileUpload\FileUpload,
+            'SeoBuilder' instanceof \Aut\SeoBuilder\SeoBuilder,
             'translation.loader' instanceof \Illuminate\Translation\FileLoader,
             'translator' instanceof \Illuminate\Translation\Translator,
             'cache' instanceof \Illuminate\Cache\CacheManager,
@@ -304,6 +310,10 @@ namespace PHPSTORM_META {
             'auth.password' instanceof \Illuminate\Auth\Passwords\PasswordBrokerManager,
             'auth.password.broker' instanceof \Illuminate\Auth\Passwords\PasswordBroker,
             'command.tinker' instanceof \Laravel\Tinker\Console\TinkerCommand,
+            'Arcanedev\SeoHelper\Contracts\SeoMeta' instanceof \Arcanedev\SeoHelper\SeoMeta,
+            'Arcanedev\SeoHelper\Contracts\SeoOpenGraph' instanceof \Arcanedev\SeoHelper\SeoOpenGraph,
+            'Arcanedev\SeoHelper\Contracts\SeoTwitter' instanceof \Arcanedev\SeoHelper\SeoTwitter,
+            'Arcanedev\SeoHelper\Contracts\SeoHelper' instanceof \Arcanedev\SeoHelper\SeoHelper,
         ],
         \App::make('') => [
             '' == '@',
@@ -363,6 +373,7 @@ namespace PHPSTORM_META {
             'blade.compiler' instanceof \Illuminate\View\Compilers\BladeCompiler,
             'DataTable' instanceof \Aut\DataTable\DataTableBuilder,
             'FileUpload' instanceof \Aut\FileUpload\FileUpload,
+            'SeoBuilder' instanceof \Aut\SeoBuilder\SeoBuilder,
             'translation.loader' instanceof \Illuminate\Translation\FileLoader,
             'translator' instanceof \Illuminate\Translation\Translator,
             'cache' instanceof \Illuminate\Cache\CacheManager,
@@ -452,6 +463,10 @@ namespace PHPSTORM_META {
             'auth.password' instanceof \Illuminate\Auth\Passwords\PasswordBrokerManager,
             'auth.password.broker' instanceof \Illuminate\Auth\Passwords\PasswordBroker,
             'command.tinker' instanceof \Laravel\Tinker\Console\TinkerCommand,
+            'Arcanedev\SeoHelper\Contracts\SeoMeta' instanceof \Arcanedev\SeoHelper\SeoMeta,
+            'Arcanedev\SeoHelper\Contracts\SeoOpenGraph' instanceof \Arcanedev\SeoHelper\SeoOpenGraph,
+            'Arcanedev\SeoHelper\Contracts\SeoTwitter' instanceof \Arcanedev\SeoHelper\SeoTwitter,
+            'Arcanedev\SeoHelper\Contracts\SeoHelper' instanceof \Arcanedev\SeoHelper\SeoHelper,
         ],
         \app('') => [
             '' == '@',
@@ -511,6 +526,7 @@ namespace PHPSTORM_META {
             'blade.compiler' instanceof \Illuminate\View\Compilers\BladeCompiler,
             'DataTable' instanceof \Aut\DataTable\DataTableBuilder,
             'FileUpload' instanceof \Aut\FileUpload\FileUpload,
+            'SeoBuilder' instanceof \Aut\SeoBuilder\SeoBuilder,
             'translation.loader' instanceof \Illuminate\Translation\FileLoader,
             'translator' instanceof \Illuminate\Translation\Translator,
             'cache' instanceof \Illuminate\Cache\CacheManager,
@@ -600,6 +616,10 @@ namespace PHPSTORM_META {
             'auth.password' instanceof \Illuminate\Auth\Passwords\PasswordBrokerManager,
             'auth.password.broker' instanceof \Illuminate\Auth\Passwords\PasswordBroker,
             'command.tinker' instanceof \Laravel\Tinker\Console\TinkerCommand,
+            'Arcanedev\SeoHelper\Contracts\SeoMeta' instanceof \Arcanedev\SeoHelper\SeoMeta,
+            'Arcanedev\SeoHelper\Contracts\SeoOpenGraph' instanceof \Arcanedev\SeoHelper\SeoOpenGraph,
+            'Arcanedev\SeoHelper\Contracts\SeoTwitter' instanceof \Arcanedev\SeoHelper\SeoTwitter,
+            'Arcanedev\SeoHelper\Contracts\SeoHelper' instanceof \Arcanedev\SeoHelper\SeoHelper,
         ],
     ];
 }

@@ -63,7 +63,7 @@ class SeoBuilder
             $this->seoHelper->og()->addProperty('image:height', $this->seo->image->height);
         }
 
-        $this->renderGraphInputs($this->getGraphAttributes($this->seo->graph_type));
+        $this->renderGraphInputs($this->getGraphAttributes($this->seo->graph_type??'website'));
 
         $extraHtml = Meta::make('content-type', 'text/html; charset=UTF-8', 'http-equiv')->render();
         $extraHtml .= "\r\n<meta name='author' content='automata4 group' />";
