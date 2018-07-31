@@ -110,6 +110,13 @@ return [
         'stopRelationSave' => true,
     ],
 
+    'graph_image' => [
+        'ratio' => [
+            'size' => ['width' => '100', 'height' => '100'],
+        ],
+        'stopRelationSave' => true,
+    ],
+
     'small_gallery' => [
         'ratio' => [
             'first'  => [ 'width'  => '560', 'height' => '200', ],

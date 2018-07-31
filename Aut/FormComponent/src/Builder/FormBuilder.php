@@ -10,6 +10,10 @@ class FormBuilder
 {
     use Event, Element, Container;
 
+    protected $map = [
+        'datetime' => 'datetime-local',
+    ];
+
     private $loader = 'data-form-loader';
 
     private $property = [
@@ -69,6 +73,7 @@ class FormBuilder
      */
     public function __call($type, $arguments)
     {
+        $type = $this->map[$type]??$type;
         return $this->defaultMethodCall($type, $arguments);
     }
 
@@ -265,5 +270,10 @@ class FormBuilder
         $this->property['tagsinput'] = $tag;
 
         return $this;
+    }
+
+    function getMap()
+    {
+        return $this->map;
     }
 }

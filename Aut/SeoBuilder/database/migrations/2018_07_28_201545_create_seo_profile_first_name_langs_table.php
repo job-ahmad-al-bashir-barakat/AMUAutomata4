@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateSeosTable extends Migration {
+class CreateSeoProfileFirstNameLangsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,12 +12,12 @@ class CreateSeosTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('seos', function(Blueprint $table)
+		Schema::create('seo_profile_first_name_langs', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->integer('buildable_id')->unsigned()->index('buildable_id');
-			$table->string('buildable_type', 191);
-			$table->integer('optional_id')->unsigned()->nullable()->index('optional_id');
+			$table->integer('seo_id')->unsigned()->index('seo_id');
+			$table->integer('lang_id')->unsigned()->index('lang_id');
+			$table->string('text', 191);
 			$table->timestamps();
 			$table->softDeletes();
 		});
@@ -31,7 +31,7 @@ class CreateSeosTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('seos');
+		Schema::drop('seo_profile_first_name_langs');
 	}
 
 }

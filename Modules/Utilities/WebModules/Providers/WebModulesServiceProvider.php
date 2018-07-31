@@ -68,16 +68,14 @@ class WebModulesServiceProvider extends ServiceProvider
     private function registerLangRoutes($url, $name)
     {
         $supportedLanguages = LaravelLocalization::getSupportedLanguagesKeys();
-        //$supportedLanguages[''] = '';
         foreach ($supportedLanguages as $supportedLanguage) {
             Route::get("{$supportedLanguage}/{$url}", function (){
                 //@todo menu must be global var to make on call for it
                 $menu = $this->menu;
                 $modules = BuilderPage::pageModules()->get()->pluck('module');
-                $seo = Seo::pageSeo()->first();
+                $seo = Seo::with('image')->pageSeo()->first();
                 return view("modules", compact('menu', 'modules', 'seo'));
             })->name($name);
         }
     }
-
 }
