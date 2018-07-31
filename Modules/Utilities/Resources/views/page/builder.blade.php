@@ -35,7 +35,7 @@
         {!! datatable('builder-pages', '', 'false') !!}
     @endcomponent
 
-    @include('utilities::page.seo-form')
+    @include('seo_builder::seo-form')
 
     <div id="page_modules" class="modal fade" role="dialog" aria-hidden="true" aria-labeledby="page modules">
         <div class="modal-dialog">

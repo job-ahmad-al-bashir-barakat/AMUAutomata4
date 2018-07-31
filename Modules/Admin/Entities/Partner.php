@@ -77,7 +77,7 @@ class Partner extends \Eloquent
 
     public function getLargeImagePathAttribute()
     {
-        if ($this->image) {
+        if ($this->image && $this->image_large->first()) {
             $imageName = $this->image_large->first()->hash_name ?: '';
         } else {
             $imageName = '';
@@ -87,7 +87,7 @@ class Partner extends \Eloquent
 
     public function getSmallImagePathAttribute()
     {
-        if ($this->image) {
+        if ($this->image && $this->image_small->first()) {
             $imageName = $this->image_small->first()->hash_name ?: '';
         } else {
             $imageName = '';
