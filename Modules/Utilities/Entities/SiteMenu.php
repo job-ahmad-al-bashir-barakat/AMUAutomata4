@@ -3,7 +3,6 @@
 namespace Modules\Utilities\Entities;
 
 use Kalnoy\Nestedset\NodeTrait;
-use Modules\Admin\Entities\Course;
 use Modules\Admin\Entities\Degree;
 use Modules\Admin\Entities\Faculty;
 use Modules\Admin\Entities\Department;
@@ -88,9 +87,10 @@ class SiteMenu extends \Eloquent
             $query->where('text', 'like', '%' . $q . '%');
         });
 
-        foreach (MenuTables::all() as $item)
-            $query = $query->orWhereHas("{$item->code}.transName", function ($query) use($q) {
+        $tableItems = Table::pageable()->menuable()->orDynamic()->morphed()->get();
 
+        foreach ($tableItems as $item)
+            $query = $query->orWhereHas("{$item->morph_code}.transName", function ($query) use($q) {
                 $query->where('text', 'like', '%' . $q . '%');
             });
 

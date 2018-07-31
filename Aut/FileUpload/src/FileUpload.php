@@ -122,16 +122,15 @@ class FileUpload
 
     function ImageUploadCropper(
         $width            = '90%',
-        $single           = false,
+        $upload           = false,
         $showName         = true,
         $showType         = false,
         $showOption       = false,
         $showToggleOption = false,
         $showPreview      = false,
-        $previewType      = ['lg', 'md', 'sm', 'xs'],
-        $showManager      = false
+        $previewType      = ['lg', 'md', 'sm', 'xs']
     )
     {
-        return Form::ImageUploadCropper($width, $single, $showName, $showType, $showOption, $showToggleOption, $showPreview, $previewType ,$showManager);
+        return Form::ImageUploadCropper($width, $upload, $showName, $showType, $showOption, $showToggleOption, $showPreview, $previewType);
     }
 }

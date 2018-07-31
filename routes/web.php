@@ -132,3 +132,24 @@ function () {
     Route::get('lockscreen', '\Modules\Utilities\Http\Controllers\LockScreenController@lock')->name('lock');
     Route::post('unlockscreen', '\Modules\Utilities\Http\Controllers\LockScreenController@unlock')->name('unlock');
 });
+
+Route::group([
+    'middleware' => ['auth','web'],
+    'prefix'     => LaravelLocalization::setLocale(). '/laravel-filemanager'
+], function () {
+    Route::get('/', '\UniSharp\LaravelFilemanager\Controllers\LfmController@show')->name('');
+    Route::get('/errors', '\UniSharp\LaravelFilemanager\Controllers\LfmController@getErrors')->name('getErrors');
+    Route::any('/upload', '\UniSharp\LaravelFilemanager\Controllers\UploadController@upload')->name('upload');
+    Route::get('/jsonitems', '\UniSharp\LaravelFilemanager\Controllers\ItemsController@getItems')->name('getItems');
+    Route::get('/newfolder', '\UniSharp\LaravelFilemanager\Controllers\FolderController@getAddfolder')->name('getAddfolder');
+    Route::get('/deletefolder', '\UniSharp\LaravelFilemanager\Controllers\FolderController@getDeletefolder')->name('getDeletefolder');
+    Route::get('/folders', '\UniSharp\LaravelFilemanager\Controllers\FolderController@getFolders')->name('getFolders');
+    Route::get('/crop', '\UniSharp\LaravelFilemanager\Controllers\CropController@getCrop')->name('getCrop');
+    Route::get('/cropimage', '\UniSharp\LaravelFilemanager\Controllers\CropController@getCropimage')->name('getCropimage');
+    Route::get('/cropnewimage', '\UniSharp\LaravelFilemanager\Controllers\CropController@getNewCropimage')->name('getNewCropimage');
+    Route::get('/rename', '\UniSharp\LaravelFilemanager\Controllers\RenameController@getRename')->name('getRename');
+    Route::get('/resize', '\UniSharp\LaravelFilemanager\Controllers\ResizeController@getResize')->name('getResize');
+    Route::get('/doresize', '\UniSharp\LaravelFilemanager\Controllers\ResizeController@performResize')->name('performResize');
+    Route::get('/download', '\UniSharp\LaravelFilemanager\Controllers\DownloadController@getDownload')->name('getDownload');
+    Route::get('/delete', '\UniSharp\LaravelFilemanager\Controllers\DeleteController@getDelete')->name('getDelete');
+});

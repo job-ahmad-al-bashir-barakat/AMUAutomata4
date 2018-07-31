@@ -66,33 +66,11 @@
                 @endif
 
                 <div>
+
                     <button type="button" class="btn btn-success btn-block mt" data-method="getCroppedCanvas" data-type="crop">{{ trans('fileupload::fileupload.crop') }}</button>
 
-                    @if($single)
+                    @if($upload)
                         <button type="button" class="btn btn-success btn-block mt" data-method="getCroppedCanvas" data-type="upload">{{ trans('fileupload::fileupload.upload') }}</button>
-                    @endif
-
-                    @if($showManager)
-                    <div class="btn-group btn-block btn-group-sm mt">
-                        <button type="button" class="btn btn-primary" style="width: 85%;">{{ trans('fileupload::fileupload.file_manager') }}</button>
-                        <button type="button" data-toggle="dropdown" style="width: 15%;" class="btn dropdown-toggle btn-primary">
-                            <span class="caret"></span>
-                            <span class="sr-only">primary</span>
-                        </button>
-                        <ul role="menu" class="dropdown-menu" style="width: 100%;">
-                            <li>
-                                <a for="inputImageManager" title="{{ trans('fileupload::fileupload.open_manager') }}" href="javascript:open_popup('{{ fileUploadLocalizeURL('filemanager/dialog?type=1&popup=1&field_id=inputImageManagerUrl') }}')">
-                                    <span>{{ trans('fileupload::fileupload.open_manager') }}</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a for="inputImageManager" title="{{ trans('fileupload::fileupload.apply_file_to_cropper') }}" data-method="getCroppedCanvas" data-type="applyFilemanager" href="javascript:void(0)">
-                                    <span>{{ trans('fileupload::fileupload.apply_file_to_cropper') }}</span>
-                                </a>
-                            </li>
-                        </ul>
-                        <input id="inputImageManagerUrl" name="inputImageManagerUrl" type="hidden">
-                    </div>
                     @endif
 
                 </div>
@@ -187,95 +165,91 @@
 
             <div class="col-lg-9 col-md-9 col-xs-12 pull-left">
 
-                @unless($showName && $showOption)
-                    <div>
+                <div>
+                    @if($showName)
+                        <div class="form-group">
+                            <input type="text" id="ImageName" name="ImageName" class="form-control" placeholder="{{ trans('fileupload::fileupload.image_name') }}">
+                        </div>
+                    @endif
 
-                        @if($showName)
-                            <div class="form-group">
-                                <input type="text" id="ImageName" name="ImageName" class="form-control" placeholder="{{ trans('fileupload::fileupload.image_name') }}">
-                            </div>
-                        @endif
-
-                        @if($showOption)
-                            <div class="docs-buttons">
-                                <div class="mb btn-group btn-group-justified btn-group-sm">
-                                    <label data-method="setRatio" data-option="ratio" type="button" title="Ratio" class="btn btn-info">
-                                        <span class="fa fa-magnet"></span>
-                                    </label>
-                                    <label data-method="setDragMode" data-option="move" type="button" title="Move" class="btn btn-info">
-                                        <span class="fa fa-arrows"></span>
-                                    </label>
-                                    <label data-method="setDragMode" data-option="crop" type="button" title="Crop" class="btn btn-info">
-                                        <span class="fa fa-crop"></span>
-                                    </label>
-                                    <label data-method="zoom" data-option="0.1" type="button" title="Zoom In" class="btn btn-info">
-                                        <span class="fa fa-plus-square"></span>
-                                    </label>
-                                    <label data-method="zoom" data-option="-0.1" type="button" title="Zoom Out" class="btn btn-info">
-                                        <span class="fa fa-minus-square"></span>
-                                    </label>
-                                    <label data-method="rotate" data-option="-45" type="button" title="Rotate Left" class="btn btn-info">
-                                        <span class="fa fa-arrow-left"></span>
-                                    </label>
-                                    <label data-method="rotate" data-option="45" type="button" title="Rotate Right" class="btn btn-info">
-                                        <span class="fa fa-arrow-right"></span>
-                                    </label>
-                                    <label data-method="crop" type="button" title="Crop" class="btn btn-info">
-                                        <span class="fa fa-check"></span>
-                                    </label>
-                                    <label data-method="clear" type="button" title="Clear" class="btn btn-info">
-                                        <span class="fa fa-times"></span>
-                                    </label>
-                                    <label data-method="disable" type="button" title="Disable" class="btn btn-info">
-                                        <span class="fa fa-lock"></span>
-                                    </label>
-                                    <label data-method="enable" type="button" title="Enable" class="btn btn-info">
-                                        <span class="fa fa-unlock"></span>
-                                    </label>
-                                    <label data-method="reset" type="button" title="Reset" class="btn btn-info">
-                                        <span class="fa fa-refresh"></span>
-                                    </label>
-                                    <label for="inputImage" title="Upload image file" class="btn btn-info btn-upload">
-                                        <input id="inputImage" name="file" type="file" accept="image/*" class="sr-only">
-                                        <span class="fa fa-upload"></span>
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="docs-toggles">
-                            <div data-toggle="buttons" class="mb btn-group btn-group-justified btn-group-sm">
-                                <label data-method="setAspectRatio" data-option="1.7777777777777777" title="Set Aspect Ratio" class="btn btn-info ratio active">
-                                    <input id="aspestRatio1" name="aspestRatio" value="1.7777777777777777" type="radio" class="sr-only">
-                                    <span>16:9</span>
+                    @if($showOption)
+                        <div class="docs-buttons">
+                            <div class="mb btn-group btn-group-justified btn-group-sm">
+                                <label data-method="setRatio" data-option="ratio" type="button" title="Ratio" class="btn btn-info">
+                                    <span class="fa fa-magnet"></span>
                                 </label>
-                                <label data-method="setAspectRatio" data-option="1.3333333333333333" title="Set Aspect Ratio" class="btn btn-info ratio">
-                                    <input id="aspestRatio2" name="aspestRatio" value="1.3333333333333333" type="radio" class="sr-only">
-                                    <span>4:3</span>
+                                <label data-method="setDragMode" data-option="move" type="button" title="Move" class="btn btn-info">
+                                    <span class="fa fa-arrows"></span>
                                 </label>
-                                <label data-method="setAspectRatio" data-option="1" title="Set Aspect Ratio" class="btn btn-info ratio">
-                                    <input id="aspestRatio3" name="aspestRatio" value="1" type="radio" class="sr-only">
-                                    <span>1:1</span>
+                                <label data-method="setDragMode" data-option="crop" type="button" title="Crop" class="btn btn-info">
+                                    <span class="fa fa-crop"></span>
                                 </label>
-                                <label data-method="setAspectRatio" data-option="0.6666666666666666" title="Set Aspect Ratio" class="btn btn-info ratio">
-                                    <input id="aspestRatio4" name="aspestRatio" value="0.6666666666666666" type="radio" class="sr-only">
-                                    <span>2:3</span>
+                                <label data-method="zoom" data-option="0.1" type="button" title="Zoom In" class="btn btn-info">
+                                    <span class="fa fa-plus-square"></span>
                                 </label>
-                                <label data-method="setAspectRatio" data-option="NaN" title="Set Aspect Ratio" class="btn btn-info ratio">
-                                    <input id="aspestRatio5" name="aspestRatio" value="NaN" type="radio" class="sr-only">
-                                    <span>Free</span>
+                                <label data-method="zoom" data-option="-0.1" type="button" title="Zoom Out" class="btn btn-info">
+                                    <span class="fa fa-minus-square"></span>
+                                </label>
+                                <label data-method="rotate" data-option="-45" type="button" title="Rotate Left" class="btn btn-info">
+                                    <span class="fa fa-arrow-left"></span>
+                                </label>
+                                <label data-method="rotate" data-option="45" type="button" title="Rotate Right" class="btn btn-info">
+                                    <span class="fa fa-arrow-right"></span>
+                                </label>
+                                <label data-method="crop" type="button" title="Crop" class="btn btn-info">
+                                    <span class="fa fa-check"></span>
+                                </label>
+                                <label data-method="clear" type="button" title="Clear" class="btn btn-info">
+                                    <span class="fa fa-times"></span>
+                                </label>
+                                <label data-method="disable" type="button" title="Disable" class="btn btn-info">
+                                    <span class="fa fa-lock"></span>
+                                </label>
+                                <label data-method="enable" type="button" title="Enable" class="btn btn-info">
+                                    <span class="fa fa-unlock"></span>
+                                </label>
+                                <label data-method="reset" type="button" title="Reset" class="btn btn-info">
+                                    <span class="fa fa-refresh"></span>
+                                </label>
+                                <label for="inputImage" title="Upload image file" class="btn btn-info btn-upload">
+                                    <input id="inputImage" name="file" type="file" accept="image/*" class="sr-only">
+                                    <span class="fa fa-upload"></span>
                                 </label>
                             </div>
                         </div>
-                        @endif
-
+                        <div class="docs-toggles">
+                        <div data-toggle="buttons" class="mb btn-group btn-group-justified btn-group-sm">
+                            <label data-method="setAspectRatio" data-option="1.7777777777777777" title="Set Aspect Ratio" class="btn btn-info ratio active">
+                                <input id="aspestRatio1" name="aspestRatio" value="1.7777777777777777" type="radio" class="sr-only">
+                                <span>16:9</span>
+                            </label>
+                            <label data-method="setAspectRatio" data-option="1.3333333333333333" title="Set Aspect Ratio" class="btn btn-info ratio">
+                                <input id="aspestRatio2" name="aspestRatio" value="1.3333333333333333" type="radio" class="sr-only">
+                                <span>4:3</span>
+                            </label>
+                            <label data-method="setAspectRatio" data-option="1" title="Set Aspect Ratio" class="btn btn-info ratio">
+                                <input id="aspestRatio3" name="aspestRatio" value="1" type="radio" class="sr-only">
+                                <span>1:1</span>
+                            </label>
+                            <label data-method="setAspectRatio" data-option="0.6666666666666666" title="Set Aspect Ratio" class="btn btn-info ratio">
+                                <input id="aspestRatio4" name="aspestRatio" value="0.6666666666666666" type="radio" class="sr-only">
+                                <span>2:3</span>
+                            </label>
+                            <label data-method="setAspectRatio" data-option="NaN" title="Set Aspect Ratio" class="btn btn-info ratio">
+                                <input id="aspestRatio5" name="aspestRatio" value="NaN" type="radio" class="sr-only">
+                                <span>Free</span>
+                            </label>
+                        </div>
                     </div>
-                @endunless
+                    @endif
+                </div>
 
                 <div class="img-container mb-lg">
                     <img src="{{ asset('img/mb-sample.jpg') }}" alt="Picture">
                 </div>
 
                 @if($showPreview)
-                    <div class="docs-preview clearfix">
+                    <div class="docs-preview clearfix" dir="ltr">
                         @foreach($previewType as $type)
                             <div class="img-preview preview-{{ $type }}"></div>
                         @endforeach

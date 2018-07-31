@@ -15,6 +15,9 @@
 <script>
     function showFileUploadModal($this) {
 
+        var modal     = $($this).data('modal'),
+            inputFile = $(modal).find('.upload-file');
+
         AUT_UPLOAD.initFileUploadWithDatatable(
             $this,
             $($this).data('modal'),

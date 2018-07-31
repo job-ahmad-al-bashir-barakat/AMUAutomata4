@@ -2,6 +2,7 @@
 
 namespace Aut\DataTable;
 
+use Illuminate\Support\Str;
 use Route;
 use LaravelLocalization;
 use Illuminate\Routing\Router;

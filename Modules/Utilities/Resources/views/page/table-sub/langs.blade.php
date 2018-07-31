@@ -3,12 +3,12 @@
     'modalTitle' => trans('utilities::app.upload_images')
 ] ,'#datatable-langs' ,true ,'.image',['allowRatio' => true,'autoReplace' => true, 'maxFileCount' => 1]) }}
 
-{{ FileUpload::ImageUploadCropper('90%' ,false ,true,false ,false ,false ,true) }}
+{{ FileUpload::ImageUploadCropper('90%' ,false ,true,false ,false ,false, true) }}
 
 <script>
     function showFileUploadModal($this) {
 
-        var inputFile = $('#lang-image-upload').find('.upload-file'),
+        var inputFile    = $('#lang-image-upload').find('.upload-file'),
             datatableRaw = _aut_datatable_getSelectedRowData('#datatable-langs' ,$($this).closest('tr'));
 
         inputFile.attr('data-param' ,'id=' + $($this).data('key'));

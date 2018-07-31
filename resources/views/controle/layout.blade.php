@@ -82,7 +82,6 @@
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyCC3X-thsM5s1FkNqwFtRKTaa1CMFctf1k&language={{$lang}}&libraries=places"></script>
 <script src="{{ asset(mix("js/admin-all-$dir.js")) }}"></script>
 <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
-<script src="{{ asset('filemanager/js/aut_browse_btn_event_handler.js') }}"></script>
 
 <script src="{{ asset('admin-custom.js') }}"></script>
 
@@ -90,6 +89,7 @@
 <div role="footer">
     @yield('footer')
 </div>
+
 </body>
 </html>
 

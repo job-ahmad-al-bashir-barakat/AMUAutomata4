@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.4.21 on 2018-05-22.
+ * Generated for Laravel 5.4.21 on 2018-07-23.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -15701,6 +15701,36 @@ namespace App\Library\Url\Facades {
          *
          * @static 
          */
+        public static function officesListHtml()
+        {
+            return \App\Library\Url\RouteUrls::officesListHtml();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function labsListHtml()
+        {
+            return \App\Library\Url\RouteUrls::labsListHtml();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function newsListHtml()
+        {
+            return \App\Library\Url\RouteUrls::newsListHtml();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
         public static function hierarchyType()
         {
             return \App\Library\Url\RouteUrls::hierarchyType();
@@ -15714,6 +15744,26 @@ namespace App\Library\Url\Facades {
         public static function faculties()
         {
             return \App\Library\Url\RouteUrls::faculties();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function singleCourse($course)
+        {
+            return \App\Library\Url\RouteUrls::singleCourse($course);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function singleLab($lab)
+        {
+            return \App\Library\Url\RouteUrls::singleLab($lab);
         }
         
         /**
@@ -15831,9 +15881,19 @@ namespace App\Library\Url\Facades {
          *
          * @static 
          */
-        public static function blog()
+        public static function news()
         {
-            return \App\Library\Url\RouteUrls::blog();
+            return \App\Library\Url\RouteUrls::news();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function status()
+        {
+            return \App\Library\Url\RouteUrls::status();
         }
         
         /**
@@ -15984,6 +16044,26 @@ namespace App\Library\Url\Facades {
         public static function universityStaff($staff)
         {
             return \App\Library\Url\RouteUrls::universityStaff($staff);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function officePage($staff)
+        {
+            return \App\Library\Url\RouteUrls::officePage($staff);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function newsPage($news)
+        {
+            return \App\Library\Url\RouteUrls::newsPage($news);
         }
         
     }         
@@ -16610,9 +16690,9 @@ namespace Aut\FileUpload {
          *
          * @static 
          */
-        public static function ImageUploadCropper($width = '90%', $single = false, $showName = true, $showType = false, $showOption = false, $showToggleOption = false, $showPreview = false, $previewType = array(), $showManager = false)
+        public static function ImageUploadCropper($width = '90%', $upload = false, $showName = true, $showType = false, $showOption = false, $showToggleOption = false, $showPreview = false, $previewType = array())
         {
-            return \Aut\FileUpload\FileUpload::ImageUploadCropper($width, $single, $showName, $showType, $showOption, $showToggleOption, $showPreview, $previewType, $showManager);
+            return \Aut\FileUpload\FileUpload::ImageUploadCropper($width, $upload, $showName, $showType, $showOption, $showToggleOption, $showPreview, $previewType);
         }
         
     }         

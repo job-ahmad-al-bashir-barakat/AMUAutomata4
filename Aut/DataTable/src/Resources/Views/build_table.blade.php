@@ -23,6 +23,7 @@
                 </th>
 
                 @default
+
                 <th>
                     <input type='text' placeholder='{{ $transFilter }} {{ $param['title'] }}' class='form-control filter-Input'>
                 </th>

@@ -17,6 +17,28 @@
 @endunless
 
     <div class="image-cont">
+        <div class="popover-alt-form hide">
+            <div class="ajaxCont">
+                <form action="{{ fileUploadLocalizeURL("fileupload/$id/image/info") }}" method="post" class="ajax-form stop-close-modal" data-get-data="{{ fileUploadLocalizeURL("fileupload/$id/image/info") }}">
+                    <div class="panel panel-primary m-0 whirl" id="popover-panel" style="width: 250px;">
+                        <div class="panel-heading">
+                            <strong>{{ trans('fileupload::fileupload.image_alt') }}</strong>
+                        </div>
+                        <div class="panel-body">
+                            <input type="hidden" id='image_id' name="image_id">
+                            @foreach(LaravelLocalization::getSupportedLocales() as $key => $item)
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Alt ({{ $item['native'] }})" name="trans_alt[alt_{{$key}}]" data-json="{{ $key }}">
+                                </div>
+                            @endforeach
+                        </div>
+                        <div class="panel-footer">
+                            <button type="submit" class="btn btn-success btn-sm" data-method="post">{{ trans('fileupload::fileupload.save') }}</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
         <div class="ratio-cont">
             <span><b>{{ trans('fileupload::fileupload.allowed_ratio') }}</b></span>
             @foreach($cropRatio as $index => $item)

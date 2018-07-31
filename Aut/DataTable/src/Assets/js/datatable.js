@@ -405,7 +405,7 @@ var AUT_DATATABLE = {
         // for panel Recalculate the widths used by responsive after a change in the display
         $('body').on('shown.bs.collapse.datatable','.panel-wrapper.collapse', function(){
 
-            $table = _aut_datatable_getTableObjectApi($(this).find('.dataTable'));
+            var $table = _aut_datatable_getTableObjectApi($(this).find('.dataTable'));
             $table.columns.adjust().responsive.recalc();
         });
     },
