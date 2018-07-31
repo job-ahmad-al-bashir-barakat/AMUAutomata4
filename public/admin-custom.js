@@ -276,49 +276,19 @@ var AUTOMATA_APP = {
 
                     var orginal_id = this.id;//$(this).data('original-id');
 
-                    // Only open filemanager(type=0 and not set field_id):
-                    // path to filemanager../filemanager/dialog.php?type=0&fldr=
-                    //
-                    // Select Image: (type=1 and set id of input text in field_id variable):
-                    // path to filemanager../filemanager/dialog.php?type=1&field_id=fieldID
-                    //
-                    // Select Video: (type=3 and set id of input text in field_id variable):
-                    // path to filemanager../filemanager/dialog.php?type=3&field_id=fieldID
-                    //
-                    // Select File: (type=2 and set id of input text in field_id variable):
-                    // path to filemanager../filemanager/dialog.php?type=2&field_id=fieldID
-
-                    // Get Variables list
-                    // type: the type of filemanager (1:images files 2:all files 3:video files)
-                    // fldr: the folder where i enter (the root folder remains the same). default=""
-                    // sort_by: the element to sorting (values: name,size,extension,date) default=""
-                    // descending: descending? or ascending (values=1 or 0) default="0"
-                    // lang: the language code (ex: &lang=en_EN). default="en_EN"
-                    // relative_url: should be	added to the request with a value of "1" when opening RFM.
-                    // Otherwise returned URL-s will be absolute.
-                    // extensions: a json encoded array of available files extensions (ex: &extensions=["pdf",'doc'])
-
                     var params = {
-                        filebrowserBrowseUrl: BASE_URL + LANG + '/filemanager/dialog?type=2&editor=ckeditor&fldr=',
-                        filebrowserUploadUrl: BASE_URL + LANG + '/filemanager/dialog?type=2&editor=ckeditor&fldr=',
-                        filebrowserImageBrowseUrl: BASE_URL + LANG + '/filemanager/dialog?type=1&editor=ckeditor&fldr=',
-                        contentsLangDirection: $(this).hasClass('en') ? 'ltr' : $(this).hasClass('ar') ? 'rtl' : '',
+                        filebrowserImageBrowseUrl: BASE_URL + LANG + '/laravel-filemanager?type=Images',
+                        filebrowserImageUploadUrl: BASE_URL + LANG + '/laravel-filemanager/upload?type=Images&_token=' + CSRF_TOKEN,
+                        filebrowserBrowseUrl: BASE_URL + LANG + '/laravel-filemanager?type=Files',
+                        filebrowserUploadUrl: BASE_URL + LANG + '/laravel-filemanager/upload?type=Files&_token=' + CSRF_TOKEN,
                         language: LANG,
+                        contentsLangDirection: $(this).hasClass('en') ? 'ltr' : $(this).hasClass('ar') ? 'rtl' : '',
                         resize_enabled: typeof $(this).data('resize') != typeof undefined ? $(this).data('resize') : true,
                         resize_dir: typeof $(this).data('resize-type') != typeof undefined ? $(this).data('resize-type') : 'both',
                     };
 
                     AUTOMATA_APP.ckeditor.reset($cont, $target, 'single', orginal_id);
                     var $textarea = CKEDITOR.replace(orginal_id, params);
-                    $textarea.on('fileUploadRequest', function (evt) {
-                        evt.data.requestData.type = 'ckeditor';
-                        var xhr = evt.data.fileLoader.xhr;
-                        xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-                        xhr.setRequestHeader('X-CSRF-TOKEN', CSRF_TOKEN);
-                        xhr.setRequestHeader('Content-Type', 'application/json');
-                        xhr.send(this.file);
-                        evt.stop();
-                    });
                 });
 
                 // CKEDITOR.on('instanceCreated', function (event) {
@@ -350,13 +320,48 @@ var AUTOMATA_APP = {
                     event.stop();
                 });
 
-                CKEDITOR.on('dialogDefinition', function (event) {
+                CKEDITOR.on('dialogDefinition', function (ev) {
 
-                    var editor = event.editor;
-
-                    aut_filemanager_handleImageUpload(event, BASE_URL, LANG);
-
-                    event.stop();
+                    // show file manager inside modal
+                    // var editor = ev.editor;
+                    // var dialogDefinition = ev.data.definition;
+                    //
+                    // var $modal = $('<div id="file_browser-modal" class="modal fade" tabindex="-1" role="dialog" style="width: 80%; margin: 15px auto;">\n' +
+                    //     '    <div class="modal-admin" role="document">\n' +
+                    //     '        <div class="modal-content">\n' +
+                    //     '            <div class="modal-body p-0">\n' +
+                    //     '                <iframe style="width: 100%; height: 500px; border: 0;" ></iframe>\n' +
+                    //     '            </div>\n' +
+                    //     '        </div>\n' +
+                    //     '    </div>\n' +
+                    //     '</div>');
+                    //
+                    // $('body').append($modal);
+                    //
+                    // // This function will be called when the user will pick a file in file manager
+                    // var cleanUpFuncRef = CKEDITOR.tools.addFunction(function (a)
+                    // {
+                    //     $('#file_browser-modal').modal('hide');
+                    //     CKEDITOR.tools.callFunction(1, a, "");
+                    // });
+                    //
+                    // var tabCount = dialogDefinition.contents.length;
+                    // for (var i = 0; i < tabCount; i++) {
+                    //     var browseButton = dialogDefinition.contents[i].get('browse');
+                    //     if (browseButton !== null) {
+                    //         browseButton.onClick = function (dialog, i)
+                    //         {
+                    //             editor._.filebrowserSe = this;
+                    //             var iframe = $('#file_browser-modal').find('iframe').attr({
+                    //                 src: editor.config.filebrowserBrowseUrl + '&CKEditor=' + editor.name + '&CKEditorFuncNum='+cleanUpFuncRef+'&langCode=' + LANG
+                    //             });
+                    //             $('#file_browser-modal').appendTo('body').modal('show');
+                    //             $('#file_browser-modal').css('z-index',10011);
+                    //         }
+                    //     }
+                    // }
+                    //
+                    // ev.stop();
                 });
             }
             else
@@ -409,16 +414,16 @@ var AUTOMATA_APP = {
         fixCkeditorModal: function () {
 
             //fix ckeditor modal
-            $.fn.modal.Constructor.prototype.enforceFocus = function () {
-                var modal_this = this;
-                $(document).on('focusin.modal', function (e) {
-                    if (modal_this.$element[0] !== e.target && !modal_this.$element.has(e.target).length
-                        && !$(e.target.parentNode).hasClass('cke_dialog_ui_input_select')
-                        && !$(e.target.parentNode).hasClass('cke_dialog_ui_input_text')) {
-                        modal_this.$element.focus();
-                    }
-                });
-            };
+            // $.fn.modal.Constructor.prototype.enforceFocus = function () {
+            //     var modal_this = this;
+            //     $(document).on('focusin.modal', function (e) {
+            //         if (modal_this.$element[0] !== e.target && !modal_this.$element.has(e.target).length
+            //             && !$(e.target.parentNode).hasClass('cke_dialog_ui_input_select')
+            //             && !$(e.target.parentNode).hasClass('cke_dialog_ui_input_text')) {
+            //             modal_this.$element.focus();
+            //         }
+            //     });
+            // };
         }
     },
 
@@ -737,7 +742,7 @@ var onPageLoad = {
         AUTOMATA_APP.ckeditor.fixCkeditorModal,
         function (){AUTOMATA_APP.inputMask.init('[data-masked]')},
     ],
-    loadPjax: function (){
+    loadPjax: function () {
         for(var i = 0; i < this.pjax.length; i++){
             var func = this.pjax[i];
             func();

@@ -14,9 +14,6 @@ return [
     'slider_image'              => 'Slider Image',
     'crop'                      => 'Crop',
     'upload'                    => 'Upload',
-    'file_manager'              => 'File Manager',
-    'open_manager'              => 'Open Manager',
-    'apply_file_to_cropper'     => 'Apply File To Cropper',
     'toggle_options'            => 'Toggle Options',
     'image_name'                => 'Image Name',
     'crop_ratio'                => 'Crop Ratio',
@@ -26,9 +23,11 @@ return [
      * upload file
      */
     'upload_retry_title'        => 'Upload Retry',
+    'image_alt'                 => 'Image Alt',
     'crop_title'                => 'Crop',
     'attribute_title'           => 'Attribute',
     'clear'                     => 'Clear',
+    'save'                      => 'Save',
     'pixel'                     => ' px',
 
     /*

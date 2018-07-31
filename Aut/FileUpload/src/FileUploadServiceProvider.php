@@ -109,6 +109,8 @@ class FileUploadServiceProvider extends ServiceProvider
         ], function () {
 
             Route::post('{model}/{type}/upload','UploadController@upload');
+            Route::post('{model}/{type}/info','UploadController@info');
+            Route::get('{model}/{type}/info','UploadController@getInfo');
             Route::post('{model}/{type}/destroy','UploadController@destroy');
             Route::get('{model}/{type}/upload','UploadController@index');
         });
@@ -213,14 +215,13 @@ class FileUploadServiceProvider extends ServiceProvider
     {
         Form::component('ImageUploadCropper','fileupload::component.form.image_cropper',[
             'width'             => '90%',
-            'single'            => false,
+            'upload'            => false,
             'showName'          => true,
             'showType'          => false,
             'showOption'        => false,
             'showToggleOption'  => false,
             'showPreview'       => false,
             'previewType'       => ['lg' ,'md' ,'sm' ,'xs'],
-            'showManager'       => false,
         ]);
     }
 

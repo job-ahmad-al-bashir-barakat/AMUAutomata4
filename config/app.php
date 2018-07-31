@@ -180,6 +180,7 @@ return [
         Mcamara\LaravelLocalization\LaravelLocalizationServiceProvider::class,
         Yajra\Datatables\DatatablesServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
+        UniSharp\LaravelFilemanager\LaravelFilemanagerServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
         RenatoMarinho\LaravelPageSpeed\ServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
@@ -194,11 +195,11 @@ return [
         App\Library\Url\Providers\RouteUrlsServiceProvider::class,
         Aut\Autocomplete\AutocompleteServiceProvider::class,
         Aut\DataTable\DataTableServiceProvider::class,
-        Aut\FileManager\FileManagerServiceProvider::class,
         Aut\GoogleMap\GoogleMapServiceProvider::class,
         Aut\FileUpload\FileUploadServiceProvider::class,
         Aut\SeoBuilder\Providers\SeoBuilderServiceProvider::class,
         Modules\Utilities\WebModules\Providers\WebModulesServiceProvider::class,
+        \Aut\SeoBuilder\Providers\SeoBuilderServiceProvider::class,
     ],
 
     /*

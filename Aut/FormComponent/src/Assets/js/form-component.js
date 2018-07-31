@@ -148,8 +148,8 @@ var AUT_FORM_COMPONENT = {
                             $[$method]($button.data('action') || AUT_FORM_COMPONENT.validate.changeAction($form), $data, function (res) {
 
                                 // if form was inside modal we will close it after save
-                                if (typeof $form.parents('.modal') != typeof undefined)
-                                    $($form.parents('.modal')).modal('hide');
+                                if (typeof $form.closest('.modal') != typeof undefined && !$form.is('.stop-close-modal'))
+                                    $($form.closest('.modal')).modal('hide');
 
                                 /**
                                  *  Success Button Function Area
@@ -303,17 +303,49 @@ var AUT_FORM_COMPONENT = {
         initAdditionalValidationClass: function () {
 
             jQuery.validator.addClassRules({
-                number: {
+                number:{
                     required: true,
                     number: true
                 },
-                email: {
+                email:{
                     required: true,
                     email: true,
                 },
-                url: {
+                url:{
                     required: true,
                     url: true,
+                },
+                date:{
+                    required: true,
+                    date: true
+                },
+                min:{
+                    required: true,
+                    minlength: 5
+                },
+                max:{
+                    required: true,
+                    maxlength: 5
+                },
+                range:{
+                    required: true,
+                    rangelength: [5, 10]
+                },
+                digits:{
+                    required: true,
+                    digits: true
+                }    ,
+                minVal:{
+                    required: true,
+                    min: 5
+                },
+                maxVal:{
+                    required: true,
+                    max: 100
+                },
+                rangeVal:{
+                    required: true,
+                    range: [5, 100]
                 }
             });
         },

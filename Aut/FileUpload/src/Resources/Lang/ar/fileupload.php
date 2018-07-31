@@ -14,9 +14,6 @@ return [
     'slider_image'              => 'سلايدر',
     'crop'                      => 'قص',
     'upload'                    => 'رفع',
-    'file_manager'              => 'مدير الملفات',
-    'open_manager'              => 'فتح مدير الملفات',
-    'apply_file_to_cropper'     => 'قبول الملف',
     'toggle_options'            => 'التلاعب بالاعدادات',
     'image_name'                => 'اسم الصورة',
     'crop_ratio'                => 'نسبة القص',
@@ -26,9 +23,11 @@ return [
      * upload file
      */
     'upload_retry_title'        => 'إعادة محاولة الرفع',
+    'image_alt'                 => 'النص البديل للصورة',
     'crop_title'                => 'قص',
     'attribute_title'           => 'خصائص',
     'clear'                     => 'إزالة',
+    'save'                      => 'حفظ',
     'pixel'                     => ' بيكسل',
 
     /*

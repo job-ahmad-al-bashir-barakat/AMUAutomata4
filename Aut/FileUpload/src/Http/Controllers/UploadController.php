@@ -118,8 +118,12 @@ class UploadController extends Controller
         $imgRezise = \Image::make($file->getRealPath());
         $imgRezise->resize($getRatio['width'], $getRatio['height'])->save("$path/$hashName");
 
+        // talk with abood
+        // todo: fix issue when image width and height is smaller then ratio image dimention then resize the image will increase the size of image
+        // dd($imgRezise->filesize());
+
         // it just move your image
-        //$file->move($path ,$hashName);
+        // $file->move($path ,$hashName);
 
         $extraParams =  [
             'name'      => $clientOriginalName,
@@ -127,7 +131,7 @@ class UploadController extends Controller
             'ext'       => $file->getClientOriginalExtension(),
             'width'     => $getRatio['width'],
             'height'    => $getRatio['height'],
-            'size'      => $file->getClientSize(),
+            'size'      => $imgRezise->filesize(), // $file->getClientSize(),
         ];
 
         // save file inside file table
@@ -252,5 +256,19 @@ class UploadController extends Controller
     protected function destroyUploadImageDb($id) {
 
         Image::destroy($id);
+    }
+
+    function info(Request $request ,$model ,$type)  {
+
+        $image = Image::findOrFail($request->input('image_id'));
+
+        $image->update($request->input());
+    }
+
+    function getInfo() {
+
+        $image = Image::where('id','=',request()->input('image_id'))->allLangs()->first();
+
+        return response()->json(['info' => $image->lang_alt->pluck('text','lang_code')]);
     }
 }

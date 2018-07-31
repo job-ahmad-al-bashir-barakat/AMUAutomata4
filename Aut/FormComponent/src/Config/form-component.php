@@ -2,5 +2,5 @@
 
 return [
 
-    'formType'             => 'default',
+    'formType'  => 'default',
 ];

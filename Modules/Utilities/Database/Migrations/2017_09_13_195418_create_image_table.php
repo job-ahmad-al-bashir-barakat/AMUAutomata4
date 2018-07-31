@@ -20,7 +20,7 @@ class CreateImageTable extends Migration
             $table->string('ext');
             $table->string('width');
             $table->string('height');
-            $table->float('size')->unsigned();
+            $table->float('size',15,3)->unsigned();
             $table->timestamps();
             $table->softDeletes();
         });

@@ -77,21 +77,23 @@ class Partner extends \Eloquent
 
     public function getLargeImagePathAttribute()
     {
-        if ($this->image && $this->image_large->first()) {
+        if ($this->image->count()) {
             $imageName = $this->image_large->first()->hash_name ?: '';
         } else {
             $imageName = '';
         }
+
         return self::LARGE_IMAGE_PATH . $imageName;
     }
 
     public function getSmallImagePathAttribute()
     {
-        if ($this->image && $this->image_small->first()) {
+        if ($this->image->count()) {
             $imageName = $this->image_small->first()->hash_name ?: '';
         } else {
             $imageName = '';
         }
+
         return self::SMALL_IMAGE_PATH . $imageName;
     }
 }

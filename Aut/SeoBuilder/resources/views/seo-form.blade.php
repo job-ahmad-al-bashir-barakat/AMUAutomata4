@@ -66,6 +66,8 @@
     'modalTitle' => trans('utilities::app.upload_graph_image')
 ] ,'', false, '.image', ['appendLocation' => '#images', 'appendName' => 'graph_image_id']) }}
 
+{{ FileUpload::ImageUploadCropper('90%' ,false ,true,false ,false ,false ,true) }}
+
 <script>
     $(function () {
         $(document).on('change', '[select-filter-with]', function () {
@@ -92,5 +94,4 @@
         AUT_UPLOAD.fileUpload.load(inputFile);
         $('#graph-image-upload').modal('show');
     }
-
 </script>

@@ -196,11 +196,46 @@ mix.scripts(js.concat([
     'Aut/FormComponent/src/Assets/plugin/jquery-validation/dist/localization/messages_ar.js'
 ]), 'public/js/admin-all-rtl.js').version();
 
+mix.scripts([
+    'Aut/DataTable/src/Assets/plugin/datatable/media/js/jquery.dataTables.js',
+    'Aut/DataTable/src/Assets/plugin/datatable/media/js/dataTables.bootstrap.js',
+    'Aut/DataTable/src/Assets/plugin/datatable/extensions/Buttons/js/dataTables.buttons.js',
+    'Aut/DataTable/src/Assets/plugin/datatable/extensions/Buttons/js/buttons.bootstrap.js',
+    'Aut/DataTable/src/Assets/plugin/datatable/extensions/Buttons/js/buttons.colVis.js',
+    'Aut/DataTable/src/Assets/plugin/datatable/extensions/Responsive/js/dataTables.responsive.js',
+    'Aut/DataTable/src/Assets/plugin/datatable/extensions/Responsive/js/responsive.bootstrap.js',
+    'Aut/DataTable/src/Assets/plugin/datatable/extensions/FixedColumns/js/dataTables.fixedColumns.js',
+    'Modules/Admin/Assets/vendor/sweetalert/dist/sweetalert2.min.js',
+    'node_modules/lodash/lodash.js',
+    'node_modules/jspath/lib/jspath.js',
+    'Aut/DataTable/src/Assets/js/datatable.js',
+], 'public/datatable/datatable.js').version();
+
+mix.styles([
+    'Modules/Admin/Assets/vendor/sweetalert/dist/sweetalert2.min.css',
+    'Aut/DataTable/src/Assets/plugin/datatable/media/css/dataTables.bootstrap.css',
+    'Aut/DataTable/src/Assets/plugin/datatable/extensions/FixedColumns/css/fixedColumns.bootstrap.css',
+    'Aut/DataTable/src/Assets/plugin/datatable/extensions/Responsive/css/responsive.bootstrap.css',
+    'Aut/DataTable/src/Assets/plugin/datatable/extensions/Buttons/css/buttons.bootstrap.css',
+    'Aut/DataTable/src/Assets/css/ltr/datatables-custom-ltr.css',
+    'Aut/DataTable/src/Assets/css/shared/datatables-custom.css',
+], 'public/datatable/datatable-ltr.css');
+
+mix.styles([
+    'Modules/Admin/Assets/vendor/sweetalert/dist/sweetalert2.min.css',
+    'Aut/DataTable/src/Assets/plugin/datatable/media/css/dataTables.bootstrap.css',
+    'Aut/DataTable/src/Assets/plugin/datatable/extensions/FixedColumns/css/fixedColumns.bootstrap.css',
+    'Aut/DataTable/src/Assets/plugin/datatable/extensions/Responsive/css/responsive.bootstrap.css',
+    'Aut/DataTable/src/Assets/plugin/datatable/extensions/Buttons/css/buttons.bootstrap.css',
+    'Aut/DataTable/src/Assets/css/rtl/datatables-custom-rtl.css',
+    'Aut/DataTable/src/Assets/css/shared/datatables-custom.css',
+], 'public/datatable/datatable-rtl.css');
+
 /**
  * control copy font,image
  */
+mix.copy('Modules/Admin/Assets/vendor/laravel-filemanager', 'public/vendor/laravel-filemanager' ,false);
 mix.copy('Modules/Admin/Assets/vendor/ckeditor', 'public/ckeditor' ,false);
-mix.copy('Aut/FileManager/src/Assets', 'public/filemanager' ,false);
 mix.copy('Modules/Admin/Assets/vendor/app/css/theme-*.css', 'public/css');
 
 mix.copy('Aut/GoogleMap/src/Assets/plugin/jQuery-gMap/marker_red.png', 'public/images' ,false);
@@ -210,9 +245,10 @@ mix.copy('Modules/Admin/Assets/vendor/app/i18n', 'public/i18n');
 mix.copy('Modules/Admin/Assets/vendor/img', 'public/img' ,false);
 mix.copy('Aut/FileUpload/src/Assets/plugin/bootstrap-fileinput/img', 'public/img' ,false);
 
-mix.copy('Modules/Admin/Assets/vendor/simple-line-icons/fonts', 'public/fonts');
 mix.copy('Modules/Admin/Assets/vendor/fontawesome/fonts', 'public/fonts');
+mix.copy('Modules/Admin/Assets/vendor/simple-line-icons/fonts', 'public/fonts');
 mix.copy('resources/assets/myfont/font-jozoor/fonts', 'public/css/fonts' ,false);
+
 
 
 /**

@@ -186,7 +186,9 @@ var AUT_UPLOAD = {
 
                     if(cropper)
                         cropperTemplete = '<button type="button" class="btn-crop-image btn btn-kv btn-default btn-outline-secondary" title="' + cropTitle + '"><i class="fa fa-crop"></i></button>';
-                    infoTemplete = '<button type="button" class="btn-attr-image btn btn-kv btn-default btn-outline-secondary" title="' + attributeTitle + '" {dataKey}><i class="fa fa-question-circle"></i></button>';
+                    infoTemplete = function (dataKey) {
+                        return '<button type="button" class="btn-attr-image btn btn-kv btn-default btn-outline-secondary" title="' + attributeTitle + '" ' + dataKey + '><i class="fa fa-question-circle"></i></button>';
+                    };
 
                     var params = {
                         rtl: DIR == 'rtl' ? true : false,
@@ -232,7 +234,7 @@ var AUT_UPLOAD = {
                         uploadRetryTitle: uploadRetryTitle,
                         previewThumbTags : {
                             '{cropper}'  : cropperTemplete || '',
-                            '{info}'     : infoTemplete,
+                            '{info}'     : '',
                         },
                         initialPreviewShowDelete: true,
                         initialPreview: [],
@@ -327,9 +329,9 @@ var AUT_UPLOAD = {
                         });
 
                         params.initialPreviewThumbTags.push({
-                            '{cropper}': '',
-                            '{info}' : infoTemplete,
-                            '{caption}': $params.caption,
+                            '{cropper}' : '',
+                            '{info}'    : infoTemplete('data-key=' + $params.key) || '',
+                            '{caption}' : $params.caption,
                         });
                     };
 
@@ -595,9 +597,48 @@ var AUT_UPLOAD = {
                         .on('filecleared', function(event) { })
                         .on('change', function(event) { });*/
 
-                        $this.closest('.file-input').on('click' ,'.btn-attr-image' ,function () {
-                            //info button
+                        $this.closest('.file-input').off('click','.btn-attr-image').on('click' ,'.btn-attr-image' ,function () {
+
+                            var $this = $(this);
+
+                            $this.popover({
+                                animation: true,
+                                html: true,
+                                content: $imageCont.find('.popover-alt-form').html(),
+                                delay: { "show": 100, "hide": 100 },
+                                placement: 'top',
+                                trigger: 'manual',
+                                template: '<div class="popover" style="border:0;" role="tooltip"><div class="popover-content p-0"></div></div>',
+                            });
+
+                            $this.off('shown.bs.popover').on('shown.bs.popover', function () {
+
+                                var $popover = $('.popover');
+                                // set data with hidden
+                                $popover.find('#image_id').val($this.attr('data-key'));
+                                // get data if exists
+                                $.get($popover.find('form').data('get-data'),{ image_id: $this.attr('data-key') },function (res) {
+                                    $popover.find('form [data-json]').map(function (i,input) {
+                                        var input = $(input);
+                                        input.val(res['info'][input.data('json')]);
+                                    });
+                                    $popover.find('.whirl').removeClass('whirl');
+                                });
+                                // init form
+                                if(AUT_FORM_COMPONENT.validate)
+                                    AUT_FORM_COMPONENT.validate.init('.ajaxCont');
+                            });
+
+                            $this.popover('toggle');
                         });
+
+                        $('body')
+                            .off('click.fileuploade_popover_attr_close','.modal')
+                            .on('click.fileuploade_popover_attr_close','.modal', function(e){
+
+                                if(!$(e.target).closest('.popover').length)
+                                    $('.popover').popover('hide');
+                            });
 
                         if(cropper) {
 
@@ -728,15 +769,15 @@ var AUT_UPLOAD = {
 
             if(name) {
                 $(param.inputName).val(name.replaceAll(/\..+/,''));
-                $(param.inputName).attr('data-ext' ,_.head(name.match(/\..+/)))
+                $(param.inputName).attr('data-real-ext' ,(_.head(name.match(/\..+/))).replace(/./,''));
             } else {
                 $(param.inputName).val('');
-                $(param.inputName).attr('data-ext' ,'');
+                $(param.inputName).attr('data-real-ext','');
             }
 
-            if (fileType || param.imageManager) {
+            if (fileType) {
 
-                AUT_UPLOAD.CROPPER.blobURL = param.imageManager || URL.createObjectURL(param.file);
+                AUT_UPLOAD.CROPPER.blobURL = URL.createObjectURL(param.file);
 
                 var image = $(param.image);
 
@@ -770,64 +811,84 @@ var AUT_UPLOAD = {
 
             $(selector).each(function() {
 
-                var $this       = $(this),
-                    $image      = $this.find('.img-container > img'),
-                    $inputImage = $this.find('#inputImage'),
-                    $inputName  = $this.find('#ImageName'),
-                    URL         = window.URL || window.webkitURL,
-                    options = {
-                        // data: {
-                        //   x: 420,
-                        //   y: 60,
-                        //   width: 640,
-                        //   height: 360
-                        // },
-                        // strict: false,
-                        // responsive: false,
-                        // checkImageOrigin: false
+                var $this           = $(this),
+                    $image          = $this.find('.img-container > img'),
+                    $inputImage     = $this.find('#inputImage'),
+                    $inputName      = $this.find('#ImageName'),
+                    URL             = window.URL || window.webkitURL,
+                    imageDimintion  = $image[0].width * $image[0].height,
+                    rationDimintion = $this.data('width') * $this.data('height'),
 
-                        // modal: false,
-                        // guides: false,
-                        // highlight: false,
-                        // background: false,
+                options = {
+                    // data: {
+                    //   x: 420,
+                    //   y: 60,
+                    //   width: 640,
+                    //   height: 360
+                    // },
+                    // strict: false,
+                    // responsive: false,
+                    // checkImageOrigin: false,
 
-                        // autoCrop: false,
-                        // autoCropArea: 0.5,
-                        // dragCrop: false,
-                        // movable: false,
-                        // rotatable: false,
-                        // zoomable: false,
-                        // touchDragZoom: false,
-                        // mouseWheelZoom: false,
-                        // cropBoxMovable: false,
-                        // cropBoxResizable: false,
-                        // doubleClickToggle: false,
+                    // modal: false,
+                    // guides: false,
+                    // highlight: false,
+                    // background: false,
 
-                        // minCanvasWidth: 320,
-                        // minCanvasHeight: 180,
-                        // minCropBoxWidth: 160,
-                        // minCropBoxHeight: 90,
-                        // minContainerWidth: 320,
-                        // minContainerHeight: 180,
+                    // autoCrop: false,
+                    // autoCropArea: 0.5,
+                    // dragCrop: false,
+                    // rotatable: false,
+                    // zoomable: false,
+                    // touchDragZoom: false,
+                    // mouseWheelZoom: false,
+                    // cropBoxResizable: false,
+                    // doubleClickToggle: false,
 
-                        // build: null,
-                        // built: null,
-                        // dragstart: null,
-                        // dragmove: null,
-                        // dragend: null,
-                        // zoomin: null,
-                        // zoomout: null,
+                    // minCanvasWidth: 320,
+                    // minCanvasHeight: 180,
+                    // minCropBoxWidth: 160,
+                    // minCropBoxHeight: 90,
+                    // minContainerWidth: 320,
+                    // minContainerHeight: 180,
 
-                        aspectRatio: 16 / 9,
-                        preview: '.img-preview',
-                        crop: function(data) {
-                            $this.find('#dataX').val(Math.round(data.x));
-                            $this.find('#dataY').val(Math.round(data.y));
-                            $this.find('#dataHeight').val(Math.round(data.height));
-                            $this.find('#dataWidth').val(Math.round(data.width));
-                            $this.find('#dataRotate').val(Math.round(data.rotate));
-                        }
-                    };
+                    // build: null,
+                    // built: null,
+                    // dragstart: null,
+                    // dragmove: null,
+                    // dragend: null,
+                    // zoomin: null,
+                    // zoomout: null,
+
+                    // minWidth: 256,
+                    // minHeight: 256,
+                    // maxWidth: 4096,
+                    // maxHeight: 4096,
+                    // imageSmoothingEnabled: true,
+                    // imageSmoothingQuality: 'high',
+
+                    width: rationDimintion < imageDimintion ? $this.data('width') : $image[0].width,
+                    height: rationDimintion < imageDimintion ? $this.data('height') : $image[0].height,
+                    fillColor: 'transparent',
+                    movable: true,
+                    cropBoxMovable: true,
+                    dragMode: 'move',
+                    viewMode: 2,
+                    aspectRatio: 16 / 9,
+                    preview: '.img-preview',
+                    crop: function(data) {
+                        $this.find('#dataX').val(Math.round(data.x));
+                        $this.find('#dataY').val(Math.round(data.y));
+                        $this.find('#dataHeight').val(Math.round(data.height));
+                        $this.find('#dataWidth').val(Math.round(data.width));
+                        $this.find('#dataRotate').val(Math.round(data.rotate));
+                    }
+                };
+
+                // console.log(rationDimintion < imageDimintion ? $this.data('width') : $image[0].width);
+                // console.log(rationDimintion < imageDimintion ? $this.data('height') : $image[0].height);
+                // console.log('rationDimintion :',$this.data('width'),$this.data('height'));
+                // console.log('imageDimintion :',$image[0].width,$image[0].height);
 
                 $image.on({
                     'build.cropper': function (e) {
@@ -856,6 +917,8 @@ var AUT_UPLOAD = {
                     }
 
                 }).cropper(options);
+
+                window.URL.revokeObjectURL(AUT_UPLOAD.CROPPER.blobURL);
 
                 if(fileUpload) {
 
@@ -917,7 +980,8 @@ var AUT_UPLOAD = {
 
                     if($_this.data('method') === 'setRatio') {
 
-                        AUT_UPLOAD.CROPPER.ratio($image ,$this.find('#dataWidth').val() ,$this.find('#dataHeight').val())
+                        // AUT_UPLOAD.CROPPER.ratio($image ,$this.find('#dataWidth').val() ,$this.find('#dataHeight').val())
+                        AUT_UPLOAD.CROPPER.ratio($image ,$this.data('width') ,$this.data('height'))
 
                         return;
                     }
@@ -955,30 +1019,26 @@ var AUT_UPLOAD = {
                             }
                         }
 
-                        result = $image.cropper(data.method, $.extend(data.option, {
-                            width: $image[0].width, // $this.data('width'),
-                            height: $image[0].height, // $this.data('height'),
-                            minWidth: 256,
-                            minHeight: 256,
-                            maxWidth: 4096,
-                            maxHeight: 4096,
-                            fillColor: '#fff',
-                            imageSmoothingEnabled: false,
-                            imageSmoothingQuality: 'low'
-                        }));
+                        result = $image.cropper(data.method, data.option);
 
                         if (data.method === 'getCroppedCanvas') {
 
                             if(data.type == 'crop') {
 
-                                var cropper = $this;
+                                var cropper = $this,
+                                    realExt = '';
+
+                                switch ($inputName.attr('data-real-ext'))
+                                {
+                                    case 'png': {realExt = 'png'}; break;
+                                    default: { realExt = 'jpeg' };break;
+                                }
 
                                 result.toBlob(function (blob) {
 
                                     var target    = $(cropper.attr('data-target')),
-                                        name      = $inputName.val() + $inputName.attr('data-ext'),
-                                        real_name = name.split(',_,')[0],
-                                        blob      = blob;
+                                        name      = $inputName.val() + '.' + realExt,
+                                        real_name = name.split(',_,')[0];
 
                                     if(typeof $image.data('ratio') != typeof undefined)
                                         name = [ real_name , $image.data('ratio') ].join(',_,');
@@ -987,7 +1047,7 @@ var AUT_UPLOAD = {
 
                                     target.fileinput('updateStack', cropper.attr('data-fileindex') , blob);
 
-                                    var object = result.toDataURL('image/png');
+                                    var object = result.toDataURL('image/' + realExt,'image/' + realExt, 0.8);
 
                                     target.closest('.file-input').find("[data-fileindex=" + cropper.attr('data-fileindex') + "] img").attr('src' ,object);
 
@@ -997,24 +1057,8 @@ var AUT_UPLOAD = {
 
                                     if(modal.length)
                                         modal.modal('hide');
-                                });
 
-                                return;
-                            }
-
-                            if(data.type == 'applyFilemanager') {
-
-                                AUT_UPLOAD.fileUpload.convertImageToObject($this.find('#inputImageManagerUrl').val() ,function (obj) {
-
-                                    AUT_UPLOAD.CROPPER.placeImage({
-                                        image : $image ,
-                                        inputName : $inputName,
-                                        inputImage : $inputImage,
-                                        file : undefined,
-                                        imageManager : obj.canvasToUrlBlob,
-                                        options : options,
-                                    });
-                                });
+                                },'image/' + realExt, 0.8);
 
                                 return;
                             }
@@ -1171,7 +1215,7 @@ var AUT_UPLOAD = {
         var inputFile = $(ImageModalId).find('.upload-file'),
             datatableRaw = _aut_datatable_getSelectedRowData(datatableId ,$($thisRow).closest('tr'));
 
-        $param = $param ? $param : 'id=' + $($thisRow).data('key');
+        var $param = $param ? $param : 'id=' + $($thisRow).data('key');
 
         inputFile.attr('data-param' ,$param);
 
