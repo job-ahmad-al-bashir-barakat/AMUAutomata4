@@ -199,7 +199,7 @@ return [
         Aut\FileUpload\FileUploadServiceProvider::class,
         Aut\SeoBuilder\Providers\SeoBuilderServiceProvider::class,
         Modules\Utilities\WebModules\Providers\WebModulesServiceProvider::class,
-        \Aut\SeoBuilder\Providers\SeoBuilderServiceProvider::class,
+        Aut\SeoBuilder\Providers\SeoBuilderServiceProvider::class,
     ],
 
     /*

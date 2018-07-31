@@ -22,8 +22,8 @@
 <div class="wrapper">
 
     <div class="preloader animated fadeIn theme-color">
-        <div class="preloader-progress">
-            <div class="preloader-progress-bar"></div>
+        <div class="preloader-progress" style="background-image: url({{ asset("img/preloader/preloader.empty-$dir.png") }});">
+            <div class="preloader-progress-bar" style="background-image: url({{ asset("img/preloader/preloader.full-$dir.png") }});"></div>
         </div>
     </div>
 
