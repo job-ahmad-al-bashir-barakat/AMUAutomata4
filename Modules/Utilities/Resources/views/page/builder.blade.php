@@ -9,7 +9,7 @@
         <div class="row">
             @foreach($pageableTables as $pageableTable)
             <div class="col-md-6">
-                @component('controle.component.panel', [
+                @component('control.component.panel', [
                     'id'    => "panel-pages-{$pageableTable->table_name}",
                     'title' => "{$title}: {$pageableTable->lang_name[$lang]->text}",
                     'active' => false,
@@ -25,7 +25,7 @@
 
 @section('footer')
 
-    @component('controle.component.modal', [
+    @component('control.component.modal', [
         'id'                  => 'sub-pages-modal',
         'title'               => trans('utilities::app.pages'),
         'stopForm'            => true,

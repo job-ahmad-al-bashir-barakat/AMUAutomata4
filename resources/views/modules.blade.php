@@ -8,6 +8,7 @@
     <link href="{{ asset('images/apple-touch-icon-72x72.png') }}" rel="apple-touch-icon" sizes="72x72">
     <link href="{{ asset('images/apple-touch-icon-114x114.png') }}" rel="apple-touch-icon" sizes="114x114">
     <link href="{{ asset('images/apple-touch-icon-144x144.png') }}" rel="apple-touch-icon" sizes="144x144">
+
     {{-- <link href="{{ asset(mix('css/theme-ltr.css')) }}" rel="stylesheet" type="text/css"> --}}
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
     @if($dir == 'rtl')
@@ -31,7 +32,7 @@
     <link href="{{ asset('css/custom-bootstrap-margin-padding.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/responsive.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset(mix('js/revolution-slider/css/revolution-slider.css')) }}" rel="stylesheet" type="text/css">
-    <link href="{{ asset("css/colors/theme-skin-color-set-6-{$dir}.css") }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset("css/colors/theme-skin-color-set-6.css") }}" rel="stylesheet" type="text/css">
     <!-- <link href="css/style.css" rel="stylesheet" type="text/css"> -->
     <link href="{{ asset('theme-custom.css') }}" rel="stylesheet" type="text/css">
 </head>

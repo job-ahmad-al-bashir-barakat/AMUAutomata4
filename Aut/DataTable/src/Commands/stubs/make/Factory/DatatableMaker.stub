@@ -3,11 +3,12 @@
 namespace App\Http\Factory;
 
 use Aut\DataTable\DataTableBuilder;
+use Aut\DataTable\Factories\GlobalFactory;
 use Aut\DataTable\Http\Maker\BaseDataTableMaker;
 
 use DB;
 
-class DatatableMaker
+class DatatableMaker extends GlobalFactory
 {
     // use CustomDatatableMaker;
 

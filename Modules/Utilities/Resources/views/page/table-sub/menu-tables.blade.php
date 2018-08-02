@@ -1,4 +1,4 @@
-@component('controle.component.modal', [
+@component('control.component.modal', [
     'id'                  => 'table-columns-custom',
     'title'               => trans('utilities::app.table_columns'),
     'stopForm'            => true,

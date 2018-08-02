@@ -1,1 +1,1 @@
-@include('controle._header')
+@include('control._header')

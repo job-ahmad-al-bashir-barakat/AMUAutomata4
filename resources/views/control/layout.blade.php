@@ -5,9 +5,9 @@
     @include("$module::layouts._meta")
     <!-- =============== VENDOR STYLES ===============-->
     <link id="maincss" rel="stylesheet" href="{{ asset(mix("css/admin-all-$dir.css")) }}">
-    <link id="autoloaded-stylesheet" rel="stylesheet" href="{{ isset($_COOKIE['controleThemeColorUrl']) ? asset($_COOKIE['controleThemeColorUrl']) : asset('css/theme-a.css') }}">
+    <link id="autoloaded-stylesheet" rel="stylesheet" href="{{ isset($_COOKIE['controlThemeColorUrl']) ? asset($_COOKIE['controlThemeColorUrl']) : asset('css/theme-a.css') }}">
     <link rel="stylesheet" href="{{ asset('admin-custom.css') }}">
-    @include('controle._style')
+    @include('control._style')
     <meta charset="UTF-8">
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -22,15 +22,15 @@
 <div class="wrapper">
 
     <div class="preloader animated fadeIn theme-color">
-        <div class="preloader-progress" style="background-image: url({{ asset("img/preloader/preloader.empty-$dir.png") }});">
-            <div class="preloader-progress-bar" style="background-image: url({{ asset("img/preloader/preloader.full-$dir.png") }});"></div>
+        <div class="preloader-progress" style="background-image: url({{ asset("img/preloader/preloader.empty.png") }});">
+            <div class="preloader-progress-bar" style="background-image: url({{ asset("img/preloader/preloader.full.png") }});" ></div>
         </div>
     </div>
 
     <!-- top navbar-->
     @include("$module::layouts._header")
     <!-- sidebar-->
-    @include("controle._aside_modules")
+    @include("control._aside_modules")
     <!-- offsidebar-->
     @include("$module::layouts._offsidebar")
     <!-- Main section-->
@@ -80,12 +80,16 @@
 
 {{--async defer--}}
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyCC3X-thsM5s1FkNqwFtRKTaa1CMFctf1k&language={{$lang}}&libraries=places"></script>
+<script>
+    var DIR  = "{{ $dir }}";
+</script>
 <script src="{{ asset(mix("js/admin-all-$dir.js")) }}"></script>
 <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
 
 <script src="{{ asset('admin-custom.js') }}"></script>
 
-@include('controle.global-js')
+@include('control.global-js')
+
 <div role="footer">
     @yield('footer')
 </div>

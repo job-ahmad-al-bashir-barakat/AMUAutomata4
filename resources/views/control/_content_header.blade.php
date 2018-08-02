@@ -12,7 +12,7 @@
                             {{--class="ajax langs"--}}
                             {{--data-set-lang="{{ $lang['lang_code'] }}"--}}
                         >
-                            <img src="{{ asset($lang['image_path']) }}" style="margin: 0 3px 3px 3px;">
+                            <img src="@if($lang->image){{ asset($lang['image_path']) }} @else {{ asset("img/flag/{$lang['lang_code']}.gif") }} @endif" style="margin: 0 3px 3px 3px;">
                             {{ $lang['native'] }}
                         </a>
                     </li>

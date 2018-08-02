@@ -1,4 +1,4 @@
-@component('controle.component.modal', [
+@component('control.component.modal', [
     'id'                  => 'office-addresses-custom',
     'title'               => trans('admin::app.addresses'),
     'stopForm'            => true,
@@ -8,7 +8,7 @@
     {!! datatable('contact-addresses' ,'' ,'false') !!}
 @endcomponent
 
-@component('controle.component.modal', [
+@component('control.component.modal', [
     'id'                  => 'office-numbers-custom',
     'title'               => trans('admin::app.numbers'),
     'stopForm'            => true,

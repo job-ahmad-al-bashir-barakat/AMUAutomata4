@@ -9,7 +9,7 @@
 
 {{ FileUpload::ImageUploadCropper('90%' ,false ,true,false ,false ,false ,true) }}
 
-@component('controle.component.modal', [
+@component('control.component.modal', [
     'id'                  => 'prerequisite-custom',
     'title'               => trans('admin::app.prerequisite'),
     'stopForm'            => true,

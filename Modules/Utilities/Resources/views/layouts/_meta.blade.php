@@ -1,1 +1,1 @@
-@include('controle._meta')
+@include('control._meta')

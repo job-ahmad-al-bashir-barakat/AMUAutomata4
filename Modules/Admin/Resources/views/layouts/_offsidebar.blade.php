@@ -1,1 +1,1 @@
-@include('controle._offsidebar')
+@include('control._offsidebar')

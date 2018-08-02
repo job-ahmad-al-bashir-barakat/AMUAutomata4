@@ -177,11 +177,9 @@ var js = [
     'Aut/Autocomplete/src/Assets/js/autocomplete.js',
     'Aut/TreeView/src/Assets/js/tree-view.js',
     'Aut/DataTable/src/Assets/js/datatable.js',
-
-    'Modules/Admin/Assets/vendor/preloader/preloader.js',
-
     // 'public/formBuilder/dist/form-builder.min.js',
     // 'public/formBuilder/dist/form-render.min.js'
+    'Modules/Admin/Assets/vendor/preloader/preloader.js',
     'Modules/Admin/Assets/vendor/app/js/app.js'
 ];
 

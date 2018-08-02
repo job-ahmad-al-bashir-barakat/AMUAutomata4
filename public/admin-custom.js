@@ -160,7 +160,7 @@ var AUTOMATA_APP = {
         }, '.modal');
     },
 
-    changeColorControleTheme: function () {
+    changeColorControlTheme: function () {
 
         // store theme color on click
         $('body').on('click', '[data-load-css]', function () {
@@ -168,17 +168,17 @@ var AUTOMATA_APP = {
             var $this  = $(this),
                 $color = $this.find('.color');
 
-            AUT_HELPER.setCookie('controleThemeColorUrl', $this.data('load-css'));
-            AUT_HELPER.setCookie('controleThemeColorRGB', $color.first().css('background-color').replaceAll(/ /, ''));
-            AUT_HELPER.setCookie('controleThemeColorColorClass', $color.first().attr('class'));
+            AUT_HELPER.setCookie('controlThemeColorUrl', $this.data('load-css'));
+            AUT_HELPER.setCookie('controlThemeColorRGB', $color.first().css('background-color').replaceAll(/ /, ''));
+            AUT_HELPER.setCookie('controlThemeColorColorClass', $color.first().attr('class'));
 
             //change pace loader color
             $('#dynamic-style').remove();
-            $('#globalStyle').after('<style id="dynamic-style"> .pace .pace-progress { background-color: ' + AUT_HELPER.getCookie("controleThemeColorRGB") + '!important; } </style>');
+            $('#globalStyle').after('<style id="dynamic-style"> .pace .pace-progress { background-color: ' + AUT_HELPER.getCookie("controlThemeColorRGB") + '!important; } </style>');
         });
 
         // set theme color on load
-        $("[data-load-css='" + AUT_HELPER.getCookie('controleThemeColorUrl') + "']").click();
+        $("[data-load-css='" + AUT_HELPER.getCookie('controlThemeColorUrl') + "']").click();
     },
 
     initPjax: function (container) {
@@ -704,7 +704,7 @@ var AUTOMATA_APP = {
     },
 
     initTabList: function () {
-        console.log('initTabList');
+
         $(document).on('click', 'a[data-toggle="tab"]', function () {
             var $link = $(this);
             if($link.closest('.list-group').length) {
@@ -731,7 +731,7 @@ var onPageLoad = {
           */
         AUTOMATA_APP.initGlobalJs,
         AUTOMATA_APP.COLLAPSE_PANELS,
-        AUTOMATA_APP.changeColorControleTheme,
+        AUTOMATA_APP.changeColorControlTheme,
         function (){AUTOMATA_APP.initPjax('#pjax-container')},
         AUTOMATA_APP.initModalEvent,
         AUTOMATA_APP.htmlTable.initHtmlTable,

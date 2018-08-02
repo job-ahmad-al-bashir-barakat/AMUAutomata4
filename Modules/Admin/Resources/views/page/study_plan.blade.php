@@ -9,7 +9,7 @@
         <div class="col-lg-12 col-xs-12">
             {!! FormComponent::ajaxContOpen() !!}
                 {!! FormComponent::setAjax(true)->setStopOperationMessage(true)->onSuccess('studyPlanSuccess')->formOpen('form-search','get',RouteUrls::studyPlanCreate(),'form-horizontal') !!}
-                    @component('controle.component.panel' ,[
+                    @component('control.component.panel' ,[
                           'title' => trans('admin::app.study_plan'),
                           'class' => 'footer'
                     ])
