@@ -70,7 +70,7 @@ class SeoBuilder
         $this->seoHelper->twitter()->setSite(setting('website_title')->value);
 
         if ($this->seo && $this->seo->card_image_path) {
-            $this->seoHelper->twitter()->addImage(asset($this->seo->card_image_path));
+            $this->seoHelper->twitter()->addMeta('image', asset($this->seo->card_image_path));
             $this->seoHelper->twitter()->addMeta('image:alt', $this->seo->cardImage->lang_alt[$this->lang]->text);
             $this->seoHelper->twitter()->addMeta('image:width', $this->seo->cardImage->width);
             $this->seoHelper->twitter()->addMeta('image:height', $this->seo->cardImage->height);

@@ -7,7 +7,7 @@
                         <div class="item user-block">
                             <div class="user-block-picture">
                                 <div class="user-block-status">
-                                    <img src="{{ asset(Auth::user()->image_path) }}" alt="@if(Auth::user()->image->lang_alt->count()) {{ Auth::user()->image->lang_alt[App::getLocale()]['text'] }} @else Avatar @endif" width="60" height="60"
+                                    <img src="{{ asset(Auth::user()->image_path) }}" alt="{{ 'Avatar' }}" width="60" height="60"
                                          class="img-thumbnail img-circle">
                                 </div>
                             </div>
