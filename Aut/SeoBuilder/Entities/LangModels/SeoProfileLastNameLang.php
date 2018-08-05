@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Utilities\Entities\LangModels;
+namespace Aut\SeoBuilder\Entities\LangModels;
 
 use Modules\Utilities\Traits\LangInfo;
 use Illuminate\Database\Eloquent\Model;

@@ -8,10 +8,13 @@
                 <div class="col-md-2 bhoechie-tab-menu">
                     <div class="list-group">
                         <a role="tab" data-tab="seo_tab" href="#seo_tab" class="list-group-item text-center active" data-toggle="tab" aria-expanded="true">
-                            <h4 class="fa fa-user fa-2x"></h4><br><span>Seo</span>
+                            <h4 class="fa fa-rss fa-2x"></h4><br><span>Seo</span>
                         </a>
                         <a role="tab" data-tab="graph_tab" href="#graph_tab" class="list-group-item text-center" data-toggle="tab" aria-expanded="false">
-                            <h4 class="fa fa-user fa-2x"></h4><br><span>Graph</span>
+                            <h4 class="fa fa-facebook fa-2x"></h4><br><span>Graph</span>
+                        </a>
+                        <a role="tab" data-tab="card_tab" href="#card_tab" class="list-group-item text-center" data-toggle="tab" aria-expanded="false">
+                            <h4 class="fa fa-twitter fa-2x"></h4><br><span>Card</span>
                         </a>
                     </div>
                 </div>
@@ -26,8 +29,6 @@
                         {!! FormComponent::fill('lang_keyword.{lang}.text')->tagInput()->trans()->langs()->text('Keyword', 'keyword', 'keyword') !!}
                     </div>
                     <div id="graph_tab" data-tab="graph_tab" class="bhoechie-tab-content animated zoomInUp">
-                        {{--{!! FormComponent::fill('lang_graph_title.{lang}.text')->trans()->langs()->text('Title', 'graph_title', 'graph_title') !!}--}}
-
                         <div class="form-group ">
                             <label class="label control-label" for="limit">Graph Image</label>
                             <div class="col-lg-8">
@@ -38,8 +39,6 @@
                                 <div id="error_limit"></div>
                             </div>
                         </div>
-
-                        {!! FormComponent::fill('image.lang_alt.{lang}.text')->trans()->langs()->text('Image Alt', 'alt', 'alt') !!}
                         {!! FormComponent::fill('graph_type')->select('Graph Types', 'graph_type', 'graph_type', $seoBuilder->getGraphTypesTrans(), '', '', [
                             'select-filter-with' => '#graph_attributes_cont',
                             'select-filter-disabled' => true,
@@ -50,6 +49,22 @@
                                     @include('seo_builder::sub.render-inputs', ['inputs' => $seoBuilder->getGraphAttributes($graphType), 'graphType' => $graphType])
                                 </div>
                             @endforeach
+                        </div>
+                    </div>
+                    <div id="card_tab" data-tab="card_tab" class="bhoechie-tab-content animated zoomInUp">
+                        {!! FormComponent::fill('card_type')->select('Card Types', 'card_type', 'card_type', $seoBuilder->getCardTypesTrans(), '', '', [
+                            'select-filter-with' => '#graph_attributes_cont',
+                            'select-filter-disabled' => true,
+                        ]) !!}
+                        <div class="form-group ">
+                            <label class="label control-label" for="limit">Card Image</label>
+                            <div class="col-lg-8">
+                                <i class="fa fa-image hand" style="font-size: 25px" onclick="showFileUploadCardImage(this)"></i>
+                                <div id="card_image" class="hide">
+                                    {!! FormComponent::fill('card_image_id')->hidden('card_image_id', 'card_image_id') !!}
+                                </div>
+                                <div id="error_limit"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -65,6 +80,11 @@
     'modalId'    => 'graph-image-upload',
     'modalTitle' => trans('utilities::app.upload_graph_image')
 ] ,'', false, '.image', ['appendLocation' => '#images', 'appendName' => 'graph_image_id']) }}
+
+{{ FileUpload::ImageUpload('card_image' ,'card_image' ,'' ,'' ,'100', '100' ,[
+    'modalId'    => 'card-image-upload',
+    'modalTitle' => trans('utilities::app.upload_card_image')
+] ,'', false, '.image', ['appendLocation' => '#card_image', 'appendName' => 'card_image_id']) }}
 
 {{ FileUpload::ImageUploadCropper('90%' ,false ,true,false ,false ,false ,true) }}
 
@@ -93,5 +113,11 @@
         var inputFile = $('#graph-image-upload').find('.upload-file');
         AUT_UPLOAD.fileUpload.load(inputFile);
         $('#graph-image-upload').modal('show');
+    }
+
+    function showFileUploadCardImage($this) {
+        var inputFile = $('#card-image-upload').find('.upload-file');
+        AUT_UPLOAD.fileUpload.load(inputFile);
+        $('#card-image-upload').modal('show');
     }
 </script>

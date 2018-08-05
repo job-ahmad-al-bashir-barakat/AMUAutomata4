@@ -5,7 +5,7 @@ return [
         'article' => 'مقالة',
         'profile' => 'ملف اشخاص',
         'book' => 'كتاب',
-        'موسيقا' => [
+        /*'موسيقا' => [
             'music.song' => 'اغنية',
             'music.album' => 'البوم',
             'music.playlist' => 'قائمة اغاني',
@@ -16,14 +16,14 @@ return [
             'video.episode' => 'حلقة',
             'video.tv_show' => 'مسلسل',
             'video.other' => 'اخرى',
-        ],
+        ],*/
     ],
 
     'card_types' => [
-        'summary_large_image' => 'ملخص مع صورة كبيرة',
-        'summary' => 'ملخص',
-        'app' => 'تطبيق',
-        'player' => 'player',
+        'summary_large_image' => 'ملخص مع صورة كبيرة (300*157)',
+        'summary' => 'ملخص (144*144)',
+//        'app' => 'تطبيق',
+//        'player' => 'player',
     ],
 
     'attributes' => [

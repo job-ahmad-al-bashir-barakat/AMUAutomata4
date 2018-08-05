@@ -117,6 +117,14 @@ return [
         'stopRelationSave' => true,
     ],
 
+    'card_image' => [
+        'ratio' => [
+            'summary' => ['width' => '144', 'height' => '144'],
+            'summary_large_image' => ['width' => '300', 'height' => '157'],
+        ],
+        'stopRelationSave' => true,
+    ],
+
     'small_gallery' => [
         'ratio' => [
             'first'  => [ 'width'  => '560', 'height' => '200', ],

@@ -20,10 +20,10 @@ return [
     ],
 
     'card_types' => [
-        'summary_large_image' => 'Summary with large Image',
-        'summary' => 'Summary',
-        'app' => 'App',
-        'player' => 'Player',
+        'summary_large_image' => 'Summary with large Image (300x157)',
+        'summary' => 'Summary (144x144)',
+//        'app' => 'App',
+//        'player' => 'Player',
     ],
 
     'attributes' => [

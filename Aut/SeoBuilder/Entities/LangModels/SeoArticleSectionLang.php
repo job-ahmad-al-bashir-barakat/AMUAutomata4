@@ -1,12 +1,12 @@
 <?php
 
-namespace Modules\Utilities\Entities\LangModels;
+namespace Aut\SeoBuilder\Entities\LangModels;
 
 use Modules\Utilities\Traits\LangInfo;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class SeoTitleLang extends Model
+class SeoArticleSectionLang extends Model
 {
     use SoftDeletes, LangInfo;
 

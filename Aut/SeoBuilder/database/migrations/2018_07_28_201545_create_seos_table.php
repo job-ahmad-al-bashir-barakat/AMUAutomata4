@@ -24,6 +24,7 @@ class CreateSeosTable extends Migration {
 			$table->string('profile_gender', 191)->nullable();
 			$table->string('book_isbn', 191)->nullable();
 			$table->dateTime('book_release_date')->nullable();
+            $table->string('card_type', 191)->nullable();
 			$table->integer('card_image_id')->unsigned()->nullable()->index('card_image');
 			$table->integer('buildable_id')->unsigned()->index('buildable_id');
 			$table->string('buildable_type', 191);

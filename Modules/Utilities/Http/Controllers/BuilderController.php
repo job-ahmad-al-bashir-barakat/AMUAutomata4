@@ -2,8 +2,8 @@
 namespace Modules\Utilities\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Aut\SeoBuilder\Entities\Seo;
 use Illuminate\Routing\Controller;
-use Modules\Utilities\Entities\Seo;
 use Modules\Utilities\Entities\Block;
 use Modules\Utilities\Entities\Table;
 use Modules\Utilities\Entities\Slider;
@@ -87,9 +87,7 @@ class BuilderController extends Controller
         $optionalId = $request->get('optional_id', false);
 
         $morph = Table::whereTableName($tableName)->first()->morph_code;
-        $query = Seo::allLangs()->with(['image' => function ($query){
-            return $query->allLangs();
-        }])->whereBuildableId($pageId)->whereBuildableType($morph);
+        $query = Seo::allLangs()->with(['graphImage', 'cardImage'])->whereBuildableId($pageId)->whereBuildableType($morph);
         if ($optionalId) {
             $query->whereOptionalId($optionalId);
         } else {
@@ -106,16 +104,29 @@ class BuilderController extends Controller
         $buildableType = Table::whereTableName($tableName)->first()->morph_code;
         $buildableId = $request->get('page_id');
 
-        $data = $request->only(['optional_id', 'graph_type']);
+        $data = $request->only([
+            'optional_id',
+            'graph_type',
+            'graph_image_id',
+            'card_image_id',
+            'article_published_time',
+            'article_modified_time',
+            'article_expiration_time',
+            'profile_username',
+            'profile_gender',
+            'book_isbn',
+            'book_release_date',
+            'card_type',
+        ]);
 
         $data['buildable_type'] = $buildableType;
         $data['buildable_id'] = $buildableId;
 
         $seo = (new Seo($data))->save();
-        // for saving alt
+        /*// for saving alt
         if ($seo->image()) {
             $seo->image()->first()->save();
-        }
+        }*/
 
         return $seo;
     }
@@ -130,6 +141,7 @@ class BuilderController extends Controller
             'optional_id',
             'graph_type',
             'graph_image_id',
+            'card_image_id',
             'article_published_time',
             'article_modified_time',
             'article_expiration_time',
@@ -137,6 +149,7 @@ class BuilderController extends Controller
             'profile_gender',
             'book_isbn',
             'book_release_date',
+            'card_type',
         ]);
 
         $data['buildable_type'] = $buildableType;
@@ -144,9 +157,9 @@ class BuilderController extends Controller
 
         $seo->fill($data)->save();
         // for saving alt
-        if ($seo->image()) {
-            $seo->image()->first()->save();
-        }
+        /*if ($seo->graphImage()) {
+            $seo->graphImage()->first()->save();
+        }*/
 
         return $seo->id;
     }

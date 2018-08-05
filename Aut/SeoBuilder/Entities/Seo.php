@@ -1,23 +1,24 @@
 <?php
 
-namespace Modules\Utilities\Entities;
+namespace Aut\SeoBuilder\Entities;
 
-use Modules\Utilities\Entities\LangModels\SeoArticleSectionLang;
-use Modules\Utilities\Entities\LangModels\SeoArticleTagLang;
-use Modules\Utilities\Entities\LangModels\SeoBookTagLang;
-use Modules\Utilities\Entities\LangModels\SeoProfileFirstNameLang;
-use Modules\Utilities\Entities\LangModels\SeoProfileLastNameLang;
-use Modules\Utilities\Traits\MultiLangs;
+use Aut\SeoBuilder\Entities\LangModels\SeoArticleSectionLang;
+use Aut\SeoBuilder\Entities\LangModels\SeoProfileFirstNameLang;
+use Aut\SeoBuilder\Entities\LangModels\SeoProfileLastNameLang;
+use Aut\SeoBuilder\Entities\LangModels\SeoDescriptionLang;
+use Aut\SeoBuilder\Entities\LangModels\SeoArticleTagLang;
+use Aut\SeoBuilder\Entities\LangModels\SeoBookTagLang;
+use Aut\SeoBuilder\Entities\LangModels\SeoKeywordLang;
+use Aut\SeoBuilder\Entities\LangModels\SeoTitleLang;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Modules\Utilities\Entities\LangModels\SeoTitleLang;
-use Modules\Utilities\Entities\LangModels\SeoKeywordLang;
-use Modules\Utilities\Entities\LangModels\SeoDescriptionLang;
+use Modules\Utilities\Traits\MultiLangs;
+use Aut\FileUpload\Entities\Image;
 
 class Seo extends \Eloquent
 {
     use SoftDeletes, MultiLangs;
 
-    const IMAGE_PATH = 'storage/upload/image/graph_images/';
+    const IMAGE_PATH = 'storage/upload/image/';
 
     protected $fillable = [
         'graph_type',
@@ -29,6 +30,7 @@ class Seo extends \Eloquent
         'profile_gender',
         'book_isbn',
         'book_release_date',
+        'card_type',
         'card_image_id',
         'buildable_id',
         'buildable_type',
@@ -44,7 +46,8 @@ class Seo extends \Eloquent
         'lang_article_section',
         'lang_article_tag',
         'lang_book_tag',
-        'image_path',
+        'graph_image_path',
+        'card_image_path',
     ];
 
     public function scopePageSeo($query, $page = false)
@@ -150,18 +153,35 @@ class Seo extends \Eloquent
         return $this->transBookTag->keyBy('lang_code');
     }
 
-    public function image()
+    public function graphImage()
     {
         return $this->belongsTo(Image::class, 'graph_image_id');
     }
 
-    public function getImagePathAttribute()
+    public function cardImage()
     {
-        if ($this->image) {
-            $imageName = $this->image->hash_name ?: '';
+        return $this->belongsTo(Image::class, 'card_image_id');
+    }
+
+    public function getGraphImagePathAttribute()
+    {
+        if ($this->graphImage) {
+            $imageName = $this->graphImage->hash_name ?: '';
         } else {
+            return '';
             $imageName = '';
         }
-        return self::IMAGE_PATH . $imageName;
+        return self::IMAGE_PATH . "graph_images/" . $imageName;
+    }
+
+    public function getCardImagePathAttribute()
+    {
+        if ($this->cardImage) {
+            $imageName = $this->cardImage->hash_name ?: '';
+        } else {
+            return '';
+            $imageName = '';
+        }
+        return self::IMAGE_PATH . "card_images/" . $imageName;
     }
 }

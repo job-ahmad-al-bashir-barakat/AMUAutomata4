@@ -2,7 +2,7 @@
 
 namespace Modules\Utilities\WebModules\Providers;
 
-use Modules\Utilities\Entities\Seo;
+use Aut\SeoBuilder\Entities\Seo;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Modules\Utilities\Entities\SiteMenu;
@@ -73,7 +73,7 @@ class WebModulesServiceProvider extends ServiceProvider
                 //@todo menu must be global var to make on call for it
                 $menu = $this->menu;
                 $modules = BuilderPage::pageModules()->get()->pluck('module');
-                $seo = Seo::with('image')->pageSeo()->first();
+                $seo = Seo::with(['graphImage', 'cardImage'])->pageSeo()->first();
                 return view("modules", compact('menu', 'modules', 'seo'));
             })->name($name);
         }

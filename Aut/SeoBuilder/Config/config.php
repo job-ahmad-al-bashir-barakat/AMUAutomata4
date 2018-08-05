@@ -162,5 +162,15 @@ return [
         'website' => [
 
         ],
+        /*
+         * Cards Attributes
+         */
+        'summary_large_image' => [
+
+        ],
+        'player' => [
+            'player:width' => [],
+            'player:height' => [],
+        ]
     ],
 ];
