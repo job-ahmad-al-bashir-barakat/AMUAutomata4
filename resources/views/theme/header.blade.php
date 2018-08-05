@@ -2,9 +2,8 @@
     <div class="header-top bg-theme-color-2 sm-text-center p-0">
         <div class="container">
             <div class="row">
-                <div class="col-md-4">
+               {{-- <div class="col-md-4">
                     <div class="widget no-border m-0">
-                        {{--
                         <ul class="list-inline font-13 sm-text-center mt-5">
                             <li>
                                 <a class="text-white" href="#">FAQ</a>
@@ -14,11 +13,10 @@
                                 <a class="text-white" href="#">Help Desk</a>
                             </li>
                         </ul>
-                        --}}
                     </div>
-                </div>
-                <div class="col-md-8">
-                    <div class="widget m-0 pull-right sm-pull-none sm-text-center">
+                </div>--}}
+                <div class="col-md-12">
+                  {{--  <div class="widget m-0 pull-right sm-pull-none sm-text-center">
                         <ul class="list-inline pull-right">
                             <li class="mb-0 pb-0">
                                 <div class="top-dropdown-outer pt-5 pb-10">
@@ -36,7 +34,7 @@
                                 </div>
                             </li>
                         </ul>
-                    </div>
+                    </div>--}}
                     <div class="widget no-border m-0 mr-15 pull-right flip sm-pull-none sm-text-center">
                         <ul class="styled-icons icon-circled icon-sm pull-right flip sm-pull-none sm-text-center mt-sm-15">
                             <li><a href="#"><i class="fa fa-facebook text-white"></i></a></li>

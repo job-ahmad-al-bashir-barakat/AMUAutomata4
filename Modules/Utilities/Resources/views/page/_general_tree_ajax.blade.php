@@ -7,7 +7,7 @@
         @foreach($menuItems as $menuItemsIndex => $menuItemsCollection )
 
             @php($title = ($tableItemsDynamic[$menuItemsIndex])->first()->lang_name[App::getLocale()]['text'])
-            @component('controle.component.panel' ,[
+            @component('control.component.panel' ,[
                 'id'        => "menu-$menuItemsIndex",
                 'title'     => $title,
                 'panelType' => 'primary',

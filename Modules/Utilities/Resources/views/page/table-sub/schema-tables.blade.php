@@ -1,4 +1,4 @@
-@component('controle.component.modal', [
+@component('control.component.modal', [
     'id'                  => 'schema-language-table-modal',
     'title'               => trans('utilities::app.language-table'),
     'stopForm'            => true,

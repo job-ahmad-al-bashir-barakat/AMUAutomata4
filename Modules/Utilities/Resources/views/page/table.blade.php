@@ -12,7 +12,7 @@
 
             <div class="col-lg-12">
 
-                @component('controle.component.panel', [
+                @component('control.component.panel', [
                     'id'    => 'panel-pages',
                     'title' => $title,
                     'class' => 'p0'

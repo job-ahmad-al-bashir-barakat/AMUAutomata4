@@ -13,8 +13,9 @@ class GlobalComposer
     {
         $view->with([
             'currentModule' => $this->getCurrentModule(),
-            'dir'    => LaravelLocalization::getCurrentLocaleDirection(),
-            'lang'   => LaravelLocalization::getCurrentLocale(),
+            'dir'           => LaravelLocalization::getCurrentLocaleDirection(),
+            'lang'          => LaravelLocalization::getCurrentLocale(),
+            'user'          => \Auth::user(),
         ]);
     }
 

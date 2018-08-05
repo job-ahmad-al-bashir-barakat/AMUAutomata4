@@ -7,21 +7,20 @@
                         <div class="item user-block">
                             <div class="user-block-picture">
                                 <div class="user-block-status">
-                                    <img src="{{ asset('img/user/02.jpg') }}" alt="Avatar" width="60" height="60"
+                                    <img src="{{ asset(Auth::user()->image_path) }}" alt="@if(Auth::user()->image->lang_alt->count()) {{ Auth::user()->image->lang_alt[App::getLocale()]['text'] }} @else Avatar @endif" width="60" height="60"
                                          class="img-thumbnail img-circle">
-                                    <div class="circle circle-success circle-lg"></div>
                                 </div>
                             </div>
                             <div class="user-block-info">
-                                <span class="user-block-name">Hello, Mike</span>
-                                <span class="user-block-role">Designer</span>
+                                <span class="user-block-name">{{ $user->name }}</span>
+                                <span class="user-block-role">{{ $user->lang_name[App::getLocale()]['text'] }}</span>
                             </div>
                         </div>
                     </div>
                 </li>
-                @include('controle._aside_menu_general')
+                @include('control._aside_menu_general')
                 @stack('_aside_menu')
-                @include('controle._aside_menu_setting')
+                @include('control._aside_menu_setting')
             </ul>
         </nav>
     </div>

@@ -15,7 +15,7 @@
         <div class="col-lg-12 col-xs-12">
             {!! FormComponent::ajaxContOpen() !!}
                 {!! FormComponent::setAjax(true)->formOpen('form-study-plan','post',RouteUrls::studyPlan(),'form-horizontal') !!}
-                    @component('controle.component.panel' ,[
+                    @component('control.component.panel' ,[
                           'title' => trans('admin::app.study_plan'),
                           'class' => 'footer',
                     ])

@@ -41,7 +41,8 @@ class Person extends \Eloquent
                 $contact->socialNetwork()->sync([]);
             }
 
-            $person->contact->delete();
+            if($person->contact)
+                $person->contact->delete();
         });
     }
 

@@ -3,8 +3,9 @@
     {!! FormComponent::setAjax()->getData('get')->formOpen('seo_form', 'post', RouteUrls::builderSeo()) !!}
         {!! FormComponent::modalHeaderOpen('Search Engine Optimization') !!}
         {!! FormComponent::modalHeaderClose() !!}
-        {!! FormComponent::modalBodyOpen() !!}
+        {!! FormComponent::modalBodyOpen('pt-0') !!}
             <div class="row">
+                <div class="col-lg-2 col-md-2 visible-lg visible-md darkness tab-area datatable-sidebar-tab-erea"></div>
                 <div class="col-md-2 bhoechie-tab-menu">
                     <div class="list-group">
                         <a role="tab" data-tab="seo_tab" href="#seo_tab" class="list-group-item text-center active" data-toggle="tab" aria-expanded="true">

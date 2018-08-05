@@ -1,4 +1,4 @@
-@extends('controle._aside')
+@extends('control._aside')
 
 @if(\Module::get('utilities'))
 

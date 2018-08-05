@@ -64,7 +64,7 @@
 </div>
 <!-- =============== VENDOR SCRIPTS ===============-->
 <script src="{{ asset(mix("js/admin-membership-{$dir}.js")) }}"></script>
-@include('controle.global-js')
+@include('control.global-js')
 <!-- =============== APP SCRIPTS ===============-->
 <script src="{{ asset('admin-custom.js') }}"></script>
 </body>
