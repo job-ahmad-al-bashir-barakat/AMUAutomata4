@@ -120,7 +120,7 @@ return [
     'card_image' => [
         'ratio' => [
             'summary' => ['width' => '144', 'height' => '144'],
-            'summary_large_image' => ['width' => '300', 'height' => '157'],
+            'summary_large_image' => ['title' => 'app.summary_large_image', 'width' => '300', 'height' => '157'],
         ],
         'stopRelationSave' => true,
     ],
