@@ -39,6 +39,9 @@
                 </form>
             </div>
         </div>
+        <div class="need-crop hide">
+            <span class="need-crop-label label label-danger" style="position: absolute; top: 5px; left: 5px; padding: 5px;"><i class="fa fa-crop"></i> need crop</span>
+        </div>
         <div class="ratio-cont">
             <span><b>{{ trans('fileupload::fileupload.allowed_ratio') }}</b></span>
             @foreach($cropRatio as $index => $item)
@@ -86,12 +89,13 @@
                data-upload-retry-title="{{ $uploadRetryTitle or trans('fileupload::fileupload.upload_retry_title') }}"
                data-crop-title="{{ $cropTitle or trans('fileupload::fileupload.crop_title') }}"
                data-attribute-title="{{ $attributeTitle or trans('fileupload::fileupload.attribute_title') }}"
+               data-package-append="{{ $packageAppend or true }}"
                data-append-name="{{ $appendName or '' }}"
                data-append-location="{{ $appendLocation or '' }}"
                data-allowed-preview-icons="{{ $allowedPreviewIcons or false }}"
                data-auto-replace="{{ $autoReplace or false }}"
                data-drop-zone-enabled="{{ $dropZoneEnabled or true }}"
-               data-close-modal="{{ $closeModal or false }}"
+               data-close-modal="{{ $closeModal or true }}"
                multiple
         >
     </div>

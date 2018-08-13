@@ -22,6 +22,7 @@
         };
 
     $(document).ready(function () {
+
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': CSRF_TOKEN,

@@ -10,7 +10,7 @@
   "devDependencies": {
     "cross-env": "^3.2.3",
     "laravel-mix": "^0.8.3",
-    "lodash": "^4.17.4"
+    "lodash": "^4.17.10"
   },
   "dependencies": {
     "jquery-validation": "^1.16.0",

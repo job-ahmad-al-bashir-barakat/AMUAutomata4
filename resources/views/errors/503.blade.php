@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html dir="ltr" lang="en">
+<html lang="{{ $lang }}" dir="{{ $dir }}">
+
 <head>
     <!-- Meta Tags -->
     <meta name="viewport" content="width=device-width,initial-scale=1.0"/>

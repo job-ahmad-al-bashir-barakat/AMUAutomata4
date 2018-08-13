@@ -35,7 +35,7 @@ var AUT_FORM_COMPONENT = {
 
         '<div class="form-loader overlay">' +
             '<div class="ball-triangle-path" style="left: 50%; top: 50%;">' +
-                '<div style="background-color: #3e3935;"></div>' +
+                '<div style="background-color: #3e3935; left:0;"></div>' +
                 '<div style="background-color: #3e3935;"></div>' +
                 '<div style="background-color: #3e3935;"></div>' +
             '</div>' +
