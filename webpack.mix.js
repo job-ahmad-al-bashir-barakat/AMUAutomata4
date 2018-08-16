@@ -1,16 +1,5 @@
 const { mix } = require('laravel-mix');
 
-/*
- |--------------------------------------------------------------------------
- | Mix Asset Management
- |--------------------------------------------------------------------------
- |
- | Mix provides a clean, fluent API for defining some Webpack build steps
- | for your Laravel application. By default, we are compiling the Sass
- | file for the application as well as bundling up all the JS files.
- |
- */
-
 /**
  * Control css
  */
@@ -56,7 +45,7 @@ mix.styles([
     'Modules/Admin/Assets/vendor/app/css/app.css',
     'Modules/Admin/Assets/vendor/preloader/preloader.scss'
 
-], 'public/css/admin-all-ltr.css').version();
+], 'public/css/admin-all-ltr.css');
 
 mix.styles([
 
@@ -100,7 +89,7 @@ mix.styles([
     'Modules/Admin/Assets/vendor/app/css/app-rtl.css',
     'Modules/Admin/Assets/vendor/preloader/preloader.scss',
 
-], 'public/css/admin-all-rtl.css').version();
+], 'public/css/admin-all-rtl.css');
 
 /**
  * Control Js
@@ -186,13 +175,13 @@ var js = [
 mix.scripts(js.concat([
     'Aut/FileUpload/src/Assets/plugin/bootstrap-fileinput/js/locales/en.js',
     'Aut/Autocomplete/src/Assets/plugin/select2/js/i18n/en.js',
-]), 'public/js/admin-all-ltr.js').version();
+]), 'public/js/admin-all-ltr.js');
 
 mix.scripts(js.concat([
     'Aut/FileUpload/src/Assets/plugin/bootstrap-fileinput/js/locales/ar.js',
     'Aut/Autocomplete/src/Assets/plugin/select2/js/i18n/ar.js',
     'Aut/FormComponent/src/Assets/plugin/jquery-validation/dist/localization/messages_ar.js'
-]), 'public/js/admin-all-rtl.js').version();
+]), 'public/js/admin-all-rtl.js');
 
 // datatable for others
 // mix.scripts([
@@ -208,7 +197,7 @@ mix.scripts(js.concat([
 //     'node_modules/lodash/lodash.js',
 //     'node_modules/jspath/lib/jspath.js',
 //     'Aut/DataTable/src/Assets/js/datatable.js',
-// ], 'public/datatable/datatable.js').version();
+// ], 'public/datatable/datatable.js');
 // mix.styles([
 //     'Modules/Admin/Assets/vendor/sweetalert/dist/sweetalert2.min.css',
 //     'Aut/DataTable/src/Assets/plugin/datatable/media/css/dataTables.bootstrap.css',
@@ -260,7 +249,7 @@ mix.styles([
     'Modules/Admin/Assets/vendor/loaders.css/loaders.css',
     'Modules/Admin/Assets/vendor/animate.css/animate.min.css',
     'Modules/Admin/Assets/vendor/app/css/app.css',
-], 'public/css/admin-membership-ltr.css').version();
+], 'public/css/admin-membership-ltr.css');
 
 mix.styles([
     'resources/assets/myfont/font-jozoor/jozoor-font.css',
@@ -270,7 +259,7 @@ mix.styles([
     'Modules/Admin/Assets/vendor/loaders.css/loaders.css',
     'Modules/Admin/Assets/vendor/animate.css/animate.min.css',
     'Modules/Admin/Assets/vendor/app/css/app-rtl.css',
-], 'public/css/admin-membership-rtl.css').version();
+], 'public/css/admin-membership-rtl.css');
 
 /**
  * Login js
@@ -285,12 +274,12 @@ var loginJs = [
 
 mix.scripts(loginJs.concat([
     'Aut/FormComponent/src/Assets/plugin/jquery-validation/dist/jquery.validate.js',
-]), 'public/js/admin-membership-ltr.js').version();
+]), 'public/js/admin-membership-ltr.js');
 
 mix.scripts(loginJs.concat([
     'Aut/FormComponent/src/Assets/plugin/jquery-validation/dist/jquery.validate.js',
     'Aut/FormComponent/src/Assets/plugin/jquery-validation/dist/localization/messages_ar.js',
-]), 'public/js/admin-membership-rtl.js').version();
+]), 'public/js/admin-membership-rtl.js');
 
 /**
  * theme css
@@ -312,24 +301,22 @@ mix.styles([
     // CSS | Main style file
     'resources/assets/css/style-main.css',
 
-], 'public/css/theme-ltr.css').version();
+], 'public/css/theme-ltr.css');
 
 mix.styles([
     'resources/assets/js/revolution-slider/css/settings.css',
     'resources/assets/js/revolution-slider/css/layers.css',
     'resources/assets/js/revolution-slider/css/navigation.css',
-], 'public/js/revolution-slider/css/revolution-slider.css').version();
+], 'public/js/revolution-slider/css/revolution-slider.css');
 
 /**
  * theme js
  */
 
 mix.scripts([
-    // 'resources/assets/js/revolution-slider/js/jquery.themepunch.tools.min.js',
-    // 'resources/assets/js/revolution-slider/js/jquery.themepunch.revolution.min.js',
-    'resources/assets/js/revolution-slider/js/source/jquery.themepunch.tools.min.js',
-    'resources/assets/js/revolution-slider/js/source/jquery.themepunch.revolution.js',
-], 'public/js/revolution-slider/js/revolution-slider.js').version();
+    'resources/assets/js/revolution-slider/js/jquery.themepunch.tools.min.js',
+    'resources/assets/js/revolution-slider/js/jquery.themepunch.revolution.min.js',
+], 'public/js/revolution-slider/js/revolution-slider.js');
 
 mix.scripts([
     'resources/assets/js/revolution-slider/js/extensions/revolution.extension.actions.min.js',
@@ -341,12 +328,12 @@ mix.scripts([
     'resources/assets/js/revolution-slider/js/extensions/revolution.extension.parallax.min.js',
     'resources/assets/js/revolution-slider/js/extensions/revolution.extension.slideanims.min.js',
     'resources/assets/js/revolution-slider/js/extensions/revolution.extension.video.min.js',
-], 'public/js/revolution-slider/js/extensions/revolution-slider-extensions.js').version();
+], 'public/js/revolution-slider/js/extensions/revolution-slider-extensions.js');
 
 mix.scripts([
     'resources/assets/js/html5shiv.min.js',
     'resources/assets/js/respond.min.js',
-], 'public/js/ie.js').version();
+], 'public/js/ie.js');
 
 mix.scripts([
     // external javascripts
@@ -359,6 +346,8 @@ mix.scripts([
     'resources/assets/js/jquery-plugin-collection.js',
     // JS | Custom script for all pages
     'resources/assets/js/custom.js',
-], 'public/js/main.js').version();
+], 'public/js/main.js');
 
 mix.copy('resources/assets', 'public' ,false);
+
+mix.version();
