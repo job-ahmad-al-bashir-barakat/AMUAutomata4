@@ -115,6 +115,17 @@ trait Container
     }
 
     /**
+     * @param bool $model
+     * @return $this
+     */
+    function model($model)
+    {
+        $this->property['model'] = $model;
+
+        return $this;
+    }
+
+    /**
      * @param string $id
      * @param string $method
      * @param string $action
@@ -152,15 +163,18 @@ trait Container
             ? array_merge($attr, ['data-take-action' => $this->property['takeAction']])
             : $attr;
 
+        $attr = $this->property['dataEditableTarget']
+            ? array_merge($attr, ['data-editable-target' => $this->property['dataEditableTarget']])
+            : $attr;
+
         $option = array_merge([
             'id'                   => $id,
             'method'               => $method,
             'class'                => $this->property['ajax'] ? "ajax-form $class" : $class,
             'data-method'          => $this->property['dataMethod'],
-            'data-editable-target' => $this->property['dataEditableTarget']
         ],$action, $attr);
 
-        return Form::open($option);
+        return $this->property['model'] ? Form::model($this->property['model'], $option) : Form::open($option);
     }
 
     /**
@@ -169,6 +183,19 @@ trait Container
     function formClose()
     {
         return Form::close();
+    }
+
+    function formGroupOpen($class = '', $attr = '') {
+
+        return removeSpaces(view("form-component::{$this->property['formType']}.form.form-group-open",[
+            'class' => $class,
+            'attr'  => $attr
+        ])->render());
+    }
+
+    function formGroupClose() {
+
+        return removeSpaces(view("form-component::{$this->property['formType']}.form.form-group-close")->render());
     }
 
     /**

@@ -15,7 +15,7 @@
         setTimeout(endCounter, 1000);
     };
 
-    window.onload = function () { console.log('das'); window.appBootstrap(); }
+    window.onload = function () { window.appBootstrap(); }
 
     function startCounter() {
         var remaining = 100 - counter;

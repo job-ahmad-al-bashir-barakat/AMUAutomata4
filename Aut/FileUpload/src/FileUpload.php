@@ -94,6 +94,7 @@ class FileUpload
             'maxImageHeight'        => null,
             'allowedFileExtensions' => 'jpeg,jpg,bmp,png',
             'allowedPreviewIcons'   => false,
+            'packageAppend'         => true,
             'appendLocation'        => '',
             'appendName'            => '',
             'fileuploadedEvent'     => '',

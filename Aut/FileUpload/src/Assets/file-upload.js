@@ -173,15 +173,16 @@ var AUT_UPLOAD = {
                         reloadDatatable             = typeof $this.data('reload-datatable') != undefined ? $this.data('reload-datatable') : true,
                         datatableInitialize         = typeof $this.data('datatable-initialize') != undefined ? $this.data('datatable-initialize') : true,
                         datatableInitializeProperty = $this.data('datatable-initialize-property') || '.image',
+                        packageAppend               = typeof $this.data('package-append') != undefined ? $this.data('package-append') : true,
                         appendLocation              = $this.data('append-location') || '',
                         appendName                  = $this.data('append-name') || '',
                         appendName                  = (appendName || _this.id + '[]'),
-                        allowedPreviewIcons         = $this.data('allowed-preview-icons') || false,
-                        autoReplace                 = $this.data('auto-replace') || false,
-                        allowRatio                  = $this.data('allow-ratio') || false,
+                        allowedPreviewIcons         = typeof $this.data('allowed-preview-icons') != undefined ? $this.data('allowed-preview-icons') : false,
+                        autoReplace                 = typeof $this.data('auto-replace') != undefined ? $this.data('auto-replace') : false,
+                        allowRatio                  = typeof $this.data('allow-ratio') != undefined ? $this.data('allow-ratio') : false,
                         ratio                       = $this.data('ratio') || {},
                         ratioMessage                = $this.data('ratio-message') || '',
-                        closeModal                  = $this.data('close-modal') || false,
+                        closeModal                  = typeof $this.data('close-modal') != undefined ? $this.data('close-modal') : true,
                         dropZoneEnabled             = typeof $this.data('drop-zone-enabled') != undefined ? $this.data('drop-zone-enabled') : true;
 
                     if(cropper)
@@ -196,7 +197,7 @@ var AUT_UPLOAD = {
                         theme : "fa",
                         uploadUrl: uploadUrl,
                         deleteUrl: deleteUrl,
-                        uploadExtraData: {},
+                        uploadExtraData: {'upload' : true},
                         deleteExtraData: {},
                         validateInitialCount: true,
                         dropZoneEnabled: dropZoneEnabled,
@@ -222,7 +223,7 @@ var AUT_UPLOAD = {
                         layoutTemplates : {
                             actions: '<div class="file-actions">' +
                                      '    <div class="file-footer-buttons">' +
-                                     '        {upload} {download} {delete} {cropper} {info} {zoom} {other}' +
+                                     '        <!--{upload}--> {download} {delete} {cropper} {info} {zoom} {other}' +
                                      '    </div>' +
                                      '</div>',
                         },
@@ -342,6 +343,9 @@ var AUT_UPLOAD = {
                      */
                     var appendHiddenFunc = function (name ,value ,status) {
 
+                        if(!packageAppend)
+                            return;
+
                         var _appendLocation = $(appendLocation),
                             inputFile = $this.closest('.file-input'),
                             selector  = function (name ,extraClass) {
@@ -374,6 +378,9 @@ var AUT_UPLOAD = {
 
                     var deleteHiddenFunc = function (name ,value ,status) {
 
+                        if(!packageAppend)
+                            return;
+
                         var _appendLocation = $(appendLocation),
                             selector       = 'input[type=hidden][name="' + name + '"]';
 
@@ -390,6 +397,9 @@ var AUT_UPLOAD = {
                     };
 
                     var changeInputFileData = function (response) {
+
+                        if(!packageAppend)
+                            return;
 
                         var sync = $.Deferred();
                         var fileInputData = [];
@@ -453,7 +463,11 @@ var AUT_UPLOAD = {
                                 });
 
                                 if(invalid)
-                                    invalidRatio[previewId] = ratioMessage.replace('{name}' ,file.name);
+                                {
+                                    $this.fileinput('updateStack', index, $.extend(file,{'need_crop': true}));
+                                    $this.closest('.file-input').find('#' + previewId).prepend($imageCont.find('.need-crop').html());
+                                    invalidRatio.push({ previewId: previewId, message: ratioMessage.replace('{name}' ,file.name) });
+                                }
                             };
                             img.src = blob;
 
@@ -467,6 +481,11 @@ var AUT_UPLOAD = {
                                         //push replaced item to array
                                         replacedFile.push($.extend(v.extra ,{ key : v.key }));
                                     });
+
+                            // need crop hide/show upload btn
+                            var fileCount = JSPath.apply('.need_crop',$this.fileinput('getFileStack')).length;
+                            if(fileCount > 0)
+                                $this.closest('.file-input').find('.fileinput-upload').attr('disabled',true);
 
                         }).off('fileclear').on('fileclear', function(event) {
 
@@ -490,7 +509,7 @@ var AUT_UPLOAD = {
                             /*
                              * add hidden ids for exists images
                              */
-                            changeInputFileData(response);
+                            // changeInputFileData(response);
 
                             if(autoReplace)
                                 if($this.fileinput('getFilesCount') > params.maxFileCount)
@@ -516,16 +535,14 @@ var AUT_UPLOAD = {
                             if ((typeof $this.data('fileuploaded') != typeof undefined) && $this.data('fileuploaded'))
                                 window[$this.data('fileuploaded')](event, data, previewId, index);
 
-                            if(closeModal)
-                                $($this.closest('.modal')).modal('hide');
-
                             // hide modal after upload success
-                            if($(target).hasClass('modal'))
+                            if($(target).hasClass('modal') && closeModal)
                                 $(target).modal('hide');
 
                         }).off('fileuploaderror').on('fileuploaderror', function(event, data, msg) {
 
                             if(data.jqXHR.responseJSON) {
+                                closeModal  = false;
                                 var errorUl = $('.file-error-message').find('ul');
                                 errorUl.html('');
                                 _.each(data.jqXHR.responseJSON ,function (v ,i) {
@@ -537,6 +554,7 @@ var AUT_UPLOAD = {
                         }).off('filebatchuploaderror').on('filebatchuploaderror', function(event, data, msg) {
 
                             if(data.jqXHR.responseJSON) {
+                                closeModal  = false;
                                 var errorUl = $('.file-error-message').find('ul');
                                 errorUl.html('');
                                 _.each(data.jqXHR.responseJSON ,function (v ,i) {
@@ -551,7 +569,7 @@ var AUT_UPLOAD = {
 
                             deleteHiddenFunc(appendName ,key);
 
-                            changeInputFileData();
+                            // changeInputFileData();
 
                             // reload datatable after upload success
                             if(datatableInitialize == true && data && reloadDatatable)
@@ -562,11 +580,12 @@ var AUT_UPLOAD = {
 
                         }).off('filepreupload').on('filepreupload', function(event, data, previewId, index) {
 
-                            if(invalidRatio[previewId] && !data.files[0].crop) {
-
+                            console.log(data.files);
+                            var message = JSPath.apply('.{.previewId == "' + previewId + '"}',invalidRatio)[0].message;
+                            if (message && !data.files[index].crop) {
                                 return {
-                                    message: invalidRatio[previewId],
-                                    data: {data: data}
+                                    message: message,
+                                    data: {data: data.files[index]}
                                 };
                             }
 
@@ -575,9 +594,10 @@ var AUT_UPLOAD = {
                             // params.abortData will contain the additional abort data passed
                             // params.abortMessage will contain the aborted error message passed
 
-                            if(params.files[0].crop) {
-                                $this.fileinput('upload');
-                            }
+                            // if(params.files[0].crop) {
+                            //     $this.fileinput('upload');
+                            // }
+
                         }).off('filezoomshow').on('filezoomshow', function(event, params) {
 
                             $(params.modal).find('.kv-zoom-title').html($('#'+params.previewId).find('.file-footer-caption').text());
@@ -644,7 +664,8 @@ var AUT_UPLOAD = {
 
                             $this.closest('.file-input').on('click' ,'.btn-crop-image', function() {
 
-                                var $cropperModal         = $(cropperModal),
+                                var $cropImageBtn         = $(this),
+                                    $cropperModal         = $(cropperModal),
                                     $cropRaio             = $cropperModal.find('.crop-ratio'),
                                     $cropRaioButtons      = $cropperModal.find('.ratio-button'),
                                     $cropRaioHiddenButton = $cropperModal.find('.crop-ratio-button-hidden');
@@ -672,7 +693,7 @@ var AUT_UPLOAD = {
 
                                 var id = '#' + _this.id + AUT_UPLOAD.fileUpload.selector,
                                     files = $(id).fileinput('getFileStack'),
-                                    file = files[$fileindex];
+                                    file  = files[$fileindex];
 
                                 $(cropperModal).off('shown.bs.modal').on('shown.bs.modal', function (event) {
 
@@ -687,7 +708,7 @@ var AUT_UPLOAD = {
                                         .attr('data-minHeight' ,minImageHeight)
                                         .attr('data-minWidth'  ,minImageWidth);
 
-                                    AUT_UPLOAD.CROPPER.init(cropperSelector ,file);
+                                    AUT_UPLOAD.CROPPER.init(cropperSelector ,file ,$cropImageBtn);
                                 });
 
                                 $(cropperModal).modal('show');
@@ -805,7 +826,7 @@ var AUT_UPLOAD = {
             $image.cropper('setData',{width : $width , height : $height });
         },
 
-        init: function (selector ,fileUpload) {
+        init: function (selector ,fileUpload ,cropImageBtn) {
 
             if (!$.fn.cropper) return;
 
@@ -981,7 +1002,7 @@ var AUT_UPLOAD = {
                     if($_this.data('method') === 'setRatio') {
 
                         // AUT_UPLOAD.CROPPER.ratio($image ,$this.find('#dataWidth').val() ,$this.find('#dataHeight').val())
-                        AUT_UPLOAD.CROPPER.ratio($image ,$this.data('width') ,$this.data('height'))
+                        AUT_UPLOAD.CROPPER.ratio($image ,$this.data('width') ,$this.data('height'));
 
                         return;
                     }
@@ -995,7 +1016,7 @@ var AUT_UPLOAD = {
                         AUT_UPLOAD.CROPPER.ratio($image ,width ,height);
 
                         $_this.siblings('button').removeAttr('style');
-                        $_this.attr('style' ,'background-color :#27c24c;')
+                        $_this.attr('style' ,'background-color :#27c24c;');
 
                         $image.data('ratio-width' ,width);
                         $image.data('ratio-height' ,height);
@@ -1057,6 +1078,13 @@ var AUT_UPLOAD = {
 
                                     if(modal.length)
                                         modal.modal('hide');
+
+                                    // need crop hide/show upload btn
+                                    // enabled upload button if cropped image = 0
+                                    if(JSPath.apply('.need_crop',target.fileinput('getFileStack')).length == 0)
+                                        target.closest('.file-input').find('.fileinput-upload').attr('disabled',false);
+
+                                    cropImageBtn.closest('.file-preview-frame').find('.need-crop-label').remove();
 
                                 },'image/' + realExt, 0.8);
 

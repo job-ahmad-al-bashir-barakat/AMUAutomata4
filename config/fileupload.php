@@ -54,7 +54,7 @@ return [
     ],
 
     'lab' => [
-        'model'  => \Modules\Admin\Entities\Lab::class,
+        'model' => \Modules\Admin\Entities\Lab::class,
         'ratio' => [
             'first_ratio'  => [ 'width'  => '285', 'height' => '215', ],
             //'second_ratio' => [ 'width'  => '480', 'height' => '480', ],
@@ -120,7 +120,7 @@ return [
     'card_image' => [
         'ratio' => [
             'summary' => ['width' => '144', 'height' => '144'],
-            'summary_large_image' => ['width' => '300', 'height' => '157'],
+            'summary_large_image' => ['title' => 'app.summary_large_image', 'width' => '300', 'height' => '157'],
         ],
         'stopRelationSave' => true,
     ],

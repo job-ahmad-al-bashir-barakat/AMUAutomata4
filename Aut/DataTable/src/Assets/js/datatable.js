@@ -403,7 +403,7 @@ var AUT_DATATABLE = {
     supportPanelCollapse: function (aut_datatable) {
 
         // for panel Recalculate the widths used by responsive after a change in the display
-        $('body').on('shown.bs.collapse.datatable','.panel-wrapper.collapse', function(){
+        $('body').on('shown.bs.collapse.datatable','.panel,.panel-wrapper.collapse', function(){
 
             var $table = _aut_datatable_getTableObjectApi($(this).find('.dataTable'));
             $table.columns.adjust().responsive.recalc();

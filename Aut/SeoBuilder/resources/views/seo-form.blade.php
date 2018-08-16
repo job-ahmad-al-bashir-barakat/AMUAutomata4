@@ -80,12 +80,12 @@
 {{ FileUpload::ImageUpload('graph_image' ,'graph_image' ,'' ,'' ,'100', '100' ,[
     'modalId'    => 'graph-image-upload',
     'modalTitle' => trans('utilities::app.upload_graph_image')
-] ,'', false, '.image', ['appendLocation' => '#images', 'appendName' => 'graph_image_id']) }}
+] ,'', false, '.image', ['appendLocation' => '#images', 'appendName' => 'graph_image_id' ,'allowRatio' => true]) }}
 
 {{ FileUpload::ImageUpload('card_image' ,'card_image' ,'' ,'' ,'100', '100' ,[
     'modalId'    => 'card-image-upload',
     'modalTitle' => trans('utilities::app.upload_card_image')
-] ,'', false, '.image', ['appendLocation' => '#card_image', 'appendName' => 'card_image_id']) }}
+] ,'', false, '.image', ['appendLocation' => '#card_image', 'appendName' => 'card_image_id','allowRatio' => true]) }}
 
 {{ FileUpload::ImageUploadCropper('90%' ,false ,true,false ,false ,false ,true) }}
 
