@@ -17,6 +17,7 @@ class FormBuilder
     private $loader = 'data-form-loader';
 
     private $property = [
+        'model'                      => false,
         'formGroup'                  => true,
         'stopOperationMessage'       => false,
         'stopAddOperationMessage'    => false,
@@ -38,6 +39,10 @@ class FormBuilder
         'dataJson'                   => '',
         'langs'                      => [],
         'takeAction'                 => false,
+    ];
+
+    private $propertyKeep = [
+        'formGroup'   => false,
     ];
 
     private $resetProperty = [
@@ -106,7 +111,8 @@ class FormBuilder
     {
         foreach ($this->resetProperty as $prop => $value)
         {
-            $this->property[$prop] = $value;
+            if(isset($this->propertyKeep[$prop]) && !$this->propertyKeep[$prop])
+                $this->property[$prop] = $value;
         }
     }
 
@@ -244,12 +250,12 @@ class FormBuilder
     }
 
     /**
-     * @param bool $has
      * @return $this
      */
-    function formGroup($has = true) {
+    function formGroup($has = true, $keep = false) {
 
-        $this->property['formGroup'] = $has;
+        $this->property['formGroup']     = $has;
+        $this->propertyKeep['formGroup'] = $keep;
 
         return $this;
     }

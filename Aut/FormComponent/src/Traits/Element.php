@@ -114,6 +114,20 @@ trait Element
      * @param array $attr
      * @return mixed
      */
+    function password($label = '', $id = '', $name = '', $value = null, $class = '', $attr = [])
+    {
+        return $this->_input('password', $label, $id, $name, $value, $class, $attr);
+    }
+
+    /**
+     * @param string $label
+     * @param string $id
+     * @param string $name
+     * @param null $value
+     * @param string $class
+     * @param array $attr
+     * @return mixed
+     */
     function textarea($label = '', $id = '', $name = '', $value = null, $class = '', $attr = [])
     {
         $output = removeSpaces(view("form-component::{$this->property['formType']}.textarea", [
@@ -193,7 +207,8 @@ trait Element
      * @param null $selected
      * @param string $class
      * @param array $attr
-     * @return mixed
+     * @return null|string|string[]
+     * @throws \Throwable
      */
     function select($label = '', $id = '', $name = '', $option = [], $selected = null, $class = '', $attr = [])
     {
@@ -223,7 +238,8 @@ trait Element
      * @param string $class
      * @param string $text
      * @param string $html
-     * @return mixed
+     * @return null|string|string[]
+     * @throws \Throwable
      */
     function notify($icon = '', $class = '', $text = '', $html = '')
     {
@@ -232,6 +248,48 @@ trait Element
             'class' => $class,
             'text'  => $text,
             'html'  => $html,
+        ])->render());
+
+        return $output;
+    }
+
+    /**
+     * @param string $text
+     * @param string $type
+     * @param string $class
+     * @param bool $dismiss
+     * @return null|string|string[]
+     * @throws \Throwable
+     */
+    function alert($text = '', $type = '', $class = '', $dismiss = false) {
+
+        $output = removeSpaces(view("form-component::{$this->property['formType']}.alert", [
+            'text'      => $text,
+            'type'      => $type,
+            'class'     => $class,
+            'dismiss'   => $dismiss,
+        ])->render());
+
+        return $output;
+    }
+
+    /**
+     * @param string $src
+     * @param string $id
+     * @param string $name
+     * @param string $class
+     * @param array $attr
+     * @return null|string|string[]
+     * @throws \Throwable
+     */
+    function image($src = '', $id = '', $name = '', $class = '', $attr = []) {
+
+        $output = removeSpaces(view("form-component::{$this->property['formType']}.image", [
+            'id'     => $id,
+            'name'   => $name,
+            'src'    => $src,
+            'class'  => $class,
+            'attr'   => $attr
         ])->render());
 
         return $output;
@@ -262,6 +320,37 @@ trait Element
         $attr = convertArrayToString($attr);
 
         return "<div id='$id' class='$class' $attr>";
+    }
+
+    /**
+     * @param string $label
+     * @param string $id
+     * @param string $name
+     * @param null $value
+     * @param string $class
+     * @param array $attr
+     * @return null|string|string[]
+     * @throws \Throwable
+     */
+    function labelArea($label = '', $id = '', $name = '', $value = null, $class = '', $attr = []) {
+
+        $output = removeSpaces(view("form-component::{$this->property['formType']}.label_area", [
+            'label'       => $label,
+            'id'          => $id,
+            'name'        => $name,
+            'value'       => $value,
+            'class'       => $class,
+            'attr'        => $attr,
+            'dataJson'    => $this->property['dataJson'],
+            'hasLangs'    => $this->property['hasLangs'],
+            'hasTrans'    => $this->property['hasTrans'],
+            'langs'       => $this->property['langs'],
+            'formGroup'   => $this->property['formGroup'],
+        ])->render());
+
+        $this->resetProperty();
+
+        return $output;
     }
 
     /**

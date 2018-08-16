@@ -54,7 +54,7 @@ return [
     ],
 
     'lab' => [
-        'model'  => \Modules\Admin\Entities\Lab::class,
+        'model' => \Modules\Admin\Entities\Lab::class,
         'ratio' => [
             'first_ratio'  => [ 'width'  => '285', 'height' => '215', ],
             //'second_ratio' => [ 'width'  => '480', 'height' => '480', ],

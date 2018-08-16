@@ -11,34 +11,34 @@
 @endphp
 
 @if($formGroup)
-    <div class="form-group">
+<div class="form-group">
+@endif
+    <div {{ $contClass ? "class=$contClass" : '' }}>
+
+        @if($label)
+            <label class="control-label {{ $star }} {{ $labelClass }}">
+                {{$label}}
+            </label>
         @endif
-        <div {{ $contClass ? "class=$contClass" : '' }}>
 
-            @if($label)
-                <label class="control-label {{ $star }} {{ $labelClass }}">
-                    {{$label}}
-                </label>
-            @endif
+        <div {{ $inputClass ? "class=$inputClass" : ''}}>
 
-            <div {{ $inputClass ? "class=$inputClass" : ''}}>
+            {{--for change any attr with real lang--}}
+            @php
+                if($_lang)
+                    foreach ($attr as $index => $item)
+                        $attr[$index] = preg_replace('/{lang}/',$_lang ,$item)
+            @endphp
 
-                {{--for change any attr with real lang--}}
-                @php
-                    if($_lang)
-                        foreach ($attr as $index => $item)
-                            $attr[$index] = preg_replace('/{lang}/',$_lang ,$item)
-                @endphp
-
-                {!! Form::textarea($name,$value,array_merge([
-                    'id'            => $id,
-                    'class'         => "form-control $class",
-                    'placeholder'   => shortIfElse(empty($placeholder),$label,$placeholder),
-                    'data-editable' => 'true',
-                ],$attr)) !!}
-                <div id="error_{{$id}}"></div>
-            </div>
+            {!! Form::textarea($name,$value,array_merge([
+                'id'            => $id,
+                'class'         => "form-control $class",
+                'placeholder'   => shortIfElse(empty($placeholder),$label,$placeholder),
+                'data-editable' => 'true',
+            ],$attr)) !!}
+            <div id="error_{{$id}}"></div>
         </div>
-        @if($formGroup)
     </div>
+@if($formGroup)
+</div>
 @endif

@@ -35,7 +35,7 @@ var AUT_FORM_COMPONENT = {
 
         '<div class="form-loader overlay">' +
             '<div class="ball-triangle-path" style="left: 50%; top: 50%;">' +
-                '<div style="background-color: #3e3935; left:0;"></div>' +
+                '<div style="background-color: #3e3935;"></div>' +
                 '<div style="background-color: #3e3935;"></div>' +
                 '<div style="background-color: #3e3935;"></div>' +
             '</div>' +
@@ -116,7 +116,8 @@ var AUT_FORM_COMPONENT = {
                             $stopOperationMessage = $form.is('[data-stop-operation-message]') || $button.is('[data-stop-operation-message]');
 
                         if ($serialize)
-                            $data = AUT_FORM_COMPONENT.validate.serializeObject($form.serializeArray());
+                            // AUT_FORM_COMPONENT.validate.serializeObject($form.serializeArray());
+                            $data = $form.serialize();
                         else
                             $data = {};
 
@@ -572,6 +573,49 @@ var AUT_FORM_COMPONENT = {
 
             AUT_FORM_COMPONENT.validate.fillForm();
         },
+    },
+
+    readOnly: {
+
+        fill: function ($cont ,data) {
+
+            $($cont).find('[data-json]').each(function(i ,v) {
+
+                var isNull      = typeof data[$(v).data('json')] == typeof null,
+                    isUndefined = typeof data[$(v).data('json')] == typeof undefined;
+
+                var item = isNull || isUndefined ? ' ' : (data[$(v).data('json')]).replaceAll(/\s+/g, ' ');
+                var value = (item != ' ') ? data[$(v).data('json')] : NO_DATA;
+
+                switch($(v).context.tagName.toLowerCase())
+                {
+                    case 'label' : $(v).text(value); break;
+                    case 'input' : {
+
+                        switch($(v).attr('type'))
+                        {
+                            case 'image' : $(v).attr('src' ,value); break;
+                            default : $(v).val(value); break;
+                        }
+
+                    }; break;
+                }
+            });
+        },
+
+        clear: function ($cont ,func) {
+
+            $($cont).find('[data-json]').each(function(i ,v) {
+
+                if($(v).context.tagName.toLowerCase() == 'label')
+                    $(v).text(NO_DATA);
+                else
+                    $(v).val(NO_DATA);
+            });
+
+            if(typeof func != typeof undefined)
+                func();
+        }
     }
 };
 
