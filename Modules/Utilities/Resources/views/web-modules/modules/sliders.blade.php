@@ -1,9 +1,10 @@
 @php($dir = LaravelLocalization::getCurrentLocaleDirection())
-<div class="rev_slider_wrapper">
+<div class="rev_slider_wrapper" style="direction: ltr;">
     <div class="rev_slider" data-version="5.0">
         <ul>
             @php($i = 1)
             @foreach($data['sliders']->sliderDetails()->with('image')->get() as $sliderDetail)
+                {{--@if($sliderDetail->position != 'L') @continue @endif--}}
                 @if($sliderDetail->position == 'L')
                     @php($bgposition = '10%')
                     @php($layers['1']['class'] = 'tp-caption tp-resizeme text-uppercase text-white font-raleway')

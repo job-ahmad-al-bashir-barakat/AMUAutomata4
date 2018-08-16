@@ -325,8 +325,10 @@ mix.styles([
  */
 
 mix.scripts([
-    'resources/assets/js/revolution-slider/js/jquery.themepunch.tools.min.js',
-    'resources/assets/js/revolution-slider/js/jquery.themepunch.revolution.min.js',
+    // 'resources/assets/js/revolution-slider/js/jquery.themepunch.tools.min.js',
+    // 'resources/assets/js/revolution-slider/js/jquery.themepunch.revolution.min.js',
+    'resources/assets/js/revolution-slider/js/source/jquery.themepunch.tools.min.js',
+    'resources/assets/js/revolution-slider/js/source/jquery.themepunch.revolution.js',
 ], 'public/js/revolution-slider/js/revolution-slider.js').version();
 
 mix.scripts([
@@ -350,6 +352,7 @@ mix.scripts([
     // external javascripts
     'resources/assets/js/jquery.min.js',
     'resources/assets/js/jquery-ui.min.js',
+    'resources/assets/js/revolution-slider/js/jquery.ui.slider-rtl.js',
     'resources/assets/js/bootstrap.min.js',
 
     // JS | jquery plugin collection for this theme

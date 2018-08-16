@@ -3,8 +3,8 @@
 namespace Aut\SeoBuilder;
 
 
-use Arcanedev\SeoHelper\SeoHelper;
 use Aut\SeoBuilder\Entities\Seo;
+use Arcanedev\SeoHelper\SeoHelper;
 use Modules\Utilities\Entities\Lang;
 use Arcanedev\SeoHelper\Helpers\Meta;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -12,14 +12,16 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 class SeoBuilder
 {
 
-    public $graphTypes;
+    public
+        $graphTypes,
+        $cardTypes,
+        $lang,
+        $locale,
+        $localesAlternate;
 
-    public $cardTypes;
-
-    protected $seoHelper;
-    protected $seo;
-
-    public $lang, $locale, $localesAlternate;
+    protected
+        $seoHelper,
+        $seo;
 
     public function __construct(SeoHelper $seoHelper, Seo $seo = null)
     {
@@ -82,15 +84,9 @@ class SeoBuilder
         return "{$extraHtml}\r\n{$this->seoHelper->render()}";
 
         /*$card = "
-            <meta name='twitter:card' content='' />
-            <meta name='twitter:site' content='' />
             <meta name='twitter:creator' content='' />
-            <meta name='twitter:title' content='' />
-            <meta name='twitter:description' content='' />
-            <meta name='twitter:image' content='' />
-            <meta name='twitter:image:alt' content='' />
-//            <meta name='twitter:site:id' content='' />
-//            <meta name='twitter:creator:id' content='' />
+            <meta name='twitter:site:id' content='' />
+            <meta name='twitter:creator:id' content='' />
         ";*/
     }
 
