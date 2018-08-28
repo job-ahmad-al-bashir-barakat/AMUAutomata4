@@ -35,6 +35,7 @@
                 'class'         => "form-control $class",
                 'placeholder'   => shortIfElse(empty($placeholder),$label,$placeholder),
                 'data-editable' => 'true',
+                'style'         => 'resize: vertical;',
             ],$attr)) !!}
             <div id="error_{{$id}}"></div>
         </div>

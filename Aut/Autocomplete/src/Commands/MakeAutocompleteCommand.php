@@ -4,7 +4,7 @@ namespace Aut\Autocomplete\Commands;
 
 use Illuminate\Console\Command;
 
-class makeAutocompleteCommand extends Command
+class MakeAutocompleteCommand extends Command
 {
     /**
      * The name and signature of the console command.
