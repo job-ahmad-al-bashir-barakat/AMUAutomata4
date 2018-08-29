@@ -96,6 +96,7 @@
                data-auto-replace="{{ $autoReplace or false }}"
                data-drop-zone-enabled="{{ $dropZoneEnabled or true }}"
                data-close-modal="{{ $closeModal or true }}"
+               accept="image/*"
                multiple
         >
     </div>
