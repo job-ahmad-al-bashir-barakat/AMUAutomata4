@@ -254,7 +254,7 @@ return [
         'Form'       => Collective\Html\FormFacade::class,
         'Html'       => Collective\Html\HtmlFacade::class,
         "LaravelLocalization" => Mcamara\LaravelLocalization\Facades\LaravelLocalization::class,
-        'Datatables' => Yajra\Datatables\Facades\Datatables::class,
+        'DataTables' => Yajra\DataTables\Facades\DataTables::class,
         "Datatable"  => Aut\DataTable\DataTableFacade::class,
         'Image' => Intervention\Image\Facades\Image::class,
         'SeoHelper'    => Arcanedev\SeoHelper\Facades\SeoHelper::class,
