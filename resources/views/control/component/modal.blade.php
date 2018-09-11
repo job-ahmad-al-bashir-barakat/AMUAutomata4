@@ -41,7 +41,7 @@ stopButton : remove all button without close
 @unless($stopForm)
 <div class="ajaxCont">
 @endunless
-    <div id='{{ $id or '' }}' {{--tabindex='-1'--}} role='dialog' aria-labelledby='myModalLabel' aria-hidden='true' class='modal fade'>
+    <div id='{{ $id ?? '' }}' {{--tabindex='-1'--}} role='dialog' aria-labelledby='myModalLabel' aria-hidden='true' class='modal fade'>
         <div class='modal-dialog' role='document' style="{{ $width ? "min-width: $width;" : "" }}">
             <div class='modal-content'>
                 @unless($stopForm)
@@ -52,10 +52,10 @@ stopButton : remove all button without close
                         <span aria-hidden='true'>&times;</span>
                     </button>
                     <h4 id='myModalLabel' class='modal-title'>
-                        {{ $title or '' }}
+                        {{ $title ?? '' }}
                     </h4>
                 </div>
-                <div class='modal-body clearfix {{ $bodyClass or '' }}' {{ $bodyAttr or '' }}>
+                <div class='modal-body clearfix {{ $bodyClass ?? '' }}' {{ $bodyAttr ?? '' }}>
                     {{ $slot }}
                 </div>
                 @unless($stopFooter)
@@ -67,7 +67,7 @@ stopButton : remove all button without close
                             <button type='submit' id="update" name="update" class='btn btn-success update' data-method="put" data-state="update" {{ $updateSuccessFunc }} {{ $successFunc }} {{ $extraSerialize }}>{{ trans('app.update') }}</button>
                             <button type='submit' id="add" name="add" class='btn btn-primary add' data-method="post" data-state="add" {{ $addSuccessFunc }} {{ $successFunc }} {{ $extraSerialize }}>{{ trans('app.add') }}</button>
                         @endunless
-                        {{ $footer or '' }}
+                        {{ $footer ?? '' }}
                     </div>
                 @endunless
                 @unless($stopForm)

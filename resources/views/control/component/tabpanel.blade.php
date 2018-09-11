@@ -4,7 +4,7 @@
         @foreach($tabs  as $index => $tabObj)
             @php($tab = is_array($tabObj) ? $tabObj['tab'] : $tabObj)
             @php($class = is_array($tabObj) ? $tabObj['class'] : '')
-            <li role="presentation" class="@if(!$index) active @endif {{ $class or '' }}">
+            <li role="presentation" class="@if(!$index) active @endif {{ $class ?? '' }}">
                 <a href="#{{ $tab }}" aria-controls="{{ $tab }}" role="tab" data-toggle="tab">{{ trans("$currentModule::app.$tab") }}</a>
             </li>
         @endforeach

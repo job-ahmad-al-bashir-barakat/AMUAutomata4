@@ -24,9 +24,9 @@
                                 @php($text = $menuItemDynamic->lang_name[App::getLocale()]['text'])
                                 @if($menuItemDynamic->dynamic)
                                     <li data-id="{{ $menuItemDynamic->id }}" data-order="" class="dd-item" data-link="1" data-exists="{{ $menuItemsIndex }}" data-type="tables" data-conflict="{{ $menuItemsIndex }}" data-dynamic="{{ $menuItemsIndex }}">
-                                        <div class='dd-handle dd3-handle move'>{{ $text or $menuItemDynamic->morph_code }}</div>
+                                        <div class='dd-handle dd3-handle move'>{{ $text ?? $menuItemDynamic->morph_code }}</div>
                                         <div class='dd3-content'>
-                                            <span class="hand">{{ $text or $menuItemDynamic->morph_code }} ({{ trans('utilities::app.dynamic') }})</span>
+                                            <span class="hand">{{ $text ?? $menuItemDynamic->morph_code }} ({{ trans('utilities::app.dynamic') }})</span>
                                         </div>
                                     </li>
                                 @endif
@@ -36,9 +36,9 @@
                                 @foreach($menuItemsCollection as $index => $link)
                                     @php($text = $link->lang_name[App::getLocale()]['text'])
                                     <li data-id="{{ $link->id }}" data-order="" class="dd-item" data-link="1" data-exists="{{ \Illuminate\Support\Str::slug($text) }}" data-conflict="{{ $menuItemsIndex }}" data-type="{{ $menuItemsIndex }}">
-                                        <div class='dd-handle dd3-handle move'>{{ $text or $link->code }}</div>
+                                        <div class='dd-handle dd3-handle move'>{{ $text ?? $link->code }}</div>
                                         <div class='dd3-content'>
-                                            <span class="hand">{{ $text or $link->code }}</span>
+                                            <span class="hand">{{ $text ?? $link->code }}</span>
                                         </div>
                                     </li>
                                 @endforeach

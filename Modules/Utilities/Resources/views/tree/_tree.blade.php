@@ -11,7 +11,7 @@
             {!! FormComponent::autocomplete(false,'treeAutocomplete' ,'treeAutocomplete',"autocomplete/$model",[],'3' ,'c:sss group' ,['data-placeholder' => trans('utilities::app.search_tree')]) !!}
         </div>
         <div class="nestable dd">
-            {!! $buildTree or '' !!}
+            {!! $buildTree ?? '' !!}
         </div>
         @if(app()->environment() == 'local')
             <br>

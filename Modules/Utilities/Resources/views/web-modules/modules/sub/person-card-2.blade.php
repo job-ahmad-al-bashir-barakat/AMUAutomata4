@@ -10,7 +10,7 @@
                 @if($person->contact && $person->contact->socialNetwork && $person->contact->socialNetwork->count())
                     @foreach($person->contact->socialNetwork as $socialNetwork)
                         @if(isset($socialNetwork->pivot->url) && $socialNetwork->pivot->url)
-                        <li><a href="{{ $socialNetwork->pivot->url or '#' }}"><i class="fa fa-{{ $socialNetwork->code }}"></i></a></li>
+                        <li><a href="{{ $socialNetwork->pivot->url ?? '#' }}"><i class="fa fa-{{ $socialNetwork->code }}"></i></a></li>
                         @endif
                     @endforeach
                 @else

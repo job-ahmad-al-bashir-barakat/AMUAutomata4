@@ -1,6 +1,6 @@
 <style id="globalStyle">
     .theme-color {
-        background-color: {{ $_COOKIE['controlThemeColorRGB'] or 'rgb(91, 192, 222)' }};
+        background-color: {{ $_COOKIE['controlThemeColorRGB'] ?? 'rgb(91, 192, 222)' }};
     }
 
     .pace {
@@ -17,7 +17,7 @@
     }
 
     .pace .pace-progress {
-        background: {{ $_COOKIE['controlThemeColorRGB'] or 'rgb(91, 192, 222)' }};
+        background: {{ $_COOKIE['controlThemeColorRGB'] ?? 'rgb(91, 192, 222)' }};
         position: absolute;
         z-index: 2000;
         top: 0;

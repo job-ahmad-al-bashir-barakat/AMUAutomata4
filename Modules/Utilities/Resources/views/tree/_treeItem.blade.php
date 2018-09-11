@@ -3,7 +3,7 @@
     @foreach($content as $index => $item)
         @if($index === 'icons')
             <span>
-                {!! $content['icons'] or '' !!}
+                {!! $content['icons'] ?? '' !!}
             </span>
         @elseif ($index === 'link')
             <span class="hand"
@@ -12,13 +12,13 @@
                   style="text-decoration: underline;"
                   data-editable-target="li"
                   data-form-update="tree">
-                {{ $content['link'] or '' }}
+                {{ $content['link'] ?? '' }}
             </span>
         @elseif ($index === 'html')
             {{--$content['html']--}}
         @else
             <span>
-                {{ $content['title'] or '' }}
+                {{ $content['title'] ?? '' }}
             </span>
         @endif
     @endforeach
