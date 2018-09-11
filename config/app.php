@@ -191,7 +191,7 @@ return [
         App\Providers\CustomBladeServiceProvider::class,
         Aut\FormComponent\FormComponentServiceProvider::class,
         App\Library\Url\Providers\RouteUrlsServiceProvider::class,
-        //Aut\Autocomplete\AutocompleteServiceProvider::class,
+        Aut\Autocomplete\AutocompleteServiceProvider::class,
         Aut\DataTable\DataTableServiceProvider::class,
         Aut\GoogleMap\GoogleMapServiceProvider::class,
         Aut\FileUpload\FileUploadServiceProvider::class,
