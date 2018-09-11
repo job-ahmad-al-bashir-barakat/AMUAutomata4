@@ -1,6 +1,6 @@
 @extends('control._aside')
 
-@if(\Module::get('utilities'))
+@if(\Module::find('utilities'))
 
     {{-- include section --}}
     @include('utilities::layouts._aside')
@@ -20,7 +20,7 @@
 
 @endif
 
-@if(\Module::get('admin'))
+@if(\Module::find('admin'))
 
     {{-- include section --}}
     @include('admin::layouts._aside')
