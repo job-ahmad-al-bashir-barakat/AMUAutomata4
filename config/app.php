@@ -253,11 +253,9 @@ return [
         'Module'     => Nwidart\Modules\Facades\Module::class,
         'Form'       => Collective\Html\FormFacade::class,
         'Html'       => Collective\Html\HtmlFacade::class,
-        'Debugbar'   => Barryvdh\Debugbar\Facade::class,
         "LaravelLocalization" => Mcamara\LaravelLocalization\Facades\LaravelLocalization::class,
         'Datatables' => Yajra\Datatables\Facades\Datatables::class,
         "Datatable"  => Aut\DataTable\DataTableFacade::class,
-        'Debugbar'   => Barryvdh\Debugbar\Facade::class,
         'Image' => Intervention\Image\Facades\Image::class,
         'SeoHelper'    => Arcanedev\SeoHelper\Facades\SeoHelper::class,
 
