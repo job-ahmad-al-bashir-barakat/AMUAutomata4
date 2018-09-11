@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "58d7d7fa51039e26b550037a4b97640e",
-    "content-hash": "9956cb741bd290d4ade924097732b9f5",
+    "hash": "5ce9e957433afe9db2fa115aeb2673b6",
+    "content-hash": "0be21bb7aceea5c41d5b014d07e47c1e",
     "packages": [
         {
             "name": "arcanedev/seo-helper",
@@ -134,6 +134,60 @@
                 "support"
             ],
             "time": "2018-09-04 17:19:43"
+        },
+        {
+            "name": "barryvdh/laravel-translation-manager",
+            "version": "v0.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/barryvdh/laravel-translation-manager.git",
+                "reference": "857334ea6ffa2511982442495460c9c3ff096160"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/barryvdh/laravel-translation-manager/zipball/857334ea6ffa2511982442495460c9c3ff096160",
+                "reference": "857334ea6ffa2511982442495460c9c3ff096160",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "5.5.x|5.6.x|5.7.x",
+                "illuminate/translation": "5.5.x|5.6.x|5.7.x",
+                "php": ">=7",
+                "symfony/finder": "~3.0|~4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.4-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Barryvdh\\TranslationManager\\ManagerServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Barryvdh\\TranslationManager\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Barry vd. Heuvel",
+                    "email": "barryvdh@gmail.com"
+                }
+            ],
+            "description": "Manage Laravel Translations",
+            "keywords": [
+                "laravel",
+                "translations",
+                "translator"
+            ],
+            "time": "2018-08-31 13:25:15"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
