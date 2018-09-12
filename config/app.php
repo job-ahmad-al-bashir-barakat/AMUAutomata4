@@ -183,6 +183,7 @@ return [
         Intervention\Image\ImageServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
         Arcanedev\SeoHelper\SeoHelperServiceProvider::class,
+        Barryvdh\TranslationManager\ManagerServiceProvider::class,
 
         /**
          * Our Service Provider

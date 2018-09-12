@@ -3,9 +3,7 @@ const { mix } = require('laravel-mix');
 /**
  * Control css
  */
-
 mix.styles([
-
     // fonts
     'resources/assets/fonts/font-jozoor/jozoor-font.css',
     'Modules/Admin/Assets/vendor/fontawesome/css/font-awesome.min.css',
@@ -30,6 +28,8 @@ mix.styles([
     'Aut/DataTable/src/Assets/plugin/datatable/extensions/FixedColumns/css/fixedColumns.bootstrap.css',
     'Aut/DataTable/src/Assets/plugin/datatable/extensions/Responsive/css/responsive.bootstrap.css',
     'Aut/DataTable/src/Assets/plugin/datatable/extensions/Buttons/css/buttons.bootstrap.css',
+    // x-editable
+    'Modules/Admin/Assets/vendor/x-editable/dist/bootstrap3-editable/css/bootstrap-editable.css',
     // fileupload
     'Aut/FileUpload/src/Assets/plugin/bootstrap-fileinput/css/fileinput.css',
     'Aut/FileUpload/src/Assets/plugin/cropper/cropper.css',
@@ -73,6 +73,8 @@ mix.styles([
     'Aut/DataTable/src/Assets/plugin/datatable/extensions/FixedColumns/css/fixedColumns.bootstrap.css',
     'Aut/DataTable/src/Assets/plugin/datatable/extensions/Responsive/css/responsive.bootstrap.css',
     'Aut/DataTable/src/Assets/plugin/datatable/extensions/Buttons/css/buttons.bootstrap.css',
+    // x-editable
+    'Modules/Admin/Assets/vendor/x-editable/dist/bootstrap3-editable/css/bootstrap-editable.css',
     // fileupload
     'Aut/FileUpload/src/Assets/plugin/bootstrap-fileinput/css/fileinput.css',
     'Aut/FileUpload/src/Assets/plugin/bootstrap-fileinput/css/fileinput-rtl.css',
@@ -133,7 +135,8 @@ var js = [
     'Aut/DataTable/src/Assets/plugin/datatable/extensions/Responsive/js/dataTables.responsive.js',
     'Aut/DataTable/src/Assets/plugin/datatable/extensions/Responsive/js/responsive.bootstrap.js',
     'Aut/DataTable/src/Assets/plugin/datatable/extensions/FixedColumns/js/dataTables.fixedColumns.js',
-
+    // x-editable
+    'Modules/Admin/Assets/vendor/x-editable/dist/bootstrap3-editable/js/bootstrap-editable.js',
     // datatable button print ... et
     // 'Modules/Admin/Assets/vendor/custom.datatable/extensions/Buttons/js/buttons.flash.js',
     // 'Modules/Admin/Assets/vendor/jszip/jszip.min.js',
