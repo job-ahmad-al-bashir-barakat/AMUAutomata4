@@ -43,6 +43,9 @@ class FormBuilder
 
     private $propertyKeep = [
         'formGroup'   => false,
+        'hasLangs'    => false,
+        'hasTrans'    => false,
+        'tagsinput'   => false,
     ];
 
     private $resetProperty = [
