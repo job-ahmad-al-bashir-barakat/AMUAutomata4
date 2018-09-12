@@ -115,7 +115,7 @@ trait Container
     }
 
     /**
-     * @param bool $model
+     * @param $model
      * @return $this
      */
     function model($model)

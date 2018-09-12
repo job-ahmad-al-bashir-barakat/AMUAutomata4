@@ -1537,7 +1537,7 @@ class DataTableBuilder
     {
         $this->addField([
             "type"       => 'autocompleteMulti',
-            "url"        => datatableLocalizeURL($url),
+            "url"        => datatableLocalizeURL(Str::contains($url ,'autocomplete') ? $url : "autocomplete/$url"),
             "templete"   => $templete,
             "title"      => $title ,
             "data"       => $data,

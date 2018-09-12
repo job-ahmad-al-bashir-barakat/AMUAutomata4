@@ -1,0 +1,1 @@
+<div class="form-group clearfix {{ $class or '' }}" {{ $attr or '' }}>

@@ -12,13 +12,13 @@
 @endphp
 
 @if($formGroup)
-<div class="form-group">
+<div class="form-group clearfix">
 @endif
     <div {{ $contClass ? "class=$contClass" : '' }}>
 
         @if($label)
             <label class="control-label {{ $star }} {{ $labelClass }}">
-                {{$label}}
+                {!! $label !!}
             </label>
         @endif
 
