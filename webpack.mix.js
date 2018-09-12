@@ -348,6 +348,6 @@ mix.scripts([
     'resources/assets/js/custom.js',
 ], 'public/js/main.js');
 
-mix.copy('resources/assets', 'public' ,false);
+mix.copy('resources/assets', 'public', false);
 
 mix.version();
