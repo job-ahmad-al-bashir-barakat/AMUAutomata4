@@ -7,7 +7,7 @@ const { mix } = require('laravel-mix');
 mix.styles([
 
     // fonts
-    'resources/assets/myfont/font-jozoor/jozoor-font.css',
+    'resources/assets/fonts/font-jozoor/jozoor-font.css',
     'Modules/Admin/Assets/vendor/fontawesome/css/font-awesome.min.css',
     'Modules/Admin/Assets/vendor/weather-icons/css/weather-icons.min.css',
     'Modules/Admin/Assets/vendor/simple-line-icons/css/simple-line-icons.css',
@@ -50,7 +50,7 @@ mix.styles([
 mix.styles([
 
     // fonts
-    'resources/assets/myfont/font-jozoor/jozoor-font.css',
+    'resources/assets/fonts/font-jozoor/jozoor-font.css',
     'Modules/Admin/Assets/vendor/fontawesome/css/font-awesome.min.css',
     'Modules/Admin/Assets/vendor/weather-icons/css/weather-icons.min.css',
     'Modules/Admin/Assets/vendor/simple-line-icons/css/simple-line-icons.css',
@@ -234,7 +234,7 @@ mix.copy('Aut/FileUpload/src/Assets/plugin/bootstrap-fileinput/img', 'public/img
 mix.copy('Modules/Admin/Assets/vendor/fontawesome/fonts', 'public/fonts');
 mix.copy('Modules/Admin/Assets/vendor/simple-line-icons/fonts', 'public/fonts');
 mix.copy('Modules/Admin/Assets/vendor/weather-icons/font', 'public/font' ,false);
-mix.copy('resources/assets/myfont/font-jozoor/fonts', 'public/css/fonts' ,false);
+mix.copy('resources/assets/fonts/font-jozoor/fonts', 'public/css/fonts' ,false);
 
 
 
@@ -242,7 +242,7 @@ mix.copy('resources/assets/myfont/font-jozoor/fonts', 'public/css/fonts' ,false)
  * Login Css
  */
 mix.styles([
-    'resources/assets/myfont/font-jozoor/jozoor-font.css',
+    'resources/assets/fonts/font-jozoor/jozoor-font.css',
     'Modules/Admin/Assets/vendor/fontawesome/css/font-awesome.min.css',
     'Modules/Admin/Assets/vendor/simple-line-icons/css/simple-line-icons.css',
     'Modules/Admin/Assets/vendor/app/css/bootstrap.css',
@@ -252,7 +252,7 @@ mix.styles([
 ], 'public/css/admin-membership-ltr.css');
 
 mix.styles([
-    'resources/assets/myfont/font-jozoor/jozoor-font.css',
+    'resources/assets/fonts/font-jozoor/jozoor-font.css',
     'Modules/Admin/Assets/vendor/fontawesome/css/font-awesome.min.css',
     'Modules/Admin/Assets/vendor/simple-line-icons/css/simple-line-icons.css',
     'Modules/Admin/Assets/vendor/app/css/bootstrap-rtl.css',
