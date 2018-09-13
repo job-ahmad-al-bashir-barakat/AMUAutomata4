@@ -9,7 +9,7 @@ return array (
   'alpha_num' => 'يجب أن يحتوي :attribute على حروفٍ وأرقامٍ فقط',
   'array' => 'يجب أن يكون الحقل :attribute ًمصفوفة',
   'before' => 'يجب على الحقل :attribute أن يكون تاريخًا سابقًا للتاريخ :date.',
-  'between' =>
+  'between' => 
   array (
     'numeric' => 'يجب أن تكون قيمة :attribute محصورة ما بين :min و :max.',
     'file' => 'يجب أن يكون حجم الملف :attribute محصورًا ما بين :min و :max كيلوبايت.',
@@ -35,7 +35,7 @@ return array (
   'integer' => 'يجب أن يكون الحقل :attribute عددًا صحيحًا',
   'ip' => 'يجب أن يكون الحقل :attribute عنوان IP ذي بُنية صحيحة',
   'json' => 'يجب أن يكون الحقل :attribute نصآ من نوع JSON.',
-  'max' =>
+  'max' => 
   array (
     'numeric' => 'يجب أن تكون قيمة الحقل :attribute أصغر من :max.',
     'file' => 'يجب أن يكون حجم الملف :attribute أصغر من :max كيلوبايت',
@@ -44,7 +44,7 @@ return array (
   ),
   'mimes' => 'يجب أن يكون الحقل ملفًا من نوع : :values.',
   'mimetypes' => 'يجب أن يكون الحقل ملفًا من نوع : :values.',
-  'min' =>
+  'min' => 
   array (
     'numeric' => 'يجب أن تكون قيمة الحقل :attribute أكبر من :min.',
     'file' => 'يجب أن يكون حجم الملف :attribute أكبر من :min كيلوبايت',
@@ -63,7 +63,7 @@ return array (
   'required_without' => 'الحقل :attribute إذا لم يتوفّر :values.',
   'required_without_all' => 'الحقل :attribute إذا لم يتوفّر :values.',
   'same' => 'يجب أن يتطابق الحقل :attribute مع :other',
-  'size' =>
+  'size' => 
   array (
     'numeric' => 'يجب أن تكون قيمة :attribute أكبر من :size.',
     'file' => 'يجب أن يكون حجم الملف :attribute أكبر من :size كيلو بايت.',
@@ -76,14 +76,14 @@ return array (
   'uploaded' => 'The :attribute uploading failed.',
   'url' => 'صيغة الرابط :attribute غير صحيحة',
   'ratio' => 'نسبة الصورة :attribute غير مضبوطة بشكل صحيح.',
-  'custom' =>
+  'custom' => 
   array (
-    'attribute-name' =>
+    'attribute-name' => 
     array (
       'rule-name' => 'custom-message',
     ),
   ),
-  'attributes' =>
+  'attributes' => 
   array (
     'name' => 'الاسم',
     'username' => 'اسم المُستخدم',

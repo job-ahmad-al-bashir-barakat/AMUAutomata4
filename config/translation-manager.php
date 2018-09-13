@@ -11,10 +11,13 @@ return [
     |
     */
     'route'          => [
-        'prefix'     => 'utilities/translations',
+        'prefix'     => value(function (){
+            return app()->getLocale() . '/utilities/translation-manager';
+        }),
         'middleware' => [
             'web',
             'auth',
+            'permission:translation-manager',
         ],
     ],
 

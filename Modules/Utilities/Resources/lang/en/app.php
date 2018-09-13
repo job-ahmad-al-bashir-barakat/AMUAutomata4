@@ -43,6 +43,7 @@ return [
     'job_title'              => 'Job Title',
     'general_setting'        => 'General Setting',
     'langs'                  => 'Langs',
+    'translation_manager'    => 'Translation Manager',
     'title'                  => 'Title',
     'head'                   => 'Head',
     'text'                   => 'Text',
