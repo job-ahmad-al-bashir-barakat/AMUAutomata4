@@ -352,5 +352,8 @@ mix.scripts([
 ], 'public/js/main.js');
 
 mix.copy('resources/assets', 'public', false);
+mix.copy('Modules/Admin/Assets/admin-custom.css', 'public', false);
+mix.copy('Modules/Admin/Assets/admin-custom.js', 'public', false);
+mix.copy('resources/assets', 'public', false);
 
 mix.version();
