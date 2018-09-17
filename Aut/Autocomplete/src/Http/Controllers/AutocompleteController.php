@@ -35,11 +35,15 @@ class AutocompleteController
 
     protected $colTitle;
 
+    protected $extraData = [];
+
     protected $tags;
 
     protected $tags_create;
 
     protected $approvied;
+
+    protected $order;
 
     public function __construct()
     {
@@ -164,6 +168,9 @@ class AutocompleteController
             })->orderBy('approvied','asc');
         }
 
+        if(!empty($this->order))
+            $object->orderBy($this->order[0],isset($this->order[1]) ? $this->order[1] : 'asc');
+
         if(!empty($this->with))
             $object->with($this->with);
 
@@ -223,6 +230,23 @@ class AutocompleteController
             $result[$index]['title']      = $titleResult;
             $result[$index]['tags']       = $this->tags;
             $result[$index]['approvied']  = $this->approvied;
+
+            if(count($this->extraData))
+                foreach ($this->extraData as $extraDataIndex => $extraData)
+                {
+                    $match = preg_match('/\{langs\}/',$extraDataIndex);
+                    if($match)
+                    {
+                        foreach ($this->langs as $lang)
+                        {
+                            $extraDataIndexResult  = preg_replace('/\{langs\}/',$lang,$extraDataIndex);
+                            $extraDataResult       = preg_replace('/\{langs\}/',$lang,$extraData);
+                            $result[$index][$extraDataIndexResult] = $finalResult($item,$extraDataResult);
+                        }
+                    }
+                    else
+                        $result[$index][$extraDataIndex] = $finalResult($item,$extraData);
+                }
         });
 
         return array('items' => $result);
@@ -448,8 +472,10 @@ class AutocompleteController
             $this->colName     = isset($autocompleteSet['colName'])     ? $autocompleteSet['colName']     : config("autocomplete.default.$withOrNot.colName");
             $this->colText     = isset($autocompleteSet['colText'])     ? $autocompleteSet['colText']     : config("autocomplete.default.$withOrNot.colText");
             $this->colTitle    = isset($autocompleteSet['colTitle'])    ? $autocompleteSet['colTitle']    : config("autocomplete.default.$withOrNot.colTitle");
+            $this->extraData   = isset($autocompleteSet['extraData'])   ? $autocompleteSet['extraData']   : [];
             $this->tags        = isset($autocompleteSet['tags'])        ? $autocompleteSet['tags']        : false;
             $this->tags_create = isset($autocompleteSet['tags_create']) ? $autocompleteSet['tags_create'] : '';
+            $this->order       = isset($autocompleteSet['order'])       ? $autocompleteSet['order']       : [];
             // approvied require tags to be true
             $this->approvied = isset($autocompleteSet['approvied'])
                 ? $this->tags

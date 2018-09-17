@@ -1,3 +1,8 @@
+String.prototype.replaceAll = function(search, replaceAllment) {
+    var target = this;
+    return target.replace(new RegExp(search, 'g'), replaceAllment);
+};
+
 // Upload Function
 var AUT_UPLOAD = {
 
@@ -580,11 +585,11 @@ var AUT_UPLOAD = {
 
                         }).off('filepreupload').on('filepreupload', function(event, data, previewId, index) {
 
-                            console.log(data.files);
-                            var message = JSPath.apply('.{.previewId == "' + previewId + '"}',invalidRatio)[0].message;
+                            var message = JSPath.apply('.{.previewId == "' + previewId + '"}',invalidRatio).length;
+
                             if (message && !data.files[index].crop) {
                                 return {
-                                    message: message,
+                                    message: message[0].message,
                                     data: {data: data.files[index]}
                                 };
                             }
