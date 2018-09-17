@@ -19,6 +19,11 @@ class RouteUrls
         return $this->localizeUrl('langs', 'utilities');
     }
 
+    public function translationManager()
+    {
+        return $this->localizeUrl('translation-manager', 'utilities');
+    }
+
     public function tables()
     {
         return $this->localizeUrl('tables', 'utilities');

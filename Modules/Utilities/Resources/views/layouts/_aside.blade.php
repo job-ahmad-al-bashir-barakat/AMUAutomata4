@@ -16,6 +16,13 @@
                 </a>
             </li>
             @endcan
+            @can('translation-manager')
+                <li class="">
+                    <a href="{{ RouteUrls::translationManager() }}" class="ajax" title="{{ trans('utilities::app.translation_manager') }}">
+                        <span>{{ trans('utilities::app.translation_manager') }}</span>
+                    </a>
+                </li>
+            @endcan
             @can('schema-tables')
             <li class="">
                 <a href="{{ RouteUrls::schemaTables() }}" class="ajax" title="{{ trans('utilities::app.schema-tables') }}">

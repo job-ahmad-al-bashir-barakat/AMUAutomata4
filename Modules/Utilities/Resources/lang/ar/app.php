@@ -40,6 +40,7 @@ return [
     'job_title'              => 'عنوان وظيفي',
     'general_setting'        => 'اعدادات عامة',
     'langs'                  => 'لغات',
+    'translation_manager'    => 'متحولات اللغة',
     'title'                  => 'عنوان',
     'head'                   => 'عنوان رئيسي',
     'text'                   => 'نص',

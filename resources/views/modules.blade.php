@@ -46,20 +46,6 @@
     </div>
     @include('theme.footer')
 </div>
-{{--<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
-<script>
-    // Initialize Firebase
-    var config = {
-        apiKey: "AIzaSyB2tAkR2SHYo2FM2YY03ySY5KIhXtx0UIY",
-        authDomain: "andalus-private-university.firebaseapp.com",
-        databaseURL: "https://andalus-private-university.firebaseio.com",
-        projectId: "andalus-private-university",
-        storageBucket: "andalus-private-university.appspot.com",
-        messagingSenderId: "5345388698"
-    };
-    firebase.initializeApp(config);
-</script>--}}
-
 <script src="{{ asset(mix('js/main.js')) }}"></script>
 <script>
     $(document).on('click', 'a.ajax-link-module', function (e) {
