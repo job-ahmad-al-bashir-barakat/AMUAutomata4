@@ -177,8 +177,8 @@
             @endcan
             @can('pages')
             <li class="">
-                <a href="{{ RouteUrls::builderPages() }}" class="ajax" title="{{ trans('utilities::app.pages') }}">
-                    <span>{{ trans('utilities::app.pages') }}</span>
+                <a href="{{ RouteUrls::builderPages() }}" class="ajax" title="{{ trans('utilities::app.pages-content') }}">
+                    <span>{{ trans('utilities::app.pages-content') }}</span>
                 </a>
             </li>
             @endcan

@@ -52,8 +52,7 @@ function () {
 
         $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
         $modules = \Modules\Utilities\Entities\BuilderPage::pageModules("news.{$newsId}.")->get()->pluck('module');
-        $seo = \Modules\Utilities\Entities\Seo::pageSeo("news.{$newsId}.")->first();
-
+        $seo = \Aut\SeoBuilder\Entities\Seo::pageSeo("news.{$newsId}.")->first();
         return view("modules", compact('menu', 'modules', 'seo'));
     });
 

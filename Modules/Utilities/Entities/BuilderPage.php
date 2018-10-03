@@ -38,17 +38,41 @@ class BuilderPage extends \Eloquent
         }
 
         $query->with(['customModule.attributeValues.attribute']);
-        $query->whereBuildableId($buildableId)->whereBuildableType($buildableType);
+
+        $query->whereBuildableType($buildableType);
+
+        if ((clone $query)->whereBuildableId($buildableId)->count()) {
+            $query->whereBuildableId($buildableId);
+        }
+        //Getting default content
+        else {
+            $query->whereNull('buildable_id');
+        }
+
         if ($optionalId) {
             $query->whereOptionalId($optionalId);
         }
         return $query->orderBy('order');
     }
 
+    public function scopeWhereOrNull($query, $column, $operation, $value = null)
+    {
+        $argc = count(func_get_args());
+        if (3 === $argc) {
+            $value = $operation;
+            $operation = '=';
+        }
+        if (is_null($value)) {
+            return $query->whereNull($column);
+        }
+        return $query->where($column, $operation, $value);
+    }
+
     /**
      * Module Extra Attribute
      *
      * @return Module
+     * @throws \Exception
      */
     public function getModuleAttribute()
     {

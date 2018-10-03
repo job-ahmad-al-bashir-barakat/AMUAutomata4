@@ -112,7 +112,14 @@
                     items: "tbody>tr",
                     placeholder: "sortable-placeholder-dot"
                 });
-                $.get('{{ RouteUrls::getBuilderPageModules() }}' + '/' + tableName + '/' + pageId + (objectId ? ( '/' + objectId) : ''), function (res) {
+                var url = '{{ RouteUrls::getBuilderPageModules() }}' + '/' + tableName;
+                if (pageId) {
+                    url = url + '/' + pageId;
+                    if (objectId) {
+                        url = url + '/' + objectId;
+                    }
+                }
+                $.get(url, function (res) {
                     AUTOMATA_APP.htmlTable.clearRows($('#page_modules_table'));
                     AUTOMATA_APP.htmlTable.fillTableData($('#page_modules_table'), res);
                 });

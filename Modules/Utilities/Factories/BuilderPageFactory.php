@@ -17,6 +17,7 @@ class BuilderPageFactory extends GlobalFactory
     protected $builderColumn;
     protected $builderMorphCode;
     protected $builderColumnWithLang = false;
+    protected $allowGeneralContent = ['news', 'people'];
 
     public function __construct(DataTableBuilder $table)
     {
@@ -91,9 +92,18 @@ class BuilderPageFactory extends GlobalFactory
             $this->table->addInputText(trans('utilities::app.name'), $this->builderColumn, $this->builderColumn);
         }
 
-        $this->table->addActionButton(trans('utilities::app.modules'), 'modules','modules','center all','50px')
-            ->addActionButton(trans('utilities::app.seos'), 'seos','seos','center all','80px')
+        $this->table->addActionButton(trans('utilities::app.modules'), 'modules', 'modules', 'center all', '50px')
+            ->addActionButton(trans('utilities::app.seos'), 'seos', 'seos', 'center all', '80px')
             ->addNavButton([], ['add']);
+
+        if (in_array($this->builderTable, $this->allowGeneralContent)) {
+            $this->table->addCustomNavButton(
+                'Add General Template',
+                'fa fa-cubes hand', '',
+                "data-table_name='{$this->builderTable}' data-toggle='modal' data-target='#page_modules' data-page_name='General Template'"
+            );
+        }
+
         return $this->table->render();
     }
 

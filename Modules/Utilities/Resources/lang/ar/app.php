@@ -79,6 +79,7 @@ return [
     'roles'                  => 'الادوار',
     'permissions'            => 'سماحيات',
     'pages'                  => 'الصفحات',
+    'pages-content'          => 'محتوى الصفحات',
     'page'                   => 'صفحة',
     'icon'                   => 'ايقونة',
     'builder'                => 'الباني',

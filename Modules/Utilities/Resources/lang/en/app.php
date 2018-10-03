@@ -82,6 +82,7 @@ return [
     'roles'                  => 'Roles',
     'permissions'            => 'Permissions',
     'pages'                  => 'Pages',
+    'pages-content'          => 'Pages Content',
     'page'                   => 'Page',
     'icon'                   => 'Icon',
     'builder'                => 'Builder',

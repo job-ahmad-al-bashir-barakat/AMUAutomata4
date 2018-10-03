@@ -27,17 +27,13 @@ class BuilderController extends Controller
         ]);
     }
 
-    public function getPages($tableName, $pageId, $objectId = false)
+    public function getPages($tableName, $pageId = null, $objectId = null)
     {
         $morph = Table::whereTableName($tableName)->first()->morph_code;
-        $query = BuilderPage::whereBuildableId($pageId)->whereBuildableType($morph);
-        if ($objectId) {
-            $query->whereOptionalId($objectId);
-        } else {
-            $query->whereNull('optional_id');
-        }
-        $builderPagesData = $query->orderBy('order')->with(['customModule'])->get();
-        return $builderPagesData;
+        $query = BuilderPage::whereOrNull('buildable_id', $pageId)->whereBuildableType($morph);
+        $query->whereOrNull('optional_id', $objectId);
+        $builderPagesData = $query->orderBy('order')->with(['customModule']);
+        return $builderPagesData->get();
     }
 
     public function storePages(Request $request)
@@ -52,10 +48,9 @@ class BuilderController extends Controller
         $deleteIds = $request->get('delete_id', []);
 
         $oldPageBuilders = BuilderPage::whereBuildableType($buildableType)
-            ->whereBuildableId($buildableId)
+            ->whereOrNull('buildable_id', $buildableId)
             ->whereIn('id', $id)
             ->get()->keyBy('id');
-
         /*$builderPages = [];*/
         for ($i = 0; $i < count($customModule); $i++) {
             $data = [
