@@ -245,7 +245,7 @@
                 </div>
 
                 <div class="img-container mb-lg">
-                    <img src="{{ asset('img/mb-sample.jpg') }}" alt="Picture">
+                    <img src="{{ asset(config('cropper.default_img')) }}" alt="Picture">
                 </div>
 
                 @if($showPreview)

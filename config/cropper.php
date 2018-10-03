@@ -2,6 +2,8 @@
 
 return [
 
+    'default_img' => 'img/mb-sample.jpg',
+
     'cropType' => [
         ['width' => '150'  , 'height'  => '150', 'title' => 'personal_image'],
         ['width' => '300'  , 'height'  => '300', 'title' => 'post_thumbnail'],

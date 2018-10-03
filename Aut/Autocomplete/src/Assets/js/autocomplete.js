@@ -1,3 +1,29 @@
+$.fn.extend({
+    selectedAsJSON: function(stringify = false){
+        var result = [];
+        $('option:selected', this).each(function(){
+            var $this = $(this);
+            var obj = {
+                id:   $this.val(),
+                name: $this.text()
+            };
+
+            for(var key in $this.data('data')){
+                if(key.startsWith('data-')) {
+                    var _key = key.replace('data-','');
+                    obj[_key] = $this.data('data')[key];
+                }
+            }
+            result.push(obj);
+        });
+
+        if(stringify)
+            return JSON.stringify(result);
+        else
+            return result;
+    }
+});
+
 /**
  *
  * please add this libs 
@@ -50,6 +76,7 @@ var AUT_AUTOCOMPLETE_PACK = {
                         dataType: 'json',
                         delay: 400,
                         method: "GET",
+                        global: false,
                         data: function (params) {
 
                             var param       = $this.data('param') || null;
