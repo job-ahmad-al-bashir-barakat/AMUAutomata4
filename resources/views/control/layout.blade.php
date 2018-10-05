@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ $lang }}" dir="{{ $dir }}">
+<html lang="{{ $lang }}" {{--dir="{{ $dir }}"--}} class="html-direction">
 <head>
     @include("$module::layouts._meta")
     <!-- =============== VENDOR STYLES ===============-->
@@ -14,6 +14,13 @@
     <style>
         a.status-1{
             font-weight: bold;
+        }
+        /*This for fixing CkEditor full screen mode in rtl direction*/
+        html{
+            direction: initial;
+        }
+        .html-direction {
+            direction: {{ $dir }};
         }
     </style>
     <div role="header">
