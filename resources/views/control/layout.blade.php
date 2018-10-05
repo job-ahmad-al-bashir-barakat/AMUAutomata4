@@ -65,7 +65,8 @@
         elements: {
             selectors: ['.progressLine']
         }
-    }
+    };
+    var DIR  = "{{ $dir }}";
 </script>
 
 {{--maps-api-ssl.google.com/maps--}}
@@ -74,9 +75,6 @@
 
 {{--async defer--}}
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyCC3X-thsM5s1FkNqwFtRKTaa1CMFctf1k&language={{$lang}}&libraries=places"></script>
-<script>
-    var DIR  = "{{ $dir }}";
-</script>
 <script src="{{ asset(mix("js/admin-all-$dir.js")) }}"></script>
 <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
 <script>//https://github.com/rails/jquery-ujs/blob/master/src/rails.js
