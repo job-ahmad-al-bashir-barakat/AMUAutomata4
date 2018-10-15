@@ -3,7 +3,7 @@
 
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.7.2 on 2018-09-13 05:52:03.
+ * Generated for Laravel 5.7.2 on 2018-10-11 07:27:16.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -17491,6 +17491,16 @@ namespace App\Library\Url\Facades {
         public static function langs()
         {
             return \App\Library\Url\RouteUrls::langs();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function translationManager()
+        {
+            return \App\Library\Url\RouteUrls::translationManager();
         }
         
         /**

@@ -5,7 +5,7 @@ namespace PHPSTORM_META {
 
    /**
     * PhpStorm Meta file, to provide autocomplete information for PhpStorm
-    * Generated on 2018-09-13 05:52:04.
+    * Generated on 2018-10-11 07:27:20.
     *
     * @author Barry vd. Heuvel <barryvdh@gmail.com>
     * @see https://github.com/barryvdh/laravel-ide-helper
@@ -43,7 +43,6 @@ namespace PHPSTORM_META {
         'NunoMaduro\Collision\Contracts\Provider' => \NunoMaduro\Collision\Provider::class,
         'Nwidart\Modules\Contracts\RepositoryInterface' => \Nwidart\Modules\Laravel\LaravelFileRepository::class,
         'RouteUrls' => \App\Library\Url\RouteUrls::class,
-        'SeoBuilder' => \Aut\SeoBuilder\SeoBuilder::class,
         'Spatie\Permission\Contracts\Permission' => \Modules\Utilities\Entities\Permission::class,
         'Spatie\Permission\Contracts\Role' => \Modules\Utilities\Entities\Role::class,
         'auth' => \Illuminate\Auth\AuthManager::class,
@@ -225,7 +224,6 @@ namespace PHPSTORM_META {
         'NunoMaduro\Collision\Contracts\Provider' => \NunoMaduro\Collision\Provider::class,
         'Nwidart\Modules\Contracts\RepositoryInterface' => \Nwidart\Modules\Laravel\LaravelFileRepository::class,
         'RouteUrls' => \App\Library\Url\RouteUrls::class,
-        'SeoBuilder' => \Aut\SeoBuilder\SeoBuilder::class,
         'Spatie\Permission\Contracts\Permission' => \Modules\Utilities\Entities\Permission::class,
         'Spatie\Permission\Contracts\Role' => \Modules\Utilities\Entities\Role::class,
         'auth' => \Illuminate\Auth\AuthManager::class,
@@ -407,7 +405,6 @@ namespace PHPSTORM_META {
         'NunoMaduro\Collision\Contracts\Provider' => \NunoMaduro\Collision\Provider::class,
         'Nwidart\Modules\Contracts\RepositoryInterface' => \Nwidart\Modules\Laravel\LaravelFileRepository::class,
         'RouteUrls' => \App\Library\Url\RouteUrls::class,
-        'SeoBuilder' => \Aut\SeoBuilder\SeoBuilder::class,
         'Spatie\Permission\Contracts\Permission' => \Modules\Utilities\Entities\Permission::class,
         'Spatie\Permission\Contracts\Role' => \Modules\Utilities\Entities\Role::class,
         'auth' => \Illuminate\Auth\AuthManager::class,
@@ -589,7 +586,6 @@ namespace PHPSTORM_META {
         'NunoMaduro\Collision\Contracts\Provider' => \NunoMaduro\Collision\Provider::class,
         'Nwidart\Modules\Contracts\RepositoryInterface' => \Nwidart\Modules\Laravel\LaravelFileRepository::class,
         'RouteUrls' => \App\Library\Url\RouteUrls::class,
-        'SeoBuilder' => \Aut\SeoBuilder\SeoBuilder::class,
         'Spatie\Permission\Contracts\Permission' => \Modules\Utilities\Entities\Permission::class,
         'Spatie\Permission\Contracts\Role' => \Modules\Utilities\Entities\Role::class,
         'auth' => \Illuminate\Auth\AuthManager::class,
@@ -771,7 +767,6 @@ namespace PHPSTORM_META {
         'NunoMaduro\Collision\Contracts\Provider' => \NunoMaduro\Collision\Provider::class,
         'Nwidart\Modules\Contracts\RepositoryInterface' => \Nwidart\Modules\Laravel\LaravelFileRepository::class,
         'RouteUrls' => \App\Library\Url\RouteUrls::class,
-        'SeoBuilder' => \Aut\SeoBuilder\SeoBuilder::class,
         'Spatie\Permission\Contracts\Permission' => \Modules\Utilities\Entities\Permission::class,
         'Spatie\Permission\Contracts\Role' => \Modules\Utilities\Entities\Role::class,
         'auth' => \Illuminate\Auth\AuthManager::class,
@@ -953,7 +948,6 @@ namespace PHPSTORM_META {
         'NunoMaduro\Collision\Contracts\Provider' => \NunoMaduro\Collision\Provider::class,
         'Nwidart\Modules\Contracts\RepositoryInterface' => \Nwidart\Modules\Laravel\LaravelFileRepository::class,
         'RouteUrls' => \App\Library\Url\RouteUrls::class,
-        'SeoBuilder' => \Aut\SeoBuilder\SeoBuilder::class,
         'Spatie\Permission\Contracts\Permission' => \Modules\Utilities\Entities\Permission::class,
         'Spatie\Permission\Contracts\Role' => \Modules\Utilities\Entities\Role::class,
         'auth' => \Illuminate\Auth\AuthManager::class,
@@ -1135,7 +1129,6 @@ namespace PHPSTORM_META {
         'NunoMaduro\Collision\Contracts\Provider' => \NunoMaduro\Collision\Provider::class,
         'Nwidart\Modules\Contracts\RepositoryInterface' => \Nwidart\Modules\Laravel\LaravelFileRepository::class,
         'RouteUrls' => \App\Library\Url\RouteUrls::class,
-        'SeoBuilder' => \Aut\SeoBuilder\SeoBuilder::class,
         'Spatie\Permission\Contracts\Permission' => \Modules\Utilities\Entities\Permission::class,
         'Spatie\Permission\Contracts\Role' => \Modules\Utilities\Entities\Role::class,
         'auth' => \Illuminate\Auth\AuthManager::class,
