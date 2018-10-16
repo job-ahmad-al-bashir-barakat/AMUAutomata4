@@ -65,7 +65,7 @@ return [
     'block'                  => 'Block',
     'users'                  => 'Users',
     'menus'                  => 'Menus',
-    'list'                   => 'List Menu',
+    'list'                   => 'Menu List',
     'general'                => 'General Menu',
     'general_item'           => 'General Item',
     'control'                => 'Control Menu',
