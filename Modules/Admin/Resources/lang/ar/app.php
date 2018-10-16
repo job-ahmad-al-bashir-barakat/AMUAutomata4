@@ -66,6 +66,7 @@ return [
     'automata4_admin'    => 'إدارة أتوماتا 4',
     'experience'         => 'التجارب',
     'general'            => 'عام',
+    'blogs'              => 'المدونات',
 
     'large'              => 'حجم كبير',
     'small'              => 'حجم صغير',

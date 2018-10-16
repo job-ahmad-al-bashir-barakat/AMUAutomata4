@@ -8,16 +8,33 @@ use Modules\Utilities\Entities\SiteMenu;
 
 class SiteMenuFactory
 {
+    function getTreeQuery()
+    {
+        if(!request('nodeId'))
+        {
+            $nodes = SiteMenu::where('menu_list_id',\request()->get('menu'))->orderBy('order')->allLangs()->get()->toTree();
+        }
+        else
+        {
+            $node = SiteMenu::find(request('nodeId'));
+            $nodes = SiteMenu::where('menu_list_id',\request()->get('menu'))->whereAncestorOrSelf($node)->allLangs()->get()->toTree();
+        }
+
+        return $nodes;
+    }
+
     function dataAttr()
     {
         return array_merge([
             'id'          => 'id' ,
+            'menu'        => 'menu_list_id',
             'name'        => 'titles->'.\App::getLocale().'->text',
             'parent'      => ['id' => 'parent_id','name' => 'parent->lang_name->'.\App::getLocale().'->text'],
             'order'       => 'order',
             'type'        => 'menuable_type',
             'link'        => 'is_link',
             'prefix'      => 'prefix',
+            'url'         => 'url',
             'fixed_field' => 'data-saved',
             'dynamic'     => 'dynamic',
         ],lang('name' ,"titles->{lang}->text",'all'));
@@ -82,11 +99,13 @@ class SiteMenuFactory
 
             $this->create($request->input('parent_id') ,[
                 'parent_id'     => $request->input('parent_id'),
+                'menu_list_id'  => $request->input('menu'),
                 'order'         => $request->input('order'),
                 'menuable_id'   => $request->input('id'),
                 'menuable_type' => $request->input('type'),
                 'is_link'       => $request->input('link'),
                 'prefix'        => $request->input('prefix'),
+                'url'           => $request->input('url'),
                 'dynamic'       => $request->input('dynamic'),
             ]);
 

@@ -84,14 +84,15 @@ var AUT_FORM_COMPONENT = {
 
         changeAction: function ($form) {
 
-            var primarykey = $form.find('.primarykey').val(),
-                takeAction = typeof $form.data('take-action') != typeof undefined ? true : false,
+            var primarykey  = $form.find('.primarykey').val(),
+                takeAction  = typeof $form.data('take-action') != typeof undefined ? true : false,
+                actionParam = typeof $form.data('param') != typeof undefined ? $form.data('param') : '',
                 action;
 
             if (!takeAction && primarykey)
-                action = $form.attr('action') + "/" + primarykey;
+                action = $form.attr('action') + "/" + primarykey + actionParam;
             else
-                action = $form.attr('action');
+                action = $form.attr('action') + actionParam;
 
             return action;
         },

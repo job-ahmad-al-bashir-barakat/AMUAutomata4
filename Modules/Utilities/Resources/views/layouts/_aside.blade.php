@@ -77,8 +77,8 @@
             <li class="sidebar-subnav-header">{{ trans('utilities::app.menus') }}</li>
             @can('website-menu')
             <li class="">
-                <a href="{{ RouteUrls::generalMenu() }}" class="ajax" title="{{ trans('utilities::app.general') }}">
-                    <span>{{ trans('utilities::app.general') }}</span>
+                <a href="{{ RouteUrls::listMenu() }}" class="ajax" title="{{ trans('utilities::app.list') }}">
+                    <span>{{ trans('utilities::app.list') }}</span>
                 </a>
             </li>
             @endcan

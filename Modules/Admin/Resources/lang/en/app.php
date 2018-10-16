@@ -65,6 +65,7 @@ return [
     'automata4_admin'    => 'Automata4 Admin',
     'experience'         => 'Experiences',
     'general'            => 'General',
+    'blogs'              => 'Blogs',
 
     'large'              => 'Large Size',
     'small'              => 'Small Size',

@@ -12,14 +12,14 @@ class SiteMenusTableSeeder extends Seeder
      */
     public function run()
     {
-        
-
         \DB::table('site_menus')->delete();
         
         \DB::table('site_menus')->insert(array (
             0 => 
             array (
                 'id' => 1,
+'menu_list_id' => 2,
+
                 '_lft' => 1,
                 '_rgt' => 4,
                 'parent_id' => NULL,
@@ -36,6 +36,7 @@ class SiteMenusTableSeeder extends Seeder
             1 => 
             array (
                 'id' => 2,
+                'menu_list_id' => 2,
                 '_lft' => 5,
                 '_rgt' => 26,
                 'parent_id' => NULL,
@@ -52,6 +53,7 @@ class SiteMenusTableSeeder extends Seeder
             2 => 
             array (
                 'id' => 3,
+                'menu_list_id' => 2,
                 '_lft' => 6,
                 '_rgt' => 7,
                 'parent_id' => 2,
@@ -68,6 +70,7 @@ class SiteMenusTableSeeder extends Seeder
             3 => 
             array (
                 'id' => 4,
+                'menu_list_id' => 2,
                 '_lft' => 8,
                 '_rgt' => 9,
                 'parent_id' => 2,
@@ -84,6 +87,7 @@ class SiteMenusTableSeeder extends Seeder
             4 => 
             array (
                 'id' => 5,
+                'menu_list_id' => 2,
                 '_lft' => 10,
                 '_rgt' => 13,
                 'parent_id' => 2,
@@ -100,6 +104,7 @@ class SiteMenusTableSeeder extends Seeder
             5 => 
             array (
                 'id' => 6,
+                'menu_list_id' => 2,
                 '_lft' => 11,
                 '_rgt' => 12,
                 'parent_id' => 5,
@@ -116,6 +121,7 @@ class SiteMenusTableSeeder extends Seeder
             6 => 
             array (
                 'id' => 7,
+                'menu_list_id' => 2,
                 '_lft' => 14,
                 '_rgt' => 15,
                 'parent_id' => 2,
@@ -132,6 +138,7 @@ class SiteMenusTableSeeder extends Seeder
             7 => 
             array (
                 'id' => 8,
+                'menu_list_id' => 2,
                 '_lft' => 16,
                 '_rgt' => 17,
                 'parent_id' => 2,
@@ -148,6 +155,7 @@ class SiteMenusTableSeeder extends Seeder
             8 => 
             array (
                 'id' => 9,
+                'menu_list_id' => 2,
                 '_lft' => 18,
                 '_rgt' => 19,
                 'parent_id' => 2,
@@ -164,6 +172,7 @@ class SiteMenusTableSeeder extends Seeder
             9 => 
             array (
                 'id' => 10,
+                'menu_list_id' => 2,
                 '_lft' => 27,
                 '_rgt' => 28,
                 'parent_id' => NULL,
@@ -180,6 +189,7 @@ class SiteMenusTableSeeder extends Seeder
             10 => 
             array (
                 'id' => 11,
+                'menu_list_id' => 2,
                 '_lft' => 20,
                 '_rgt' => 21,
                 'parent_id' => 2,
@@ -196,6 +206,7 @@ class SiteMenusTableSeeder extends Seeder
             11 => 
             array (
                 'id' => 12,
+                'menu_list_id' => 2,
                 '_lft' => 22,
                 '_rgt' => 23,
                 'parent_id' => 2,
@@ -212,6 +223,7 @@ class SiteMenusTableSeeder extends Seeder
             12 => 
             array (
                 'id' => 13,
+                'menu_list_id' => 2,
                 '_lft' => 30,
                 '_rgt' => 31,
                 'parent_id' => 14,
@@ -228,6 +240,7 @@ class SiteMenusTableSeeder extends Seeder
             13 => 
             array (
                 'id' => 14,
+                'menu_list_id' => 2,
                 '_lft' => 29,
                 '_rgt' => 48,
                 'parent_id' => NULL,
@@ -244,6 +257,7 @@ class SiteMenusTableSeeder extends Seeder
             14 => 
             array (
                 'id' => 15,
+                'menu_list_id' => 2,
                 '_lft' => 32,
                 '_rgt' => 47,
                 'parent_id' => 14,
@@ -260,6 +274,7 @@ class SiteMenusTableSeeder extends Seeder
             15 => 
             array (
                 'id' => 16,
+                'menu_list_id' => 2,
                 '_lft' => 80,
                 '_rgt' => 81,
                 'parent_id' => 44,
@@ -276,6 +291,7 @@ class SiteMenusTableSeeder extends Seeder
             16 => 
             array (
                 'id' => 17,
+                'menu_list_id' => 2,
                 '_lft' => 82,
                 '_rgt' => 83,
                 'parent_id' => 44,
@@ -292,6 +308,7 @@ class SiteMenusTableSeeder extends Seeder
             17 => 
             array (
                 'id' => 18,
+                'menu_list_id' => 2,
                 '_lft' => 84,
                 '_rgt' => 85,
                 'parent_id' => 44,
@@ -308,6 +325,7 @@ class SiteMenusTableSeeder extends Seeder
             18 => 
             array (
                 'id' => 19,
+                'menu_list_id' => 2,
                 '_lft' => 86,
                 '_rgt' => 87,
                 'parent_id' => 44,
@@ -324,6 +342,7 @@ class SiteMenusTableSeeder extends Seeder
             19 => 
             array (
                 'id' => 20,
+                'menu_list_id' => 2,
                 '_lft' => 88,
                 '_rgt' => 89,
                 'parent_id' => 44,
@@ -340,6 +359,7 @@ class SiteMenusTableSeeder extends Seeder
             20 => 
             array (
                 'id' => 21,
+                'menu_list_id' => 2,
                 '_lft' => 90,
                 '_rgt' => 91,
                 'parent_id' => 44,
@@ -356,6 +376,7 @@ class SiteMenusTableSeeder extends Seeder
             21 => 
             array (
                 'id' => 22,
+                'menu_list_id' => 2,
                 '_lft' => 33,
                 '_rgt' => 34,
                 'parent_id' => 15,
@@ -372,6 +393,7 @@ class SiteMenusTableSeeder extends Seeder
             22 => 
             array (
                 'id' => 23,
+                'menu_list_id' => 2,
                 '_lft' => 35,
                 '_rgt' => 36,
                 'parent_id' => 15,
@@ -388,6 +410,7 @@ class SiteMenusTableSeeder extends Seeder
             23 => 
             array (
                 'id' => 24,
+                'menu_list_id' => 2,
                 '_lft' => 37,
                 '_rgt' => 38,
                 'parent_id' => 15,
@@ -404,6 +427,7 @@ class SiteMenusTableSeeder extends Seeder
             24 => 
             array (
                 'id' => 25,
+                'menu_list_id' => 2,
                 '_lft' => 39,
                 '_rgt' => 40,
                 'parent_id' => 15,
@@ -420,6 +444,7 @@ class SiteMenusTableSeeder extends Seeder
             25 => 
             array (
                 'id' => 26,
+                'menu_list_id' => 2,
                 '_lft' => 41,
                 '_rgt' => 42,
                 'parent_id' => 15,
@@ -436,6 +461,7 @@ class SiteMenusTableSeeder extends Seeder
             26 => 
             array (
                 'id' => 27,
+                'menu_list_id' => 2,
                 '_lft' => 43,
                 '_rgt' => 44,
                 'parent_id' => 15,
@@ -452,6 +478,7 @@ class SiteMenusTableSeeder extends Seeder
             27 => 
             array (
                 'id' => 28,
+                'menu_list_id' => 2,
                 '_lft' => 45,
                 '_rgt' => 46,
                 'parent_id' => 15,
@@ -468,6 +495,7 @@ class SiteMenusTableSeeder extends Seeder
             28 => 
             array (
                 'id' => 29,
+                'menu_list_id' => 2,
                 '_lft' => 49,
                 '_rgt' => 50,
                 'parent_id' => NULL,
@@ -484,6 +512,7 @@ class SiteMenusTableSeeder extends Seeder
             29 => 
             array (
                 'id' => 30,
+                'menu_list_id' => 2,
                 '_lft' => 51,
                 '_rgt' => 52,
                 'parent_id' => NULL,
@@ -500,6 +529,7 @@ class SiteMenusTableSeeder extends Seeder
             30 => 
             array (
                 'id' => 31,
+                'menu_list_id' => 2,
                 '_lft' => 53,
                 '_rgt' => 54,
                 'parent_id' => NULL,
@@ -516,6 +546,7 @@ class SiteMenusTableSeeder extends Seeder
             31 => 
             array (
                 'id' => 32,
+                'menu_list_id' => 2,
                 '_lft' => 55,
                 '_rgt' => 56,
                 'parent_id' => NULL,
@@ -532,6 +563,7 @@ class SiteMenusTableSeeder extends Seeder
             32 => 
             array (
                 'id' => 33,
+                'menu_list_id' => 2,
                 '_lft' => 57,
                 '_rgt' => 66,
                 'parent_id' => NULL,
@@ -548,6 +580,7 @@ class SiteMenusTableSeeder extends Seeder
             33 => 
             array (
                 'id' => 34,
+                'menu_list_id' => 2,
                 '_lft' => 67,
                 '_rgt' => 74,
                 'parent_id' => NULL,
@@ -564,6 +597,7 @@ class SiteMenusTableSeeder extends Seeder
             34 => 
             array (
                 'id' => 35,
+                'menu_list_id' => 2,
                 '_lft' => 62,
                 '_rgt' => 63,
                 'parent_id' => 33,
@@ -580,6 +614,7 @@ class SiteMenusTableSeeder extends Seeder
             35 => 
             array (
                 'id' => 36,
+                'menu_list_id' => 2,
                 '_lft' => 64,
                 '_rgt' => 65,
                 'parent_id' => 33,
@@ -596,6 +631,7 @@ class SiteMenusTableSeeder extends Seeder
             36 => 
             array (
                 'id' => 37,
+                'menu_list_id' => 2,
                 '_lft' => 58,
                 '_rgt' => 59,
                 'parent_id' => 33,
@@ -612,6 +648,7 @@ class SiteMenusTableSeeder extends Seeder
             37 => 
             array (
                 'id' => 38,
+                'menu_list_id' => 2,
                 '_lft' => 60,
                 '_rgt' => 61,
                 'parent_id' => 33,
@@ -628,6 +665,7 @@ class SiteMenusTableSeeder extends Seeder
             38 => 
             array (
                 'id' => 39,
+                'menu_list_id' => 2,
                 '_lft' => 70,
                 '_rgt' => 71,
                 'parent_id' => 34,
@@ -644,6 +682,7 @@ class SiteMenusTableSeeder extends Seeder
             39 => 
             array (
                 'id' => 40,
+                'menu_list_id' => 2,
                 '_lft' => 72,
                 '_rgt' => 73,
                 'parent_id' => 34,
@@ -660,6 +699,7 @@ class SiteMenusTableSeeder extends Seeder
             40 => 
             array (
                 'id' => 41,
+                'menu_list_id' => 2,
                 '_lft' => 68,
                 '_rgt' => 69,
                 'parent_id' => 34,
@@ -676,6 +716,7 @@ class SiteMenusTableSeeder extends Seeder
             41 => 
             array (
                 'id' => 42,
+                'menu_list_id' => 2,
                 '_lft' => 75,
                 '_rgt' => 76,
                 'parent_id' => NULL,
@@ -692,6 +733,7 @@ class SiteMenusTableSeeder extends Seeder
             42 => 
             array (
                 'id' => 43,
+                'menu_list_id' => 2,
                 '_lft' => 77,
                 '_rgt' => 78,
                 'parent_id' => NULL,
@@ -708,6 +750,7 @@ class SiteMenusTableSeeder extends Seeder
             43 => 
             array (
                 'id' => 44,
+                'menu_list_id' => 2,
                 '_lft' => 79,
                 '_rgt' => 92,
                 'parent_id' => NULL,
@@ -724,6 +767,7 @@ class SiteMenusTableSeeder extends Seeder
             44 => 
             array (
                 'id' => 45,
+                'menu_list_id' => 2,
                 '_lft' => 2,
                 '_rgt' => 3,
                 'parent_id' => 1,
@@ -740,6 +784,7 @@ class SiteMenusTableSeeder extends Seeder
             45 => 
             array (
                 'id' => 46,
+                'menu_list_id' => 2,
                 '_lft' => 24,
                 '_rgt' => 25,
                 'parent_id' => 2,
@@ -754,7 +799,5 @@ class SiteMenusTableSeeder extends Seeder
                 'deleted_at' => NULL,
             ),
         ));
-        
-        
     }
 }

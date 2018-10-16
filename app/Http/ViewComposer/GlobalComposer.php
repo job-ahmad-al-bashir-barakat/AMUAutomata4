@@ -30,7 +30,13 @@ class GlobalComposer
     public function path(View $view)
     {
         $viewPage =  \Route::getCurrentRoute()->parameter('view');
-        $viewPage = empty($viewPage) ? \Route::getCurrentRoute()->getName() : $viewPage;
+
+        if(preg_match("/\./", \Route::getCurrentRoute()->getName()))
+            list($table, $routeName) = explode('.', \Route::getCurrentRoute()->getName());
+        else
+            $routeName = \Route::getCurrentRoute()->getName();
+
+        $viewPage = empty($viewPage) ? $routeName : $viewPage;
         $viewPage = $viewPage ? Str::slug($viewPage,'_') : 'home';
 
         $node = ControlMenu::whereHas('page' ,function ($query) use ($viewPage){
@@ -38,7 +44,7 @@ class GlobalComposer
         })->first();
 
         $view->with([
-            'path'   => ControlMenu::defaultOrder()->whereAncestorOrSelf($node)->get()
+            'path' => ControlMenu::defaultOrder()->whereAncestorOrSelf($node)->get()
         ]);
     }
 

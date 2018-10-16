@@ -15,11 +15,13 @@ class CreateSiteMenuTable extends Migration
     {
         Schema::create('site_menus', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('menu_list_id')->unsigned()->nullable();
             $table->integer('_lft')->unsigned()->default(0);
             $table->integer('_rgt')->unsigned()->default(0);
             $table->integer('parent_id')->unsigned()->nullable();
             $table->integer('order')->unsigned();
             $table->string('prefix')->nullable();
+            $table->string('url',500);
             $table->boolean('is_link')->default(0)->nullable();
             $table->nullableMorphs('menuable');
             $table->string('dynamic')->nullable();

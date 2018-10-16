@@ -259,4 +259,9 @@ return [
         'model'   => \Modules\Admin\Entities\News::class,
         'factory' => \Modules\Admin\Factories\NewsFactory::class,
     ],
+
+    'list' => [
+        'model'   => \Modules\Utilities\Entities\MenuList::class,
+        'factory' => \Modules\Utilities\Factories\MenuListFactory::class,
+    ]
 ];

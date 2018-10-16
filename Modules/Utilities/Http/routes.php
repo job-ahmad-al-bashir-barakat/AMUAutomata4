@@ -80,8 +80,9 @@ function () {
     Route::get('position', 'UtilitiesController@table')->middleware('permission:position')->name('table.position');
     Route::get('job-title', 'UtilitiesController@table')->middleware('permission:job-title')->name('table.job-title');
 
-    Route::get('general/menu', 'UtilitiesController@menu')->middleware('permission:website-menu')->name('menu.general');
-    Route::get('control/menu', 'UtilitiesController@menu')->middleware('permission:control-panel-menu')->name('menu.control');
+    Route::get('list/menu', 'UtilitiesController@table')->middleware('permission:website-menu')->name('table.list');
+    Route::get('general/menu/{menu}', 'UtilitiesController@menu')->middleware('permission:website-menu')->name('menu.general');
+    Route::get('control/menu/{menu}', 'UtilitiesController@menu')->middleware('permission:control-panel-menu')->name('menu.control');
 
     Route::put('{treeModel}/tree/order/{id?}', 'TreeController@order');
     Route::resource('{treeModel}/tree', 'TreeController');

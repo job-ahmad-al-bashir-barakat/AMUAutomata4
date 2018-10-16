@@ -196,8 +196,10 @@ class AutocompleteController
 
             // get id
             $id = $item;
-            foreach (explode('->', $this->colId) as $col)
+            foreach (explode('->', $this->colId) as $col) {
+                $col = $replaceCol($col);
                 $id = isset($id->$col) ? $id->$col : $id->first()[$col];
+            }
 
             $finalResult = function ($item ,$col_target)  use ($helperFunc, $replaceCol){
 

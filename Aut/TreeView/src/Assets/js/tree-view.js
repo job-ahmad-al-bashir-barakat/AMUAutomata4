@@ -16,7 +16,8 @@ var AUT_TREE_VIEW = {
         init : function ($this ,$node) {
 
             var $cont               = $($this), //$this || $(this)
-                $treeParam          = $node != null ? "?nodeId=" + $node : "",
+                treeParam          = function (mark) { return $node != null ? mark + "nodeId=" + $node : ""; },
+                $treeParam          = typeof $cont.data('param') != typeof undefined ? $cont.data('param') + treeParam('&') : treeParam('?'),
                 clone               = typeof $cont.data('clone') != typeof undefined ? JSON.parse($cont.data('clone')) : false,
                 groupSource         = typeof $cont.data('group-source') != typeof undefined ? $cont.data('group-source') : undefined,
                 reject              = typeof $cont.data('reject') != typeof undefined ? JSON.parse($cont.data('reject')) : false,
@@ -170,7 +171,7 @@ var AUT_TREE_VIEW = {
                                 data = JSPath.apply('.', ObjectOrderSerialize);
                             }
 
-                            $.put($cont.data('url') + "/order/" + id, { data: data }, AUT_TREE_VIEW.tree.plugin.autoOrderSaveSuccess);
+                            $.put($cont.data('url') + "/order/" + id + $treeParam, { data: data }, AUT_TREE_VIEW.tree.plugin.autoOrderSaveSuccess);
                         }
                     }
                 })
@@ -301,8 +302,8 @@ var AUT_TREE_VIEW = {
         },
 
         saveTreeOrder: function (treeCont) {
-
-            $.put(treeCont.data('url') + '/order', { data: treeCont.data('order_list') },AUT_TREE_VIEW.tree.plugin.saveTreeOrderSuccess);
+            var dataParam = typeof treeCont.data('param') != typeof undefined ? treeCont.data('param') : '';
+            $.put(treeCont.data('url') + '/order' + dataParam, { data: treeCont.data('order_list') },AUT_TREE_VIEW.tree.plugin.saveTreeOrderSuccess);
         },
 
         eventFormAdd: function () {

@@ -3,9 +3,11 @@
 namespace Modules\Utilities\Entities;
 
 use Kalnoy\Nestedset\NodeTrait;
+use Modules\Admin\Entities\Course;
 use Modules\Admin\Entities\Degree;
 use Modules\Admin\Entities\Faculty;
 use Modules\Admin\Entities\Department;
+use Modules\Admin\Entities\Lab;
 use Modules\Utilities\Traits\MultiLangs;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Modules\Utilities\Entities\LangModels\SiteMenuNameLang;
@@ -14,7 +16,7 @@ class SiteMenu extends \Eloquent
 {
     use NodeTrait ,MultiLangs ,SoftDeletes;
 
-    protected $fillable = ['id', 'parent_id', 'name_route', 'order', 'is_link', 'prefix', 'menuable_id', 'menuable_type', 'dynamic'];
+    protected $fillable = ['id', 'menu_list_id', 'parent_id', 'name_route', 'order', 'is_link', 'prefix', 'url', 'menuable_id', 'menuable_type', 'dynamic'];
 
     protected $appends = ['lang_name', 'title', 'title_dynamic', 'title_autocomplete', 'titles' ,'dynamic_info'];
 
@@ -132,4 +134,11 @@ class SiteMenu extends \Eloquent
         return $this->belongsTo(Department::class ,'menuable_id');
     }
 
+    function course() {
+        return $this->belongsTo(Course::class,'menuable_id');
+    }
+
+    function lab() {
+        return $this->belongsTo(Lab::class,'menuable_id');
+    }
 }

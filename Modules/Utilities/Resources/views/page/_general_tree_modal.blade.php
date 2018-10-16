@@ -1,14 +1,16 @@
 {!! FormComponent::modalOpen('modal-general-tree') !!}
-{!! FormComponent::onSuccess('generalMenu')->getData('item')->formOpen('general-tree','post',treeLocalizeUrl($view),'',['data-tree-target' => '.general-tree']) !!}
+{!! FormComponent::onSuccess('generalMenu')->getData('item')->formOpen('general-tree','post',treeLocalizeUrl($view),'',['data-tree-target' => '.general-tree','data-param' => "?menu=$menu"]) !!}
     {!! FormComponent::modalHeaderOpen(trans('utilities::app.general_item')) !!}
     {!! FormComponent::modalHeaderClose() !!}
 
     {!! FormComponent::modalBodyOpen() !!}
         {!! FormComponent::fill('id')->primarykey('id' ,'id') !!}
+        {!! FormComponent::fill('menu_list_id')->hidden('menu_list_id' ,'menu_list_id',$menu,'',[],true) !!}
         {!! FormComponent::placeholder(trans('utilities::app.parent'))->fill('parent')->autocomplete(trans('utilities::app.parent') ,'parent-id' ,'parent_id','autocomplete/general?type=dialog',[],'3' ,'tree-autocomplete-change') !!}
         {{--tree-autocomplete-change is class for change event to fill order with its value--}}
         {!! FormComponent::fill('name-{lang}')->trans()->langs()->text(trans('utilities::app.name'),'name' ,'name' ,null ,'required') !!}
         {!! FormComponent::fill('prefix')->text(trans('utilities::app.prefix'),'prefix','prefix') !!}
+        {!! FormComponent::fill('url')->text(trans('utilities::app.url'),'url','url') !!}
         {!! FormComponent::fill('order')->hidden('order' ,'order') !!}
     {!! FormComponent::modalBodyClose() !!}
 
@@ -71,12 +73,14 @@
 
         if ((source != destination) && typeof item.data('saved') == typeof undefined) {
 
-            var parent = item.parents('li:first'),
-                order  = item.closest('.dd-list').children('li').length + 1;
+            var parent     = item.parents('li:first'),
+                order      = item.closest('.dd-list').children('li').length + 1,
+                tree       = destination.closest('.aut-tree'),
+                urlParams  = typeof tree.data('param') != typeof undefined ? tree.data('param') : '';
 
             item.attr('data-saved' ,true);
 
-            $.post(destination.closest('.aut-tree').data('url') ,$.extend(item.data() ,parent.length > 0 ? { parent_id : parent.data('id') ,order : order } : { order : order }) ,function () {
+            $.post(tree.data('url') + urlParams ,$.extend(item.data() ,parent.length > 0 ? { parent_id : parent.data('id') ,order : order } : { order : order }) ,function () {
 
                 source.find('[data-id="' + item.data('id') + '"]').remove();
 
@@ -113,8 +117,11 @@
 
         $('.general-tree').off('click').on('click' , '.trash' ,function () {
 
-            var $this = $(this),
-                   li = $this.closest('li');
+            var $this         = $(this),
+                   li         = $this.closest('li'),
+                   tree       = $this.closest('.aut-tree'),
+                   url        = tree.data('url'),
+                   urlParams  = typeof tree.data('param') != typeof undefined ? tree.data('param') : '';
 
             AUT_HELPER.sweetalert_swal({
                 title              : SWAL.title,
@@ -131,11 +138,11 @@
 
             } ,function () {
 
-                $.delete($this.closest('.aut-tree').data('url') +'/'+ li.data('id') ,function () {
+                $.delete(url +'/'+ li.data('id') + urlParams,function () {
 
                     AUT_HELPER.notify({message: OPERATION_MESSAGE_SUCCESS, status: 'success'});
 
-                    $.get("{{ RouteUrls::generalMenu() }}",{ load_link_items : true },function (res) {
+                    $.get("{{ RouteUrls::generalMenu($menu) }}",{ load_link_items : true },function (res) {
 
                         $('.link_items').html(res.html);
 

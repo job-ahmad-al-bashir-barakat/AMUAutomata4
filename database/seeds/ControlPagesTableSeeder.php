@@ -308,9 +308,9 @@ class ControlPagesTableSeeder extends Seeder
             36 => 
             array (
                 'id' => 83,
-                'control_page_code' => 'general',
+                'control_page_code' => 'list',
                 'created_at' => '2017-11-10 17:48:38',
-                'updated_at' => '2017-11-10 17:48:38',
+                'updated_at' => '2018-10-16 17:38:42',
                 'deleted_at' => NULL,
             ),
             37 => 
@@ -334,8 +334,8 @@ class ControlPagesTableSeeder extends Seeder
                 'id' => 86,
                 'control_page_code' => 'menu_tables',
                 'created_at' => '2017-11-10 17:50:06',
-                'updated_at' => '2017-11-10 17:50:06',
-                'deleted_at' => NULL,
+                'updated_at' => '2018-10-16 17:38:21',
+                'deleted_at' => '2018-10-16 17:38:21',
             ),
             40 => 
             array (
@@ -436,9 +436,9 @@ class ControlPagesTableSeeder extends Seeder
             52 => 
             array (
                 'id' => 99,
-                'control_page_code' => 'blog',
+                'control_page_code' => 'blogs',
                 'created_at' => '2017-11-10 17:54:44',
-                'updated_at' => '2017-11-10 17:54:44',
+                'updated_at' => '2018-10-16 18:06:40',
                 'deleted_at' => NULL,
             ),
             53 => 
@@ -615,6 +615,70 @@ class ControlPagesTableSeeder extends Seeder
                 'control_page_code' => 'pages',
                 'created_at' => '2017-11-10 20:27:07',
                 'updated_at' => '2017-11-10 20:27:07',
+                'deleted_at' => NULL,
+            ),
+            75 => 
+            array (
+                'id' => 122,
+                'control_page_code' => 'schema_tables',
+                'created_at' => '2018-10-16 17:43:45',
+                'updated_at' => '2018-10-16 17:45:30',
+                'deleted_at' => NULL,
+            ),
+            76 => 
+            array (
+                'id' => 123,
+                'control_page_code' => 'tables',
+                'created_at' => '2018-10-16 17:46:03',
+                'updated_at' => '2018-10-16 17:46:03',
+                'deleted_at' => NULL,
+            ),
+            77 => 
+            array (
+                'id' => 124,
+                'control_page_code' => 'auth',
+                'created_at' => '2018-10-16 17:47:31',
+                'updated_at' => '2018-10-16 17:48:56',
+                'deleted_at' => NULL,
+            ),
+            78 => 
+            array (
+                'id' => 125,
+                'control_page_code' => 'permissions',
+                'created_at' => '2018-10-16 17:48:16',
+                'updated_at' => '2018-10-16 17:48:16',
+                'deleted_at' => NULL,
+            ),
+            79 => 
+            array (
+                'id' => 126,
+                'control_page_code' => 'roles',
+                'created_at' => '2018-10-16 17:49:38',
+                'updated_at' => '2018-10-16 17:49:38',
+                'deleted_at' => NULL,
+            ),
+            80 => 
+            array (
+                'id' => 127,
+                'control_page_code' => 'galleries',
+                'created_at' => '2018-10-16 17:57:13',
+                'updated_at' => '2018-10-16 17:57:13',
+                'deleted_at' => NULL,
+            ),
+            81 => 
+            array (
+                'id' => 128,
+                'control_page_code' => 'status',
+                'created_at' => '2018-10-16 18:00:43',
+                'updated_at' => '2018-10-16 18:00:43',
+                'deleted_at' => NULL,
+            ),
+            82 => 
+            array (
+                'id' => 129,
+                'control_page_code' => 'news',
+                'created_at' => '2018-10-16 18:01:12',
+                'updated_at' => '2018-10-16 18:01:12',
                 'deleted_at' => NULL,
             ),
         ));

@@ -65,6 +65,7 @@ return [
     'block'                  => 'Block',
     'users'                  => 'Users',
     'menus'                  => 'Menus',
+    'list'                   => 'List Menu',
     'general'                => 'General Menu',
     'general_item'           => 'General Item',
     'control'                => 'Control Menu',
@@ -112,8 +113,10 @@ return [
     'prevent_drag_list_on_link' => '<b>Sorry !!!</b><br> you can\'t drag List on Link',
     'link_items_are_colored'    => 'Link Items Are Colored in :color',
     'list_items_are_colored'    => 'List Items Are Colored in :color',
+    'url_items_are_colored'     => 'Url Items Are Colored in :color',
     'white'                     => 'white',
     'sky'                       => 'sky',
+    'red'                       => 'red',
 
     'parent'                 => 'Parent',
     'url_path'               => 'Url Path',

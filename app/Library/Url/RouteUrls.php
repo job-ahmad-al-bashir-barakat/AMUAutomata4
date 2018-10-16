@@ -312,14 +312,19 @@ class RouteUrls
         return $this->localizeURL('{id}/labs' ,'admin');
     }
 
-    public function generalMenu()
+    public function listMenu()
     {
-        return $this->localizeUrl('general/menu' ,'utilities');
+        return $this->localizeUrl("list/menu" ,'utilities');
+    }
+
+    public function generalMenu($type = '')
+    {
+        return $this->localizeUrl("general/menu/$type" ,'utilities');
     }
 
     public function controlMenu()
     {
-        return $this->localizeUrl('control/menu' ,'utilities');
+        return $this->localizeUrl('control/menu/control-menu' ,'utilities');
     }
 
     public function generalSetting()

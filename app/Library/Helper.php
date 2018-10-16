@@ -54,16 +54,16 @@ if(! function_exists('colValue'))
 
 if(! function_exists('treeLocalizeUrl'))
 {
-    function treeLocalizeUrl($tree)
+    function treeLocalizeUrl($tree, $extra = '')
     {
-        return url(\LaravelLocalization::getCurrentLocale()."/utilities/$tree/tree");
+        return url(\LaravelLocalization::getCurrentLocale()."/utilities/$tree/tree{$extra}");
     }
 }
 
 if(! function_exists('tree'))
 {
     //get prob Val
-    function tree($tree, $group = 1, $group_sourse = '', $maxDepth = 5, $class = '',$extraParam = [
+    function tree($treeModel, $group = 1, $group_sourse = '', $maxDepth = 5, $class = '',$extraParam = [
         'data-type'                   => '',
         'data-empty-text'             => 'Drag Item Here',
         'data-init'                   => 'false',
@@ -77,9 +77,17 @@ if(! function_exists('tree'))
         'data-reject-rule-callback'   => '',
         'data-reject-action-callback' => '',
         'data-drag-end-callback'      => '',
+        'data-param'                  => ''
     ])
     {
-        $url = treeLocalizeUrl($tree);
+        if(is_array($treeModel)) {
+            $tree       = $treeModel[0];
+            $routeParam = $treeModel[1];
+            $url = treeLocalizeUrl($tree, $routeParam);
+        } else {
+            $tree = $treeModel;
+            $url = treeLocalizeUrl($tree);
+        }
 
         $param = [
             'data-type'                   => '',
@@ -95,6 +103,7 @@ if(! function_exists('tree'))
             'data-reject-rule-callback'   => '',
             'data-reject-action-callback' => '',
             'data-drag-end-callback'      => '',
+            'data-param'                  => ''
         ];
 
         $attrs = '';

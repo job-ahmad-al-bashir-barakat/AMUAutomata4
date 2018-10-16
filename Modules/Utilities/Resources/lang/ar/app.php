@@ -63,6 +63,7 @@ return [
     'users'                  => 'مستخدمين',
     'menus'                  => 'قوائم',
     'general'                => 'قوائم عامة',
+    'list'                   => 'مجموعة القوائم',
     'general_item'           => 'عنصر قائم عامة',
     'control'                => 'قوائم الإدارة',
     'control_item'           => 'عنصر قائمة إدارة',
@@ -107,11 +108,12 @@ return [
     'drag'                   => 'سحب',
     'prevent_drag_link_on_link' => '<b>المعذرة !!!</b><br> لايمكنك وضع رابط داخل رابط اخر',
     'prevent_drag_list_on_link' => '<b>المعذرة !!!</b><br> لايمكنك وضع قائمة داخل رابط اخر',
-    'link_items_are_colored'    => ' جميع الروابط ملونة بـ:color',
+    'link_items_are_colored'    => ' جميع الروابط العادية ملونة بـ:color',
     'list_items_are_colored'    => ' جميع القوائم ملونة بـ:color',
+    'url_items_are_colored'     => ' جميع الروابط الخرجية ملونة بـ:color',
     'white'                     => 'الابيض',
     'sky'                       => 'السماوي',
-
+    'red'                       => 'الأحمر',
 
     'parent'                 => 'الأب',
     'url_path'               => 'عنوان الرابط',

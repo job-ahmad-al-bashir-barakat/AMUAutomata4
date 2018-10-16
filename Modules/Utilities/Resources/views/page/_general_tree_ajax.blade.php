@@ -23,7 +23,7 @@
                                 @php($menuItemDynamic = $menuItemDynamic->first())
                                 @php($text = $menuItemDynamic->lang_name[App::getLocale()]['text'])
                                 @if($menuItemDynamic->dynamic)
-                                    <li data-id="{{ $menuItemDynamic->id }}" data-order="" class="dd-item" data-link="1" data-exists="{{ $menuItemsIndex }}" data-type="tables" data-conflict="{{ $menuItemsIndex }}" data-dynamic="{{ $menuItemsIndex }}">
+                                    <li data-id="{{ $menuItemDynamic->id }}" data-order="" class="dd-item" data-link="1" data-exists="{{ $menuItemsIndex }}" data-type="tables" data-conflict="{{ $menuItemsIndex }}" data-dynamic="{{ $menuItemsIndex }}" data-menu="{{ $menu }}">
                                         <div class='dd-handle dd3-handle move'>{{ $text ?? $menuItemDynamic->morph_code }}</div>
                                         <div class='dd3-content'>
                                             <span class="hand">{{ $text ?? $menuItemDynamic->morph_code }} ({{ trans('utilities::app.dynamic') }})</span>
@@ -35,7 +35,7 @@
                             @if($menuItemsCollection->count())
                                 @foreach($menuItemsCollection as $index => $link)
                                     @php($text = $link->lang_name[App::getLocale()]['text'])
-                                    <li data-id="{{ $link->id }}" data-order="" class="dd-item" data-link="1" data-exists="{{ \Illuminate\Support\Str::slug($text) }}" data-conflict="{{ $menuItemsIndex }}" data-type="{{ $menuItemsIndex }}">
+                                    <li data-id="{{ $link->id }}" data-order="" class="dd-item" data-link="1" data-exists="{{ \Illuminate\Support\Str::slug($text) }}" data-conflict="{{ $menuItemsIndex }}" data-type="{{ $menuItemsIndex }}" data-menu="{{ $menu }}">
                                         <div class='dd-handle dd3-handle move'>{{ $text ?? $link->code }}</div>
                                         <div class='dd3-content'>
                                             <span class="hand">{{ $text ?? $link->code }}</span>

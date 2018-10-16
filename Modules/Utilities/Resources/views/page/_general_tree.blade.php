@@ -34,18 +34,32 @@
                                 <span>{{ trans('utilities::app.list_items_are_colored' ,['color' => trans('utilities::app.white')]) }}</span>
                             </label>
                         </div>
+                        <div>
+                            <label class="control-label">
+                                <span class="pull-left" style="
+                                    background-color: rgba(255, 201, 201, 0.67);
+                                    border: 2px solid rgb(219, 219, 219);
+                                    margin: 3px 8px;
+                                    display: flex;
+                                    width: 15px;
+                                    height: 15px;
+                                    border-radius: 4px;"></span>
+                                <span>{{ trans('utilities::app.url_items_are_colored' ,['color' => trans('utilities::app.red')]) }}</span>
+                            </label>
+                        </div>
                     </li>
                 </ul>
             </div>
         </div>
 
         <div>
-            {!! tree($view ,$group_count ,$group_sourse ,10 , 'order',[
+            {!! tree($view,$group_count ,$group_sourse ,10 , 'order',[
                 'data-reject'               => 'true',
                 'data-drag-end-callback'    => 'dragSiteMenu',
                 'data-reject-rule-callback' => 'ruleSiteMenu',
                 'data-init'                 => 'true',
                 'data-init-callback'        => 'initSiteMenu',
+                'data-param'                => "?menu=$menu"
             ]) !!}
         </div>
     </div>
