@@ -32,9 +32,11 @@
                     @foreach ($locales as $locale)
                         <th>{{ $locale }}</th>
                     @endforeach
+                    @can('automata')
                     @if ($deleteEnabled)
                         <th>&nbsp;</th>
                     @endif
+                    @endcan
                 </tr>
                 </thead>
                 <tbody>
@@ -53,6 +55,7 @@
                                    data-title="Enter translation"><?php echo $t ? htmlentities($t->value, ENT_QUOTES, 'UTF-8', false) : '' ?></a>
                             </td>
                         @endforeach
+                        @can('automata')
                         @if($deleteEnabled)
                             <td>
                                 <a href="{{ action([Barryvdh\TranslationManager\Controller::class, 'postDelete'], [$group, $key]) }}"
@@ -61,6 +64,7 @@
                                             class="fa fa-trash-o"></span></a>
                             </td>
                         @endif
+                        @endcan
                     </tr>
                 @endforeach
                 </tbody>

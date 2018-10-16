@@ -14,6 +14,7 @@ class Module
     public $code;
     public $viewName;
     public $viewPath;
+    public $lang;
     public $customModuleId;
     public $data = [];
 
@@ -33,6 +34,7 @@ class Module
         $this->code = $code;
         $this->viewName = $view;*/
         $this->viewPath = "{$this->baseViewPath}.{$this->viewName}";
+        $this->lang = app()->getLocale();
     }
 
     public function getModuleAttributeHtml($customModuleId = false)
@@ -62,8 +64,9 @@ class Module
 
     public function getModuleHtml()
     {
-        $data = $this->data ?: [];
-        return view($this->viewPath, compact('data'))->render();
+        $data = $this->getModuleData($this->data);
+        $lang = $this->lang;
+        return view($this->viewPath, compact('data', 'lang'))->render();
     }
 
     public function getAttributeValue()
@@ -76,4 +79,8 @@ class Module
         $this->data['id'] = $this->customModuleId;
     }
 
+    public function getModuleData($data)
+    {
+        return $data ?: [];
+    }
 }
