@@ -32,7 +32,7 @@ trait MultiLangs
         //stoped it with request stopOper if you find onther way i will apply it.
         if(request('transSaveOper' ,true))
         {
-            $object = static::allLangs()->where('id', '=', $this->get('id'))->first();
+            $object = static::allLangs()->where('id', '=', $this->id)->first();
 
             foreach ($transMethod as $method)// each trans in the model ex:: user_name user_summary
             {
