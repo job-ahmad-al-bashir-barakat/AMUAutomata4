@@ -38,7 +38,7 @@ class SliderDetailFactory extends GlobalFactory
             ->config('datatable-slider',trans('utilities::app.slider'))
             ->addPrimaryKey('id','id')
             ->addHiddenInput('slider_id','slider_id', $sliderId, false, true)
-            ->addMultiInputTextLangs(['head', 'title', 'text'], 'req required')
+            ->addMultiInputTextLangs(['head', 'title', 'text'])
             ->addMultiInputTextLangs(['btn'])
             ->addSelect(['R' => 'Right', 'C' => 'Center', 'L' => 'Left'], trans('utilities::app.position_location'), 'position', 'position', '', 'req required')
             ->addAutocomplete('autocomplete/pages', trans('utilities::app.page'), 'page_id', 'page_id')

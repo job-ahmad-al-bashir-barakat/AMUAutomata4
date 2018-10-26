@@ -17,7 +17,7 @@ class CreateSliderDetailTextLangsTable extends Migration {
 			$table->increments('id');
 			$table->integer('slider_detail_id')->unsigned()->index('slider_detail_id');
 			$table->integer('lang_id')->unsigned()->index('lang_id');
-			$table->string('text', 1000);
+			$table->string('text', 1000)->nullable();
 			$table->timestamps();
 			$table->softDeletes();
 		});
