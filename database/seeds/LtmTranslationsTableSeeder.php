@@ -1,21 +1,22 @@
 <?php
 
-// Composer: "fzaninotto/faker": "v1.4.0"
-use Faker\Factory as Faker;
 use Illuminate\Database\Seeder;
 
-class LtmTranslationsTableSeeder extends Seeder {
+class LtmTranslationsTableSeeder extends Seeder
+{
 
-	public function run()
-	{
-		$faker = Faker::create();
+    /**
+     * Auto generated seed file
+     *
+     * @return void
+     */
+    public function run()
+    {
+        
 
-		foreach(range(1, 10) as $index)
-		{
-			LtmTranslation::create([
-
-			]);
-		}
-	}
-
+        \DB::table('ltm_translations')->delete();
+        
+        
+        
+    }
 }

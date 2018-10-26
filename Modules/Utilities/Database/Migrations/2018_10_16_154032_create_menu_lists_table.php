@@ -15,6 +15,7 @@ class CreateMenuListsTable extends Migration
     {
         Schema::create('menu_lists', function (Blueprint $table) {
             $table->increments('id')->unsigned();
+            $table->boolean('is_default')->default(false);
             $table->timestamps();
             $table->softDeletes();
         });

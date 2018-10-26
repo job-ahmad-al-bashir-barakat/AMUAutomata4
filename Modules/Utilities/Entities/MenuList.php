@@ -11,7 +11,7 @@ class MenuList extends Model
 {
     use SoftDeletes, MultiLangs;
 
-    protected $fillable = ['id'];
+    protected $fillable = ['id', 'is_default'];
 
     protected $appends  = ['lang_name'];
 

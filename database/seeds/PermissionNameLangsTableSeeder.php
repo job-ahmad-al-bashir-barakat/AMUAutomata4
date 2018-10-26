@@ -837,6 +837,46 @@ class PermissionNameLangsTableSeeder extends Seeder
                 'updated_at' => '2018-05-13 15:53:37',
                 'deleted_at' => NULL,
             ),
+            82 => 
+            array (
+                'id' => 83,
+                'permission_id' => 42,
+                'lang_id' => 1,
+                'text' => 'Translation Manager',
+                'created_at' => '2018-10-26 07:20:13',
+                'updated_at' => '2018-10-26 07:21:27',
+                'deleted_at' => NULL,
+            ),
+            83 => 
+            array (
+                'id' => 84,
+                'permission_id' => 42,
+                'lang_id' => 2,
+                'text' => 'متحولات اللغة',
+                'created_at' => '2018-10-26 07:20:14',
+                'updated_at' => '2018-10-26 07:21:27',
+                'deleted_at' => NULL,
+            ),
+            84 => 
+            array (
+                'id' => 85,
+                'permission_id' => 43,
+                'lang_id' => 1,
+                'text' => 'Hierarchy',
+                'created_at' => '2018-10-26 07:33:16',
+                'updated_at' => '2018-10-26 07:33:33',
+                'deleted_at' => NULL,
+            ),
+            85 => 
+            array (
+                'id' => 86,
+                'permission_id' => 43,
+                'lang_id' => 2,
+                'text' => 'الهيكلية',
+                'created_at' => '2018-10-26 07:33:16',
+                'updated_at' => '2018-10-26 07:33:33',
+                'deleted_at' => NULL,
+            ),
         ));
         
         

@@ -157,6 +157,26 @@ class SiteMenuNameLangsTableSeeder extends Seeder
                 'updated_at' => '2017-10-14 18:28:04',
                 'deleted_at' => NULL,
             ),
+            14 => 
+            array (
+                'id' => 15,
+                'site_menu_id' => 47,
+                'lang_id' => 1,
+                'text' => 'Facebook',
+                'created_at' => '2018-10-26 08:56:55',
+                'updated_at' => '2018-10-26 08:56:55',
+                'deleted_at' => NULL,
+            ),
+            15 => 
+            array (
+                'id' => 16,
+                'site_menu_id' => 47,
+                'lang_id' => 2,
+                'text' => 'فيسبوبك',
+                'created_at' => '2018-10-26 08:56:55',
+                'updated_at' => '2018-10-26 08:56:55',
+                'deleted_at' => NULL,
+            ),
         ));
         
         
