@@ -2,6 +2,7 @@
 
 namespace Modules\Utilities\Factories;
 
+use App\Library\Url\Facades\RouteUrls;
 use Aut\DataTable\Factories\GlobalFactory;
 
 class UserFactory extends GlobalFactory
@@ -13,16 +14,23 @@ class UserFactory extends GlobalFactory
     {
         $query = $user::with(['permissions', 'roles'])->allLangs()->get();
 
-        return $this->table
+         $this->table
             ->queryConfig('datatable-users')
             ->queryDatatable($query)
             ->queryMultiLang(['name' ,'summary'])
             ->queryUpdateButton('id')
             ->queryDeleteButton('id')
-            ->queryCustomButton('upload_image' ,'id' ,'fa fa-image' ,'' ,'onclick="showFileUploadModal(this)"')
+            ->queryCustomButton('upload_image' ,'id' ,'fa fa-image' ,'' ,'onclick="showFileUploadModal(this)"');
+
+        if (auth()->user()->can('automata')) {
             //@todo check if user has automata permission to do this action
-            ->queryCustomButton('login_as' ,'id' ,'icon-login' ,'' ,'onclick="loginAs(this)"')
-            ->queryRender(true);
+//            $this->table->queryCustomButton('login_as' ,'id' ,'icon-login' ,'' ,'onclick="loginAs(this)"');
+            $this->table->queryAddColumn('login_as', function ($row) {
+                return "<a href='" . RouteUrls::loginAs($row->id) . "'><i class='icon-login'></i></a>";
+            });
+        }
+
+        return $this->table->queryRender(true);
     }
 
     /**
@@ -30,7 +38,7 @@ class UserFactory extends GlobalFactory
      */
     public function buildDatatable($model, $request)
     {
-        return $this->table
+        $this->table
             ->config('datatable-users',trans('utilities::app.users'))
             ->addPrimaryKey('id','id')
             ->addInputText(trans('utilities::app.user_name'),'name','name','required req')
@@ -44,13 +52,16 @@ class UserFactory extends GlobalFactory
                 ->addMultiAutocomplete('autocomplete/permissions' ,"permissions[ ,].lang_name.$this->lang.text",trans('utilities::app.permissions') , 'permissions.id', "permissions.lang_name.$this->lang.text", "permissions.lang_name.$this->lang.text" ,'' ,'multiple')
             ->endRelation()
             ->addInputPassword(trans('utilities::app.password'),'password','password','','','',false,false,false,false)
-            ->addActionButton(trans('utilities::app.upload_images') ,'upload_image' ,'upload_image', 'center all' ,'100px')
+            ->addActionButton(trans('utilities::app.upload_images') ,'upload_image' ,'upload_image', 'center all' ,'100px');
+        if (auth()->user()->can('automata')) {
             //@todo check if user has automata permission to do this action
-            ->addActionButton(trans('utilities::app.login_as') ,'login_as' ,'login_as', 'center all' ,'100px')
-            ->addActionButton($this->update,'update','update')
+            $this->table->addActionButton(trans('utilities::app.login_as'), 'login_as', 'login_as', 'center all', '100px');
+        }
+        $this->table->addActionButton($this->update,'update','update')
             ->addActionButton($this->delete,'delete','delete')
-            ->addNavButton()
-            ->render();
+            ->addNavButton();
+
+        return $this->table->render();
     }
 
     /**

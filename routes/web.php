@@ -122,6 +122,7 @@ function () {
 
     // Authentication Routes...
     Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+    Route::get('login/{user}', 'Auth\LoginController@loginAs')->middleware('permission:automata')->name('login-as');
     Route::post('login', 'Auth\LoginController@login');
     Route::post('logout', 'Auth\LoginController@logout')->name('logout');
     Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
