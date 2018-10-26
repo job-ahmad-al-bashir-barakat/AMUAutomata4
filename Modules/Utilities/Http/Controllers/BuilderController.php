@@ -233,7 +233,7 @@ class BuilderController extends Controller
             'table' => 'block',
             'param' => "blockId={$block->id}",
             'title' => trans('utilities::app.block') . " [{$block->transName->first()->text}]",
-            'subPage' => false,
+            'subPage' => "utilities::page.table-sub.block-details",
         ]);
     }
 

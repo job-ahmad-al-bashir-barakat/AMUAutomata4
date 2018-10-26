@@ -7,7 +7,7 @@ return [
     'setting' => [
 
         'image' => [
-            'validate'         => 'required|mimes:jpeg,jpg,png,gif|ratio',
+            'validate' => 'required|mimes:jpeg,jpg,png,gif|ratio',
             'upload_directory' => 'upload\image',
         ],
 
@@ -15,39 +15,38 @@ return [
         'relationName' => 'image'
     ],
 
-
     'user' => [
-        'model'  => \Modules\Utilities\Entities\User::class,
+        'model' => \Modules\Utilities\Entities\User::class,
         'ratio' => [
-            'first_ratio'  => [ 'width'  => '60', 'height' => '60', ],
+            'first_ratio' => ['width' => '60', 'height' => '60',],
         ],
         'relationType' => 'one',
     ],
 
     'galleries' => [
-        'model'  => \Modules\Utilities\Entities\Gallery::class,
+        'model' => \Modules\Utilities\Entities\Gallery::class,
         'ratio' => [
-            'first_ratio'  => [ 'width'  => '570', 'height' => '390' ],
+            'first_ratio' => ['width' => '570', 'height' => '390'],
         ],
         'relationType' => 'many',
         'relationName' => 'image',
         'thumps' => [
-            'small' => [ 'width'  => '280', 'height' => '191' ],
+            'small' => ['width' => '280', 'height' => '191'],
         ],
     ],
 
     'lang' => [
-        'model'  => \Modules\Utilities\Entities\Lang::class,
+        'model' => \Modules\Utilities\Entities\Lang::class,
         'ratio' => [
-            'first_ratio'  => [ 'width'  => '18', 'height' => '12', ],
+            'first_ratio' => ['width' => '18', 'height' => '12',],
         ],
         'relationType' => 'one',
     ],
 
     'main-lab' => [
-        'model'  => \Modules\Admin\Entities\Lab::class,
+        'model' => \Modules\Admin\Entities\Lab::class,
         'ratio' => [
-            'first_ratio'  => [ 'width'  => '755', 'height' => '480', ],
+            'first_ratio' => ['width' => '755', 'height' => '480',],
         ],
         'relationType' => 'one',
         'relationName' => 'mainImage'
@@ -56,7 +55,7 @@ return [
     'lab' => [
         'model' => \Modules\Admin\Entities\Lab::class,
         'ratio' => [
-            'first_ratio'  => [ 'width'  => '285', 'height' => '215', ],
+            'first_ratio' => ['width' => '285', 'height' => '215',],
             //'second_ratio' => [ 'width'  => '480', 'height' => '480', ],
         ],
         // 'thumps' => [
@@ -68,21 +67,21 @@ return [
     ],
 
     'person-260-230' => [
-        'model'        => \Modules\Admin\Entities\Person::class,
+        'model' => \Modules\Admin\Entities\Person::class,
         'ratio' => [
             'person_ratio' => ['width' => '260', 'height' => '230'],
         ],
         'relationType' => 'one',
-        'relationId'    => 'image_260_id',
+        'relationId' => 'image_260_id',
     ],
 
     'person-360-360' => [
-        'model'        => \Modules\Admin\Entities\Person::class,
+        'model' => \Modules\Admin\Entities\Person::class,
         'ratio' => [
             'person_ratio' => ['width' => '360', 'height' => '360'],
         ],
         'relationType' => 'one',
-        'relationId'    => 'image_360_id',
+        'relationId' => 'image_360_id',
     ],
 
     'slider' => [
@@ -127,63 +126,81 @@ return [
 
     'small_gallery' => [
         'ratio' => [
-            'first'  => [ 'width'  => '560', 'height' => '200', ],
-            'second' => [ 'width'  => '275', 'height' => '197', ]
+            'first' => ['width' => '560', 'height' => '200',],
+            'second' => ['width' => '275', 'height' => '197',]
         ],
         'stopRelationSave' => true,
     ],
 
     'course-265-195' => [
-        'model'        => \Modules\Admin\Entities\Course::class,
+        'model' => \Modules\Admin\Entities\Course::class,
         'ratio' => [
-            'course_265' => [ 'width'  => '265', 'height' => '195' ],
+            'course_265' => ['width' => '265', 'height' => '195'],
         ],
-        'relationType'  => 'one',
-        'relationId'    => 'image_265_id',
+        'relationType' => 'one',
+        'relationId' => 'image_265_id',
     ],
 
     'course-750-500' => [
-        'model'        => \Modules\Admin\Entities\Course::class,
+        'model' => \Modules\Admin\Entities\Course::class,
         'ratio' => [
-            'course_750' => [ 'width'  => '750', 'height' => '500' ],
+            'course_750' => ['width' => '750', 'height' => '500'],
         ],
-        'relationType'  => 'one',
-        'relationId'    => 'image_750_id',
+        'relationType' => 'one',
+        'relationId' => 'image_750_id',
+    ],
+
+    'block-front' => [
+        'model' => \Modules\Utilities\Entities\BlockDetail::class,
+        'ratio' => [
+            'block_front' => ['width' => '250', 'height' => '250'],
+        ],
+        'relationType' => 'one',
+        'relationId' => 'front_image_id',
+    ],
+
+    'block-back' => [
+        'model' => \Modules\Utilities\Entities\BlockDetail::class,
+        'ratio' => [
+            'block_back' => ['width' => '250', 'height' => '250'],
+        ],
+        'relationType' => 'one',
+        'relationId' => 'back_image_id',
     ],
 
     'partner-large-image' => [
         'model' => \Modules\Admin\Entities\Partner::class,
         'ratio' => [
-            'partner_large_image' => [ 'title' => 'admin::app.large', 'width'  => '755', 'height' => '480', ],
+            'partner_large_image' => ['title' => 'admin::app.large', 'width' => '755', 'height' => '480',],
         ],
-        'relationType'  => 'many',
+        'relationType' => 'many',
         'relationParam' => ['image_type'],
     ],
 
     'partner-small-image' => [
         'model' => \Modules\Admin\Entities\Partner::class,
         'ratio' => [
-            'partner_small_image' => [ 'title' => 'admin::app.small' ,'width'  => '320', 'height' => '300', ],
+            'partner_small_image' => ['title' => 'admin::app.small', 'width' => '320', 'height' => '300',],
         ],
-        'relationType'  => 'many',
+        'relationType' => 'many',
         'relationParam' => ['image_type'],
     ],
 
     'news-570-390' => [
-        'model'        => \Modules\Admin\Entities\News::class,
+        'model' => \Modules\Admin\Entities\News::class,
         'ratio' => [
-            'news' => [ 'width'  => '570', 'height' => '390' ],
+            'news' => ['width' => '570', 'height' => '390'],
         ],
-        'relationType'  => 'one',
-        'relationId'    => 'image_570_id',
+        'relationType' => 'one',
+        'relationId' => 'image_570_id',
     ],
 
     'news-1920-1280' => [
-        'model'        => \Modules\Admin\Entities\News::class,
+        'model' => \Modules\Admin\Entities\News::class,
         'ratio' => [
-            'news' => [ 'width'  => '1920', 'height' => '1280' ],
+            'news' => ['width' => '1920', 'height' => '1280'],
         ],
-        'relationType'  => 'one',
-        'relationId'    => 'image_1920_id',
+        'relationType' => 'one',
+        'relationId' => 'image_1920_id',
     ],
 ];
