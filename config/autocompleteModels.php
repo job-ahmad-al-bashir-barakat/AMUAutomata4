@@ -146,6 +146,10 @@ return [
         'model' => \Modules\Admin\Entities\Faculty::class,
     ],
 
+    'branch' => [
+        'model' => \Modules\Admin\Entities\Branch::class,
+    ],
+
     'degree' => [
         'model' => \Modules\Admin\Entities\Degree::class,
         'conditions' => [

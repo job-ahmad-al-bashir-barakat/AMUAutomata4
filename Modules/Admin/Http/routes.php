@@ -21,6 +21,7 @@ function () {
 
 //    Route::get('{view}','AdminController@table');
     Route::get('faculties', 'AdminController@table')->middleware('permission:faculties')->name('table.faculties');
+    Route::get('branches', 'AdminController@table')->middleware('permission:branches')->name('table.branches');
     Route::get('departments', 'AdminController@table')->middleware('permission:departments')->name('table.departments');
     Route::get('degrees', 'AdminController@table')->middleware('permission:degrees')->name('table.degrees');
 //    Route::get('study-plan','AdminController@table')->middleware('permission:study-plan')->name('table.study-plan');

@@ -11,7 +11,7 @@ class Faculty extends \Eloquent
 {
     use SoftDeletes ,MultiLangs;
 
-    protected $fillable = ['id'];
+    protected $fillable = ['id','branch_id'];
 
     protected $appends = ['lang_name' , 'faculty_name'];
 
@@ -33,5 +33,10 @@ class Faculty extends \Eloquent
     public function studyYear()
     {
         return $this->belongsToMany(StudyYear::class)->withPivot('id');
+    }
+
+    function branch()
+    {
+        return $this->belongsTo(Branch::class);
     }
 }

@@ -222,6 +222,11 @@ class RouteUrls
         return $this->localizeUrl('faculties', 'admin');
     }
 
+    public function branches()
+    {
+        return $this->localizeUrl('branches', 'admin');
+    }
+
     public function singleCourse($course)
     {
         return $this->localizeUrl("courses/{$course}");

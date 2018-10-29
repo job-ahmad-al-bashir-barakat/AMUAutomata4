@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFacultyTable extends Migration
+class CreateBranchNameLangsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class CreateFacultyTable extends Migration
      */
     public function up()
     {
-        Schema::create('faculties', function (Blueprint $table) {
-            $table->increments('id')->unsigned();
-            $table->integer('branch_id')->unsigned();
+        Schema::create('branch_name_langs', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('branch_id')->unsigned()->index('branch_id');
+            $table->integer('lang_id')->unsigned()->index('lang_id');
+            $table->string('text', 191);
             $table->timestamps();
             $table->softDeletes();
         });
@@ -28,6 +30,6 @@ class CreateFacultyTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('faculties');
+        Schema::dropIfExists('branch_name_langs');
     }
 }

@@ -167,6 +167,11 @@ return [
         'factory'       => Modules\Admin\Factories\FacultyFactory::class,
     ],
 
+    'branches'  => [
+        'model'         => Modules\Admin\Entities\Branch::class,
+        'factory'       => Modules\Admin\Factories\BranchFactory::class,
+    ],
+
     'labs' => [
         'model'         => Modules\Admin\Entities\Lab::class,
         'factory'       => Modules\Admin\Factories\LabFactory::class,

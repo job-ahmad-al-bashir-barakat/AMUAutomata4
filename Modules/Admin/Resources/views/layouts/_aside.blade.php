@@ -19,6 +19,13 @@
         </a>
         <ul id="university" class="nav sidebar-subnav collapse">
             <li class="sidebar-subnav-header">{{ trans('admin::app.university') }}</li>
+            @can('branches')
+            <li class="">
+                <a href="{{ RouteUrls::branches() }}" class="ajax" title="{{ trans('admin::app.branches') }}">
+                    <span>{{ trans('admin::app.branches') }}</span>
+                </a>
+            </li>
+            @endcan
             @can('faculties')
             <li class="">
                 <a href="{{ RouteUrls::faculties() }}" class="ajax" title="{{ trans('admin::app.faculties') }}">
