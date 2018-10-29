@@ -5,7 +5,6 @@
 @endsection
 
 @section('content')
-
     <div class="container-fluid">
         <!-- START row-->
         <div class="row">
@@ -23,7 +22,6 @@
             </div>
         </div>
     </div>
-
 @stop
 @section('footer')
     @includeWhen($subPage, $subPage)

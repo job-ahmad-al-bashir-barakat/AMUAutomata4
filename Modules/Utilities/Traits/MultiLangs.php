@@ -50,7 +50,7 @@ trait MultiLangs
                 {
                     foreach ($relations as $relation)
                     {
-                        if (isset($data["{$inputName}_{$relation->lang_code}"])) {
+                        if (isset($data["{$inputName}_{$relation->lang_code}"]) || is_null($data["{$inputName}_{$relation->lang_code}"])) {
                             $relation->text = $data["{$inputName}_{$relation->lang_code}"];
                             $status = $relation->save();
                         }

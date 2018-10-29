@@ -167,6 +167,11 @@ class RouteUrls
         return $this->localizeUrl('login');
     }
 
+    public function loginAs($userId)
+    {
+        return $this->localizeUrl("login/{$userId}");
+    }
+
     public function page($page)
     {
         return $this->localizeUrl("$page");

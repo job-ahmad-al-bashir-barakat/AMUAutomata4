@@ -12,27 +12,29 @@ class MenuListsTableSeeder extends Seeder
      */
     public function run()
     {
-        
+
 
         \DB::table('menu_lists')->delete();
-        
+
         \DB::table('menu_lists')->insert(array (
-            0 => 
-            array (
-                'id' => 2,
-                'created_at' => '2018-10-16 17:09:21',
-                'updated_at' => '2018-10-16 17:09:21',
-                'deleted_at' => NULL,
-            ),
-            1 => 
-            array (
-                'id' => 3,
-                'created_at' => '2018-10-16 18:23:44',
-                'updated_at' => '2018-10-16 18:23:44',
-                'deleted_at' => NULL,
-            ),
+            0 =>
+                array (
+                    'id' => 1,
+                    'is_default' => 1,
+                    'created_at' => '2018-10-26 08:52:29',
+                    'updated_at' => '2018-10-26 12:41:52',
+                    'deleted_at' => NULL,
+                ),
+            1 =>
+                array (
+                    'id' => 2,
+                    'is_default' => 0,
+                    'created_at' => '2018-10-26 12:43:56',
+                    'updated_at' => '2018-10-26 12:43:56',
+                    'deleted_at' => NULL,
+                ),
         ));
-        
-        
+
+
     }
 }

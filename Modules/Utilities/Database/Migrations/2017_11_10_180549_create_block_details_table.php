@@ -18,6 +18,8 @@ class CreateBlockDetailsTable extends Migration {
 			$table->integer('block_id')->unsigned()->index('block_id');
 			$table->integer('icon_id')->unsigned()->index('icon_id');
 			$table->integer('page_id')->unsigned()->index('page_id');
+			$table->integer('front_image_id')->unsigned()->index('front_image_id')->nullable();
+			$table->integer('back_image_id')->unsigned()->index('back_image_id')->nullable();
 			$table->timestamps();
 			$table->softDeletes();
 		});

@@ -226,6 +226,7 @@ mix.scripts(js.concat([
 mix.copy('Modules/Admin/Assets/vendor/laravel-filemanager', 'public/vendor/laravel-filemanager' ,false);
 mix.copy('Modules/Admin/Assets/vendor/ckeditor', 'public/ckeditor' ,false);
 mix.copy('Modules/Admin/Assets/vendor/app/css/theme-*.css', 'public/css');
+mix.copy('Modules/Admin/Assets/theme-custom.css', 'public');
 
 mix.copy('Aut/GoogleMap/src/Assets/plugin/jQuery-gMap/marker_red.png', 'public/images' ,false);
 mix.copy('Modules/Admin/Assets/vendor/app/i18n', 'public/i18n');

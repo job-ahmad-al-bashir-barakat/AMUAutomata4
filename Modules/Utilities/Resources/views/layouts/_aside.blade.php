@@ -2,6 +2,16 @@
     <li class="nav-heading ">
         <span>{{ trans('utilities::app.automata4_utilities') }}</span>
     </li>
+    @if(auth()->user()->hasAnyPermission([
+        'languages',
+        'translation-manager',
+        'schema-tables',
+        'tables',
+        'icons',
+        'attributes',
+        'modules',
+        'pages',
+    ]))
     <li class=" ">
         <a href="#global" title="{{ trans('utilities::app.global') }}" data-toggle="collapse">
             <em class="icon-grid"></em>
@@ -67,7 +77,11 @@
             @endcan
         </ul>
     </li>
-
+    @endif
+    @if(auth()->user()->hasAnyPermission([
+        'website-menu',
+        'control-panel-menu',
+    ]))
     <li class="">
         <a href="#menus" title="{{ trans('utilities::app.menus') }}" data-toggle="collapse" class="">
             <em class="icon-layers"></em>
@@ -91,6 +105,12 @@
             @endcan
         </ul>
     </li>
+    @endif
+    @if(auth()->user()->hasAnyPermission([
+        'permissions',
+        'roles',
+        'users',
+    ]))
     <li class="">
         <a href="#users-auth" title="{{ trans('utilities::app.auth') }}" data-toggle="collapse" class="">
             <em class="icon-people"></em>
@@ -121,6 +141,17 @@
             @endcan
         </ul>
     </li>
+    @endif
+    @if(auth()->user()->hasAnyPermission([
+        'sliders',
+        'vertical-sliders',
+        'blocks',
+        'steps',
+        'text-cards',
+        'galleries',
+        'custom-modules',
+        'pages',
+    ]))
     <li class="">
         <a href="#builder" title="{{ trans('utilities::app.builder') }}" data-toggle="collapse" class="">
             <em class="icon-puzzle"></em>
@@ -149,11 +180,13 @@
                 </a>
             </li>
             @endcan
+            @can('steps')
             <li class="">
                 <a href="{{ RouteUrls::steps() }}" class="ajax" title="{{ trans('utilities::app.steps') }}">
                     <span>{{ trans('utilities::app.steps') }}</span>
                 </a>
             </li>
+            @endcan
             @can('text-cards')
             <li class="">
                 <a href="{{ RouteUrls::textCards() }}" class="ajax" title="{{ trans('utilities::app.text-cards') }}">
@@ -184,6 +217,7 @@
             @endcan
         </ul>
     </li>
+    @endif
 @endsection
 
 @section('_aside_setting_utilities')

@@ -427,6 +427,26 @@ class PermissionsTableSeeder extends Seeder
                 'updated_at' => '2018-05-13 15:53:36',
                 'deleted_at' => NULL,
             ),
+            41 => 
+            array (
+                'id' => 42,
+                'name' => 'translation-manager',
+                'guard_name' => 'web',
+                'hidden' => 'N',
+                'created_at' => '2018-10-26 07:15:00',
+                'updated_at' => '2018-10-26 07:15:00',
+                'deleted_at' => NULL,
+            ),
+            42 => 
+            array (
+                'id' => 43,
+                'name' => 'hierarchy',
+                'guard_name' => 'web',
+                'hidden' => 'N',
+                'created_at' => '2018-10-26 07:33:16',
+                'updated_at' => '2018-10-26 07:33:16',
+                'deleted_at' => NULL,
+            ),
         ));
         
         

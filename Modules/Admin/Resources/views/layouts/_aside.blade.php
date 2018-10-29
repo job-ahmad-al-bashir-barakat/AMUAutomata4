@@ -3,7 +3,15 @@
     <li class="nav-heading ">
         <span>{{ trans('admin::app.automata4_admin') }}</span>
     </li>
-
+    @if(auth()->user()->hasAnyPermission([
+        'faculties',
+        'departments',
+        'degrees',
+        'study-plan',
+        'hierarchy',
+        'offices',
+        'partners',
+    ]))
     <li class="">
         <a href="#university" title="{{ trans('admin::app.university') }}" data-toggle="collapse" class="">
             <em class="icon-cup"></em>
@@ -39,12 +47,13 @@
                 </a>
             </li>
             @endcan
-
+            @can('hierarchy')
             <li class="">
                 <a href="{{ RouteUrls::hierarchyMenu() }}" class="ajax" title="{{ trans('admin::app.hierarchy') }}">
                     <span>{{ trans('admin::app.hierarchy') }}</span>
                 </a>
             </li>
+            @endcan
             @can('offices')
             <li class="">
                 <a href="{{ RouteUrls::offices() }}" class="ajax" title="{{ trans('admin::app.offices') }}">
@@ -61,7 +70,12 @@
             @endcan
         </ul>
     </li>
-
+    @endif
+    @if(auth()->user()->hasAnyPermission([
+        'university-council',
+        'board-of-trustees',
+        'staff',
+    ]))
     <li class="">
         <a href="#person" title="Persons" data-toggle="collapse">
             <em class="icon-people"></em>
@@ -95,7 +109,11 @@
             @endcan
         </ul>
     </li>
-
+    @endif
+    @if(auth()->user()->hasAnyPermission([
+        'news-status',
+        'news',
+    ]))
     <li class="">
         <a href="#news" title="{{ trans('admin::app.news') }}" data-toggle="collapse" class="">
             <em class="icon-feed"></em>
@@ -118,6 +136,7 @@
             @endcan
         </ul>
     </li>
+    @endif
 @endsection
 
 @section('_aside_setting_admin')

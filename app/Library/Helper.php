@@ -244,11 +244,16 @@ if (!function_exists('buildHtmlTree')) {
         $html = '';
         foreach ($tree as $item) {
             $url = '#';
+            $newPage = '';
+            if ($item->url) {
+                $url = $item->url;
+                $newPage = 'target="_blank"';
+            }
             if($item->menuable_type == 'page') {
                 $url = RouteUrls::page("{$urlPrefix}{$item->menuable->route}");
             }
             $html .= "<li>";
-            $html .= "<a href='{$url}'>{$item->title}</a>";
+            $html .= "<a href='{$url}' {$newPage}>{$item->title}</a>";
             if ($item->dynamic && $item->dynamic_info->count()) {// set the dynamic data as list
                 $html .= "<ul class='dropdown'>";
                 foreach ($item->dynamic_info as $info) {// set the children tree for each dynamic data list
