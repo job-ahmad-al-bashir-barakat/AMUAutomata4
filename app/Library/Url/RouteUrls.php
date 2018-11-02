@@ -222,9 +222,9 @@ class RouteUrls
         return $this->localizeUrl('faculties', 'admin');
     }
 
-    public function branches()
+    public function campuses()
     {
-        return $this->localizeUrl('branches', 'admin');
+        return $this->localizeUrl('campuses', 'admin');
     }
 
     public function singleCourse($course)

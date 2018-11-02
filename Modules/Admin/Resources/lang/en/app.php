@@ -66,8 +66,8 @@ return [
     'experience'         => 'Experiences',
     'general'            => 'General',
     'blogs'              => 'Blogs',
-    'branches'           => 'Branches',
-    'branch'             => 'Branch',
+    'campuses'           => 'Campuses',
+    'campus'             => 'Campus',
 
     'large'              => 'Large Size',
     'small'              => 'Small Size',

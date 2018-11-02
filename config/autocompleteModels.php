@@ -146,8 +146,8 @@ return [
         'model' => \Modules\Admin\Entities\Faculty::class,
     ],
 
-    'branch' => [
-        'model' => \Modules\Admin\Entities\Branch::class,
+    'campus' => [
+        'model' => \Modules\Admin\Entities\Campus::class,
     ],
 
     'degree' => [

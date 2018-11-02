@@ -3,9 +3,9 @@
 namespace Modules\Admin\Factories;
 
 use Aut\DataTable\Factories\GlobalFactory;
-use Modules\Admin\Entities\Branch;
+use Modules\Admin\Entities\Campus;
 
-class BranchFactory extends GlobalFactory
+class CampusFactory extends GlobalFactory
 {
 
     /**
@@ -13,10 +13,10 @@ class BranchFactory extends GlobalFactory
      */
     public function getDatatable($model ,$request)
     {
-        $query = Branch::all();
+        $query = Campus::allLangs();
 
         return $this->table
-            ->queryConfig('datatable-branch')
+            ->queryConfig('datatable-campus')
             ->queryDatatable($query)
             ->queryUpdateButton('id')
             ->queryDeleteButton('id')
@@ -30,7 +30,7 @@ class BranchFactory extends GlobalFactory
     public function buildDatatable($model ,$request)
     {
         return $this->table
-            ->config('datatable-branch' ,trans('admin::app.branch'))
+            ->config('datatable-campus' ,trans('admin::app.campus'))
             ->addPrimaryKey('id','id')
             ->addMultiInputTextLangs(['name'], 'req required')
             ->addActionButton($this->update,'update','update')

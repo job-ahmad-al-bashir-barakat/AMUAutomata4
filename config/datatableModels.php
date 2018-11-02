@@ -167,9 +167,9 @@ return [
         'factory'       => Modules\Admin\Factories\FacultyFactory::class,
     ],
 
-    'branches'  => [
-        'model'         => Modules\Admin\Entities\Branch::class,
-        'factory'       => Modules\Admin\Factories\BranchFactory::class,
+    'campuses'  => [
+        'model'         => Modules\Admin\Entities\Campus::class,
+        'factory'       => Modules\Admin\Factories\CampusFactory::class,
     ],
 
     'labs' => [
