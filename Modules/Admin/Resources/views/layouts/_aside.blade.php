@@ -4,6 +4,7 @@
         <span>{{ trans('admin::app.automata4_admin') }}</span>
     </li>
     @if(auth()->user()->hasAnyPermission([
+        'campuses',
         'faculties',
         'departments',
         'degrees',
