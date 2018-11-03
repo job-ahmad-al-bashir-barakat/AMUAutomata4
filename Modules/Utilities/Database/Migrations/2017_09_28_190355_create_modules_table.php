@@ -15,6 +15,7 @@ class CreateModulesTable extends Migration {
 		Schema::create('modules', function(Blueprint $table)
 		{
 			$table->increments('id');
+            $table->integer('image_id')->unsigned()->nullable()->index('image_id');
 			$table->string('code', 191);
             $table->string('customized', 1)->default('1');
             $table->timestamps();

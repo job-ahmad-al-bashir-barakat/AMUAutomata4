@@ -64,9 +64,9 @@ function () {
         Route::get('schema-tables', 'UtilitiesController@table')->name('table.schema-tables');
         Route::get('tables', 'UtilitiesController@table')->name('table.tables');
         Route::get('attributes', 'UtilitiesController@table')->name('table.attributes');
-        Route::get('modules', 'UtilitiesController@table')->name('table.modules');
         Route::get('permissions', 'UtilitiesController@table')->name('table.permissions');
     });
+    Route::get('modules', 'UtilitiesController@table')->middleware('permission:modules')->name('table.modules');
 
     Route::get('langs', 'UtilitiesController@table')->middleware('permission:languages')->name('table.langs');
     Route::get('icons', 'UtilitiesController@table')->middleware('permission:icons')->name('table.icons');
