@@ -5,7 +5,6 @@ namespace Aut\FileUpload\Http\Controllers;
 use Aut\FileUpload\Http\Requests\UploadFormRequest;
 use App\Http\Controllers\Controller;
 use Aut\FileUpload\Entities\Image;
-use Illuminate\Http\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Storage;
@@ -29,12 +28,12 @@ class UploadController extends Controller
 
     function __construct()
     {
-        if(Route::getCurrentRoute() !== null)
-        {
+        if (Route::getCurrentRoute() !== null) {
             $routeParam = Route::getCurrentRoute()->parameters();
 
             $this->imageGeneralConfig = config("fileupload.setting");
-            $this->imageLocalConfig   = config("fileupload.{$routeParam['model']}");
+            $this->imageLocalConfig = config("fileupload.{$routeParam['model']}");
+            $this->imageLocalConfig['ratio'] = $this->imageLocalConfig['ratio'] ?? [];
 
             // get config relationType
             $this->relationType = isset($this->imageLocalConfig['relationType'])
@@ -65,14 +64,15 @@ class UploadController extends Controller
         }
     }
 
-    function index(Request $request ,$model ,$type) {
+    function index(Request $request, $model, $type)
+    {
 
         $ids = $request->input('images_id');
 
         $images = [];
 
-        if(!empty($ids)) {
-            $images = Image::whereIn('id' ,$ids)->get();
+        if (!empty($ids)) {
+            $images = Image::whereIn('id', $ids)->get();
         } else {
             // get from config model if is there isn't ids
         }
@@ -80,43 +80,48 @@ class UploadController extends Controller
         return $images;
     }
 
-    function upload(UploadFormRequest $request ,$model ,$type) {
+    function upload(UploadFormRequest $request, $model, $type)
+    {
 
         $file = $request->file($model);
         $file = is_array($file) ? $file[0] : $file;
 
-        $dimensions  = getimagesize($file->getPathname());
-        $imageRatio  = number_format($dimensions[0]/$dimensions[1] ,1);
+        $dimensions = getimagesize($file->getPathname());
+        $imageRatio = number_format($dimensions[0] / $dimensions[1], 1);
 
-        $paramFromName = explode(',_,' ,$file->getClientOriginalName());
+        $paramFromName = explode(',_,', $file->getClientOriginalName());
 
         $clientOriginalName = $paramFromName[0];
-        $ratio              = isset($paramFromName[1]) ?  $paramFromName[1] : false;
+        $ratio = $paramFromName[1] ?? false;
 
-        if($ratio)
+        $getRatio = null;
+
+        if ($ratio) {
             $getRatio = collect($this->imageLocalConfig['ratio'])->get($ratio);
-        else
-            foreach ($this->imageLocalConfig['ratio'] as $index => $current_ratio) {
+        } else {
+            foreach ($this->imageLocalConfig['ratio'] as $index => $currentRatio) {
 
-                $loopRatio = number_format($current_ratio['width']/$current_ratio['height'] ,1);
+                $loopRatio = number_format($currentRatio['width'] / $currentRatio['height'], 1);
 
-                if($loopRatio === $imageRatio) {
-
-                    $getRatio = $current_ratio;
-
+                if ($loopRatio === $imageRatio) {
+                    $getRatio = $currentRatio;
                     break;
                 }
             }
+        }
 
-        $path       = storage_path($this->uploadDirectory);
-        $hashName   = strtolower(str_random(12))."_{$type}_". $clientOriginalName;
+        $path = storage_path($this->uploadDirectory);
+        $hashName = strtolower(str_random(12)) . "_{$type}_" . $clientOriginalName;
 
         // make directory if not exists
         Storage::makeDirectory($this->targetDirectory);
 
         // move with intervention
         $imgRezise = \Image::make($file->getRealPath());
-        $imgRezise->resize($getRatio['width'], $getRatio['height'])->save("$path/$hashName");
+        if ($getRatio) {
+            $imgRezise->resize($getRatio['width'], $getRatio['height']);
+        }
+        $imgRezise->save("$path/$hashName");
 
         // talk with abood
         // todo: fix issue when image width and height is smaller then ratio image dimention then resize the image will increase the size of image
@@ -125,13 +130,13 @@ class UploadController extends Controller
         // it just move your image
         // $file->move($path ,$hashName);
 
-        $extraParams =  [
-            'name'      => $clientOriginalName,
+        $extraParams = [
+            'name' => $clientOriginalName,
             'hash_name' => $hashName,
-            'ext'       => $file->getClientOriginalExtension(),
-            'width'     => $getRatio['width'],
-            'height'    => $getRatio['height'],
-            'size'      => $imgRezise->filesize(), // $file->getClientSize(),
+            'ext' => $file->getClientOriginalExtension(),
+            'width' => $imgRezise->width(),
+            'height' => $imgRezise->height(),
+            'size' => $imgRezise->filesize(),
         ];
 
         // save file inside file table
@@ -139,7 +144,7 @@ class UploadController extends Controller
         $returnParam = $this->{"saveUpload{$partFunc}Db"}($extraParams);
 
         // set image thumps for image
-        if(isset($this->imageLocalConfig['thumps'])) {
+        if (isset($this->imageLocalConfig['thumps'])) {
 
             //make thumps directory
             Storage::makeDirectory("$this->targetDirectory/thumps");
@@ -154,8 +159,7 @@ class UploadController extends Controller
             }
         }
 
-        if(!$this->stopRelationSave)
-        {
+        if (!$this->stopRelationSave) {
             // get config model
             $dbModel = $this->imageLocalConfig['model'];
 
@@ -167,20 +171,20 @@ class UploadController extends Controller
 
             // relation params or extra update param
             $params = [];
-            if(isset($this->imageLocalConfig['relationParam']) && count($this->imageLocalConfig['relationParam']))
+            if (isset($this->imageLocalConfig['relationParam']) && count($this->imageLocalConfig['relationParam']))
                 foreach ($this->imageLocalConfig['relationParam'] as $param)
-                    $params[$param] = $request->input($param,$param);
+                    $params[$param] = $request->input($param, $param);
 
-            if(isset($this->imageLocalConfig['relationParamFixed']))
+            if (isset($this->imageLocalConfig['relationParamFixed']))
                 $params = array_merge($params, $this->imageLocalConfig['relationParamFixed']);
 
             // relationType has to be many or one
-            if($this->relationType == 'many') {
+            if ($this->relationType == 'many') {
 
                 $attach = $returnParam->id;
 
-                if(count($params))
-                    $attach = [ $returnParam->id => $params ];
+                if (count($params))
+                    $attach = [$returnParam->id => $params];
 
                 $dbModel->{$relationName}()->attach($attach);
 
@@ -190,20 +194,20 @@ class UploadController extends Controller
                     ? $this->imageLocalConfig['relationId']
                     : "{$type}_id";
 
-                $dbModel->update(array_merge([$imageId => $returnParam->id] ,$params));
+                $dbModel->update(array_merge([$imageId => $returnParam->id], $params));
             }
         }
 
         return array_merge(["success" => true], [$model => $returnParam]);
     }
 
-    function destroy(Request $request ,$model ,$type) {
+    function destroy(Request $request, $model, $type)
+    {
 
         request()->request->add(['transSaveOper' => false]);
 
-        if(!$request->input('autoReplace',false))
-            if(!$this->stopRelationSave)
-            {
+        if (!$request->input('autoReplace', false))
+            if (!$this->stopRelationSave) {
                 // get config model
                 $dbModel = $this->imageLocalConfig['model'];
 
@@ -214,7 +218,7 @@ class UploadController extends Controller
                 $dbModel = $dbModel::findOrFail($request->get('id'));
 
                 // relationType has to be many or one
-                if($this->relationType == 'many')
+                if ($this->relationType == 'many')
                     $dbModel->{$relationName}()->detach($request->get('key'));
                 else
                     $dbModel->update(["{$type}_id" => null]);
@@ -225,13 +229,13 @@ class UploadController extends Controller
         $this->{"destroyUpload{$partFunc}Db"}($request->get('key'));
 
         // set storage path for file delete
-        $path       = $this->targetDirectory;
-        $hashName   = $request->get('file_name');
+        $path = $this->targetDirectory;
+        $hashName = $request->get('file_name');
         // delete image from storage .. ps: this accept just file name but i pass full path.
         Storage::delete("$path\\$hashName");
 
         // delete image thumps for storge
-        if(isset($this->imageLocalConfig['thumps'])) {
+        if (isset($this->imageLocalConfig['thumps'])) {
 
             //make thumps directory
             foreach ($this->imageLocalConfig['thumps'] as $index => $thump) {
@@ -244,7 +248,8 @@ class UploadController extends Controller
         return ["success" => true];
     }
 
-    protected function saveUploadImageDb($extraParams) {
+    protected function saveUploadImageDb($extraParams)
+    {
 
         request()->request->add(['transSaveOper' => false]);
 
@@ -253,22 +258,25 @@ class UploadController extends Controller
         return $image;
     }
 
-    protected function destroyUploadImageDb($id) {
+    protected function destroyUploadImageDb($id)
+    {
 
         Image::destroy($id);
     }
 
-    function info(Request $request ,$model ,$type)  {
+    function info(Request $request, $model, $type)
+    {
 
         $image = Image::findOrFail($request->input('image_id'));
 
         $image->update($request->input());
     }
 
-    function getInfo() {
+    function getInfo()
+    {
 
-        $image = Image::where('id','=',request()->input('image_id'))->allLangs()->first();
+        $image = Image::where('id', '=', request()->input('image_id'))->allLangs()->first();
 
-        return response()->json(['info' => $image->lang_alt->pluck('text','lang_code')]);
+        return response()->json(['info' => $image->lang_alt->pluck('text', 'lang_code')]);
     }
 }

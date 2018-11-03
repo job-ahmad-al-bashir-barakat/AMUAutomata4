@@ -23,6 +23,12 @@ return [
         'relationType' => 'one',
     ],
 
+    'modules' => [
+        'model' => \Modules\Utilities\Entities\Module::class,
+        'relationType' => 'one',
+        'validate' => 'required|mimes:jpeg,jpg,png,gif',
+    ],
+
     'galleries' => [
         'model' => \Modules\Utilities\Entities\Gallery::class,
         'ratio' => [
