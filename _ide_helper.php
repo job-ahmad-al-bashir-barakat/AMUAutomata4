@@ -3,7 +3,7 @@
 
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.7.11 on 2018-10-26 13:27:01.
+ * Generated for Laravel 5.7.11 on 2018-11-03 15:23:55.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -17952,6 +17952,16 @@ namespace App\Library\Url\Facades {
         public static function faculties()
         {
             return \App\Library\Url\RouteUrls::faculties();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function campuses()
+        {
+            return \App\Library\Url\RouteUrls::campuses();
         }
         
         /**
