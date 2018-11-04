@@ -26,30 +26,26 @@ class UploadController extends Controller
 
     function __construct()
     {
-        $routeParam = \Route::getCurrentRoute()->parameters();
+        if (\Route::getCurrentRoute()) {
+            $routeParam = \Route::getCurrentRoute()->parameters();
+            $this->imageGeneralConfig = config("file-upload.setting");
+            $this->imageLocalConfig   = config("file-upload.{$routeParam['model']}");
 
-        $this->imageGeneralConfig = config("file-upload.setting");
-        $this->imageLocalConfig   = config("file-upload.{$routeParam['model']}");
+            // get config relationType
+            $this->relationType = $this->imageLocalConfig['relationType'] ?? $this->imageGeneralConfig['relationType'];
 
-        // get config relationType
-        $this->relationType = isset($this->imageLocalConfig['relationType'])
-            ? $this->imageLocalConfig['relationType']
-            : $this->imageGeneralConfig['relationType'];
+            // get path upload directory storage
+            $uploadDirectory = $this->imageLocalConfig['upload_directory'] ?? $this->imageGeneralConfig[$routeParam['type']]['upload_directory'];
 
-        // get path upload directory storage
-        $uploadDirectory = isset($this->imageLocalConfig['upload_directory'])
-            ? $this->imageLocalConfig['upload_directory']
-            : $this->imageGeneralConfig[$routeParam['type']]['upload_directory'];
+            // stop all relation oper
+            $this->stopRelationSave = $this->imageLocalConfig['stopRelationSave'] ?? false;
 
-        // stop all relation oper
-        $this->stopRelationSave = isset($this->imageLocalConfig['stopRelationSave'])
-            ? $this->imageLocalConfig['stopRelationSave']
-            : false;
+            $folderUpload = Str::plural($routeParam['model']);
 
-        $folderUpload = Str::plural($routeParam['model']);
+            $this->targetDirectory = "public\\$uploadDirectory\\$folderUpload";
+            $this->uploadDirectory = "app\\public\\$uploadDirectory\\$folderUpload";
+        }
 
-        $this->targetDirectory = "public\\$uploadDirectory\\$folderUpload";
-        $this->uploadDirectory = "app\\public\\$uploadDirectory\\$folderUpload";
     }
 
     function index(Request $request ,$model ,$type) {
