@@ -22,7 +22,7 @@ function () {
 
         $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
         $modules = \Modules\Utilities\Entities\BuilderPage::pageModules("course.{$courseId}.")->get()->pluck('module');
-        $seo = \Modules\Utilities\Entities\Seo::pageSeo("course.{$courseId}.")->first();
+        $seo = \Aut\SeoBuilder\Entities\Seo::pageSeo("course.{$courseId}.")->first();
 
         return view("modules", compact('menu', 'modules', 'seo'));
     });
@@ -32,7 +32,7 @@ function () {
 
         $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
         $modules = \Modules\Utilities\Entities\BuilderPage::pageModules("person.{$staffId}.")->get()->pluck('module');
-        $seo = \Modules\Utilities\Entities\Seo::pageSeo("person.{$staffId}.")->first();
+        $seo = \Aut\SeoBuilder\Entities\Seo::pageSeo("person.{$staffId}.")->first();
 
         return view("modules", compact('menu', 'modules', 'seo'));
     });
@@ -42,7 +42,7 @@ function () {
 
         $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
         $modules = \Modules\Utilities\Entities\BuilderPage::pageModules("lab.{$labId}.")->get()->pluck('module');
-        $seo = \Modules\Utilities\Entities\Seo::pageSeo("lab.{$labId}.")->first();
+        $seo = \Aut\SeoBuilder\Entities\Seo::pageSeo("lab.{$labId}.")->first();
 
         return view("modules", compact('menu', 'modules', 'seo'));
     });
