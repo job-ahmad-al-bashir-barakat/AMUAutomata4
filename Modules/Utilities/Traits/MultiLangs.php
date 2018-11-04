@@ -64,6 +64,7 @@ trait MultiLangs
                             $createArr[] = ['lang_id' => $key + 1, 'text' => $data["{$inputName}_{$lang}"]];
                         }
                     }
+                    dd($createArr);
                     if (count($createArr)) {
                         $object->$method()->createMany($createArr);
                     }
