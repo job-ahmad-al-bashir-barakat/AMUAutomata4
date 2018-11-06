@@ -1,6 +1,6 @@
 <div class="col-sm-12 col-md-4">
     <div class="card effect__hover">
-        <div class="card__front border-3px bg-lighter" @if($block->image_path['front']) style='background-image: url("{{ asset($block->image_path['front']) }}")' @endif>
+        <div class="card__front border-3px bg-lighter" @if($block->image_path['front']) style='background-size: cover;background-image: url("{{ asset($block->image_path['front']) }}")' @endif>
             <div class="card__text">
                 <div class="display-table-parent">
                     <div class="display-table">
@@ -16,7 +16,7 @@
                 </div>
             </div>
         </div>
-        <div class="card__back" @if($block->image_path['back']) style='background-image: url("{{ asset($block->image_path['back']) }}")' @else data-bg-color="#202c45" @endif>
+        <div class="card__back" @if($block->image_path['back']) style='background-size: cover;background-image: url("{{ asset($block->image_path['back']) }}")' @else data-bg-color="#202c45" @endif>
             <div class="card__text">
                 <div class="display-table-parent p-30">
                     <div class="display-table">
