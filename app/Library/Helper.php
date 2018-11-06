@@ -353,3 +353,40 @@ if (!function_exists('getRouteOptionalValue')) {
         return null;
     }
 }
+
+if (!function_exists('facebookShare')) {
+    /**
+     * @param null $url default current Url
+     * @return string
+     */
+    function facebookShare($url = null)
+    {
+        $sharedUrl = urlencode($url ?? Request::fullUrl());
+        return "https://web.facebook.com/sharer/sharer.php?u={$sharedUrl}";
+        //https://web.facebook.com/sharer/sharer.php?kid_directed_site=0&sdk=joey&u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&display=popup&ref=plugin&src=share_button
+    }
+}
+
+if (!function_exists('twitterShare')) {
+    /**
+     * @param null $url default current Url
+     * @return string
+     */
+    function twitterShare($url = null)
+    {
+        $sharedUrl = urlencode($url ?? Request::fullUrl());
+        return "https://twitter.com/intent/tweet?url={$sharedUrl}";
+    }
+}
+
+if (!function_exists('googleShare')) {
+    /**
+     * @param null $url default current Url
+     * @return string
+     */
+    function googleShare($url = null)
+    {
+        $sharedUrl = urlencode($url ?? Request::fullUrl());
+        return "https://plus.google.com/share?url={$sharedUrl}";
+    }
+}
