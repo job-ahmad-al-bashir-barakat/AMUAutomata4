@@ -1,4 +1,4 @@
-@if($data)
+@if($data && $data->count())
     @php($value = [[$data->id => $data->transName->first()->text]])
 @else
     @php($value = [])

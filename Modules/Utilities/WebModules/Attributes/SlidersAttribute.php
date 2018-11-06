@@ -25,7 +25,7 @@ class SlidersAttribute extends Attribute
     {
         parent::getAttributeValue($customModuleId, $forceQuery);
 
-        $data = Slider::findOrFail($this->data);
+        $data = Slider::find($this->data);
         $this->data = $data;
         /*$this->data = [
             [$data->id => $data->transName->first()->text],

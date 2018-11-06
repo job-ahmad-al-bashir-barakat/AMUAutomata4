@@ -25,7 +25,7 @@ class VerticalSlidersAttribute extends Attribute
     {
         parent::getAttributeValue($customModuleId, $forceQuery);
 
-        $data = VerticalSlider::findOrFail($this->data);
+        $data = VerticalSlider::find($this->data);
 
         $this->data = $data;
     }
