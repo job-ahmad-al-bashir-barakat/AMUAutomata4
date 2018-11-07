@@ -5,6 +5,7 @@ namespace Modules\Utilities\WebModules\Providers;
 use Aut\SeoBuilder\Entities\Seo;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
+use Modules\Utilities\Entities\MenuList;
 use Modules\Utilities\Entities\SiteMenu;
 use Modules\Utilities\Entities\BuilderPage;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -37,7 +38,9 @@ class WebModulesServiceProvider extends ServiceProvider
     {
         if (!app()->runningInConsole())
         {
-            $this->menu = SiteMenu::orderBy('order')->get()->toTree();
+            $this->menu = MenuList::with(['siteMenu' => function ($query){
+                $query->orderBy('order');
+            }])->where('is_default', true)->get()->first()->siteMenu->toTree();
 
             $this->buildMenuRoutes($this->menu);
         }

@@ -24,4 +24,9 @@ class MenuList extends Model
     {
         return $this->transName->keyBy('lang_code');
     }
+
+    public function siteMenu()
+    {
+        return $this->hasMany(SiteMenu::class);
+    }
 }
