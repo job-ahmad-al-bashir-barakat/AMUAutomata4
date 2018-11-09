@@ -25,7 +25,7 @@
 </div>
 <div class="row mt-30">
     <div class="col-md-4">
-        <h4 class="line-bottom">About Me:</h4>
+        <h4 class="line-bottom">@lang('app.about_me'):</h4>
         <div class="volunteer-address">
             <ul>
                 @if($person->lang_experience)
@@ -76,7 +76,7 @@
     </div>
     @if($person->contact->gelocation)
     <div class="col-md-4">
-        <h4 class="line-bottom">Find Location:</h4>
+        <h4 class="line-bottom">@lang('app.find_location'):</h4>
         <div
                 data-address="121 King Street, Melbourne Victoria 3000 Australia"
                 data-popupstring-id="#popupstring1"

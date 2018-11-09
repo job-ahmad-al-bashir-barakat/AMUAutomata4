@@ -59,4 +59,6 @@ return array (
   'attribute_title' => 'Attribute',
   'clear' => 'Clear',
   'pixel' => ' px',
+  'about_me' => 'About Me',
+  'find_location' => 'Find Location',
 );
