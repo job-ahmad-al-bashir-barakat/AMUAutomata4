@@ -2,12 +2,13 @@
 
 namespace Modules\Admin\Entities;
 
-use Illuminate\Database\Eloquent\SoftDeletes;
+use Aut\Eloquent\Models\Model;
 use Kalnoy\Nestedset\NodeTrait;
-use Modules\Admin\Entities\LangModels\HierarchyNameLang;
 use Modules\Utilities\Traits\MultiLangs;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Modules\Admin\Entities\LangModels\HierarchyNameLang;
 
-class Hierarchy extends \Eloquent
+class Hierarchy extends Model
 {
     use NodeTrait ,MultiLangs ,SoftDeletes;
 

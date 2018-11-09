@@ -2,13 +2,13 @@
 
 namespace Modules\Admin\Entities;
 
-use Illuminate\Database\Eloquent\Model;
+use Aut\Eloquent\Models\Model;
+use Modules\Utilities\Traits\MultiLangs;
+use Modules\Utilities\Entities\SocialNetwork;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Modules\Admin\Entities\LangModels\ContactAddressLang;
-use Modules\Utilities\Entities\SocialNetwork;
-use Modules\Utilities\Traits\MultiLangs;
 
-class Contact extends \Eloquent
+class Contact extends Model
 {
     use SoftDeletes ,MultiLangs;
 

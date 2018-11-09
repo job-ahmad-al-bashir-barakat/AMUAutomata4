@@ -2,11 +2,12 @@
 
 namespace Modules\Admin\Entities;
 
+use Aut\Eloquent\Models\Model;
 use Modules\Utilities\Traits\MultiLangs;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Modules\Admin\Entities\LangModels\SemesterNameLang;
 
-class Semester extends \Eloquent
+class Semester extends Model
 {
     use SoftDeletes ,MultiLangs;
 

@@ -2,10 +2,11 @@
 
 namespace Modules\Utilities\Entities;
 
+use Aut\Eloquent\Models\Model;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Str;
 
-class SchemaLanguageTable extends \Eloquent
+class SchemaLanguageTable extends Model
 {
     protected $fillable = [];
 

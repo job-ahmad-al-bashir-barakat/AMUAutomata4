@@ -2,9 +2,9 @@
 
 namespace Modules\Admin\Entities;
 
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
+use Aut\Eloquent\Models\Model;
 use Modules\Utilities\Traits\LangInfo;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class PersonAddressLang extends Model
 {

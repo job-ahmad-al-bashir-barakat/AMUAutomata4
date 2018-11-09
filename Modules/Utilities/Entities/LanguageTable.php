@@ -2,10 +2,11 @@
 
 namespace Modules\Utilities\Entities;
 
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Str;
+use Aut\Eloquent\Models\Model;
+use Illuminate\Database\Eloquent\Builder;
 
-class LanguageTable extends \Eloquent
+class LanguageTable extends Model
 {
     protected $fillable = ['table_id', 'table_name', 'namespace'];
 

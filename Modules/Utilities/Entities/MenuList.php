@@ -2,10 +2,10 @@
 
 namespace Modules\Utilities\Entities;
 
-use Illuminate\Database\Eloquent\Model;
+use Aut\Eloquent\Models\Model;
+use Modules\Utilities\Traits\MultiLangs;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Modules\Utilities\Entities\LangModels\MenuListNameLang;
-use Modules\Utilities\Traits\MultiLangs;
 
 class MenuList extends Model
 {

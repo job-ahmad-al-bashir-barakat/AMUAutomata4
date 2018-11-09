@@ -2,9 +2,10 @@
 
 namespace Modules\Utilities\Entities;
 
+use Aut\Eloquent\Models\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Lang extends \Eloquent
+class Lang extends Model
 {
     use SoftDeletes;
 

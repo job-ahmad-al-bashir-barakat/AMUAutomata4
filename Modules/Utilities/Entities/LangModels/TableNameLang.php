@@ -2,13 +2,9 @@
 
 namespace Modules\Utilities\Entities\LangModels;
 
-use Modules\Utilities\Traits\LangInfo;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
+use Aut\Eloquent\Models\LangModel;
 
-class TableNameLang extends Model
+class TableNameLang extends LangModel
 {
-    use SoftDeletes, LangInfo;
-
     protected $fillable = ['id' ,'lang_id', 'table_id', 'text'];
 }

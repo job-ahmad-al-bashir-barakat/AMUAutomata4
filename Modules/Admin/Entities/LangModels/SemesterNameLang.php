@@ -2,12 +2,9 @@
 
 namespace Modules\Admin\Entities\LangModels;
 
-use Modules\Utilities\Traits\LangInfo;
-use Illuminate\Database\Eloquent\SoftDeletes;
+use Aut\Eloquent\Models\LangModel;
 
-class SemesterNameLang extends \Eloquent
+class SemesterNameLang extends LangModel
 {
-    use SoftDeletes ,LangInfo;
-
     protected $fillable = ['lang_id' ,'semester_id' ,'text'];
 }

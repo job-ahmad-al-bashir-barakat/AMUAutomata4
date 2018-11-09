@@ -2,7 +2,7 @@
 
 namespace Modules\Admin\Entities;
 
-use Illuminate\Database\Eloquent\Model;
+use Aut\Eloquent\Models\Model;
 use Kalnoy\Nestedset\NodeTrait;
 use Modules\Utilities\Traits\MultiLangs;
 use Illuminate\Database\Eloquent\SoftDeletes;

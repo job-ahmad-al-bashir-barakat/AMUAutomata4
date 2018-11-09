@@ -2,8 +2,9 @@
 
 namespace Modules\Admin\Entities;
 
-use Modules\Utilities\Entities\Image;
+use Aut\Eloquent\Models\Model;
 use Modules\Utilities\Entities\User;
+use Modules\Utilities\Entities\Image;
 use Modules\Utilities\Traits\MultiLangs;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Modules\Admin\Entities\LangModels\NewsTitleLang;
@@ -16,7 +17,7 @@ use Modules\Admin\Entities\LangModels\NewsDescriptionLang;
  * @package Modules\Admin\Entities
  *
  */
-class News extends \Eloquent
+class News extends Model
 {
     use SoftDeletes ,MultiLangs/*, User*/;
 

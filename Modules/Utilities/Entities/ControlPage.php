@@ -2,9 +2,10 @@
 
 namespace Modules\Utilities\Entities;
 
+use Aut\Eloquent\Models\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class ControlPage extends \Eloquent
+class ControlPage extends Model
 {
     use SoftDeletes;
 

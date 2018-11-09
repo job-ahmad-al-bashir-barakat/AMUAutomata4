@@ -2,10 +2,10 @@
 
 namespace Modules\Admin\Entities;
 
-use Illuminate\Database\Eloquent\Model;
+use Aut\Eloquent\Models\Model;
+use Modules\Utilities\Traits\MultiLangs;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Modules\Admin\Entities\LangModels\CampusNameLang;
-use Modules\Utilities\Traits\MultiLangs;
 
 class Campus extends Model
 {

@@ -2,6 +2,7 @@
 
 namespace Modules\Utilities\Entities;
 
+use Aut\Eloquent\Models\Model;
 use Kalnoy\Nestedset\NodeTrait;
 use Modules\Admin\Entities\Course;
 use Modules\Admin\Entities\Degree;
@@ -12,7 +13,7 @@ use Modules\Utilities\Traits\MultiLangs;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Modules\Utilities\Entities\LangModels\SiteMenuNameLang;
 
-class SiteMenu extends \Eloquent
+class SiteMenu extends Model
 {
     use NodeTrait ,MultiLangs ,SoftDeletes;
 

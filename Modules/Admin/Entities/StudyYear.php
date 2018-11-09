@@ -2,11 +2,12 @@
 
 namespace Modules\Admin\Entities;
 
+use Aut\Eloquent\Models\Model;
 use Modules\Utilities\Traits\MultiLangs;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Modules\Admin\Entities\LangModels\StudyYearNameLang;
 
-class StudyYear extends \Eloquent
+class StudyYear extends Model
 {
     use SoftDeletes ,MultiLangs;
 

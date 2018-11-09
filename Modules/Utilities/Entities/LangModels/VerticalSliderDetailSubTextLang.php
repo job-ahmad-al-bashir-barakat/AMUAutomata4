@@ -2,14 +2,9 @@
 
 namespace Modules\Utilities\Entities\LangModels;
 
-use Modules\Utilities\Traits\LangInfo;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
+use Aut\Eloquent\Models\LangModel;
 
-class VerticalSliderDetailSubTextLang extends Model
+class VerticalSliderDetailSubTextLang extends LangModel
 {
-    use SoftDeletes ,LangInfo;
-
     protected $fillable = ['lang_id', 'vertical_slider_detail_id', 'text'];
-
 }

@@ -2,7 +2,7 @@
 
 namespace Modules\Admin\Entities;
 
-use Illuminate\Database\Eloquent\Model;
+use Aut\Eloquent\Models\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Modules\Admin\Entities\LangModels\CourseContentLang;
 use Modules\Admin\Entities\LangModels\CourseDescriptionLang;
@@ -10,7 +10,7 @@ use Modules\Admin\Entities\LangModels\CourseNameLang;
 use Modules\Utilities\Entities\Image;
 use Modules\Utilities\Traits\MultiLangs;
 
-class Course extends \Eloquent
+class Course extends Model
 {
     use SoftDeletes ,MultiLangs;
 

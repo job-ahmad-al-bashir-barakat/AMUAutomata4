@@ -2,12 +2,12 @@
 
 namespace Modules\Admin\Entities;
 
-use Illuminate\Database\Eloquent\Model;
+use Aut\Eloquent\Models\Model;
+use Modules\Utilities\Traits\MultiLangs;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Modules\Admin\Entities\LangModels\UniversityOfficeNameLang;
-use Modules\Utilities\Traits\MultiLangs;
 
-class UniversityOffice extends \Eloquent
+class UniversityOffice extends Model
 {
     use SoftDeletes ,MultiLangs;
 

@@ -2,7 +2,7 @@
 
 namespace Modules\Admin\Entities;
 
-use Illuminate\Database\Eloquent\Model;
+use Aut\Eloquent\Models\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Prerequisite extends Model

@@ -2,7 +2,7 @@
 
 namespace Modules\Admin\Entities;
 
-use Illuminate\Database\Eloquent\Model;
+use Aut\Eloquent\Models\Model;
 
 class PrerequisiteGroup extends Model
 {

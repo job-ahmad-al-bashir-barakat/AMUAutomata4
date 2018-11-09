@@ -2,13 +2,14 @@
 
 namespace Modules\Admin\Entities;
 
+use Aut\Eloquent\Models\Model;
 use Modules\Utilities\Entities\Image;
 use Modules\Utilities\Traits\MultiLangs;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Modules\Admin\Entities\LangModels\LabNameLang;
 use Modules\Admin\Entities\LangModels\LabDescriptionLang;
 
-class Lab extends \Eloquent
+class Lab extends Model
 {
     use SoftDeletes ,MultiLangs;
 

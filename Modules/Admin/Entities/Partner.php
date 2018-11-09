@@ -1,15 +1,15 @@
 <?php
 
-namespace Modules\Admin\Entities;
+namespace Modules\Admin\Entitiess;
 
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
-use Modules\Admin\Entities\LangModels\PartnerDescriptionLang;
-use Modules\Admin\Entities\LangModels\PartnerNameLang;
+use Aut\Eloquent\Models\Model;
 use Modules\Utilities\Entities\Image;
 use Modules\Utilities\Traits\MultiLangs;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Modules\Admin\Entities\LangModels\PartnerNameLang;
+use Modules\Admin\Entities\LangModels\PartnerDescriptionLang;
 
-class Partner extends \Eloquent
+class Partner extends Model
 {
     use MultiLangs,SoftDeletes;
 

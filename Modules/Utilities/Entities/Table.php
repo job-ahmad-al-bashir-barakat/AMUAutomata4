@@ -2,10 +2,10 @@
 
 namespace Modules\Utilities\Entities;
 
-use Illuminate\Support\Str;
+use Aut\Eloquent\Models\Model;
+use Modules\Utilities\Traits\MultiLangs;
 use Illuminate\Database\Eloquent\Builder;
 use Modules\Utilities\Entities\LangModels\TableNameLang;
-use Modules\Utilities\Traits\MultiLangs;
 
 /**
  * @property string table_name
@@ -15,7 +15,7 @@ use Modules\Utilities\Traits\MultiLangs;
  * @property string menuable
  * @property string morph_code
  */
-class Table extends \Eloquent
+class Table extends Model
 {
     use MultiLangs;
 

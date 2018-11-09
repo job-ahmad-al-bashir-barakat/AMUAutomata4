@@ -5,7 +5,7 @@ namespace Modules\Utilities\Entities;
 use Spatie\Permission\Traits\HasRoles;
 use Modules\Utilities\Traits\MultiLangs;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Aut\Eloquent\Models\User as Authenticatable;
 use Modules\Utilities\Entities\LangModels\UserNameLang;
 use Modules\Utilities\Entities\LangModels\UserSummaryLang;
 

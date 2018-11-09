@@ -2,11 +2,12 @@
 
 namespace Modules\Utilities\Entities;
 
+use Aut\Eloquent\Models\Model;
 use Modules\Utilities\Traits\MultiLangs;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Modules\Utilities\Entities\LangModels\GenderNameLang;
 
-class Gender extends \Eloquent
+class Gender extends Model
 {
     use SoftDeletes ,MultiLangs;
 

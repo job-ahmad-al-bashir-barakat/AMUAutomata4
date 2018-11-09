@@ -2,13 +2,9 @@
 
 namespace Modules\Utilities\Entities\LangModels;
 
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
-use Modules\Utilities\Traits\LangInfo;
+use Aut\Eloquent\Models\LangModel;
 
-class ImageAltLang extends Model
+class ImageAltLang extends LangModel
 {
-    use LangInfo ,SoftDeletes;
-
     protected $fillable = ['lang_id' ,'image_id' ,'text'];
 }

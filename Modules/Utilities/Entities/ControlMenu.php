@@ -2,11 +2,12 @@
 
 namespace Modules\Utilities\Entities;
 
+use Aut\Eloquent\Models\Model;
 use Kalnoy\Nestedset\NodeTrait;
 use Modules\Utilities\Traits\MultiLangs;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class ControlMenu extends \Eloquent
+class ControlMenu extends Model
 {
     use NodeTrait, MultiLangs, SoftDeletes;
 

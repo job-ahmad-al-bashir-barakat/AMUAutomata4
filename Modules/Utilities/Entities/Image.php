@@ -2,13 +2,13 @@
 
 namespace Modules\Utilities\Entities;
 
-use Illuminate\Database\Eloquent\Model;
+use Storage;
+use Aut\Eloquent\Models\Model;
+use Modules\Utilities\Traits\MultiLangs;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Modules\Utilities\Entities\LangModels\ImageAltLang;
-use Modules\Utilities\Traits\MultiLangs;
-use Storage;
 
-class Image extends \Eloquent
+class Image extends Model
 {
     use SoftDeletes ,MultiLangs;
 

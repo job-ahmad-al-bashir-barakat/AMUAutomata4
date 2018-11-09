@@ -2,9 +2,10 @@
 
 namespace Modules\Utilities\Entities;
 
+use Aut\Eloquent\Models\Model;
 use Illuminate\Database\Eloquent\Builder;
 
-class SchemaTable extends \Eloquent
+class SchemaTable extends Model
 {
     protected $fillable = [];
 

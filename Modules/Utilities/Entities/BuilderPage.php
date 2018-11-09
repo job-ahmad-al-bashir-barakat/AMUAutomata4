@@ -2,6 +2,7 @@
 
 namespace Modules\Utilities\Entities;
 
+use Aut\Eloquent\Models\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Modules\Utilities\WebModules\Modules\Module;
 
@@ -10,7 +11,7 @@ use Modules\Utilities\WebModules\Modules\Module;
  * @property CustomModule customModule
  * @method Module module()
  */
-class BuilderPage extends \Eloquent
+class BuilderPage extends Model
 {
     use SoftDeletes;
 

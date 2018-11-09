@@ -2,18 +2,19 @@
 
 namespace Modules\Admin\Entities;
 
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
-use Modules\Admin\Entities\LangModels\PersonExperienceLang;
-use Modules\Admin\Entities\LangModels\PersonNameLang;
-use Modules\Admin\Entities\LangModels\PersonSummaryLang;
-use Modules\Utilities\Entities\Gender;
+use Aut\Eloquent\Models\Model;
 use Modules\Utilities\Entities\Image;
+use Modules\Utilities\Entities\Gender;
+use Modules\Utilities\Traits\MultiLangs;
 use Modules\Utilities\Entities\JobTitle;
 use Modules\Utilities\Entities\Position;
-use Modules\Utilities\Traits\MultiLangs;
+use Illuminate\Database\Eloque\nt\SoftDeletes;
+use Modules\Admin\Entities\LangModels\PersonNameLang;
+use Modules\Admin\Entities\LangModels\PersonSummaryLang;
+use Modules\Admin\Entities\LangModels\PersonExperienceLang;
 
-class Person extends \Eloquent
+class Person extends Model
 {
     use SoftDeletes ,MultiLangs;
 

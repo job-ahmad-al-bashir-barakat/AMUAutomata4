@@ -2,10 +2,10 @@
 
 namespace Modules\Admin\Entities;
 
-use Illuminate\Database\Eloquent\Model;
+use Aut\Eloquent\Models\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class PhoneNumbers extends \Eloquent
+class PhoneNumbers extends Model
 {
     use SoftDeletes;
 
