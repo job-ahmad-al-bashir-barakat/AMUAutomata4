@@ -9,7 +9,7 @@ use Modules\Utilities\Entities\Gender;
 use Modules\Utilities\Traits\MultiLangs;
 use Modules\Utilities\Entities\JobTitle;
 use Modules\Utilities\Entities\Position;
-use Illuminate\Database\Eloque\nt\SoftDeletes;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Modules\Admin\Entities\LangModels\PersonNameLang;
 use Modules\Admin\Entities\LangModels\PersonSummaryLang;
 use Modules\Admin\Entities\LangModels\PersonExperienceLang;
