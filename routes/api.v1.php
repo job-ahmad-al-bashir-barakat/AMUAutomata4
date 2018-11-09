@@ -1,5 +1,5 @@
 <?php
 
-Route::resource('users', 'UserController');
+//Route::resource('users', 'UserController');
 
-Route::resource('langs','LangController' , ['only' => ['index']]);
+//Route::resource('langs','LangController' , ['only' => ['index']]);

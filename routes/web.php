@@ -10,12 +10,14 @@ Route::group(
     'prefix' => LaravelLocalization::setLocale()
 ],
 function () {
-    Route::get('load-more/{model}', 'LoadMoreController@getHtml');
 
     Route::get('/', function () {
         $lang = app()->getLocale();
         return redirect("{$lang}/home");
     });
+
+    Route::get('load-more/{model}', 'LoadMoreController@getHtml');
+
 
     Route::get('courses/{course}', function ($slug) {
         $courseId = getIdFromSlug($slug);
