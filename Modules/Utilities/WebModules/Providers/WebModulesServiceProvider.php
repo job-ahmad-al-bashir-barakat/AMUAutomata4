@@ -3,7 +3,6 @@
 namespace Modules\Utilities\WebModules\Providers;
 
 use Aut\SeoBuilder\Entities\Seo;
-use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Modules\Utilities\Entities\MenuList;
@@ -38,7 +37,7 @@ class WebModulesServiceProvider extends ServiceProvider
     {
         if (!app()->runningInConsole())
         {
-            $this->menu = MenuList::with(['siteMenu' => function (Builder $query){
+            $this->menu = MenuList::with(['siteMenu' => function ($query){
                 $query->orderBy('order');
             }])->where('is_default', true)->get()->first()->siteMenu->toTree();
 

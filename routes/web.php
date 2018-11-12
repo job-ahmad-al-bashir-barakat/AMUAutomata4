@@ -14,7 +14,7 @@ function () {
 
     function getMenu()
     {
-        return \Modules\Utilities\Entities\MenuList::with(['siteMenu' => function (\Illuminate\Database\Query\Builder $query){
+        return \Modules\Utilities\Entities\MenuList::with(['siteMenu' => function ($query){
             $query->orderBy('order');
         }])->where('is_default', true)->get()->first()->siteMenu->toTree();
     }
