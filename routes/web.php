@@ -11,6 +11,14 @@ Route::group(
 ],
 function () {
 
+
+    function getMenu()
+    {
+        return \Modules\Utilities\Entities\MenuList::with(['siteMenu' => function (\Illuminate\Database\Query\Builder $query){
+            $query->orderBy('order');
+        }])->where('is_default', true)->get()->first()->siteMenu->toTree();
+    }
+
     Route::get('/', function () {
         $lang = app()->getLocale();
         return redirect("{$lang}/home");
@@ -22,7 +30,7 @@ function () {
     Route::get('courses/{course}', function ($slug) {
         $courseId = getIdFromSlug($slug);
 
-        $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
+        $menu = getMenu();
         $modules = \Modules\Utilities\Entities\BuilderPage::pageModules("course.{$courseId}.")->get()->pluck('module');
         $seo = \Aut\SeoBuilder\Entities\Seo::pageSeo("course.{$courseId}.")->first();
 
@@ -32,7 +40,7 @@ function () {
     Route::get('university/staff/{person}', function ($slug) {
         $staffId = getIdFromSlug($slug);
 
-        $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
+        $menu = getMenu();
         $modules = \Modules\Utilities\Entities\BuilderPage::pageModules("person.{$staffId}.")->get()->pluck('module');
         $seo = \Aut\SeoBuilder\Entities\Seo::pageSeo("person.{$staffId}.")->first();
 
@@ -42,7 +50,7 @@ function () {
     Route::get('labs/{lab}', function ($slug) {
         $labId = getIdFromSlug($slug);
 
-        $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
+        $menu = getMenu();
         $modules = \Modules\Utilities\Entities\BuilderPage::pageModules("lab.{$labId}.")->get()->pluck('module');
         $seo = \Aut\SeoBuilder\Entities\Seo::pageSeo("lab.{$labId}.")->first();
 
@@ -52,7 +60,7 @@ function () {
     Route::get('news/{news}', function ($slug) {
         $newsId = getIdFromSlug($slug);
 
-        $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
+        $menu = getMenu();
         $modules = \Modules\Utilities\Entities\BuilderPage::pageModules("news.{$newsId}.")->get()->pluck('module');
         $seo = \Aut\SeoBuilder\Entities\Seo::pageSeo("news.{$newsId}.")->first();
         return view("modules", compact('menu', 'modules', 'seo'));
@@ -95,7 +103,7 @@ function () {
     }
 
     Route::get('hierarchy-page', function () {
-        $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
+        $menu = getMenu();
         $modules = [];
         $hierarchy = \Modules\Admin\Entities\Hierarchy::all();
         $hierarchyType = $hierarchy->groupBy('hierarchyType.code');
@@ -105,19 +113,19 @@ function () {
     })->name('hierarchy-page');
 
     Route::get('university-offices1', function () {
-        $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
+        $menu = getMenu();
         $modules = [];
         return view('page.university_offices', compact('modules', 'menu'));
     })->name('university_offices');
 
     Route::get('university-office-detail', function () {
-        $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
+        $menu = getMenu();
         $modules = [];
         return view('page.university_offices_detail', compact('modules', 'menu'));
     })->name('university_offices_detail');
 
     Route::get('faculty/{faculty}/labs1', function () {
-        $menu = \Modules\Utilities\Entities\SiteMenu::orderBy('order')->get()->toTree();
+        $menu = getMenu();
         $modules = [];
         return view('page.lab_detail', compact('modules', 'menu'));
     })->name('lab-detail');

@@ -112,7 +112,7 @@ class PermissionsTableSeeder extends Seeder
                 'id' => 10,
                 'name' => 'permissions',
                 'guard_name' => 'web',
-                'hidden' => 'N',
+                'hidden' => 'Y',
                 'created_at' => '2018-03-17 07:20:56',
                 'updated_at' => '2018-03-17 07:20:56',
                 'deleted_at' => NULL,
