@@ -28,21 +28,16 @@ class SettingFactory extends GlobalFactory
      */
     public function buildDatatable($model, $request)
     {
-        $this->table
-            ->config('datatable-settings', trans('utilities::app.settings'))
-            ->addPrimaryKey('id', 'id')
-            ->addMultiInputTextLangs(['name'], 'req required')
-            ->addInputText(trans('utilities::app.code'), 'code', 'code', 'required req')
-            ->addInputText(trans('utilities::app.value'), 'value', 'value', 'required req');
-
-        if (auth()->user()->can('automata')) {
-            $this->table
-                ->addActionButton($this->delete, 'delete', 'delete')
-                ->addActionButton($this->update, 'update', 'update')
-                ->addNavButton();
-        }
-
-        return $this->table->render();
+        return $this->table
+            ->config('datatable-settings',trans('utilities::app.settings'))
+            ->addPrimaryKey('id','id')
+            ->addMultiInputTextLangs(['name'] ,'req required')
+            ->addInputText(trans('utilities::app.code'),'code','code','required req')
+            ->addInputText(trans('utilities::app.value'),'value','value','required req')
+            ->addActionButton($this->update,'update','update')
+            ->addActionButton($this->delete,'delete','delete')
+            ->addNavButton()
+            ->render();
     }
 
     /**

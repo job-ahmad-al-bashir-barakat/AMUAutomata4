@@ -7,12 +7,12 @@
     <link rel="stylesheet" href="{{ asset('admin-custom.css') }}">
 </head>
 
-<body>
+<body style="background: url({{asset('images/login-bg.jpg')}}) 50% 50%">
 <div class="wrapper animated fadeIn">
     <div class="block-center mt-xl wd-xl">
         <!-- START panel-->
         <div class="panel panel-dark panel-flat">
-            <div class="panel-heading text-center">
+            <div class="panel-heading text-center" style="{{setting('login_header_style')->value}}">
                 <a href="#">
                     <img src="{{ asset('img/logo.png') }}" alt="Image" class="block-center img-rounded">
                 </a>
@@ -53,10 +53,8 @@
             </div>
         </div>
         <!-- END panel-->
-        <div class="p-lg text-center">
-            <span>{{ setting('website_title')->value }}</span>
-            <span>&copy;</span>
-            <span>{{ date('Y') }}</span>
+        <div class="p-md text-center text-white">
+            <span>{{ trans('app.automata4_group') }}</span>
         </div>
     </div>
 </div>

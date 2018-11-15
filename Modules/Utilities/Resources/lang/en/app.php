@@ -61,6 +61,10 @@ return [
     'galleries'              => 'Galleries',
 
     'automata4_utilities'    => 'Automata4 Utilities',
+    'reload_page'            => 'Reload Page',
+    'fullscreen'             => 'Full Screen',
+    'theme_setting'          => 'Theme Settings',
+    'user'                   => 'User',
     'global'                 => 'Global',
     'block'                  => 'Block',
     'users'                  => 'Users',

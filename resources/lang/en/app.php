@@ -4,7 +4,7 @@ return array (
   'dashboard' => 'Dashboard',
   'setting' => 'Setting',
   'general_section' => 'General Section',
-  'automata4_group' => 'Automata4 Group',
+  'automata4_group' => 'Copyrights © '.date("Y").' All Rights Reserved - Automata4 Group4',
   'back_to_home' => 'Back To Home',
   'logout' => 'Logout',
   'add' => 'Add',
@@ -59,6 +59,8 @@ return array (
   'attribute_title' => 'Attribute',
   'clear' => 'Clear',
   'pixel' => ' px',
+  'hot_line' => 'Hot Line',
   'about_me' => 'About Me',
   'find_location' => 'Find Location',
+  'theme_rights_reserved'       => 'Copyrights © '.date("Y").' All Rights Reserved - Al-Sham Private University',
 );

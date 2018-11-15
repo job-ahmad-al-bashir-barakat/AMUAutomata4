@@ -12,12 +12,4 @@ class DegreesTableModule extends Module
 
     public $viewName = 'degrees-table';
 
-    public function getModuleData($data)
-    {
-        $facultySlug = \Route::input('faculty');
-        $facultyId = getIdFromSlug($facultySlug);
-        $data['degrees'] = \Modules\Admin\Entities\Degree::whereFacultyId($facultyId)->get();
-
-        return $data;
-    }
 }

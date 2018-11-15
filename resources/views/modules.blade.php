@@ -28,11 +28,13 @@
         <link href="{{ asset('css/style-main-rtl.css') }}" rel="stylesheet" type="text/css">
         <link href="{{ asset('css/style-main-rtl-extra.css') }}" rel="stylesheet" type="text/css">
     @endif
-    <link href="{{ asset('css/preloader.css') }}" rel="stylesheet" type="text/css">
+
+    <link href="{{ asset('css/preloader_2.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/custom-bootstrap-margin-padding.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/responsive.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset(mix('js/revolution-slider/css/revolution-slider.css')) }}" rel="stylesheet" type="text/css">
-    <link href="{{ asset("css/colors/theme-skin-color-set-6.css") }}" rel="stylesheet" type="text/css">
+
+    <link href="{{ asset("css/colors/theme-skin-color-set-".setting('color_file_number')->value.".css") }}" rel="stylesheet" type="text/css">
     <!-- <link href="css/style.css" rel="stylesheet" type="text/css"> -->
     <link href="{{ asset('theme-custom.css') }}" rel="stylesheet" type="text/css">
 </head>

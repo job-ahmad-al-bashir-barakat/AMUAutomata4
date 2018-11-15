@@ -3,9 +3,9 @@
 namespace App\Providers;
 
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Relations\Relation;
-use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use Modules\Utilities\Entities\Lang;
 use Modules\Utilities\Entities\Table;
 
@@ -69,8 +69,6 @@ class AppServiceProvider extends ServiceProvider
                     ];
 
                 })->toArray());
-
-                LaravelLocalization::setSupportedLocales(config('laravellocalization.supportedLocales'));
             }
         }
     }

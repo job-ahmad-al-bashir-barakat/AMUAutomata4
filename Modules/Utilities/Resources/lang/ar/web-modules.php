@@ -23,7 +23,4 @@ return [
     'galleries' => 'معارض الصور',
     'geolocation' => 'الموقع الجفرافي',
     'course' => 'المقرر',
-
-    'degrees' => 'الشهادات',
-    'name' => 'الاسم',
 ];

@@ -3,7 +3,7 @@
         <div class="col-md-{{ $data['width'] }}">
             @include('utilities::web-modules.modules.sub.title', ['title' => $data['title'][$lang]])
             <div class="owl-carousel-4col" data-dots="true">
-                @foreach($data['courses'] as $course )
+                @foreach( \Modules\Admin\Entities\Course::whereIn('id', array_keys($data['courses']))->with(['department'])->get() as $course )
                     @include('utilities::web-modules.modules.sub.course-card-1', compact('course'))
                 @endforeach
             </div>

@@ -48,7 +48,7 @@
         </div>
     </section>
     <footer>
-        <span>&copy; {{ date('Y') }} - {{ trans('app.automata4_group') }}</span>
+        <span>{{ trans('app.automata4_group') }}</span>
     </footer>
 </div>
 <script>
@@ -90,4 +90,3 @@
 
 </body>
 </html>
-

@@ -47,7 +47,7 @@ class SeoBuilder
     {
         $this->seoHelper->setSiteName(setting('website_title')->value);
         $this->seoHelper->meta()->addMeta('robots', 'index, follow');
-        $this->seoHelper->setTitle($this->seo->lang_title[$this->lang]->text??'AMU');
+        $this->seoHelper->setTitle($this->seo->lang_title[$this->lang]->text??'ASPU');
         $this->seoHelper->setKeywords($this->seo->lang_keyword[$this->lang]->text??'amu, university, andalus university');
         $this->seoHelper->setDescription($this->seo->lang_description[$this->lang]->text??setting('website_title')->value);
 
@@ -67,7 +67,7 @@ class SeoBuilder
         $this->renderGraphInputs($this->getGraphAttributes($this->seo->graph_type??'website'));
 
         $this->seoHelper->twitter()->setType($this->seo->card_type??'summary');
-        $this->seoHelper->twitter()->setTitle($this->seo->lang_title[$this->lang]->text??'AMU');
+        $this->seoHelper->twitter()->setTitle($this->seo->lang_title[$this->lang]->text??'ASPU');
         $this->seoHelper->twitter()->setDescription($this->seo->lang_description[$this->lang]->text??setting('website_title')->value);
         $this->seoHelper->twitter()->setSite(setting('website_title')->value);
 

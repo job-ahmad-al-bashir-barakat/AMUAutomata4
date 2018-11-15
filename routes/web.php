@@ -10,6 +10,7 @@ Route::group(
     'prefix' => LaravelLocalization::setLocale()
 ],
 function () {
+    Route::get('load-more/{model}', 'LoadMoreController@getHtml');
 
 
     function getMenu()
@@ -23,9 +24,6 @@ function () {
         $lang = app()->getLocale();
         return redirect("{$lang}/home");
     });
-
-    Route::get('load-more/{model}', 'LoadMoreController@getHtml');
-
 
     Route::get('courses/{course}', function ($slug) {
         $courseId = getIdFromSlug($slug);
@@ -144,7 +142,13 @@ function () {
 });
 
 Route::group([
-    'middleware' => ['auth','web'],
+	
+	'middleware' => [
+        'auth',
+        'web',
+        '\UniSharp\LaravelFilemanager\Middlewares\MultiUser',
+        '\UniSharp\LaravelFilemanager\Middlewares\CreateDefaultFolder',
+    ],
     'prefix'     => LaravelLocalization::setLocale(). '/laravel-filemanager'
 ], function () {
     Route::get('/', '\UniSharp\LaravelFilemanager\Controllers\LfmController@show')->name('');

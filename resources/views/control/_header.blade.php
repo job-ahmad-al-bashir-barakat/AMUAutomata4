@@ -3,10 +3,10 @@
     <!-- START Top Navbar-->
     <nav role="navigation" class="navbar topnavbar">
         <!-- START navbar header-->
-        <div class="navbar-header">
+        <div class="navbar-header" style="{{setting('admin_navbar_header_style')->value}}">
             <a href="{{ RouteUrls::admin() }}" class="navbar-brand ajax">
                 <div class="brand-logo">
-                    <img src="{{ asset('img/logo.png') }}" alt="App Logo" class="img-responsive">
+                    <img src="{{ asset('img/logo.png') }}" alt="App Logo" class="img-responsive" style="{{setting('admin_header_image_style')->value}}">
                 </div>
                 <div class="brand-logo-collapsed">
                     <img src="{{ asset('img/logo-single.png') }}" alt="App Logo" class="img-responsive">

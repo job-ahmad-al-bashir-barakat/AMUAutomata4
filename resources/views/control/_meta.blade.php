@@ -2,4 +2,5 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="Bootstrap Admin App + jQuery">
 <meta name="keywords" content="app, responsive, jquery, bootstrap, dashboard, admin">
-<title>AMU - Admin</title>
+<link rel="icon" href="{{ asset('img/favicon.ico') }}">
+<title>{{setting('admin_title')->value}}</title>
