@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAddressesAddressLangsTable extends Migration
+class CreateJobTitlePersonTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreateAddressesAddressLangsTable extends Migration
      */
     public function up()
     {
-        Schema::create('address_location_langs', function (Blueprint $table) {
-            $table->increments('id')->unsigned();
-            $table->integer('lang_id');
-            $table->integer('address_id');
-            $table->string('text' ,500);
+        Schema::create('job_title_person', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('person_id')->unsigned()->index('person_id');
+            $table->integer('job_title_id')->unsigned()->index('job_title_id');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -30,6 +29,6 @@ class CreateAddressesAddressLangsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('address_location_langs');
+        Schema::dropIfExists('job_title_person');
     }
 }

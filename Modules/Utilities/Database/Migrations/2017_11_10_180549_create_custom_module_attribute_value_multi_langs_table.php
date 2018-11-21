@@ -17,7 +17,7 @@ class CreateCustomModuleAttributeValueMultiLangsTable extends Migration {
 			$table->increments('id');
 			$table->integer('custom_module_attribute_value_id')->index('custom_module_attribute_value_id');
 			$table->integer('lang_id')->index('lang_id');
-			$table->text('text', 65535);
+			$table->longText('text', 65535);
 			$table->timestamps();
 			$table->softDeletes();
 		});

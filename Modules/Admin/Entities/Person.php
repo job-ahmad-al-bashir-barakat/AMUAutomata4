@@ -24,7 +24,7 @@ class Person extends Model
     const PERSON_BOARD_OF_TRUSTEES  = 'board-of-trustees';
     const PERSON_STAFF              = 'staff';
 
-    protected $fillable = ['type' ,'image_260_id','image_360_id' ,'gender_id' ,'position_id' ,'job_title_id' ,'contact_id', 'faculty_id'];
+    protected $fillable = ['type' ,'image_260_id','image_360_id' ,'gender_id' ,'position_id' ,'contact_id', 'faculty_id'];
 
     protected $appends = ['lang_name' ,'lang_summary', 'lang_experience', 'image_path'];
 
@@ -116,7 +116,7 @@ class Person extends Model
 
     function jobTitle()
     {
-        return $this->belongsTo(JobTitle::class);
+        return $this->belongsToMany(JobTitle::class)->withTimestamps();
     }
 
     function contact()

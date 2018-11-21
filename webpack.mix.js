@@ -233,6 +233,7 @@ mix.copy('Modules/Admin/Assets/vendor/app/i18n', 'public/i18n');
 
 // mix.copy('Modules/Admin/Assets/vendor/jquery-ui/themes/smoothness/images', 'public/css/images');
 mix.copy('Modules/Admin/Assets/vendor/img', 'public/img' ,false);
+mix.copy('Modules/Admin/Assets/vendor/images', 'public/images' ,false);
 mix.copy('Aut/FileUpload/src/Assets/plugin/bootstrap-fileinput/img', 'public/img' ,false);
 mix.copy('Aut/FileUpload/src/Assets/img/mb-sample.jpg', 'public/img' ,false);
 
