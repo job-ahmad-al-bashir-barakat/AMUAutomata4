@@ -30,19 +30,15 @@ class Person extends Model
 
     protected $with = ['gender', 'position', 'jobTitle', 'contact.socialNetwork', 'image_260', 'image_360', 'faculty'];
 
-    protected static function boot() {
-
+    protected static function boot()
+    {
         parent::boot();
-
         //before delete() method call this
-        static::deleting(function($person) {
-
-            foreach ($person->contact()->get() as $contact)
-            {
+        static::deleting(function ($person) {
+            foreach ($person->contact()->get() as $contact) {
                 $contact->socialNetwork()->sync([]);
             }
-
-            if($person->contact)
+            if ($person->contact)
                 $person->contact->delete();
         });
     }
