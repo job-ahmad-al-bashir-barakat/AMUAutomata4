@@ -30,6 +30,6 @@ class CreateAddressesAddressLangsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('addresses_location_langs');
+        Schema::dropIfExists('address_location_langs');
     }
 }
