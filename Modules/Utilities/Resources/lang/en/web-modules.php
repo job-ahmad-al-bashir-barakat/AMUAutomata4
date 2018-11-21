@@ -24,4 +24,7 @@ return [
     'galleries' => 'Galleries',
     'geolocation' => 'Geolocation',
     'course' => 'Course',
+
+    'degrees' => 'Degrees',
+    'name' => 'Name',
 ];

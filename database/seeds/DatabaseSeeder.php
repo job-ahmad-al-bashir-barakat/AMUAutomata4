@@ -80,21 +80,18 @@ class DatabaseSeeder extends Seeder
         $this->call(TablesTableSeeder::class);
         $this->call(UserNameLangsTableSeeder::class);
         $this->call(UserSummaryLangsTableSeeder::class);
-
+        $this->call(RolesTableSeeder::class);
+        $this->call(RoleNameLangsTableSeeder::class);
+        $this->call(PermissionsTableSeeder::class);
+        $this->call(PermissionNameLangsTableSeeder::class);
+        $this->call(RoleHasPermissionsTableSeeder::class);
+        $this->call(ModelHasRolesTableSeeder::class);
+        $this->call(ModelHasPermissionsTableSeeder::class);
+        $this->call(TableNameLangsTableSeeder::class);
         $this->call(StatusesTableSeeder::class);
         $this->call(StatusNameLangsTableSeeder::class);
         $this->call(MenuListsTableSeeder::class);
         $this->call(MenuListNameLangsTableSeeder::class);
         $this->call(LtmTranslationsTableSeeder::class);
-
-        $this->call(RolesTableSeeder::class);
-        $this->call(PermissionsTableSeeder::class);
-        $this->call(PermissionNameLangsTableSeeder::class);
-        $this->call(RoleHasPermissionsTableSeeder::class);
-        $this->call(RoleNameLangsTableSeeder::class);
-        $this->call(ModelHasRolesTableSeeder::class);
-        $this->call(ModelHasPermissionsTableSeeder::class);
-
-        $this->call(TableNameLangsTableSeeder::class);
     }
 }

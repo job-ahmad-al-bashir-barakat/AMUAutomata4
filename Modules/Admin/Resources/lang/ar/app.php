@@ -4,7 +4,6 @@ return [
     'home'               => 'الرئيسية',
     'setting'            => 'اعدادات',
     'university'         => 'جامعة',
-    'campuses'           => 'الفروع',
     'faculties'          => 'كليات',
     'degrees'            => 'اختصاصات',
     'departments'        => 'أقسام',
@@ -68,8 +67,8 @@ return [
     'experience'         => 'التجارب',
     'general'            => 'عام',
     'blogs'              => 'المدونات',
-    'branches'           => 'الفروع',
-    'branch'             => 'الفرع',
+    'campuses'           => 'الجامعات',
+    'campus'             => 'الجامعة',
 
     'large'              => 'حجم كبير',
     'small'              => 'حجم صغير',

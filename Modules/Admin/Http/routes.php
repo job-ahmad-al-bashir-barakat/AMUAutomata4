@@ -6,8 +6,8 @@ Route::group(
     'prefix' => LaravelLocalization::setLocale() . '/admin',
     'namespace' => 'Modules\Admin\Http\Controllers'
 ],
-function () {
-
+function ()
+{
     Route::get('/', 'AdminController@index')->name('home');
 
     Route::resource('study-plan', 'StudyPlanController', [
@@ -19,12 +19,10 @@ function () {
         ],
     ]);
 
-//    Route::get('{view}','AdminController@table');
     Route::get('faculties', 'AdminController@table')->middleware('permission:faculties')->name('table.faculties');
-    Route::get('campuses', 'AdminController@table')->middleware('permission:campuses')->name('table.branches');
+    Route::get('campuses', 'AdminController@table')->middleware('permission:campuses')->name('table.campuses');
     Route::get('departments', 'AdminController@table')->middleware('permission:departments')->name('table.departments');
     Route::get('degrees', 'AdminController@table')->middleware('permission:degrees')->name('table.degrees');
-//    Route::get('study-plan','AdminController@table')->middleware('permission:study-plan')->name('table.study-plan');
     Route::get('offices', 'AdminController@table')->middleware('permission:offices')->name('table.offices');
     Route::get('partners', 'AdminController@table')->middleware('permission:partners')->name('table.partners');
     Route::get('university-council', 'AdminController@table')->middleware('permission:university-council')->name('table.university-council');

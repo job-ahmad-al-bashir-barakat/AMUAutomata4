@@ -1,4 +1,4 @@
-@php($data['galleries']->load('image'))
+@if($data['galleries'])
 <div class="col-md-{{ $data['width'] }}">
     <div class="portfolio-filter font-alt align-center">
         <a href="#" class="active" data-filter="*">All</a>
@@ -20,13 +20,10 @@
                                 </div>
                             </div>
                         </div>
-                        {{--<a class="hover-link" data-lightbox="image" href="{{ str_replace('{folder}', 'galleries', $image->image_url) }}">Full Size</a>--}}
                     </div>
                 </div>
             @endforeach
         @endforeach
     </div>
-    {{--<div id="load-next-posts">
-        <a href="portfolio-extra-infinity-scroll-data-2.html" class="btn btn-default btn-lg btn-block">Load more...</a>
-    </div>--}}
 </div>
+@endif

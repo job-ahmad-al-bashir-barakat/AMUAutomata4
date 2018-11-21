@@ -5,7 +5,6 @@ return [
     'setting'            => 'Setting',
     'university'         => 'University',
     'faculties'          => 'Faculties',
-    'campuses'           => 'Campuses',
     'degrees'            => 'Degrees',
     'departments'        => 'Departments',
     'person'             => 'Person list',
@@ -67,8 +66,8 @@ return [
     'experience'         => 'Experiences',
     'general'            => 'General',
     'blogs'              => 'Blogs',
-    'branches'           => 'Branches',
-    'branch'             => 'Branch',
+    'campuses'           => 'Campuses',
+    'campus'             => 'Campus',
 
     'large'              => 'Large Size',
     'small'              => 'Small Size',
