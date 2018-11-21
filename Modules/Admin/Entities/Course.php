@@ -3,11 +3,11 @@
 namespace Modules\Admin\Entities;
 
 use Aut\Eloquent\Models\Model;
+use Aut\FileUpload\Entities\Image;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Modules\Admin\Entities\LangModels\CourseContentLang;
 use Modules\Admin\Entities\LangModels\CourseDescriptionLang;
 use Modules\Admin\Entities\LangModels\CourseNameLang;
-use Modules\Utilities\Entities\Image;
 use Modules\Utilities\Traits\MultiLangs;
 
 class Course extends Model

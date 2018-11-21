@@ -4,15 +4,42 @@ return [
 
     'routeMiddleware' => ['web', 'localeSessionRedirect', 'localizationRedirect'],
 
+    'trans'           => true,
+
+    'datatable'       => true,
+
+    'user_has_folder' => false,
+
+    'user_has_field'  => false,
+    'user_field'      => Aut\FileUpload\Handlers\ConfigHandler::class,
+
+    'db_store'        => true,
+
     'setting' => [
 
         'image' => [
-            'validate' => 'required|mimes:jpeg,jpg,png,gif|ratio',
+            'validate'         => 'required|mimes:jpeg,jpg,png,gif,bmp,png|ratio',
             'upload_directory' => 'upload\image',
         ],
 
+        'video' => [
+            'validate'         => 'required|mimes:flv,avi,mov,mp4,mpg,wmv,3gp,asf,rm,swf,mkv',
+            'upload_directory' => 'upload\video',
+        ],
+
+        'image-video' => [
+            'validate'         => 'required|mimes:jpeg,jpg,png,gif,bmp,png,flv,avi,mov,mp4,mpg,wmv,3gp,asf,rm,swf,mkv|ratio',
+            'upload_directory' => 'upload\{type}',
+        ],
+
+        'file' => [
+            'validate'         => 'required|ratio',
+            'upload_directory' => 'upload\{type}',
+        ],
+
         'relationType' => 'many', // one
-        'relationName' => 'image'
+
+        'relationName' => 'file'
     ],
 
     'user' => [
@@ -21,6 +48,7 @@ return [
             'first_ratio' => ['width' => '60', 'height' => '60',],
         ],
         'relationType' => 'one',
+        'relationName' => 'image'
     ],
 
     'galleries' => [
@@ -41,6 +69,7 @@ return [
             'first_ratio' => ['width' => '18', 'height' => '12',],
         ],
         'relationType' => 'one',
+        'relationName' => 'image',
     ],
 
     'main-lab' => [
@@ -58,6 +87,7 @@ return [
             'first_ratio' => ['width' => '285', 'height' => '215',],
             //'second_ratio' => [ 'width'  => '480', 'height' => '480', ],
         ],
+        'relationName' => 'image',
         // 'thumps' => [
         //     's' => [ 'width'  => '100', 'height' => '100' ],
         //     'l' => [ 'width'  => '700', 'height' => '700' ],
@@ -72,7 +102,8 @@ return [
             'person_ratio' => ['width' => '260', 'height' => '230'],
         ],
         'relationType' => 'one',
-        'relationId' => 'image_260_id',
+        'relationName' => 'image',
+        'relationId'   => 'image_260_id',
     ],
 
     'person-360-360' => [
@@ -81,7 +112,8 @@ return [
             'person_ratio' => ['width' => '360', 'height' => '360'],
         ],
         'relationType' => 'one',
-        'relationId' => 'image_360_id',
+        'relationName' => 'image',
+        'relationId'   => 'image_360_id',
     ],
 
     'slider' => [
@@ -90,6 +122,7 @@ return [
             'size' => ['width' => '1920', 'height' => '1280'],
         ],
         'relationType' => 'one',
+        'relationName' => 'image',
     ],
 
     'vertical_slider' => [
@@ -98,6 +131,7 @@ return [
             'size' => ['width' => '100', 'height' => '100'],
         ],
         'relationType' => 'one',
+        'relationName' => 'image',
         //'folderName' => 'sliders',
     ],
 
@@ -107,6 +141,7 @@ return [
             'size' => ['width' => '100', 'height' => '100'],
         ],
         'stopRelationSave' => true,
+        'relationName' => 'image',
     ],
 
     'graph_image' => [
@@ -114,6 +149,7 @@ return [
             'size' => ['width' => '100', 'height' => '100'],
         ],
         'stopRelationSave' => true,
+        'relationName' => 'image',
     ],
 
     'card_image' => [
@@ -122,6 +158,7 @@ return [
             'summary_large_image' => ['title' => 'app.summary_large_image', 'width' => '300', 'height' => '157'],
         ],
         'stopRelationSave' => true,
+        'relationName' => 'image',
     ],
 
     'small_gallery' => [
@@ -130,6 +167,7 @@ return [
             'second' => ['width' => '275', 'height' => '197',]
         ],
         'stopRelationSave' => true,
+        'relationName' => 'image',
     ],
 
     'course-265-195' => [
@@ -138,6 +176,7 @@ return [
             'course_265' => ['width' => '265', 'height' => '195'],
         ],
         'relationType' => 'one',
+        'relationName' => 'image',
         'relationId' => 'image_265_id',
     ],
 
@@ -147,6 +186,7 @@ return [
             'course_750' => ['width' => '750', 'height' => '500'],
         ],
         'relationType' => 'one',
+        'relationName' => 'image',
         'relationId' => 'image_750_id',
     ],
 
@@ -156,6 +196,7 @@ return [
             'block_front' => ['width' => '250', 'height' => '250'],
         ],
         'relationType' => 'one',
+        'relationName' => 'image',
         'relationId' => 'front_image_id',
     ],
 
@@ -165,7 +206,8 @@ return [
             'block_back' => ['width' => '250', 'height' => '250'],
         ],
         'relationType' => 'one',
-        'relationId' => 'back_image_id',
+        'relationName' => 'image',
+        'relationId'   => 'back_image_id',
     ],
 
     'partner-large-image' => [
@@ -174,6 +216,7 @@ return [
             'partner_large_image' => ['title' => 'admin::app.large', 'width' => '755', 'height' => '480',],
         ],
         'relationType' => 'many',
+        'relationName' => 'image',
         'relationParam' => ['image_type'],
     ],
 
@@ -183,6 +226,7 @@ return [
             'partner_small_image' => ['title' => 'admin::app.small', 'width' => '320', 'height' => '300',],
         ],
         'relationType' => 'many',
+        'relationName' => 'image',
         'relationParam' => ['image_type'],
     ],
 
@@ -192,6 +236,7 @@ return [
             'news' => ['width' => '570', 'height' => '390'],
         ],
         'relationType' => 'one',
+        'relationName' => 'image',
         'relationId' => 'image_570_id',
     ],
 
@@ -201,6 +246,7 @@ return [
             'news' => ['width' => '1920', 'height' => '1280'],
         ],
         'relationType' => 'one',
+        'relationName' => 'image',
         'relationId' => 'image_1920_id',
     ],
 ];

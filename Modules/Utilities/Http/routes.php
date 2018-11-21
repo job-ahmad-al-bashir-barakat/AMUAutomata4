@@ -86,8 +86,4 @@ function () {
 
     Route::put('{treeModel}/tree/order/{id?}', 'TreeController@order');
     Route::resource('{treeModel}/tree', 'TreeController');
-
-    Route::post('{model}/{type}/upload' ,'UploadController@upload');
-    Route::post('{model}/{type}/destroy' ,'UploadController@destroy');
-    Route::get('{model}/{type}/upload' ,'UploadController@index');
 });
