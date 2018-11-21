@@ -13,7 +13,7 @@ class CreateAddressesAddressLangsTable extends Migration
      */
     public function up()
     {
-        Schema::create('addresses_location_langs', function (Blueprint $table) {
+        Schema::create('address_location_langs', function (Blueprint $table) {
             $table->increments('id')->unsigned();
             $table->integer('lang_id');
             $table->integer('address_id');

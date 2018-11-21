@@ -43,7 +43,6 @@ class AppServiceProvider extends ServiceProvider
             })->toArray();
             Relation::morphMap($morphed);
         }
-
     }
 
     /**

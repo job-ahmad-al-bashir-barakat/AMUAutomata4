@@ -5,7 +5,7 @@ namespace Modules\Admin\Entities;
 use Aut\Eloquent\Models\Model;
 use Modules\Utilities\Traits\MultiLangs;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Modules\Admin\Entities\LangModels\AddressesLocationLangs;
+use Modules\Admin\Entities\LangModels\AddressLocationLangs;
 
 class Addresses extends Model
 {
@@ -17,7 +17,7 @@ class Addresses extends Model
 
     public function transLocation()
     {
-        return $this->hasMany(AddressesLocationLangs::class ,'address_id');
+        return $this->hasMany(AddressLocationLangs::class ,'address_id');
     }
 
     public function getLangLocationAttribute()
