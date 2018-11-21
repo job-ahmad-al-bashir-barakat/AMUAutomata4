@@ -571,7 +571,9 @@ var AUT_DATATABLE = {
 
                 var $this = $(this);
 
-                aut_datatable.events.modal_update(this ,AUT_DATATABLE.initParamEvent(aut_datatable));
+                var data = _aut_datatable_getSelectedRowData(aut_datatable.ids.table, $(this).closest('tr'))
+
+                aut_datatable.events.modal_update(this ,AUT_DATATABLE.initParamEvent(aut_datatable),data);
 
                 $(aut_datatable.ids.modal + ' button[data-status=save]').hide();
 
@@ -797,7 +799,7 @@ var AUT_DATATABLE = {
 
                                         AUT_DATATABLE.notify({ message : aut_datatable.lang.oper.error ,status : 'danger'});
 
-                                        var errors = JSON.parse(res.responseText);
+                                        var errors = JSON.parse(res.responseText).errors;
                                         if(errors)
                                             $.each(errors ,function(k ,v){
 
@@ -826,7 +828,7 @@ var AUT_DATATABLE = {
 
                                         AUT_DATATABLE.notify({ message :  aut_datatable.lang.oper.error ,status : 'danger'});
 
-                                        var errors = JSON.parse(res.responseText);
+                                        var errors = JSON.parse(res.responseText).errors;
                                         if(errors)
                                             $.each(errors ,function(k ,v){
 
@@ -932,8 +934,6 @@ var AUT_DATATABLE = {
 
         }).on('xhr.dt', function ( e, settings, json, xhr ) {
 
-        }).on('draw.dt', function () {
-
         }).on( 'init.dt', function ( e, settings ,json ) {
 
         }).on( 'column-visibility.dt', function ( e, settings, column, state ) {
@@ -968,6 +968,11 @@ var AUT_DATATABLE = {
 
         }).DataTable(aut_datatable.json_object);
 
+        $(aut_datatable.ids.table).on('draw.dt', function () {
+
+            AUT_DATATABLE.loadFooterOperations(table, aut_datatable);
+        });
+
         return table;
     },
 
@@ -982,6 +987,37 @@ var AUT_DATATABLE = {
 
             // this event when trigger when hide show col
         });
+    },
+
+    initExtraFunctionDatatable: function() {
+
+        jQuery.fn.dataTable.Api.register( 'sum()', function ( ) {
+            return this.flatten().reduce( function ( a, b ) {
+                if ( typeof a === 'string' ) {
+                    a = a.replace(/[^\d.-]/g, '') * 1;
+                }
+                if ( typeof b === 'string' ) {
+                    b = b.replace(/[^\d.-]/g, '') * 1;
+                }
+
+                return a + b;
+            }, 0 );
+        } );
+    },
+
+    loadFooterOperations: function(table, aut_datatable) {
+
+        table.columns( '.sum' ).every( function (el) {
+            var field = $(this.footer());
+            var sum = table.column(el).data().sum();
+            field.html(aut_datatable.lang.sum + ": " + sum);
+            field.closest('tr').removeClass('hide').show();
+        });
+    },
+
+    addExtraGlobalButton: function(aut_datatable) {
+
+        $(aut_datatable.ids.table).closest('[role="datatable"]').find('.extra-global').append(aut_datatable.extra_global || '');
     },
 
     tableButton: {
@@ -1151,7 +1187,11 @@ var AUT_DATATABLE = {
 
         AUT_DATATABLE.replaceDatatableFunctionWithJPath(aut_datatable);
 
+        AUT_DATATABLE.initExtraFunctionDatatable();
+
         var table = AUT_DATATABLE.initDatatable(aut_datatable);
+
+        AUT_DATATABLE.addExtraGlobalButton(aut_datatable);
 
         AUT_DATATABLE.extraEventDatatable(table ,aut_datatable);
 

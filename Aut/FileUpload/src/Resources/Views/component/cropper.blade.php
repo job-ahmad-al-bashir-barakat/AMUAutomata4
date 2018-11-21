@@ -68,6 +68,7 @@
                 <div>
 
                     <button type="button" class="btn btn-success btn-block mt" data-method="getCroppedCanvas" data-type="crop">{{ trans('fileupload::fileupload.crop') }}</button>
+                    <button type="button" class="btn btn-default btn-block mt" data-method="getOriginalImage" data-type="crop">{{ trans('fileupload::fileupload.original_image') }}</button>
 
                     @if($upload)
                         <button type="button" class="btn btn-success btn-block mt" data-method="getCroppedCanvas" data-type="upload">{{ trans('fileupload::fileupload.upload') }}</button>

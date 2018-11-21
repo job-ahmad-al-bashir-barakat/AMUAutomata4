@@ -41,6 +41,51 @@ var AUT_FORM_COMPONENT = {
             '</div>' +
         '</div>',
 
+        notify : function (notify) {
+
+            var icon = (typeof notify.icon !== typeof undefined) ? '<em class="fa fa-' + notify.icon +  '"></em> ' : '';
+
+            $.notify({
+                message: notify.html || (icon + notify.message),
+                pos: notify.pos || 'bottom-right',
+                status: notify.status,
+                timeout: notify.timeout || 1000
+            });
+        },
+
+        sweetalert_swal: function (param ,funcSuccess ,paramCancleSafe, funcCancle) {
+
+            swal({
+                title              : typeof param.title               != typeof undefined ? param.title               : null,
+                text               : typeof param.text                != typeof undefined ? param.text                : null,
+                type               : typeof param.type                != typeof undefined ? param.type                : null,
+                showCancelButton   : typeof param.showCancelButton    != typeof undefined ? param.showCancelButton    : false,
+                showCloseButton    : typeof param.showCloseButton     != typeof undefined ? param.showCloseButton     : false,
+                allowEscapeKey     : typeof param.allowEscapeKey      != typeof undefined ? param.allowEscapeKey      : true,
+                allowOutsideClick  : typeof param.allowOutsideClick   != typeof undefined ? param.allowOutsideClick   : true,
+                confirmButtonColor : typeof param.confirmButtonColor  != typeof undefined ? param.confirmButtonColor  : '#3085d6',
+                confirmButtonText  : typeof param.confirmButtonText   != typeof undefined ? param.confirmButtonText   : 'OK',
+                cancelButtonText   : typeof param.cancelButtonText    != typeof undefined ? param.cancelButtonText    : 'Cancel',
+                showLoaderOnConfirm: typeof param.showLoaderOnConfirm != typeof undefined ? param.showLoaderOnConfirm : false,
+                width              : typeof param.width               != typeof undefined ? param.width               : '500px',
+                html               : typeof param.html                != typeof undefined ? param.html                : '',
+            }).then(funcSuccess, function (dismiss) {
+
+                if (dismiss === 'cancel') {
+
+                    swal({
+                        title : paramCancleSafe.cancleSafe.text,
+                        text  : paramCancleSafe.cancleSafe.message,
+                        confirmButtonText  : paramCancleSafe.ok,
+                        type : "error",
+                    });
+
+                    if(typeof funcCancle == 'function')
+                        funcCancle();
+                }
+            });
+        },
+
         addLoader: function ($button) {
 
             // form loader
@@ -84,8 +129,8 @@ var AUT_FORM_COMPONENT = {
 
         changeAction: function ($form) {
 
-            var primarykey  = $form.find('.primarykey').val(),
-                takeAction  = typeof $form.data('take-action') != typeof undefined ? true : false,
+            var primarykey = $form.find('.primarykey').val(),
+                takeAction = typeof $form.data('take-action') != typeof undefined ? true : false,
                 actionParam = typeof $form.data('param') != typeof undefined ? $form.data('param') : '',
                 action;
 
@@ -181,7 +226,7 @@ var AUT_FORM_COMPONENT = {
 
 
                                 if(!$stopOperationMessage)
-                                    AUT_HELPER.notify({message: res.operation_message || OPERATION_MESSAGE_SUCCESS, status: 'success'});
+                                    AUT_FORM_COMPONENT.validate.notify({message: res.operation_message || OPERATION_MESSAGE_SUCCESS, status: 'success'});
 
                             }).fail(function (res) {
 
@@ -189,10 +234,13 @@ var AUT_FORM_COMPONENT = {
                                 AUT_FORM_COMPONENT.validate.removeLoader($button);
 
                                 if(!$stopOperationMessage)
-                                    AUT_HELPER.notify({message: OPERATION_MESSAGE_FAIL, status: 'danger'});
+                                    AUT_FORM_COMPONENT.validate.notify({message: OPERATION_MESSAGE_FAIL, status: 'danger'});
 
-                                //JSON.parse(res.responseText).server_message
-                                $.each(res.responseJSON, function (k, v) {
+                                var errors = typeof res.responseJSON != typeof undefined
+                                    ? res.responseJSON.errors
+                                    : [];
+
+                                $.each(errors, function (k, v) {
 
                                     var error = $form.find('#error_' + k);
                                     error.children().remove();
@@ -209,7 +257,7 @@ var AUT_FORM_COMPONENT = {
 
                         if($method == 'delete') {
 
-                            AUT_HELPER.sweetalert_swal({
+                            AUT_FORM_COMPONENT.validate.sweetalert_swal({
                                 title              : SWAL.title,
                                 text               : SWAL.text,
                                 type               : 'warning',
@@ -373,8 +421,10 @@ var AUT_FORM_COMPONENT = {
 
             _.head(form).reset();
             form.find('[id^=error_]').children().remove();
-            form.find('input[type=hidden]').not('[data-permanent=true],[name="_token"]').val('');
-            form.find('[data-role="tagsinput"]').tagsinput('removeAll');
+            form.find('input[type=hidden]').not('[data-permanent=true],[name="_token"],[name="_method"]').val('');
+            var taginput = form.find('[data-role="tagsinput"]');
+            if(taginput.length)
+                taginput.tagsinput('removeAll');
             if (form.find('.autocomplete').length != 0) {
                 AUT_AUTOCOMPLETE_PACK.autocomplete.resetAutocomplete(form.find('.autocomplete'));
             }
@@ -389,11 +439,17 @@ var AUT_FORM_COMPONENT = {
          */
         clearModal: function ($cont) {
 
-            $($cont).find('.modal').on('show.bs.modal', function () {
+            var modal = '';
+            if($($cont).find('.modal').length)
+                modal = $($cont).find('.modal');
+            else
+                modal = $($cont).closest('.modal');
+
+            modal.on('show.bs.modal', function () {
                 //
             });
 
-            $($cont).find('.modal').on('hidden.bs.modal', function () {
+            modal.on('hidden.bs.modal', function () {
 
                 var $form = $(this).find('form');
 
@@ -545,7 +601,7 @@ var AUT_FORM_COMPONENT = {
                         // $editableTarget = datatableId
                         var row = _aut_datatable_getSelectedRowData($editableTarget ,$this.closest('tr'));
 
-                        fillForm('get',row);
+                        fillForm('datatable',row);
 
                         AUT_FORM_COMPONENT.validate.hideShowButtonForm($cont, 'update');
 

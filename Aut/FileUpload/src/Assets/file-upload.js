@@ -19,13 +19,94 @@ var AUT_UPLOAD = {
             return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
         },
 
+        canvasResizeFile: function (file, width, height ,objectType = 'blob' ,returnType = 'object')
+        {
+            var sourceImg = document.createElement("img")
+
+            return new Promise(function(resolve) {
+                sourceImg.onload = function() {
+                    AUT_UPLOAD.fileUpload.canvasResizeImg(sourceImg, width, height, true, objectType, returnType).
+                    then(function(object) {
+                        resolve(object)
+                    })
+                }
+                sourceImg.src = URL.createObjectURL(file)
+            })
+        },
+
+        canvasResizeImg: function (img, destWidth, destHeight, canvasSmoothingEnabled = true, objectType, returnType)
+        {
+            var canvas = document.createElement('canvas');
+            var ctx = canvas.getContext("2d");
+
+            var sourceWidth  = img.naturalWidth
+            var sourceHeight = img.naturalHeight
+
+            var origSourceWidth  = sourceWidth
+            var origSourceHeight = sourceHeight
+
+            var sourceRatio = sourceWidth / sourceHeight
+
+            if (destWidth === 0) {
+                destWidth = destHeight * sourceRatio >> 0
+            }
+
+            if (destHeight === 0) {
+                destHeight = destWidth / sourceRatio >> 0
+            }
+
+            var destRatio   = destWidth / destHeight
+
+            if (destRatio > sourceRatio) {
+                sourceHeight = sourceWidth / destRatio >> 0
+            }
+            else {
+                sourceWidth = sourceHeight * destRatio >> 0
+            }
+
+            var sourceX = sourceX || (origSourceWidth  - sourceWidth)  / 2 >> 0
+            var sourceY = sourceY || (origSourceHeight - sourceHeight) / 2 >> 0
+
+            canvas.width  = destWidth
+            canvas.height = destHeight
+
+            ctx.imageSmoothingQuality       = "high"
+            ctx.mozImageSmoothingEnabled    = canvasSmoothingEnabled
+            ctx.webkitImageSmoothingEnabled = canvasSmoothingEnabled
+            ctx.msImageSmoothingEnabled     = canvasSmoothingEnabled
+            ctx.imageSmoothingEnabled       = canvasSmoothingEnabled
+            ctx.drawImage(img,
+                sourceX, sourceY, sourceWidth, sourceHeight,
+                0, 0, destWidth, destHeight)
+
+
+            if(returnType == 'object') {
+                return new Promise(function (resolve,reject) {
+                    canvas.toBlob(function (blob) {
+                        switch (objectType) {
+                            case 'blob'     : resolve(URL.createObjectURL(blob)); break;
+                            case 'data_url' : resolve(canvas.toDataURL(`image/jpeg`, .85)); break;
+                        }
+                    });
+                });
+            } else {
+                var canvImg = document.createElement("img")
+                return new Promise(function(resolve) {
+                    canvImg.onload = function() {
+                        resolve(canvImg)
+                    }
+                    canvImg.src = canvas.toDataURL(`image/jpeg`, .85)
+                });
+            }
+        },
+
         /**
          *
          * @param file
          * @param typeObject | fileToUrlBlob,fileToDataUrl
          * @returns {{}}
          */
-        convertFileToObject : function (file ,returnPlace) {
+        convertFileToObject : function (file ,returnPlace, callback) {
 
             var retutnObject = {};
 
@@ -34,21 +115,30 @@ var AUT_UPLOAD = {
              */
             if(returnPlace == 'fileToDataUrl')
             {
-                var reader = new FileReader();
-                reader.readAsDataURL(file);
-                reader.onload = function () {
+                let promise = new Promise(function (resolve,reject) {
 
-                    var fileToDataUrl = reader.result;
+                    var reader = new FileReader();
+                    reader.readAsDataURL(file);
+                    reader.onload = function () {
 
-                    retutnObject = $.extend(retutnObject, { fileToDataUrl : fileToDataUrl });
-                };
+                        var fileToDataUrl = reader.result;
 
-                reader.onerror = function (error) {
+                        retutnObject = $.extend(retutnObject, { fileToDataUrl : fileToDataUrl });
 
-                    console.log('error: ', error);
-                };
+                        resolve();
+                    };
 
-                return retutnObject;
+                    reader.onerror = function (error) {
+
+                        console.log('error: ', error);
+
+                        reject();
+                    };
+
+                }).then(function () {
+
+                    callback(retutnObject);
+                });
             }
 
             /**
@@ -144,11 +234,11 @@ var AUT_UPLOAD = {
 
                     var _this      = this,
                         $this      = $(_this),
-                        $imageCont = $this.closest('.image-cont'),
+                        $imageCont = $this.closest('.file-cont'),
                         cropperTemplete, infoTemplete, replacedFile = [], invalidRatio = [],
                         previewFileType             = $this.data('preview-file-type'),
-                        allowedFileTypes            = $this.data('allowed-file-types').split(',') || null,
-                        allowedFileExtensions       = $this.data('allowed-file-extensions').split(',') || null,
+                        allowedFileTypes            = $this.data('allowed-file-types') ? $this.data('allowed-file-types').split(',') : null,
+                        allowedFileExtensions       = $this.data('allowed-file-extensions') ? $this.data('allowed-file-extensions').split(',') : null,
                         uploadUrl                   = $this.data('upload-url'),
                         ratioUrl                    = $this.data('ratio-url'),
                         deleteUrl                   = $this.data('delete-url'),
@@ -171,13 +261,14 @@ var AUT_UPLOAD = {
                         param                       = $this.attr('data-param')       || '',
                         multiple                    = typeof $this.attr('multiple') != typeof undefined ? true : false,
                         target                      = $this.data('target') || '',
+                        info                        = typeof $this.data('info') != typeof undefined ? $this.data('info') : true,
                         cropper                     = typeof $this.data('cropper') != typeof undefined ? $this.data('cropper') : true,
                         cropperSelector             = $this.data('cropper-selector') || '.aut-cropper-file-upload',
                         cropperModal                = $this.data('cropper-modal') || '',
                         datatable                   = $this.data('datatable'),
                         reloadDatatable             = typeof $this.data('reload-datatable') != undefined ? $this.data('reload-datatable') : true,
                         datatableInitialize         = typeof $this.data('datatable-initialize') != undefined ? $this.data('datatable-initialize') : true,
-                        datatableInitializeProperty = $this.data('datatable-initialize-property') || '.image',
+                        datatableInitializeProperty = $this.data('datatable-initialize-property') || '.file',
                         packageAppend               = typeof $this.data('package-append') != undefined ? $this.data('package-append') : true,
                         appendLocation              = $this.data('append-location') || '',
                         appendName                  = $this.data('append-name') || '',
@@ -186,14 +277,20 @@ var AUT_UPLOAD = {
                         autoReplace                 = typeof $this.data('auto-replace') != undefined ? $this.data('auto-replace') : false,
                         allowRatio                  = typeof $this.data('allow-ratio') != undefined ? $this.data('allow-ratio') : false,
                         ratio                       = $this.data('ratio') || {},
+                        ratioCount                  = $this.data('ratio-count') || 0,
                         ratioMessage                = $this.data('ratio-message') || '',
                         closeModal                  = typeof $this.data('close-modal') != undefined ? $this.data('close-modal') : true,
-                        dropZoneEnabled             = typeof $this.data('drop-zone-enabled') != undefined ? $this.data('drop-zone-enabled') : true;
+                        dropZoneEnabled             = typeof $this.data('drop-zone-enabled') != undefined ? $this.data('drop-zone-enabled') : true,
+                        readOnly                    = typeof $this.data('read-only') != undefined ? $this.data('read-only') : false;
 
                     if(cropper)
                         cropperTemplete = '<button type="button" class="btn-crop-image btn btn-kv btn-default btn-outline-secondary" title="' + cropTitle + '"><i class="fa fa-crop"></i></button>';
                     infoTemplete = function (dataKey) {
-                        return '<button type="button" class="btn-attr-image btn btn-kv btn-default btn-outline-secondary" title="' + attributeTitle + '" ' + dataKey + '><i class="fa fa-question-circle"></i></button>';
+                        if(info && !readOnly) {
+                            return '<button type="button" class="btn-attr-image btn btn-kv btn-default btn-outline-secondary" title="' + attributeTitle + '" ' + dataKey + '><i class="fa fa-question-circle"></i></button>';
+                        } else {
+                            return false;
+                        }
                     };
 
                     var params = {
@@ -210,19 +307,24 @@ var AUT_UPLOAD = {
                         maxFileCount: maxFileCount,
                         showCaption: showCaption,
                         maxFileSize: maxFileSize,
+                        maxFilePreviewSize: 25600,
                         allowedFileTypes: allowedFileTypes,
                         allowedFileExtensions: allowedFileExtensions,
                         previewFileType: previewFileType,
                         minImageHeight: minImageHeight,
-                        maxImageHeight: maxImageHeight,
+                        maxImageHeight: maxImageHeight || 4096,
                         minImageWidth: minImageWidth,
-                        maxImageWidth: maxImageWidth,
+                        maxImageWidth: maxImageWidth || 4096,
                         elErrorContainer: '.kv-fileinput-error',
                         otherActionButtons: '',
                         showUpload: true,
                         showDownload: true,
+                        resizeImage: true,
+                        resizePreference: 'width',
                         showPreview: showPreview,
                         autoReplace: autoReplace,
+                        showBrowse: !readOnly,
+                        showRemove: !readOnly,
                         //required: true,
                         overwriteInitial: false,
                         layoutTemplates : {
@@ -242,12 +344,13 @@ var AUT_UPLOAD = {
                             '{cropper}'  : cropperTemplete || '',
                             '{info}'     : '',
                         },
-                        initialPreviewShowDelete: true,
+                        initialPreviewShowDelete: !readOnly,
                         initialPreview: [],
                         initialPreviewAsData: true,
                         initialPreviewFileType: 'image',
                         initialPreviewConfig: [],
-                        initialPreviewThumbTags : []
+                        initialPreviewThumbTags: [],
+                        purifyHtml: true,
                     };
 
                     if(allowedPreviewIcons)
@@ -321,11 +424,12 @@ var AUT_UPLOAD = {
                         params.initialPreview.push(url);
 
                         // deep clone object
-                        var extra = jQuery.extend(true, {}, params.deleteExtraData , $params.extra);
+                        var extra = jQuery.extend(true, {}, params.deleteExtraData, $params.extra);
 
                         params.initialPreviewConfig.push({
                             previewAsData: true,
                             type: $params.type,
+                            filetype: $params.mime_type,
                             url: deleteUrl,
                             caption: $params.caption,
                             size: $params.size,
@@ -449,49 +553,82 @@ var AUT_UPLOAD = {
                     var initFileUpload = function (params) {
 
                         $this.fileinput('destroy');
-                        $this.fileinput(params).off('fileimagesloaded').on('fileimagesloaded', function(event) {
+                        $this.fileinput(params).on('change', function(event) {
+                            // console.log("change");
+                        }).off('fileselect').on('fileselect', function(event, numFiles, label) {
+                            // console.log("fileselect");
+                        }).off('filebatchselected').on('filebatchselected', function(event, files) {
+
+                            let promise = new Promise(function(resolve, reject) {
+
+                                invalidRatio = [];
+                                // console.log('File batch selected triggered');
+                                $.each(files,function (index, file) {
+
+                                    var thumps = $this.closest('.file-input').find('[data-fileindex="' + index + '"]');
+
+                                    // check button remove for none image
+                                    if(!(file.type).match('^image/'))
+                                    {
+                                        thumps.find('.btn-crop-image').remove();
+                                        thumps.find('.btn-attr-image').remove();
+                                    }
+
+                                    // check image ratio
+                                    var blob = AUT_UPLOAD.fileUpload.convertFileToObject(file ,'fileToUrlBlob').fileToUrlBlob;
+                                    var img = new Image;
+                                    img.onload = function() {
+
+                                        $.each(ratio, function (i, v) {
+
+                                            var imageRatio = parseInt(img.width) / parseInt(img.height)
+                                            var ratio = parseInt(v.width) / parseInt(v.height)
+
+                                            if (imageRatio !== ratio) {
+                                                $this.fileinput('updateStack', index, $.extend(file, {'need_crop': true}))
+                                                thumps.prepend($imageCont.find('.need-crop').html())
+                                                var previewId = thumps.attr('id')
+                                                invalidRatio.push({
+                                                    previewId: previewId,
+                                                    message: ratioMessage.replace('{name}', file.name)
+                                                })
+
+                                                // need crop hide/show upload btn
+                                                $this.closest('.file-input').find('.fileinput-upload').attr('disabled',true);
+                                            }
+
+                                            if (files.length === (index + 1))
+                                                resolve()
+                                        })
+                                    };
+                                    img.src = blob;
+                                });
+                            });
+
+                            promise.then(function () {
+
+                                // this event trigger after select new file from browse
+                                if(autoReplace)
+                                    // ($this.fileinput('getFilesCount') + files.length)
+                                    if(files.length >= params.maxFileCount)
+                                        $.each($this.fileinput('getPreview').config , function(i ,v) {
+
+                                            //replaced file
+                                            appendHiddenFunc('delete_' + appendName ,v.key ,'replaced');
+                                            //push replaced item to array
+                                            replacedFile.push($.extend(v.extra ,{ key : v.key }));
+                                        });
+                            });
+
+                        }).off('filebrowse').on('filebrowse', function(event) {
+                            console.log("File browse triggered.");
+                        }).off('fileselectnone').on('fileselectnone', function(event) {
+                            console.log("File browse triggered.");
+                        }).off('fileimagesloaded').on('fileimagesloaded', function(event) {
                             // This event is triggered when all file images are fully loaded in the preview window.
                             // This is only applicable for image file previews and if showPreview is set to true.
                         }).off('fileloaded').on('fileloaded', function(event, file, previewId, index, reader) {
-
-                            // check image ratio
-                            var blob = AUT_UPLOAD.fileUpload.convertFileToObject(file ,'fileToUrlBlob').fileToUrlBlob;
-                            var img = new Image;
-                            img.onload = function() {
-
-                                var invalid = true;
-                                $.each(ratio ,function (i ,v) {
-                                    var imageRatio = parseInt(img.width) / parseInt(img.height);
-                                    var ratio      = parseInt(v.width) / parseInt(v.height);
-                                    if(imageRatio === ratio)
-                                        invalid = false;
-                                });
-
-                                if(invalid)
-                                {
-                                    $this.fileinput('updateStack', index, $.extend(file,{'need_crop': true}));
-                                    $this.closest('.file-input').find('#' + previewId).prepend($imageCont.find('.need-crop').html());
-                                    invalidRatio.push({ previewId: previewId, message: ratioMessage.replace('{name}' ,file.name) });
-                                }
-                            };
-                            img.src = blob;
-
-                            // this event trigger after select new file from browse
-                            if(autoReplace)
-                                if($this.fileinput('getFilesCount') > params.maxFileCount)
-                                    $.each($this.fileinput('getPreview').config , function(i ,v) {
-
-                                        //replaced file
-                                        appendHiddenFunc('delete_' + appendName ,v.key ,'replaced');
-                                        //push replaced item to array
-                                        replacedFile.push($.extend(v.extra ,{ key : v.key }));
-                                    });
-
-                            // need crop hide/show upload btn
-                            var fileCount = JSPath.apply('.need_crop',$this.fileinput('getFileStack')).length;
-                            if(fileCount > 0)
-                                $this.closest('.file-input').find('.fileinput-upload').attr('disabled',true);
-
+                            //
                         }).off('fileclear').on('fileclear', function(event) {
 
                             if(autoReplace)
@@ -504,6 +641,17 @@ var AUT_UPLOAD = {
                                 }
 
                             invalidRatio = [];
+
+                        }).off('filepreupload').on('filepreupload', function(event, data, previewId, index) {
+
+                            var message = JSPath.apply('.{.previewId == "' + previewId + '"}',invalidRatio);
+
+                            if (message.length && !data.files[index].crop) {
+                                return {
+                                    message: message[0].message,
+                                    data: {data: data.files[index]}
+                                };
+                            }
 
                         }).off('fileuploaded').on('fileuploaded', function(event, data, previewId, index) {
 
@@ -550,7 +698,7 @@ var AUT_UPLOAD = {
                                 closeModal  = false;
                                 var errorUl = $('.file-error-message').find('ul');
                                 errorUl.html('');
-                                _.each(data.jqXHR.responseJSON ,function (v ,i) {
+                                _.each(data.jqXHR.responseJSON.errors ,function (v ,i) {
                                     var message = "<li data-file-id='" + data.id + "'><b>" + data.filenames[data.index] + " </b>" + data.jqXHR.statusText + "<pre>" + v[0] + "</pre></li>";
                                     errorUl.append(message);
                                 });
@@ -562,7 +710,7 @@ var AUT_UPLOAD = {
                                 closeModal  = false;
                                 var errorUl = $('.file-error-message').find('ul');
                                 errorUl.html('');
-                                _.each(data.jqXHR.responseJSON ,function (v ,i) {
+                                _.each(data.jqXHR.responseJSON.errors ,function (v ,i) {
                                     var message = "<li data-file-id='" + data.id + "'>" + data.jqXHR.statusText + "<pre>" + v[0] + "</pre></li>";
                                     errorUl.append(message);
                                 });
@@ -583,17 +731,6 @@ var AUT_UPLOAD = {
                             if ((typeof $this.data('filedeleted') != typeof undefined) && $this.data('filedeleted'))
                                 window[$this.data('filedeleted')](event, key, jqXHR, data);
 
-                        }).off('filepreupload').on('filepreupload', function(event, data, previewId, index) {
-
-                            var message = JSPath.apply('.{.previewId == "' + previewId + '"}',invalidRatio).length;
-
-                            if (message && !data.files[index].crop) {
-                                return {
-                                    message: message[0].message,
-                                    data: {data: data.files[index]}
-                                };
-                            }
-
                         }).off('filecustomerror').on('filecustomerror', function(event, params) {
 
                             // params.abortData will contain the additional abort data passed
@@ -606,21 +743,22 @@ var AUT_UPLOAD = {
                         }).off('filezoomshow').on('filezoomshow', function(event, params) {
 
                             $(params.modal).find('.kv-zoom-title').html($('#'+params.previewId).find('.file-footer-caption').text());
+                        }).on('fileremoved', function(event, id, index) {
+
+                            var fileCount = JSPath.apply('.need_crop',$this.fileinput('getFileStack')).length;
+                            if(fileCount == 0)
+                                $this.closest('.file-input').find('.fileinput-upload').attr('disabled',true);
                         });
                         /*
                         .on('filereset', function(event){ })
-                        .on('fileselectnone', function(event) { })
-                        .on('fileselect', function(event, numFiles, label) { })
                         .on('filebatchselected', function(event, files) { })
-                        .on('filebrowse', function(event) { })
                         .on('filepreremove', function(event, id, index) { })
                         .on('fileremoved', function(event, id, index) { })
                         .on('filebeforedelete', function(event, key, data) { })
                         .on('filepredelete', function(event, key, jqXHR, data) { })
-                        .on('filedeleted', function(event, key, jqXHR, data) { })
                         .on('filesuccessremove', function(event, id) {  })
-                        .on('filecleared', function(event) { })
-                        .on('change', function(event) { });*/
+                        .on('filecleared', function(event) { });
+                        */
 
                         $this.closest('.file-input').off('click','.btn-attr-image').on('click' ,'.btn-attr-image' ,function () {
 
@@ -633,7 +771,7 @@ var AUT_UPLOAD = {
                                 delay: { "show": 100, "hide": 100 },
                                 placement: 'top',
                                 trigger: 'manual',
-                                template: '<div class="popover" style="border:0;" role="tooltip"><div class="popover-content p-0"></div></div>',
+                                template: '<div class="popover" style="border:0;" role="tooltip"><div class="popover-content" style="padding: 0;"></div></div>',
                             });
 
                             $this.off('shown.bs.popover').on('shown.bs.popover', function () {
@@ -710,10 +848,10 @@ var AUT_UPLOAD = {
                                         .attr('data-height'    ,imageHeight)
                                         .attr('data-maxWidth'  ,maxImageWidth)
                                         .attr('data-maxHeight' ,maxImageHeight)
-                                        .attr('data-minHeight' ,minImageHeight)
-                                        .attr('data-minWidth'  ,minImageWidth);
+                                        .attr('data-minWidth'  ,minImageWidth)
+                                        .attr('data-minHeight' ,minImageHeight);
 
-                                    AUT_UPLOAD.CROPPER.init(cropperSelector ,file ,$cropImageBtn);
+                                    AUT_UPLOAD.CROPPER.init(cropperSelector, file, $cropImageBtn, params)
                                 });
 
                                 $(cropperModal).modal('show');
@@ -723,18 +861,19 @@ var AUT_UPLOAD = {
 
                     if(datatableInitialize == true && data) {
 
-                        var images = JSPath.apply(datatableInitializeProperty ,data);
+                        var files = JSPath.apply(datatableInitializeProperty ,data);
 
-                        _.each(images ,function (row ,index) {
+                        _.each(files ,function (row ,index) {
 
                             if (row)
                                 initialPreviewFunc({
-                                    url : row.image_url,
-                                    type : row.type,
-                                    caption : row.name,
+                                    url: row.url,
+                                    type: row.type,
+                                    mime_type: row.mime_type,
+                                    caption: row.name,
                                     size: row.size,
                                     key: row.id,
-                                    extra : {file_name: row.hash_name }
+                                    extra: {file_name: row.hash_name, mime_type: row.mime_type}
                                 });
                         });
 
@@ -755,18 +894,20 @@ var AUT_UPLOAD = {
                             });
                         }
 
-                        $.get(uploadUrl , $.extend(params.uploadExtraData ,{ images_id : ids }) ,function (data) {
+                        $.get(uploadUrl , $.extend(params.uploadExtraData ,{ files_id : ids }) ,function (data) {
 
-                            _.each(data ,function (row ,index) {
+                            // here
+                            _.each(data.files ,function (row ,index) {
 
                                 if(row)
                                     initialPreviewFunc({
-                                        url : row.image_url,
-                                        type : row.type,
-                                        caption : row.name,
+                                        url: row.url,
+                                        type: row.type,
+                                        mime_type: row.mime_type,
+                                        caption: row.name,
                                         size: row.size,
                                         key: row.id,
-                                        extra : {file_name: row.hash_name }
+                                        extra: {file_name: row.hash_name, mime_type: row.mime_type}
                                     });
                             });
 
@@ -791,11 +932,13 @@ var AUT_UPLOAD = {
 
             var checkFileExists = typeof param.file != typeof undefined,
                 fileType        = checkFileExists ? /^image\/\w+$/.test(param.file.type) : undefined,
-                name            = checkFileExists ? param.file.name : undefined;
+                name            = checkFileExists
+                    ? param.file.name || param.cropImageBtn.closest('.file-preview-frame').find('.file-caption-info').text()
+                    : undefined;
 
             if(name) {
-                $(param.inputName).val(name.replaceAll(/\..+/,''));
-                $(param.inputName).attr('data-real-ext' ,(_.head(name.match(/\..+/))).replace(/./,''));
+                $(param.inputName).val(name.replaceAll(/\.\w+$/,''));
+                $(param.inputName).attr('data-real-ext' ,(_.head(name.match(/\.\w+$/))).replace(/./,''));
             } else {
                 $(param.inputName).val('');
                 $(param.inputName).attr('data-real-ext','');
@@ -803,19 +946,36 @@ var AUT_UPLOAD = {
 
             if (fileType) {
 
-                AUT_UPLOAD.CROPPER.blobURL = URL.createObjectURL(param.file);
-
                 var image = $(param.image);
 
-                image.attr('src', AUT_UPLOAD.CROPPER.blobURL);
+                param.clearImage();
 
-                image.load(function () {
+                if(param.file.size > (param.fileParams.maxFilePreviewSize * 1000)) {
 
-                    image.cropper('destroy').cropper(param.options);
+                    if(typeof param.getImage() != typeof undefined) {
+                        let originalBlob = param.getImage();
+                        AUT_UPLOAD.CROPPER.blobURL = originalBlob;
+                        image.cropper('replace', originalBlob);
+                    } else {
+                        AUT_UPLOAD.fileUpload.canvasResizeFile(param.file,param.fileParams.maxImageWidth, param.fileParams.maxImageHeight)
+                            .then(function(blob) {
+                                AUT_UPLOAD.CROPPER.blobURL = blob;
+                                image.cropper('replace', blob);
 
-                    if(param.setRatioCallback)
-                        param.setRatioCallback();
-                });
+                                if(param.setOriginalImage)
+                                    param.setOriginalImage(blob);
+                            });
+                    }
+                } else {
+                    AUT_UPLOAD.CROPPER.blobURL = URL.createObjectURL(param.file);
+                    image.cropper('replace',AUT_UPLOAD.CROPPER.blobURL);
+
+                    if(param.setOriginalImage)
+                        param.setOriginalImage(AUT_UPLOAD.CROPPER.blobURL);
+                }
+
+                if(param.setRatioCallback)
+                    param.setRatioCallback();
 
                 if($(param.inputImage).length)
                     $(param.inputImage).val('');
@@ -831,7 +991,7 @@ var AUT_UPLOAD = {
             $image.cropper('setData',{width : $width , height : $height });
         },
 
-        init: function (selector ,fileUpload ,cropImageBtn) {
+        init: function (selector ,fileUpload ,cropImageBtn, params) {
 
             if (!$.fn.cropper) return;
 
@@ -846,75 +1006,30 @@ var AUT_UPLOAD = {
                     rationDimintion = $this.data('width') * $this.data('height'),
 
                 options = {
-                    // data: {
-                    //   x: 420,
-                    //   y: 60,
-                    //   width: 640,
-                    //   height: 360
-                    // },
-                    // strict: false,
-                    // responsive: false,
-                    // checkImageOrigin: false,
-
-                    // modal: false,
-                    // guides: false,
-                    // highlight: false,
-                    // background: false,
-
-                    // autoCrop: false,
-                    // autoCropArea: 0.5,
-                    // dragCrop: false,
-                    // rotatable: false,
-                    // zoomable: false,
-                    // touchDragZoom: false,
-                    // mouseWheelZoom: false,
-                    // cropBoxResizable: false,
-                    // doubleClickToggle: false,
-
-                    // minCanvasWidth: 320,
-                    // minCanvasHeight: 180,
-                    // minCropBoxWidth: 160,
-                    // minCropBoxHeight: 90,
-                    // minContainerWidth: 320,
-                    // minContainerHeight: 180,
-
-                    // build: null,
-                    // built: null,
-                    // dragstart: null,
-                    // dragmove: null,
-                    // dragend: null,
-                    // zoomin: null,
-                    // zoomout: null,
-
-                    // minWidth: 256,
-                    // minHeight: 256,
-                    // maxWidth: 4096,
-                    // maxHeight: 4096,
-                    // imageSmoothingEnabled: true,
-                    // imageSmoothingQuality: 'high',
-
+                    responsive: true,
+                    minContainerHeight: 350,
                     width: rationDimintion < imageDimintion ? $this.data('width') : $image[0].width,
                     height: rationDimintion < imageDimintion ? $this.data('height') : $image[0].height,
+                    maxWidth: 4096,
+                    maxHeight: 4096,
                     fillColor: 'transparent',
                     movable: true,
                     cropBoxMovable: true,
                     dragMode: 'move',
                     viewMode: 2,
                     aspectRatio: 16 / 9,
+                    multiple: true,
                     preview: '.img-preview',
+                    imageSmoothingEnabled: false,
+                    imageSmoothingQuality: 'high',
                     crop: function(data) {
-                        $this.find('#dataX').val(Math.round(data.x));
-                        $this.find('#dataY').val(Math.round(data.y));
-                        $this.find('#dataHeight').val(Math.round(data.height));
-                        $this.find('#dataWidth').val(Math.round(data.width));
-                        $this.find('#dataRotate').val(Math.round(data.rotate));
+                        $this.find('#dataX').val(Math.round(data.detail.x));
+                        $this.find('#dataY').val(Math.round(data.detail.y));
+                        $this.find('#dataHeight').val(Math.round(data.detail.height));
+                        $this.find('#dataWidth').val(Math.round(data.detail.width));
+                        $this.find('#dataRotate').val(Math.round(data.detail.rotate));
                     }
                 };
-
-                // console.log(rationDimintion < imageDimintion ? $this.data('width') : $image[0].width);
-                // console.log(rationDimintion < imageDimintion ? $this.data('height') : $image[0].height);
-                // console.log('rationDimintion :',$this.data('width'),$this.data('height'));
-                // console.log('imageDimintion :',$image[0].width,$image[0].height);
 
                 $image.on({
                     'build.cropper': function (e) {
@@ -944,8 +1059,6 @@ var AUT_UPLOAD = {
 
                 }).cropper(options);
 
-                window.URL.revokeObjectURL(AUT_UPLOAD.CROPPER.blobURL);
-
                 if(fileUpload) {
 
                     AUT_UPLOAD.CROPPER.file = fileUpload;
@@ -954,15 +1067,29 @@ var AUT_UPLOAD = {
                         image : $image ,
                         inputName : $inputName,
                         inputImage : $inputImage,
+                        cropImageBtn : cropImageBtn,
                         file : AUT_UPLOAD.CROPPER.file,
                         options : options,
+                        fileParams : params,
+                        getImage: function() {
+                           return cropImageBtn.data('original-image');
+                        },
+                        clearImage: function() {
+                            if(cropImageBtn.data('original-image') != AUT_UPLOAD.CROPPER.blobURL)
+                                window.URL.revokeObjectURL(AUT_UPLOAD.CROPPER.blobURL);
+                        },
                         setRatioCallback: function () {
 
                             var ratioWidth  = $image.data('ratio-width'),
                                 ratioHeight = $image.data('ratio-height');
 
                             AUT_UPLOAD.CROPPER.ratio($image ,ratioWidth || $this.attr('data-width') ,ratioHeight || $this.attr('data-height'));
-                        }
+                        },
+                        setOriginalImage: function (image) {
+
+                            if(!cropImageBtn.data('original-image'))
+                                cropImageBtn.data('original-image',image);
+                        },
                     });
                 }
 
@@ -1128,6 +1255,10 @@ var AUT_UPLOAD = {
                             }
                         }
 
+                        if (data.method === 'getOriginalImage') {
+                            $image.cropper('replace',cropImageBtn.data('original-image'));
+                        }
+
                         if ($.isPlainObject(result) && $target) {
                             try {
                                 $target.val(JSON.stringify(result));
@@ -1183,7 +1314,7 @@ var AUT_UPLOAD = {
                             AUT_UPLOAD.CROPPER.file = files[0];
 
                             AUT_UPLOAD.CROPPER.placeImage({
-                                image : $image ,
+                                image : $image,
                                 inputName : $inputName,
                                 inputImage : $(this),
                                 file : AUT_UPLOAD.CROPPER.file,
@@ -1253,6 +1384,15 @@ var AUT_UPLOAD = {
         inputFile.attr('data-param' ,$param);
 
         AUT_UPLOAD.fileUpload.load(inputFile ,datatableRaw);
+
+        $(ImageModalId).modal('show');
+    },
+
+    initFileUpload: function ($thisRow ,ImageModalId) {
+
+        var inputFile = $(ImageModalId).find('.upload-file');
+
+        AUT_UPLOAD.fileUpload.load(inputFile);
 
         $(ImageModalId).modal('show');
     },

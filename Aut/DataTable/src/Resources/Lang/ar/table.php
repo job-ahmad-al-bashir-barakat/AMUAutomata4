@@ -47,7 +47,8 @@ return [
     'oper' => [
         'success'      => 'تمت العملية بنجاح',
         'error'        => 'فشلت العملية',
-        'successOrder' => 'تم الترتيب بنجاح'
+        'successOrder' => 'تم الترتيب بنجاح',
+        'sum'          => 'المجموع',
     ],
     'filter' => 'البحث عن',
     "buttons" => [

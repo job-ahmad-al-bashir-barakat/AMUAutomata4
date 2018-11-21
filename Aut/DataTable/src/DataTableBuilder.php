@@ -174,6 +174,7 @@ class DataTableBuilder
             'scrollX'           => false,
             'scrollY'           => '300px',
             'filter'            => false,
+            'operations'        => false,
             'sortable'          => false,
             'fixedStart'        => 0,
             'fixedEnd'          => 0,
@@ -2188,7 +2189,11 @@ class DataTableBuilder
         // add en/ar class to dialog
         $langs = implode("|", $this->langs);
         if(matchClass($langs ,$class ,$result))
+        {
+            $this->params['lang'] = $result[0];
+
             $class_dialog = "$class_dialog {$result[0]}";
+        }
 
         // add required class to dialog
         if(matchClass('required' ,$class))
@@ -2234,9 +2239,9 @@ class DataTableBuilder
         if($type == 'text' || $type == 'number' || $type == 'group')
         {
             if(matchClass('autocomplete' ,$class))
-                $attr = "$attr autocomplete = 'on'";
+                $attr = "$attr autocomplete=on";
             else
-                $attr = "$attr autocomplete = 'off'";
+                $attr = "$attr autocomplete=off";
         }
 
         // remove class dialog from string
@@ -2284,6 +2289,20 @@ class DataTableBuilder
         $this->addTableColumn($param ,$choosen);
     }
 
+    protected function setDirection($name) {
+
+        $langs = [];
+        foreach ($this->langs as $lang)
+            $langs[] = "_$lang";
+
+        $langs = implode("|", $langs);
+        if(preg_match("/{$langs}/", $name,$result)) {
+
+            $result = Str::replaceFirst('_','',$result[0]);
+            $this->params['lang'] = $result;
+        }
+    }
+
     /**
      * @param $param
      * @param $choosen
@@ -2300,6 +2319,8 @@ class DataTableBuilder
         $id       = shortIfElse($this->relation_key != '' ,$param["data"] ,$id);
 
         $class  = shortIfElse(empty($this->params['class']) ,$class_attr['class_dialog'] ,"{$this->params['class']} {$class_attr['class_dialog']}");
+
+        $this->setDirection($name);
 
         switch ($param["type"]) {
 
@@ -2360,7 +2381,7 @@ class DataTableBuilder
             $this->customHtml .= $isCustom;
 
         // clear param
-        foreach($this->params as $index => $param)
+        foreach($this->params as $index => $vaue)
             $this->params[$index] = '';
     }
 
@@ -2793,6 +2814,7 @@ class DataTableBuilder
                                     message : '{$swal['cancleSafe']['message']}',
                                 }
                             },
+                            sum: '{$oper['sum']}',
                          },
                          spinners : {
                              type     : '{$spinners['type']}',
@@ -2851,7 +2873,7 @@ class DataTableBuilder
                                  
                                  {$onModalAddConfig}
                              },
-                             modal_update : function(row ,param) {
+                             modal_update : function(row ,param, data) {
                                  
                                  {$this->events['modalUpdate']}
                                  

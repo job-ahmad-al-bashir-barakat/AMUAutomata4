@@ -5,6 +5,7 @@ namespace Aut\FormComponent\Builder;
 use Aut\FormComponent\Traits\Container;
 use Aut\FormComponent\Traits\Element;
 use Aut\FormComponent\Traits\Event;
+use Illuminate\Support\Str;
 
 class FormBuilder
 {
@@ -39,6 +40,7 @@ class FormBuilder
         'dataJson'                   => '',
         'langs'                      => [],
         'takeAction'                 => false,
+        'relation'                   => '',
     ];
 
     private $propertyKeep = [
@@ -55,6 +57,7 @@ class FormBuilder
         'formGroup'   => true,
         'dataJson'    => '',
         'placeholder' => '',
+        'relation'    => '',
     ];
 
     private $event = [
@@ -229,6 +232,13 @@ class FormBuilder
         return $this;
     }
 
+    function relation($relation) {
+
+        $this->property['relation'] = $relation;
+
+        return $this;
+    }
+
     /**
      * @param array $langs
      * @return $this
@@ -239,6 +249,21 @@ class FormBuilder
         $this->property['langs']    = shortIfElse(empty($langs),$this->property['langs'],$langs);
 
         return $this;
+    }
+
+    protected function setDirection($name) {
+
+        $langs = [];
+        foreach ($this->property['langs'] as $lang => $items)
+            $langs[] = "_{$lang}";
+
+        $langs = implode("|", $langs);
+        if(preg_match("/{$langs}/", $name,$result)) {
+
+            $result = Str::replaceFirst('_','',$result[0]);
+
+            return $result;
+        }
     }
 
     /**

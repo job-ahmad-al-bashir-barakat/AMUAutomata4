@@ -18,6 +18,8 @@ return [
     'image_name'                => 'اسم الصورة',
     'crop_ratio'                => 'نسبة القص',
     'allowed_ratio'             => 'النسبة المسموحة (العرض × الطول) بالبيكسل:',
+    'original_image'            => 'الصورة الاصلية',
+    'need_crop'                 => 'اعادة تعيين',
 
     /*
      * upload file
