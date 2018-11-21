@@ -64,7 +64,9 @@ class PersonFactory extends GlobalFactory
                     ->openHorizontalTab("extra-$type" ,trans('admin::app.extra_info') ,'req')
                         ->addAutocomplete('autocomplete/gender' ,trans('admin::app.gender') , 'gender_id', "gender.lang_name.$this->lang.text", "gender.lang_name.$this->lang.text" ,'req required none' ,'' , '' ,true ,false ,true ,false)
                         ->addAutocomplete('autocomplete/position' ,trans('utilities::app.position') , 'position_id', "position.lang_name.$this->lang.text", "position.lang_name.$this->lang.text" ,'req required none' ,'' , '' ,true ,false ,true ,false)
-                        ->addAutocomplete('autocomplete/job-title' ,trans('utilities::app.job_title') , 'job_title_id', "job_title.lang_name.$this->lang.text", "job_title.lang_name.$this->lang.text" ,'req required none' ,'' , '' ,true ,false ,true ,false)
+                        ->startRelation('jobTitle')
+                            ->addMultiAutocomplete('autocomplete/job-title' ,"job_title[ ,].lang_name.$this->lang.text",trans('utilities::app.job_title') , 'job_title.id', "job_title.lang_name.$this->lang.text", "job_title.lang_name.$this->lang.text" ,'req required none' ,'' , '' ,true ,false ,false ,false)
+                        ->endRelation()
                     ->closeHorizontalTab()
                 ->endHorizontalTab()
             ->endTab()
@@ -107,11 +109,15 @@ class PersonFactory extends GlobalFactory
 
         $contact->socialNetwork()->sync($request->input('contact.social'));
 
-        Person::create(array_merge($request->input(),['contact_id' => $contact->id]));
+        $person = Person::create(array_merge($request->input(),['contact_id' => $contact->id]));
+
+        $person->jobTitle()->sync(request()->input('jobTitle.job_title_id'));
     }
 
     public function updateDatatable($model ,$request ,$result)
     {
+        $result->jobTitle()->sync(request()->input('jobTitle.job_title_id'));
+
         $result->contact()->update($request->input('contact'));
 
         $result->contact->socialNetwork()->sync($request->input('contact.social'));

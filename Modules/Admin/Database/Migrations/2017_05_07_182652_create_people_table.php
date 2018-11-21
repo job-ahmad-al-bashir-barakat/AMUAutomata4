@@ -16,11 +16,11 @@ class CreatePeopleTable extends Migration
         Schema::create('people', function (Blueprint $table) {
             $table->increments('id')->unsigned();
             $table->string('type');
+            $table->integer('faculty_id')->unsigned();
             $table->integer('image_260_id')->nullable()->unsigned();
             $table->integer('image_360_id')->nullable()->unsigned();
             $table->integer('gender_id')->unsigned();
             $table->integer('position_id')->unsigned();
-            $table->integer('job_title_id')->unsigned();
             $table->integer('contact_id')->unsigned();
             $table->timestamps();
             $table->softDeletes();
