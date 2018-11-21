@@ -13,7 +13,7 @@ class FacultyFactory extends GlobalFactory
      */
     public function getDatatable($model ,$request)
     {
-        $query = Faculty::with(['studyYear','branch'])->allLangs()->get();
+        $query = Faculty::with(['studyYear','campus'])->allLangs()->get();
 
         return $this->table
             ->queryConfig('datatable-faculty')
@@ -35,7 +35,7 @@ class FacultyFactory extends GlobalFactory
         return $this->table
             ->config('datatable-faculty' ,trans('admin::app.faculty'))
             ->addPrimaryKey('id','id')
-            ->addAutocomplete('branch',trans('admin::app.branch'),'branch_id',"branch.lang_name.{$this->lang}.text","branch.lang_name.{$this->lang}.text" ,'req required')
+            ->addAutocomplete('campus',trans('admin::app.campus'),'campus_id',"campus.lang_name.{$this->lang}.text","campus.lang_name.{$this->lang}.text" ,'req required')
             ->addMultiInputTextLangs(['name'], 'req required')
             ->startRelation('study_year')
                 ->addMultiAutocomplete('autocomplete/study-year' ,'study_year_temp' ,trans('admin::app.study_year') ,'study_year.id' ,"study_year.lang_name.{$this->lang}.text" ,"study_year.lang_name.{$this->lang}.text" ,'req required')

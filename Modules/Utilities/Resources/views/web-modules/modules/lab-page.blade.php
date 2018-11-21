@@ -1,6 +1,4 @@
-@php($labSlug = \Route::input('lab'))
-@php($labId = getIdFromSlug($labSlug))
-@php($lab = \Modules\Admin\Entities\Lab::findOrFail($labId)->load('image'))
+@php($lab = $data['lab'])
 <div class="col-md-{{ $data['width'] }}">
     <div class="row">
         <div class="col-md-4">

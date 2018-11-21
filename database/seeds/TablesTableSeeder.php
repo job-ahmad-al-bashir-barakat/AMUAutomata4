@@ -731,6 +731,20 @@ class TablesTableSeeder extends Seeder
                 'updated_at' => '2018-05-18 05:53:04',
                 'deleted_at' => NULL,
             ),
+            51 => 
+            array (
+                'id' => 56,
+                'table_name' => 'campuses',
+                'namespace' => '\\Modules\\Admin\\Entities\\Campus',
+                'pageable' => 0,
+                'pageable_column' => NULL,
+                'menuable' => 0,
+                'dynamic' => 0,
+                'morph_code' => 'campus',
+                'created_at' => '2018-11-03 15:08:33',
+                'updated_at' => '2018-11-03 15:09:22',
+                'deleted_at' => NULL,
+            ),
         ));
         
         
