@@ -20,7 +20,7 @@ class UploadFormRequest extends FormRequest
         $imageGeneralConfig = config("fileupload.setting.{$route['type']}");
         $imageLocalConfig   = config("fileupload.{$model}");
 
-        $validate = $imageLocalConfig['validate'] ?? $imageGeneralConfig['validate'];
+        $validate  = $imageLocalConfig['validate'] ?? $imageGeneralConfig['validate'];
 
         return [
             $model => $validate

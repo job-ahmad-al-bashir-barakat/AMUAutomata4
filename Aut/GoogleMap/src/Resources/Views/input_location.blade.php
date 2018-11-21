@@ -46,7 +46,7 @@
                     data-input-lng-location="{{ $inputLngLocation ?? '' }}"
                     data-input-reverse-geo-coding="{{ $inputReverseGeoCoding ?? '' }}">
                 {{ trans('gmap::gmap.set_location') }}
-                <span class="btn-label btn-label-right"><i class="icon-location-pin"></i></span>
+                <span class="btn-label btn-label-right"><i class="fa fa-map-marker"></i></span>
             </button>
             {{ $footer ?? '' }}
         @endslot

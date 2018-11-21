@@ -2,9 +2,9 @@
 
 namespace Modules\Admin\Entities;
 
+use Aut\FileUpload\Entities\Image;
 use Illuminate\Support\Str;
 use Aut\Eloquent\Models\Model;
-use Modules\Utilities\Entities\Image;
 use Modules\Utilities\Entities\Gender;
 use Modules\Utilities\Traits\MultiLangs;
 use Modules\Utilities\Entities\JobTitle;

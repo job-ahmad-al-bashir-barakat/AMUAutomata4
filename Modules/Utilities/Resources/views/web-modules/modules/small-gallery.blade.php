@@ -1,4 +1,4 @@
-@php($images = \Modules\Utilities\Entities\Image::whereIn('id', $data['images'])->get())
+@php($images = \Aut\FileUpload\Entities\Image::whereIn('id', $data['images'])->get())
 @if($images->count())
 <div class="col-md-{{ $data['width'] }} wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.3s">
     <div class="row mb-10">

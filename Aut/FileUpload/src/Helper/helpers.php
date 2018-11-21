@@ -35,3 +35,34 @@ if(! function_exists('fileUploadPosition'))
     }
 }
 
+if(! function_exists('getFileUploadStorage'))
+{
+    /**
+     * @return string
+     */
+    function getFileUploadStorage($folderPath = 'public/upload/{type}/{model}',$objectId = '')
+    {
+        return [
+            collect(\Storage::files($folderPath))->map(function ($item) use ($objectId) {
+
+                if(string($item)->find($objectId)) {
+                    preg_match('/(?!.*_)\w.+$/',basename($item),$name);
+                    $name = $name[0];
+                    $type = preg_replace('/\/.+$/', '', \Storage::mimeType($item));
+
+                    return [
+                        'id'        => \Auth::id(),
+                        'type'      => $type,
+                        'mime_type' => \Storage::mimeType($item),
+                        'name'      => $name,
+                        'hash_name' => basename($item),
+                        'size'      => \Storage::size($item),
+                        'url'       => url(\Storage::url($item))
+                    ];
+                }
+            })->first()
+        ];
+    }
+}
+
+

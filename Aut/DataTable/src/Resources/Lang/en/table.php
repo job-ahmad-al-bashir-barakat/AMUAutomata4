@@ -47,7 +47,8 @@ return [
     'oper' => [
       'success'      => 'Operation done successfuly',
       'error'        => 'Operation fails',
-      'successOrder' => 'Order done successfully'
+      'successOrder' => 'Order done successfully',
+      'sum'          => 'Sum',
     ],
     "filter" => 'Filter',
     "buttons" => [
@@ -76,7 +77,7 @@ return [
     ],
 
     'en'                => ' (EN)',
-    'ar'                => ' (AR)',
+    'ar'                => ' (AR)&lrm;',
     'yes'               => 'Yes',
     'no'                => 'No',
 

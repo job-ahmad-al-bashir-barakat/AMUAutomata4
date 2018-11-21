@@ -3,7 +3,7 @@
 namespace Modules\Admin\Entitiess;
 
 use Aut\Eloquent\Models\Model;
-use Modules\Utilities\Entities\Image;
+use Aut\FileUpload\Entities\Image;
 use Modules\Utilities\Traits\MultiLangs;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Modules\Admin\Entities\LangModels\PartnerNameLang;

@@ -55,7 +55,7 @@ class FileUploadServiceProvider extends ServiceProvider
 
         $this->customValidator();
 
-        $this->ImageUpload();
+        $this->upload();
 
         $this->ImageUploadCropper();
     }
@@ -171,9 +171,8 @@ class FileUploadServiceProvider extends ServiceProvider
         });
     }
 
-    function ImageUpload()
-    {
-        Form::component('ImageUpload','fileupload::component.form.image_upload',[
+    function upload() {
+        Form::component('upload','fileupload::component.form.file_upload',[
             'id'                                 => '',
             'name'                               => '',
             'class'                              => '',
@@ -187,27 +186,36 @@ class FileUploadServiceProvider extends ServiceProvider
             ],
             'datatable'                          => '',
             'datatableInitialize'                => true,
-            'datatableInitializeProperty'        => '.image',
+            'datatableInitializeProperty'        => '',
             'extraParameter'                     => [
-                'maxFileCount'                   => '0',
-                'minFileCount'                   => '0',
-                'minImageWidth'                  => null,
-                'minImageHeight'                 => null,
-                'maxImageWidth'                  => null,
-                'maxImageHeight'                 => null,
-                'allowedFileExtensions'          => 'jpeg,jpg,bmp,png',
-                'appendLocation'                 => '',
-                'appendName'                     => '',
-                'reloadDatatable'                => true,
-                'fileuploadedEvent'              => '',
-                'filedeletedEvent'               => '',
-                'allowedPreviewIcons'            => false,
-                'autoReplace'                    => false,
-                'showCaption'                    => false,
-                'showPreview'                    => true,
-                'allowRatio'                     => false,
-                'closeModal'                     => false
-            ]
+                'maxFileCount'          => '0',
+                'minFileCount'          => '0',
+                'minImageWidth'         => null,
+                'minImageHeight'        => null,
+                'maxImageWidth'         => null,
+                'maxImageHeight'        => null,
+                'previewFileType'       => 'any',
+                'allowedFileTypes'      => null, // 'image,html,text,video,audio,flash,object'
+                'allowedFileExtensions' => null,
+                'packageAppend'         => true,
+                'appendLocation'        => '',
+                'appendName'            => '',
+                'reloadDatatable'       => true,
+                'fileuploadedEvent'     => '',
+                'filedeletedEvent'      => '',
+                'allowedPreviewIcons'   => false,
+                'autoReplace'           => false,
+                'showCaption'           => false,
+                'showPreview'           => true,
+                'allowRatio'            => false,
+                'closeModal'            => true,
+                'dropZoneEnabled'       => true,
+                'cropper'               => true,
+                'info'                  => true,
+                'readOnly'              => false,
+                'accept'                => '',
+            ],
+            'type' => 'image'
         ]);
     }
 

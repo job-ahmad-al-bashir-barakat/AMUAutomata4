@@ -1,7 +1,7 @@
 @if($build_table_column)
     @section('column')
-    <th class='{{ $choosen }} {{ $param['printable'] }}' style='max-width: {{ $param['width'] }};'>{!! $param['title'] !!}</th>
-@endsection
+        <th class='{{ $choosen }} {{ $param['printable'] }}' style='max-width: {{ $param['width'] }};'>{!! $param['title'] !!}</th>
+    @endsection
 @endif
 
 @if($build_table_filter)
@@ -37,6 +37,18 @@
     @endsection
 @endif
 
+@if($build_table_operations)
+    @section('operations')
+
+        @if(!in_array($param["type"],['index','hidden','button' ,'detail']))
+            <td class="operations" data-index="{{ $count }}"></td>
+        @else
+            <td></td>
+        @endif
+
+    @endsection
+@endif
+
 @if($build_table_table)
     @section('table')
         <table id='{{ $id }}' class='{{ $class }} custom-table' style='width: 100%;'>
@@ -50,6 +62,11 @@
             @if($footer)
 
                 <tfoot>
+
+                    @if($operations)
+                        <tr class='operations-datatable-cont hide'>{!! $html_operations !!}</tr>
+                    @endif
+
                     @if($filter)
                         <tr class='filter-datatable-cont'>{!! $html_filter !!}</tr>
                     @endif

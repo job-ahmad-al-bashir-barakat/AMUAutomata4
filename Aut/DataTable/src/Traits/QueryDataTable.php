@@ -261,7 +261,7 @@ trait QueryDataTable
                 $hand = 'datatable-icon-hand';
             }
 
-            return "<$tag data-key='{$item->$rowId}' class='$hand $class' $attr><i class='{$icon}'></i></span>";
+            return "<$tag data-key='{$item->$rowId}' class='$hand $class' $attr><i class='{$icon}'></i></$tag>";
         });
 
         return $this;

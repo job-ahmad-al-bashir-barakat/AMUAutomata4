@@ -33,6 +33,7 @@ mix.styles([
     // fileupload
     'Aut/FileUpload/src/Assets/plugin/bootstrap-fileinput/css/fileinput.css',
     'Aut/FileUpload/src/Assets/plugin/cropper/cropper.css',
+    'Aut/FileUpload/src/Assets/plugin/lity/lity.css',
     // plugin
     'Modules/Admin/Assets/vendor/sweetalert/dist/sweetalert2.min.css',
     'Modules/Admin/Assets/vendor/dragula/dragula.css',
@@ -156,6 +157,8 @@ var js = [
     'Aut/FileUpload/src/Assets/plugin/bootstrap-fileinput/js/fileinput.js',
     'Aut/FileUpload/src/Assets/plugin/bootstrap-fileinput/themes/fa/theme.js',
     'Aut/FileUpload/src/Assets/plugin/cropper/cropper.js',
+    'Aut/FileUpload/src/Assets/plugin/lity/lity.js',
+    'Aut/FileUpload/src/Assets/plugin/jquery.panzoom/jquery.panzoom.js',
     'Modules/Admin/Assets/vendor/dragula/dragula.js',
     'Modules/Admin/Assets/vendor/nestable/jquery.nestable.js',
     'Modules/Admin/Assets/vendor/jquery.inputmask/dist/jquery.inputmask.bundle.js',

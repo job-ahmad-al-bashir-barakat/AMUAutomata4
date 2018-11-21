@@ -18,6 +18,8 @@ return [
     'image_name'                => 'Image Name',
     'crop_ratio'                => 'Crop Ratio',
     'allowed_ratio'             => 'allowed ratio (width × height) px:',
+    'original_image'            => 'Original Image',
+    'need_crop'                 => 'Need Crop',
 
     /*
      * upload file

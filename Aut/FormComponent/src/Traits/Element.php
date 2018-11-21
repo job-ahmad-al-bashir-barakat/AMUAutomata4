@@ -24,6 +24,7 @@ trait Element
             'type'      => $type,
             'dataJson'  => $this->property['dataJson'],
             'permanent' => $permanent,
+            'relation'  => $this->property['relation'],
         ])->render());
 
         $this->resetProperty();
@@ -41,7 +42,7 @@ trait Element
      * @param array $attr
      * @return mixed
      */
-    private function _input($type, $label = '', $id = '', $name = '', $value = null, $class = '', $attr = [])
+    private function _input($type, $label = '', $id = '', $name = '', $value = null, $class = '', $attr = [], $isGroup = false, $icon = '', $groupClass = '')
     {
         $output = removeSpaces(view("form-component::{$this->property['formType']}.input", [
             'label'       => $label,
@@ -51,13 +52,18 @@ trait Element
             'class'       => $class,
             'attr'        => $attr,
             'type'        => $type,
+            'isGroup'     => $isGroup,
+            'icon'        => $icon,
+            'groupClass'  => $groupClass,
             'dataJson'    => $this->property['dataJson'],
             'tagsinput'   => $this->property['tagsinput'],
             'hasLangs'    => $this->property['hasLangs'],
             'hasTrans'    => $this->property['hasTrans'],
             'langs'       => $this->property['langs'],
+            'input_lang'  => $this->setDirection($name),
             'formGroup'   => $this->property['formGroup'],
             'placeholder' => $this->property['placeholder'],
+            'relation'    => $this->property['relation'],
         ])->render());
 
         $this->resetProperty();
@@ -114,6 +120,20 @@ trait Element
      * @param array $attr
      * @return mixed
      */
+    function inputGroup($label = '', $id = '', $name = '', $value = null, $class = '', $icon = '', $groupClass = '', $attr = [])
+    {
+        return $this->_input('text', $label, $id, $name, $value, $class, $attr, true, $icon, $groupClass);
+    }
+
+    /**
+     * @param string $label
+     * @param string $id
+     * @param string $name
+     * @param null $value
+     * @param string $class
+     * @param array $attr
+     * @return mixed
+     */
     function password($label = '', $id = '', $name = '', $value = null, $class = '', $attr = [])
     {
         return $this->_input('password', $label, $id, $name, $value, $class, $attr);
@@ -141,8 +161,10 @@ trait Element
             'hasLangs'    => $this->property['hasLangs'],
             'hasTrans'    => $this->property['hasTrans'],
             'langs'       => $this->property['langs'],
+            'input_lang'  => $this->setDirection($name),
             'formGroup'   => $this->property['formGroup'],
             'placeholder' => $this->property['placeholder'],
+            'relation'    => $this->property['relation'],
         ])->render());
 
         $this->resetProperty();
@@ -192,6 +214,7 @@ trait Element
             'langs'       => $this->property['langs'],
             'formGroup'   => $this->property['formGroup'],
             'placeholder' => $this->property['placeholder'],
+            'relation'    => $this->property['relation'],
         ])->render());
 
         $this->resetProperty();
@@ -226,6 +249,7 @@ trait Element
             'langs'       => $this->property['langs'],
             'formGroup'   => $this->property['formGroup'],
             'placeholder' => $this->property['placeholder'],
+            'relation'    => $this->property['relation'],
         ])->render());
 
         $this->resetProperty();

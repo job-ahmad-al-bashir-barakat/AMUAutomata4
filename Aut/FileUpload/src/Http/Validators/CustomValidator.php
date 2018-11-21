@@ -13,30 +13,40 @@ class CustomValidator
         $route = Route::getCurrentRoute()->parameters();
         $model = $route['model'];
 
-        $file = Request::file($model);
-        $file = is_array($file) ? $file[0] : $file;
+        $file         = Request::file($model);
+        $file         = is_array($file) ? $file[0] : $file;
+        $fileMimeType = preg_replace('/\/.+$/','',$file->getMimeType());
+
+        if($fileMimeType !== 'image')
+            return true;
 
         $imageLocalConfig = config("fileupload.{$model}");
+        $imageLocalConfig['ratio'] = $imageLocalConfig['ratio'] ?? [];
+
         $paramFromName    = explode(',_,' ,$file->getClientOriginalName());
-        $ratio            = isset($paramFromName[1]) ?  $paramFromName[1] : false;
+        $ratio            = $paramFromName[1] ?? false;
 
         $dimensions  = getimagesize($file->getPathname());
         $imageRatio  = number_format($dimensions[0]/$dimensions[1] ,1);
 
+        $getRatio = null;
+
         if($ratio)
             $getRatio = collect($imageLocalConfig['ratio'])->get($ratio);
-        else
-            foreach ($imageLocalConfig['ratio'] as $index => $current_ratio) {
+        else {
+            if(isset($imageLocalConfig['ratio']))
+                foreach ($imageLocalConfig['ratio'] as $index => $current_ratio) {
 
-                $loopRatio = number_format($current_ratio['width']/$current_ratio['height'],1);
+                    $loopRatio = number_format($current_ratio['width']/$current_ratio['height'],1);
 
-                if($loopRatio === $imageRatio) {
+                    if($loopRatio === $imageRatio) {
 
-                    $getRatio = $current_ratio;
+                        $getRatio = $current_ratio;
 
-                    break;
+                        break;
+                    }
                 }
-            }
+        }
 
         if(isset($getRatio)) {
 
@@ -46,7 +56,7 @@ class CustomValidator
 
         } else {
 
-            return false;
+            return !$getRatio;
         }
     }
 }
