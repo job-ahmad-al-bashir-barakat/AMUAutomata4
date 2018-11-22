@@ -12,12 +12,14 @@ Route::group(
 function () {
     Route::get('load-more/{model}', 'LoadMoreController@getHtml');
 
+    if (function_exists('getMenu')) {
 
-    function getMenu()
-    {
-        return \Modules\Utilities\Entities\MenuList::with(['siteMenu' => function ($query){
-            $query->orderBy('order');
-        }])->where('is_default', true)->get()->first()->siteMenu->toTree();
+        function getMenu()
+        {
+            return \Modules\Utilities\Entities\MenuList::with(['siteMenu' => function ($query){
+                $query->orderBy('order');
+            }])->where('is_default', true)->get()->first()->siteMenu->toTree();
+        }
     }
 
     Route::get('/', function () {
@@ -64,18 +66,21 @@ function () {
         return view("modules", compact('menu', 'modules', 'seo'));
     });
 
-    function call($hierarchy)
-    {
-        $obj = [];
-        foreach ($hierarchy as $index => $item) {
-            $obj[$index]['name'] = $item->lang_name[App::getLocale()]['text'];
-            if ($item->children->count()) {
-                $obj[$index]['children'] = call($item->children);
-            } else {
-                $obj[$index]['size'] = rand(10, 1000);
+    if (function_exists('call')) {
+
+        function call($hierarchy)
+        {
+            $obj = [];
+            foreach ($hierarchy as $index => $item) {
+                $obj[$index]['name'] = $item->lang_name[App::getLocale()]['text'];
+                if ($item->children->count()) {
+                    $obj[$index]['children'] = call($item->children);
+                } else {
+                    $obj[$index]['size'] = rand(10, 1000);
+                }
             }
+            return $obj;
         }
-        return $obj;
     }
 
     Route::get('hierarchy/data', function () {
@@ -84,20 +89,22 @@ function () {
         return response()->json(collect($hierarchyJson)->first());
     });
 
+    if (function_exists('makeTempHierarchy')) {
 
-    function makeTempHierarchy($hierarchy)
-    {
-        // $obj = [];
-        $html = '';
-        foreach ($hierarchy as $index => $item) {
-            $html .= view('page._hierarchy',compact('item'))->render();
-            // $obj[$index]['name'] = $item->lang_name[App::getLocale()]['text'];
-            if ($item->children->count()) {
-                // $obj[$index]['children'] = makeTempHierarchy($item->children);
-                $html .= makeTempHierarchy($item->children);
+        function makeTempHierarchy($hierarchy)
+        {
+            // $obj = [];
+            $html = '';
+            foreach ($hierarchy as $index => $item) {
+                $html .= view('page._hierarchy',compact('item'))->render();
+                // $obj[$index]['name'] = $item->lang_name[App::getLocale()]['text'];
+                if ($item->children->count()) {
+                    // $obj[$index]['children'] = makeTempHierarchy($item->children);
+                    $html .= makeTempHierarchy($item->children);
+                }
             }
+            return $html;
         }
-        return $html;
     }
 
     Route::get('hierarchy-page', function () {

@@ -2,6 +2,7 @@
 
 namespace Modules\Utilities\Entities;
 
+use Aut\FileUpload\Entities\Image;
 use Spatie\Permission\Traits\HasRoles;
 use Modules\Utilities\Traits\MultiLangs;
 use Illuminate\Database\Eloquent\SoftDeletes;

@@ -3,6 +3,7 @@
 namespace Modules\Utilities\Entities;
 
 use Aut\Eloquent\Models\Model;
+use Aut\FileUpload\Entities\Image;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Lang extends Model
