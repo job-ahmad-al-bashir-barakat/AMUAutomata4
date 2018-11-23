@@ -180,8 +180,9 @@ class BuilderController extends Controller
 
         $data = $request->only([
             'optional_id',
-            'color',
+            'image_id',
             'menu_id',
+            'color',
         ]);
 
         $data['buildable_type'] = $buildableType;
@@ -201,8 +202,9 @@ class BuilderController extends Controller
 
         $data = $request->only([
             'optional_id',
-            'color',
+            'image_id',
             'menu_id',
+            'color',
         ]);
 
         $data['buildable_type'] = $buildableType;

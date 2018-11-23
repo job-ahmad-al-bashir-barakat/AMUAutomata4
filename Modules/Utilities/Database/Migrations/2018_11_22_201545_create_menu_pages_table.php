@@ -20,6 +20,7 @@ class CreateMenuPagesTable extends Migration {
             $table->integer('buildable_id')->unsigned()->nullable()->index('buildable_id');
             $table->string('buildable_type', 191)->nullable();
             $table->integer('optional_id')->unsigned()->nullable()->index('optional_id');
+            $table->integer('image_id')->unsigned()->nullable()->index('image_id');
 			$table->timestamps();
 			$table->softDeletes();
 		});

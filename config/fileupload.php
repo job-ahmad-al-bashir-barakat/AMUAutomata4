@@ -150,6 +150,13 @@ return [
         'relationName' => 'image',
     ],
 
+    'logo_image' => [
+        'ratio' => [],
+        'stopRelationSave' => true,
+        'relationName' => 'logo',
+        'relationType' => 'one',
+    ],
+
     'graph_image' => [
         'ratio' => [
             'size' => ['width' => '100', 'height' => '100'],

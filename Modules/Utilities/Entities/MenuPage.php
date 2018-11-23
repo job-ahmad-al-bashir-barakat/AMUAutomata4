@@ -3,6 +3,7 @@
 namespace Modules\Utilities\Entities;
 
 use Aut\Eloquent\Models\Model;
+use Aut\FileUpload\Entities\Image;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Modules\Utilities\WebModules\Modules\Module;
 
@@ -13,8 +14,11 @@ class MenuPage extends Model
 {
     use SoftDeletes;
 
-    protected $fillable = ['menu_id', 'color', 'order', 'buildable_id', 'buildable_type', 'optional_id'];
+    const IMAGE_PATH = 'storage/upload/image/';
 
+    protected $fillable = ['menu_id', 'color', 'order', 'buildable_id', 'buildable_type', 'optional_id', 'image_id'];
+
+    protected $appends = ['logo_path'];
 
     public function buildable()
     {
@@ -57,6 +61,21 @@ class MenuPage extends Model
             return $query->whereNull($column);
         }
         return $query->where($column, $operation, $value);
+    }
+
+    public function getLogoPathAttribute()
+    {
+        if ($this->logo) {
+            $imageName = $this->logo->hash_name ?: '';
+        } else {
+            return '';
+        }
+        return self::IMAGE_PATH . "logo_images/" . $imageName;
+    }
+
+    public function logo()
+    {
+        return $this->belongsTo(Image::class, 'image_id');
     }
 
     public function menu()

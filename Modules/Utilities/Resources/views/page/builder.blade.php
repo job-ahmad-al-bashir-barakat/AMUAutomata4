@@ -48,12 +48,26 @@
                 {!! FormComponent::hidden('table_name', 'table_name') !!}
                 {!! FormComponent::fill('menu_id')->autocomplete('Menu', 'menu_id', 'menu_id', 'autocomplete/menus', [], '0') !!}
                 {!! FormComponent::fill('color')->select('Color', 'color', 'color', \Modules\Utilities\Entities\MenuPage::getColorOptions()) !!}
+                <div class="col-lg-8">
+                    <i class="fa fa-image hand" style="font-size: 25px" onclick="showFileUploadLogoImage(this)"></i>
+                    <div id="images" class="hide">
+                        {!! FormComponent::fill('image_id')->hidden('image_id', 'image_id') !!}
+                    </div>
+                    <div id="error_limit"></div>
+                </div>
             {!! FormComponent::modalBodyClose() !!}
             {!! FormComponent::modalFooterOpen() !!}
             {!! FormComponent::formAjaxButtons() !!}
             {!! FormComponent::modalFooterClose() !!}
         {!! FormComponent::formClose() !!}
     {!! FormComponent::modalClose() !!}
+
+    {{ FileUpload::ImageUpload('logo_image' ,'logo_image' ,'' ,'' ,'', '' ,[
+        'modalId'    => 'logo-image-upload',
+        'modalTitle' => 'Logo'
+    ] ,'', false, '.image', ['appendLocation' => '#images', 'appendName' => 'image_id' ,'allowRatio' => true]) }}
+
+    {{ FileUpload::ImageUploadCropper('90%' ,false ,true,false ,false ,false ,true) }}
 
     <div id="page_modules" class="modal fade" role="dialog" aria-hidden="true" aria-labeledby="page modules">
         <div class="modal-dialog">
@@ -167,28 +181,12 @@
 
                 return false;
             });
-            /*var $pageMenuModal = $('#page_menu_modal');
-            $pageMenuModal.on('show.bs.modal', function (e) {
-                var $modal = $(this);
-                var $btn = $(e.relatedTarget);
-                var pageId = $btn.data('page_id');
-                var pageName = $btn.data('page_name');
-                var tableName = $btn.data('table_name');
-                var objectId = $btn.data('object_id');
-                $modal.find('[name="page_id"]').val(pageId);
-                $modal.find('[name="table_name"]').val(tableName);
-                $modal.find('[name="optional_id"]').val(objectId);
-                $modal.find('#page_name').html(pageName);
-                var url = '{{ RouteUrls::getBuilderPageModules() }}' + '/' + tableName;
-                if (pageId) {
-                    url = url + '/' + pageId;
-                    if (objectId) {
-                        url = url + '/' + objectId;
-                    }
-                }
-                /!*$.get(url, function (res) {
-                });*!/
-            });*/
         });
+
+        function showFileUploadLogoImage($this) {
+            var inputFile = $('#logo-image-upload').find('.upload-file');
+            AUT_UPLOAD.fileUpload.load(inputFile);
+            $('#logo-image-upload').modal('show');
+        }
     </script>
 @endsection

@@ -15,6 +15,7 @@ class WebModulesServiceProvider extends ServiceProvider
 {
     protected $menu;
     protected $color = '1';
+    protected $logoPath = 'images/logo-wide.png';
 
     /**
      * Boot the application events.
@@ -78,9 +79,10 @@ class WebModulesServiceProvider extends ServiceProvider
                 //@todo menu must be global var to make on call for it
                 $menu = $this->getPageMenu();
                 $color = $this->color;
+                $logoPath = $this->logoPath;
                 $modules = BuilderPage::pageModules()->get()->pluck('module');
                 $seo = Seo::with(['graphImage', 'cardImage'])->pageSeo()->first();
-                return view("modules", compact('menu', 'modules', 'seo', 'color'));
+                return view("modules", compact('menu', 'modules', 'seo', 'color', 'logoPath'));
             })->name($name);
         }
     }
@@ -105,6 +107,9 @@ class WebModulesServiceProvider extends ServiceProvider
         $menuPage = MenuPage::pageMenu()->first();
         if ($menuPage && $menuPage->count()) {
             $this->color = $menuPage->color;
+            if ($menuPage->logoPath) {
+                $this->logoPath = $menuPage->logoPath;
+            }
             return $this->getMenuTree($menuPage->menu_id);
         }
         return $this->getMenuTree();
