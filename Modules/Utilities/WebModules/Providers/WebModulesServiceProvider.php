@@ -8,10 +8,13 @@ use Illuminate\Support\ServiceProvider;
 use Modules\Utilities\Entities\MenuList;
 use Modules\Utilities\Entities\BuilderPage;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+use Modules\Utilities\Entities\MenuPage;
+use Modules\Utilities\Entities\SiteMenu;
 
 class WebModulesServiceProvider extends ServiceProvider
 {
     protected $menu;
+    protected $color = '1';
 
     /**
      * Boot the application events.
@@ -37,11 +40,10 @@ class WebModulesServiceProvider extends ServiceProvider
     {
         if (!app()->runningInConsole())
         {
-            $this->menu = MenuList::with(['siteMenu' => function ($query){
-                $query->orderBy('order');
-            }])->where('is_default', true)->get()->first()->siteMenu->toTree();
+            $this->buildMenuRoutes(SiteMenu::all()->toTree());
 
-            $this->buildMenuRoutes($this->menu);
+
+            //view()->share(['menu' => $this->menu, 'color' => $this->color]);
         }
     }
 
@@ -74,11 +76,37 @@ class WebModulesServiceProvider extends ServiceProvider
         foreach ($supportedLanguages as $supportedLanguage) {
             Route::get("{$supportedLanguage}/{$url}", function (){
                 //@todo menu must be global var to make on call for it
-                $menu = $this->menu;
+                $menu = $this->getPageMenu();
+                $color = $this->color;
                 $modules = BuilderPage::pageModules()->get()->pluck('module');
                 $seo = Seo::with(['graphImage', 'cardImage'])->pageSeo()->first();
-                return view("modules", compact('menu', 'modules', 'seo'));
+                return view("modules", compact('menu', 'modules', 'seo', 'color'));
             })->name($name);
         }
+    }
+
+    private function getMenuTree($id = null)
+    {
+        $query = MenuList::with(['siteMenu' => function ($query) {
+            $query->orderBy('order');
+        }]);
+
+        if (is_null($id)) {
+            $query->where('is_default', true);
+        } else {
+            $query->where('id', $id);
+        }
+
+        return $query->get()->first()->siteMenu->toTree();
+    }
+
+    private function getPageMenu()
+    {
+        $menuPage = MenuPage::pageMenu()->first();
+        if ($menuPage && $menuPage->count()) {
+            $this->color = $menuPage->color;
+            return $this->getMenuTree($menuPage->menu_id);
+        }
+        return $this->getMenuTree();
     }
 }

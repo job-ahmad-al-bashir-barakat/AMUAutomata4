@@ -57,14 +57,11 @@ return [
     'upload_slider_image'    => 'Upload Slider Image',
     'upload_vertical_slider_image'    => 'Upload Vertical Slider Image',
     'page-modules'           => 'Page Modules',
+    'page-menu'           => 'Page Menu',
     'prefix'                 => 'Prefix',
     'galleries'              => 'Galleries',
 
     'automata4_utilities'    => 'Automata4 Utilities',
-    'reload_page'            => 'Reload Page',
-    'fullscreen'             => 'Full Screen',
-    'theme_setting'          => 'Theme Settings',
-    'user'                   => 'User',
     'global'                 => 'Global',
     'block'                  => 'Block',
     'users'                  => 'Users',
@@ -82,6 +79,7 @@ return [
     'hidden'                 => 'Hidden',
     'login_as'               => 'Login As',
     'seos'                   => 'Search Engine Optimization',
+    'menu'                   => 'Menu',
 
     'auth'                   => 'Authentication',
     'roles'                  => 'Roles',

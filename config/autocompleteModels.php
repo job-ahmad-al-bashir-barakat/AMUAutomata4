@@ -83,6 +83,10 @@ return [
         'model' => \Modules\Utilities\Entities\Module::class,
     ],
 
+    'menus' => [
+        'model' => \Modules\Utilities\Entities\MenuList::class,
+    ],
+
     'custom-modules' => [
         'model' => \Modules\Utilities\Entities\CustomModule::class,
     ],

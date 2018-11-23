@@ -99,6 +99,11 @@ class RouteUrls
         return $this->localizeUrl('builder/pages', 'utilities');
     }
 
+    public function builderMenu()
+    {
+        return $this->localizeUrl('builder/menus', 'utilities');
+    }
+
     public function builderSeo()
     {
         return $this->localizeUrl('builder/seo', 'utilities');

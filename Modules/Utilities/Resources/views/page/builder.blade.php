@@ -37,6 +37,24 @@
 
     @include('seo_builder::seo-form')
 
+    {!! FormComponent::modalOpen('page_menu_modal') !!}
+        {!! FormComponent::setAjax()->getData('get')->formOpen('page_menu_form', 'post', RouteUrls::builderMenu()) !!}
+            {!! FormComponent::modalHeaderOpen('Menu') !!}
+            {!! FormComponent::modalHeaderClose() !!}
+            {!! FormComponent::modalBodyOpen('pt-0') !!}
+                {!! FormComponent::fill('id')->primarykey('id', 'id') !!}
+                {!! FormComponent::hidden('page_id', 'page_id') !!}
+                {!! FormComponent::hidden('optional_id', 'optional_id') !!}
+                {!! FormComponent::hidden('table_name', 'table_name') !!}
+                {!! FormComponent::fill('menu_id')->autocomplete('Menu', 'menu_id', 'menu_id', 'autocomplete/menus', [], '0') !!}
+                {!! FormComponent::fill('color')->select('Color', 'color', 'color', \Modules\Utilities\Entities\MenuPage::getColorOptions()) !!}
+            {!! FormComponent::modalBodyClose() !!}
+            {!! FormComponent::modalFooterOpen() !!}
+            {!! FormComponent::formAjaxButtons() !!}
+            {!! FormComponent::modalFooterClose() !!}
+        {!! FormComponent::formClose() !!}
+    {!! FormComponent::modalClose() !!}
+
     <div id="page_modules" class="modal fade" role="dialog" aria-hidden="true" aria-labeledby="page modules">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -124,23 +142,6 @@
                     AUTOMATA_APP.htmlTable.fillTableData($('#page_modules_table'), res);
                 });
             });
-            /*var $pageSeoModal = $('#page_seos_modal');
-            $pageSeoModal.on('show.bs.modal', function (e) {
-                var $modal = $(this);
-                var $btn = $(e.relatedTarget);
-                var pageId = $btn.data('page_id');
-                var pageName = $btn.data('page_name');
-                var tableName = $btn.data('table_name');
-                var objectId = $btn.data('object_id');
-                $modal.find('[name="page_id"]').val(pageId);
-                $modal.find('[name="table_name"]').val(tableName);
-                $modal.find('[name="optional_id"]').val(objectId);
-                $modal.find('#page_name').html(pageName);
-                $.get(' RouteUrls::getBuilderPageModules() }}' + '/' + tableName + '/' + pageId + (objectId ? ( '/' + objectId) : ''), function (res) {
-                    AUTOMATA_APP.htmlTable.clearRows($('#page_modules_table'));
-                    AUTOMATA_APP.htmlTable.fillTableData($('#page_modules_table'), res);
-                });
-            });*/
             //@todo should use FormComponent
             $('form#page_module_form').submit(function (e) {
                 e.preventDefault();
@@ -166,6 +167,28 @@
 
                 return false;
             });
+            /*var $pageMenuModal = $('#page_menu_modal');
+            $pageMenuModal.on('show.bs.modal', function (e) {
+                var $modal = $(this);
+                var $btn = $(e.relatedTarget);
+                var pageId = $btn.data('page_id');
+                var pageName = $btn.data('page_name');
+                var tableName = $btn.data('table_name');
+                var objectId = $btn.data('object_id');
+                $modal.find('[name="page_id"]').val(pageId);
+                $modal.find('[name="table_name"]').val(tableName);
+                $modal.find('[name="optional_id"]').val(objectId);
+                $modal.find('#page_name').html(pageName);
+                var url = '{{ RouteUrls::getBuilderPageModules() }}' + '/' + tableName;
+                if (pageId) {
+                    url = url + '/' + pageId;
+                    if (objectId) {
+                        url = url + '/' + objectId;
+                    }
+                }
+                /!*$.get(url, function (res) {
+                });*!/
+            });*/
         });
     </script>
 @endsection

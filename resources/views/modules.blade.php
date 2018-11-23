@@ -32,7 +32,8 @@
     <link href="{{ asset('css/custom-bootstrap-margin-padding.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/responsive.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset(mix('js/revolution-slider/css/revolution-slider.css')) }}" rel="stylesheet" type="text/css">
-    <link href="{{ asset("css/colors/theme-skin-color-set-6.css") }}" rel="stylesheet" type="text/css">
+    @php($color = $color??'1')
+    <link href="{{ asset("css/colors/theme-skin-color-set-{$color}.css") }}" rel="stylesheet" type="text/css">
     <!-- <link href="css/style.css" rel="stylesheet" type="text/css"> -->
     <link href="{{ asset('theme-custom.css') }}" rel="stylesheet" type="text/css">
 </head>

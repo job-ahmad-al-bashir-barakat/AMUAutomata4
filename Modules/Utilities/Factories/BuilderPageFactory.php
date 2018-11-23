@@ -73,6 +73,14 @@ class BuilderPageFactory extends GlobalFactory
             }
         });
 
+        $this->table->queryAddColumn('menu', function ($row) use ($hasSubPages, $objectId) {
+            if (!$hasSubPages) {
+                $param = collect(['table_name' => $this->builderTable, 'page_id' => $row->id, 'optional_id' => $objectId]);
+                $pageName = $row->{camel_case("lang{$this->builderColumn}")}[$this->lang]->text;
+                return "<i data-object_id='{$objectId}' data-table_name='{$this->builderTable}' data-page_id='{$row->id}' data-page_name='{$pageName}' class='fa fa-list hand' data-toggle='modal' data-target='#page_menu_modal' data-form-update data-editable-target='".\RouteUrls::builderMenu()."' data-editable-target-param='$param'></i>";
+            }
+        });
+
         return $this->table->queryRender(true);
     }
 
@@ -94,6 +102,7 @@ class BuilderPageFactory extends GlobalFactory
 
         $this->table->addActionButton(trans('utilities::app.modules'), 'modules', 'modules', 'center all', '50px')
             ->addActionButton(trans('utilities::app.seos'), 'seos', 'seos', 'center all', '80px')
+            ->addActionButton(trans('utilities::app.menu'), 'menu', 'menu', 'center all', '80px')
             ->addNavButton([], ['add']);
 
         if (in_array($this->builderTable, $this->allowGeneralContent)) {

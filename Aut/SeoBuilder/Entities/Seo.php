@@ -37,7 +37,7 @@ class Seo extends \Eloquent
         'optional_id',
     ];
 
-    protected $appends  = [
+    protected $appends = [
         'lang_title',
         'lang_description',
         'lang_keyword',
@@ -169,7 +169,6 @@ class Seo extends \Eloquent
             $imageName = $this->graphImage->hash_name ?: '';
         } else {
             return '';
-            $imageName = '';
         }
         return self::IMAGE_PATH . "graph_images/" . $imageName;
     }
@@ -180,7 +179,6 @@ class Seo extends \Eloquent
             $imageName = $this->cardImage->hash_name ?: '';
         } else {
             return '';
-            $imageName = '';
         }
         return self::IMAGE_PATH . "card_images/" . $imageName;
     }

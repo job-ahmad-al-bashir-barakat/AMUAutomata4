@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use Aut\SeoBuilder\Entities\Seo;
 use Illuminate\Routing\Controller;
 use Modules\Utilities\Entities\Block;
+use Modules\Utilities\Entities\MenuPage;
 use Modules\Utilities\Entities\Table;
 use Modules\Utilities\Entities\Slider;
 use Modules\Utilities\Entities\BuilderPage;
@@ -118,10 +119,6 @@ class BuilderController extends Controller
         $data['buildable_id'] = $buildableId;
 
         $seo = (new Seo($data))->save();
-        /*// for saving alt
-        if ($seo->image()) {
-            $seo->image()->first()->save();
-        }*/
 
         return $seo;
     }
@@ -151,12 +148,69 @@ class BuilderController extends Controller
         $data['buildable_id'] = $buildableId;
 
         $seo->fill($data)->save();
-        // for saving alt
-        /*if ($seo->graphImage()) {
-            $seo->graphImage()->first()->save();
-        }*/
 
         return $seo->id;
+    }
+
+
+    public function getMenu(Request $request)
+    {
+        $tableName = $request->get('table_name');
+        $pageId = $request->get('page_id');
+        $optionalId = $request->get('optional_id', false);
+        $morph = Table::whereTableName($tableName)->first()->morph_code;
+
+        $query = MenuPage::with('menu')->whereBuildableId($pageId)->whereBuildableType($morph);
+
+        if ($optionalId) {
+            $query->whereOptionalId($optionalId);
+        } else {
+            $query->whereNull('optional_id');
+        }
+        $menu = $query->get()->first();
+
+        return $menu;
+    }
+
+    public function storeMenu(Request $request)
+    {
+        $tableName = $request->get('table_name');
+        $buildableType = Table::whereTableName($tableName)->first()->morph_code;
+        $buildableId = $request->get('page_id');
+
+        $data = $request->only([
+            'optional_id',
+            'color',
+            'menu_id',
+        ]);
+
+        $data['buildable_type'] = $buildableType;
+        $data['buildable_id'] = $buildableId;
+
+
+        $menu = MenuPage::create($data);
+
+        return $menu;
+    }
+
+    public function updateMenu(Request $request, MenuPage $menuPage)
+    {
+        $tableName = $request->get('table_name');
+        $buildableType = Table::whereTableName($tableName)->first()->morph_code;
+        $buildableId = $request->get('page_id');
+
+        $data = $request->only([
+            'optional_id',
+            'color',
+            'menu_id',
+        ]);
+
+        $data['buildable_type'] = $buildableType;
+        $data['buildable_id'] = $buildableId;
+
+        $menuPage->fill($data)->save();
+
+        return $menuPage->id;
     }
 
 

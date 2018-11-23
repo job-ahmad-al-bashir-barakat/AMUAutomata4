@@ -54,6 +54,7 @@ return [
     'upload_slider_image'    => 'رفع صورة الشريحة',
     'upload_vertical_slider_image'    => 'رفع صورة الشريحة',
     'page-modules'           => 'بنية الصفحة',
+    'page-menu'           => 'قائمة الصفحة',
     'prefix'                 => 'لاحقة الرابط',
     'galleries'              => 'معرض الصور',
 
@@ -79,6 +80,7 @@ return [
     'hidden'                 => 'خاص',
     'login_as'               => 'الدخول كـ',
     'seos'                   => 'محرك البحث',
+    'menu'                   => 'القائمة',
 
     'auth'                   => 'المستخدمين',
     'roles'                  => 'الادوار',

@@ -1,13 +1,13 @@
 @php
     $originalName = $name;
-    $_lang        = isset($_lang) ? $_lang                                          : false;
+    $_lang        = $_lang ?? false;
     $id           = $_lang        ? "{$id}-{$_lang}"                                : $id;
     $real_name    = $_lang        ? "{$name}_{$_lang}"                              : $name;
     $name         = $real_name;
     $label        = $_lang        ? "$label ({$item["native"]})"                    : $label;
     $attr         = $dataJson     ? array_merge($attr,['data-json' => $dataJson])   : $attr;
     $attr         = $tagsinput    ? array_merge($attr,['data-role' => 'tagsinput']) : $attr;
-    $dir          = isset($item)  ? $item['dir']                                    : config("form-component.local_direction.$input_lang");
+    $dir          = $item['dir'] ?? config("form-component.local_direction.$input_lang");
 
     if($relation)
         $name = "{$relation}[{$real_name}]";

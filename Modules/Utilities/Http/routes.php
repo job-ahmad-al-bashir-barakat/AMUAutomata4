@@ -34,6 +34,11 @@ function () {
         Route::post('seo', 'BuilderController@storeSeo')->middleware('permission:page-builder');
         Route::put('seo/{seo}', 'BuilderController@updateSeo')->middleware('permission:page-builder');
 
+
+        Route::get('menus', 'BuilderController@getMenu')->middleware('permission:page-builder');
+        Route::post('menus', 'BuilderController@storeMenu')->middleware('permission:page-builder');
+        Route::put('menus/{menu}', 'BuilderController@updateMenu')->middleware('permission:page-builder');
+
         Route::get('modules/{tableName}/{pageId?}/{objectId?}', 'BuilderController@getPages');
 
         Route::get('sliders', 'BuilderController@sliders')->middleware('permission:sliders')->name('sliders');
