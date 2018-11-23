@@ -16,7 +16,7 @@
                     </div>
                 </div>--}}
                 <div class="col-md-12">
-                    <div class="widget m-0 pull-right sm-pull-none sm-text-center">
+                  {{--  <div class="widget m-0 pull-right sm-pull-none sm-text-center">
                         <ul class="list-inline pull-right">
                             <li class="mb-0 pb-0">
                                 <div class="top-dropdown-outer pt-5 pb-10">
@@ -34,13 +34,14 @@
                                 </div>
                             </li>
                         </ul>
-                    </div>
+                    </div>--}}
                     <div class="widget no-border m-0 mr-15 pull-right flip sm-pull-none sm-text-center">
                         <ul class="styled-icons icon-circled icon-sm pull-right flip sm-pull-none sm-text-center mt-sm-15">
-                            <li><a target="_blank" href="{{setting('facebook_page')->value}}"><i class="fa fa-facebook text-white"></i></a></li>
-                            <li><a target="_blank" href="{{setting('wiki_page')->value}}"><i class="fa fa-wikipedia-w text-white"></i></a></li>
-                            <li><a target="_blank" href="{{setting('google_account')->value}}"><i class="fa fa-google-plus text-white"></i></a></li>
-                            <li><a target="_blank" href="{{setting('youtube_channel')->value}}"><i class="fa fa-youtube text-white"></i></a></li>
+                            <li><a href="#"><i class="fa fa-facebook text-white"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter text-white"></i></a></li>
+                            <li><a href="#"><i class="fa fa-google-plus text-white"></i></a></li>
+                            <li><a href="#"><i class="fa fa-instagram text-white"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin text-white"></i></a></li>
                         </ul>
                     </div>
                 </div>
@@ -52,36 +53,32 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-4 col-md-5">
                     <div class="widget no-border m-0">
-                        <a class="menuzord-brand pull-left flip xs-pull-center mb-15" href="javascript:void(0)">
-                            <img style="{{setting('logo_style')->value}}" src="{{ asset('images/logo-wide-'.$lang.'.png') }}" alt="">
-                        </a>
+                        @php($logoPath = $logoPath ?? 'images/logo-wide.png')
+                        <a class="menuzord-brand pull-left flip xs-pull-center mb-15" href="javascript:void(0)"><img src="{{ asset($logoPath) }}" alt=""></a>
                     </div>
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4">
-                    <div class="widget no-border pull-right sm-pull-none sm-text-center" style="{{setting('hot_line_style')->value}}">
+                {{--<div class="col-xs-12 col-sm-4 col-md-4">
+                    <div class="widget no-border pull-right sm-pull-none sm-text-center mt-10 mb-10 m-0">
                         <ul class="list-inline">
                             <li><i class="fa fa-phone-square text-theme-colored font-36 mt-5 sm-display-block"></i></li>
                             <li>
-                                <a href="#" class="font-12 text-gray text-uppercase">{{trans('app.hot_line')}}</a>
-                                <h5 class="font-14 m-0" style="direction: ltr;">{{setting('hot_line')->value}}</h5>
+                                <a href="#" class="font-12 text-gray text-uppercase">Call us today!</a>
+                                <h5 class="font-14 m-0"> +(012) 345 6789</h5>
                             </li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-4 col-md-3">
-                    <div class="widget no-border m-0">
-                        <a class="menuzord-brand pull-left flip xs-pull-center mb-15" href="javascript:void(0)">
-                            <img  style="{{setting('moto_style')->value}}" src="{{ asset('images/university-moto-'.$lang.'.png') }}" alt="">
-                        </a>
-                            @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
-                                <a rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
-                                    {{ $properties['native'] }}
-                                </a>
-                                @if($localeCode <> 'en')
-                                    <span> - </span>
-                                @endif
-                            @endforeach
-                </div>
+                    <div class="widget no-border pull-right sm-pull-none sm-text-center mt-10 mb-10 m-0">
+                        <ul class="list-inline">
+                            <li><i class="fa fa-clock-o text-theme-colored font-36 mt-5 sm-display-block"></i></li>
+                            <li>
+                                <a href="#" class="font-12 text-gray text-uppercase">We are open!</a>
+                                <h5 class="font-13 text-black m-0"> Mon-Fri 8:00-16:00</h5>
+                            </li>
+                        </ul>
+                    </div>
+                </div>--}}
             </div>
         </div>
     </div>
@@ -91,32 +88,32 @@
                 <nav id="menuzord" class="menuzord bg-theme-colored pull-left flip menuzord-responsive">
                     <ul class="menuzord-menu">
                         {!! buildHtmlTree($menu) !!}
-                        {{--<li>--}}
-                            {{--<a href="#">{{ LaravelLocalization::getCurrentLocaleNative() }}</a>--}}
-                            {{--<ul class="dropdown" >--}}
-                                {{--@foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)--}}
-                                    {{--<li>--}}
-                                        {{--<a rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">--}}
-                                            {{--{{ $properties['native'] }}--}}
-                                        {{--</a>--}}
-                                    {{--</li>--}}
-                                {{--@endforeach--}}
-                            {{--</ul>--}}
-                        {{--</li>--}}
+                        <li>
+                            <a href="#">{{ LaravelLocalization::getCurrentLocaleNative() }}</a>
+                            <ul class="dropdown" >
+                                @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                                    <li>
+                                        <a rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                                            {{ $properties['native'] }}
+                                        </a>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </li>
                     </ul>
                     <ul class="pull-right flip hidden-sm hidden-xs">
                         <li>
                             <a class="btn btn-colored btn-flat bg-theme-color-2 text-white font-14 bs-modal-ajax-load mt-0 p-25 pr-15 pl-15" href="{{ setting('learnata')->value }}">{{ setting('learnata')->lang_name[app()->getLocale()]->text }}</a>
                         </li>
                     </ul>
-                    {{--<div id="top-search-bar" class="collapse">--}}
-                        {{--<div class="container">--}}
-                            {{--<form role="search" action="#" class="search_form_top" method="get">--}}
-                                {{--<input type="text" placeholder="Type text and press Enter..." name="s" class="form-control" autocomplete="off">--}}
-                                {{--<span class="search-close"><i class="fa fa-search"></i></span>--}}
-                            {{--</form>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
+                    <div id="top-search-bar" class="collapse">
+                        <div class="container">
+                            <form role="search" action="#" class="search_form_top" method="get">
+                                <input type="text" placeholder="Type text and press Enter..." name="s" class="form-control" autocomplete="off">
+                                <span class="search-close"><i class="fa fa-search"></i></span>
+                            </form>
+                        </div>
+                    </div>
                 </nav>
             </div>
         </div>
