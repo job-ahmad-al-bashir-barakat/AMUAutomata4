@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="{{ $lang }}" {{--dir="{{ $dir }}"--}} class="html-direction">
 <head>
-    @include("$module::layouts._meta")
-    <!-- =============== VENDOR STYLES ===============-->
+@include("$module::layouts._meta")
+<!-- =============== VENDOR STYLES ===============-->
     <link id="maincss" rel="stylesheet" href="{{ asset(mix("css/admin-all-$dir.css")) }}">
     <link id="autoloaded-stylesheet" rel="stylesheet" href="{{ isset($_COOKIE['controlThemeColorUrl']) ? asset($_COOKIE['controlThemeColorUrl']) : asset('css/theme-a.css') }}">
     <link rel="stylesheet" href="{{ asset('admin-custom.css') }}">
