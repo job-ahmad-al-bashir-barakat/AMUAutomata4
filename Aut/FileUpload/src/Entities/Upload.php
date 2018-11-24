@@ -2,23 +2,23 @@
 
 namespace Aut\FileUpload\Entities;
 
-// use Modules\Utilities\Entities\LangModels\ImageAltLang;
-// use Modules\Utilities\Traits\MultiLangs;
+use Aut\FileUpload\Entities\LangModels\FileAltLang;
+use Modules\Utilities\Traits\MultiLangs;
 
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Storage;
 
 class Upload extends \Eloquent
 {
-    use SoftDeletes;
+    use SoftDeletes, MultiLangs;
 
     const FOLDER_STORAGE_PATH = 'upload/{type}/{folder}';
 
     protected $userFolder;
 
-    protected $fillable = ['name', 'hash_name', 'ext', 'size', 'width', 'height', 'type', 'mime_type', 'alt_en', 'alt_ar'];
+    protected $fillable = ['name', 'hash_name', 'ext', 'size', 'width', 'height', 'type', 'mime_type']; // , 'alt_en', 'alt_ar'
 
-    protected $appends = ['image_url', 'file_url', 'url']; // ,'lang_alt'
+    protected $appends = ['image_url', 'file_url', 'url', 'lang_alt'];
 
     public function __construct(array $attributes = [])
     {
@@ -57,15 +57,13 @@ class Upload extends \Eloquent
         return $this->getUrl();
     }
 
-    /*
      function transAlt() {
 
-         return $this->hasMany(ImageAltLang::class);
+         return $this->hasMany(FileAltLang::class);
      }
 
      public function getLangAltAttribute()
      {
          return $this->transAlt->keyBy('lang_code');
      }
-    */
 }

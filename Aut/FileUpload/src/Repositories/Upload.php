@@ -201,9 +201,9 @@ class Upload
 
     function saveImage()
     {
+        request()->request->add(['transSaveOper' => false]);
 
-        // request()->request->add(['transSaveOper' => false]);
-        $this->storedFile = Image::create([
+        $this->storedFile = File::create([
             'name' => $this->name,
             'hash_name' => $this->hashName,
             'ext' => $this->file->getClientOriginalExtension(),
@@ -217,8 +217,7 @@ class Upload
 
     function saveFile()
     {
-
-        // request()->request->add(['transSaveOper' => false]);
+        request()->request->add(['transSaveOper' => false]);
 
         $this->storedFile = File::create([
             'name' => $this->name,
@@ -275,14 +274,15 @@ class Upload
 
     function destroyFile()
     {
-        // request()->request->add(['transSaveOper' => false]);
+        request()->request->add(['transSaveOper' => false]);
+
         File::destroy(request('key'));
     }
 
     function destroyRelations()
     {
 
-        // request()->request->add(['transSaveOper' => false]);
+        request()->request->add(['transSaveOper' => false]);
 
         if (!request('autoReplace', false))
             if (!$this->stopRelationSave) {

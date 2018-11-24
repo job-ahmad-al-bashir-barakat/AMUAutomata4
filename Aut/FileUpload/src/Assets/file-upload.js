@@ -281,12 +281,12 @@ var AUT_UPLOAD = {
                         ratioMessage                = $this.data('ratio-message') || '',
                         closeModal                  = typeof $this.data('close-modal') != undefined ? $this.data('close-modal') : true,
                         dropZoneEnabled             = typeof $this.data('drop-zone-enabled') != undefined ? $this.data('drop-zone-enabled') : true,
-                        readOnly                    = typeof $this.data('read-only') != undefined ? $this.data('read-only') : false;
+                        readOnly                    = typeof $this.data('read-only') == true ? true : false;
 
                     if(cropper)
                         cropperTemplete = '<button type="button" class="btn-crop-image btn btn-kv btn-default btn-outline-secondary" title="' + cropTitle + '"><i class="fa fa-crop"></i></button>';
                     infoTemplete = function (dataKey) {
-                        if(info && !readOnly) {
+                        if(info && readOnly == false) {
                             return '<button type="button" class="btn-attr-image btn btn-kv btn-default btn-outline-secondary" title="' + attributeTitle + '" ' + dataKey + '><i class="fa fa-question-circle"></i></button>';
                         } else {
                             return false;

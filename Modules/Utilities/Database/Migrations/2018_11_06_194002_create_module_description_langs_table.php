@@ -19,6 +19,7 @@ class CreateModuleDescriptionLangsTable extends Migration
             $table->integer('lang_id')->nullable()->index('lang_id');
             $table->string('text', 191)->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
