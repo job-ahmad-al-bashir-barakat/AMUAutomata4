@@ -24,7 +24,7 @@ return [
     'setting' => [
 
         'image' => [
-            'validate'         => 'required|mimes:jpeg,jpg,png,gif,bmp,png|ratio',
+            'validate'         => 'required|mimes:jpeg,jpg,png,gif,bmp,png',
             'upload_directory' => 'upload\image',
         ],
 
