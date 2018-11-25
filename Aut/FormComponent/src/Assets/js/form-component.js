@@ -468,6 +468,9 @@ var AUT_FORM_COMPONENT = {
 
                 var $element = $(element);
 
+                if($element.data('fixed-value'))
+                    return;
+
                 if(typeof $data != typeof undefined)
                 {
                     if ($element.hasClass('autocomplete'))

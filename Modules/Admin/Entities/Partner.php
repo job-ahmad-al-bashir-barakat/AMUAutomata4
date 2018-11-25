@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Admin\Entitiess;
+namespace Modules\Admin\Entities;
 
 use Aut\Eloquent\Models\Model;
 use Aut\FileUpload\Entities\Image;
@@ -11,7 +11,7 @@ use Modules\Admin\Entities\LangModels\PartnerDescriptionLang;
 
 class Partner extends Model
 {
-    use MultiLangs,SoftDeletes;
+    use MultiLangs, SoftDeletes;
 
     const LARGE_IMAGE_PATH = 'storage/upload/image/partner-large-images/';
     const SMALL_IMAGE_PATH = 'storage/upload/image/partner-small-images/';
