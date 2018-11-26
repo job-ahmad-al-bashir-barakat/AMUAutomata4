@@ -22,9 +22,9 @@
                 <div class="col-md-10 bhoechie-tab tabs tabs-content">
                     <div id="seo_tab" data-tab="seo_tab" class="bhoechie-tab-content animated zoomInUp active">
                         {!! FormComponent::fill('id')->primarykey('id', 'id') !!}
-                        {!! FormComponent::hidden('page_id', 'page_id') !!}
-                        {!! FormComponent::hidden('optional_id', 'optional_id') !!}
-                        {!! FormComponent::hidden('table_name', 'table_name') !!}
+                        {!! FormComponent::fill('page_id')->hidden('page_id', 'page_id') !!}
+                        {!! FormComponent::fill('optional_id')->hidden('optional_id', 'optional_id') !!}
+                        {!! FormComponent::fill('table_name')->hidden('table_name', 'table_name') !!}
                         {!! FormComponent::fill('lang_title.{lang}.text')->trans()->langs()->text('Title', 'title', 'title') !!}
                         {!! FormComponent::fill('lang_description.{lang}.text')->trans()->langs()->text('Description', 'description', 'description') !!}
                         {!! FormComponent::fill('lang_keyword.{lang}.text')->tagInput()->trans()->langs()->text('Keyword', 'keyword', 'keyword') !!}

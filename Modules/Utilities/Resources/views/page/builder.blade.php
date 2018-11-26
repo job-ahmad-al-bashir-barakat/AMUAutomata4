@@ -43,14 +43,14 @@
             {!! FormComponent::modalHeaderClose() !!}
             {!! FormComponent::modalBodyOpen('pt-0') !!}
                 {!! FormComponent::fill('id')->primarykey('id', 'id') !!}
-                {!! FormComponent::hidden('page_id', 'page_id') !!}
-                {!! FormComponent::hidden('optional_id', 'optional_id') !!}
-                {!! FormComponent::hidden('table_name', 'table_name') !!}
+                {!! FormComponent::fill('page_id')->hidden('page_id', 'page_id', '', '', ['data-fixed-value', 'data-permanent=true']) !!}
+                {!! FormComponent::fill('optional_id')->hidden('optional_id', 'optional_id', '', '', ['data-fixed-value', 'data-permanent=true']) !!}
+                {!! FormComponent::fill('table_name')->hidden('table_name', 'table_name', '', '', ['data-fixed-value', 'data-permanent=true']) !!}
                 {!! FormComponent::fill('menu_id')->autocomplete('Menu', 'menu_id', 'menu_id', 'autocomplete/menus', [], '0') !!}
                 {!! FormComponent::fill('color')->select('Color', 'color', 'color', \Modules\Utilities\Entities\MenuPage::getColorOptions()) !!}
                 <div class="col-lg-8">
                     <i class="fa fa-image hand" style="font-size: 25px" onclick="showFileUploadLogoImage(this)"></i>
-                    <div id="images" class="hide">
+                    <div id="image_menu" class="hide">
                         {!! FormComponent::fill('image_id')->hidden('image_id', 'image_id') !!}
                     </div>
                     <div id="error_limit"></div>
@@ -65,7 +65,7 @@
     {{ FileUpload::ImageUpload('logo_image' ,'logo_image' ,'' ,'' ,'', '' ,[
         'modalId'    => 'logo-image-upload',
         'modalTitle' => 'Logo'
-    ] ,'', false, '.image', ['appendLocation' => '#images', 'appendName' => 'image_id' ,'allowRatio' => true]) }}
+    ] ,'', false, '.image', ['appendLocation' => '#image_menu', 'appendName' => 'image_id' ,'allowRatio' => true]) }}
 
     {{ FileUpload::ImageUploadCropper('90%' ,false ,true,false ,false ,false ,true) }}
 

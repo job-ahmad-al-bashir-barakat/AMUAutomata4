@@ -18,53 +18,53 @@ class FormBuilder
     private $loader = 'data-form-loader';
 
     private $property = [
-        'model'                      => false,
-        'formGroup'                  => true,
-        'stopOperationMessage'       => false,
-        'stopAddOperationMessage'    => false,
+        'model' => false,
+        'formGroup' => true,
+        'stopOperationMessage' => false,
+        'stopAddOperationMessage' => false,
         'stopUpdateOperationMessage' => false,
         'stopDeleteOperationMessage' => false,
-        'extraSerialize'             => '',
-        'extraSerializeAdd'          => '',
-        'extraSerializeUpdate'       => '',
-        'extraSerializeDelete'       => '',
-        'hasLangs'                   => false,
-        'hasTrans'                   => false,
-        'ajax'                       => false,
-        'tagsinput'                  => false,
-        'autoAjaxCont'               => true,
-        'dataMethod'                 => 'get',
-        'formType'                   => 'default',
-        'placeholder'                => '',
-        'dataEditableTarget'         => '',
-        'dataJson'                   => '',
-        'langs'                      => [],
-        'takeAction'                 => false,
-        'relation'                   => '',
+        'extraSerialize' => '',
+        'extraSerializeAdd' => '',
+        'extraSerializeUpdate' => '',
+        'extraSerializeDelete' => '',
+        'hasLangs' => false,
+        'hasTrans' => false,
+        'ajax' => false,
+        'tagsinput' => false,
+        'autoAjaxCont' => true,
+        'dataMethod' => 'get',
+        'formType' => 'default',
+        'placeholder' => '',
+        'dataEditableTarget' => '',
+        'dataJson' => '',
+        'langs' => [],
+        'takeAction' => false,
+        'relation' => '',
     ];
 
     private $propertyKeep = [
-        'formGroup'   => false,
-        'hasLangs'    => false,
-        'hasTrans'    => false,
-        'tagsinput'   => false,
+        'formGroup' => false,
+        'hasLangs' => false,
+        'hasTrans' => false,
+        'tagsinput' => false,
     ];
 
     private $resetProperty = [
-        'hasLangs'    => false,
-        'hasTrans'    => false,
-        'tagsinput'   => false,
-        'formGroup'   => true,
-        'dataJson'    => '',
+        'hasLangs' => false,
+        'hasTrans' => false,
+        'tagsinput' => false,
+        'formGroup' => true,
+        'dataJson' => '',
         'placeholder' => '',
-        'relation'    => '',
+        'relation' => '',
     ];
 
     private $event = [
-        'successFunc'        => '',
-        'addSuccessFunc'     => '',
-        'updateSuccessFunc'  => '',
-        'deleteSuccessFunc'  => '',
+        'successFunc' => '',
+        'addSuccessFunc' => '',
+        'updateSuccessFunc' => '',
+        'deleteSuccessFunc' => '',
         'getDataSuccessFunc' => '',
     ];
 
@@ -74,7 +74,7 @@ class FormBuilder
     public function __construct()
     {
         $this->property['formType'] = config('form-component.formType');
-        $this->property['langs']    = \LaravelLocalization::getSupportedLocales();
+        $this->property['langs'] = \LaravelLocalization::getSupportedLocales();
     }
 
     /**
@@ -84,7 +84,7 @@ class FormBuilder
      */
     public function __call($type, $arguments)
     {
-        $type = $this->map[$type]??$type;
+        $type = $this->map[$type] ?? $type;
         return $this->defaultMethodCall($type, $arguments);
     }
 
@@ -103,21 +103,20 @@ class FormBuilder
      */
     private function defaultMethodCall($type, $arguments)
     {
-        $label = isset($arguments[0]) ? $arguments[0] : '';
-        $id    = isset($arguments[1]) ? $arguments[1] : '';
-        $name  = isset($arguments[2]) ? $arguments[2] : '';
-        $value = isset($arguments[3]) ? $arguments[3] : null;
-        $class = isset($arguments[4]) ? $arguments[4] : '';
-        $attr  = isset($arguments[5]) ? $arguments[5] : [];
+        $label = $arguments[0] ?? '';
+        $id = $arguments[1] ?? '';
+        $name = $arguments[2] ?? '';
+        $value = $arguments[3] ?? null;
+        $class = $arguments[4] ?? '';
+        $attr = $arguments[5] ?? [];
 
         return $this->_input($type, $label, $id, $name, $value, $class, $attr);
     }
 
     private function resetProperty()
     {
-        foreach ($this->resetProperty as $prop => $value)
-        {
-            if(isset($this->propertyKeep[$prop]) && !$this->propertyKeep[$prop])
+        foreach ($this->resetProperty as $prop => $value) {
+            if (isset($this->propertyKeep[$prop]) && !$this->propertyKeep[$prop])
                 $this->property[$prop] = $value;
         }
     }
@@ -129,11 +128,11 @@ class FormBuilder
      * @param string $dataTarget
      * @return $this
      */
-    function formSetting($type = 'default' , $ajax = false , $dataMethod = 'get', $dataTarget = '')
+    function formSetting($type = 'default', $ajax = false, $dataMethod = 'get', $dataTarget = '')
     {
-        $this->property['formType']           = $type;
-        $this->property['ajax']               = $ajax;
-        $this->property['dataMethod']         = $dataMethod;
+        $this->property['formType'] = $type;
+        $this->property['ajax'] = $ajax;
+        $this->property['dataMethod'] = $dataMethod;
         $this->property['dataEditableTarget'] = $dataTarget;
 
         return $this;
@@ -146,7 +145,7 @@ class FormBuilder
      */
     function getData($dataMethod = 'get', $dataEditableTarget = '')
     {
-        $this->property['dataMethod']         = $dataMethod;
+        $this->property['dataMethod'] = $dataMethod;
         $this->property['dataEditableTarget'] = $dataEditableTarget;
 
         return $this;
@@ -194,8 +193,8 @@ class FormBuilder
      */
     function setStopOperationMessage($all = true, $add = false, $update = false, $delete = false)
     {
-        $this->property['stopOperationMessage']       = $all;
-        $this->property['stopAddOperationMessage']    = $add;
+        $this->property['stopOperationMessage'] = $all;
+        $this->property['stopAddOperationMessage'] = $add;
         $this->property['stopUpdateOperationMessage'] = $update;
         $this->property['stopDeleteOperationMessage'] = $delete;
 
@@ -211,8 +210,8 @@ class FormBuilder
      */
     function setExtraSerialize($all = '', $add = '', $update = '', $delete = '')
     {
-        $this->property['extraSerialize']       = $all;
-        $this->property['extraSerializeAdd']    = $add;
+        $this->property['extraSerialize'] = $all;
+        $this->property['extraSerializeAdd'] = $add;
         $this->property['extraSerializeUpdate'] = $update;
         $this->property['extraSerializeDelete'] = $delete;
 
@@ -232,7 +231,8 @@ class FormBuilder
         return $this;
     }
 
-    function relation($relation) {
+    function relation($relation)
+    {
 
         $this->property['relation'] = $relation;
 
@@ -243,24 +243,26 @@ class FormBuilder
      * @param array $langs
      * @return $this
      */
-    function langs($langs = []) {
+    function langs($langs = [])
+    {
 
         $this->property['hasLangs'] = true;
-        $this->property['langs']    = shortIfElse(empty($langs),$this->property['langs'],$langs);
+        $this->property['langs'] = shortIfElse(empty($langs), $this->property['langs'], $langs);
 
         return $this;
     }
 
-    protected function setDirection($name) {
+    protected function setDirection($name)
+    {
 
         $langs = [];
         foreach ($this->property['langs'] as $lang => $items)
             $langs[] = "_{$lang}";
 
         $langs = implode("|", $langs);
-        if(preg_match("/{$langs}/", $name,$result)) {
+        if (preg_match("/{$langs}/", $name, $result)) {
 
-            $result = Str::replaceFirst('_','',$result[0]);
+            $result = Str::replaceFirst('_', '', $result[0]);
 
             return $result;
         }
@@ -270,7 +272,8 @@ class FormBuilder
      * @param bool $has
      * @return $this
      */
-    function trans($has = true) {
+    function trans($has = true)
+    {
 
         $this->property['hasTrans'] = $has;
 
@@ -280,9 +283,10 @@ class FormBuilder
     /**
      * @return $this
      */
-    function formGroup($has = true, $keep = false) {
+    function formGroup($has = true, $keep = false)
+    {
 
-        $this->property['formGroup']     = $has;
+        $this->property['formGroup'] = $has;
         $this->propertyKeep['formGroup'] = $keep;
 
         return $this;
