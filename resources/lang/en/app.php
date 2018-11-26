@@ -49,6 +49,8 @@ return array (
     'image_name' => 'Image Name',
     'crop_ratio' => 'Crop Ratio',
     'allowed_ratio' => 'allowed ratio (width × height) px:',
+    'can_not_delete_node_has_parent'   => 'you can not delete because this node has parent',
+    'can_not_delete_node_has_children' => 'you can not delete because this node has children',
     'labs' =>
         array (
             'description' => 'Lab Description',

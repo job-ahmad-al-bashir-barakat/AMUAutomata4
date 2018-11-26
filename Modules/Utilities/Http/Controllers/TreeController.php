@@ -117,7 +117,7 @@ class TreeController extends Controller
                 $setCols = $this->setDataCols($control);
 
                 //open li for child parent
-                $tree = $tree."<li $setCols class='dd-item dd3-item'>";
+                $tree = $tree."<li $setCols data-children='{$control->children->count()}' class='dd-item dd3-item'>";
 
                 $factory  = new $this->factory();
 

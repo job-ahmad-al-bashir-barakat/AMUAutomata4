@@ -123,6 +123,20 @@
                    url        = tree.data('url'),
                    urlParams  = typeof tree.data('param') != typeof undefined ? tree.data('param') : '';
 
+            // has children
+            if(li.data('children') > 0) {
+                AUT_HELPER.notify({message: "{{ trans('app.can_not_delete_node_has_children') }}", status: 'danger'});
+                return;
+            }
+
+            /*
+                // hsa parent
+                if(li.data('parent')) {
+                    AUT_HELPER.notify({message: "trans('app.can_not_delete_node_has_parent')", status: 'danger'});
+                    return;
+                }
+            */
+
             AUT_HELPER.sweetalert_swal({
                 title              : SWAL.title,
                 text               : SWAL.text,

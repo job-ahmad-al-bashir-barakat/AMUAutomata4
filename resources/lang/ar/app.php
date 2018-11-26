@@ -49,6 +49,8 @@ return array (
     'image_name' => 'اسم الصورة',
     'crop_ratio' => 'نسبة القص',
     'allowed_ratio' => 'النسبة المسموحة (العرض × الطول) بالبيكسل:',
+    'can_not_delete_node_has_parent'   => 'لا يمكنك الحذف هذه المقدة مرتبطة بعقدة أب',
+    'can_not_delete_node_has_children' => 'لا يمكنك الحف تحتوي العقدة على أولاد',
     'labs' =>
         array (
             'description' => 'عن المخبر',

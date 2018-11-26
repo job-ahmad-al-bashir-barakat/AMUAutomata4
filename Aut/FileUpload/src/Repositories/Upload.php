@@ -2,7 +2,6 @@
 
 namespace Aut\FileUpload\Repositories;
 
-use Aut\FileUpload\Entities\Image;
 use Aut\FileUpload\Entities\File;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Filesystem\FilesystemManager;

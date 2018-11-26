@@ -67,7 +67,7 @@ return [
     'experience'         => 'التجارب',
     'general'            => 'عام',
     'blogs'              => 'المدونات',
-    'campuses'           => 'الجامعات',
+    'campuses'           => 'الفروع',
     'campus'             => 'الجامعة',
 
     'large'              => 'حجم كبير',
