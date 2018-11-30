@@ -111,12 +111,12 @@ class PersonFactory extends GlobalFactory
 
         $person = Person::create(array_merge($request->input(),['contact_id' => $contact->id]));
 
-        $person->jobTitle()->sync(request()->input('jobTitle.job_title_id'));
+        $person->jobTitle()->sync(request()->input('jobTitle.id'));
     }
 
     public function updateDatatable($model ,$request ,$result)
     {
-        $result->jobTitle()->sync(request()->input('jobTitle.job_title_id'));
+        $result->jobTitle()->sync(request()->input('jobTitle.id'));
 
         $result->contact()->update($request->input('contact'));
 

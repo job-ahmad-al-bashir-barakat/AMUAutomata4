@@ -16,7 +16,7 @@ class CreatePeopleTable extends Migration
         Schema::create('people', function (Blueprint $table) {
             $table->increments('id')->unsigned();
             $table->string('type');
-            $table->integer('faculty_id')->unsigned();
+            $table->integer('faculty_id')->unsigned()->nullable();
             $table->integer('image_260_id')->nullable()->unsigned();
             $table->integer('image_360_id')->nullable()->unsigned();
             $table->integer('gender_id')->unsigned();
