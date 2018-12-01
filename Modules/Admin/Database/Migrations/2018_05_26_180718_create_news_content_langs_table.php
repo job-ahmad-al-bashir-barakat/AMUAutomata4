@@ -17,7 +17,7 @@ class CreateNewsContentLangsTable extends Migration {
 			$table->increments('id');
 			$table->integer('news_id')->unsigned()->index('news_id');
 			$table->integer('lang_id')->unsigned()->index('lang_id');
-			$table->longText('text', 65535);
+			$table->longText('text');
 			$table->timestamps();
 			$table->softDeletes();
 		});
