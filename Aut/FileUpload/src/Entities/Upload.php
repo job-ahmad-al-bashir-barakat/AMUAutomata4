@@ -59,7 +59,7 @@ class Upload extends \Eloquent
 
      function transAlt() {
 
-         return $this->hasMany(FileAltLang::class);
+         return $this->hasMany(FileAltLang::class,'file_id');
      }
 
      public function getLangAltAttribute()

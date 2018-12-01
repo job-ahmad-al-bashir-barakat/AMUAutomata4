@@ -246,6 +246,8 @@ class FileUpload
             )->render();
         }
 
+        $this->render = false;
+
         return $html;
     }
 }

@@ -193,6 +193,11 @@ return [
         'factory'       => Modules\Admin\Factories\CourseFactory::class,
     ],
 
+    'course-books' => [
+        'model'         => Modules\Admin\Entities\CourseBook::class,
+        'factory'       => Modules\Admin\Factories\CourseBookFactory::class,
+    ],
+
     'prerequisite' => [
         'model'         => Modules\Admin\Entities\PrerequisiteGroup::class,
         'factory'       => Modules\Admin\Factories\PrerequisiteFactory::class,
@@ -210,10 +215,21 @@ return [
         'stopOperation' => ['store']
     ],
 
+    'management-staff' => [
+        'model'         => Modules\Admin\Entities\Person::class,
+        'factory'       => Modules\Admin\Factories\PersonFactory::class,
+        'stopOperation' => ['store']
+    ],
+
     'staff' => [
         'model'         => Modules\Admin\Entities\Person::class,
         'factory'       => Modules\Admin\Factories\PersonFactory::class,
         'stopOperation' => ['store']
+    ],
+
+    'researches' => [
+        'model'         => Modules\Admin\Entities\Research::class,
+        'factory'       => Modules\Admin\Factories\ResearchFactory::class,
     ],
 
     'offices' => [
@@ -268,5 +284,5 @@ return [
     'list' => [
         'model'   => \Modules\Utilities\Entities\MenuList::class,
         'factory' => \Modules\Utilities\Factories\MenuListFactory::class,
-    ]
+    ],
 ];

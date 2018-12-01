@@ -82,6 +82,7 @@
     @if(auth()->user()->hasAnyPermission([
         'university-council',
         'board-of-trustees',
+        'management-staff',
         'staff',
     ]))
     <li class="">
@@ -107,6 +108,13 @@
                     <span>{{ trans('admin::app.board_of_trustees') }}</span>
                 </a>
             </li>
+            @endcan
+            @can('management-staff')
+                <li class="">
+                    <a href="{{ RouteUrls::managementStaff() }}" class="ajax" title="{{ trans('admin::app.management_staff') }}">
+                        <span>{{ trans('admin::app.management_staff') }}</span>
+                    </a>
+                </li>
             @endcan
             @can('staff')
             <li class="">

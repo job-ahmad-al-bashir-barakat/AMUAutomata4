@@ -54,14 +54,14 @@ class FileRepository extends Upload
 
     function info() {
 
-        $image = Image::findOrFail(request('image_id'));
+        $image = File::findOrFail(request('image_id'));
 
         $image->update(request()->input());
     }
 
     function getInfo() {
 
-        $image = Image::where('id','=',request('image_id'));
+        $image = File::where('id','=',request('image_id'));
 
         $info = [];
         if(config('fileupload.trans')) {
