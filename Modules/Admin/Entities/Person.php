@@ -22,6 +22,7 @@ class Person extends Model
 
     const PERSON_UNIVERSITY_COUNCIL = 'university-council';
     const PERSON_BOARD_OF_TRUSTEES  = 'board-of-trustees';
+    const MANAGEMENT_STAFF          = 'management-staff';
     const PERSON_STAFF              = 'staff';
 
     protected $fillable = ['type' ,'image_260_id','image_360_id' ,'gender_id' ,'position_id' ,'contact_id', 'faculty_id'];
@@ -56,6 +57,11 @@ class Person extends Model
     public function scopeBoardOfTrustees($query)
     {
         return $query->where('type', '=', self::PERSON_BOARD_OF_TRUSTEES);
+    }
+
+    public function scopeManagementStaff($query)
+    {
+        return $query->where('type', '=', self::MANAGEMENT_STAFF);
     }
 
     public function scopeStaff($query)

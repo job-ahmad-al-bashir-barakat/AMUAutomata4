@@ -68,7 +68,8 @@ return [
             return
             "
                 <script>
-                    AUTOMATA_APP.ckeditor.init('body' ,'.datatable-text-editor');
+                    if($(modal).find('.datatable-text-editor').length)
+                        AUTOMATA_APP.ckeditor.init('body' ,$(modal).find('.datatable-text-editor'));
                     AUTOMATA_APP.inputMask.init('[data-masked]');
                     AUTOMATA_APP.COLLAPSE_PANELS();
                 </script>

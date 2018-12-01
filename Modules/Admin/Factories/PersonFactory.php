@@ -27,6 +27,7 @@ class PersonFactory extends GlobalFactory
             ->queryUpdateButton('id')
             ->queryDeleteButton('id')
             ->queryMultiLang(['name' ,'summary','experience','contact' => 'address'])
+            ->queryCustomButton('btn-researches' ,'id' ,'fa fa-book' ,'btn-researches' ,"href='javascript:void(0);' onclick='researchesModal(this)'")
             ->queryCustomButton('upload_image' ,'id' ,'fa fa-image' ,'' ,"onclick='showFileUploadModal(this)' data-tableid='#$tableId'")
             ->queryRender();
     }
@@ -94,6 +95,7 @@ class PersonFactory extends GlobalFactory
                                ->endRelation();
 
             $table = $table->endTab()
+                           ->addActionButton(trans('admin::app.researches'),'btn-researches','btn-researches' ,'center all' , '80px')
                            ->addActionButton(trans('admin::app.upload_images') ,'upload_image' ,'upload_image', 'center all' ,'100px')
                            ->addActionButton($this->update,'update','update')
                            ->addActionButton($this->delete,'delete','delete')

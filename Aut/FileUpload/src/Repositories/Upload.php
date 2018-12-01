@@ -70,7 +70,11 @@ class Upload
 
             $file = request()->file($this->model);
             $this->file = is_array($file) ? $file[0] : $file;
-            $this->fileMimeType = preg_replace('/\/.+$/', '', $file ? $file->getMimeType() : request()->input('mime_type'));
+            $type = $file ? $file->getMimeType() : request()->input('mime_type');
+            if(preg_match('/application/',$type))
+                $this->fileMimeType = preg_replace('/application\//', '', $type);
+            else
+                $this->fileMimeType = preg_replace('/\/.+$/', '', $type);
             $this->isImage = $this->fileMimeType === 'image';
             $this->isFile = $this->fileMimeType !== 'image';
 

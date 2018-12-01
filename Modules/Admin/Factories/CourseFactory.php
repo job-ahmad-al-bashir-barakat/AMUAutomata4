@@ -21,6 +21,7 @@ class CourseFactory extends GlobalFactory
             ->queryUpdateButton('id')
             ->queryDeleteButton('id')
             ->queryCustomButton('btn-prerequisite' ,'id' ,'fa fa-cubes' ,'btn-prerequisite' ,"href='javascript:void(0);' onclick='prerequisiteModal(this)' data-parent=".$request->get('id'))
+            ->queryCustomButton('btn-course-books' ,'id' ,'fa fa-book' ,'btn-course-books' ,"href='javascript:void(0);' onclick='courseBooksModal(this)'")
             ->queryCustomButton('upload_image' ,'id' ,'fa fa-image' ,'' ,'onclick="showFileUploadModal(this)"')
             ->queryMultiLang(['name' ,'description','content'])
             ->queryRender();
@@ -46,6 +47,7 @@ class CourseFactory extends GlobalFactory
             ->setGridNormalCol(12)
             ->addMultiTextareaLangs(['content'] ,'req required text-editor d:tabs d:noLabel none')
             ->addActionButton(trans('admin::app.prerequisite'),'btn-prerequisite','btn-prerequisite' ,'center all' , '80px')
+            ->addActionButton(trans('admin::app.books'),'btn-course-books','btn-course-books' ,'center all' , '80px')
             ->addActionButton(trans('admin::app.upload_image'),'upload_image','upload_image' ,'center all' ,'60px')
             ->addActionButton($this->update,'update','update')
             ->addActionButton($this->delete,'delete','delete')

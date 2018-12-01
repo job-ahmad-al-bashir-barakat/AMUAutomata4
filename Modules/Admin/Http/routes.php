@@ -28,6 +28,7 @@ function ()
     Route::get('university-council', 'AdminController@table')->middleware('permission:university-council')->name('table.university-council');
     Route::get('board-of-trustees', 'AdminController@table')->middleware('permission:board-of-trustees')->name('table.board-of-trustees');
     Route::get('staff', 'AdminController@table')->middleware('permission:staff')->name('table.staff');
+    Route::get('management-staff', 'AdminController@table')->middleware('permission:management-staff')->name('table.management-staff');
     Route::get('study-year', 'AdminController@table')->middleware('permission:study-year')->name('table.study-year');
     Route::get('semester', 'AdminController@table')->middleware('permission:semester')->name('table.semester');
     Route::get('hierarchy-type', 'AdminController@table')->middleware('permission:hierarchy-type')->name('table.hierarchy-type');

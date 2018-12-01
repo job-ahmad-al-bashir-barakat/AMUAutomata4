@@ -15,6 +15,7 @@ return array (
     'filter' => 'Filter',
     'set_location' => 'Set Location',
     'title' => 'Title',
+    'journal' => 'Journal',
     'head' => 'Head',
     'btn' => 'Button',
     'text' => 'Text',

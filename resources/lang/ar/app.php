@@ -15,6 +15,7 @@ return array (
     'filter' => 'بحث',
     'set_location' => 'تحديد الموقع',
     'title' => 'عنوان',
+    'journal' => 'المجلة',
     'head' => 'ترويسة',
     'btn' => 'زر',
     'text' => 'نص',

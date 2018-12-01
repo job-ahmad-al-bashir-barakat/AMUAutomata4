@@ -203,6 +203,12 @@ return [
         'relationId' => 'image_750_id',
     ],
 
+    'course-book' => [
+        'model' => \Modules\Admin\Entities\CourseBook::class,
+        'relationType' => 'one',
+        'relationId'   => 'file_id',
+    ],
+
     'block-front' => [
         'model' => \Modules\Utilities\Entities\BlockDetail::class,
         'ratio' => [
