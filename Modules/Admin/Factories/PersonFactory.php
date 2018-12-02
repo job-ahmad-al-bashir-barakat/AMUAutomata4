@@ -10,6 +10,8 @@ use Modules\Utilities\Entities\SocialNetwork;
 
 class PersonFactory extends GlobalFactory
 {
+    protected $allowedResearches = ['staff'];
+
     /**
      *  get datatable query
      */
@@ -21,15 +23,21 @@ class PersonFactory extends GlobalFactory
 
         $tableId = 'datatable-persons-'.Str::snake(\Route::input('model'));
 
-        return $this->table
+        $type = Str::snake(\Route::input('model'));
+
+        $this->table
             ->queryConfig($tableId)
             ->queryDatatable($query)
             ->queryUpdateButton('id')
             ->queryDeleteButton('id')
-            ->queryMultiLang(['name' ,'summary','experience','contact' => 'address'])
-            ->queryCustomButton('btn-researches' ,'id' ,'fa fa-book' ,'btn-researches' ,"href='javascript:void(0);' onclick='researchesModal(this)'")
-            ->queryCustomButton('upload_image' ,'id' ,'fa fa-image' ,'' ,"onclick='showFileUploadModal(this)' data-tableid='#$tableId'")
-            ->queryRender();
+            ->queryMultiLang(['name' ,'summary','experience','contact' => 'address']);
+        if (in_array($type, $this->allowedResearches)) {
+            $this->table->queryCustomButton('btn-researches' ,'id' ,'fa fa-book' ,'btn-researches' ,"href='javascript:void(0);' onclick='researchesModal(this)'");
+        }
+
+        $this->table->queryCustomButton('upload_image' ,'id' ,'fa fa-image' ,'' ,"onclick='showFileUploadModal(this)' data-tableid='#$tableId'");
+
+        return $this->table->queryRender();
     }
 
     /**
@@ -94,15 +102,15 @@ class PersonFactory extends GlobalFactory
                                ->addInputText($socialNetwork->lang_name[$this->lang]['text'],'contact.social.'.$socialNetwork->code.'.pivot.url' ,'contact.social.'.$socialNetwork->code.'.pivot.url','none' ,'' ,'' ,true ,false ,true ,false)
                                ->endRelation();
 
-            $table = $table->endTab()
-                           ->addActionButton(trans('admin::app.researches'),'btn-researches','btn-researches' ,'center all' , '80px')
-                           ->addActionButton(trans('admin::app.upload_images') ,'upload_image' ,'upload_image', 'center all' ,'100px')
-                           ->addActionButton($this->update,'update','update')
-                           ->addActionButton($this->delete,'delete','delete')
-                           ->addNavButton()
-                           ->render();
-
-        return $table;
+            $table = $table->endTab();
+        if (in_array($type, $this->allowedResearches)) {
+            $table->addActionButton(trans('admin::app.researches'), 'btn-researches', 'btn-researches', 'center all', '80px');
+        }
+            $table->addActionButton(trans('admin::app.upload_images') ,'upload_image' ,'upload_image', 'center all' ,'100px')
+                ->addActionButton($this->update,'update','update')
+                ->addActionButton($this->delete,'delete','delete')
+                ->addNavButton();
+        return $table->render();
     }
 
     public function storeDatatable($model ,$request ,$result)
