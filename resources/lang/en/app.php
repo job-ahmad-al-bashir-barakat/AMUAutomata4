@@ -74,4 +74,5 @@ return array (
     'orange' => 'Orange',
     'color' => 'Color',
     'logo' => 'Logo',
+    'all' => 'All',
 );

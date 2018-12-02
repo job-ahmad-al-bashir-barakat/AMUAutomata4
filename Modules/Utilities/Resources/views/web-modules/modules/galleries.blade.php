@@ -1,7 +1,7 @@
 @if($data['galleries'])
 <div class="col-md-{{ $data['width'] }}">
     <div class="portfolio-filter font-alt align-center">
-        <a href="#" class="active" data-filter="*">All</a>
+        <a href="#" class="active" data-filter="*">{{trans('app.all')}}</a>
         @foreach($data['galleries'] as $gallery)
             <a href="#gallery_{{ $gallery->id }}" class="" data-filter=".filter_gallery_{{ $gallery->id }}">{{ $gallery->lang_title[$lang]->text }}</a>
         @endforeach
