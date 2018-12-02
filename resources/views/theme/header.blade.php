@@ -78,7 +78,7 @@
                             <a rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
                                 {{ $properties['native'] }}
                             </a>
-                            @if($localeCode <> 'en')
+                            @if($localeCode <> 'ar')
                                 <span> - </span>
                             @endif
                         @endforeach

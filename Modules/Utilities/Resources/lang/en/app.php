@@ -17,6 +17,8 @@ return [
     'active'                 => 'Active',
     'yes'                    => 'Yes',
     'no'                     => 'No',
+    'Color'                  => 'Color',
+    'Logo'                   => 'Logo',
 
     'tables'                 => 'Tables',
     'table_name'             => 'Table Name',

@@ -150,7 +150,7 @@
         'text-cards',
         'galleries',
         'custom-modules',
-        'pages',
+        'page-builder',
     ]))
     <li class="">
         <a href="#builder" title="{{ trans('utilities::app.builder') }}" data-toggle="collapse" class="">
@@ -208,7 +208,7 @@
                 </a>
             </li>
             @endcan
-            @can('pages')
+            @can('page-builder')
             <li class="">
                 <a href="{{ RouteUrls::builderPages() }}" class="ajax" title="{{ trans('utilities::app.pages-content') }}">
                     <span>{{ trans('utilities::app.pages-content') }}</span>

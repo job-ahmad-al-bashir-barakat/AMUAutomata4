@@ -65,5 +65,13 @@ return array (
     'hot_line' => 'الخط الساخن',
     'theme_rights_reserved'       => 'جميع الحقوق محفوظة © '.date("Y").' '.setting('website_title')->value.' ',
     'about_me' => 'عن',
-    'find_location' => 'الموقع على الخريطة'
+    'find_location' => 'الموقع على الخريطة',
+    'red' => 'أحمر',
+    'blue' => 'أزرق',
+    'yellow' => 'أصفر',
+    'dark_red' => 'أحمر غامق',
+    'darkest_red' => 'بوردو',
+    'orange' => 'برتقالي',
+    'color' => 'اللون',
+    'logo' => 'الشعار',
 );

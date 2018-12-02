@@ -66,4 +66,12 @@ return array (
     'about_me' => 'About Me',
     'find_location' => 'Find Location',
     'theme_rights_reserved'       => 'Copyrights © '.date("Y").' All Rights Reserved - Al-Sham Private University',
+    'red' => 'Red',
+    'blue' => 'Blue',
+    'yellow' => 'Yellow',
+    'dark_red' => 'Dark Red',
+    'darkest_red' => 'Darkest Red',
+    'orange' => 'Orange',
+    'color' => 'Color',
+    'logo' => 'Logo',
 );

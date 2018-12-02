@@ -136,13 +136,13 @@
             <span>{{ trans('admin::app.news') }}</span>
         </a>
         <ul id="news" class="nav sidebar-subnav collapse">
-            @can('news-status')
-            <li class="">
-                <a href="{{ RouteUrls::status() }}" class="ajax" title="{{ trans('admin::app.status') }}">
-                    <span>{{ trans('admin::app.status') }}</span>
-                </a>
-            </li>
-            @endcan
+            {{--@can('news-status')--}}
+            {{--<li class="">--}}
+                {{--<a href="{{ RouteUrls::status() }}" class="ajax" title="{{ trans('admin::app.status') }}">--}}
+                    {{--<span>{{ trans('admin::app.status') }}</span>--}}
+                {{--</a>--}}
+            {{--</li>--}}
+            {{--@endcan--}}
             @can('news')
             <li class="">
                 <a href="{{ RouteUrls::news() }}" class="ajax" title="{{ trans('admin::app.news') }}">

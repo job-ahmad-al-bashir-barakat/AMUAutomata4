@@ -86,12 +86,18 @@ class MenuPage extends Model
     public static function getColorOptions()
     {
         return [
-            '1' => 'Red',
-            '2' => 'Orange',
-            '3' => 'Dark Red',
-            '4' => 'Yalow',
-            '5' => 'Darkest Red',
-            '6' => 'Blue',
+//            '1' => 'Red',
+//            '2' => 'Orange',
+//            '3' => 'Dark Red',
+//            '4' => 'Yalow',
+//            '5' => 'Darkest Red',
+//            '6' => 'Blue',
+            '1' => trans('app.red'),
+            '2' => trans('app.orange'),
+            '3' => trans('app.dark_red'),
+            '4' => trans('app.yellow'),
+            '5' => trans('app.darkest_red'),
+            '6' => trans('app.blue'),
         ];
     }
 }

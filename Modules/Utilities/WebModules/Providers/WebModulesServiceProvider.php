@@ -14,8 +14,8 @@ use Modules\Utilities\Entities\SiteMenu;
 class WebModulesServiceProvider extends ServiceProvider
 {
     protected $menu;
-    protected $color = '1';
-    protected $logoPath = 'images/logo-wide.png';
+    protected $color = '7';
+    protected $logoPath = 'images/logo-wide-ar.png';
 
     /**
      * Boot the application events.

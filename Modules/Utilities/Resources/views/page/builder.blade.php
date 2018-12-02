@@ -39,15 +39,15 @@
 
     {!! FormComponent::modalOpen('page_menu_modal') !!}
         {!! FormComponent::setAjax()->getData('get')->formOpen('page_menu_form', 'post', RouteUrls::builderMenu()) !!}
-            {!! FormComponent::modalHeaderOpen('Menu') !!}
+            {!! FormComponent::modalHeaderOpen(trans('utilities::app.menu')) !!}
             {!! FormComponent::modalHeaderClose() !!}
             {!! FormComponent::modalBodyOpen('pt-0') !!}
                 {!! FormComponent::fill('id')->primarykey('id', 'id') !!}
                 {!! FormComponent::fill('page_id')->hidden('page_id', 'page_id', '', '', ['data-fixed-value', 'data-permanent=true']) !!}
                 {!! FormComponent::fill('optional_id')->hidden('optional_id', 'optional_id', '', '', ['data-fixed-value', 'data-permanent=true']) !!}
                 {!! FormComponent::fill('table_name')->hidden('table_name', 'table_name', '', '', ['data-fixed-value', 'data-permanent=true']) !!}
-                {!! FormComponent::fill('menu_id')->autocomplete('Menu', 'menu_id', 'menu_id', 'autocomplete/menus', [], '0') !!}
-                {!! FormComponent::fill('color')->select('Color', 'color', 'color', \Modules\Utilities\Entities\MenuPage::getColorOptions()) !!}
+                {!! FormComponent::fill('menu_id')->autocomplete(trans('utilities::app.menu'), 'menu_id', 'menu_id', 'autocomplete/menus', [], '0') !!}
+                {!! FormComponent::fill('color')->select(trans('app.color'), 'color', 'color', \Modules\Utilities\Entities\MenuPage::getColorOptions()) !!}
                 <div class="col-lg-8">
                     <i class="fa fa-image hand" style="font-size: 25px" onclick="showFileUploadLogoImage(this)"></i>
                     <div id="image_menu" class="hide">
@@ -64,7 +64,7 @@
 
     {{ FileUpload::ImageUpload('logo_image' ,'logo_image' ,'' ,'' ,'', '' ,[
         'modalId'    => 'logo-image-upload',
-        'modalTitle' => 'Logo'
+        'modalTitle' => trans('app.logo')
     ] ,'', false, '.image', ['appendLocation' => '#image_menu', 'appendName' => 'image_id' ,'allowRatio' => true]) }}
 
     {{ FileUpload::ImageUploadCropper('90%' ,false ,true,false ,false ,false ,true) }}

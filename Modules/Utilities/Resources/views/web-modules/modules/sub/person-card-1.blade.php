@@ -7,7 +7,8 @@
             <h4 class="text-uppercase font-raleway font-weight-600 m-0">
                 <a class="text-theme-color-2" href="{{ RouteUrls::universityStaff(getSlug($person->id, $person->lang_name[$lang]->text)) }}"> {{ $person->lang_name[$lang]->text }}</a>
             </h4>
-            @if($person->jobTitle->count())<h5 class="text-theme-color">{{ $person->jobTitle->lang_name[$lang]->text }}</h5>@endif
+            {{--{{dd($person)}}--}}
+            {{--@if($person->jobTitle->count())<h5 class="text-theme-color">{{ $person->jobTitle->lang_name[$lang]->text }}</h5>@endif--}}
             <ul class="styled-icons icon-sm icon-dark icon-theme-colored">
                 @if($person->contact && $person->contact->socialNetwork)
                     @include('utilities::web-modules.modules.sub.social-network', ['socialNetworks' => $person->contact->socialNetwork])
