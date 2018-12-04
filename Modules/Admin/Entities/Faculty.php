@@ -13,7 +13,7 @@ class Faculty extends Model
 
     protected $fillable = ['id','campus_id'];
 
-    protected $appends = ['lang_name' , 'faculty_name'];
+    protected $appends = ['lang_name' , 'faculty_name', 'campus_name'];
 
     public function transName()
     {
@@ -28,6 +28,14 @@ class Faculty extends Model
     public function getFacultyNameAttribute()
     {
         return $this->lang_name[\App::getLocale()]['text'];
+    }
+
+    public function getCampusNameAttribute()
+    {
+        if (!$this->campus) {
+            return null;
+        }
+        return $this->campus->lang_name[app()->getLocale()]->text;
     }
 
     public function studyYear()

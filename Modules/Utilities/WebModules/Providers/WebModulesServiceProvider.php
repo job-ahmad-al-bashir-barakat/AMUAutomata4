@@ -16,6 +16,7 @@ class WebModulesServiceProvider extends ServiceProvider
     protected $menu;
     protected $color = '7';
     protected $logoPath = 'images/logo-wide-ar.png';
+    protected $defaultLocal = 'en';
 
     /**
      * Boot the application events.
@@ -42,7 +43,10 @@ class WebModulesServiceProvider extends ServiceProvider
 //        dd(SiteMenu::all()->toTree()->toArray());
         if (!app()->runningInConsole())
         {
+            $appLocale = app()->getLocale();
+            app()->setLocale($this->defaultLocal);
             $this->buildMenuRoutes(SiteMenu::all()->toTree());
+            app()->setLocale($appLocale);
 
 
             //view()->share(['menu' => $this->menu, 'color' => $this->color]);
@@ -55,7 +59,7 @@ class WebModulesServiceProvider extends ServiceProvider
             if (!$item->dynamic && $item->menuable) {
                 $route = $item->menuable->route;
                 if (!$route){
-                    $route = getSlug($item->menuable->id, $item->menuable->lang_name[app()->getLocale()]->text);
+                    $route = getSlug($item->menuable->id, $item->menuable->lang_name[$this->defaultLocal]->text);
                 }
                 if ($item->menuable_type == 'faculty') {
                     $urlPrefix = 'faculty/';
@@ -67,7 +71,7 @@ class WebModulesServiceProvider extends ServiceProvider
                 if ($item->children->count()) {
                     foreach ($item->dynamic_info as $dynamicInfo) {
                         //@todo this code will break the cache because of not registering all the supported language
-                        $dynamicPrefix = "{$prefix}/" . getSlug($dynamicInfo->id, $dynamicInfo->lang_name[app()->getLocale()]->text) ;
+                        $dynamicPrefix = "{$prefix}/" . getSlug($dynamicInfo->id, $dynamicInfo->lang_name[$this->defaultLocal]->text) ;
                         $this->buildMenuRoutes($item->children, "{$dynamicPrefix}/", $dynamicInfo->id);
                     }
                 }
@@ -80,9 +84,9 @@ class WebModulesServiceProvider extends ServiceProvider
 
     private function registerLangRoutes($url, $name)
     {
-//        logger('routes', [$url, $name]);
         $supportedLanguages = LaravelLocalization::getSupportedLanguagesKeys();
         foreach ($supportedLanguages as $supportedLanguage) {
+            logger('routes', ["{$supportedLanguage}/{$url}", $name]);
             Route::get("{$supportedLanguage}/{$url}", function (){
                 $menu = $this->getPageMenu();
                 $color = $this->color;

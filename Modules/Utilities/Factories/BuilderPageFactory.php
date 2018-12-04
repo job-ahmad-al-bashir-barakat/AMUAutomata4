@@ -19,6 +19,7 @@ class BuilderPageFactory extends GlobalFactory
     protected $builderColumnWithLang = [];
     protected $builderColumnFirst;
     protected $allowGeneralContent = ['news', 'people', 'faculties'];
+    protected $with = [];
 
     public function __construct(DataTableBuilder $table)
     {
@@ -158,6 +159,10 @@ class BuilderPageFactory extends GlobalFactory
 
         if ($builderTable->pageable_column) {
             foreach ($builderTable->pageable_columns as $column) {
+                if (Str::contains($column, ['.'])) {
+                    list($with, $column) = explode('.', $column, 2);
+                    $this->with[] = $with;
+                }
                 if (Str::startsWith($column, 'lang:')) {
                     $this->builderColumnWithLang[] = explode(':', $column)[1];
                 } else {
@@ -165,6 +170,7 @@ class BuilderPageFactory extends GlobalFactory
                 }
             }
         }
+//        dd($this->with, $this->builderColumnWithLang, $this->builderColumn);
         $this->builderColumnFirst = $this->builderColumnWithLang[0] ?? $this->builderColumn[0];
         $this->builderModel = $builderTable->namespace;
         $this->builderTable = $tableName;
