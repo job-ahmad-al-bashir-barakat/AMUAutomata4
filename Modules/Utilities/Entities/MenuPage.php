@@ -5,7 +5,6 @@ namespace Modules\Utilities\Entities;
 use Aut\Eloquent\Models\Model;
 use Aut\FileUpload\Entities\Image;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Modules\Utilities\WebModules\Modules\Module;
 
 /**
  * @property int menu_id
