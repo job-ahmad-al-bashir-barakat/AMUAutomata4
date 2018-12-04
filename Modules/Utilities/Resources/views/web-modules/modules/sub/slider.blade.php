@@ -21,7 +21,8 @@
          data-splitin="none"
          data-splitout="none"
          data-responsive_offset="on"
-         style="{{ $layers['1']['style'] }}">{{ $layers['1']['data'] }}
+         style="{{ $layers['1']['style'] }}">
+        {{--{{ $layers['1']['data'] }}--}}
     </div>
     <!-- LAYER NR. 2 -->
     <div class="{{ $layers['2']['class'] }}"
@@ -44,7 +45,8 @@
          data-splitin="none"
          data-splitout="none"
          data-responsive_offset="on"
-         style="{{ $layers['2']['style'] }}">{{ $layers['2']['data'] }}
+         style="{{ $layers['2']['style'] }}">
+        {{--{{ $layers['2']['data'] }}--}}
     </div>
     <!-- LAYER NR. 3 -->
     <div class="{{ $layers['3']['class'] }}"
@@ -67,7 +69,8 @@
          data-splitin="none"
          data-splitout="none"
          data-responsive_offset="on"
-         style="{{ $layers['3']['style'] }}">{{ $layers['3']['data'] }}
+         style="{{ $layers['3']['style'] }}">
+        {{--{{ $layers['3']['data'] }}--}}
     </div>
     <!-- LAYER NR. 4 -->
     {{--<div class="{{ $layers['4']['class'] }}"

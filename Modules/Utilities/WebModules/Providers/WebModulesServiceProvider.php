@@ -39,6 +39,7 @@ class WebModulesServiceProvider extends ServiceProvider
 
     private function routesRegister()
     {
+//        dd(SiteMenu::all()->toTree()->toArray());
         if (!app()->runningInConsole())
         {
             $this->buildMenuRoutes(SiteMenu::all()->toTree());
@@ -52,7 +53,14 @@ class WebModulesServiceProvider extends ServiceProvider
     {
         foreach ($tree as $item) {
             if (!$item->dynamic && $item->menuable) {
-                $this->registerLangRoutes("{$urlPrefix}{$item->menuable->route}", "{$item->menuable_type}.{$item->menuable_id}.{$optional}");
+                $route = $item->menuable->route;
+                if (!$route){
+                    $route = getSlug($item->menuable->id, $item->menuable->lang_name[app()->getLocale()]->text);
+                }
+                if ($item->menuable_type == 'faculty') {
+                    $urlPrefix = 'faculty/';
+                }
+                $this->registerLangRoutes("{$urlPrefix}{$route}", "{$item->menuable_type}.{$item->menuable_id}.{$optional}");
             }
             if ($item->dynamic && $item->dynamic_info->count()) {
                 $prefix = "{$item->dynamic}";
@@ -76,7 +84,6 @@ class WebModulesServiceProvider extends ServiceProvider
         $supportedLanguages = LaravelLocalization::getSupportedLanguagesKeys();
         foreach ($supportedLanguages as $supportedLanguage) {
             Route::get("{$supportedLanguage}/{$url}", function (){
-                //@todo menu must be global var to make on call for it
                 $menu = $this->getPageMenu();
                 $color = $this->color;
                 $logoPath = $this->logoPath;
