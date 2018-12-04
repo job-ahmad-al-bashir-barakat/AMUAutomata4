@@ -103,6 +103,6 @@ class LoadMoreController extends Controller
 
     private function getQueryBuilderNews($model)
     {
-        return $model::orderBy('publish_date')->paginate(8);
+        return $model::orderBy('publish_date','desc')->paginate(8);
     }
 }
