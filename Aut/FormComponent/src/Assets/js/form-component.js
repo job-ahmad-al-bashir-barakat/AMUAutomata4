@@ -421,6 +421,7 @@ var AUT_FORM_COMPONENT = {
 
             _.head(form).reset();
             form.find('[id^=error_]').children().remove();
+            form.find('.text-clear').text('');
             form.find('input[type=hidden]').not('[data-permanent=true],[name="_token"],[name="_method"]').val('');
             var taginput = form.find('[data-role="tagsinput"]');
             if(taginput.length)
@@ -628,10 +629,19 @@ var AUT_FORM_COMPONENT = {
             });
         },
 
+        loadEvent: function() {
+
+            $('.slug').on('keyup',function(){
+                $(this).val((($(this).val()).toLowerCase()).replace(/_|\/|\\| +/g,'-'));
+            });
+        },
+
         load: function () {
             AUT_FORM_COMPONENT.validate.init('.ajaxCont');
 
             AUT_FORM_COMPONENT.validate.fillForm();
+
+            AUT_FORM_COMPONENT.validate.loadEvent();
         },
     },
 
