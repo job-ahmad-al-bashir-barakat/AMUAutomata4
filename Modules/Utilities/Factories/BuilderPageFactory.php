@@ -14,10 +14,12 @@ class BuilderPageFactory extends GlobalFactory
 
     protected $builderTable;
     protected $builderModel;
-    protected $builderColumn;
+    protected $builderColumn = [];
     protected $builderMorphCode;
-    protected $builderColumnWithLang = false;
+    protected $builderColumnWithLang = [];
+    protected $builderColumnFirst;
     protected $allowGeneralContent = ['news', 'people', 'faculties'];
+    protected $with = [];
 
     public function __construct(DataTableBuilder $table)
     {
@@ -54,21 +56,21 @@ class BuilderPageFactory extends GlobalFactory
             ->queryDatatable($query);
 
         if ($this->builderColumnWithLang) {
-            $this->table->queryMultiLang([$this->builderColumn]);
+            $this->table->queryMultiLang($this->builderColumnWithLang);
         }
 
         $this->table->queryAddColumn('modules', function ($row) use ($hasSubPages, $objectId) {
             if ($hasSubPages) {
                 return "<i data-table_name='{$this->builderTable}' data-object_id='{$row->id}' class='icon-layers hand' onclick='subPagesModal(this)'></i>";
             }
-            $pageName = $row->{camel_case("lang{$this->builderColumn}")}[$this->lang]->text;
+            $pageName = $row->{camel_case("lang{$this->builderColumnFirst}")}[$this->lang]->text;
             return "<i data-object_id='{$objectId}' data-table_name='{$this->builderTable}' data-page_id='{$row->id}' data-page_name='{$pageName}' class='fa fa-cubes hand' data-toggle='modal' data-target='#page_modules'></i>";
         });
 
         $this->table->queryAddColumn('seos', function ($row) use ($hasSubPages, $objectId) {
             if (!$hasSubPages) {
                 $param = collect(['table_name' => $this->builderTable, 'page_id' => $row->id, 'optional_id' => $objectId]);
-                $pageName = $row->{camel_case("lang{$this->builderColumn}")}[$this->lang]->text;
+                $pageName = $row->{camel_case("lang{$this->builderColumnFirst}")}[$this->lang]->text;
                 return "<i data-object_id='{$objectId}' data-table_name='{$this->builderTable}' data-page_id='{$row->id}' data-page_name='{$pageName}' class='fa fa-google-wallet hand' data-toggle='modal' data-target='#page_seos_modal' data-form-update data-editable-target='".\RouteUrls::builderSeo()."' data-editable-target-param='$param'></i>";
             }
         });
@@ -76,7 +78,7 @@ class BuilderPageFactory extends GlobalFactory
         $this->table->queryAddColumn('menu', function ($row) use ($hasSubPages, $objectId) {
             if (!$hasSubPages) {
                 $param = collect(['table_name' => $this->builderTable, 'page_id' => $row->id, 'optional_id' => $objectId]);
-                $pageName = $row->{camel_case("lang{$this->builderColumn}")}[$this->lang]->text;
+                $pageName = $row->{camel_case("lang{$this->builderColumnFirst}")}[$this->lang]->text;
                 return "<i data-object_id='{$objectId}' data-table_name='{$this->builderTable}' data-page_id='{$row->id}' data-page_name='{$pageName}' class='fa fa-list hand' data-toggle='modal' data-target='#page_menu_modal' data-form-update data-editable-target='".\RouteUrls::builderMenu()."' data-editable-target-param='$param'></i>";
             }
         });
@@ -95,9 +97,11 @@ class BuilderPageFactory extends GlobalFactory
             ->addPrimaryKey('id','id');
 
         if ($this->builderColumnWithLang) {
-            $this->table->addMultiInputTextLangs([$this->builderColumn], 'req required');
-        } else {
-            $this->table->addInputText(trans('utilities::app.name'), $this->builderColumn, $this->builderColumn);
+            $this->table->addMultiInputTextLangs($this->builderColumnWithLang, 'req required');
+        }
+
+        foreach ($this->builderColumn as $column) {
+            $this->table->addInputText(trans("utilities::app.{$column}"), $column, $column);
         }
 
         $this->table->addActionButton(trans('utilities::app.modules'), 'modules', 'modules', 'center all', '50px')
@@ -154,13 +158,20 @@ class BuilderPageFactory extends GlobalFactory
         $builderTable = Table::whereTableName($tableName)->first();
 
         if ($builderTable->pageable_column) {
-            $this->builderColumnWithLang = Str::startsWith($builderTable->pageable_column, 'lang:');
-            if ($this->builderColumnWithLang) {
-                $this->builderColumn = explode(':', $builderTable->pageable_column)[1];
-            } else {
-                $this->builderColumn = $builderTable->pageable_column;
+            foreach ($builderTable->pageable_columns as $column) {
+                if (Str::contains($column, ['.'])) {
+                    list($with, $column) = explode('.', $column, 2);
+                    $this->with[] = $with;
+                }
+                if (Str::startsWith($column, 'lang:')) {
+                    $this->builderColumnWithLang[] = explode(':', $column)[1];
+                } else {
+                    $this->builderColumn[] = $column;
+                }
             }
         }
+//        dd($this->with, $this->builderColumnWithLang, $this->builderColumn);
+        $this->builderColumnFirst = $this->builderColumnWithLang[0] ?? $this->builderColumn[0];
         $this->builderModel = $builderTable->namespace;
         $this->builderTable = $tableName;
         $this->builderMorphCode = $builderTable->morph_code;

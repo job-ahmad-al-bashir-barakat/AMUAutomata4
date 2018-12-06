@@ -21,7 +21,13 @@ class Table extends Model
 
     protected $fillable = ['table_name', 'namespace', 'pageable', 'pageable_column', 'menuable', 'morph_code', 'dynamic'];
 
-    protected $appends = ['lang_name'];
+    protected $appends = ['lang_name', 'pageable_columns'];
+
+
+    public function getPageableColumnsAttribute()
+    {
+        return json_decode($this->pageable_column, true);
+    }
 
     public function transName()
     {

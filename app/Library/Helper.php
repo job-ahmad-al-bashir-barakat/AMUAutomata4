@@ -249,8 +249,16 @@ if (!function_exists('buildHtmlTree')) {
                 $url = $item->url;
                 $newPage = 'target="_blank"';
             }
-            if($item->menuable_type == 'page') {
-                $url = RouteUrls::page("{$urlPrefix}{$item->menuable->route}");
+//            if($item->menuable_type == 'page') {
+            if (!$item->dynamic && $item->menuable) {
+                if ($item->menuable_type == 'faculty') {
+                    $urlPrefix = 'faculty/';
+                }
+                $route = $item->menuable->route;
+                if (!$route){
+                    $route = getSlug($item->menuable->id, $item->menuable->lang_name[app()->getLocale()]->text);
+                }
+                $url = RouteUrls::page("{$urlPrefix}{$route}");
             }
             $html .= "<li>";
             $html .= "<a href='{$url}' {$newPage}>{$item->title}</a>";

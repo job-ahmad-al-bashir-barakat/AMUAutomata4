@@ -75,4 +75,10 @@ return array (
     'color' => 'Color',
     'logo' => 'Logo',
     'all' => 'All',
+    /*
+    * 404
+    */
+    'page_not_found' => 'Oops! Page Not Found',
+    'return_home'    => 'Return Home',
+    'go_back'        => 'Go Back'
 );
