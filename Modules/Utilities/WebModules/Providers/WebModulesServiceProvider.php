@@ -40,16 +40,12 @@ class WebModulesServiceProvider extends ServiceProvider
 
     private function routesRegister()
     {
-//        dd(SiteMenu::all()->toTree()->toArray());
         if (!app()->runningInConsole())
         {
             $appLocale = app()->getLocale();
             app()->setLocale($this->defaultLocal);
             $this->buildMenuRoutes(SiteMenu::all()->toTree());
             app()->setLocale($appLocale);
-
-
-            //view()->share(['menu' => $this->menu, 'color' => $this->color]);
         }
     }
 
@@ -86,7 +82,7 @@ class WebModulesServiceProvider extends ServiceProvider
     {
         $supportedLanguages = LaravelLocalization::getSupportedLanguagesKeys();
         foreach ($supportedLanguages as $supportedLanguage) {
-            logger('routes', ["{$supportedLanguage}/{$url}", $name]);
+//            logger('routes', ["{$supportedLanguage}/{$url}", $name]);
             Route::get("{$supportedLanguage}/{$url}", function (){
                 $menu = $this->getPageMenu();
                 $color = $this->color;

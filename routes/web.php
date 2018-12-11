@@ -12,7 +12,7 @@ Route::group(
     function () {
         Route::get('load-more/{model}', 'LoadMoreController@getHtml');
 
-        if (function_exists('getMenu')) {
+        if (!function_exists('getMenu')) {
 
             function getMenu()
             {
@@ -66,7 +66,7 @@ Route::group(
             return view("modules", compact('menu', 'modules', 'seo'));
         });
 
-        if (function_exists('call')) {
+        if (!function_exists('call')) {
 
             function call($hierarchy)
             {

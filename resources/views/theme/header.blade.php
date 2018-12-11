@@ -2,19 +2,6 @@
     <div class="header-top bg-theme-color-2 sm-text-center p-0">
         <div class="container">
             <div class="row">
-                {{-- <div class="col-md-4">
-                     <div class="widget no-border m-0">
-                         <ul class="list-inline font-13 sm-text-center mt-5">
-                             <li>
-                                 <a class="text-white" href="#">FAQ</a>
-                             </li>
-                             <li class="text-white">|</li>
-                             <li>
-                                 <a class="text-white" href="#">Help Desk</a>
-                             </li>
-                         </ul>
-                     </div>
-                 </div>--}}
                 <div class="col-md-12">
                     <div class="widget m-0 pull-right sm-pull-none sm-text-center">
                         <ul class="list-inline pull-right">
@@ -92,32 +79,12 @@
                     <nav id="menuzord" class="menuzord bg-theme-colored pull-left flip menuzord-responsive">
                         <ul class="menuzord-menu">
                             {!! buildHtmlTree($menu) !!}
-                            {{--<li>--}}
-                            {{--<a href="#">{{ LaravelLocalization::getCurrentLocaleNative() }}</a>--}}
-                            {{--<ul class="dropdown" >--}}
-                            {{--@foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)--}}
-                            {{--<li>--}}
-                            {{--<a rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">--}}
-                            {{--{{ $properties['native'] }}--}}
-                            {{--</a>--}}
-                            {{--</li>--}}
-                            {{--@endforeach--}}
-                            {{--</ul>--}}
-                            {{--</li>--}}
                         </ul>
                         <ul class="pull-right flip hidden-sm hidden-xs">
                             <li>
                                 <a class="btn btn-colored btn-flat bg-theme-color-2 text-white font-14 bs-modal-ajax-load mt-0 p-25 pr-15 pl-15" href="{{ setting('learnata')->value }}">{{ setting('learnata')->lang_name[app()->getLocale()]->text }}</a>
                             </li>
                         </ul>
-                        {{--<div id="top-search-bar" class="collapse">--}}
-                        {{--<div class="container">--}}
-                        {{--<form role="search" action="#" class="search_form_top" method="get">--}}
-                        {{--<input type="text" placeholder="Type text and press Enter..." name="s" class="form-control" autocomplete="off">--}}
-                        {{--<span class="search-close"><i class="fa fa-search"></i></span>--}}
-                        {{--</form>--}}
-                        {{--</div>--}}
-                        {{--</div>--}}
                     </nav>
                 </div>
             </div>
