@@ -9,7 +9,7 @@
         {!! FormComponent::placeholder(trans('utilities::app.parent'))->fill('parent')->autocomplete(trans('utilities::app.parent') ,'parent-id' ,'parent_id','autocomplete/general?type=dialog',[],'3' ,'tree-autocomplete-change') !!}
         {{--tree-autocomplete-change is class for change event to fill order with its value--}}
         {!! FormComponent::fill('name-{lang}')->trans()->langs()->text(trans('utilities::app.name'),'name' ,'name' ,null ,'required') !!}
-        {!! FormComponent::fill('prefix')->text(trans('utilities::app.prefix'),'prefix','prefix') !!}
+        {!! FormComponent::fill('prefix')->text(trans('utilities::app.prefix'),'prefix','prefix','','slug') !!}
         {!! FormComponent::fill('url')->text(trans('utilities::app.url'),'url','url') !!}
         {!! FormComponent::fill('order')->hidden('order' ,'order') !!}
     {!! FormComponent::modalBodyClose() !!}

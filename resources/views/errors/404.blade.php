@@ -10,7 +10,7 @@
     <meta name="author" content="ThemeMascot" />
 
     <!-- Page Title -->
-    <title>StudyPress | Education & Courses HTML Template</title>
+    <title>{{trans('app.page_not_found')}}</title>
 
     <!-- Favicon and Touch Icons -->
     <link href="{{ asset('images/favicon.png') }}" rel="shortcut icon" type="image/png">
@@ -36,7 +36,8 @@
     <link href="{{ asset(mix('js/revolution-slider/css/revolution-slider.css')) }}" rel="stylesheet" type="text/css">
 
     <!-- CSS | Theme Color -->
-    <link href="{{ asset('css/colors/theme-skin-color-set-1.css') }}" rel="stylesheet" type="text/css">
+    @php($color = setting('color_file_number')->value??'1')
+    <link href="{{ asset("css/colors/theme-skin-color-set-{$color}.css") }}" rel="stylesheet" type="text/css">
     <!-- CSS | Style css. This is the file where you can place your own custom css code. Just uncomment it and use it. -->
     <!-- <link href="css/style.css" rel="stylesheet" type="text/css"> -->
 </head>
@@ -52,11 +53,10 @@
                     <div class="container pt-0 pb-0">
                         <div class="row">
                             <div class="col-md-8 col-md-offset-2">
-                                <h1 class="font-150 text-theme-colored mt-0 mb-0"><i class="fa fa-map-signs text-theme-color-2"></i>404!</h1>
-                                <h2 class="mt-0">Oops! Page Not Found</h2>
-                                <p>The page you were looking for could not be found.</p>
-                                <a class="btn btn-border btn-gray btn-transparent btn-circled" href="{{ localizeURL('home') }}">Return Home</a>
-                                <a class="btn btn-border btn-gray btn-transparent btn-circled" href="{{ back()->getTargetUrl() }}">Go Back</a>
+                                <h1 class="font-150 text-theme-colored mt-0 mb-0"><i class="fa fa-map-signs text-theme-color-2"></i>404</h1>
+                                <h2 class="mt-0">{{trans('app.page_not_found')}}</h2>
+                                <a class="btn btn-border btn-gray btn-transparent btn-circled" href="{{ localizeURL('home') }}">{{trans('app.return_home')}}</a>
+                                <a class="btn btn-border btn-gray btn-transparent btn-circled" href="{{ back()->getTargetUrl() }}">{{trans('app.go_back')}}</a>
                             </div>
                         </div>
                     </div>
@@ -71,7 +71,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <p class="text-black-777 m-0">@lang('app.copyright', ['date' => date('Y')])</p>
+                    <p class="text-white m-0">@lang('app.theme_rights_reserved')</p>
                 </div>
             </div>
         </div>

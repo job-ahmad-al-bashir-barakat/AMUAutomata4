@@ -40,23 +40,26 @@ class FormBuilder
         'dataJson' => '',
         'langs' => [],
         'takeAction' => false,
-        'relation' => '',
+        'relation' => ''
     ];
 
     private $propertyKeep = [
-        'formGroup' => false,
         'hasLangs' => false,
         'hasTrans' => false,
+        'formGroup' => false,
         'tagsinput' => false,
+        'placeholder' => false,
+        'dataJson' => false,
+        'relation' => false,
     ];
 
     private $resetProperty = [
         'hasLangs' => false,
         'hasTrans' => false,
-        'tagsinput' => false,
         'formGroup' => true,
-        'dataJson' => '',
+        'tagsinput' => false,
         'placeholder' => '',
+        'dataJson' => '',
         'relation' => '',
     ];
 

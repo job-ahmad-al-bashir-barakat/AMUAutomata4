@@ -17,7 +17,7 @@ class CreatePersonExperienceLangsTable extends Migration
             $table->increments('id')->unsigned();
             $table->integer('person_id')->nullable()->index('person_id');
             $table->integer('lang_id')->nullable()->index('lang_id');
-            $table->text('text')->nullable();
+            $table->longText('text')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

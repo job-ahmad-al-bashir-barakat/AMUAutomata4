@@ -27,4 +27,7 @@ return [
 
     'degrees' => 'Degrees',
     'name' => 'Name',
+    'latest' => 'Latest',
+    'news' => 'News',
+    'read_more' => 'Read More',
 ];
