@@ -51,22 +51,22 @@ class Person extends Model
 
     public function scopeUniversityCouncil($query)
     {
-        return $query->where('type', '=', self::PERSON_UNIVERSITY_COUNCIL);
+        return $query->where('type', self::PERSON_UNIVERSITY_COUNCIL);
     }
 
     public function scopeBoardOfTrustees($query)
     {
-        return $query->where('type', '=', self::PERSON_BOARD_OF_TRUSTEES);
+        return $query->where('type', self::PERSON_BOARD_OF_TRUSTEES);
     }
 
     public function scopeManagementStaff($query)
     {
-        return $query->where('type', '=', self::MANAGEMENT_STAFF);
+        return $query->where('type', self::MANAGEMENT_STAFF);
     }
 
     public function scopeStaff($query)
     {
-        return $query->where('type', '=', self::PERSON_STAFF);
+        return $query->where('type', self::PERSON_STAFF);
     }
 
     /*

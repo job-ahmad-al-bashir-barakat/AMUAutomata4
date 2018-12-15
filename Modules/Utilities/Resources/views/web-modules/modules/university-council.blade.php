@@ -1,7 +1,5 @@
-@php($persons = \Modules\Admin\Entities\Person::paginate(8))
 <div class="col-md-{{ $data['width'] }}">
     <div id="university_council" class="row mtli-row-clearfix form-group">
-        @include('utilities::web-modules.modules.sub.persons-card-2', ['persons' => $persons])
     </div>
     <div class="row mtli-row-clearfix">
         <div class="col-md-12 form-group text-center">

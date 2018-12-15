@@ -69,17 +69,17 @@ class LoadMoreController extends Controller
 
     private function getQueryBuilderUniversityCouncil($model)
     {
-        return $model::where('type', '=', 'UniversityCouncil')->paginate(8);
+        return $model::universityCouncil()->paginate(8);
     }
 
     private function getQueryBuilderTrustedCouncil($model)
     {
-        return $model::where('type', '=', 'TrustedCouncil')->paginate(8);
+        return $model::boardOfTrustees()->paginate(8);
     }
 
     private function getQueryBuilderFacultyInstructors($model)
     {
-        return $model::paginate(8);
+        return $model::staff()->paginate(8);
     }
 
     private function getQueryBuilderCourses($model)
