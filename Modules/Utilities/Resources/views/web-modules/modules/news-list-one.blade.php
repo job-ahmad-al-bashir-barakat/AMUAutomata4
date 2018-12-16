@@ -22,8 +22,8 @@
 <script>
     function appendNews($cont, res) {
         var $items = $(res);
-        $cont.append($items).isotope( 'appended', $items ).isotope('layout');
-        console.log('News Appended with isotope', 1);
+        // $cont.append($items).isotope( 'appended', $items ).isotope('layout');
+        // console.log('News Appended with isotope', 1);
         window.setTimeout(function (){
             $cont.append($items).isotope( 'appended', $items ).isotope('layout');
             console.log('News Appended with isotope', 2);
