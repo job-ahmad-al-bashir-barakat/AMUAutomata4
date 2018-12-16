@@ -57,11 +57,9 @@ class WebModulesServiceProvider extends ServiceProvider
                 if (!$route){
                     $route = getSlug($item->menuable->id, $item->menuable->lang_name[$this->defaultLocal]->text);
                 }
-                if ($item->menuable_type) {
-                    $route = '{' . $item->menuable_type . '}';
-                }
                 if ($item->menuable_type == 'faculty') {
                     $urlPrefix = 'faculty/';
+                    $route = '{' . $item->menuable_type . '}';
                 }
                 $this->registerLangRoutes("{$urlPrefix}{$route}", "{$item->menuable_type}.{$item->menuable_id}.{$optional}");
             }
