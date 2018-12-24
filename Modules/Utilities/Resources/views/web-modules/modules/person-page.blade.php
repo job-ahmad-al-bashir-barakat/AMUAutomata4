@@ -90,9 +90,9 @@
                             </div>
                             <div class="media-body">
                                 <p>
-                                    @if($person->contact->phone)<span class="pull-right">@lang('admin::app.phone'): </span><span class="pull-right" style="direction:ltr;">{{ $person->contact->phone }}</span><br>@endif
+                                    @if($person->contact->phone)<span class="pull-{{ $dir === 'rtl'?'right':'left' }}">@lang('admin::app.phone'): </span><span class="pull-{{ $dir === 'rtl'?'right':'left' }}" style="direction:ltr;">{{ $person->contact->phone }}</span><br>@endif
                                     @if($person->contact->email)<span>@lang('admin::app.email'):</span> {{ $person->contact->email }}<br>@endif
-                                    @if($person->contact->mobile)<span class="pull-right">@lang('admin::app.mobile'): </span> <span class="pull-right" style="direction:ltr;">{{ $person->contact->mobile }}</span><br>@endif
+                                    @if($person->contact->mobile)<span class="pull-{{ $dir === 'rtl'?'right':'left' }}">@lang('admin::app.mobile'): </span> <span class="pull-{{ $dir === 'rtl'?'right':'left' }}" style="direction:ltr;">{{ $person->contact->mobile }}</span><br>@endif
                                 </p>
                             </div>
                         </div>
