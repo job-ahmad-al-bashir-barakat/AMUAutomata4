@@ -89,11 +89,10 @@
                                 <i class="fa fa-phone text-theme-colored font-24 mt-5"></i>
                             </div>
                             <div class="media-body">
-{{--                                <h5 class="mt-0 mb-0">@lang('admin::app.contact'):</h5>--}}
                                 <p>
-                                    @if($person->contact->phone)<span>@lang('admin::app.phone'):</span> {{ $person->contact->phone }}<br>@endif
+                                    @if($person->contact->phone)<span class="pull-right">@lang('admin::app.phone'): </span><span class="pull-right" style="direction:ltr;">{{ $person->contact->phone }}</span><br>@endif
                                     @if($person->contact->email)<span>@lang('admin::app.email'):</span> {{ $person->contact->email }}<br>@endif
-                                    @if($person->contact->mobile)<span>@lang('admin::app.mobile'):</span> {{ $person->contact->mobile }}<br>@endif
+                                    @if($person->contact->mobile)<span class="pull-right">@lang('admin::app.mobile'): </span> <span class="pull-right" style="direction:ltr;">{{ $person->contact->mobile }}</span><br>@endif
                                 </p>
                             </div>
                         </div>
