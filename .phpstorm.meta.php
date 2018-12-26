@@ -5,7 +5,7 @@ namespace PHPSTORM_META {
 
    /**
     * PhpStorm Meta file, to provide autocomplete information for PhpStorm
-    * Generated on 2018-12-03 12:35:18.
+    * Generated on 2018-12-25 06:55:17.
     *
     * @author Barry vd. Heuvel <barryvdh@gmail.com>
     * @see https://github.com/barryvdh/laravel-ide-helper
@@ -46,6 +46,7 @@ namespace PHPSTORM_META {
         'SeoBuilder' => \Aut\SeoBuilder\SeoBuilder::class,
         'Spatie\Permission\Contracts\Permission' => \Modules\Utilities\Entities\Permission::class,
         'Spatie\Permission\Contracts\Role' => \Modules\Utilities\Entities\Role::class,
+        'Spatie\Permission\PermissionRegistrar' => \Spatie\Permission\PermissionRegistrar::class,
         'auth' => \Illuminate\Auth\AuthManager::class,
         'auth.driver' => \Illuminate\Auth\SessionGuard::class,
         'auth.password' => \Illuminate\Auth\Passwords\PasswordBrokerManager::class,
@@ -228,6 +229,7 @@ namespace PHPSTORM_META {
         'SeoBuilder' => \Aut\SeoBuilder\SeoBuilder::class,
         'Spatie\Permission\Contracts\Permission' => \Modules\Utilities\Entities\Permission::class,
         'Spatie\Permission\Contracts\Role' => \Modules\Utilities\Entities\Role::class,
+        'Spatie\Permission\PermissionRegistrar' => \Spatie\Permission\PermissionRegistrar::class,
         'auth' => \Illuminate\Auth\AuthManager::class,
         'auth.driver' => \Illuminate\Auth\SessionGuard::class,
         'auth.password' => \Illuminate\Auth\Passwords\PasswordBrokerManager::class,
@@ -410,6 +412,7 @@ namespace PHPSTORM_META {
         'SeoBuilder' => \Aut\SeoBuilder\SeoBuilder::class,
         'Spatie\Permission\Contracts\Permission' => \Modules\Utilities\Entities\Permission::class,
         'Spatie\Permission\Contracts\Role' => \Modules\Utilities\Entities\Role::class,
+        'Spatie\Permission\PermissionRegistrar' => \Spatie\Permission\PermissionRegistrar::class,
         'auth' => \Illuminate\Auth\AuthManager::class,
         'auth.driver' => \Illuminate\Auth\SessionGuard::class,
         'auth.password' => \Illuminate\Auth\Passwords\PasswordBrokerManager::class,
@@ -592,6 +595,7 @@ namespace PHPSTORM_META {
         'SeoBuilder' => \Aut\SeoBuilder\SeoBuilder::class,
         'Spatie\Permission\Contracts\Permission' => \Modules\Utilities\Entities\Permission::class,
         'Spatie\Permission\Contracts\Role' => \Modules\Utilities\Entities\Role::class,
+        'Spatie\Permission\PermissionRegistrar' => \Spatie\Permission\PermissionRegistrar::class,
         'auth' => \Illuminate\Auth\AuthManager::class,
         'auth.driver' => \Illuminate\Auth\SessionGuard::class,
         'auth.password' => \Illuminate\Auth\Passwords\PasswordBrokerManager::class,
@@ -774,6 +778,7 @@ namespace PHPSTORM_META {
         'SeoBuilder' => \Aut\SeoBuilder\SeoBuilder::class,
         'Spatie\Permission\Contracts\Permission' => \Modules\Utilities\Entities\Permission::class,
         'Spatie\Permission\Contracts\Role' => \Modules\Utilities\Entities\Role::class,
+        'Spatie\Permission\PermissionRegistrar' => \Spatie\Permission\PermissionRegistrar::class,
         'auth' => \Illuminate\Auth\AuthManager::class,
         'auth.driver' => \Illuminate\Auth\SessionGuard::class,
         'auth.password' => \Illuminate\Auth\Passwords\PasswordBrokerManager::class,
@@ -956,6 +961,7 @@ namespace PHPSTORM_META {
         'SeoBuilder' => \Aut\SeoBuilder\SeoBuilder::class,
         'Spatie\Permission\Contracts\Permission' => \Modules\Utilities\Entities\Permission::class,
         'Spatie\Permission\Contracts\Role' => \Modules\Utilities\Entities\Role::class,
+        'Spatie\Permission\PermissionRegistrar' => \Spatie\Permission\PermissionRegistrar::class,
         'auth' => \Illuminate\Auth\AuthManager::class,
         'auth.driver' => \Illuminate\Auth\SessionGuard::class,
         'auth.password' => \Illuminate\Auth\Passwords\PasswordBrokerManager::class,
@@ -1138,6 +1144,7 @@ namespace PHPSTORM_META {
         'SeoBuilder' => \Aut\SeoBuilder\SeoBuilder::class,
         'Spatie\Permission\Contracts\Permission' => \Modules\Utilities\Entities\Permission::class,
         'Spatie\Permission\Contracts\Role' => \Modules\Utilities\Entities\Role::class,
+        'Spatie\Permission\PermissionRegistrar' => \Spatie\Permission\PermissionRegistrar::class,
         'auth' => \Illuminate\Auth\AuthManager::class,
         'auth.driver' => \Illuminate\Auth\SessionGuard::class,
         'auth.password' => \Illuminate\Auth\Passwords\PasswordBrokerManager::class,

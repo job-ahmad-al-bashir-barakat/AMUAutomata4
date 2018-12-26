@@ -61,6 +61,7 @@ class TableFactory extends GlobalFactory
             ->addInputText(trans('utilities::app.pageable_column'), 'pageable_column', 'pageable_column')
             ->addSelect([0 => trans('utilities::app.no'), 1 => trans('utilities::app.yes')], trans('utilities::app.menuable'), 'menuable', 'menuable', 'isMenuable', 'center all')
             ->addSelect([0 => trans('utilities::app.no'), 1 => trans('utilities::app.yes')], trans('utilities::app.dynamic'), 'dynamic', 'dynamic', 'isDynamic', 'center all')
+//            ->addSelect(Table::menuableTypes, trans('utilities::app.menuable_type'), 'menuable_type', 'menuable_type', 'menuable_type', 'center all')
             ->addInputText(trans('utilities::app.morph_code'), 'morph_code', 'morph_code', 'center all')
             ->addActionButton(trans('utilities::app.created'), 'created', 'created', 'center all')
             ->addActionButton(trans('utilities::app.has-lang-table'), 'has_lang_table', 'has_lang_table', 'center all', '80px')

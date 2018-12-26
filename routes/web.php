@@ -6,7 +6,7 @@ Route::get('test', function () {
 
 Route::group(
     [
-        'middleware' => ['web', 'localeSessionRedirect', 'localizationRedirect'],
+        'middleware' => ['web', 'localeSessionRedirect', 'localizationRedirect', 'translateDynamicRoute'],
         'prefix' => LaravelLocalization::setLocale()
     ],
     function () {

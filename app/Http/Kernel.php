@@ -88,6 +88,7 @@ class Kernel extends HttpKernel
         /**
          *  App Middleware
          */
+        'translateDynamicRoute' => \Modules\Utilities\WebModules\Middleware\TranslateDynamicRoutes::class,
         'lock' => \App\Http\Middleware\LockScreen::class,
     ];
 }

@@ -88,7 +88,12 @@
             <span>{{ trans('utilities::app.menus') }}</span>
         </a>
         <ul id="menus" class="nav sidebar-subnav collapse">
-            <li class="sidebar-subnav-header">{{ trans('utilities::app.menus') }}</li>
+            <li class="sidebar-subnav-header">{{ trans('utilities::app.site-menu') }}</li>
+            <li class="">
+                <a href="{{ RouteUrls::siteMenu() }}" class="ajax" title="{{ trans('utilities::app.site-menu') }}">
+                    <span>{{ trans('utilities::app.site-menu') }}</span>
+                </a>
+            </li>
             @can('website-menu')
             <li class="">
                 <a href="{{ RouteUrls::listMenu() }}" class="ajax" title="{{ trans('utilities::app.list') }}">

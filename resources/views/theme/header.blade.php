@@ -62,7 +62,7 @@
                             <img  style="{{setting('moto_style')->value}}" src="{{ asset('images/university-moto-'.$lang.'.png') }}" alt="">
                         </a>
                         @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
-                            <a rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                            <a rel="alternate" hreflang="{{ $localeCode }}" href="{{ RouteUrls::translatedCurrentRoute($localeCode) }}">
                                 {{ $properties['native'] }}
                             </a>
                             @if($localeCode <> 'ar')

@@ -88,6 +88,7 @@ function () {
     Route::get('list/menu', 'UtilitiesController@table')->middleware('permission:website-menu')->name('table.list');
     Route::get('general/menu/{menu}', 'UtilitiesController@menu')->middleware('permission:website-menu')->name('menu.general');
     Route::get('control/menu/{menu}', 'UtilitiesController@menu')->middleware('permission:control-panel-menu')->name('menu.control');
+    Route::get('site-menu', 'SiteMenuController@index')->name('menu.site_menu');
 
     Route::put('{treeModel}/tree/order/{id?}', 'TreeController@order');
     Route::resource('{treeModel}/tree', 'TreeController');

@@ -20,6 +20,7 @@ class CreateTablesTable extends Migration {
 			$table->boolean('pageable');
 			$table->string('pageable_column', 191)->nullable();
 			$table->boolean('menuable');
+			$table->string('menuable_type')->nullable() ;
 			$table->boolean('dynamic')->default(0);
 			$table->string('morph_code', 191)->nullable();
 			$table->timestamps();

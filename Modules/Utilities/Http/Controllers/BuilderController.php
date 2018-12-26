@@ -155,38 +155,21 @@ class BuilderController extends Controller
 
     public function getMenu(Request $request)
     {
-        return [
-            'id' => 'done',
-            'page_id' => 'done',
-            'optional_id' => 'done',
-            'table_name' => 'done',
-            'color'      => 2,
-            'image_id' => 60,
-            'menu_id' => 1,
-            'menu' => collect([
-                'lang_name' => collect([
-                    'ar' => collect([
-                        'text' => 'القائمة الرئيسية'
-                    ])
-                ])
-            ])
-        ];
+        $tableName = $request->get('table_name');
+        $pageId = $request->get('page_id');
+        $optionalId = $request->get('optional_id', false);
+        $morph = Table::whereTableName($tableName)->first()->morph_code;
 
-//        $tableName = $request->get('table_name');
-//        $pageId = $request->get('page_id');
-//        $optionalId = $request->get('optional_id', false);
-//        $morph = Table::whereTableName($tableName)->first()->morph_code;
-//
-//        $query = MenuPage::with('menu')->whereBuildableId($pageId)->whereBuildableType($morph);
-//
-//        if ($optionalId) {
-//            $query->whereOptionalId($optionalId);
-//        } else {
-//            $query->whereNull('optional_id');
-//        }
-//        $menu = $query->get()->first();
-//
-//        return $menu;
+        $query = MenuPage::with('menu')->whereBuildableId($pageId)->whereBuildableType($morph);
+
+        if ($optionalId) {
+            $query->whereOptionalId($optionalId);
+        } else {
+            $query->whereNull('optional_id');
+        }
+        $menu = $query->get()->first();
+
+        return $menu;
     }
 
     public function storeMenu(Request $request)
@@ -204,7 +187,6 @@ class BuilderController extends Controller
 
         $data['buildable_type'] = $buildableType;
         $data['buildable_id'] = $buildableId;
-
 
         $menu = MenuPage::create($data);
 

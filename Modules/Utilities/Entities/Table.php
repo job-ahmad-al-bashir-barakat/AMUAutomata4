@@ -19,7 +19,14 @@ class Table extends Model
 {
     use MultiLangs;
 
-    protected $fillable = ['table_name', 'namespace', 'pageable', 'pageable_column', 'menuable', 'morph_code', 'dynamic'];
+    const menuableTypes = [
+        'pages' => 'pages',// the records are pages not shown in menu
+        'links' => 'links',// the record is link
+        'list' => 'list',// the records are dropdown menu
+        'listable' => 'listable',// this record is list contain something
+    ];
+
+    protected $fillable = ['table_name', 'namespace', 'pageable', 'pageable_column', 'menuable', 'morph_code', 'menuable_type', 'dynamic'];
 
     protected $appends = ['lang_name', 'pageable_columns'];
 

@@ -105,6 +105,8 @@ return [
     'steps'                  => 'Steps',
     'details'                => 'Details',
     'preview'                => 'Preview',
+    'menuable_type'                => 'Menuable Type',
+    'site-menu'                => 'Site Menu',
 
     'expand_all'                => 'Expand All',
     'collapse_all'              => 'Collapse All',

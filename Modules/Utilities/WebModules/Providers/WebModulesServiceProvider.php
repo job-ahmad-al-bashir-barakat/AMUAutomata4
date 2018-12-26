@@ -42,10 +42,11 @@ class WebModulesServiceProvider extends ServiceProvider
     {
         if (!app()->runningInConsole())
         {
-            $appLocale = app()->getLocale();
-            app()->setLocale($this->defaultLocal);
+//            $appLocale = app()->getLocale();
+//            app()->setLocale($this->defaultLocal);
+            $this->defaultLocal = app()->getLocale();
             $this->buildMenuRoutes(SiteMenu::all()->toTree());
-            app()->setLocale($appLocale);
+//            app()->setLocale($appLocale);
         }
     }
 
@@ -59,7 +60,6 @@ class WebModulesServiceProvider extends ServiceProvider
                 }
                 if ($item->menuable_type == 'faculty') {
                     $urlPrefix = 'faculty/';
-                    $route = '{' . $item->menuable_type . '}';
                 }
                 $this->registerLangRoutes("{$urlPrefix}{$route}", "{$item->menuable_type}.{$item->menuable_id}.{$optional}");
             }
@@ -83,7 +83,6 @@ class WebModulesServiceProvider extends ServiceProvider
     {
         $supportedLanguages = LaravelLocalization::getSupportedLanguagesKeys();
         foreach ($supportedLanguages as $supportedLanguage) {
-//            logger('routes', ["{$supportedLanguage}/{$url}", $name]);
             Route::get("{$supportedLanguage}/{$url}", function (){
                 $menu = $this->getPageMenu();
                 $color = $this->color;
@@ -91,7 +90,7 @@ class WebModulesServiceProvider extends ServiceProvider
                 $modules = BuilderPage::pageModules()->get()->pluck('module');
                 $seo = Seo::with(['graphImage', 'cardImage'])->pageSeo()->first();
                 return view("modules", compact('menu', 'modules', 'seo', 'color', 'logoPath'));
-            })->name($name);
+            })->name($name)->middleware(['translateDynamicRoute']);
         }
     }
 

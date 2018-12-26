@@ -104,6 +104,8 @@ return [
     'steps'                  => 'خطوات',
     'details'                => 'تفاصيل',
     'preview'                => 'معاينة',
+    'menuable_type'                => 'نوع القائمة',
+    'site-menu'                => 'قائمة الموقع',
 
     'expand_all'             => 'فتح الجميع',
     'collapse_all'           => 'اغلاق الجميع',

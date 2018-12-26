@@ -2,6 +2,9 @@
 
 namespace App\Library\Url;
 
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+use Modules\Utilities\Entities\Table;
+
 class RouteUrls
 {
 
@@ -337,6 +340,11 @@ class RouteUrls
         return $this->localizeUrl("list/menu" ,'utilities');
     }
 
+    public function siteMenu()
+    {
+        return $this->localizeUrl("site-menu" ,'utilities');
+    }
+
     public function generalMenu($type = '')
     {
         return $this->localizeUrl("general/menu/$type" ,'utilities');
@@ -400,5 +408,23 @@ class RouteUrls
     public function newsPage($news)
     {
         return $this->localizeUrl("news/$news");
+    }
+
+    public function translatedCurrentRoute($localeCode)
+    {
+        if (request()->route()->getName()) {
+            list($morph, $id, $optional) = explode('.', request()->route()->getName());
+            if ($morph === 'faculty') {
+                $table = Table::whereMorphCode($morph)->get()->first();
+                $model = $table->namespace;
+                $data = $model::translated($localeCode)->where('id', $id)->get()->first();
+                if ($localeCode != app()->getLocale()) {
+                    $url = getSlug($data->id, $data->lang_name[$localeCode]->text);
+                    return LaravelLocalization::getLocalizedURL($localeCode, "faculty/{$url}", [], true);
+                }
+            }
+        }
+
+        return LaravelLocalization::getLocalizedURL($localeCode, null, [], true);
     }
 }
