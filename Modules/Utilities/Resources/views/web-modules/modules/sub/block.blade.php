@@ -9,7 +9,7 @@
                                 <a href="#" class="icon mb-0">
                                     <i class="text-theme-colored {{ $block->icon->code }} font-72"></i>
                                 </a>
-                                <h3 class="icon-box-title text-theme-colored">{{ $block->lang_title[$lang]->text }}</h3>
+                                {{--<h3 class="icon-box-title text-theme-colored">{{ $block->lang_title[$lang]->text }}</h3>--}}
                             </div>
                         </div>
                     </div>

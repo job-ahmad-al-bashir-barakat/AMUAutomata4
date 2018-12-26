@@ -24,7 +24,7 @@
             <p class="mt-10">
                 {{ $news->lang_description[$lang]->text }}
             </p>
-            <a href="{{ RouteUrls::newsPage(getSlug($news->id, $news->lang_title[$lang]->text)) }}" class="btn-read-more">Read more</a>
+            <a href="{{ RouteUrls::newsPage(getSlug($news->id, $news->lang_title[$lang]->text)) }}" class="btn-read-more">{{trans('utilities::web-modules.read_more')}}</a>
             <div class="clearfix"></div>
         </div>
     </article>

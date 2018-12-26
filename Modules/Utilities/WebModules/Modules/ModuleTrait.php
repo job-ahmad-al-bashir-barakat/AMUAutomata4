@@ -104,6 +104,8 @@ trait ModuleTrait
                 return new NewsPageModule();
             case 39:
                 return new LatestNewsModule();
+            case 40:
+                return new EmptyBlockModule();
             default:
                 throw new \Exception("Undefined Web Module [id:$moduleId]");
         }
@@ -203,6 +205,8 @@ trait ModuleTrait
                 return new NewsPageModule();
             case 'latest_news':
                 return new LatestNewsModule();
+            case 'empty_block':
+                return new EmptyBlockModule();
             default:
                 throw new \Exception("Undefined Web Module [$moduleCode]");
         }
