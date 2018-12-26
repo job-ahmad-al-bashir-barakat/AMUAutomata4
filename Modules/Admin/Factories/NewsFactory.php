@@ -41,7 +41,7 @@ class NewsFactory extends GlobalFactory
             ->addMultiTextareaLangs(['description'])
             ->setGridNormalCol(12)
             ->addMultiTextareaLangs(['content'], 'd:tabs text-editor d:noLabel none')
-            ->addInputDate(trans('admin::app.publish_date'), 'publish_date', 'publish_date')
+            ->addInputDate(trans('admin::app.publish_date'), 'publish_date', 'publish_date','req required')
 //            ->addActionButton(trans('admin::app.review'), 'review', 'review', 'center all', '80px')
             ->addActionButton(trans('admin::app.upload_images') ,'upload_image' ,'upload_image','center all' ,'100px')
             ->addActionButton($this->update, 'update', 'update')
