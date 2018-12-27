@@ -1,4 +1,4 @@
-@if($data && !$data->count())
+@if($data && $data->count())
     @php($value = [[$data->id => $data->lang_name[app()->getLocale()]->text]])
 @else
     @php($value = [])
