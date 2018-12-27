@@ -79,7 +79,14 @@ class LoadMoreController extends Controller
 
     private function getQueryBuilderFacultyInstructors($model)
     {
-        return $model::staff()->paginate(8);
+        $facultyId = request()->get('faculty_id');
+        $query = $model::staff();
+
+        if ($facultyId) {
+            $query->whereFacultyId($facultyId);
+        }
+
+        return $query->paginate(8);
     }
 
     private function getQueryBuilderCourses($model)

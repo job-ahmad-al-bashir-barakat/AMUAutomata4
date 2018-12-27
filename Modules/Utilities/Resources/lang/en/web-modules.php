@@ -26,6 +26,7 @@ return [
     'course' => 'Course',
 
     'degrees' => 'Degrees',
+    'faculty' => 'Faculty',
     'name' => 'Name',
     'latest' => 'Latest',
     'news' => 'News',

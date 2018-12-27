@@ -68,6 +68,8 @@ trait AttributeTrait
                 return new ImageAttribute();
             case '24':
                 return new CourseAttribute();
+            case '25':
+                return new FacultyAttribute();
             default:
                 throw new \Exception('Undefined Attributes');
         }
@@ -131,6 +133,8 @@ trait AttributeTrait
                 return new ImageAttribute();
             case 'course':
                 return new CourseAttribute();
+            case 'faculty':
+                return new FacultyAttribute();
             default:
                 throw new \Exception('Undefined Attributes');
         }
