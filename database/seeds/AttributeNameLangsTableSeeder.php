@@ -423,8 +423,8 @@ class AttributeNameLangsTableSeeder extends Seeder
                 'attribute_id' => 21,
                 'lang_id' => 1,
                 'text' => 'Galleries',
-                'created_at' => '2018-03-31 17:37:45',
-                'updated_at' => '2018-03-31 17:37:45',
+                'created_at' => '2018-03-31 18:37:45',
+                'updated_at' => '2018-03-31 18:37:45',
                 'deleted_at' => NULL,
             ),
             41 => 
@@ -433,8 +433,8 @@ class AttributeNameLangsTableSeeder extends Seeder
                 'attribute_id' => 21,
                 'lang_id' => 2,
                 'text' => 'معارض الصور',
-                'created_at' => '2018-03-31 17:37:45',
-                'updated_at' => '2018-03-31 17:37:45',
+                'created_at' => '2018-03-31 18:37:45',
+                'updated_at' => '2018-03-31 18:37:45',
                 'deleted_at' => NULL,
             ),
             42 => 
@@ -495,6 +495,26 @@ class AttributeNameLangsTableSeeder extends Seeder
                 'text' => 'مقرر',
                 'created_at' => '2018-05-20 15:25:51',
                 'updated_at' => '2018-05-20 15:25:51',
+                'deleted_at' => NULL,
+            ),
+            48 => 
+            array (
+                'id' => 51,
+                'attribute_id' => 25,
+                'lang_id' => 1,
+                'text' => 'Faculty',
+                'created_at' => '2018-12-27 05:16:05',
+                'updated_at' => '2018-12-27 05:16:05',
+                'deleted_at' => NULL,
+            ),
+            49 => 
+            array (
+                'id' => 52,
+                'attribute_id' => 25,
+                'lang_id' => 2,
+                'text' => 'الكلية',
+                'created_at' => '2018-12-27 05:16:05',
+                'updated_at' => '2018-12-27 05:16:05',
                 'deleted_at' => NULL,
             ),
         ));

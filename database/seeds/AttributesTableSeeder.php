@@ -181,8 +181,8 @@ class AttributesTableSeeder extends Seeder
             array (
                 'id' => 21,
                 'code' => 'galleries',
-                'created_at' => '2018-03-31 17:37:45',
-                'updated_at' => '2018-03-31 17:37:45',
+                'created_at' => '2018-03-31 18:37:45',
+                'updated_at' => '2018-03-31 18:37:45',
                 'deleted_at' => NULL,
             ),
             21 => 
@@ -207,6 +207,14 @@ class AttributesTableSeeder extends Seeder
                 'code' => 'course',
                 'created_at' => '2018-05-20 15:25:51',
                 'updated_at' => '2018-05-20 15:25:51',
+                'deleted_at' => NULL,
+            ),
+            24 => 
+            array (
+                'id' => 25,
+                'code' => 'faculty',
+                'created_at' => '2018-12-27 05:16:05',
+                'updated_at' => '2018-12-27 05:16:05',
                 'deleted_at' => NULL,
             ),
         ));

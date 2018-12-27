@@ -77,6 +77,26 @@ class StatusNameLangsTableSeeder extends Seeder
                 'updated_at' => '2018-05-13 15:38:24',
                 'deleted_at' => NULL,
             ),
+            6 => 
+            array (
+                'id' => 7,
+                'status_id' => 4,
+                'lang_id' => 1,
+                'text' => '1',
+                'created_at' => '2018-11-26 19:24:21',
+                'updated_at' => '2018-11-26 19:24:21',
+                'deleted_at' => NULL,
+            ),
+            7 => 
+            array (
+                'id' => 8,
+                'status_id' => 4,
+                'lang_id' => 2,
+                'text' => '2',
+                'created_at' => '2018-11-26 19:24:22',
+                'updated_at' => '2018-11-26 19:24:22',
+                'deleted_at' => NULL,
+            ),
         ));
         
         

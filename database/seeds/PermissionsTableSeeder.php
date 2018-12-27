@@ -413,8 +413,8 @@ class PermissionsTableSeeder extends Seeder
                 'name' => 'galleries',
                 'guard_name' => 'web',
                 'hidden' => 'N',
-                'created_at' => '2018-03-30 05:13:30',
-                'updated_at' => '2018-03-30 05:13:30',
+                'created_at' => '2018-03-30 06:13:30',
+                'updated_at' => '2018-03-30 06:13:30',
                 'deleted_at' => NULL,
             ),
             40 => 
@@ -455,6 +455,16 @@ class PermissionsTableSeeder extends Seeder
                 'hidden' => 'N',
                 'created_at' => '2018-11-03 15:05:04',
                 'updated_at' => '2018-11-03 15:05:04',
+                'deleted_at' => NULL,
+            ),
+            44 => 
+            array (
+                'id' => 45,
+                'name' => 'management-staff',
+                'guard_name' => 'web',
+                'hidden' => 'N',
+                'created_at' => '2018-12-02 07:53:21',
+                'updated_at' => '2018-12-02 07:53:21',
                 'deleted_at' => NULL,
             ),
         ));

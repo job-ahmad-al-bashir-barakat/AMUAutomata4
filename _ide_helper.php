@@ -3,7 +3,7 @@
 
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.7.14 on 2018-12-25 06:55:14.
+ * Generated for Laravel 5.7.14 on 2018-12-27 06:30:54.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -18437,6 +18437,16 @@ namespace App\Library\Url\Facades {
         public static function newsPage($news)
         {
             return \App\Library\Url\RouteUrls::newsPage($news);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function translatedCurrentRoute($localeCode)
+        {
+            return \App\Library\Url\RouteUrls::translatedCurrentRoute($localeCode);
         }
          
     }

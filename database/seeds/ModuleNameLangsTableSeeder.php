@@ -603,8 +603,8 @@ class ModuleNameLangsTableSeeder extends Seeder
                 'module_id' => 30,
                 'lang_id' => 1,
                 'text' => 'Galleries',
-                'created_at' => '2018-03-31 17:46:23',
-                'updated_at' => '2018-03-31 17:46:23',
+                'created_at' => '2018-03-31 18:46:23',
+                'updated_at' => '2018-03-31 18:46:23',
                 'deleted_at' => NULL,
             ),
             59 => 
@@ -613,8 +613,8 @@ class ModuleNameLangsTableSeeder extends Seeder
                 'module_id' => 30,
                 'lang_id' => 2,
                 'text' => 'معارض الصور',
-                'created_at' => '2018-03-31 17:46:23',
-                'updated_at' => '2018-03-31 17:46:23',
+                'created_at' => '2018-03-31 18:46:23',
+                'updated_at' => '2018-03-31 18:46:23',
                 'deleted_at' => NULL,
             ),
             60 => 
@@ -775,6 +775,46 @@ class ModuleNameLangsTableSeeder extends Seeder
                 'text' => 'محتوى الخبر',
                 'created_at' => '2018-06-01 06:46:58',
                 'updated_at' => '2018-06-01 06:46:58',
+                'deleted_at' => NULL,
+            ),
+            76 => 
+            array (
+                'id' => 97,
+                'module_id' => 39,
+                'lang_id' => 1,
+                'text' => 'Latest News',
+                'created_at' => '2018-12-05 06:31:39',
+                'updated_at' => '2018-12-05 06:31:39',
+                'deleted_at' => NULL,
+            ),
+            77 => 
+            array (
+                'id' => 98,
+                'module_id' => 39,
+                'lang_id' => 2,
+                'text' => 'آخر الأخبار',
+                'created_at' => '2018-12-05 06:31:39',
+                'updated_at' => '2018-12-05 06:31:39',
+                'deleted_at' => NULL,
+            ),
+            78 => 
+            array (
+                'id' => 99,
+                'module_id' => 40,
+                'lang_id' => 1,
+                'text' => 'Empty Block',
+                'created_at' => '2018-12-25 06:06:54',
+                'updated_at' => '2018-12-25 06:06:54',
+                'deleted_at' => NULL,
+            ),
+            79 => 
+            array (
+                'id' => 100,
+                'module_id' => 40,
+                'lang_id' => 2,
+                'text' => 'كتل فارغة',
+                'created_at' => '2018-12-25 06:06:54',
+                'updated_at' => '2018-12-25 06:06:54',
                 'deleted_at' => NULL,
             ),
         ));

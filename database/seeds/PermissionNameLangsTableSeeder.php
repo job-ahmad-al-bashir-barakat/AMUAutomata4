@@ -362,9 +362,9 @@ class PermissionNameLangsTableSeeder extends Seeder
                 'id' => 35,
                 'permission_id' => 18,
                 'lang_id' => 1,
-                'text' => 'Page Builder',
+                'text' => 'Page Content',
                 'created_at' => '2018-03-17 07:24:44',
-                'updated_at' => '2018-03-17 07:24:44',
+                'updated_at' => '2018-12-02 10:46:06',
                 'deleted_at' => NULL,
             ),
             35 => 
@@ -372,9 +372,9 @@ class PermissionNameLangsTableSeeder extends Seeder
                 'id' => 36,
                 'permission_id' => 18,
                 'lang_id' => 2,
-                'text' => 'باني الصفحات',
+                'text' => 'محتوى الصفحات',
                 'created_at' => '2018-03-17 07:24:44',
-                'updated_at' => '2018-03-17 07:24:44',
+                'updated_at' => '2018-12-02 10:46:06',
                 'deleted_at' => NULL,
             ),
             36 => 
@@ -803,8 +803,8 @@ class PermissionNameLangsTableSeeder extends Seeder
                 'permission_id' => 40,
                 'lang_id' => 1,
                 'text' => 'Galleries',
-                'created_at' => '2018-03-30 05:13:30',
-                'updated_at' => '2018-03-30 05:13:30',
+                'created_at' => '2018-03-30 06:13:30',
+                'updated_at' => '2018-03-30 06:13:30',
                 'deleted_at' => NULL,
             ),
             79 => 
@@ -813,8 +813,8 @@ class PermissionNameLangsTableSeeder extends Seeder
                 'permission_id' => 40,
                 'lang_id' => 2,
                 'text' => 'معرض الصور',
-                'created_at' => '2018-03-30 05:13:30',
-                'updated_at' => '2018-03-30 05:13:30',
+                'created_at' => '2018-03-30 06:13:30',
+                'updated_at' => '2018-03-30 06:13:30',
                 'deleted_at' => NULL,
             ),
             80 => 
@@ -895,6 +895,26 @@ class PermissionNameLangsTableSeeder extends Seeder
                 'text' => 'الحرم الجامعي',
                 'created_at' => '2018-11-03 15:05:04',
                 'updated_at' => '2018-11-03 15:05:04',
+                'deleted_at' => NULL,
+            ),
+            88 => 
+            array (
+                'id' => 89,
+                'permission_id' => 45,
+                'lang_id' => 1,
+                'text' => 'Management Staff',
+                'created_at' => '2018-12-02 07:53:21',
+                'updated_at' => '2018-12-02 07:53:21',
+                'deleted_at' => NULL,
+            ),
+            89 => 
+            array (
+                'id' => 90,
+                'permission_id' => 45,
+                'lang_id' => 2,
+                'text' => 'الكادر الإداري',
+                'created_at' => '2018-12-02 07:53:22',
+                'updated_at' => '2018-12-02 07:53:22',
                 'deleted_at' => NULL,
             ),
         ));
