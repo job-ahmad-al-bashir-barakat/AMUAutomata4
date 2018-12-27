@@ -11,7 +11,7 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use Modules\Utilities\Entities\MenuPage;
 use Modules\Utilities\Entities\SiteMenu;
 
-class WebModulesServiceProvider extends ServiceProvider
+class TranslateDynamicRoutes extends ServiceProvider
 {
 
     /**
