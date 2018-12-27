@@ -43,27 +43,25 @@
             </div>
         </div>
     @endif
-    @if($person->contact->gelocation)
-    <div class="col-md-4">
-        <h4 class="line-bottom">@lang('app.find_location'):</h4>
-        <div
-                data-address="121 King Street, Melbourne Victoria 3000 Australia"
-                data-popupstring-id="#popupstring1"
-                class="map-canvas autoload-map"
-                data-mapstyle="style1"
-                data-height="335"
-                data-latlng="{{ $person->contact->gelocation }}"
-                data-title=""
-                data-zoom="14"
-                data-marker="images/map-marker.png">
-        </div>
-        <div class="map-popupstring hidden" id="popupstring1">
-            <div class="text-center">
-                <h3>CharityFund Office</h3>
-                <p>121 King Street, Melbourne Victoria 3000 Australia</p>
+    @if($person->researches->count())
+        <div class="col-md-4">
+            <h4 class="line-bottom">@lang('app.researches'):</h4>
+            <div class="volunteer-address">
+                <ul>
+
+                    <li>
+                        <div class="bg-light media border-bottom p-15 mb-20">
+                            <div class="media-body">
+                                @foreach($person->researches as $research)
+                                <p>{!! $research->lang_name[$lang]->text !!} <a href="{{ $research->url }}" target="_blank">{{ $research->lang_journal[$lang]->text }}</a></p>
+                                @endforeach
+                            </div>
+                        </div>
+                    </li>
+
+                </ul>
             </div>
         </div>
-    </div>
     @endif
     <div class="col-md-4 pull-{{ $dir === 'rtl'? 'left' : 'right' }}">
         <h4 class="line-bottom">@lang('admin::app.contact'):</h4>
@@ -101,4 +99,27 @@
             </ul>
         </div>
     </div>
+    @if($person->contact->gelocation)
+        <div class="clearfix"></div>
+        <div class="col-md-4">
+            <h4 class="line-bottom">@lang('app.find_location'):</h4>
+            <div
+                    data-address="121 King Street, Melbourne Victoria 3000 Australia"
+                    data-popupstring-id="#popupstring1"
+                    class="map-canvas autoload-map"
+                    data-mapstyle="style1"
+                    data-height="335"
+                    data-latlng="{{ $person->contact->gelocation }}"
+                    data-title=""
+                    data-zoom="14"
+                    data-marker="images/map-marker.png">
+            </div>
+            <div class="map-popupstring hidden" id="popupstring1">
+                <div class="text-center">
+                    <h3>CharityFund Office</h3>
+                    <p>121 King Street, Melbourne Victoria 3000 Australia</p>
+                </div>
+            </div>
+        </div>
+    @endif
 </div>

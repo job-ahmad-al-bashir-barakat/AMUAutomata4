@@ -88,5 +88,6 @@ return array (
     */
     'page_not_found' => 'Oops! Page Not Found',
     'return_home'    => 'Return Home',
-    'go_back'        => 'Go Back'
+    'go_back'        => 'Go Back',
+    'researches'        => 'Researches',
 );

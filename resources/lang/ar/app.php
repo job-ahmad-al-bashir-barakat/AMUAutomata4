@@ -89,5 +89,5 @@ return array (
     'page_not_found' => 'الصفحة غير موجودة',
     'return_home'    => 'عودة إلى الصفحة الرئيسية',
     'go_back'        => 'رجوع',
-
+    'researches'        => 'الابحاث',
 );
