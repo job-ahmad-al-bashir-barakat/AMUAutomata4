@@ -29,7 +29,7 @@ class Person extends Model
 
     protected $appends = ['lang_name' ,'lang_summary', 'lang_experience', 'image_path'];
 
-    protected $with = ['gender', 'position', 'jobTitle', 'contact.socialNetwork', 'image_260', 'image_360', 'faculty'];
+    protected $with = ['gender', 'position', 'jobTitle', 'contact.socialNetwork', 'image_260', 'image_360', 'faculty', 'researches'];
 
     protected static function boot()
     {
@@ -129,6 +129,11 @@ class Person extends Model
     function faculty()
     {
         return $this->belongsTo(Faculty::class);
+    }
+
+    function researches()
+    {
+        return $this->hasMany(Research::class);
     }
 
     function image_260()
