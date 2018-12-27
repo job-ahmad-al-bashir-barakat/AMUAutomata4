@@ -2567,6 +2567,36 @@ class CustomModuleAttributeValuesTableSeeder extends Seeder
                 'updated_at' => '2018-12-27 05:50:25',
                 'deleted_at' => NULL,
             ),
+            255 => 
+            array (
+                'id' => 273,
+                'custom_module_id' => 81,
+                'attribute_id' => 1,
+                'value' => 'E',
+                'created_at' => '2018-12-27 09:11:55',
+                'updated_at' => '2018-12-27 09:11:55',
+                'deleted_at' => NULL,
+            ),
+            256 => 
+            array (
+                'id' => 274,
+                'custom_module_id' => 81,
+                'attribute_id' => 2,
+                'value' => '12',
+                'created_at' => '2018-12-27 09:11:55',
+                'updated_at' => '2018-12-27 09:11:55',
+                'deleted_at' => NULL,
+            ),
+            257 => 
+            array (
+                'id' => 275,
+                'custom_module_id' => 81,
+                'attribute_id' => 25,
+                'value' => '1',
+                'created_at' => '2018-12-27 09:11:55',
+                'updated_at' => '2018-12-27 09:11:55',
+                'deleted_at' => NULL,
+            ),
         ));
         
         

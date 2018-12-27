@@ -998,6 +998,33 @@ class ModuleAttributeTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
+            109 => 
+            array (
+                'id' => 119,
+                'module_id' => 41,
+                'attribute_id' => 1,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+                'deleted_at' => NULL,
+            ),
+            110 => 
+            array (
+                'id' => 120,
+                'module_id' => 41,
+                'attribute_id' => 2,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+                'deleted_at' => NULL,
+            ),
+            111 => 
+            array (
+                'id' => 121,
+                'module_id' => 41,
+                'attribute_id' => 25,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+                'deleted_at' => NULL,
+            ),
         ));
         
         
