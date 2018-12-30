@@ -427,6 +427,16 @@ class ModulesTableSeeder extends Seeder
                 'updated_at' => '2018-12-27 09:01:57',
                 'deleted_at' => NULL,
             ),
+            41 => 
+            array (
+                'id' => 42,
+                'image_id' => NULL,
+                'code' => 'calender',
+                'customized' => '1',
+                'created_at' => '2018-12-30 10:04:47',
+                'updated_at' => '2018-12-30 10:04:47',
+                'deleted_at' => NULL,
+            ),
         ));
         
         

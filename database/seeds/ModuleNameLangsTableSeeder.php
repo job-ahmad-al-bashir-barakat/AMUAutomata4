@@ -837,6 +837,26 @@ class ModuleNameLangsTableSeeder extends Seeder
                 'updated_at' => '2018-12-27 09:01:57',
                 'deleted_at' => NULL,
             ),
+            82 => 
+            array (
+                'id' => 103,
+                'module_id' => 42,
+                'lang_id' => 1,
+                'text' => 'Calender',
+                'created_at' => '2018-12-30 10:04:47',
+                'updated_at' => '2018-12-30 10:04:47',
+                'deleted_at' => NULL,
+            ),
+            83 => 
+            array (
+                'id' => 104,
+                'module_id' => 42,
+                'lang_id' => 2,
+                'text' => 'التقويم',
+                'created_at' => '2018-12-30 10:04:47',
+                'updated_at' => '2018-12-30 10:04:47',
+                'deleted_at' => NULL,
+            ),
         ));
         
         

@@ -633,6 +633,14 @@ class CustomModulesTableSeeder extends Seeder
                 'updated_at' => '2018-12-27 09:11:54',
                 'deleted_at' => NULL,
             ),
+            77 => 
+            array (
+                'id' => 82,
+                'module_id' => 42,
+                'created_at' => '2018-12-30 10:21:28',
+                'updated_at' => '2018-12-30 10:21:28',
+                'deleted_at' => NULL,
+            ),
         ));
         
         
