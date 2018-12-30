@@ -154,6 +154,7 @@
         'steps',
         'text-cards',
         'galleries',
+        'calendar',
         'custom-modules',
         'page-builder',
     ]))
@@ -203,6 +204,13 @@
             <li class="">
                 <a href="{{ RouteUrls::galleries() }}" class="ajax" title="{{ trans('utilities::app.galleries') }}">
                     <span>{{ trans('utilities::app.galleries') }}</span>
+                </a>
+            </li>
+            @endcan
+            @can('calendar')
+            <li class="">
+                <a href="{{ RouteUrls::eventGroups() }}" class="ajax" title="{{ trans('utilities::app.calender') }}">
+                    <span>{{ trans('utilities::app.calender') }}</span>
                 </a>
             </li>
             @endcan

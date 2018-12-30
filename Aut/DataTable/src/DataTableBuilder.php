@@ -749,6 +749,53 @@ class DataTableBuilder
      * @param bool $printable
      * @return $this
      */
+    function addInputColor
+    (
+        $title      = '',
+        $data       = '',
+        $name       = '',
+        $colClass   = '',
+        $dialogAttr = '',
+        $colWidth   = '',
+        $visible    = true,
+        $orderable  = true,
+        $searchable = true,
+        $choosen    = true,
+        $printable  = true
+    )
+    {
+        $this->addField([
+            "type"       => 'color',
+            "title"      => $title,
+            "data"       => $data,
+            "name"       => $name,
+            "class"      => $colClass,
+            "width"      => $colWidth,
+            "attr"       => $dialogAttr,
+            "visible"    => $visible,
+            "orderable"  => $orderable,
+            "searchable" => $searchable,
+            "choosen"    => $choosen,
+            "printable"  => $printable,
+        ]);
+
+        return $this;
+    }
+
+    /**
+     * @param string $title
+     * @param string $data
+     * @param string $name
+     * @param string $colClass
+     * @param string $dialogAttr
+     * @param string $colWidth
+     * @param bool $visible
+     * @param bool $orderable
+     * @param bool $searchable
+     * @param bool $choosen
+     * @param bool $printable
+     * @return $this
+     */
     function addInputTime
     (
         $title      = '',
@@ -2340,6 +2387,7 @@ class DataTableBuilder
             case 'month' :
             case 'week' :
             case 'email' :
+            case 'color' :
             case 'url' : {
                 if (!$this->optionDatatableConfig['disableDialog'])
                     $isCustom = $this->_Input($param["title"], $id, $name, $this->params['value'], $param["type"], $class, $class_attr['attr'], $this->isCustom);

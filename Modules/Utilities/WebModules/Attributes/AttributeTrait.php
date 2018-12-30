@@ -70,6 +70,8 @@ trait AttributeTrait
                 return new CourseAttribute();
             case '25':
                 return new FacultyAttribute();
+            case '26':
+                return new EventsGroupsAttribute();
             default:
                 throw new \Exception('Undefined Attributes');
         }
@@ -135,6 +137,8 @@ trait AttributeTrait
                 return new CourseAttribute();
             case 'faculty':
                 return new FacultyAttribute();
+            case 'events_groups':
+                return new EventsGroupsAttribute();
             default:
                 throw new \Exception('Undefined Attributes');
         }

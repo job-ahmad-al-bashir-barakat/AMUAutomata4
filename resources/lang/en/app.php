@@ -28,6 +28,9 @@ return array (
     'waiting' => 'Waiting',
     'content' => 'Content',
     'experience' => 'Experiences',
+    'color' => 'Color',
+    'start_date' => 'Start Date',
+    'end_date' => 'ENd Date',
     'oper' =>
         array (
             'success' => 'Operation done successfuly',

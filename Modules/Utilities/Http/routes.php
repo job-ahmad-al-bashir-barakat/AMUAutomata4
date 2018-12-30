@@ -55,6 +55,7 @@ function () {
         Route::get('text-cards', 'BuilderController@textCards')->middleware('permission:text-cards')->name('text-cards');
 
         Route::get('galleries', 'BuilderController@galleries')->middleware('permission:galleries')->name('galleries');
+        Route::get('event-groups', 'BuilderController@eventGroups')->name('event_groups');
     });
 
     Route::group(['prefix' => 'attribute'], function () {

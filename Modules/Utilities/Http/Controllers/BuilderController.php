@@ -333,4 +333,20 @@ class BuilderController extends Controller
             'subPage' => $subPage,
         ]);
     }
+
+    /**
+     * Calender
+     */
+    public function eventGroups()
+    {
+        $view = 'event-groups';
+        $subPage = \View::exists("utilities::page.table-sub.$view") ? "utilities::page.table-sub.$view" : false;
+
+        return view('utilities::page.table',[
+            'table' => 'event-groups',
+            'param' => '',
+            'title' => trans('utilities::app.calender'),
+            'subPage' => $subPage,
+        ]);
+    }
 }

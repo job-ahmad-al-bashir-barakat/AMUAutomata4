@@ -23,6 +23,7 @@ return [
     'galleries' => 'معارض الصور',
     'geolocation' => 'الموقع الجفرافي',
     'course' => 'المقرر',
+    'events_groups' => 'مجموعات الاحداث',
 
     'degrees' => 'الشهادات',
     'faculty' => 'الكلية',

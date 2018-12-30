@@ -74,6 +74,16 @@ return [
         'factory'       => Modules\Utilities\Factories\GalleryFactory::class
     ],
 
+    'event-groups' => [
+        'model'         => Modules\Utilities\Entities\EventGroup::class,
+        'factory'       => Modules\Utilities\Factories\EventGroupFactory::class
+    ],
+
+    'events' => [
+        'model'         => Modules\Utilities\Entities\Event::class,
+        'factory'       => Modules\Utilities\Factories\EventsFactory::class
+    ],
+
     'custom-modules' => [
         'model'         => Modules\Utilities\Entities\CustomModule::class,
         'factory'       => Modules\Utilities\Factories\CustomModuleFactory::class

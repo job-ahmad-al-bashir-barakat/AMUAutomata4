@@ -17,6 +17,8 @@ return [
     'active'                 => 'مفعل',
     'yes'                    => 'نعم',
     'no'                     => 'لا',
+    'calender'               => 'التقويم',
+    'events'                 => 'الاخداث',
 
     'tables'                 => 'الجداول',
     'table_name'             => 'اسم الجدول',

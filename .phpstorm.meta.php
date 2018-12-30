@@ -5,7 +5,7 @@ namespace PHPSTORM_META {
 
    /**
     * PhpStorm Meta file, to provide autocomplete information for PhpStorm
-    * Generated on 2018-12-27 14:02:02.
+    * Generated on 2018-12-30 14:01:12.
     *
     * @author Barry vd. Heuvel <barryvdh@gmail.com>
     * @see https://github.com/barryvdh/laravel-ide-helper
@@ -161,6 +161,7 @@ namespace PHPSTORM_META {
         'html' => \Collective\Html\HtmlBuilder::class,
         'image' => \Intervention\Image\ImageManager::class,
         'iseed' => \Orangehill\Iseed\Iseed::class,
+        'laravel-fullcalendar' => \MaddHatter\LaravelFullcalendar\Calendar::class,
         'laravellocalizationroutecache.cache' => \Mcamara\LaravelLocalization\Commands\RouteTranslationsCacheCommand::class,
         'laravellocalizationroutecache.clear' => \Mcamara\LaravelLocalization\Commands\RouteTranslationsClearCommand::class,
         'laravellocalizationroutecache.list' => \Mcamara\LaravelLocalization\Commands\RouteTranslationsListCommand::class,
@@ -344,6 +345,7 @@ namespace PHPSTORM_META {
         'html' => \Collective\Html\HtmlBuilder::class,
         'image' => \Intervention\Image\ImageManager::class,
         'iseed' => \Orangehill\Iseed\Iseed::class,
+        'laravel-fullcalendar' => \MaddHatter\LaravelFullcalendar\Calendar::class,
         'laravellocalizationroutecache.cache' => \Mcamara\LaravelLocalization\Commands\RouteTranslationsCacheCommand::class,
         'laravellocalizationroutecache.clear' => \Mcamara\LaravelLocalization\Commands\RouteTranslationsClearCommand::class,
         'laravellocalizationroutecache.list' => \Mcamara\LaravelLocalization\Commands\RouteTranslationsListCommand::class,
@@ -527,6 +529,7 @@ namespace PHPSTORM_META {
         'html' => \Collective\Html\HtmlBuilder::class,
         'image' => \Intervention\Image\ImageManager::class,
         'iseed' => \Orangehill\Iseed\Iseed::class,
+        'laravel-fullcalendar' => \MaddHatter\LaravelFullcalendar\Calendar::class,
         'laravellocalizationroutecache.cache' => \Mcamara\LaravelLocalization\Commands\RouteTranslationsCacheCommand::class,
         'laravellocalizationroutecache.clear' => \Mcamara\LaravelLocalization\Commands\RouteTranslationsClearCommand::class,
         'laravellocalizationroutecache.list' => \Mcamara\LaravelLocalization\Commands\RouteTranslationsListCommand::class,
@@ -710,6 +713,7 @@ namespace PHPSTORM_META {
         'html' => \Collective\Html\HtmlBuilder::class,
         'image' => \Intervention\Image\ImageManager::class,
         'iseed' => \Orangehill\Iseed\Iseed::class,
+        'laravel-fullcalendar' => \MaddHatter\LaravelFullcalendar\Calendar::class,
         'laravellocalizationroutecache.cache' => \Mcamara\LaravelLocalization\Commands\RouteTranslationsCacheCommand::class,
         'laravellocalizationroutecache.clear' => \Mcamara\LaravelLocalization\Commands\RouteTranslationsClearCommand::class,
         'laravellocalizationroutecache.list' => \Mcamara\LaravelLocalization\Commands\RouteTranslationsListCommand::class,
@@ -893,6 +897,7 @@ namespace PHPSTORM_META {
         'html' => \Collective\Html\HtmlBuilder::class,
         'image' => \Intervention\Image\ImageManager::class,
         'iseed' => \Orangehill\Iseed\Iseed::class,
+        'laravel-fullcalendar' => \MaddHatter\LaravelFullcalendar\Calendar::class,
         'laravellocalizationroutecache.cache' => \Mcamara\LaravelLocalization\Commands\RouteTranslationsCacheCommand::class,
         'laravellocalizationroutecache.clear' => \Mcamara\LaravelLocalization\Commands\RouteTranslationsClearCommand::class,
         'laravellocalizationroutecache.list' => \Mcamara\LaravelLocalization\Commands\RouteTranslationsListCommand::class,
@@ -1076,6 +1081,7 @@ namespace PHPSTORM_META {
         'html' => \Collective\Html\HtmlBuilder::class,
         'image' => \Intervention\Image\ImageManager::class,
         'iseed' => \Orangehill\Iseed\Iseed::class,
+        'laravel-fullcalendar' => \MaddHatter\LaravelFullcalendar\Calendar::class,
         'laravellocalizationroutecache.cache' => \Mcamara\LaravelLocalization\Commands\RouteTranslationsCacheCommand::class,
         'laravellocalizationroutecache.clear' => \Mcamara\LaravelLocalization\Commands\RouteTranslationsClearCommand::class,
         'laravellocalizationroutecache.list' => \Mcamara\LaravelLocalization\Commands\RouteTranslationsListCommand::class,
@@ -1259,6 +1265,7 @@ namespace PHPSTORM_META {
         'html' => \Collective\Html\HtmlBuilder::class,
         'image' => \Intervention\Image\ImageManager::class,
         'iseed' => \Orangehill\Iseed\Iseed::class,
+        'laravel-fullcalendar' => \MaddHatter\LaravelFullcalendar\Calendar::class,
         'laravellocalizationroutecache.cache' => \Mcamara\LaravelLocalization\Commands\RouteTranslationsCacheCommand::class,
         'laravellocalizationroutecache.clear' => \Mcamara\LaravelLocalization\Commands\RouteTranslationsClearCommand::class,
         'laravellocalizationroutecache.list' => \Mcamara\LaravelLocalization\Commands\RouteTranslationsListCommand::class,

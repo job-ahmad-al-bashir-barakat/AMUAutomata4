@@ -19,6 +19,8 @@ return [
     'no'                     => 'No',
     'Color'                  => 'Color',
     'Logo'                   => 'Logo',
+    'calender'               => 'Calender',
+    'events'               => 'Events',
 
     'tables'                 => 'Tables',
     'table_name'             => 'Table Name',

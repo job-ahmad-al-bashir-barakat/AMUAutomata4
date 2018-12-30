@@ -28,6 +28,9 @@ return array (
     'waiting' => 'انتظر',
     'content' => 'المحتوى',
     'experience' => 'التجارب',
+    'color' => 'اللون',
+    'start_date' => 'تاريخ البداية',
+    'end_date' => 'تاريخ النهاية',
     'oper' =>
         array (
             'success' => 'تمت العملية بنجاح',

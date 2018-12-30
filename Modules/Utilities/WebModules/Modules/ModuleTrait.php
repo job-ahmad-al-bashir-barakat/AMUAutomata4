@@ -108,6 +108,8 @@ trait ModuleTrait
                 return new EmptyBlockModule();
             case 41:
                 return new FacultyResearchesModule();
+            case 42:
+                return new CalenderModule();
             default:
                 throw new \Exception("Undefined Web Module [id:$moduleId]");
         }
@@ -211,6 +213,8 @@ trait ModuleTrait
                 return new EmptyBlockModule();
             case 'faculty_researches':
                 return new FacultyResearchesModule();
+            case 'calender':
+                return new CalenderModule();
             default:
                 throw new \Exception("Undefined Web Module [$moduleCode]");
         }

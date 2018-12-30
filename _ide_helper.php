@@ -3,7 +3,7 @@
 
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.7.14 on 2018-12-27 14:01:59.
+ * Generated for Laravel 5.7.14 on 2018-12-30 14:01:11.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -16289,6 +16289,28 @@ namespace Aut\DataTable {
          * @return $this 
          * @static 
          */ 
+        public static function addInputColor($title = '', $data = '', $name = '', $colClass = '', $dialogAttr = '', $colWidth = '', $visible = true, $orderable = true, $searchable = true, $choosen = true, $printable = true)
+        {
+            return \Aut\DataTable\DataTableBuilder::addInputColor($title, $data, $name, $colClass, $dialogAttr, $colWidth, $visible, $orderable, $searchable, $choosen, $printable);
+        }
+        
+        /**
+         * 
+         *
+         * @param string $title
+         * @param string $data
+         * @param string $name
+         * @param string $colClass
+         * @param string $dialogAttr
+         * @param string $colWidth
+         * @param bool $visible
+         * @param bool $orderable
+         * @param bool $searchable
+         * @param bool $choosen
+         * @param bool $printable
+         * @return $this 
+         * @static 
+         */ 
         public static function addInputTime($title = '', $data = '', $name = '', $colClass = '', $dialogAttr = '', $colWidth = '', $visible = true, $orderable = true, $searchable = true, $choosen = true, $printable = true)
         {
             return \Aut\DataTable\DataTableBuilder::addInputTime($title, $data, $name, $colClass, $dialogAttr, $colWidth, $visible, $orderable, $searchable, $choosen, $printable);
@@ -17756,6 +17778,16 @@ namespace App\Library\Url\Facades {
         public static function galleries()
         {
             return \App\Library\Url\RouteUrls::galleries();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function eventGroups()
+        {
+            return \App\Library\Url\RouteUrls::eventGroups();
         }
         
         /**
@@ -19816,6 +19848,164 @@ namespace Barryvdh\Debugbar {
         {
             //Method inherited from \DebugBar\DebugBar            
             return \Barryvdh\Debugbar\LaravelDebugbar::offsetUnset($key);
+        }
+         
+    }
+ 
+}
+
+namespace MaddHatter\LaravelFullcalendar\Facades { 
+
+    /**
+     * 
+     *
+     */ 
+    class Calendar {
+        
+        /**
+         * Create an event DTO to add to a calendar
+         *
+         * @param string $title
+         * @param string $isAllDay
+         * @param string|\DateTime $start If string, must be valid datetime format: http://bit.ly/1z7QWbg
+         * @param string|\DateTime $end If string, must be valid datetime format: http://bit.ly/1z7QWbg
+         * @param string $id event Id
+         * @param array $options
+         * @return \MaddHatter\LaravelFullcalendar\SimpleEvent 
+         * @static 
+         */ 
+        public static function event($title, $isAllDay, $start, $end, $id = null, $options = array())
+        {
+            return \MaddHatter\LaravelFullcalendar\Calendar::event($title, $isAllDay, $start, $end, $id, $options);
+        }
+        
+        /**
+         * Create the <div> the calendar will be rendered into
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function calendar()
+        {
+            return \MaddHatter\LaravelFullcalendar\Calendar::calendar();
+        }
+        
+        /**
+         * Get the <script> block to render the calendar (as a View)
+         *
+         * @return \Illuminate\View\View 
+         * @static 
+         */ 
+        public static function script()
+        {
+            return \MaddHatter\LaravelFullcalendar\Calendar::script();
+        }
+        
+        /**
+         * Customize the ID of the generated <div>
+         *
+         * @param string $id
+         * @return $this 
+         * @static 
+         */ 
+        public static function setId($id)
+        {
+            return \MaddHatter\LaravelFullcalendar\Calendar::setId($id);
+        }
+        
+        /**
+         * Get the ID of the generated <div>
+         * This value is randomized unless a custom value was set via setId
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function getId()
+        {
+            return \MaddHatter\LaravelFullcalendar\Calendar::getId();
+        }
+        
+        /**
+         * Add an event
+         *
+         * @param \Event $event
+         * @param array $customAttributes
+         * @return $this 
+         * @static 
+         */ 
+        public static function addEvent($event, $customAttributes = array())
+        {
+            return \MaddHatter\LaravelFullcalendar\Calendar::addEvent($event, $customAttributes);
+        }
+        
+        /**
+         * Add multiple events
+         *
+         * @param array|\MaddHatter\LaravelFullcalendar\ArrayAccess $events
+         * @param array $customAttributes
+         * @return $this 
+         * @static 
+         */ 
+        public static function addEvents($events, $customAttributes = array())
+        {
+            return \MaddHatter\LaravelFullcalendar\Calendar::addEvents($events, $customAttributes);
+        }
+        
+        /**
+         * Set fullcalendar options
+         *
+         * @param array $options
+         * @return $this 
+         * @static 
+         */ 
+        public static function setOptions($options)
+        {
+            return \MaddHatter\LaravelFullcalendar\Calendar::setOptions($options);
+        }
+        
+        /**
+         * Get the fullcalendar options (not including the events list)
+         *
+         * @return array 
+         * @static 
+         */ 
+        public static function getOptions()
+        {
+            return \MaddHatter\LaravelFullcalendar\Calendar::getOptions();
+        }
+        
+        /**
+         * Set fullcalendar callback options
+         *
+         * @param array $callbacks
+         * @return $this 
+         * @static 
+         */ 
+        public static function setCallbacks($callbacks)
+        {
+            return \MaddHatter\LaravelFullcalendar\Calendar::setCallbacks($callbacks);
+        }
+        
+        /**
+         * Get the callbacks currently defined
+         *
+         * @return array 
+         * @static 
+         */ 
+        public static function getCallbacks()
+        {
+            return \MaddHatter\LaravelFullcalendar\Calendar::getCallbacks();
+        }
+        
+        /**
+         * Get options+events JSON
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function getOptionsJson()
+        {
+            return \MaddHatter\LaravelFullcalendar\Calendar::getOptionsJson();
         }
          
     }
@@ -22414,6 +22604,8 @@ namespace  {
     class FileUpload extends \Aut\FileUpload\FileUploadFacade {}
 
     class Debugbar extends \Barryvdh\Debugbar\Facade {}
+
+    class Calendar extends \MaddHatter\LaravelFullcalendar\Facades\Calendar {}
 
     class Iseed extends \Orangehill\Iseed\Facades\Iseed {}
  

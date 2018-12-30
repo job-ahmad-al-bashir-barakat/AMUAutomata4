@@ -24,6 +24,7 @@ return [
     'galleries' => 'Galleries',
     'geolocation' => 'Geolocation',
     'course' => 'Course',
+    'events_groups' => 'Events Groups',
 
     'degrees' => 'Degrees',
     'faculty' => 'Faculty',

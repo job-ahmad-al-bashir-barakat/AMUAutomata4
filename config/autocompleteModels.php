@@ -138,6 +138,14 @@ return [
         ],
     ],
 
+    'event-groups' => [
+        'model' => \Modules\Utilities\Entities\EventGroup::class,
+        /*'colName'  => 'transTitle->text',
+        'q'        => [
+            'transTitle' => 'text',
+        ],*/
+    ],
+
     'text-cards' => [
         'model' => \Modules\Utilities\Entities\TextCard::class,
         'colName'  => 'transTitle->text',

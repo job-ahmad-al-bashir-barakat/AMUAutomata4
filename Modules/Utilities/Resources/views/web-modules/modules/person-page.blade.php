@@ -104,6 +104,7 @@
         <div class="col-md-4">
             <h4 class="line-bottom">@lang('app.find_location'):</h4>
             <div
+                    data-gmap
                     data-address="121 King Street, Melbourne Victoria 3000 Australia"
                     data-popupstring-id="#popupstring1"
                     class="map-canvas autoload-map"
@@ -120,6 +121,7 @@
                     <p>121 King Street, Melbourne Victoria 3000 Australia</p>
                 </div>
             </div>
+            {{--{!! autFixedGoogleMap('10', $person->contact->gelocation) !!}--}}
         </div>
     @endif
 </div>

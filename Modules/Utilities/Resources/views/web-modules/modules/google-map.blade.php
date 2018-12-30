@@ -1,3 +1,4 @@
+{{--
 <div class="col-md-{{ $data['width'] }}">
     <div
         id="google-map-{{ $data['id'] }}"
@@ -9,3 +10,5 @@
         data-marker="{{ asset('images/map-marker.png') }}">
     </div>
 </div>
+--}}
+{!! autFixedGoogleMap() !!}

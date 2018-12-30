@@ -67,6 +67,11 @@ class RouteUrls
         return $this->localizeUrl('builder/galleries', 'utilities');
     }
 
+    public function eventGroups()
+    {
+        return $this->localizeUrl('builder/event-groups', 'utilities');
+    }
+
     public function customModules()
     {
         return $this->localizeUrl('custom-modules', 'utilities');

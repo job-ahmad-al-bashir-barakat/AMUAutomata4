@@ -354,6 +354,7 @@ mix.scripts([
     // JS | jquery plugin collection for this theme
     'resources/assets/js/jquery-plugin-collection.js',
     // JS | Custom script for all pages
+    'resources/assets/js/jquery.gmap.js',
     'resources/assets/js/custom.js',
 ], 'public/js/main.js');
 

@@ -8,7 +8,6 @@
     <link href="{{ asset('images/apple-touch-icon-72x72.png') }}" rel="apple-touch-icon" sizes="72x72">
     <link href="{{ asset('images/apple-touch-icon-114x114.png') }}" rel="apple-touch-icon" sizes="114x114">
     <link href="{{ asset('images/apple-touch-icon-144x144.png') }}" rel="apple-touch-icon" sizes="144x144">
-
     {{-- <link href="{{ asset(mix('css/theme-ltr.css')) }}" rel="stylesheet" type="text/css"> --}}
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
     @if($dir == 'rtl')
@@ -43,7 +42,6 @@
     @include('theme.header', ['menu' => $menu])
     <div class="main-content">
         @include('utilities::web-modules.modules.modules')
-        {{--@include('theme.component.module.map')--}}
     </div>
     @include('theme.footer')
 </div>
@@ -75,7 +73,7 @@
 </script>
 <script src="{{ asset(mix('js/revolution-slider/js/revolution-slider.js')) }}"></script>
 <script src="{{ asset(mix('js/revolution-slider/js/extensions/revolution-slider-extensions.js')) }}"></script>
-{{--<script src="http://maps.google.com/maps/api/js?key=AIzaSyAYWE4mHmR9GyPsHSOVZrSCOOljk8DU9B4"></script>--}}
+{{--<script src="http://maps.google.com/maps/api/js?key=AIzaSyAYWE4mHmR9GyPsHSOVZrSCOOljk8DU9B4"></script>--}}{{--AIzaSyAYWE4mHmR9GyPsHSOVZrSCOOljk8DU9B4--}}
 {{--<script src="{{ asset('js/google-map-init-multilocation.js') }}"></script>--}}
 {{--<script src="{!! asset('js/google-map-init.js') !!}"></script>--}}
 <!--[if lt IE 9]>
@@ -83,6 +81,14 @@
 <![endif]-->
 <script type="text/javascript">
     $(document).ready(function(e) {
+
+        $('.calendar').each(function () {
+            let $this = $(this);
+            let key = $this.data('key');
+            let id = `#calendar-${key}`;
+            let options = $this.data('calendarOption');
+            $(id).fullCalendar(options);
+        });
 
         $('#mailchimp-subscription-form-footer').ajaxChimp({
             callback: mailChimpCallBack,
