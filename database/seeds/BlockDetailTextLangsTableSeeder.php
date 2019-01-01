@@ -162,9 +162,9 @@ class BlockDetailTextLangsTableSeeder extends Seeder
                 'id' => 15,
                 'block_detail_id' => 8,
                 'lang_id' => 1,
-                'text' => '-',
+                'text' => NULL,
                 'created_at' => '2018-10-06 05:02:57',
-                'updated_at' => '2018-11-11 06:18:39',
+                'updated_at' => '2019-01-01 10:43:19',
                 'deleted_at' => NULL,
             ),
             15 => 

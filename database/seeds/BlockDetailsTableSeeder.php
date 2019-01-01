@@ -105,12 +105,12 @@ class BlockDetailsTableSeeder extends Seeder
             array (
                 'id' => 8,
                 'block_id' => 4,
-                'icon_id' => 113,
+                'icon_id' => NULL,
                 'page_id' => 1,
                 'front_image_id' => 312,
                 'back_image_id' => 200,
                 'created_at' => '2018-10-06 05:02:57',
-                'updated_at' => '2018-12-08 07:39:13',
+                'updated_at' => '2019-01-01 10:23:06',
                 'deleted_at' => NULL,
             ),
             8 => 

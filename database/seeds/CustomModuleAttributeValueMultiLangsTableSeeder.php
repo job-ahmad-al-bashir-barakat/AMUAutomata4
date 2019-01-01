@@ -4711,6 +4711,46 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                                 'updated_at' => '2018-12-16 11:42:56',
                                 'deleted_at' => NULL,
                             ),
+                            98 => 
+                            array (
+                                'id' => 99,
+                                'custom_module_attribute_value_id' => 282,
+                                'lang_id' => 1,
+                                'text' => 'test my title',
+                                'created_at' => '2019-01-01 07:52:59',
+                                'updated_at' => '2019-01-01 08:05:29',
+                                'deleted_at' => NULL,
+                            ),
+                            99 => 
+                            array (
+                                'id' => 100,
+                                'custom_module_attribute_value_id' => 282,
+                                'lang_id' => 2,
+                                'text' => 'عنوان',
+                                'created_at' => '2019-01-01 07:52:59',
+                                'updated_at' => '2019-01-01 07:52:59',
+                                'deleted_at' => NULL,
+                            ),
+                            100 => 
+                            array (
+                                'id' => 101,
+                                'custom_module_attribute_value_id' => 284,
+                                'lang_id' => 1,
+                                'text' => 'http://localhost/Web/Andalus/public/en/news',
+                                'created_at' => '2019-01-01 13:27:51',
+                                'updated_at' => '2019-01-01 13:27:51',
+                                'deleted_at' => NULL,
+                            ),
+                            101 => 
+                            array (
+                                'id' => 102,
+                                'custom_module_attribute_value_id' => 284,
+                                'lang_id' => 2,
+                                'text' => 'http://localhost/Web/Andalus/public/ar/news',
+                                'created_at' => '2019-01-01 13:27:51',
+                                'updated_at' => '2019-01-01 13:27:51',
+                                'deleted_at' => NULL,
+                            ),
                         ));
         
         

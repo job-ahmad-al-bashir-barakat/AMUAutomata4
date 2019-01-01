@@ -362,9 +362,9 @@ class CustomModuleAttributeValuesTableSeeder extends Seeder
                 'id' => 45,
                 'custom_module_id' => 15,
                 'attribute_id' => 1,
-                'value' => 'E',
+                'value' => 'D',
                 'created_at' => '2017-10-26 23:20:05',
-                'updated_at' => '2017-10-26 23:20:05',
+                'updated_at' => '2019-01-01 10:06:30',
                 'deleted_at' => NULL,
             ),
             35 => 
@@ -1102,9 +1102,9 @@ class CustomModuleAttributeValuesTableSeeder extends Seeder
                 'id' => 126,
                 'custom_module_id' => 46,
                 'attribute_id' => 11,
-                'value' => '6',
+                'value' => '226',
                 'created_at' => '2018-10-03 03:34:59',
-                'updated_at' => '2018-10-03 03:34:59',
+                'updated_at' => '2019-01-01 11:00:47',
                 'deleted_at' => NULL,
             ),
             109 => 
@@ -2625,6 +2625,66 @@ class CustomModuleAttributeValuesTableSeeder extends Seeder
                 'value' => '6',
                 'created_at' => '2019-01-01 07:03:31',
                 'updated_at' => '2019-01-01 07:03:31',
+                'deleted_at' => NULL,
+            ),
+            261 => 
+            array (
+                'id' => 279,
+                'custom_module_id' => 83,
+                'attribute_id' => 1,
+                'value' => 'D',
+                'created_at' => '2019-01-01 07:52:59',
+                'updated_at' => '2019-01-01 10:01:30',
+                'deleted_at' => NULL,
+            ),
+            262 => 
+            array (
+                'id' => 280,
+                'custom_module_id' => 83,
+                'attribute_id' => 2,
+                'value' => '9',
+                'created_at' => '2019-01-01 07:52:59',
+                'updated_at' => '2019-01-01 07:52:59',
+                'deleted_at' => NULL,
+            ),
+            263 => 
+            array (
+                'id' => 281,
+                'custom_module_id' => 83,
+                'attribute_id' => 11,
+                'value' => '2',
+                'created_at' => '2019-01-01 07:52:59',
+                'updated_at' => '2019-01-01 07:52:59',
+                'deleted_at' => NULL,
+            ),
+            264 => 
+            array (
+                'id' => 282,
+                'custom_module_id' => 83,
+                'attribute_id' => 10,
+                'value' => '',
+                'created_at' => '2019-01-01 07:52:59',
+                'updated_at' => '2019-01-01 07:52:59',
+                'deleted_at' => NULL,
+            ),
+            265 => 
+            array (
+                'id' => 283,
+                'custom_module_id' => 83,
+                'attribute_id' => 13,
+                'value' => '["433","434","435"]',
+                'created_at' => '2019-01-01 07:53:00',
+                'updated_at' => '2019-01-01 09:25:27',
+                'deleted_at' => NULL,
+            ),
+            266 => 
+            array (
+                'id' => 284,
+                'custom_module_id' => 12,
+                'attribute_id' => 15,
+                'value' => '',
+                'created_at' => '2019-01-01 13:27:50',
+                'updated_at' => '2019-01-01 13:27:50',
                 'deleted_at' => NULL,
             ),
         ));
