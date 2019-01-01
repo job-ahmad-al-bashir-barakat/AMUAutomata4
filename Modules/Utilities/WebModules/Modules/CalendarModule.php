@@ -6,13 +6,13 @@ namespace Modules\Utilities\WebModules\Modules;
 use MaddHatter\LaravelFullcalendar\Facades\Calendar;
 use Modules\Utilities\Entities\Event;
 
-class CalenderModule extends Module
+class CalendarModule extends Module
 {
     public $id = '42';
 
-    public $code = 'calender';
+    public $code = 'calendar';
 
-    public $viewName = 'calender';
+    public $viewName = 'calendar';
 
     public function getModuleData($data)
     {
@@ -21,10 +21,7 @@ class CalenderModule extends Module
         $groupIds = $data['events_groups'] ? array_keys($data['events_groups']) : [];
 
         $events = Event::query()->whereIn('event_group_id', $groupIds)->get();
-        $calendarEvents = [];
-        /*foreach ($events as $event) {
-            $calendarEvents[] = Calendar::event($event);
-        }*/
+
         $calendar = Calendar::addEvents($events);
 
         $data['calendar'] = $calendar;

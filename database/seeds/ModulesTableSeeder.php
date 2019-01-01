@@ -431,7 +431,7 @@ class ModulesTableSeeder extends Seeder
             array (
                 'id' => 42,
                 'image_id' => NULL,
-                'code' => 'calender',
+                'code' => 'calendar',
                 'customized' => '1',
                 'created_at' => '2018-12-30 10:04:47',
                 'updated_at' => '2018-12-30 10:04:47',

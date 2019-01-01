@@ -109,7 +109,7 @@ trait ModuleTrait
             case 41:
                 return new FacultyResearchesModule();
             case 42:
-                return new CalenderModule();
+                return new CalendarModule();
             default:
                 throw new \Exception("Undefined Web Module [id:$moduleId]");
         }
@@ -214,7 +214,7 @@ trait ModuleTrait
             case 'faculty_researches':
                 return new FacultyResearchesModule();
             case 'calender':
-                return new CalenderModule();
+                return new CalendarModule();
             default:
                 throw new \Exception("Undefined Web Module [$moduleCode]");
         }
