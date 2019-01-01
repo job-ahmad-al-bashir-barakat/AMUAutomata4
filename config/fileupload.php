@@ -144,7 +144,10 @@ return [
     'gallery' => [
         //'model' => \Modules\Utilities\Entities\SliderDetail::class,
         'ratio' => [
-            'size' => ['width' => '100', 'height' => '100'],
+            'size' => ['width' => '450', 'height' => '250'],
+        ],
+        'thumps' => [
+            'small' => ['width' => '280', 'height' => '160'],
         ],
         'stopRelationSave' => true,
         'relationName' => 'image',

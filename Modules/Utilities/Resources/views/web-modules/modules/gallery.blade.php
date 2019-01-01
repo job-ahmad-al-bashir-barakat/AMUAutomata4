@@ -1,176 +1,23 @@
-<div class="col-md-7 wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.3s"
+@if($data['images'] && $data['images']->count())
+<div class="col-md-{{ $data['width'] ?? '12' }} wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.3s"
      style="visibility: visible; animation-duration: 1s; animation-delay: 0.3s;">
-    <h3 class="text-uppercase title line-bottom mt-0 mb-30"><i class="fa fa-calendar text-gray-darkgray mr-10"></i>Photo
-        <span class="text-theme-colored">Gallery</span></h3>
-    <div class="gallery-isotope grid-4 gutter-small clearfix" data-lightbox="gallery"
-         style="position: relative; height: 336px;">
-        <div class="gallery-item" style="position: absolute; left: 0px; top: 0px;">
-            <div class="thumb">
-                <img alt="project" src="http://placehold.it/155x106" class="img-fullwidth">
-                <div class="overlay-shade"></div>
-                <div class="icons-holder">
-                    <div class="icons-holder-inner">
-                        <div class="styled-icons icon-sm icon-dark icon-circled icon-theme-colored">
-                            <a href="images/gallery/1.jpg" data-lightbox-gallery="gallery"><i
-                                        class="fa fa-picture-o"></i></a>
+    @include('utilities::web-modules.modules.sub.title', ['title' => $data['title'][$lang], 'h' => '3', 'font' => '', 'icon' => $data['icon']->code ?? ''])
+    <div class="gallery-isotope grid-4 gutter-small clearfix" data-lightbox="gallery">
+        @foreach($data['images'] as $image)
+            <div class="gallery-item">
+                <div class="thumb">
+                    <img class="img-fullwidth" src="{{ str_replace('{folder}', 'galleries/thumps/small', $image->image_url) }}" alt="{{ $image->lang_title[$lang]->text ?? '' }}">
+                    <div class="overlay-shade"></div>
+                    <div class="icons-holder">
+                        <div class="icons-holder-inner">
+                            <div class="styled-icons icon-sm icon-dark icon-circled icon-theme-colored">
+                                <a data-lightbox="image" href="{{ str_replace('{folder}', 'galleries', $image->image_url) }}"><i class="fa fa-plus"></i></a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="gallery-item" style="position: absolute; left: 163px; top: 0px;">
-            <div class="thumb">
-                <img alt="project" src="http://placehold.it/155x106" class="img-fullwidth">
-                <div class="overlay-shade"></div>
-                <div class="icons-holder">
-                    <div class="icons-holder-inner">
-                        <div class="styled-icons icon-sm icon-dark icon-circled icon-theme-colored">
-                            <a href="images/gallery/2.jpg" data-lightbox-gallery="gallery"><i
-                                        class="fa fa-picture-o"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="gallery-item" style="position: absolute; left: 326px; top: 0px;">
-            <div class="thumb">
-                <img alt="project" src="http://placehold.it/155x106" class="img-fullwidth">
-                <div class="overlay-shade"></div>
-                <div class="icons-holder">
-                    <div class="icons-holder-inner">
-                        <div class="styled-icons icon-sm icon-dark icon-circled icon-theme-colored">
-                            <a href="images/gallery/3.jpg" data-lightbox-gallery="gallery"><i
-                                        class="fa fa-picture-o"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="gallery-item" style="position: absolute; left: 489px; top: 0px;">
-            <div class="thumb">
-                <img alt="project" src="http://placehold.it/155x106" class="img-fullwidth">
-                <div class="overlay-shade"></div>
-                <div class="icons-holder">
-                    <div class="icons-holder-inner">
-                        <div class="styled-icons icon-sm icon-dark icon-circled icon-theme-colored">
-                            <a href="images/gallery/4.jpg" data-lightbox-gallery="gallery"><i
-                                        class="fa fa-picture-o"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="gallery-item" style="position: absolute; left: 0px; top: 112px;">
-            <div class="thumb">
-                <img alt="project" src="http://placehold.it/155x106" class="img-fullwidth">
-                <div class="overlay-shade"></div>
-                <div class="icons-holder">
-                    <div class="icons-holder-inner">
-                        <div class="styled-icons icon-sm icon-dark icon-circled icon-theme-colored">
-                            <a href="images/gallery/5.jpg" data-lightbox-gallery="gallery"><i
-                                        class="fa fa-picture-o"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="gallery-item" style="position: absolute; left: 163px; top: 112px;">
-            <div class="thumb">
-                <img alt="project" src="http://placehold.it/155x106" class="img-fullwidth">
-                <div class="overlay-shade"></div>
-                <div class="icons-holder">
-                    <div class="icons-holder-inner">
-                        <div class="styled-icons icon-sm icon-dark icon-circled icon-theme-colored">
-                            <a href="images/gallery/6.jpg" data-lightbox-gallery="gallery"><i
-                                        class="fa fa-picture-o"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="gallery-item" style="position: absolute; left: 326px; top: 112px;">
-            <div class="thumb">
-                <img alt="project" src="http://placehold.it/155x106" class="img-fullwidth">
-                <div class="overlay-shade"></div>
-                <div class="icons-holder">
-                    <div class="icons-holder-inner">
-                        <div class="styled-icons icon-sm icon-dark icon-circled icon-theme-colored">
-                            <a href="images/gallery/7.jpg" data-lightbox-gallery="gallery"><i
-                                        class="fa fa-picture-o"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="gallery-item" style="position: absolute; left: 489px; top: 112px;">
-            <div class="thumb">
-                <img alt="project" src="http://placehold.it/155x106" class="img-fullwidth">
-                <div class="overlay-shade"></div>
-                <div class="icons-holder">
-                    <div class="icons-holder-inner">
-                        <div class="styled-icons icon-sm icon-dark icon-circled icon-theme-colored">
-                            <a href="images/gallery/8.jpg" data-lightbox-gallery="gallery"><i
-                                        class="fa fa-picture-o"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="gallery-item" style="position: absolute; left: 0px; top: 224px;">
-            <div class="thumb">
-                <img alt="project" src="http://placehold.it/155x106" class="img-fullwidth">
-                <div class="overlay-shade"></div>
-                <div class="icons-holder">
-                    <div class="icons-holder-inner">
-                        <div class="styled-icons icon-sm icon-dark icon-circled icon-theme-colored">
-                            <a href="images/gallery/9.jpg" data-lightbox-gallery="gallery"><i
-                                        class="fa fa-picture-o"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="gallery-item" style="position: absolute; left: 163px; top: 224px;">
-            <div class="thumb">
-                <img alt="project" src="http://placehold.it/155x106" class="img-fullwidth">
-                <div class="overlay-shade"></div>
-                <div class="icons-holder">
-                    <div class="icons-holder-inner">
-                        <div class="styled-icons icon-sm icon-dark icon-circled icon-theme-colored">
-                            <a href="images/gallery/10.jpg" data-lightbox-gallery="gallery"><i
-                                        class="fa fa-picture-o"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="gallery-item" style="position: absolute; left: 326px; top: 224px;">
-            <div class="thumb">
-                <img alt="project" src="http://placehold.it/155x106" class="img-fullwidth">
-                <div class="overlay-shade"></div>
-                <div class="icons-holder">
-                    <div class="icons-holder-inner">
-                        <div class="styled-icons icon-sm icon-dark icon-circled icon-theme-colored">
-                            <a href="images/gallery/11.jpg" data-lightbox-gallery="gallery"><i
-                                        class="fa fa-picture-o"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="gallery-item" style="position: absolute; left: 489px; top: 224px;">
-            <div class="thumb">
-                <img alt="project" src="http://placehold.it/155x106" class="img-fullwidth">
-                <div class="overlay-shade"></div>
-                <div class="icons-holder">
-                    <div class="icons-holder-inner">
-                        <div class="styled-icons icon-sm icon-dark icon-circled icon-theme-colored">
-                            <a href="images/gallery/12.jpg" data-lightbox-gallery="gallery"><i
-                                        class="fa fa-picture-o"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        @endforeach
     </div>
 </div>
+@endif
