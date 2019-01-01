@@ -46,6 +46,13 @@
     @include('theme.footer')
 </div>
 <script src="{{ asset(mix('js/main.js')) }}"></script>
+@if($dir == 'rtl')
+<script>
+    $.fn.isotope.prototype._positionAbs = function( x, y ) {
+        return { right: x, top: y };
+    };
+</script>
+@endif
 <script>
     $(document).on('click', 'a.ajax-link-module', function (e) {
         e.preventDefault();
