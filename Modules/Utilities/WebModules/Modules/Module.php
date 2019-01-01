@@ -66,6 +66,9 @@ class Module
     {
         $data = $this->getModuleData($this->data);
         $lang = $this->lang;
+        if ($data['status'] == 'D') {
+            return '';
+        }
         return view($this->viewPath, compact('data', 'lang'))->render();
     }
 
