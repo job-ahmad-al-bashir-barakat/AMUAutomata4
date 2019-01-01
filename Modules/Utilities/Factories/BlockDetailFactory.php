@@ -39,7 +39,7 @@ class BlockDetailFactory extends GlobalFactory
             ->addHiddenInput('block_id','block_id', $blockId, false, true)
             ->addMultiInputTextLangs(['title', 'text'], 'req required')
             ->addMultiInputTextLangs(['btn'])
-            ->addAutocomplete('autocomplete/icons', trans('utilities::app.icon'), 'icon_id', 'icon.code', 'icon.icon_html', 'req required')
+            ->addAutocomplete('autocomplete/icons', trans('utilities::app.icon'), 'icon_id', 'icon.code', 'icon.icon_html')
             ->addAutocomplete('autocomplete/pages', trans('utilities::app.page'), 'page_id', "page.lang_name.{$this->lang}.text", "page.lang_name.{$this->lang}.text")
             ->addActionButton(trans('utilities::app.upload_images'),'upload_image','upload_image' ,'center all' ,'60px')
             ->addActionButton($this->update,'update','update')
@@ -61,7 +61,8 @@ class BlockDetailFactory extends GlobalFactory
      */
     public function updateDatatable($model = null ,$request = null ,$result = null)
     {
-        //
+        $result->icon_id = $request->get('icon_id', null);
+        $result->save();
     }
 
     /**
