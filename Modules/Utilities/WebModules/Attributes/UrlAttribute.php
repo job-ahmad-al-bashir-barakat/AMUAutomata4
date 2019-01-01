@@ -10,6 +10,7 @@ class UrlAttribute extends Attribute
     public $title = 'url';
     public $values = [];
     public $viewName = 'url';
+    public $multiLang = true;
     public $validationRules = '';
     public $data;
 }

@@ -24,6 +24,7 @@ return [
     'geolocation' => 'الموقع الجفرافي',
     'course' => 'المقرر',
     'events_groups' => 'مجموعات الاحداث',
+    'url' => 'رابط',
 
     'degrees' => 'الشهادات',
     'faculty' => 'الكلية',

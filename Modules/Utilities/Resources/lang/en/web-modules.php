@@ -25,6 +25,7 @@ return [
     'geolocation' => 'Geolocation',
     'course' => 'Course',
     'events_groups' => 'Events Groups',
+    'url' => 'Url',
 
     'degrees' => 'Degrees',
     'faculty' => 'Faculty',
