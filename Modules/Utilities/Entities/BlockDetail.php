@@ -7,6 +7,7 @@ use Aut\FileUpload\Entities\Image;
 use Modules\Utilities\Traits\MultiLangs;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Modules\Utilities\Entities\LangModels\BlockDetailBtnLang;
+use Modules\Utilities\Entities\LangModels\BlockDetailUrlLang;
 use Modules\Utilities\Entities\LangModels\BlockDetailTextLang;
 use Modules\Utilities\Entities\LangModels\BlockDetailTitleLang;
 
@@ -16,9 +17,9 @@ class BlockDetail extends Model
 
     const IMAGE_PATH = 'storage/upload/image/';
 
-    protected $fillable = ['block_id', 'page_id', 'icon_id', 'front_image_id', 'back_image_id'];
+    protected $fillable = ['block_id', /*'page_id', */'icon_id', 'front_image_id', 'back_image_id'];
 
-    protected $appends = ['lang_title', 'lang_text', 'lang_btn', 'image_path'];
+    protected $appends = ['lang_title', 'lang_text', 'lang_btn', 'lang_url', 'image_path'];
 
     public function transTitle()
     {
@@ -35,6 +36,11 @@ class BlockDetail extends Model
         return $this->hasMany(BlockDetailBtnLang::class);
     }
 
+    public function transUrl()
+    {
+        return $this->hasMany(BlockDetailUrlLang::class);
+    }
+
     public function getLangTitleAttribute()
     {
         return $this->transTitle->keyBy('lang_code');
@@ -48,6 +54,11 @@ class BlockDetail extends Model
     public function getLangBtnAttribute()
     {
         return $this->transBtn->keyBy('lang_code');
+    }
+
+    public function getLangUrlAttribute()
+    {
+        return $this->transUrl->keyBy('lang_code');
     }
 
     public function page()
