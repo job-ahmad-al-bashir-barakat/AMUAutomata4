@@ -18,6 +18,7 @@ return array (
     'journal' => 'المجلة',
     'head' => 'ترويسة',
     'btn' => 'زر',
+    'url' => 'رابط',
     'text' => 'نص',
     'sub_text' => 'نص فرعي',
     'small_text' => 'نص صغير',

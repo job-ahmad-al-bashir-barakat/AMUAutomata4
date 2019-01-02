@@ -18,6 +18,7 @@ return array (
     'journal' => 'Journal',
     'head' => 'Head',
     'btn' => 'Button',
+    'url' => 'Url',
     'text' => 'Text',
     'sub_text' => 'Sub Text',
     'small_text' => 'Small Text',
