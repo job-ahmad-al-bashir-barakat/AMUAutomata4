@@ -10,7 +10,7 @@ return [
         "sortAscending"  => "activate to sort column ascending",
         "sortDescending" => "activate to sort column descending"
     ],
-    "url"               => "",
+    "url"               => "رابط",
     "searchPlaceholder" => 'ابحث',
     "emptyTable"        => "لا يوجد بيانات متاحة في الجدول",
     "processing"        => "جارٍ التحميل ...",

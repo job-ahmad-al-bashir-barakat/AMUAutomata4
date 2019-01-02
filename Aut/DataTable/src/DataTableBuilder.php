@@ -1268,6 +1268,8 @@ class DataTableBuilder
 
                 $title = preg_match('/datatable::/',$title) ? "app.$col" : "datatable::table.$col";
 
+                if($col == 'url')
+                dd($title);
                 $title = trans($title)." ({$lang['native']})";
 
                 if($hasTab)
