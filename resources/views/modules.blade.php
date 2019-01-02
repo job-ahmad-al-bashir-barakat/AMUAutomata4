@@ -15,8 +15,8 @@
     @endif
     <link href="{{ asset('css/jquery-ui.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/animate.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ asset('css/font-awesome.min.css') }}">
-    <link href="{{ asset('css/simple-line-icons/css/simple-line-icons.css') }}">
+    <link href="{{ asset('css/simple-line-icons.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/css-plugin-collections.css') }}" rel="stylesheet" type="text/css">
     @if($dir == 'rtl')
         <link href="{{ asset('css/css-plugin-collections-rtl.css') }}" rel="stylesheet" type="text/css">

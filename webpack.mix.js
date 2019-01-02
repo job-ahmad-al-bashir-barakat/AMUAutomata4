@@ -242,6 +242,7 @@ mix.copy('Aut/FileUpload/src/Assets/img/mb-sample.jpg', 'public/img' ,false);
 
 mix.copy('Modules/Admin/Assets/vendor/fontawesome/fonts', 'public/fonts');
 mix.copy('Modules/Admin/Assets/vendor/simple-line-icons/fonts', 'public/fonts');
+mix.copy('Modules/Admin/Assets/vendor/simple-line-icons/css/simple-line-icons.css', 'public/css');
 mix.copy('Modules/Admin/Assets/vendor/weather-icons/font', 'public/font' ,false);
 mix.copy('resources/assets/fonts/font-jozoor/fonts', 'public/css/fonts' ,false);
 
