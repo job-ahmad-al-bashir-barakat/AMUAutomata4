@@ -14,7 +14,8 @@ class LatestNewsModule extends Module
 
     public function getModuleData($data)
     {
-        $limit = $data['show']??8;
-        return News::orderBy('publish_date','desc')->take($limit)->get();
+        $limit = $data['show'] ?? 8;
+        $data['news'] = News::orderBy('publish_date', 'desc')->take($limit)->get();
+        return $data;
     }
 }
