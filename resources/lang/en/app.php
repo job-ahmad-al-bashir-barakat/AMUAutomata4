@@ -95,4 +95,5 @@ return array (
     'researches'        => 'Researches',
     'useful_links'        => 'Useful Links',
     'quick_contact'        => 'Quick Contact',
+    'latest_news'        => 'Latest News',
 );

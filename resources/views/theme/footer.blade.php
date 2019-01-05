@@ -33,7 +33,7 @@
             @if($news && $news->count())
             <div class="col-sm-6 col-md-3">
                 <div class="widget dark">
-                    <h5 class="widget-title line-bottom-theme-colored-2">@lang('Latest News')</h5>
+                    <h5 class="widget-title line-bottom-theme-colored-2">@lang('app.latest_news')</h5>
                     <div class="latest-posts">
                         @foreach($news as $item)
                             <article class="post media-post clearfix pb-0 mb-10">
