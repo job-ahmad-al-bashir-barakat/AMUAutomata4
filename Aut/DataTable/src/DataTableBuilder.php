@@ -641,6 +641,14 @@ class DataTableBuilder
         return $this;
     }
 
+    function each($items, $func)
+    {
+        foreach ($items as $key => $item) {
+            $func($this, $item, $key);
+        }
+        return $this;
+    }
+
     /**
      * @param string $title
      * @param string $data

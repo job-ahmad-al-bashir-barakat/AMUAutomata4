@@ -51,6 +51,13 @@ return [
         'relationName' => 'image'
     ],
 
+    'footer_logo' => [
+        'model' => \Modules\Utilities\Entities\Footer::class,
+        'ratio' => [],
+        'relationType' => 'one',
+        'relationName' => 'image'
+    ],
+
     'modules' => [
         'model' => \Modules\Utilities\Entities\Module::class,
         'relationType' => 'one',

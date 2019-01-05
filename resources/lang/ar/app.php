@@ -84,7 +84,6 @@ return array (
     'light_orange' => 'برتقالي فاتح',
     'purple' => 'بنفسجي',
     'sky_blue' => 'سماوي',
-    'color' => 'اللون',
     'logo' => 'الشعار',
     'all' => 'الكل',
     /*
@@ -94,4 +93,6 @@ return array (
     'return_home'    => 'عودة إلى الصفحة الرئيسية',
     'go_back'        => 'رجوع',
     'researches'        => 'الابحاث',
+    'useful_links'        => 'روابط مفيدة',
+    'quick_contact'        => 'للتواصل السريع',
 );

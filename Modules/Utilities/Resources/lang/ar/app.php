@@ -19,6 +19,12 @@ return [
     'no'                     => 'لا',
     'calender'               => 'التقويم',
     'events'                 => 'الأحداث',
+    'footers'               => 'فوتر',
+    'footer_links'           => 'روابط الفوتر',
+    'footer-links'           => 'روابط الفوتر',
+    'default'                => 'افتراضي',
+    'upload_logo'            => 'شعار',
+    'basic_info'            => 'معلومات اساسية',
 
     'tables'                 => 'الجداول',
     'table_name'             => 'اسم الجدول',

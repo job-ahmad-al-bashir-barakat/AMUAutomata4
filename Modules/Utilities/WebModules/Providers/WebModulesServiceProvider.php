@@ -5,6 +5,7 @@ namespace Modules\Utilities\WebModules\Providers;
 use Aut\SeoBuilder\Entities\Seo;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
+use Modules\Utilities\Entities\Footer;
 use Modules\Utilities\Entities\MenuList;
 use Modules\Utilities\Entities\BuilderPage;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -83,11 +84,12 @@ class WebModulesServiceProvider extends ServiceProvider
 //            logger('routes', [$url, $name]);
             Route::get("{$supportedLanguage}/{$url}", function (){
                 $menu = $this->getPageMenu();
+                $footer = $this->getPageFooter();
                 $color = $this->color;
                 $logoPath = $this->logoPath;
                 $modules = BuilderPage::pageModules()->get()->pluck('module');
                 $seo = Seo::with(['graphImage', 'cardImage'])->pageSeo()->first();
-                return view("modules", compact('menu', 'modules', 'seo', 'color', 'logoPath'));
+                return view("modules", compact('menu', 'modules', 'seo', 'color', 'logoPath', 'footer'));
             })->name($name)->middleware(['translateDynamicRoute']);
         }
     }
@@ -118,5 +120,10 @@ class WebModulesServiceProvider extends ServiceProvider
             return $this->getMenuTree($menuPage->menu_id);
         }
         return $this->getMenuTree();
+    }
+
+    private function getPageFooter()
+    {
+        return Footer::with(['footerLinks', 'contact', 'image'])->where('is_default', true)->get()->first();
     }
 }

@@ -349,4 +349,20 @@ class BuilderController extends Controller
             'subPage' => $subPage,
         ]);
     }
+
+    /**
+     * Footers
+     */
+    public function footers()
+    {
+        $view = 'footers';
+        $subPage = \View::exists("utilities::page.table-sub.$view") ? "utilities::page.table-sub.$view" : false;
+
+        return view('utilities::page.table',[
+            'table' => 'footers',
+            'param' => '',
+            'title' => trans('utilities::app.footers'),
+            'subPage' => $subPage,
+        ]);
+    }
 }

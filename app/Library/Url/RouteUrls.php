@@ -72,6 +72,11 @@ class RouteUrls
         return $this->localizeUrl('builder/event-groups', 'utilities');
     }
 
+    public function footers()
+    {
+        return $this->localizeUrl('builder/footers', 'utilities');
+    }
+
     public function customModules()
     {
         return $this->localizeUrl('custom-modules', 'utilities');

@@ -84,6 +84,16 @@ return [
         'factory'       => Modules\Utilities\Factories\EventsFactory::class
     ],
 
+    'footers' => [
+        'model'         => Modules\Utilities\Entities\Footer::class,
+        'factory'       => Modules\Utilities\Factories\FooterFactory::class
+    ],
+
+    'footers-links' => [
+        'model'         => Modules\Utilities\Entities\FooterLink::class,
+        'factory'       => Modules\Utilities\Factories\FooterLinksFactory::class
+    ],
+
     'custom-modules' => [
         'model'         => Modules\Utilities\Entities\CustomModule::class,
         'factory'       => Modules\Utilities\Factories\CustomModuleFactory::class

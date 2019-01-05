@@ -84,7 +84,6 @@ return array (
     'light_orange' => 'Light Orange',
     'purple' => 'Purple',
     'sky_blue' => 'Sky Blue',
-    'color' => 'Color',
     'logo' => 'Logo',
     'all' => 'All',
     /*
@@ -94,4 +93,6 @@ return array (
     'return_home'    => 'Return Home',
     'go_back'        => 'Go Back',
     'researches'        => 'Researches',
+    'useful_links'        => 'Useful Links',
+    'quick_contact'        => 'Quick Contact',
 );

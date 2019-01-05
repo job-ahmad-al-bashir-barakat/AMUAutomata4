@@ -477,6 +477,16 @@ class PermissionsTableSeeder extends Seeder
                 'updated_at' => '2018-12-30 13:46:18',
                 'deleted_at' => NULL,
             ),
+            46 => 
+            array (
+                'id' => 47,
+                'name' => 'footer',
+                'guard_name' => 'web',
+                'hidden' => 'N',
+                'created_at' => '2019-01-05 05:51:45',
+                'updated_at' => '2019-01-05 05:51:45',
+                'deleted_at' => NULL,
+            ),
         ));
         
         
