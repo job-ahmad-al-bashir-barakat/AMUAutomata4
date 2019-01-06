@@ -34,6 +34,7 @@
     @php($color = $color??'1')
     <link href="{{ asset("css/colors/theme-skin-color-set-{$color}.css") }}" rel="stylesheet" type="text/css">
     <!-- <link href="css/style.css" rel="stylesheet" type="text/css"> -->
+    <link href="{{ asset('css/leaflet.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('theme-custom.css') }}" rel="stylesheet" type="text/css">
 </head>
 <body class="">
@@ -46,6 +47,7 @@
     @include('theme.footer')
 </div>
 <script src="{{ asset(mix('js/main.js')) }}"></script>
+<script src="{{ asset(mix('js/leaflet.js')) }}"></script>
 @if($dir == 'rtl')
 <script>
     $.fn.isotope.prototype._positionAbs = function( x, y ) {
@@ -88,7 +90,7 @@
 <![endif]-->
 <script type="text/javascript">
     $(document).ready(function(e) {
-
+        initLeafletMaps();
         $('.calendar').each(function () {
             let $this = $(this);
             let key = $this.data('key');
@@ -199,6 +201,26 @@
             }
         });
     });
+    function initLeafletMaps(){
+
+        $('.leaflet-map').each(function () {
+            var $this = $(this);
+            var id = $this.attr('id');
+            var geolocation = $this.data('latlng').split(',');
+            var zoom = $this.data('zoom') || 13;
+
+            var map = L.map(id).setView(geolocation, zoom);
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+
+            L.marker(geolocation).addTo(map)
+                /*.bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
+                .openPopup()*/;
+        });
+
+    }
 </script>
 </body>
 </html>

@@ -104,6 +104,15 @@
         <div class="col-md-4">
             <h4 class="line-bottom">@lang('app.find_location'):</h4>
             <div
+                    id="leaflet-map-{{ $person->id }}"
+                    class="leaflet-map"
+                    data-mapstyle="style1"
+                    data-height="200"
+                    data-latlng="{{ $person->contact->gelocation }}"
+                    data-zoom="12"
+                    {{--data-marker="{{ asset('images/map-marker.png') }}"--}}
+            ></div>
+            {{--<div
                     data-gmap
                     data-address="121 King Street, Melbourne Victoria 3000 Australia"
                     data-popupstring-id="#popupstring1"
@@ -114,7 +123,7 @@
                     data-title=""
                     data-zoom="14"
                     data-marker="images/map-marker.png">
-            </div>
+            </div>--}}
             <div class="map-popupstring hidden" id="popupstring1">
                 <div class="text-center">
                     <h3>CharityFund Office</h3>
