@@ -8,6 +8,7 @@ use Illuminate\Support\Str;
 use Illuminate\Routing\Controller;
 use Modules\Admin\Entities\Faculty;
 use Modules\Utilities\Entities\MenuTables;
+use Modules\Utilities\Entities\Module;
 use Modules\Utilities\Entities\SiteMenu;
 use Modules\Utilities\Entities\Table;
 
@@ -73,5 +74,12 @@ class UtilitiesController extends Controller
             ]);
 
         return view("utilities::page.menu", compact('view' ,'menuItems' ,'tableItemsDynamic','tableItemsDynamicFilter','group_sourse','group_count','menu'));
+    }
+
+    public function showModules()
+    {
+        $modules = Module::with(['image'])->get();
+        $title = trans('utilities::app.modules');
+        return view('utilities::page.modules', compact('modules', 'title'));
     }
 }

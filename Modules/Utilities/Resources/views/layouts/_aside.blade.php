@@ -10,6 +10,7 @@
         'icons',
         'attributes',
         'modules',
+        'show-modules',
         'pages',
     ]))
     <li class=" ">
@@ -65,6 +66,13 @@
             <li class="">
                 <a href="{{ RouteUrls::modules() }}" class="ajax" title="{{ trans('utilities::app.modules') }}">
                     <span>{{ trans('utilities::app.modules') }}</span>
+                </a>
+            </li>
+            @endcan
+            @can('show-modules')
+            <li class="">
+                <a href="{{ RouteUrls::showModules() }}" class="ajax" title="{{ trans('utilities::app.show-modules') }}">
+                    <span>{{ trans('utilities::app.show-modules') }}</span>
                 </a>
             </li>
             @endcan

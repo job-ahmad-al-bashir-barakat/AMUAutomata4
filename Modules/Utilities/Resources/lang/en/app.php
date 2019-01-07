@@ -27,6 +27,7 @@ return [
     'default'                => 'Default',
     'upload_logo'            => 'Logo',
     'basic_info'            => 'Basic Info',
+    'show-modules'            => 'Modules',
 
     'tables'                 => 'Tables',
     'table_name'             => 'Table Name',

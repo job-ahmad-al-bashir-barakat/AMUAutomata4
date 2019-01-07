@@ -74,6 +74,7 @@ function () {
         Route::get('attributes', 'UtilitiesController@table')->name('table.attributes');
         Route::get('permissions', 'UtilitiesController@table')->name('table.permissions');
     });
+    Route::get('modules/show', 'UtilitiesController@showModules')->middleware('permission:show-modules')->name('show.modules');
     Route::get('modules', 'UtilitiesController@table')->middleware('permission:modules')->name('table.modules');
 
     Route::get('langs', 'UtilitiesController@table')->middleware('permission:languages')->name('table.langs');

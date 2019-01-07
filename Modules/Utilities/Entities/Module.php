@@ -13,9 +13,11 @@ class Module extends Model
 {
     use SoftDeletes, MultiLangs;
 
+    const IMAGE_PATH = 'storage/upload/image/';
+
     protected $fillable = ['image_id', 'code', 'customized'];
 
-    protected $appends  = ['lang_name', 'lang_description'];
+    protected $appends  = ['lang_name', 'lang_description', 'image_path'];
 
     public function transName()
     {
@@ -45,5 +47,13 @@ class Module extends Model
     public function image()
     {
         return $this->hasOne(Image::class, 'id', 'image_id');
+    }
+
+    public function getImagePathAttribute()
+    {
+        if ($this->image) {
+            return self::IMAGE_PATH . 'modules/' . $this->image->hash_name;
+        }
+        return null;
     }
 }

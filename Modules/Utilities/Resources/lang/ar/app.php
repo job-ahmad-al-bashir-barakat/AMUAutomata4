@@ -25,6 +25,7 @@ return [
     'default'                => 'افتراضي',
     'upload_logo'            => 'شعار',
     'basic_info'            => 'معلومات اساسية',
+    'show-modules'            => 'القوالب',
 
     'tables'                 => 'الجداول',
     'table_name'             => 'اسم الجدول',

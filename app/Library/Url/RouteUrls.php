@@ -62,6 +62,11 @@ class RouteUrls
         return $this->localizeUrl('modules', 'utilities');
     }
 
+    public function showModules()
+    {
+        return $this->localizeUrl('modules/show', 'utilities');
+    }
+
     public function galleries()
     {
         return $this->localizeUrl('builder/galleries', 'utilities');

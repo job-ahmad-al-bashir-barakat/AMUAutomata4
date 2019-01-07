@@ -3465,7 +3465,7 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                         'lang_id' => 1,
                         'text' => '<h1 class="line-bottom mt-0 text-uppercase" dir="ltr" style="margin-left:0cm; margin-right:0cm">Al Sham Private University <span class="text-theme-color-2">ASPU Scholarships</span></h1>
 
-<h1 class="line-bottom mt-0 text-uppercase" dir="ltr" style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:14.0pt">First- &nbsp;Full scholarships:</span></strong></span></span></span></h1>
+<h1 class="line-bottom mt-0 text-uppercase" dir="ltr" style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:14.0pt">First-  Full scholarships:</span></strong></span></span></span></h1>
 
 <p dir="ltr" style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">ASPU offers annually free grants as follows:</span></span></span></span></p>
 
@@ -3499,7 +3499,7 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
 <td colspan="4" style="vertical-align:top; width:311.7pt">
 <p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:12.0pt">Total grades after excluding degrees of religious education</span></strong></span></span></span></p>
 
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">From&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; To&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; From&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; To </span></span></span></span></p>
+<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">From                         To                          From                      To </span></span></span></span></p>
 </td>
 </tr>
 <tr>
@@ -3647,7 +3647,7 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
 
 <p dir="ltr" style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:14.0pt">Third-Discounts (partial scholarships):</span></strong></span></span></span></p>
 
-<p dir="ltr" style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">&nbsp;These include the reduction of the fees of the credit hours for the minimum period necessary for the completion of the study at the first university level. These scholarships are in the form of rebates as follows:</span></span></span></span></p>
+<p dir="ltr" style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt"> These include the reduction of the fees of the credit hours for the minimum period necessary for the completion of the study at the first university level. These scholarships are in the form of rebates as follows:</span></span></span></span></p>
 
 <table align="center" border="1" cellspacing="0" class="MsoTableGrid" dir="ltr" style="border-collapse:collapse; border:solid windowtext 1.0pt">
 <tbody>
@@ -3672,7 +3672,7 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
 <p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">25%</span></span></span></span></p>
 </td>
 <td style="vertical-align:top; width:391.25pt">
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">For children of volunteers in the armed forces , &nbsp;registered in non-medical colleges , for the minimum period of study</span></span></span></span></p>
+<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">For children of volunteers in the armed forces ,  registered in non-medical colleges , for the minimum period of study</span></span></span></span></p>
 </td>
 </tr>
 <tr>
@@ -3680,7 +3680,7 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
 <p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">20%</span></span></span></span></p>
 </td>
 <td style="vertical-align:top; width:391.25pt">
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">Each of the two brothers;/ sisters &nbsp;students (who are registered at the university together) is entitled to complete their studies throughout the minimum period of study, and discount is 25% for the third brother, if the number of siblings becomes three</span></span></span></span></p>
+<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">Each of the two brothers;/ sisters  students (who are registered at the university together) is entitled to complete their studies throughout the minimum period of study, and discount is 25% for the third brother, if the number of siblings becomes three</span></span></span></span></p>
 </td>
 </tr>
 <tr>
@@ -3696,7 +3696,7 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
 <p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">20%</span></span></span></span></p>
 </td>
 <td style="vertical-align:top; width:391.25pt">
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">Deduction from the tuition fees for the married &nbsp;couple (as long as they are registered together) at the university</span></span></span></span></p>
+<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">Deduction from the tuition fees for the married  couple (as long as they are registered together) at the university</span></span></span></span></p>
 </td>
 </tr>
 <tr>
@@ -3704,7 +3704,7 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
 <p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">20%</span></span></span></span></p>
 </td>
 <td style="vertical-align:top; width:391.25pt">
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">Deduction &nbsp;from the tuition fees for students ,members of the Revolutionary Youth Union, who are &nbsp;distinguished scientifically or militarily</span></span></span></span></p>
+<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">Deduction  from the tuition fees for students ,members of the Revolutionary Youth Union, who are  distinguished scientifically or militarily</span></span></span></span></p>
 </td>
 </tr>
 <tr>
@@ -3718,17 +3718,17 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
 </tbody>
 </table>
 
-<p dir="ltr" style="margin-left:0cm; margin-right:0cm">&nbsp;</p>
+<p dir="ltr" style="margin-left:0cm; margin-right:0cm"> </p>
 
 <p dir="ltr" style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:14.0pt">Fourth - Prepayment rebates:</span></strong></span></span></span></p>
 
-<p dir="ltr" style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">&bull; Discount (2.50%) two and a half percent of the course fees if the student has paid the courses fees in full and one payment in advance, in any semester except for the first semester of the new student, provided that number of credit hours registered is not less than (15 credit hours).</span></span></span></span></p>
+<p dir="ltr" style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">• Discount (2.50%) two and a half percent of the course fees if the student has paid the courses fees in full and one payment in advance, in any semester except for the first semester of the new student, provided that number of credit hours registered is not less than (15 credit hours).</span></span></span></span></p>
 
-<p dir="ltr" style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">&bull; 5% discount of course fees if the student pays full course fees at one payment in advance for one or more academic years, provided that the number of credit hours registered is not less than (30 credit hours).</span></span></span></span></p>
+<p dir="ltr" style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">• 5% discount of course fees if the student pays full course fees at one payment in advance for one or more academic years, provided that the number of credit hours registered is not less than (30 credit hours).</span></span></span></span></p>
 
 <p dir="ltr" style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:14.0pt">Fifth- Discount for trade unions members (10%):</span></strong></span></span></span></p>
 
-<p dir="ltr" style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">ASPU offers a 10% discount on tuition fees for the children of members of trade unions and members of people&rsquo;s organizations.</span></span></span></span></p>
+<p dir="ltr" style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">ASPU offers a 10% discount on tuition fees for the children of members of trade unions and members of people’s organizations.</span></span></span></span></p>
 
 <p dir="ltr" style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:14.0pt">Sixth-Discounts on academic excellence for university students:</span></strong></span></span></span></p>
 
@@ -3766,7 +3766,7 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
 <p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">10%</span></span></span></span></p>
 </td>
 <td style="vertical-align:top; width:155.85pt">
-<p style="margin-left:0cm; margin-right:0cm">&nbsp;</p>
+<p style="margin-left:0cm; margin-right:0cm"> </p>
 </td>
 </tr>
 <tr>
@@ -3814,27 +3814,27 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
 
 <p dir="ltr" style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:14.0pt">Damascus Faculties</span></strong><span style="font-size:14.0pt">: </span><span style="font-size:12.0pt">(Information Engineering - Law - International Relations and Diplomacy - Administrative Sciences) Al-Baramkeh next to Tishreen Sports city</span></span></span></span></p>
 
-<p dir="ltr" style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Telephone: 00963 11 215 33 60/ 00963 11 2066/ 0934602121</span></span></span></span></p>
+<p dir="ltr" style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">                Telephone: 00963 11 215 33 60/ 00963 11 2066/ 0934602121</span></span></span></span></p>
 
-<p dir="ltr" style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fax: +963-11 2153364</span></span></span></span></p>
+<p dir="ltr" style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">                Fax: +963-11 2153364</span></span></span></span></p>
 
 <p dir="ltr" style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:14.0pt">Medical Colleges:</span></strong> <span style="font-size:12.0pt">(human medicine-dentistry) Damascus - Mazraa - next to al-Eman mosque</span></span></span></span></p>
 
-<p dir="ltr" style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Telephone: 00963-11-4438461 / 00963-11-4438462 / 0934602121</span></span></span></span></p>
+<p dir="ltr" style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">                Telephone: 00963-11-4438461 / 00963-11-4438462 / 0934602121</span></span></span></span></p>
 
-<p dir="ltr" style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fax: +963-441-438465</span></span></span></span></p>
+<p dir="ltr" style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">                Fax: +963-441-438465</span></span></span></span></p>
 
 <p dir="ltr" style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:14.0pt">Faculty of Pharmacy</span></strong><span style="font-size:14.0pt">: </span><span style="font-size:12.0pt">Al-Tal City-Damascus countryside(formerly Faculty of Political Science)</span></span></span></span></p>
 
 <p dir="ltr" style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:14.0pt">Lattakia Colleges</span></strong><span style="font-size:14.0pt">: </span><span style="font-size:12.0pt">(Pharmacy- Dentistry - Law - Administrative Sciences) al-Sleibeh quarters - next to the Revolutionary Youth Union</span></span></span></span></p>
 
-<p dir="ltr" style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;Telephone: 00963-41-493412 / 00963-41-493415 /</span></span></span></span></p>
+<p dir="ltr" style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">                  Telephone: 00963-41-493412 / 00963-41-493415 /</span></span></span></span></p>
 
-<p dir="ltr" style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; Fax: +963-41-343415&nbsp;</span></span></span></span></p>
+<p dir="ltr" style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">                   Fax: +963-41-343415 </span></span></span></span></p>
 
-<p dir="ltr" style="margin-left:0cm; margin-right:0cm"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><a href="mailto:info@alsham-univ.sy" style="color:blue; text-decoration:underline"><span style="color:#000000"><span style="font-size:14.0pt">info@alsham-univ.sy</span></span></a><span style="color:#000000"><span style="font-size:14.0pt">&nbsp;&nbsp;&nbsp; &nbsp;<u>Alsham.University@facebook.com</u> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span><a href="http://www.Aspu.edu.sy" style="color:blue; text-decoration:underline"><span style="color:#000000"><span style="font-size:14.0pt">www.Aspu.edu.sy</span></span></a></span></span></p>',
+<p dir="ltr" style="margin-left:0cm; margin-right:0cm"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><a href="mailto:info@alsham-univ.sy" style="color:blue; text-decoration:underline"><span style="color:#000000"><span style="font-size:14.0pt">info@alsham-univ.sy</span></span></a><span style="color:#000000"><span style="font-size:14.0pt">     <u>Alsham.University@facebook.com</u>       </span></span><a href="http://www.Aspu.edu.sy" style="color:blue; text-decoration:underline"><span style="color:#000000"><span style="font-size:14.0pt">www.Aspu.edu.sy</span></span></a></span></span></p>',
                         'created_at' => '2018-10-22 05:12:02',
-                        'updated_at' => '2018-12-31 14:07:47',
+                        'updated_at' => '2019-01-06 09:52:21',
                         'deleted_at' => NULL,
                     ),
                     69 => 
@@ -3842,403 +3842,403 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                         'id' => 70,
                         'custom_module_attribute_value_id' => 217,
                         'lang_id' => 2,
-                        'text' => '<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span lang="AR-SY" style="font-size:18.0pt"><span style="font-family:"Simplified Arabic",serif">المنح المقدمة من جامعة الشام الخاصة</span></span></b></span></span></span></span></span></span></p>
+                        'text' => '<h1 class="line-bottom mt-0 text-uppercase" dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:18.0pt">المنح المقدمة من جامعة الشام الخاصة</span></strong></span></span></span></h1>
 
-<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span lang="AR-SY" style="font-size:16.0pt"><span style="font-family:"Simplified Arabic",serif">أولاً - المنح الكاملة :</span></span></b></span></span></span></span></span></span></p>
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:16.0pt">أولاً - المنح الكاملة :</span></strong></span></span></span></p>
 
-<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">تقدم الجامعة سنويا منحاً مجانية وفق الآتي:</span></span></span></span></span></span></span></span></p>
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">تقدم الجامعة سنويا منحاً مجانية وفق الآتي:</span></span></span></span></p>
 
-<ol>
-<li dir="RTL" style="margin-right:24.0pt; text-align:justify"><span style="color:#000000;"><span style="direction:rtl"><span style="unicode-bidi:embed"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">منح وزارة التعليم العالي بنسبة 5% من عدد الطلاب المقبولين في الجامعة في كل كلية واختصاص.</span></span></span></span></span></li>
-<li dir="RTL" style="margin-right:24.0pt; text-align:justify"><span style="color:#000000;"><span style="direction:rtl"><span style="unicode-bidi:embed"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">منحة دراسية واحدة في كل سنة لكل من وزارة العدل في كلية الحقوق، ووزارة التنمية الإدارية في كلية العلوم الإدارية.</span></span></span></span></span></li>
-<li dir="RTL" style="margin-right:24.0pt; text-align:justify"><span style="color:#000000;"><span style="direction:rtl"><span style="unicode-bidi:embed"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">منح كاملة لأبناء الشهداء من العسكريين 100%</span></span></span></span></span></li>
-</ol>
-
-<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">تشمل هذه المنح الإعفاء من رسوم الساعات المعتمدة ورسوم التسجيل والقبول والمفاضلة والخدمات طيلة المدة الدنيا اللازمة لإتمام المرحلة الجامعية الأولى.</span></span></span></span></span></span></span></span></p>
-
-<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span lang="AR-SY" style="font-size:16.0pt"><span style="font-family:"Simplified Arabic",serif">ثانياً - منح الشهادة الثانوية:</span></span></b></span></span></span></span></span></span></p>
-
-<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">تقدم الجامعة منحاً وحسومات للطلاب الناجحين والمتفوقين دراسياً في الشهادة الثانوية السورية لدورة العام الحالي وبعد طي درجتي التربية الدينية وإحدى اللغتين الأجنبيتين (أيهما أقل)، حسب الآتي:</span></span></span></span></span></span></span></span></p>
-
-<ol>
-<li dir="RTL" style="margin-right:30.75pt; text-align:justify"><span style="color:#000000;"><span style="direction:rtl"><span style="unicode-bidi:embed"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">منحة للطالب الأول على مستوى القطر في الشهادة الثانوية العامة للفروع (الأدبي / العلمي / الشرعي)</span></span></span></span></span></li>
-<li dir="RTL" style="margin-right:30.75pt; text-align:justify"><span style="color:#000000;"><span style="direction:rtl"><span style="unicode-bidi:embed"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">منحة للطالب الثاني فقط على مستوى القطر في الشهادة الثانوية (الفرع العلمي فقط</span></span></span></span></span></li>
-<li dir="RTL" style="margin-right:30.75pt; text-align:justify"><span style="color:#000000;"><span style="direction:rtl"><span style="unicode-bidi:embed"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">حسومات للطلاب الناجحين الحاصلين على درجات عالية في الثانوية الراغبين بالتسجيل في الكليات <b>(غير الطبية)</b>، وفق الآتي:</span></span></span></span></span></li>
-</ol>
-
-<div align="center" dir="rtl">
-<table class="Table" dir="rtl" style="width:446.0pt; border-collapse:collapse; border:solid windowtext 1.0pt" width="595">
-<tbody>
-<tr style="height:66.25pt">
-<td rowspan="2" style="border:solid windowtext 1.0pt; width:110.2pt; padding:0cm 5.4pt 0cm 5.4pt; height:66.25pt" width="147">
-<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">الشهادة الثانوية</span></span></span></span></span></span></span></span></p>
-</td>
-<td rowspan="2" style="border:solid windowtext 1.0pt; width:80.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:66.25pt" width="107">
-<p dir="RTL" style="margin-bottom:.0001pt; margin:0cm 0cm 8pt; text-align:right"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">نسبة الحسم</span></span></span></span></span></span></span></span></p>
-</td>
-<td colspan="4" style="border:solid windowtext 1.0pt; width:255.8pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:66.25pt" width="341">
-<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">مجموع الدرجات بعد طي درجتي التربية الدينية</span></span></span></span></span></span></span></span></p>
-
-<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">وإحدى اللغتين الأجنبيتين</span></span></span></span></span></span></span></span></p>
-</td>
-</tr>
-<tr style="height:21.15pt">
-<td style="border-bottom:solid windowtext 1.0pt; width:58.45pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:21.15pt" width="78">
-<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">من</span></span></span></span></span></span></span></span></p>
-</td>
-<td style="border-bottom:solid windowtext 1.0pt; width:57.2pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:21.15pt" width="76">
-<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">إلى</span></span></span></span></span></span></span></span></p>
-</td>
-<td style="border-bottom:solid windowtext 1.0pt; width:67.45pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:21.15pt" width="90">
-<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">من</span></span></span></span></span></span></span></span></p>
-</td>
-<td style="border-bottom:solid windowtext 1.0pt; width:72.7pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:21.15pt" width="97">
-<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">إلى</span></span></span></span></span></span></span></span></p>
-</td>
-</tr>
-<tr style="height:19.85pt">
-<td style="border:solid windowtext 1.0pt; width:110.2pt; border-top:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="147">
-<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">العامة / علمي</span></span></span></span></span></span></span></span></p>
-</td>
-<td style="border-bottom:solid windowtext 1.0pt; width:80.0pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="107">
-<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">10 %</span></span></span></span></span></span></span></span></p>
-</td>
-<td style="border-bottom:solid windowtext 1.0pt; width:58.45pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="78">
-<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">75%</span></span></span></span></span></span></span></span></p>
-</td>
-<td style="border-bottom:solid windowtext 1.0pt; width:57.2pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="76">
-<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">84.99%</span></span></span></span></span></span></span></span></p>
-</td>
-<td style="border-bottom:solid windowtext 1.0pt; width:67.45pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="90">
-<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">1800</span></span></span></span></span></span></span></span></p>
-</td>
-<td style="border-bottom:solid windowtext 1.0pt; width:72.7pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="97">
-<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">2039</span></span></span></span></span></span></span></span></p>
-</td>
-</tr>
-<tr style="height:19.85pt">
-<td style="border:solid windowtext 1.0pt; width:110.2pt; border-top:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="147">
-<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">العامة / علمي</span></span></span></span></span></span></span></span></p>
-</td>
-<td style="border-bottom:solid windowtext 1.0pt; width:80.0pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="107">
-<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">20%</span></span></span></span></span></span></span></span></p>
-</td>
-<td style="border-bottom:solid windowtext 1.0pt; width:58.45pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="78">
-<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">85%</span></span></span></span></span></span></span></span></p>
-</td>
-<td style="border-bottom:solid windowtext 1.0pt; width:57.2pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="76">
-<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">100%</span></span></span></span></span></span></span></span></p>
-</td>
-<td style="border-bottom:solid windowtext 1.0pt; width:67.45pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="90">
-<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">2040</span></span></span></span></span></span></span></span></p>
-</td>
-<td style="border-bottom:solid windowtext 1.0pt; width:72.7pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="97">
-<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">2400</span></span></span></span></span></span></span></span></p>
-</td>
-</tr>
-<tr style="height:19.85pt">
-<td style="border:solid windowtext 1.0pt; width:110.2pt; border-top:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="147">
-<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">العامة / أدبي</span></span></span></span></span></span></span></span></p>
-</td>
-<td style="border-bottom:solid windowtext 1.0pt; width:80.0pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="107">
-<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">10 %</span></span></span></span></span></span></span></span></p>
-</td>
-<td style="border-bottom:solid windowtext 1.0pt; width:58.45pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="78">
-<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">75%</span></span></span></span></span></span></span></span></p>
-</td>
-<td style="border-bottom:solid windowtext 1.0pt; width:57.2pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="76">
-<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">84.99%</span></span></span></span></span></span></span></span></p>
-</td>
-<td style="border-bottom:solid windowtext 1.0pt; width:67.45pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="90">
-<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">1650</span></span></span></span></span></span></span></span></p>
-</td>
-<td style="border-bottom:solid windowtext 1.0pt; width:72.7pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="97">
-<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">1869</span></span></span></span></span></span></span></span></p>
-</td>
-</tr>
-<tr style="height:19.85pt">
-<td style="border:solid windowtext 1.0pt; width:110.2pt; border-top:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="147">
-<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">العامة / أدبي</span></span></span></span></span></span></span></span></p>
-</td>
-<td style="border-bottom:solid windowtext 1.0pt; width:80.0pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="107">
-<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">20%</span></span></span></span></span></span></span></span></p>
-</td>
-<td style="border-bottom:solid windowtext 1.0pt; width:58.45pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="78">
-<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">85%</span></span></span></span></span></span></span></span></p>
-</td>
-<td style="border-bottom:solid windowtext 1.0pt; width:57.2pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="76">
-<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">100%</span></span></span></span></span></span></span></span></p>
-</td>
-<td style="border-bottom:solid windowtext 1.0pt; width:67.45pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="90">
-<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">1870</span></span></span></span></span></span></span></span></p>
-</td>
-<td style="border-bottom:solid windowtext 1.0pt; width:72.7pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="97">
-<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">2200</span></span></span></span></span></span></span></span></p>
-</td>
-</tr>
-<tr style="height:19.85pt">
-<td style="border:solid windowtext 1.0pt; width:110.2pt; border-top:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="147">
-<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">الشرعية</span></span></span></span></span></span></span></span></p>
-</td>
-<td style="border-bottom:solid windowtext 1.0pt; width:80.0pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="107">
-<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">15%</span></span></span></span></span></span></span></span></p>
-</td>
-<td style="border-bottom:solid windowtext 1.0pt; width:58.45pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="78">
-<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">85%</span></span></span></span></span></span></span></span></p>
-</td>
-<td style="border-bottom:solid windowtext 1.0pt; width:57.2pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="76">
-<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">100%</span></span></span></span></span></span></span></span></p>
-</td>
-<td style="border-bottom:solid windowtext 1.0pt; width:67.45pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="90">
-<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">1870</span></span></span></span></span></span></span></span></p>
-</td>
-<td style="border-bottom:solid windowtext 1.0pt; width:72.7pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="97">
-<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">2200</span></span></span></span></span></span></span></span></p>
-</td>
-</tr>
-<tr style="height:19.85pt">
-<td style="border:solid windowtext 1.0pt; width:110.2pt; border-top:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="147">
-<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">المهنية / تجارية</span></span></span></span></span></span></span></span></p>
-</td>
-<td style="border-bottom:solid windowtext 1.0pt; width:80.0pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="107">
-<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">15%</span></span></span></span></span></span></span></span></p>
-</td>
-<td style="border-bottom:solid windowtext 1.0pt; width:58.45pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="78">
-<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">85%</span></span></span></span></span></span></span></span></p>
-</td>
-<td style="border-bottom:solid windowtext 1.0pt; width:57.2pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="76">
-<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">100%</span></span></span></span></span></span></span></span></p>
-</td>
-<td style="border-bottom:solid windowtext 1.0pt; width:67.45pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="90">
-<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">3230</span></span></span></span></span></span></span></span></p>
-</td>
-<td style="border-bottom:solid windowtext 1.0pt; width:72.7pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="97">
-<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">4500</span></span></span></span></span></span></span></span></p>
-</td>
-</tr>
-<tr style="height:19.85pt">
-<td style="border:solid windowtext 1.0pt; width:110.2pt; border-top:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="147">
-<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">المهنية / صناعية</span></span></span></span></span></span></span></span></p>
-</td>
-<td style="border-bottom:solid windowtext 1.0pt; width:80.0pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="107">
-<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">15%</span></span></span></span></span></span></span></span></p>
-</td>
-<td style="border-bottom:solid windowtext 1.0pt; width:58.45pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="78">
-<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">85%</span></span></span></span></span></span></span></span></p>
-</td>
-<td style="border-bottom:solid windowtext 1.0pt; width:57.2pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="76">
-<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">100%</span></span></span></span></span></span></span></span></p>
-</td>
-<td style="border-bottom:solid windowtext 1.0pt; width:67.45pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="90">
-<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">3400</span></span></span></span></span></span></span></span></p>
-</td>
-<td style="border-bottom:solid windowtext 1.0pt; width:72.7pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="97">
-<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">4500</span></span></span></span></span></span></span></span></p>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-
-<p dir="RTL" style="text-align:justify; margin:0cm 0cm 8pt"> </p>
-
-<p dir="RTL" style="text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span lang="AR-SY" style="font-size:16.0pt"><span style="font-family:"Simplified Arabic",serif">ثالثاً - الحسومات (منح جزئية):</span></span></b></span></span></span></span></span></span></p>
-
-<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">وتشمل تخفيض رسوم الساعات المعتمدة طيلة المدة الدنيا اللازمة لإنهاء الدراسة في المرحلة الجامعية الأولى وتكون هذه المنح بشكل حسومات وفق الآتي:</span></span></span></span></span></span></span></span></p>
-
-<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"> </p>
-
-<div align="center" dir="rtl">
-<table class="Table" dir="rtl" style="width:435.35pt; border-collapse:collapse; border:solid windowtext 1.0pt" width="580">
-<tbody>
-<tr>
-<td style="border:solid windowtext 1.0pt; width:59.65pt; padding:0cm 5.4pt 0cm 5.4pt" width="80">
-<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">50%</span></span></b></span></span></span></span></span></span></p>
-</td>
-<td style="border:solid windowtext 1.0pt; width:375.7pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="501">
-<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">لذوي الشهداء تشمل (الأب - الأم - الزوج - الأخوة والأخوات) وللمدة الدنيا من الدراسة</span></span></span></span></span></span></span></span></p>
-</td>
-</tr>
-<tr>
-<td style="border:solid windowtext 1.0pt; width:59.65pt; border-top:none; padding:0cm 5.4pt 0cm 5.4pt" width="80">
-<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">25%</span></span></b></span></span></span></span></span></span></p>
-</td>
-<td style="border-bottom:solid windowtext 1.0pt; width:375.7pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="501">
-<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">لأبناء المتطوعين في القوات المسلحة (الوحدات المقاتلة) والمسجلين في الكليات الطبية وللمدة الدنيا من الدراسة</span></span></span></span></span></span></span></span></p>
-</td>
-</tr>
-<tr>
-<td style="border:solid windowtext 1.0pt; width:59.65pt; border-top:none; padding:0cm 5.4pt 0cm 5.4pt" width="80">
-<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">25%</span></span></b></span></span></span></span></span></span></p>
-</td>
-<td style="border-bottom:solid windowtext 1.0pt; width:375.7pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="501">
-<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">لأبناء المتطوعين في القوات المسلحة والمسجلين في الكليات غير الطبية وللمدة الدنيا من الدراسة</span></span></span></span></span></span></span></span></p>
-</td>
-</tr>
-<tr>
-<td style="border:solid windowtext 1.0pt; width:59.65pt; border-top:none; padding:0cm 5.4pt 0cm 5.4pt" width="80">
-<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">20%</span></span></b></span></span></span></span></span></span></p>
-</td>
-<td style="border-bottom:solid windowtext 1.0pt; width:375.7pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="501">
-<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">لكل طالب من الطلبة الأشقاء (ما داما مسجلين في الجامعة معاً) عن كامل دراستهما طيلة المدة الدنيا من الدراسة، ويصبح الحسم 25% للشقيق الثالث، إذا أصبح عدد الأشقاء الطلبة ثلاثة</span></span></span></span></span></span></span></span></p>
-</td>
-</tr>
-<tr>
-<td style="border:solid windowtext 1.0pt; width:59.65pt; border-top:none; padding:0cm 5.4pt 0cm 5.4pt" width="80">
-<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">20%</span></span></b></span></span></span></span></span></span></p>
-</td>
-<td style="border-bottom:solid windowtext 1.0pt; width:375.7pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="501">
-<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">لأبناء أعضاء الهيئة التدريسية المتفرغين كلياً في الجامعة طيلة مدة تفرغهم، ويكون الحسم للمدة الدنيا من الدراسة</span></span></span></span></span></span></span></span></p>
-</td>
-</tr>
-<tr style="height:26.45pt">
-<td style="border:solid windowtext 1.0pt; width:59.65pt; border-top:none; padding:0cm 5.4pt 0cm 5.4pt; height:26.45pt" width="80">
-<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">20%</span></span></b></span></span></span></span></span></span></p>
-</td>
-<td style="border-bottom:solid windowtext 1.0pt; width:375.7pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:26.45pt" valign="top" width="501">
-<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">حسم من الرسوم الدراسية للزوجين، (ما داما مسجلين معاً) في الجامعة</span></span></span></span></span></span></span></span></p>
-</td>
-</tr>
-<tr>
-<td style="border:solid windowtext 1.0pt; width:59.65pt; border-top:none; padding:0cm 5.4pt 0cm 5.4pt" width="80">
-<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">20%</span></span></b></span></span></span></span></span></span></p>
-</td>
-<td style="border-bottom:solid windowtext 1.0pt; width:375.7pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="501">
-<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">حسم من الرسوم الدراسية للطلبة المنتسبين لاتحاد شبيبة الثورة المتميزين علمياً أو نضالياً</span></span></span></span></span></span></span></span></p>
-</td>
-</tr>
-<tr>
-<td style="border:solid windowtext 1.0pt; width:59.65pt; border-top:none; padding:0cm 5.4pt 0cm 5.4pt" width="80">
-<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">15%</span></span></b></span></span></span></span></span></span></p>
-</td>
-<td style="border-bottom:solid windowtext 1.0pt; width:375.7pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="501">
-<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">لأبناء أعضاء الهيئة الفنية والإدارية، طيلة مدة عملهم في الجامعة ويكون الحسم للمدة الدنيا من الدراسة</span></span></span></span></span></span></span></span></p>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-
-<p dir="RTL" style="margin-bottom:6.0pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">رابعاً - حسومات تسديد الرسوم مقدماً:</span></span></b></span></span></span></span></span></span></p>
-
-<ul>
-<li dir="RTL" style="margin-right:25.05pt; text-align:justify"><span style="color:#000000;"><span style="font-size:12pt"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:"Times New Roman",serif"> <span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">حسم (2,50%) اثنان ونصف بالمائة من رسوم المقررات الدراسية في حال قام الطالب بتسديد رسوم المقررات كاملة ودفعة واحدة مقدماً، في أي فصل دراسي باستثناء الفصل الأول للطالب المستجد شريطة ألا يقل عدد الساعات المعتمدة المسجلة عن (15 ساعة معتمدة) .</span></span></span></span></span></span></span></li>
-<li dir="RTL" style="margin-right:25.05pt; text-align:justify"><span style="color:#000000;"><span style="font-size:12pt"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:"Times New Roman",serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">حسم (5%) خمسة بالمائة من رسوم المقررات الدراسية في حال قام الطالب بتسديد رسوم المقررات كاملة ودفعة واحدة مقدماً لعام دراسي واحد أو أكثر، شريطة ألا يقل عدد الساعات المعتمدة المسجلة عن (30 ساعة معتمدة). </span></span></span></span></span></span></span></li>
+<ul style="list-style:decimal; padding:0 20px">
+<li dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:14.0pt">منح وزارة التعليم العالي بنسبة 5% من عدد الطلاب المقبولين في الجامعة في كل كلية واختصاص.</span></span></li>
+<li dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:14.0pt">منحة دراسية واحدة في كل سنة لكل من وزارة العدل في كلية الحقوق، ووزارة التنمية الإدارية في كلية العلوم الإدارية.</span></span></li>
+<li dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:14.0pt">منح كاملة لأبناء الشهداء من العسكريين 100%</span></span></li>
 </ul>
 
-<p dir="RTL" style="margin-bottom:6.0pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">خامساً -حسم</span></span></b><b><span lang="AR-SA" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif"> المنتسبين للنقابات (10%):</span></span></b></span></span></span></span></span></span></p>
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">تشمل هذه المنح الإعفاء من رسوم الساعات المعتمدة ورسوم التسجيل والقبول والمفاضلة والخدمات طيلة المدة الدنيا اللازمة لإتمام المرحلة الجامعية الأولى.</span></span></span></span></p>
 
-<p dir="RTL" style="margin-bottom:6.0pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">تقدم الجامعة حسماً مقدراه (10%) عشرة بالمئة فقط من الرسوم الدراسية لأبناء المنتسبين للنقابات المهنية وأبناء أعضاء المنظمات الشعبية.</span></span></span></span></span></span></span></span></p>
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:16.0pt">ثانياً - منح الشهادة الثانوية:</span></strong></span></span></span></p>
 
-<p dir="RTL" style="margin-bottom:6.0pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">سادساً - </span></span></b><b><span lang="AR-SA" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">حسومات التفوق الدراسي لطلاب الجامعة: </span></span></b></span></span></span></span></span></span></p>
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">تقدم الجامعة منحاً وحسومات للطلاب الناجحين والمتفوقين دراسياً في الشهادة الثانوية السورية لدورة العام الحالي وبعد طي درجتي التربية الدينية وإحدى اللغتين الأجنبيتين (أيهما أقل)، حسب الآتي:</span></span></span></span></p>
 
-<p dir="RTL" style="margin-bottom:6.0pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SA" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">يضاف هذا الحسم إلى أي حسم آخر حصل عليه الطالب.</span></span></span></span></span></span></span></span></p>
+<ol>
+<li dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:14.0pt">منحة للطالب الأول على مستوى القطر في الشهادة الثانوية العامة للفروع (الأدبي / العلمي / الشرعي)</span></span></li>
+<li dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:14.0pt">منحة للطالب الثاني فقط على مستوى القطر في الشهادة الثانوية (الفرع العلمي فقط</span></span></li>
+<li dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:14.0pt">حسومات للطلاب الناجحين الحاصلين على درجات عالية في الثانوية الراغبين بالتسجيل في الكليات <strong>(غير الطبية)</strong>، وفق الآتي:</span></span></li>
+</ol>
 
-<div align="center" dir="rtl">
-<table class="MsoTableGrid" dir="rtl" style="width:357.35pt; border-collapse:collapse; border:solid windowtext 1.0pt" width="476">
+<div dir="rtl">
+<table border="1" cellspacing="0" class="Table" dir="rtl" style="border-collapse:collapse; border:solid windowtext 1.0pt; width:446.0pt">
 <tbody>
-<tr style="height:49.0pt">
-<td style="border:solid windowtext 1.0pt; width:127.35pt; padding:0cm 5.4pt 0cm 5.4pt; height:49.0pt" valign="top" width="170">
-<p align="center" class="CxSpMiddle" dir="RTL" style="margin-bottom:.0001pt; text-align:center"><span style="color:#000000;"><span style="line-height:normal"><b><span lang="AR-SA" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">المعدل  %</span></span></b></span></span></p>
+<tr>
+<td rowspan="2" style="height:66.25pt; width:110.2pt">
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">الشهادة الثانوية</span></span></span></span></p>
 </td>
-<td style="border:solid windowtext 1.0pt; width:180.4pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:49.0pt" valign="top" width="241">
-<p class="CxSpMiddle" dir="RTL" style="margin-bottom:.0001pt"><span style="color:#000000;"><span style="line-height:normal"><b><span lang="AR-SA" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">نسبة الحسم على رسوم المقررات (دون الرسوم الأخرى)</span></span></b></span></span></p>
+<td rowspan="2" style="height:66.25pt; width:80.0pt">
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:right"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">نسبة الحسم</span></span></span></span></p>
 </td>
-<td style="border:solid windowtext 1.0pt; width:49.6pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:49.0pt" valign="top" width="66">
-<p class="CxSpMiddle" dir="RTL" style="margin-bottom:.0001pt; text-align:justify"><span style="color:#000000;"><span style="line-height:normal"><b><span lang="AR-SA" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">المرتبة</span></span></b></span></span></p>
-</td>
-</tr>
-<tr style="height:20.45pt">
-<td style="border:solid windowtext 1.0pt; width:127.35pt; border-top:none; padding:0cm 5.4pt 0cm 5.4pt; height:20.45pt" valign="top" width="170">
-<p align="center" class="CxSpMiddle" dir="RTL" style="margin-bottom:.0001pt; text-align:center"><span style="color:#000000;"><span style="line-height:normal"><span lang="AR-SA" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">75.00 – 79.99</span></span></span></span></p>
-</td>
-<td style="border-bottom:solid windowtext 1.0pt; width:180.4pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:20.45pt" valign="top" width="241">
-<p class="CxSpMiddle" dir="RTL" style="margin-bottom:.0001pt; text-align:justify"><span style="color:#000000;"><span style="line-height:normal"><span lang="AR-SA" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">5%</span></span></span></span></p>
-</td>
-<td rowspan="2" style="border-bottom:solid windowtext 1.0pt; width:49.6pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:20.45pt" valign="top" width="66">
-<p class="CxSpMiddle" dir="RTL" style="margin-bottom:.0001pt; text-align:justify"><span style="color:#000000;"><span style="line-height:normal"><span lang="AR-SA" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">جيد جداً</span></span></span></span></p>
+<td colspan="4" style="height:66.25pt; width:255.8pt">
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">مجموع الدرجات بعد طي درجتي التربية الدينية</span></span></span></span></p>
+
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">وإحدى اللغتين الأجنبيتين</span></span></span></span></p>
 </td>
 </tr>
-<tr style="height:19.85pt">
-<td style="border:solid windowtext 1.0pt; width:127.35pt; border-top:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" valign="top" width="170">
-<p align="center" class="CxSpMiddle" dir="RTL" style="margin-bottom:.0001pt; text-align:center"><span style="color:#000000;"><span style="line-height:normal"><span lang="AR-SA" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">80.00 – 84.99</span></span></span></span></p>
+<tr>
+<td style="height:21.15pt; width:58.45pt">
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">من</span></span></span></span></p>
 </td>
-<td style="border-bottom:solid windowtext 1.0pt; width:180.4pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" valign="top" width="241">
-<p class="CxSpMiddle" dir="RTL" style="margin-bottom:.0001pt; text-align:justify"><span style="color:#000000;"><span style="line-height:normal"><span lang="AR-SA" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">10%</span></span></span></span></p>
+<td style="height:21.15pt; width:57.2pt">
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">إلى</span></span></span></span></p>
 </td>
-</tr>
-<tr style="height:19.85pt">
-<td style="border:solid windowtext 1.0pt; width:127.35pt; border-top:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" valign="top" width="170">
-<p align="center" class="CxSpMiddle" dir="RTL" style="margin-bottom:.0001pt; text-align:center"><span style="color:#000000;"><span style="line-height:normal"><span lang="AR-SA" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">85.00 – 89.99</span></span></span></span></p>
+<td style="height:21.15pt; width:67.45pt">
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">من</span></span></span></span></p>
 </td>
-<td style="border-bottom:solid windowtext 1.0pt; width:180.4pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" valign="top" width="241">
-<p class="CxSpMiddle" dir="RTL" style="margin-bottom:.0001pt; text-align:justify"><span style="color:#000000;"><span style="line-height:normal"><span lang="AR-SA" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">25%</span></span></span></span></p>
-</td>
-<td rowspan="2" style="border-bottom:solid windowtext 1.0pt; width:49.6pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" valign="top" width="66">
-<p class="CxSpMiddle" dir="RTL" style="margin-bottom:.0001pt; text-align:justify"><span style="color:#000000;"><span style="line-height:normal"><span lang="AR-SA" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">امتياز</span></span></span></span></p>
+<td style="height:21.15pt; width:72.7pt">
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">إلى</span></span></span></span></p>
 </td>
 </tr>
-<tr style="height:19.85pt">
-<td style="border:solid windowtext 1.0pt; width:127.35pt; border-top:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" valign="top" width="170">
-<p align="center" class="CxSpMiddle" dir="RTL" style="margin-bottom:.0001pt; text-align:center"><span style="color:#000000;"><span style="line-height:normal"><span lang="AR-SA" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">90.00 – 94.99</span></span></span></span></p>
+<tr>
+<td style="height:19.85pt; width:110.2pt">
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">العامة / علمي</span></span></span></span></p>
 </td>
-<td style="border-bottom:solid windowtext 1.0pt; width:180.4pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" valign="top" width="241">
-<p class="CxSpMiddle" dir="RTL" style="margin-bottom:.0001pt; text-align:justify"><span style="color:#000000;"><span style="line-height:normal"><span lang="AR-SA" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">50%</span></span></span></span></p>
+<td style="height:19.85pt; width:80.0pt">
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">10 %</span></span></span></span></p>
+</td>
+<td style="height:19.85pt; width:58.45pt">
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">75%</span></span></span></span></p>
+</td>
+<td style="height:19.85pt; width:57.2pt">
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">84.99%</span></span></span></span></p>
+</td>
+<td style="height:19.85pt; width:67.45pt">
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">1800</span></span></span></span></p>
+</td>
+<td style="height:19.85pt; width:72.7pt">
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">2039</span></span></span></span></p>
 </td>
 </tr>
-<tr style="height:26.95pt">
-<td style="border:solid windowtext 1.0pt; width:127.35pt; border-top:none; padding:0cm 5.4pt 0cm 5.4pt; height:26.95pt" valign="top" width="170">
-<p align="center" class="CxSpMiddle" dir="RTL" style="margin-bottom:.0001pt; text-align:center"><span style="color:#000000;"><span style="line-height:normal"><span lang="AR-SA" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">95.00 – فما فوق</span></span></span></span></p>
+<tr>
+<td style="height:19.85pt; width:110.2pt">
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">العامة / علمي</span></span></span></span></p>
 </td>
-<td style="border-bottom:solid windowtext 1.0pt; width:180.4pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:26.95pt" valign="top" width="241">
-<p class="CxSpMiddle" dir="RTL" style="margin-bottom:.0001pt; text-align:justify"><span style="color:#000000;"><span style="line-height:normal"><span lang="AR-SA" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">75%</span></span></span></span></p>
+<td style="height:19.85pt; width:80.0pt">
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">20%</span></span></span></span></p>
 </td>
-<td style="border-bottom:solid windowtext 1.0pt; width:49.6pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:26.95pt" valign="top" width="66">
-<p class="CxSpMiddle" dir="RTL" style="margin-bottom:.0001pt; text-align:justify"><span style="color:#000000;"><span style="line-height:normal"><span lang="AR-SA" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">شرف</span></span></span></span></p>
+<td style="height:19.85pt; width:58.45pt">
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">85%</span></span></span></span></p>
+</td>
+<td style="height:19.85pt; width:57.2pt">
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">100%</span></span></span></span></p>
+</td>
+<td style="height:19.85pt; width:67.45pt">
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">2040</span></span></span></span></p>
+</td>
+<td style="height:19.85pt; width:72.7pt">
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">2400</span></span></span></span></p>
 </td>
 </tr>
-<tr style="height:20.95pt">
-<td style="border:solid windowtext 1.0pt; width:127.35pt; border-top:none; padding:0cm 5.4pt 0cm 5.4pt; height:20.95pt" valign="top" width="170">
-<p align="center" class="CxSpMiddle" dir="RTL" style="margin-bottom:.0001pt; text-align:center"><span style="color:#000000;"><span style="line-height:normal"><span lang="AR-SA" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">الأول على الكلية مهما كان معدله</span></span></span></span></p>
+<tr>
+<td style="height:19.85pt; width:110.2pt">
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">العامة / أدبي</span></span></span></span></p>
 </td>
-<td style="border-bottom:solid windowtext 1.0pt; width:180.4pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:20.95pt" valign="top" width="241">
-<p class="CxSpMiddle" dir="RTL" style="margin-bottom:.0001pt; text-align:justify"><span style="color:#000000;"><span style="line-height:normal"><span lang="AR-SA" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">100%</span></span></span></span></p>
+<td style="height:19.85pt; width:80.0pt">
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">10 %</span></span></span></span></p>
 </td>
-<td style="border-bottom:solid windowtext 1.0pt; width:49.6pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:20.95pt" valign="top" width="66">
-<p class="CxSpMiddle" dir="RTL" style="margin-bottom:.0001pt; text-align:justify"><span style="color:#000000;"><span style="line-height:normal"><span lang="AR-SA" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">-</span></span></span></span></p>
+<td style="height:19.85pt; width:58.45pt">
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">75%</span></span></span></span></p>
+</td>
+<td style="height:19.85pt; width:57.2pt">
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">84.99%</span></span></span></span></p>
+</td>
+<td style="height:19.85pt; width:67.45pt">
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">1650</span></span></span></span></p>
+</td>
+<td style="height:19.85pt; width:72.7pt">
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">1869</span></span></span></span></p>
+</td>
+</tr>
+<tr>
+<td style="height:19.85pt; width:110.2pt">
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">العامة / أدبي</span></span></span></span></p>
+</td>
+<td style="height:19.85pt; width:80.0pt">
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">20%</span></span></span></span></p>
+</td>
+<td style="height:19.85pt; width:58.45pt">
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">85%</span></span></span></span></p>
+</td>
+<td style="height:19.85pt; width:57.2pt">
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">100%</span></span></span></span></p>
+</td>
+<td style="height:19.85pt; width:67.45pt">
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">1870</span></span></span></span></p>
+</td>
+<td style="height:19.85pt; width:72.7pt">
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">2200</span></span></span></span></p>
+</td>
+</tr>
+<tr>
+<td style="height:19.85pt; width:110.2pt">
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">الشرعية</span></span></span></span></p>
+</td>
+<td style="height:19.85pt; width:80.0pt">
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">15%</span></span></span></span></p>
+</td>
+<td style="height:19.85pt; width:58.45pt">
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">85%</span></span></span></span></p>
+</td>
+<td style="height:19.85pt; width:57.2pt">
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">100%</span></span></span></span></p>
+</td>
+<td style="height:19.85pt; width:67.45pt">
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">1870</span></span></span></span></p>
+</td>
+<td style="height:19.85pt; width:72.7pt">
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">2200</span></span></span></span></p>
+</td>
+</tr>
+<tr>
+<td style="height:19.85pt; width:110.2pt">
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">المهنية / تجارية</span></span></span></span></p>
+</td>
+<td style="height:19.85pt; width:80.0pt">
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">15%</span></span></span></span></p>
+</td>
+<td style="height:19.85pt; width:58.45pt">
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">85%</span></span></span></span></p>
+</td>
+<td style="height:19.85pt; width:57.2pt">
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">100%</span></span></span></span></p>
+</td>
+<td style="height:19.85pt; width:67.45pt">
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">3230</span></span></span></span></p>
+</td>
+<td style="height:19.85pt; width:72.7pt">
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">4500</span></span></span></span></p>
+</td>
+</tr>
+<tr>
+<td style="height:19.85pt; width:110.2pt">
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">المهنية / صناعية</span></span></span></span></p>
+</td>
+<td style="height:19.85pt; width:80.0pt">
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">15%</span></span></span></span></p>
+</td>
+<td style="height:19.85pt; width:58.45pt">
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">85%</span></span></span></span></p>
+</td>
+<td style="height:19.85pt; width:57.2pt">
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">100%</span></span></span></span></p>
+</td>
+<td style="height:19.85pt; width:67.45pt">
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">3400</span></span></span></span></p>
+</td>
+<td style="height:19.85pt; width:72.7pt">
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">4500</span></span></span></span></p>
 </td>
 </tr>
 </tbody>
 </table>
 </div>
 
-<p dir="RTL" style="margin-top:0cm; margin-right:35.4pt; margin-bottom:.0001pt; margin-left:0cm; text-align:justify; margin:0cm 0cm 8pt"> </p>
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify">&nbsp;</p>
 
-<p dir="RTL" style="margin-top:0cm; margin-right:35.4pt; margin-bottom:.0001pt; margin-left:0cm; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span lang="AR-SY" style="font-size:16.0pt"><span style="font-family:"Simplified Arabic",serif">الإدارة المركزية</span></span></b><span lang="AR-SY" style="font-size:16.0pt"><span style="font-family:"Simplified Arabic",serif">:</span></span> <span lang="AR-SA" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">دمشق</span></span><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">- البرامكة- شارع مصعب بن عُمير- بجوار مدينة تشرين الرياضية</span></span></span></span></span></span></span></span></p>
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:16.0pt">ثالثاً - الحسومات (منح جزئية):</span></strong></span></span></span></p>
 
-<p dir="RTL" style="margin-top:0cm; margin-right:35.4pt; margin-bottom:.0001pt; margin-left:0cm; margin:0cm 0cm 8pt; text-align:right"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span lang="AR-SY" style="font-size:16.0pt"><span style="font-family:"Simplified Arabic",serif">كــليات دمشق</span></span></b><span lang="AR-SY" style="font-size:16.0pt"><span style="font-family:"Simplified Arabic",serif">:</span></span><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">(الهندسة المعلوماتية - الحقوق - العلاقات الدولية والدبلوماسية- العلوم الإدارية) البرامكة بجوار مدينة</span></span> <span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">تشرين الرياضية</span></span></span></span></span></span></span></span></p>
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">وتشمل تخفيض رسوم الساعات المعتمدة طيلة المدة الدنيا اللازمة لإنهاء الدراسة في المرحلة الجامعية الأولى وتكون هذه المنح بشكل حسومات وفق الآتي:</span></span></span></span></p>
 
-<p dir="RTL" style="margin-top:0cm; margin-right:85.0pt; margin-bottom:.0001pt; margin-left:0cm; margin:0cm 0cm 8pt; text-align:right"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">هــ: </span></span><span dir="LTR" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">00963 11 215 33 60/ 00963 11 2066</span></span><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">/ 0934602121</span></span></span></span></span></span></span></span></p>
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify">&nbsp;</p>
 
-<p dir="RTL" style="margin-top:0cm; margin-right:85.0pt; margin-bottom:.0001pt; margin-left:0cm; margin:0cm 0cm 8pt; text-align:right"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">فاكس:  2153364–11-963</span></span></span></span></span></span></span></span></p>
+<div dir="rtl">
+<table border="1" cellspacing="0" class="Table" dir="rtl" style="border-collapse:collapse; border:solid windowtext 1.0pt; width:435.35pt">
+<tbody>
+<tr>
+<td style="width:59.65pt">
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:14.0pt">50%</span></strong></span></span></span></p>
+</td>
+<td style="vertical-align:top; width:375.7pt">
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">لذوي الشهداء تشمل (الأب - الأم - الزوج - الأخوة والأخوات) وللمدة الدنيا من الدراسة</span></span></span></span></p>
+</td>
+</tr>
+<tr>
+<td style="width:59.65pt">
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:14.0pt">25%</span></strong></span></span></span></p>
+</td>
+<td style="vertical-align:top; width:375.7pt">
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">لأبناء المتطوعين في القوات المسلحة (الوحدات المقاتلة) والمسجلين في الكليات الطبية وللمدة الدنيا من الدراسة</span></span></span></span></p>
+</td>
+</tr>
+<tr>
+<td style="width:59.65pt">
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:14.0pt">25%</span></strong></span></span></span></p>
+</td>
+<td style="vertical-align:top; width:375.7pt">
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">لأبناء المتطوعين في القوات المسلحة والمسجلين في الكليات غير الطبية وللمدة الدنيا من الدراسة</span></span></span></span></p>
+</td>
+</tr>
+<tr>
+<td style="width:59.65pt">
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:14.0pt">20%</span></strong></span></span></span></p>
+</td>
+<td style="vertical-align:top; width:375.7pt">
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">لكل طالب من الطلبة الأشقاء (ما داما مسجلين في الجامعة معاً) عن كامل دراستهما طيلة المدة الدنيا من الدراسة، ويصبح الحسم 25% للشقيق الثالث، إذا أصبح عدد الأشقاء الطلبة ثلاثة</span></span></span></span></p>
+</td>
+</tr>
+<tr>
+<td style="width:59.65pt">
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:14.0pt">20%</span></strong></span></span></span></p>
+</td>
+<td style="vertical-align:top; width:375.7pt">
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">لأبناء أعضاء الهيئة التدريسية المتفرغين كلياً في الجامعة طيلة مدة تفرغهم، ويكون الحسم للمدة الدنيا من الدراسة</span></span></span></span></p>
+</td>
+</tr>
+<tr>
+<td style="height:26.45pt; width:59.65pt">
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:14.0pt">20%</span></strong></span></span></span></p>
+</td>
+<td style="height:26.45pt; vertical-align:top; width:375.7pt">
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">حسم من الرسوم الدراسية للزوجين، (ما داما مسجلين معاً) في الجامعة</span></span></span></span></p>
+</td>
+</tr>
+<tr>
+<td style="width:59.65pt">
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:14.0pt">20%</span></strong></span></span></span></p>
+</td>
+<td style="vertical-align:top; width:375.7pt">
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">حسم من الرسوم الدراسية للطلبة المنتسبين لاتحاد شبيبة الثورة المتميزين علمياً أو نضالياً</span></span></span></span></p>
+</td>
+</tr>
+<tr>
+<td style="width:59.65pt">
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:14.0pt">15%</span></strong></span></span></span></p>
+</td>
+<td style="vertical-align:top; width:375.7pt">
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">لأبناء أعضاء الهيئة الفنية والإدارية، طيلة مدة عملهم في الجامعة ويكون الحسم للمدة الدنيا من الدراسة</span></span></span></span></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
 
-<p dir="RTL" style="margin-top:0cm; margin-right:35.4pt; margin-bottom:.0001pt; margin-left:0cm; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span lang="AR-SY" style="font-size:16.0pt"><span style="font-family:"Simplified Arabic",serif">الكليات الطبية:</span></span></b> <span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">(الطب البشري - طب الأسنان) دمشق- المزرعة - بجوار جامع الإيمان</span></span></span></span></span></span></span></span></p>
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:14.0pt">رابعاً - حسومات تسديد الرسوم مقدماً:</span></strong></span></span></span></p>
 
-<p dir="RTL" style="text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">هــ: </span></span><span dir="LTR" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">00963-11-4438461/ 00963-11-4438462</span></span><span lang="AR-SA" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">/ </span></span><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">0934602121</span></span></span></span></span></span></span></span></p>
+<ul>
+<li dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:12pt">&nbsp;<span style="font-size:14.0pt">حسم (2,50%) اثنان ونصف بالمائة من رسوم المقررات الدراسية في حال قام الطالب بتسديد رسوم المقررات كاملة ودفعة واحدة مقدماً، في أي فصل دراسي باستثناء الفصل الأول للطالب المستجد شريطة ألا يقل عدد الساعات المعتمدة المسجلة عن (15 ساعة معتمدة) .</span></span></span></li>
+<li dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:12pt"><span style="font-size:14.0pt">حسم (5%) خمسة بالمائة من رسوم المقررات الدراسية في حال قام الطالب بتسديد رسوم المقررات كاملة ودفعة واحدة مقدماً لعام دراسي واحد أو أكثر، شريطة ألا يقل عدد الساعات المعتمدة المسجلة عن (30 ساعة معتمدة). </span></span></span></li>
+</ul>
 
-<p dir="RTL" style="margin-top:0cm; margin-right:35.4pt; margin-bottom:.0001pt; margin-left:0cm; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">فاكس: 4438465–41-963+</span></span></span></span></span></span></span></span></p>
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:14.0pt">خامساً -حسم</span></strong><strong><span style="font-size:14.0pt"> المنتسبين للنقابات (10%):</span></strong></span></span></span></p>
 
-<p dir="RTL" style="margin-top:0cm; margin-right:2.0cm; margin-bottom:.0001pt; margin-left:0cm; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span lang="AR-SY" style="font-size:16.0pt"><span style="font-family:"Simplified Arabic",serif">كلية الصيدلة: </span></span></b> <span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">مدينة التل – ريف دمشق (كلية العلوم السياسية سابقاً</span></span><span dir="LTR" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">(</span></span></span></span></span></span></span></span></p>
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">تقدم الجامعة حسماً مقدراه (10%) عشرة بالمئة فقط من الرسوم الدراسية لأبناء المنتسبين للنقابات المهنية وأبناء أعضاء المنظمات الشعبية.</span></span></span></span></p>
 
-<p dir="RTL" style="margin-top:0cm; margin-right:2.0cm; margin-bottom:.0001pt; margin-left:0cm; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span lang="AR-SY" style="font-size:16.0pt"><span style="font-family:"Simplified Arabic",serif">كليات اللاذقية</span></span></b><span lang="AR-SY" style="font-size:16.0pt"><span style="font-family:"Simplified Arabic",serif">:</span></span><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif"> (الصيدلة – طب الأسنان – الحقوق – العلوم الإدارية) مشروع الصليبة – بجوار اتحاد شبيبة الثورة</span></span></span></span></span></span></span></span></p>
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:14.0pt">سادساً - </span></strong><strong><span style="font-size:14.0pt">حسومات التفوق الدراسي لطلاب الجامعة: </span></strong></span></span></span></p>
 
-<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">هــ: </span></span><span dir="LTR" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">00963-41-493412/ 00963-41-493415</span></span><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">/</span></span></span></span></span></span></span></span></p>
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">يضاف هذا الحسم إلى أي حسم آخر حصل عليه الطالب.</span></span></span></span></p>
 
-<p dir="RTL" style="text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif">        <span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif"> فاكس: 493415–41-963+</span></span></span></span></span></span></span></span></p>
+<div dir="rtl">
+<table border="1" cellspacing="0" class="MsoTableGrid" dir="rtl" style="border-collapse:collapse; border:solid windowtext 1.0pt; width:357.35pt">
+<tbody>
+<tr>
+<td style="height:49.0pt; vertical-align:top; width:127.35pt">
+<p dir="RTL" style="text-align:center"><span style="color:#000000"><strong><span style="font-size:14.0pt">المعدل&nbsp; %</span></strong></span></p>
+</td>
+<td style="height:49.0pt; vertical-align:top; width:180.4pt">
+<p dir="RTL"><span style="color:#000000"><strong><span style="font-size:14.0pt">نسبة الحسم على رسوم المقررات (دون الرسوم الأخرى)</span></strong></span></p>
+</td>
+<td style="height:49.0pt; vertical-align:top; width:49.6pt">
+<p dir="RTL" style="text-align:justify"><span style="color:#000000"><strong><span style="font-size:14.0pt">المرتبة</span></strong></span></p>
+</td>
+</tr>
+<tr>
+<td style="height:20.45pt; vertical-align:top; width:127.35pt">
+<p dir="RTL" style="text-align:center"><span style="color:#000000"><span style="font-size:14.0pt">75.00 &ndash; 79.99</span></span></p>
+</td>
+<td style="height:20.45pt; vertical-align:top; width:180.4pt">
+<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:14.0pt">5%</span></span></p>
+</td>
+<td rowspan="2" style="height:20.45pt; vertical-align:top; width:49.6pt">
+<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:14.0pt">جيد جداً</span></span></p>
+</td>
+</tr>
+<tr>
+<td style="height:19.85pt; vertical-align:top; width:127.35pt">
+<p dir="RTL" style="text-align:center"><span style="color:#000000"><span style="font-size:14.0pt">80.00 &ndash; 84.99</span></span></p>
+</td>
+<td style="height:19.85pt; vertical-align:top; width:180.4pt">
+<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:14.0pt">10%</span></span></p>
+</td>
+</tr>
+<tr>
+<td style="height:19.85pt; vertical-align:top; width:127.35pt">
+<p dir="RTL" style="text-align:center"><span style="color:#000000"><span style="font-size:14.0pt">85.00 &ndash; 89.99</span></span></p>
+</td>
+<td style="height:19.85pt; vertical-align:top; width:180.4pt">
+<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:14.0pt">25%</span></span></p>
+</td>
+<td rowspan="2" style="height:19.85pt; vertical-align:top; width:49.6pt">
+<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:14.0pt">امتياز</span></span></p>
+</td>
+</tr>
+<tr>
+<td style="height:19.85pt; vertical-align:top; width:127.35pt">
+<p dir="RTL" style="text-align:center"><span style="color:#000000"><span style="font-size:14.0pt">90.00 &ndash; 94.99</span></span></p>
+</td>
+<td style="height:19.85pt; vertical-align:top; width:180.4pt">
+<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:14.0pt">50%</span></span></p>
+</td>
+</tr>
+<tr>
+<td style="height:26.95pt; vertical-align:top; width:127.35pt">
+<p dir="RTL" style="text-align:center"><span style="color:#000000"><span style="font-size:14.0pt">95.00 &ndash; فما فوق</span></span></p>
+</td>
+<td style="height:26.95pt; vertical-align:top; width:180.4pt">
+<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:14.0pt">75%</span></span></p>
+</td>
+<td style="height:26.95pt; vertical-align:top; width:49.6pt">
+<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:14.0pt">شرف</span></span></p>
+</td>
+</tr>
+<tr>
+<td style="height:20.95pt; vertical-align:top; width:127.35pt">
+<p dir="RTL" style="text-align:center"><span style="color:#000000"><span style="font-size:14.0pt">الأول على الكلية مهما كان معدله</span></span></p>
+</td>
+<td style="height:20.95pt; vertical-align:top; width:180.4pt">
+<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:14.0pt">100%</span></span></p>
+</td>
+<td style="height:20.95pt; vertical-align:top; width:49.6pt">
+<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:14.0pt">-</span></span></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
 
-<p dir="RTL" style="margin-top:0cm; margin-right:-42.55pt; margin-bottom:.0001pt; margin-left:0cm; text-align:justify; margin:0cm 0cm 8pt"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span style="color:#000000;">  </span><a href="mailto:info@alsham-univ.sy"><span style="color:#000000;"><span style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">info@alsham-univ.sy</span></span></span></a><span style="color:#000000;">     </span><a href="mailto:Alsham.University@facebook.com"><span style="color:#000000;"><span style="font-size:14.0pt"><span style="font-family:"Simplified Arabic",serif">Alsham.University@facebook.com</span></span></span></a><span style="color:#000000;">    </span></span></span></span></span></span></p>',
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify">&nbsp;</p>
+
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:16.0pt">الإدارة المركزية</span></strong><span style="font-size:16.0pt">:</span> <span style="font-size:14.0pt">دمشق</span><span style="font-size:14.0pt">- البرامكة- شارع مصعب بن عُمير- بجوار مدينة تشرين الرياضية</span></span></span></span></p>
+
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:right"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:16.0pt">كــليات دمشق</span></strong><span style="font-size:16.0pt">:</span><span style="font-size:14.0pt">(الهندسة المعلوماتية - الحقوق - العلاقات الدولية والدبلوماسية- العلوم الإدارية) البرامكة بجوار مدينة</span> <span style="font-size:14.0pt">تشرين الرياضية</span></span></span></span></p>
+
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:right"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">هــ: </span><span dir="LTR" style="font-size:14.0pt">00963 11 215 33 60/ 00963 11 2066</span><span style="font-size:14.0pt">/ 0934602121</span></span></span></span></p>
+
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:right"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">فاكس:&nbsp; 2153364&ndash;11-963</span></span></span></span></p>
+
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:16.0pt">الكليات الطبية:</span></strong> <span style="font-size:14.0pt">(الطب البشري - طب الأسنان) دمشق- المزرعة - بجوار جامع الإيمان</span></span></span></span></p>
+
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">هــ: </span><span dir="LTR" style="font-size:14.0pt">00963-11-4438461/ 00963-11-4438462</span><span style="font-size:14.0pt">/ </span><span style="font-size:14.0pt">0934602121</span></span></span></span></p>
+
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">فاكس: 4438465&ndash;41-963+</span></span></span></span></p>
+
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:16.0pt">كلية الصيدلة: </span></strong>&nbsp;<span style="font-size:14.0pt">مدينة التل &ndash; ريف دمشق (كلية العلوم السياسية سابقاً</span><span dir="LTR" style="font-size:14.0pt">(</span></span></span></span></p>
+
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:16.0pt">كليات اللاذقية</span></strong><span style="font-size:16.0pt">:</span><span style="font-size:14.0pt"> (الصيدلة &ndash; طب الأسنان &ndash; الحقوق &ndash; العلوم الإدارية) مشروع الصليبة &ndash; بجوار اتحاد شبيبة الثورة</span></span></span></span></p>
+
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">هــ: </span><span dir="LTR" style="font-size:14.0pt">00963-41-493412/ 00963-41-493415</span><span style="font-size:14.0pt">/</span></span></span></span></p>
+
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="font-size:14.0pt">&nbsp;فاكس: 493415&ndash;41-963+</span></span></span></span></p>
+
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="color:#000000">&nbsp; </span><a href="mailto:info@alsham-univ.sy"><span style="color:#000000"><span style="font-size:14.0pt">info@alsham-univ.sy</span></span></a><span style="color:#000000">&nbsp;&nbsp; &nbsp;&nbsp;</span><a href="mailto:Alsham.University@facebook.com"><span style="color:#000000"><span style="font-size:14.0pt">Alsham.University@facebook.com</span></span></a><span style="color:#000000">&nbsp;&nbsp;&nbsp; </span></span></span></p>',
                                 'created_at' => '2018-10-22 05:12:02',
-                                'updated_at' => '2018-12-31 05:09:52',
+                                'updated_at' => '2019-01-06 09:52:22',
                                 'deleted_at' => NULL,
                             ),
                             70 => 
