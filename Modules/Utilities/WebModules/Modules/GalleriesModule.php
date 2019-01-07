@@ -12,7 +12,9 @@ class GalleriesModule extends Module
     public function getModuleData($data)
     {
         if ($data['galleries']) {
-            $data['galleries']->load('image');
+            $data['galleries']->load(['image' => function ($query) use ($data){
+                $query->limit($data['limit']);
+            }]);
         }
         return $data;
     }
