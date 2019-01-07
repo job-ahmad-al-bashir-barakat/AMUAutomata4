@@ -2,7 +2,7 @@
     <div class="container pt-60 pb-30">
         <div class="row">
             <div class="col-sm-6 col-md-3">
-                @php($logoPath = $footer->logo_path ?: ($logoPath ?? 'images/logo-wide-'.$lang.'.png'))
+                @php($logoPath = $footer->logo_path ?? ($logoPath ?? 'images/logo-wide-'.$lang.'.png'))
                 <div class="widget dark"> <img alt="" src="{{ asset($logoPath) }}">
                     @if($footer->lang_text[$lang])<p class="font-12 mt-20 mb-10">{{ $footer->lang_text[$lang]->text }}</p>@endif
                     <ul class="styled-icons icon-sm icon-bordered icon-circled clearfix mt-20">
