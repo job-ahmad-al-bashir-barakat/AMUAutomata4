@@ -6,6 +6,5 @@
         data-height="200"
         data-latlng="{{ $data['geolocation'] }}"
         data-zoom="12"
-        {{--data-marker="{{ asset('images/map-marker.png') }}"--}}
     ></div>
 </div>

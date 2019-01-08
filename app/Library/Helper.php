@@ -398,3 +398,17 @@ if (!function_exists('googleShare')) {
         return "https://plus.google.com/share?url={$sharedUrl}";
     }
 }
+
+if (!function_exists('fixFileManagerSrc')) {
+    function fixFileManagerSrc($text)
+    {
+        $fixed = $text;
+        $find = preg_match_all("'(http:\/\/[a-z\/]*?)laravel-filemanager'si", $text, $matches);
+
+        for ($i = 0; $i < $find; $i++) {
+            $fixed = str_replace($matches[0][$i], asset('laravel-filemanager'), $fixed);
+        }
+
+        return $fixed;
+    }
+}

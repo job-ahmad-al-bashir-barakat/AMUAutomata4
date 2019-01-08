@@ -88,6 +88,9 @@
 <!--[if lt IE 9]>
 <script src="{{ asset(mix('js/ie.js')) }}"></script>
 <![endif]-->
+</body>
+</html>
+
 <script type="text/javascript">
     $(document).ready(function(e) {
         initLeafletMaps();
@@ -201,6 +204,7 @@
             }
         });
     });
+    MAPS = {};
     function initLeafletMaps(){
 
         $('.leaflet-map').each(function () {
@@ -209,18 +213,19 @@
             var geolocation = $this.data('latlng').split(',');
             var zoom = $this.data('zoom') || 13;
 
-            var map = L.map(id).setView(geolocation, zoom);
+            if (!MAPS.hasOwnProperty(id)) {
+                var map = L.map(id).setView(geolocation, zoom);
+                MAPS[id] = map;
 
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            }).addTo(map);
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                }).addTo(map);
 
-            L.marker(geolocation).addTo(map)
+                L.marker(geolocation).addTo(map)
                 /*.bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
                 .openPopup()*/;
+            }
         });
 
     }
 </script>
-</body>
-</html>
