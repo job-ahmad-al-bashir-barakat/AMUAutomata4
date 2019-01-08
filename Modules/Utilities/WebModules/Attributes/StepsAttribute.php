@@ -27,7 +27,7 @@ class StepsAttribute extends Attribute
 
         $lang = app()->getLocale();
 //        $this->data = Step::whereIn('id', $this->data)->get()->pluck("lang_title.{$lang}.text", 'id')->toArray();
-        $this->data = Step::whereIn('id', $this->data)->get();
+        $this->data = Step::whereIn('id', $this->data)->orderBy('created_at', 'desc')->get();
     }
 
 }

@@ -312,6 +312,7 @@ mix.styles([
     'resources/assets/css/custom-bootstrap-margin-padding.css',
     // CSS | Responsive media queries
     'resources/assets/css/responsive.css',
+    'resources/assets/css/style.css',
     // CSS | Main style file
     'resources/assets/css/style-main.css',
 

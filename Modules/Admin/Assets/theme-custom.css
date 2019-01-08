@@ -75,3 +75,11 @@
 .hand {
     cursor: pointer;
 }
+
+html[dir="ltr"] .easyimage-side{
+    float: right;
+}
+
+html[dir="rtl"] .easyimage-side{
+    float: left;
+}

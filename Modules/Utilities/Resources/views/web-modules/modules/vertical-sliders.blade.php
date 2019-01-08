@@ -2,7 +2,7 @@
     @include('utilities::web-modules.modules.sub.title', ['title' => $data['title'][$lang], 'h' => '3', 'font' => '', 'icon' => $data['icon']->code ?? ''])
     <div class="bxslider bx-nav-top" data-count="{{ $data['show'] ?? '2' }}">
         @php($borderDir = 'left')
-        @foreach($data['vertical_sliders']->verticalSliderDetails()->with(['image'])->get() as $slider)
+        @foreach($data['vertical_sliders']->verticalSliderDetails()->with(['image'])->orderBy('created_at', 'desc')->get() as $slider)
         @include('utilities::web-modules.modules.sub.vertical-slider', ['borderDir' => $borderDir, 'slider' => $slider])
             @if($borderDir == 'left')
                 @php($borderDir = 'right')

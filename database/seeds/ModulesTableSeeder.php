@@ -20,21 +20,21 @@ class ModulesTableSeeder extends Seeder
             0 => 
             array (
                 'id' => 1,
-                'image_id' => NULL,
+                'image_id' => 439,
                 'code' => 'text_editor',
                 'customized' => '1',
                 'created_at' => '2017-07-22 08:56:29',
-                'updated_at' => '2017-07-22 08:56:29',
+                'updated_at' => '2019-01-06 14:13:26',
                 'deleted_at' => NULL,
             ),
             1 => 
             array (
                 'id' => 2,
-                'image_id' => NULL,
+                'image_id' => 440,
                 'code' => 'short_info',
                 'customized' => '1',
                 'created_at' => '2017-09-30 16:48:36',
-                'updated_at' => '2017-09-30 16:48:36',
+                'updated_at' => '2019-01-06 14:13:36',
                 'deleted_at' => NULL,
             ),
             2 => 
