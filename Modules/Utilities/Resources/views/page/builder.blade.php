@@ -60,6 +60,7 @@
             {!! FormComponent::modalFooterOpen() !!}
             {!! FormComponent::formAjaxButtons() !!}
             {!! FormComponent::modalFooterClose() !!}
+    {!! FormComponent::formAjaxButtons() !!}
         {!! FormComponent::formClose() !!}
     {!! FormComponent::modalClose() !!}
 

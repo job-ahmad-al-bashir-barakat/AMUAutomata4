@@ -11,7 +11,7 @@ class ModuleFactory extends GlobalFactory
      */
     public function getDatatable($model, $request)
     {
-        $query = $model::with(['attributes', 'image'])->allLangs()->get();
+        $query = $model::with(['attributes.transName', 'image'])->allLangs();
 
         return $this->table
             ->queryConfig('datatable-modules')
@@ -34,17 +34,18 @@ class ModuleFactory extends GlobalFactory
         $isAutomata = auth()->user()->can('automata');
         $this->table
             ->config('datatable-modules', trans('utilities::app.modules'))
+            ->searchWay('db')
             ->addPrimaryKey('id', 'id')
             ->addInputText(trans('utilities::app.code'), 'code', 'code', 'required req')
             ->addMultiInputTextLangs(['name'], 'req required')
             ->addMultiTextareaLangs(['description']);
         if ($isAutomata) {
             $this->table
-                ->addSelect(['1' => trans('utilities::app.yes'), 0 => trans('utilities::app.no')], trans('utilities::app.customized'), 'customized', 'customized', 'customized_show');
+                ->addSelect([1 => trans('utilities::app.yes'), 0 => trans('utilities::app.no')], trans('utilities::app.customized'), 'customized', 'customized_show', 'customized_show');
         }
         $this->table
             ->startRelation('attributes')
-            ->addMultiAutocomplete('autocomplete/attributes', "attributes[ ,].lang_name.$this->lang.text", trans('utilities::app.attributes'), 'attributes.id', "attributes.lang_name.$this->lang.text", "attributes.lang_name.$this->lang.text", ''/*'req required'*/, 'multiple')
+                ->addMultiAutocomplete('autocomplete/attributes', "attributes[ ,].lang_name.$this->lang.text", trans('utilities::app.attributes'), 'attributes.id', "attributes.transName.text", "attributes.lang_name.$this->lang.text", ''/*'req required'*/)
             ->endRelation()
             ->addActionButton(trans('utilities::app.upload_images'), 'upload_image', 'upload_image', 'center all', '60px');
         if ($isAutomata) {

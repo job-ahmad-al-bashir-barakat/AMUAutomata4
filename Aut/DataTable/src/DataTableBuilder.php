@@ -89,6 +89,7 @@ class DataTableBuilder
         'attr'        => '',
         'placeholder' => '',
         'lang'        => '',
+        'searchWay'   => '',
     ];
 
     protected $events = [
@@ -271,6 +272,13 @@ class DataTableBuilder
 
             $this->customResponsiveTemplete = $removeSpaces;
         }
+
+        return $this;
+    }
+
+    function searchWay($searchWay = 'db') {
+
+        $this->params['searchWay'] = $searchWay;
 
         return $this;
     }
@@ -1286,8 +1294,8 @@ class DataTableBuilder
                     "title"      => $title,
                     "data"       => "{$col}_{$index}" ,
                     "name"       => config('datatable.isLangs')
-                        ? $relation_key ? $relation_key.".lang_$col.$index.text" : "lang_$col.$index.text"
-                        : $relation_key ? $relation_key.".{$col}_{$index}" : "{$col}_{$index}",
+                        ? ($relation_key ? $relation_key.".trans".ucfirst($col).".text" : "trans".ucfirst($col).".text")
+                        : ($relation_key ? $relation_key.".{$col}_{$index}" : "{$col}_{$index}"),
                     "class"      => "$index $colClass",
                     "width"      => $colWidth,
                     "attr"       => $dialogAttr,

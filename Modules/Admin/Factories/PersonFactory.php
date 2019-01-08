@@ -62,7 +62,7 @@ class PersonFactory extends GlobalFactory
              $table =  $table->addAutocomplete('autocomplete/faculty' ,trans('admin::app.faculty'),'faculty_id',"faculty.lang_name.$this->lang.text","faculty.lang_name.$this->lang.text",'req');
 
         $table = $table->openHorizontalTab("name-$type" ,$this->name ,'req',true)
-                    ->addMultiInputTextLangs(['name'] ,'req required')
+                    ->addMultiInputTextLangs(['name'] ,'req required none')
                     ->closeHorizontalTab()
                     ->openHorizontalTab("summary-$type" ,$this->summary ,'req')
                         ->addMultiTextareaLangs(['summary'] ,'req required none text-editor')
