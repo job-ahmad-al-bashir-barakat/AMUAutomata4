@@ -11,7 +11,7 @@ class ModuleFactory extends GlobalFactory
      */
     public function getDatatable($model, $request)
     {
-        $query = $model::with(['attributes.transName', 'image'])->allLangs();
+        $query = $model::with(['attributes.transName', 'image'])->allLangs()->get();
 
         return $this->table
             ->queryConfig('datatable-modules')
@@ -20,6 +20,7 @@ class ModuleFactory extends GlobalFactory
             ->queryAddColumn('customized_show', function ($row) {
                 return $row->customized ? trans('utilities::app.yes') : trans('utilities::app.no');
             })
+            ->queryMultiAutocompleteFilter('attributes_filter','attributes',"lang_name->{$this->lang}->text")
             ->queryCustomButton('upload_image', 'id', 'fa fa-image', '', 'onclick="showFileUploadModal(this)"')
             ->queryUpdateButton('id')
             ->queryDeleteButton('id')
@@ -34,7 +35,7 @@ class ModuleFactory extends GlobalFactory
         $isAutomata = auth()->user()->can('automata');
         $this->table
             ->config('datatable-modules', trans('utilities::app.modules'))
-            ->searchWay('db')
+            ->filterWay('client')
             ->addPrimaryKey('id', 'id')
             ->addInputText(trans('utilities::app.code'), 'code', 'code', 'required req')
             ->addMultiInputTextLangs(['name'], 'req required')
@@ -45,7 +46,7 @@ class ModuleFactory extends GlobalFactory
         }
         $this->table
             ->startRelation('attributes')
-                ->addMultiAutocomplete('autocomplete/attributes', "attributes[ ,].lang_name.$this->lang.text", trans('utilities::app.attributes'), 'attributes.id', "attributes.transName.text", "attributes.lang_name.$this->lang.text", ''/*'req required'*/)
+                ->addMultiAutocomplete('autocomplete/attributes', "attributes[ ,].lang_name.$this->lang.text", trans('utilities::app.attributes'), 'attributes.id', "attributes_filter", "attributes.lang_name.$this->lang.text", ''/*'req required'*/)
             ->endRelation()
             ->addActionButton(trans('utilities::app.upload_images'), 'upload_image', 'upload_image', 'center all', '60px');
         if ($isAutomata) {

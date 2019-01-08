@@ -89,8 +89,9 @@ class DataTableBuilder
         'attr'        => '',
         'placeholder' => '',
         'lang'        => '',
-        'searchWay'   => '',
     ];
+
+    protected $filterWay = 'db';
 
     protected $events = [
         'onAdd'          => '',
@@ -276,9 +277,13 @@ class DataTableBuilder
         return $this;
     }
 
-    function searchWay($searchWay = 'db') {
+    /**
+     * @param string $filterWay db|client
+     * @return $this
+     */
+    function filterWay($filterWay = 'db') {
 
-        $this->params['searchWay'] = $searchWay;
+        $this->filterWay = $filterWay;
 
         return $this;
     }
@@ -1289,13 +1294,19 @@ class DataTableBuilder
                 if($hasTab)
                     $this->openHorizontalTab("{$col}_{$index}" ,$title ,'req' ,$index == App::getLocale() ? true : false);
 
+                if($this->filterWay == 'db') {
+                    $name = config('datatable.isLangs')
+                        ? ($relation_key ? $relation_key.".trans".ucfirst($col).".text" : "trans".ucfirst($col).".text")
+                        : ($relation_key ? $relation_key.".{$col}_{$index}" : "{$col}_{$index}");
+                } else { // client
+                    $name = "{$col}_{$index}";
+                }
+
                 $this->addField([
                     "type"       => $type,
                     "title"      => $title,
                     "data"       => "{$col}_{$index}" ,
-                    "name"       => config('datatable.isLangs')
-                        ? ($relation_key ? $relation_key.".trans".ucfirst($col).".text" : "trans".ucfirst($col).".text")
-                        : ($relation_key ? $relation_key.".{$col}_{$index}" : "{$col}_{$index}"),
+                    "name"       => $name,
                     "class"      => "$index $colClass",
                     "width"      => $colWidth,
                     "attr"       => $dialogAttr,
@@ -1593,7 +1604,7 @@ class DataTableBuilder
         $dialogAttr = '',
         $colWidth   = '',
         $visible    = true,
-        $orderable  = false,
+        $orderable  = true,
         $searchable = true,
         $choosen    = true,
         $printable  = true
@@ -1607,11 +1618,11 @@ class DataTableBuilder
             "data"       => $data,
             "name"       => $name ,
             "colLabel"   => $colLabel,
-            "class"      => $colClass ,
+            "class"      => $colClass,
             "width"      => $colWidth ,
             "attr"       => convertArrayToString($dialogAttr ,'multiple'),
             "visible"    => $visible,
-            "orderable"  => $orderable,
+            "orderable"  => $this->filterWay == 'db' ? false : $orderable,
             "searchable" => $searchable,
             "choosen"    => $choosen,
             "printable"  => $printable,

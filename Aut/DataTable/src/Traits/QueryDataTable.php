@@ -106,6 +106,29 @@ trait QueryDataTable
 
     /**
      * @param $colKey
+     * @param string $relation
+     * @param string $target
+     * @return $this
+     */
+    function queryMultiAutocompleteFilter($colKey, $relation = '' , $target = '')
+    {
+        $query = $this->query;
+
+        $query->addColumn($colKey, function ($item) use ($relation ,$target) {
+
+            $text = '';
+
+            foreach ($item->$relation as $item)
+                $text .= colValue($target ,$item) .",";
+
+            return $text;
+        });
+
+        return $this;
+    }
+
+    /**
+     * @param $colKey
      * @param \Closure $func
      * @return $this
      */
