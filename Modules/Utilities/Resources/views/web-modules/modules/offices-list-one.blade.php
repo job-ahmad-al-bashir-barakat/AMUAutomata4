@@ -10,7 +10,7 @@
                data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> @lang('app.loading')"
                data-page="1"
                data-append_to="#offices_list_1"
-               data-onsuccess="googlemap_initialize"
+               data-onsuccess="initLeafletMaps"
             >@lang('app.load_more')</a>
         </div>
     </div>
