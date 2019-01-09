@@ -12,7 +12,7 @@ class StatusFactory extends GlobalFactory
      */
     public function getDatatable($model ,$request)
     {
-        $query = Status::allLangs()->get();
+        $query = Status::allLangs();
 
         return $this->table
             ->queryConfig('datatable-status')

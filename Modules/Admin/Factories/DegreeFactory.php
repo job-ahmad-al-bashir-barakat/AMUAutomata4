@@ -12,7 +12,7 @@ class DegreeFactory extends GlobalFactory
      */
     public function getDatatable($model ,$request)
     {
-        $query = Degree::with('faculty')->allLangs()->get();
+        $query = Degree::with('faculty')->allLangs();
 
         return $this->table
             ->queryConfig('datatable-degree')

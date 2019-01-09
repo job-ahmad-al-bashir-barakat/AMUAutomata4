@@ -17,7 +17,7 @@ class FooterFactory extends GlobalFactory
     {
         $query = $footers::allLangs()->with(['image', 'contact' => function ($query) {
             return $query->allLangs();
-        }])->get();
+        }]);
 
         return $this->table
             ->queryConfig('datatable-footers')

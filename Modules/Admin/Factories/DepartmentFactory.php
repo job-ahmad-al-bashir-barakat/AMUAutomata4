@@ -12,7 +12,7 @@ class DepartmentFactory extends GlobalFactory
      */
     public function getDatatable($model ,$request)
     {
-        $query = Department::with('faculty')->allLangs()->get();
+        $query = Department::with('faculty')->allLangs();
 
         return $this->table
             ->queryConfig('datatable-department')

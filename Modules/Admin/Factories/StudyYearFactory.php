@@ -13,7 +13,7 @@ class StudyYearFactory extends GlobalFactory
      */
     public function getDatatable($model, $request)
     {
-        $query = StudyYear::allLangs()->get();
+        $query = StudyYear::allLangs();
 
         return $this->table
             ->queryConfig('datatable-study-year')

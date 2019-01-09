@@ -14,7 +14,7 @@ class BlockDetailFactory extends GlobalFactory
     {
         $blockId = request('blockId');
         $block = Block::findOrFail($blockId);
-        $query = $block->blockDetails()->with(['page', 'icon', 'front_image', 'back_image'])->allLangs()->get();
+        $query = $block->blockDetails()->with(['page', 'icon', 'front_image', 'back_image'])->allLangs();
 
         return $this->table
             ->queryConfig('datatable-block-details')

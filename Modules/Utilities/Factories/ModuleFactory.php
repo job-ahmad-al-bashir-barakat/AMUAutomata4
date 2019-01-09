@@ -11,7 +11,7 @@ class ModuleFactory extends GlobalFactory
      */
     public function getDatatable($model, $request)
     {
-        $query = $model::with(['attributes.transName', 'image'])->allLangs()->get();
+        $query = $model::with(['attributes.transName', 'image'])->allLangs();
 
         return $this->table
             ->queryConfig('datatable-modules')

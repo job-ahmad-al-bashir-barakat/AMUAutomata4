@@ -12,7 +12,7 @@ class LangFactory extends GlobalFactory
      */
     public function getDatatable($lang ,$request)
     {
-        $query = $lang::with(['image'])->get();
+        $query = $lang::with(['image']);
 
         return $this->table
             ->queryConfig('datatable-langs')

@@ -11,7 +11,7 @@ class TextCardFactory extends GlobalFactory
      */
     public function getDatatable($model, $request)
     {
-        $query = $model::with(['icon'])->allLangs()->get();
+        $query = $model::with(['icon'])->allLangs();
 
         return $this->table
             ->queryConfig('datatable-text-cards')

@@ -14,7 +14,7 @@ class PrerequisiteFactory extends GlobalFactory
      */
     public function getDatatable($model ,$request)
     {
-        $query = PrerequisiteGroup::with(['courses'])->where('course_id','=' ,request('course'))->get();
+        $query = PrerequisiteGroup::with(['courses'])->where('course_id','=' ,request('course'));
 
         return $this->table
             ->queryConfig('datatable-prerequisite')

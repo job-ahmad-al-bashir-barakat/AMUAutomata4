@@ -13,7 +13,7 @@ class PermissionFactory extends GlobalFactory
      */
     public function getDatatable($permission, $request)
     {
-        $query = $permission::allLangs()->get();
+        $query = $permission::allLangs();
 
         return $this->table
             ->queryConfig('datatable-permissions')

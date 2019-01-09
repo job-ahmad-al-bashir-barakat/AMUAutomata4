@@ -41,7 +41,7 @@ class BuilderPageFactory extends GlobalFactory
             if ($menuId) {
                 $hasSubPages = (bool)SiteMenu::where('parent_id', $menuId->id)->count();
             }
-            $query = $builderPage::allLangs()->get();
+            $query = $builderPage::allLangs();
         } else {
             $menuId = SiteMenu::where('dynamic', $this->builderMorphCode)->first();
             if ($menuId) {

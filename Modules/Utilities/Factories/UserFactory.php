@@ -12,7 +12,7 @@ class UserFactory extends GlobalFactory
      */
     public function getDatatable($user, $request)
     {
-        $query = $user::with(['permissions', 'roles'])->allLangs()->get();
+        $query = $user::with(['permissions', 'roles'])->allLangs();
 
          $this->table
             ->queryConfig('datatable-users')

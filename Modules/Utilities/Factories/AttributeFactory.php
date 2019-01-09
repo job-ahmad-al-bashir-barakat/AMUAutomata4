@@ -12,7 +12,7 @@ class AttributeFactory extends GlobalFactory
      */
     public function getDatatable($attribute, $request)
     {
-        $query = $attribute::allLangs()->get();
+        $query = $attribute::allLangs();
 
         return $this->table
             ->queryConfig('datatable-attributes')

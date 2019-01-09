@@ -11,8 +11,7 @@ class ResearchFactory extends GlobalFactory
     public function getDatatable($model, $request)
     {
         $query = Research::where('person_id', '=', $request->get('person'))
-            ->allLangs()
-            ->get();
+            ->allLangs();
 
         return $this->table
             ->queryConfig('datatable-researches')

@@ -12,7 +12,7 @@ class StepFactory extends GlobalFactory
      */
     public function getDatatable($model, $request)
     {
-        $query = $model::allLangs()->get();
+        $query = $model::allLangs();
 
         return $this->table
             ->queryConfig('datatable-steps')

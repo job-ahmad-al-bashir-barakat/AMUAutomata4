@@ -13,7 +13,7 @@ class SocialNetworkFactory extends GlobalFactory
      */
     public function getDatatable($model ,$request)
     {
-        $query = SocialNetwork::allLangs()->get();
+        $query = SocialNetwork::allLangs();
 
         return $this->table
             ->queryConfig('datatable-social-network')

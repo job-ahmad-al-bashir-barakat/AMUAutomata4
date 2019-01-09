@@ -13,7 +13,7 @@ class FacultyFactory extends GlobalFactory
      */
     public function getDatatable($model ,$request)
     {
-        $query = Faculty::with(['studyYear','campus'])->allLangs()->get();
+        $query = Faculty::with(['studyYear','campus'])->allLangs();
 
         return $this->table
             ->queryConfig('datatable-faculty')

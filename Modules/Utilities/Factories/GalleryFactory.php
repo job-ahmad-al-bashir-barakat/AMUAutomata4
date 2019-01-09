@@ -12,7 +12,7 @@ class GalleryFactory extends GlobalFactory
      */
     public function getDatatable($gallery, $request)
     {
-        $query = $gallery::with(['image'])->allLangs()->get();
+        $query = $gallery::with(['image'])->allLangs();
 
         return $this->table
             ->queryConfig('datatable-galleries')

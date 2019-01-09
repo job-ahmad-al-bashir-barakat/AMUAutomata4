@@ -12,7 +12,7 @@ class RoleFactory extends GlobalFactory
      */
     public function getDatatable($role, $request)
     {
-        $query = $role::with(['permissions'])->allLangs()->get();
+        $query = $role::with(['permissions'])->allLangs();
 
         return $this->table
             ->queryConfig('datatable-roles')

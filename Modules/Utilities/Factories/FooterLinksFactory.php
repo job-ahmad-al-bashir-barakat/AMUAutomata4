@@ -12,7 +12,7 @@ class FooterLinksFactory extends GlobalFactory
      */
     public function getDatatable($footerLink, $request)
     {
-        $query = $footerLink::allLangs()->whereFooterId($request->get('footer_id'))->get();
+        $query = $footerLink::allLangs()->whereFooterId($request->get('footer_id'));
 
         return $this->table
             ->queryConfig('datatable-footer-links')

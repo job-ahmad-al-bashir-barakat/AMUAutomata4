@@ -17,7 +17,7 @@ class UniversityOfficeFactory extends GlobalFactory
     {
         $query = UniversityOffice::with(['contact' => function($query){
             $query->allLangs();
-        } ,'person'])->allLangs()->get();
+        } ,'person'])->allLangs();
 
         return $this->table
             ->queryConfig('datatable-university-office')

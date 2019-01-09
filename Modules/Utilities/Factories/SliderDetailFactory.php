@@ -15,7 +15,7 @@ class SliderDetailFactory extends GlobalFactory
     {
         $sliderId = request('sliderId');
         $slider = Slider::findOrFail($sliderId);
-        $query = $slider->sliderDetails()->with(['image'])->allLangs()->get();
+        $query = $slider->sliderDetails()->with(['image'])->allLangs();
 
         return $this->table
             ->queryConfig('datatable-slider')

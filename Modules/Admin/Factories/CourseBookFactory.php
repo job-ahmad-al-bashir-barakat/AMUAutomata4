@@ -15,8 +15,7 @@ class CourseBookFactory extends GlobalFactory
     {
         $query = CourseBook::where('course_id' ,'=' ,$request->get('course'))
             ->with(['file'])
-            ->allLangs()
-            ->get();
+            ->allLangs();
 
         return $this->table
             ->queryConfig('datatable-course-books')

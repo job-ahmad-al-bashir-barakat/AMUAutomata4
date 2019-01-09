@@ -13,7 +13,7 @@ class CourseFactory extends GlobalFactory
      */
     public function getDatatable($model ,$request)
     {
-        $query = Course::where('faculty_id' ,'=' ,$request->get('id'))->with(['department' ,'degree' ,'image_265', 'image_750'])->allLangs()->get();
+        $query = Course::where('faculty_id' ,'=' ,$request->get('id'))->with(['department' ,'degree' ,'image_265', 'image_750'])->allLangs();
 
         return $this->table
             ->queryConfig('datatable-course')

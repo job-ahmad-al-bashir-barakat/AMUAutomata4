@@ -14,7 +14,7 @@ class VerticalSliderDetailFactory extends GlobalFactory
     {
         $sliderId = request('verticalSliderId');
         $slider = VerticalSlider::findOrFail($sliderId);
-        $query = $slider->verticalSliderDetails()->with(['image'])->allLangs()->get();
+        $query = $slider->verticalSliderDetails()->with(['image'])->allLangs();
 
         return $this->table
             ->queryConfig('datatable-vertical-slider')

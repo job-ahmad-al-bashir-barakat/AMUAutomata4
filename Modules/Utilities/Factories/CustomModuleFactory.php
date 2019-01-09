@@ -12,7 +12,7 @@ class CustomModuleFactory extends GlobalFactory
      */
     public function getDatatable($model, $request)
     {
-        $query = $model::with(['modules'])->allLangs()->get();
+        $query = $model::with(['modules'])->allLangs();
 
         return $this->table
             ->queryConfig('datatable-custom-modules')
