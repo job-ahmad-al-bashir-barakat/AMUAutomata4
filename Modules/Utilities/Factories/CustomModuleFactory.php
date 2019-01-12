@@ -12,7 +12,7 @@ class CustomModuleFactory extends GlobalFactory
      */
     public function getDatatable($model, $request)
     {
-        $query = $model::with(['modules'])->allLangs();
+        $query = $model::with(['modules.transName'])->allLangs();
 
         return $this->table
             ->queryConfig('datatable-custom-modules')
@@ -36,7 +36,7 @@ class CustomModuleFactory extends GlobalFactory
             ->config('datatable-custom-modules',trans('utilities::app.custom-modules'),['usedComponent' => true])
             ->addPrimaryKey('id','id')
             ->addMultiInputTextLangs(['name'] ,'req required')
-            ->addAutocomplete('autocomplete/modules' ,trans('utilities::app.modules'), 'module_id', "modules.lang_name.$this->lang.text", "modules.lang_name.$this->lang.text" ,'req required'/*,'onChange=""'*/)
+            ->addAutocomplete('autocomplete/modules' ,trans('utilities::app.modules'), 'module_id', "modules.transName.text", "modules.lang_name.$this->lang.text" ,'req required'/*,'onChange=""'*/)
             ->addActionButton($this->update,'update','update')
             ->addActionButton($this->delete,'delete','delete')
             ->addComponent(view('utilities::page._custom_module')->renderSections()['component'] ,[
