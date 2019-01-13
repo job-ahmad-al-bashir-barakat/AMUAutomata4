@@ -1272,9 +1272,9 @@ class CustomModuleAttributeValuesTableSeeder extends Seeder
                 'id' => 143,
                 'custom_module_id' => 49,
                 'attribute_id' => 3,
-                'value' => '50',
+                'value' => '2',
                 'created_at' => '2018-10-04 02:57:42',
-                'updated_at' => '2018-10-15 08:43:42',
+                'updated_at' => '2019-01-07 13:45:31',
                 'deleted_at' => NULL,
             ),
             126 => 
@@ -2685,6 +2685,46 @@ class CustomModuleAttributeValuesTableSeeder extends Seeder
                 'value' => '',
                 'created_at' => '2019-01-01 13:27:50',
                 'updated_at' => '2019-01-01 13:27:50',
+                'deleted_at' => NULL,
+            ),
+            267 => 
+            array (
+                'id' => 285,
+                'custom_module_id' => 84,
+                'attribute_id' => 1,
+                'value' => 'E',
+                'created_at' => '2019-01-13 08:21:08',
+                'updated_at' => '2019-01-13 08:21:08',
+                'deleted_at' => NULL,
+            ),
+            268 => 
+            array (
+                'id' => 286,
+                'custom_module_id' => 84,
+                'attribute_id' => 2,
+                'value' => '12',
+                'created_at' => '2019-01-13 08:21:08',
+                'updated_at' => '2019-01-13 08:21:08',
+                'deleted_at' => NULL,
+            ),
+            269 => 
+            array (
+                'id' => 287,
+                'custom_module_id' => 84,
+                'attribute_id' => 9,
+                'value' => '["3","17","20","18","14"]',
+                'created_at' => '2019-01-13 08:21:08',
+                'updated_at' => '2019-01-13 08:26:35',
+                'deleted_at' => NULL,
+            ),
+            270 => 
+            array (
+                'id' => 288,
+                'custom_module_id' => 84,
+                'attribute_id' => 10,
+                'value' => '',
+                'created_at' => '2019-01-13 08:21:08',
+                'updated_at' => '2019-01-13 08:21:08',
                 'deleted_at' => NULL,
             ),
         ));

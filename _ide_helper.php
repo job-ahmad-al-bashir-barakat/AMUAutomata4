@@ -3,7 +3,7 @@
 
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.7.14 on 2019-01-06 15:19:46.
+ * Generated for Laravel 5.7.14 on 2019-01-13 08:40:07.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -15946,6 +15946,18 @@ namespace Aut\DataTable {
         /**
          * 
          *
+         * @param string $filterWay db|client
+         * @return $this 
+         * @static 
+         */ 
+        public static function filterWay($filterWay = 'db')
+        {
+            return \Aut\DataTable\DataTableBuilder::filterWay($filterWay);
+        }
+        
+        /**
+         * 
+         *
          * @param bool $formHorizontal
          * @return $this 
          * @throws \Exception
@@ -16649,7 +16661,7 @@ namespace Aut\DataTable {
          * @return $this 
          * @static 
          */ 
-        public static function addMultiAutocomplete($url = '', $templete = '', $title = '', $data = '', $name = '', $colLabel = '', $colClass = '', $dialogAttr = '', $colWidth = '', $visible = true, $orderable = false, $searchable = true, $choosen = true, $printable = true)
+        public static function addMultiAutocomplete($url = '', $templete = '', $title = '', $data = '', $name = '', $colLabel = '', $colClass = '', $dialogAttr = '', $colWidth = '', $visible = true, $orderable = true, $searchable = true, $choosen = true, $printable = true)
         {
             return \Aut\DataTable\DataTableBuilder::addMultiAutocomplete($url, $templete, $title, $data, $name, $colLabel, $colClass, $dialogAttr, $colWidth, $visible, $orderable, $searchable, $choosen, $printable);
         }
@@ -17182,6 +17194,20 @@ namespace Aut\DataTable {
         public static function queryMultiAutocompleteTemplete($colKey, $relation = '', $target = '')
         {
             return \Aut\DataTable\DataTableBuilder::queryMultiAutocompleteTemplete($colKey, $relation, $target);
+        }
+        
+        /**
+         * 
+         *
+         * @param $colKey
+         * @param string $relation
+         * @param string $target
+         * @return $this 
+         * @static 
+         */ 
+        public static function queryMultiAutocompleteFilter($colKey, $relation = '', $target = '')
+        {
+            return \Aut\DataTable\DataTableBuilder::queryMultiAutocompleteFilter($colKey, $relation, $target);
         }
         
         /**

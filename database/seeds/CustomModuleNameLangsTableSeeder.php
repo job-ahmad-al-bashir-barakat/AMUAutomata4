@@ -882,9 +882,9 @@ class CustomModuleNameLangsTableSeeder extends Seeder
                 'id' => 97,
                 'custom_module_id' => 49,
                 'lang_id' => 1,
-                'text' => 'Gallery',
+                'text' => 'Gallery new',
                 'created_at' => '2018-10-04 02:54:51',
-                'updated_at' => '2018-10-04 02:54:51',
+                'updated_at' => '2019-01-07 13:40:40',
                 'deleted_at' => NULL,
             ),
             87 => 
@@ -1595,6 +1595,26 @@ class CustomModuleNameLangsTableSeeder extends Seeder
                 'text' => 'اختبار معرص صور',
                 'created_at' => '2019-01-01 07:52:59',
                 'updated_at' => '2019-01-01 07:52:59',
+                'deleted_at' => NULL,
+            ),
+            158 => 
+            array (
+                'id' => 169,
+                'custom_module_id' => 84,
+                'lang_id' => 1,
+                'text' => 'Top Teachers of the week',
+                'created_at' => '2019-01-13 08:21:07',
+                'updated_at' => '2019-01-13 08:21:07',
+                'deleted_at' => NULL,
+            ),
+            159 => 
+            array (
+                'id' => 170,
+                'custom_module_id' => 84,
+                'lang_id' => 2,
+                'text' => 'افضل المدرسون هذا الاسبوع',
+                'created_at' => '2019-01-13 08:21:08',
+                'updated_at' => '2019-01-13 08:21:08',
                 'deleted_at' => NULL,
             ),
         ));

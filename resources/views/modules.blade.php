@@ -46,53 +46,45 @@
     </div>
     @include('theme.footer')
 </div>
+<script>
+    DIR = '{{ $dir }}';
+    isRtl = DIR === 'rtl';
+    isLtr = !isRtl;
+</script>
 <script src="{{ asset(mix('js/main.js')) }}"></script>
 <script src="{{ asset(mix('js/leaflet.js')) }}"></script>
-@if($dir == 'rtl')
-<script>
-    $.fn.isotope.prototype._positionAbs = function( x, y ) {
-        return { right: x, top: y };
-    };
-</script>
-@endif
-<script>
-    $(document).on('click', 'a.ajax-link-module', function (e) {
-        e.preventDefault();
-        var $this = $(this);
-        var page = $this.data('page');
-        var $container = $($this.data('append_to'));
-        var url = $this.attr('href');
-        var onSuccess = $this.data('onsuccess') || false;
-        var appendMethod = $this.data('append_method') || false;
-        $this.button('loading');
-        $.get(url, {page: page}, function (res){
-            if(appendMethod) {
-                window[appendMethod]($container, res);
-            } else {
-                $(res).appendTo($container);
-            }
-            $this.button('reset');
-            $this.data('page', page + 1);
-            if(onSuccess){
-                window[onSuccess].apply();
-            }
-        });
-    });
-    $("[data-trigger-on-load]").trigger('click');
-</script>
 <script src="{{ asset(mix('js/revolution-slider/js/revolution-slider.js')) }}"></script>
 <script src="{{ asset(mix('js/revolution-slider/js/extensions/revolution-slider-extensions.js')) }}"></script>
-{{--<script src="http://maps.google.com/maps/api/js?key=AIzaSyAYWE4mHmR9GyPsHSOVZrSCOOljk8DU9B4"></script>--}}{{--AIzaSyAYWE4mHmR9GyPsHSOVZrSCOOljk8DU9B4--}}
-{{--<script src="{{ asset('js/google-map-init-multilocation.js') }}"></script>--}}
-{{--<script src="{!! asset('js/google-map-init.js') !!}"></script>--}}
 <!--[if lt IE 9]>
 <script src="{{ asset(mix('js/ie.js')) }}"></script>
 <![endif]-->
-</body>
-</html>
-
 <script type="text/javascript">
     $(document).ready(function(e) {
+
+        $(document).on('click', 'a.ajax-link-module', function (e) {
+            e.preventDefault();
+            var $this = $(this);
+            var page = $this.data('page');
+            var $container = $($this.data('append_to'));
+            var url = $this.attr('href');
+            var onSuccess = $this.data('onsuccess') || false;
+            var appendMethod = $this.data('append_method') || false;
+            $this.button('loading');
+            $.get(url, {page: page}, function (res){
+                if(appendMethod) {
+                    window[appendMethod]($container, res);
+                } else {
+                    $(res).appendTo($container);
+                }
+                $this.button('reset');
+                $this.data('page', page + 1);
+                if(onSuccess){
+                    window[onSuccess].apply();
+                }
+            });
+        });
+        $("[data-trigger-on-load]").trigger('click');
+
         initLeafletMaps();
         $('.calendar').each(function () {
             let $this = $(this);
@@ -229,3 +221,5 @@
 
     }
 </script>
+</body>
+</html>
