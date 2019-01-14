@@ -77,7 +77,7 @@ class Partner extends Model
 
     public function getLargeImagePathAttribute()
     {
-        if ($this->image->count()) {
+        if ($this->image_large->count()) {
             $imageName = $this->image_large->first()->hash_name ?: '';
         } else {
             $imageName = '';
@@ -88,7 +88,7 @@ class Partner extends Model
 
     public function getSmallImagePathAttribute()
     {
-        if ($this->image->count()) {
+        if ($this->image_small->count()) {
             $imageName = $this->image_small->first()->hash_name ?: '';
         } else {
             $imageName = '';
