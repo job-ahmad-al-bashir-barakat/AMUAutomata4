@@ -3,7 +3,7 @@
         @if($instructor->researches && $instructor->researches->count())
         <div class="col-md-4">
             <div class="esc-heading heading-line-bottom lr-line left-heading">
-                <h4>{{ $instructor->lang_name[$lang]->text }}</h4>
+                <h4><a href="{{ RouteUrls::universityStaff(getSlug($instructor->id, $instructor->lang_name[$lang]->text)) }}">{{ $instructor->lang_name[$lang]->text }}</a></h4>
             </div>
             <ul class="list">
                 @foreach($instructor->researches as $research)
