@@ -72,6 +72,8 @@ trait AttributeTrait
                 return new FacultyAttribute();
             case '26':
                 return new EventsGroupsAttribute();
+            case '27':
+                return new HeightAttribute();
             default:
                 throw new \Exception('Undefined Attributes');
         }
@@ -139,6 +141,8 @@ trait AttributeTrait
                 return new FacultyAttribute();
             case 'events_groups':
                 return new EventsGroupsAttribute();
+            case 'height':
+                return new HeightAttribute();
             default:
                 throw new \Exception('Undefined Attributes');
         }

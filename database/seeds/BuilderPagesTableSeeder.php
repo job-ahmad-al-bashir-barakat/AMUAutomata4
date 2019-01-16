@@ -5987,14 +5987,14 @@ class BuilderPagesTableSeeder extends Seeder
             459 => 
             array (
                 'id' => 479,
-                'custom_module_id' => 37,
+                'custom_module_id' => 81,
                 'position' => NULL,
                 'order' => 4,
                 'buildable_id' => 1,
                 'buildable_type' => 'faculty',
                 'optional_id' => NULL,
                 'created_at' => '2018-12-30 10:26:53',
-                'updated_at' => '2019-01-08 05:34:03',
+                'updated_at' => '2019-01-14 10:31:58',
                 'deleted_at' => NULL,
             ),
         ));

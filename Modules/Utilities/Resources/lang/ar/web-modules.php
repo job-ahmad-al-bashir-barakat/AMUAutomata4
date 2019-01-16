@@ -25,6 +25,7 @@ return [
     'course' => 'المقرر',
     'events_groups' => 'مجموعات الاحداث',
     'url' => 'رابط',
+    'height' => 'الارتفاع',
 
     'degrees' => 'الشهادات',
     'faculty' => 'الكلية',
