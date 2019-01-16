@@ -4,7 +4,7 @@
             <img class="img-fullwidth" alt="" src="{{ asset($person->image_path['sm']) }}">
         </div>
         <div class="team-bottom-part border-bottom-theme-color-2-2px bg-lighter border-1px text-center p-10 pt-20 pb-10" style="min-height: 164px;">
-            <h4 class="text-uppercase font-raleway font-weight-600 m-0">
+            <h4 class="font-raleway font-weight-600 m-0">
                 <a class="text-theme-color-2" href="{{ RouteUrls::universityStaff(getSlug($person->id, $person->lang_name[$lang]->text)) }}"> {{ $person->lang_name[$lang]->text }}</a>
             </h4>
             {{--{{dd($person)}}--}}

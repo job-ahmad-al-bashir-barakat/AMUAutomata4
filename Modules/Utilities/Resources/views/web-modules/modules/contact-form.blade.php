@@ -36,8 +36,8 @@
         </div>
         <div class="form-group">
             <input name="form_botcheck" class="form-control" type="hidden" value="" />
-            <button type="submit" class="btn btn-flat btn-theme-colored text-uppercase mt-10 mb-sm-30 border-left-theme-color-2-4px" data-loading-text="Please wait...">Send your message</button>
-            <button type="reset" class="btn btn-flat btn-theme-colored text-uppercase mt-10 mb-sm-30 border-left-theme-color-2-4px">Reset</button>
+            <button type="submit" class="btn btn-flat btn-theme-colored mt-10 mb-sm-30 border-left-theme-color-2-4px" data-loading-text="Please wait...">Send your message</button>
+            <button type="reset" class="btn btn-flat btn-theme-colored mt-10 mb-sm-30 border-left-theme-color-2-4px">Reset</button>
         </div>
     </form>
 </div>

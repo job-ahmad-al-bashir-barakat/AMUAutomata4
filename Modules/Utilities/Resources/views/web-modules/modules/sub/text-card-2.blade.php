@@ -4,7 +4,7 @@
             <i class="{{ $textCard->icon->code }} text-white"></i>
         </a>
         <div class="icon-box-details ml-sm-0">
-            <h5 class="icon-box-title mt-15 text-uppercase letter-space-1 font-weight-600 mb-5">{{ $textCard->lang_title[$lang]->text }}</h5>
+            <h5 class="icon-box-title mt-15 letter-space-1 font-weight-600 mb-5">{{ $textCard->lang_title[$lang]->text }}</h5>
             <p class="text-gray">{{ $textCard->url }}</p>
         </div>
     </div>

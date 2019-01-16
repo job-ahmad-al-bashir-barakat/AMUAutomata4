@@ -10,7 +10,7 @@
                 <div class="post-thumb thumb"> <img src="{{ asset($news->image_path['lg']) }}" alt="" class="img-responsive img-fullwidth"> </div>
             </div>
             <div class="entry-title pt-10 pl-15">
-                <h4><a class="text-uppercase" href="#">{{ $news->lang_title[$lang]->text }} </a></h4>
+                <h4><a class="" href="#">{{ $news->lang_title[$lang]->text }} </a></h4>
             </div>
             <div class="entry-meta pl-15">
                 <ul class="list-inline">
