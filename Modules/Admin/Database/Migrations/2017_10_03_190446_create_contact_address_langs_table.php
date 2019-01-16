@@ -17,7 +17,7 @@ class CreateContactAddressLangsTable extends Migration
             $table->increments('id');
             $table->integer('contact_id')->unsigned();
             $table->integer('lang_id')->unsigned();
-            $table->text('text');
+            $table->text('text')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
