@@ -1,6 +1,6 @@
 <div class="col-md-{{ $data['width'] }}">
     @include('utilities::web-modules.modules.sub.title', ['title' => $data['title'][$lang], 'h' => '3', 'font' => ''])
-    <p class="mb-10">{!! $data['text_editor'][$lang] !!}</p>
+    @if($data['text_editor'][$lang])<p class="mb-10">{!! $data['text_editor'][$lang] !!}</p>@endif
     <div id="accordion1" class="panel-group accordion">
         @php($firstStep = $data['steps']->pull(0))
         @if($firstStep)

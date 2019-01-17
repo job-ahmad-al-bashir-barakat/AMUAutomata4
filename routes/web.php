@@ -1,5 +1,4 @@
 <?php
-
 Route::get('test', function () {
     return view('test');
     return \Modules\Utilities\Entities\SchemaLanguageTable::with(['languageTable'])->tablesOf('users')->get();
@@ -13,69 +12,25 @@ Route::group(
     function () {
         Route::get('load-more/{model}', 'LoadMoreController@getHtml');
 
-        if (!function_exists('getMenu')) {
-
-            function getMenu()
-            {
-                return \Modules\Utilities\Entities\MenuList::with(['siteMenu' => function ($query){
-                    $query->orderBy('order');
-                }])->where('is_default', true)->get()->first()->siteMenu->toTree();
-            }
-        }
-        if (!function_exists('getFooter')) {
-
-            function getFooter()
-            {
-                return \Modules\Utilities\Entities\Footer::with(['footerLinks', 'contact', 'image'])->where('is_default', true)->get()->first();
-            }
-        }
-
         Route::get('/', function () {
             $lang = app()->getLocale();
             return redirect("{$lang}/home");
         });
 
         Route::get('courses/{course}', function ($slug) {
-            $courseId = getIdFromSlug($slug);
-
-            $menu = getMenu();
-            $footer = getFooter();
-            $modules = \Modules\Utilities\Entities\BuilderPage::pageModules("course.{$courseId}.")->get()->pluck('module');
-            $seo = \Aut\SeoBuilder\Entities\Seo::pageSeo("course.{$courseId}.")->first();
-
-            return view("modules", compact('menu', 'modules', 'seo', 'footer'));
+            return returnPageModule($slug, 'course');
         });
 
         Route::get('university/staff/{person}', function ($slug) {
-            $staffId = getIdFromSlug($slug);
-
-            $menu = getMenu();
-            $footer = getFooter();
-            $modules = \Modules\Utilities\Entities\BuilderPage::pageModules("person.{$staffId}.")->get()->pluck('module');
-            $seo = \Aut\SeoBuilder\Entities\Seo::pageSeo("person.{$staffId}.")->first();
-
-            return view("modules", compact('menu', 'modules', 'seo', 'footer'));
+            return returnPageModule($slug, 'person');
         });
 
         Route::get('labs/{lab}', function ($slug) {
-            $labId = getIdFromSlug($slug);
-
-            $menu = getMenu();
-            $footer = getFooter();
-            $modules = \Modules\Utilities\Entities\BuilderPage::pageModules("lab.{$labId}.")->get()->pluck('module');
-            $seo = \Aut\SeoBuilder\Entities\Seo::pageSeo("lab.{$labId}.")->first();
-
-            return view("modules", compact('menu', 'modules', 'seo', 'footer'));
+            return returnPageModule($slug, 'lab');
         });
 
         Route::get('news/{news}', function ($slug) {
-            $newsId = getIdFromSlug($slug);
-
-            $menu = getMenu();
-            $footer = getFooter();
-            $modules = \Modules\Utilities\Entities\BuilderPage::pageModules("news.{$newsId}.")->get()->pluck('module');
-            $seo = \Aut\SeoBuilder\Entities\Seo::pageSeo("news.{$newsId}.")->first();
-            return view("modules", compact('menu', 'modules', 'seo', 'footer'));
+            return returnPageModule($slug, 'news');
         });
 
         if (!function_exists('call')) {
@@ -121,7 +76,7 @@ Route::group(
 
         Route::get('hierarchy-page', function () {
             $footer = getFooter();
-            $menu = getMenu();
+            $menu = [];
             $modules = [];
             $hierarchy = \Modules\Admin\Entities\Hierarchy::all();
             $hierarchyType = $hierarchy->groupBy('hierarchyType.code');
@@ -131,21 +86,21 @@ Route::group(
         })->name('hierarchy-page');
 
         Route::get('university-offices1', function () {
-            $menu = getMenu();
+            $menu = [];
             $footer = getFooter();
             $modules = [];
             return view('page.university_offices', compact('modules', 'menu', 'footer'));
         })->name('university_offices');
 
         Route::get('university-office-detail', function () {
-            $menu = getMenu();
+            $menu = [];
             $footer = getFooter();
             $modules = [];
             return view('page.university_offices_detail', compact('modules', 'menu', 'footer'));
         })->name('university_offices_detail');
 
         Route::get('faculty/{faculty}/labs1', function () {
-            $menu = getMenu();
+            $menu = [];
             $footer = getFooter();
             $modules = [];
             return view('page.lab_detail', compact('modules', 'menu', 'footer'));
@@ -165,7 +120,6 @@ Route::group(
     });
 
 Route::group([
-
     'middleware' => [
         'auth',
         'web',
@@ -190,3 +144,61 @@ Route::group([
     Route::get('/download', '\UniSharp\LaravelFilemanager\Controllers\DownloadController@getDownload')->name('getDownload');
     Route::get('/delete', '\UniSharp\LaravelFilemanager\Controllers\DeleteController@getDelete')->name('getDelete');
 });
+
+if (!function_exists('getMenuTree')) {
+    function getMenuTree($id = null, $color = null, $logoPath = null)
+    {
+        $query = \Modules\Utilities\Entities\MenuList::with(['siteMenu' => function ($query) {
+            $query->orderBy('order');
+        }]);
+
+        if (is_null($id)) {
+            $query->where('is_default', true);
+        } else {
+            $query->where('id', $id);
+        }
+
+        return [
+            'menu' => $query->get()->first()->siteMenu->toTree(),
+            'color' => $color,
+            'logoPath' => $logoPath,
+        ];
+    }
+}
+if (!function_exists('getPageMenu')) {
+    function getPageMenu($pageName)
+    {
+        $menuPage = \Modules\Utilities\Entities\MenuPage::pageMenu($pageName)->first();
+        if ($menuPage && $menuPage->count()) {
+            $color = $menuPage->color;
+            $logoPath = null;
+            if ($menuPage->logoPath) {
+                $logoPath = $menuPage->logoPath;
+            }
+            return getMenuTree($menuPage->menu_id, $color, $logoPath);
+        }
+        return getMenuTree();
+    }
+}
+
+if (!function_exists('getFooter')) {
+
+    function getFooter()
+    {
+        return \Modules\Utilities\Entities\Footer::with(['footerLinks', 'contact', 'image'])->where('is_default', true)->get()->first();
+    }
+}
+
+function returnPageModule($slug, $morphCode)
+{
+    $id = getIdFromSlug($slug);
+    $data = getPageMenu("{$morphCode}.{$id}.");
+    $menu = $data['menu'];
+    $color = $data['color'];
+    $logoPath = $data['logoPath'];
+    $footer = getFooter();
+    $modules = \Modules\Utilities\Entities\BuilderPage::pageModules("{$morphCode}.{$id}.")->get()->pluck('module');
+    $seo = \Aut\SeoBuilder\Entities\Seo::pageSeo("{$morphCode}.{$id}.")->first();
+
+    return view("modules", compact('menu', 'modules', 'seo', 'footer', 'color', 'logoPath'));
+}
