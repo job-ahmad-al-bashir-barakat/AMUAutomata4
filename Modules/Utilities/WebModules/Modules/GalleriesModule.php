@@ -11,10 +11,18 @@ class GalleriesModule extends Module
 
     public function getModuleData($data)
     {
+        $data['image_limit'] = $data['image_limit'] ?? '';
+        $imageLimits = explode(',', $data['image_limit']);
+
         if ($data['galleries']) {
-            $data['galleries']->load(['image' => function ($query) use ($data){
-                $query->limit($data['limit']);
-            }]);
+            foreach ($data['galleries'] as $i => $gallery) {
+                $limit = $imageLimits[$i] ?? false;
+                $data['galleries'][$i]->load(['image' => function ($query) use ($limit) {
+                    if ($limit) {
+                        $query->limit($limit);
+                    }
+                }]);
+            }
         }
         return $data;
     }

@@ -74,6 +74,8 @@ trait AttributeTrait
                 return new EventsGroupsAttribute();
             case '27':
                 return new HeightAttribute();
+            case '28':
+                return new ImageLimitAttribute();
             default:
                 throw new \Exception('Undefined Attributes');
         }
@@ -143,6 +145,8 @@ trait AttributeTrait
                 return new EventsGroupsAttribute();
             case 'height':
                 return new HeightAttribute();
+            case 'image_limit':
+                return new ImageLimitAttribute();
             default:
                 throw new \Exception('Undefined Attributes');
         }

@@ -917,14 +917,14 @@ class BuilderPagesTableSeeder extends Seeder
             69 => 
             array (
                 'id' => 89,
-                'custom_module_id' => 84,
+                'custom_module_id' => 31,
                 'position' => NULL,
                 'order' => 22,
                 'buildable_id' => 1,
                 'buildable_type' => 'page',
                 'optional_id' => NULL,
                 'created_at' => '2018-05-23 11:02:11',
-                'updated_at' => '2019-01-13 08:22:58',
+                'updated_at' => '2019-01-17 09:17:58',
                 'deleted_at' => NULL,
             ),
             70 => 

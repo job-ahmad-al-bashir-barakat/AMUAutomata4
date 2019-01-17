@@ -26,6 +26,7 @@ return [
     'events_groups' => 'مجموعات الاحداث',
     'url' => 'رابط',
     'height' => 'الارتفاع',
+    'image_limit' => 'حدود الصور',
 
     'degrees' => 'الشهادات',
     'faculty' => 'الكلية',

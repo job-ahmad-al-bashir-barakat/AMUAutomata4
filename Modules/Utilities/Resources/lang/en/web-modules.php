@@ -35,4 +35,5 @@ return [
     'news' => 'News',
     'read_more' => 'Read More',
     'share' => 'Share',
+    'image_limit' => 'Image Limits',
 ];
