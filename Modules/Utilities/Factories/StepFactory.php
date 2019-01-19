@@ -17,7 +17,7 @@ class StepFactory extends GlobalFactory
         return $this->table
             ->queryConfig('datatable-steps')
             ->queryDatatable($query)
-            ->queryMultiLang(['title', 'text'])
+            ->queryMultiLang(['title', 'text', 'url'])
             ->queryUpdateButton('id')
             ->queryDeleteButton('id')
             ->queryRender(true);
@@ -33,6 +33,7 @@ class StepFactory extends GlobalFactory
             ->addPrimaryKey('id','id')
             ->addMultiInputTextLangs(['title'], 'req required')
             ->addMultiTextareaLangs(['text'], 'req required')
+            ->addMultiInputTextLangs(['url'])
             ->addActionButton($this->update,'update','update')
             ->addActionButton($this->delete,'delete','delete')
             ->addNavButton()

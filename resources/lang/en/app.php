@@ -96,4 +96,5 @@ return array (
     'useful_links'        => 'Useful Links',
     'quick_contact'        => 'Quick Contact',
     'latest_news'        => 'Latest News',
+    'read_more'        => 'Read More >>',
 );

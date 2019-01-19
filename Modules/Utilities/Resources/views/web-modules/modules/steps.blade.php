@@ -9,6 +9,10 @@
                 <div id="accordion_{{ $firstStep->id }}" class="panel-collapse collapse in" role="tablist" aria-expanded="true">
                     <div class="panel-content">
                         {!! $firstStep->lang_text[$lang]->text !!}
+                        @if($firstStep->lang_url[$lang]->text ?? false)
+                        <br>
+                        <a href="{{ $firstStep->lang_url[$lang]->text }}" class="btn btn-gray btn-xs ">@lang('app.read_more')</a>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -19,6 +23,10 @@
                 <div id="accordion_{{ $step->id }}" class="panel-collapse collapse" role="tablist" aria-expanded="false" style="height: 0px;">
                     <div class="panel-content">
                         {!! $step->lang_text[$lang]->text !!}
+                        @if($step->lang_url[$lang]->text ?? false)
+                            <br>
+                            <a href="{{ $step->lang_url[$lang]->text }}" class="btn btn-gray btn-xs ">@lang('app.read_more')</a>
+                        @endif
                     </div>
                 </div>
             </div>

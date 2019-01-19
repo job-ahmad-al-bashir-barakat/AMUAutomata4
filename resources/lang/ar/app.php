@@ -96,4 +96,5 @@ return array (
     'useful_links'        => 'روابط مفيدة',
     'quick_contact'        => 'للتواصل السريع',
     'latest_news'        => 'اخر الاخبار',
+    'read_more'        => 'قراءة المزيد >>',
 );
