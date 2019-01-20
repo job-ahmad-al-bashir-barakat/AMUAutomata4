@@ -98,6 +98,10 @@ class Attribute
     {
         if(!$this->data || $forceQuery){
             $customModuleAttributeValue = CustomModuleAttributeValue::where('custom_module_id', '=', $customModuleId)->where('attribute_id', '=', $this->id)->first();
+            if (!$customModuleAttributeValue) {
+                $this->data = [];
+                return;
+            }
             if ($this->multiLang) {
                 if($customModuleAttributeValue){
                     foreach ($customModuleAttributeValue->lang_multi as $langCode => $multi) {

@@ -2,13 +2,11 @@
     @include('utilities::web-modules.modules.sub.title', ['title' => $data['title'][$lang], 'h' => '3', 'font' => '', 'icon' => $data['icon']->code ?? ''])
     <div class="bxslider bx-nav-top" data-count="{{ $data['show'] ?? '2' }}">
         @php($borderDir = 'left')
-        @foreach($data['vertical_sliders']->verticalSliderDetails()->with(['image'])->orderBy('created_at', 'desc')->get() as $slider)
+        @foreach($data['events'] as $slider)
         @include('utilities::web-modules.modules.sub.vertical-slider', [
             'borderDir' => $borderDir,
-            'imagePath' => $slider->image_path ?? '',
-            'text' => $slider->lang_text[$lang]->text,
-            'subText' => $slider->lang_sub_text[$lang]->text,
-            'smallText' => $slider->lang_small_text[$lang]->text,
+            'text' => $slider->lang_title[$lang]->text,
+            'smallText' => "{$slider->start_date->format('d/m/Y')}" . ($slider->end_date? (" " . trans('app.until') . "{$slider->end_date->format('d/m/Y')}"): '')
         ])
             @if($borderDir == 'left')
                 @php($borderDir = 'right')

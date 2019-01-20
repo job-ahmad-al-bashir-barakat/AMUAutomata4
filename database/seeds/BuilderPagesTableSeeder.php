@@ -228,14 +228,14 @@ class BuilderPagesTableSeeder extends Seeder
             16 => 
             array (
                 'id' => 19,
-                'custom_module_id' => 46,
+                'custom_module_id' => 85,
                 'position' => 'T',
                 'order' => 18,
                 'buildable_id' => 1,
                 'buildable_type' => 'page',
                 'optional_id' => NULL,
                 'created_at' => '2017-10-25 10:29:45',
-                'updated_at' => '2018-11-07 06:42:04',
+                'updated_at' => '2019-01-19 12:51:32',
                 'deleted_at' => NULL,
             ),
             17 => 
@@ -254,14 +254,14 @@ class BuilderPagesTableSeeder extends Seeder
             18 => 
             array (
                 'id' => 21,
-                'custom_module_id' => 16,
+                'custom_module_id' => 46,
                 'position' => 'T',
                 'order' => 19,
                 'buildable_id' => 1,
                 'buildable_type' => 'page',
                 'optional_id' => NULL,
                 'created_at' => '2017-10-29 11:46:23',
-                'updated_at' => '2018-11-07 06:42:04',
+                'updated_at' => '2019-01-20 07:26:06',
                 'deleted_at' => NULL,
             ),
             19 => 
@@ -917,14 +917,14 @@ class BuilderPagesTableSeeder extends Seeder
             69 => 
             array (
                 'id' => 89,
-                'custom_module_id' => 31,
+                'custom_module_id' => 49,
                 'position' => NULL,
                 'order' => 22,
                 'buildable_id' => 1,
                 'buildable_type' => 'page',
                 'optional_id' => NULL,
                 'created_at' => '2018-05-23 11:02:11',
-                'updated_at' => '2019-01-17 09:17:58',
+                'updated_at' => '2019-01-17 09:52:11',
                 'deleted_at' => NULL,
             ),
             70 => 

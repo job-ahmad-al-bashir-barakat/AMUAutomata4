@@ -896,35 +896,33 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                 'id' => 42,
                 'custom_module_attribute_value_id' => 147,
                 'lang_id' => 2,
-                'text' => '<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:right"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:18.0pt">الأستاذ الدكتور ياسر حورية</span></strong></span></span></span></p>
+                'text' => '<p dir="RTL" style="text-align:right"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:18.0pt">الأستاذ الدكتور ياسر حورية</span></strong></span></span></span></p>
 
-<p dir="LTR" style="margin-left:0cm; margin-right:0cm; text-align:right"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span dir="RTL" lang="AR-SA" style="font-size:18.0pt">رئيس جامعة الشام الخاصة</span></strong></span></span></span></p>
+<p dir="LTR" style="text-align:right"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span dir="RTL" style="font-size:18.0pt">رئيس جامعة الشام الخاصة</span></strong></span></span></span></p>
 
-<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">الأبناء الطلاب ... أُحدِثَتْ جامعة الشام الخاصة بالمرسومِ التشريعيِ، ذي الرقمِ سبعةٍ وتسعينَ 97 لعامِ أحدَ عشَرَ وألفَيْنِ 2011 </span><span style="font-size:14.0pt">،</span><span style="font-size:14.0pt"> وبدأتْ نشاطَها العلميَّ بافتتاحِ كليتي &quot;الحقوقِ&quot; و&quot;العلومِ الإداريةِ&quot; في العامِ ثلاثةَ عشَرِ وألفَيْنِ 2013</span><span dir="LTR" style="font-size:14.0pt">.</span></span></span></span></p>
+<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">الأبناء الطلاب ... أُحدِثَتْ جامعة الشام الخاصة بالمرسومِ التشريعيِ، ذي الرقمِ سبعةٍ وتسعينَ 97 لعامِ أحدَ عشَرَ وألفَيْنِ 2011 </span><span style="font-size:14.0pt">،</span><span style="font-size:14.0pt"> وبدأتْ نشاطَها العلميَّ بافتتاحِ كليتي &quot;الحقوقِ&quot; و&quot;العلومِ الإداريةِ&quot; في العامِ ثلاثةَ عشَرِ وألفَيْنِ 2013</span><span dir="LTR" style="font-size:14.0pt">.</span></span></span></span></p>
 
-<figure class="easyimage easyimage-side"><img alt="" src="blob:http://localhost/e173bb92-2e96-4044-a932-22938abc81fd" width="595" />
-<figcaption></figcaption>
-</figure>
+<p><img alt="" src="blob:http://localhost/e173bb92-2e96-4044-a932-22938abc81fd" width="595" /></p>
 
-<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">تطورَتِ الجامعةُ أثْناءِ السنواتِ الماضيةِ، وازدادَ عددُ كليّاتِها، ففي دمشقَ الآنَ سبعُ كلّياتٍ في موقعينِ، هما البرامكةُ والمزرعةُ، وهي</span><span dir="LTR" style="font-size:14.0pt">: </span><span style="font-size:14.0pt">كلّياتُ &quot;الطِبِ البشريِّ&quot; و&quot;طِبِ الأسنانِ&quot; و&quot;الصيدلةِ&quot; و&quot;الهندسةِ المعلوماتيةِ&quot; و&quot;الحقوقِ&quot; و&quot;العلومِ الإداريةِ التي تمنح شهادات باختصاصات</span><span dir="LTR" style="font-size:14.0pt"> : </span><span style="font-size:14.0pt">التسويق &ndash; الموارد البشرية &ndash; المحاسبة &ndash; المؤسسات المالية والمصرفية</span><span dir="LTR" style="font-size:14.0pt"> &quot;</span><span style="font-size:14.0pt"> فضلًا عنْ كليةِ &quot;العلاقاتِ الدوليةِ والدبلوماسيةِ&quot;، وفي اللاذقية الآنَ أربعُ كلّياتٍ: هي كليَّتا &quot;الصيدلةِ&quot; و&quot;طِبِّ الأسنانِ&quot; و كليَّتا </span><span dir="LTR" style="font-size:14.0pt">&quot;</span><span style="font-size:14.0pt">الحقوقِ&quot; و&quot;العلومِ الإداريةِ التي تمنح شهادات باختصاصات : التسويق</span><span dir="LTR" style="font-size:14.0pt"> &ndash; </span><span style="font-size:14.0pt">الموارد البشرية &quot;، وقد ازدادَ عددُ طُلابِ الجامعةِ ازدياداً لافتاً، فبلغَ خمسَمئة وألفي 2500 طالبٍ وطالبةٍ</span><span dir="LTR" style="font-size:14.0pt">.</span></span></span></span></p>
+<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">تطورَتِ الجامعةُ أثْناءِ السنواتِ الماضيةِ، وازدادَ عددُ كليّاتِها، ففي دمشقَ الآنَ سبعُ كلّياتٍ في موقعينِ، هما البرامكةُ والمزرعةُ، وهي</span><span dir="LTR" style="font-size:14.0pt">: </span><span style="font-size:14.0pt">كلّياتُ &quot;الطِبِ البشريِّ&quot; و&quot;طِبِ الأسنانِ&quot; و&quot;الصيدلةِ&quot; و&quot;الهندسةِ المعلوماتيةِ&quot; و&quot;الحقوقِ&quot; و&quot;العلومِ الإداريةِ التي تمنح شهادات باختصاصات</span><span dir="LTR" style="font-size:14.0pt"> : </span><span style="font-size:14.0pt">التسويق &ndash; الموارد البشرية &ndash; المحاسبة &ndash; المؤسسات المالية والمصرفية</span><span dir="LTR" style="font-size:14.0pt"> &quot;</span><span style="font-size:14.0pt"> فضلًا عنْ كليةِ &quot;العلاقاتِ الدوليةِ والدبلوماسيةِ&quot;، وفي اللاذقية الآنَ أربعُ كلّياتٍ: هي كليَّتا &quot;الصيدلةِ&quot; و&quot;طِبِّ الأسنانِ&quot; و كليَّتا </span><span dir="LTR" style="font-size:14.0pt">&quot;</span><span style="font-size:14.0pt">الحقوقِ&quot; و&quot;العلومِ الإداريةِ التي تمنح شهادات باختصاصات : التسويق</span><span dir="LTR" style="font-size:14.0pt"> &ndash; </span><span style="font-size:14.0pt">الموارد البشرية &quot;، وقد ازدادَ عددُ طُلابِ الجامعةِ ازدياداً لافتاً، فبلغَ خمسَمئة وألفي 2500 طالبٍ وطالبةٍ</span><span dir="LTR" style="font-size:14.0pt">.</span></span></span></span></p>
 
-<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">هيَّأَتْ إدارةُ الجامعةِ جميعَ مستلزماتِ العمليَّةِ التعليميَّةِ والبحثيَّةِ، منْ خطط دراسية حديثة وأساتذةٍ متميزينَ، وأطرٍ فنيةٍ، ومخابرَ، وتجهيزاتٍ، وهي مستمرةٌ في نهجِها العلميِّ هذا ساعيَةً بالتعاونِ والتنسيقِ المستمرِ مَعَ وزارةِ التعليمِ العالي للارتقاء بهذه الجامعة التي تحرص على تطبيق معاييرِ الجودةِ والاعتماديَّةِ، وقدِ اختارَ مجلسُ الجامعةِ التركيزَ على التدريبِ العمليِّ الميداني في الكليَّاتِ كافة، وعدَّ الارتِقَاءَ بمستوياتِ ذلك التدريبِ نقطةَ تميّزٍ تُضافُ إلى نقاطِ إيجابياتِ الجامعةِ، التي تطبق نمطِ التعليمِ التفاعليِّ مهيِّئةً السبلَ التقنيةَ لآفاقِه كما عدَّتِ الجامعةُ طُلابَها الأعزاءَ شركاءَ في العمليِّةِ التعليميةِ، منطلقةً مِنِ اختيارِها شِعاراً لأدائها منسجماً مَعَ رسالتِها وأهدافِها، هو &quot; نعمل معا لتحقيق حُلمك &quot;.</span></span></span></span></p>
+<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">هيَّأَتْ إدارةُ الجامعةِ جميعَ مستلزماتِ العمليَّةِ التعليميَّةِ والبحثيَّةِ، منْ خطط دراسية حديثة وأساتذةٍ متميزينَ، وأطرٍ فنيةٍ، ومخابرَ، وتجهيزاتٍ، وهي مستمرةٌ في نهجِها العلميِّ هذا ساعيَةً بالتعاونِ والتنسيقِ المستمرِ مَعَ وزارةِ التعليمِ العالي للارتقاء بهذه الجامعة التي تحرص على تطبيق معاييرِ الجودةِ والاعتماديَّةِ، وقدِ اختارَ مجلسُ الجامعةِ التركيزَ على التدريبِ العمليِّ الميداني في الكليَّاتِ كافة، وعدَّ الارتِقَاءَ بمستوياتِ ذلك التدريبِ نقطةَ تميّزٍ تُضافُ إلى نقاطِ إيجابياتِ الجامعةِ، التي تطبق نمطِ التعليمِ التفاعليِّ مهيِّئةً السبلَ التقنيةَ لآفاقِه كما عدَّتِ الجامعةُ طُلابَها الأعزاءَ شركاءَ في العمليِّةِ التعليميةِ، منطلقةً مِنِ اختيارِها شِعاراً لأدائها منسجماً مَعَ رسالتِها وأهدافِها، هو &quot; نعمل معا لتحقيق حُلمك &quot;.</span></span></span></span></p>
 
-<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">&nbsp;وقد اعتمدت الجامعة خططاً دراسية وفق نظام الساعات المعتمدة والتي تتيح المرونة في التطبيق واختصار مدة الدراسة ، وقد تخرج العديد من الطلاب بعضهم خلال ثلاث سنوات من الدراسة في الكليات ذات نظام الأربع سنوات كالحقوق مثلاً، فهنيئاً لطلابِنا الأعزاءِ بتحقيق حلمهم وحصولهم على المعارف اللازمة ودرجة الاجازة الجامعية في الاختصاص الذي اختاروه وتحية كبيرة لذوي الطلاب على ما يبذلونه من جهد لأجل مساعدة أبنائهم في تحقيق حلمهم. ولا بد من شكر الزملاء أعضاء الهيئة التدريسية والإداريين الذين يبذلون جهوداً كبيرة من أجل تنفيذ الخطط الدراسية وتقديم أفضل الخدمات لطلابنا الأعزاء وبما يعزز مكانة الجامعة</span><span dir="LTR" style="font-size:14.0pt">.</span></span></span></span></p>
+<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">&nbsp;وقد اعتمدت الجامعة خططاً دراسية وفق نظام الساعات المعتمدة والتي تتيح المرونة في التطبيق واختصار مدة الدراسة ، وقد تخرج العديد من الطلاب بعضهم خلال ثلاث سنوات من الدراسة في الكليات ذات نظام الأربع سنوات كالحقوق مثلاً، فهنيئاً لطلابِنا الأعزاءِ بتحقيق حلمهم وحصولهم على المعارف اللازمة ودرجة الاجازة الجامعية في الاختصاص الذي اختاروه وتحية كبيرة لذوي الطلاب على ما يبذلونه من جهد لأجل مساعدة أبنائهم في تحقيق حلمهم. ولا بد من شكر الزملاء أعضاء الهيئة التدريسية والإداريين الذين يبذلون جهوداً كبيرة من أجل تنفيذ الخطط الدراسية وتقديم أفضل الخدمات لطلابنا الأعزاء وبما يعزز مكانة الجامعة</span><span dir="LTR" style="font-size:14.0pt">.</span></span></span></span></p>
 
-<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">وقرر مجلس الجامعة في جلسته الأخيرة إحداث مكتب لمتابعة شؤون الخريجين وذلك للتواصل معهم في مرحلة ما بعد التخرج ، ومن أجل مساعدتهم في تأمين فرص عمل مناسبة لهم ولاستمرار تواصلهم مع جامعتهم على الدوام، وسيتابع هذا المكتب أداء الخريجين في مواقع عملهم لمعرفة مستوى أدائهم المهني ومساعدتهم في تطويره</span><span dir="LTR" style="font-size:14.0pt">.</span></span></span></span></p>
+<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">وقرر مجلس الجامعة في جلسته الأخيرة إحداث مكتب لمتابعة شؤون الخريجين وذلك للتواصل معهم في مرحلة ما بعد التخرج ، ومن أجل مساعدتهم في تأمين فرص عمل مناسبة لهم ولاستمرار تواصلهم مع جامعتهم على الدوام، وسيتابع هذا المكتب أداء الخريجين في مواقع عملهم لمعرفة مستوى أدائهم المهني ومساعدتهم في تطويره</span><span dir="LTR" style="font-size:14.0pt">.</span></span></span></span></p>
 
-<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">وتسعى الجامعة وبالتعاون مع وزارة التعليم العالي لإحداث الدراسات العليا</span><span style="font-size:14.0pt">(</span><span style="font-size:14.0pt">الماجستير والدكتوراه) ، وهي تعمل لأن تكون جامعة غير ربحية بما يغطي تكاليف التشغيل</span><span dir="LTR" style="font-size:14.0pt">.</span></span></span></span></p>
+<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">وتسعى الجامعة وبالتعاون مع وزارة التعليم العالي لإحداث الدراسات العليا</span><span style="font-size:14.0pt">(</span><span style="font-size:14.0pt">الماجستير والدكتوراه) ، وهي تعمل لأن تكون جامعة غير ربحية بما يغطي تكاليف التشغيل</span><span dir="LTR" style="font-size:14.0pt">.</span></span></span></span></p>
 
-<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">ولا بد من توجيه الشكر للسيد وزير التعليم العالي ومعاونيه وجميع العاملين في وزارة التعليم العالي على الدعم المستمر للجامعات الخاصة ولجامعة الشام، والشكر أيضاً لرئيس وأعضاء مجلس أمناء الجامعة على دعمهم اللامحدود لتطوير الجامعة والارتقاء بأدائها بما يخدم العملية التعليمية والبحث العلمي ، والشكر موصول للسادة أعضاء مجلس الجامعة على جهودهم المستمرة في تطوير أداء الجامعة وتقديم أفضل المعارف لطلابها</span><span dir="LTR" style="font-size:14.0pt">.</span></span></span></span></p>
+<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">ولا بد من توجيه الشكر للسيد وزير التعليم العالي ومعاونيه وجميع العاملين في وزارة التعليم العالي على الدعم المستمر للجامعات الخاصة ولجامعة الشام، والشكر أيضاً لرئيس وأعضاء مجلس أمناء الجامعة على دعمهم اللامحدود لتطوير الجامعة والارتقاء بأدائها بما يخدم العملية التعليمية والبحث العلمي ، والشكر موصول للسادة أعضاء مجلس الجامعة على جهودهم المستمرة في تطوير أداء الجامعة وتقديم أفضل المعارف لطلابها</span><span dir="LTR" style="font-size:14.0pt">.</span></span></span></span></p>
 
-<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">والله الموفق</span><span dir="LTR" style="font-size:14.0pt"> ...</span></span></span></span></p>
+<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">والله الموفق</span><span dir="LTR" style="font-size:14.0pt"> ...</span></span></span></span></p>
 
-<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="font-size:20px"><span style="font-family:Calibri,sans-serif"><span dir="LTR"><a href="http://db/laravel-filemanager/files/2/السيرة_الذاتية_للدكتور_ياسر-عربي-2-10-2016.pdf" target="_blank"><span style="color:#2980b9">لتحميل السيرة الذاتية اضغط هنا</span></a></span></span></span></p>
+<p dir="RTL" style="text-align:justify"><span style="font-size:20px"><span style="font-family:Calibri,sans-serif"><span dir="LTR"><a class="link-icon" href="http://db/laravel-filemanager/files/2/السيرة_الذاتية_للدكتور_ياسر-عربي-2-10-2016.pdf" target="_blank"><span style="color:#2980b9">لتحميل السيرة الذاتية اضغط هنا</span></a></span></span></span></p>
 
-<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify"><a href="http://localhost/Web/Andalus/public/laravel-filemanager/files/1/empty.pdf"><span style="font-size:20px"><span style="font-family:Calibri,sans-serif"><span dir="LTR"><span style="color:#2980b9">مرفق 2</span></span></span></span></a></p>',
+<p dir="RTL" style="text-align:justify"><a href="http://localhost/Web/Andalus/public/laravel-filemanager/files/1/empty.pdf"><span style="font-size:20px"><span style="font-family:Calibri,sans-serif"><span dir="LTR"><span style="color:#2980b9">مرفق 2</span></span></span></span></a></p>',
                 'created_at' => '2018-10-04 03:12:03',
-                'updated_at' => '2019-01-08 07:56:03',
+                'updated_at' => '2019-01-17 15:29:51',
                 'deleted_at' => NULL,
             ),
             42 => 
@@ -4783,6 +4781,46 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                                 'text' => 'افضل المدرسون هذا الاسبوع',
                                 'created_at' => '2019-01-13 08:21:08',
                                 'updated_at' => '2019-01-13 08:26:35',
+                                'deleted_at' => NULL,
+                            ),
+                            104 => 
+                            array (
+                                'id' => 105,
+                                'custom_module_attribute_value_id' => 294,
+                                'lang_id' => 1,
+                                'text' => 'Upcoming Evetns',
+                                'created_at' => '2019-01-19 12:49:44',
+                                'updated_at' => '2019-01-19 12:49:44',
+                                'deleted_at' => NULL,
+                            ),
+                            105 => 
+                            array (
+                                'id' => 106,
+                                'custom_module_attribute_value_id' => 294,
+                                'lang_id' => 2,
+                                'text' => 'الاداث القادمة',
+                                'created_at' => '2019-01-19 12:49:44',
+                                'updated_at' => '2019-01-19 12:49:44',
+                                'deleted_at' => NULL,
+                            ),
+                            106 => 
+                            array (
+                                'id' => 107,
+                                'custom_module_attribute_value_id' => 301,
+                                'lang_id' => 1,
+                                'text' => 'a',
+                                'created_at' => '2019-01-20 06:32:51',
+                                'updated_at' => '2019-01-20 06:32:51',
+                                'deleted_at' => NULL,
+                            ),
+                            107 => 
+                            array (
+                                'id' => 108,
+                                'custom_module_attribute_value_id' => 301,
+                                'lang_id' => 2,
+                                'text' => 'a',
+                                'created_at' => '2019-01-20 06:32:51',
+                                'updated_at' => '2019-01-20 06:32:51',
                                 'deleted_at' => NULL,
                             ),
                         ));

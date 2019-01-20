@@ -112,6 +112,8 @@ trait ModuleTrait
                 return new CalendarModule();
             case 43:
                 return new PersonTwoModule();
+            case 44:
+                return new SliderUpcomingEventsModule();
             default:
                 throw new \Exception("Undefined Web Module [id:$moduleId]");
         }
@@ -219,6 +221,8 @@ trait ModuleTrait
                 return new CalendarModule();
             case 'person_2':
                 return new PersonTwoModule();
+            case 'slider_upcoming_events':
+                return new SliderUpcomingEventsModule();
             default:
                 throw new \Exception("Undefined Web Module [$moduleCode]");
         }

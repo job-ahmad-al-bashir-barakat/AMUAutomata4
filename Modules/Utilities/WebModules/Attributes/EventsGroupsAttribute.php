@@ -24,9 +24,12 @@ class EventsGroupsAttribute extends Attribute
     public function getAttributeValue($customModuleId, $forceQuery = false)
     {
         parent::getAttributeValue($customModuleId, $forceQuery);
-
         $lang = app()->getLocale();
-        $this->data = EventGroup::whereIn('id', $this->data)->get()->pluck("lang_name.{$lang}.text", 'id')->toArray();
+        if ($this->data) {
+            $this->data = EventGroup::whereIn('id', $this->data)->get()->pluck("lang_name.{$lang}.text", 'id')->toArray();
+        } else {
+            $this->data = [];
+        }
     }
 
 }

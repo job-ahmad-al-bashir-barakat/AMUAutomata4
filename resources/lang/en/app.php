@@ -86,6 +86,7 @@ return array (
     'sky_blue' => 'Sky Blue',
     'logo' => 'Logo',
     'all' => 'All',
+    'until' => 'Until',
     /*
     * 404
     */

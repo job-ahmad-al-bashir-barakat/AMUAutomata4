@@ -877,6 +877,26 @@ class ModuleNameLangsTableSeeder extends Seeder
                 'updated_at' => '2019-01-13 08:07:17',
                 'deleted_at' => NULL,
             ),
+            86 => 
+            array (
+                'id' => 107,
+                'module_id' => 44,
+                'lang_id' => 1,
+                'text' => 'Slider Upcoming Events',
+                'created_at' => '2019-01-19 11:51:37',
+                'updated_at' => '2019-01-19 11:51:37',
+                'deleted_at' => NULL,
+            ),
+            87 => 
+            array (
+                'id' => 108,
+                'module_id' => 44,
+                'lang_id' => 2,
+                'text' => 'شرائح الأحداث القادمة',
+                'created_at' => '2019-01-19 11:51:38',
+                'updated_at' => '2019-01-19 11:51:38',
+                'deleted_at' => NULL,
+            ),
         ));
         
         

@@ -2747,6 +2747,146 @@ class CustomModuleAttributeValuesTableSeeder extends Seeder
                 'updated_at' => '2019-01-17 09:25:32',
                 'deleted_at' => NULL,
             ),
+            273 => 
+            array (
+                'id' => 291,
+                'custom_module_id' => 85,
+                'attribute_id' => 1,
+                'value' => 'E',
+                'created_at' => '2019-01-19 12:49:44',
+                'updated_at' => '2019-01-19 12:49:44',
+                'deleted_at' => NULL,
+            ),
+            274 => 
+            array (
+                'id' => 292,
+                'custom_module_id' => 85,
+                'attribute_id' => 2,
+                'value' => '6',
+                'created_at' => '2019-01-19 12:49:44',
+                'updated_at' => '2019-01-19 12:49:44',
+                'deleted_at' => NULL,
+            ),
+            275 => 
+            array (
+                'id' => 293,
+                'custom_module_id' => 85,
+                'attribute_id' => 3,
+                'value' => '12',
+                'created_at' => '2019-01-19 12:49:44',
+                'updated_at' => '2019-01-19 12:49:44',
+                'deleted_at' => NULL,
+            ),
+            276 => 
+            array (
+                'id' => 294,
+                'custom_module_id' => 85,
+                'attribute_id' => 10,
+                'value' => '',
+                'created_at' => '2019-01-19 12:49:44',
+                'updated_at' => '2019-01-19 12:49:44',
+                'deleted_at' => NULL,
+            ),
+            277 => 
+            array (
+                'id' => 295,
+                'custom_module_id' => 85,
+                'attribute_id' => 11,
+                'value' => '207',
+                'created_at' => '2019-01-19 12:49:44',
+                'updated_at' => '2019-01-19 12:49:44',
+                'deleted_at' => NULL,
+            ),
+            278 => 
+            array (
+                'id' => 296,
+                'custom_module_id' => 85,
+                'attribute_id' => 8,
+                'value' => '1',
+                'created_at' => '2019-01-19 12:49:44',
+                'updated_at' => '2019-01-20 08:09:07',
+                'deleted_at' => NULL,
+            ),
+            279 => 
+            array (
+                'id' => 297,
+                'custom_module_id' => 85,
+                'attribute_id' => 26,
+                'value' => '["1","2","3"]',
+                'created_at' => '2019-01-19 13:04:16',
+                'updated_at' => '2019-01-20 06:38:17',
+                'deleted_at' => NULL,
+            ),
+            280 => 
+            array (
+                'id' => 298,
+                'custom_module_id' => 86,
+                'attribute_id' => 1,
+                'value' => 'E',
+                'created_at' => '2019-01-20 06:32:50',
+                'updated_at' => '2019-01-20 06:32:50',
+                'deleted_at' => NULL,
+            ),
+            281 => 
+            array (
+                'id' => 299,
+                'custom_module_id' => 86,
+                'attribute_id' => 2,
+                'value' => '6',
+                'created_at' => '2019-01-20 06:32:50',
+                'updated_at' => '2019-01-20 06:32:50',
+                'deleted_at' => NULL,
+            ),
+            282 => 
+            array (
+                'id' => 300,
+                'custom_module_id' => 86,
+                'attribute_id' => 3,
+                'value' => '20',
+                'created_at' => '2019-01-20 06:32:51',
+                'updated_at' => '2019-01-20 06:32:51',
+                'deleted_at' => NULL,
+            ),
+            283 => 
+            array (
+                'id' => 301,
+                'custom_module_id' => 86,
+                'attribute_id' => 10,
+                'value' => '',
+                'created_at' => '2019-01-20 06:32:51',
+                'updated_at' => '2019-01-20 06:32:51',
+                'deleted_at' => NULL,
+            ),
+            284 => 
+            array (
+                'id' => 302,
+                'custom_module_id' => 86,
+                'attribute_id' => 11,
+                'value' => '5',
+                'created_at' => '2019-01-20 06:32:51',
+                'updated_at' => '2019-01-20 06:32:51',
+                'deleted_at' => NULL,
+            ),
+            285 => 
+            array (
+                'id' => 303,
+                'custom_module_id' => 86,
+                'attribute_id' => 8,
+                'value' => '3',
+                'created_at' => '2019-01-20 06:32:51',
+                'updated_at' => '2019-01-20 06:32:51',
+                'deleted_at' => NULL,
+            ),
+            286 => 
+            array (
+                'id' => 304,
+                'custom_module_id' => 86,
+                'attribute_id' => 26,
+                'value' => '["3"]',
+                'created_at' => '2019-01-20 06:32:52',
+                'updated_at' => '2019-01-20 06:34:50',
+                'deleted_at' => NULL,
+            ),
         ));
         
         
