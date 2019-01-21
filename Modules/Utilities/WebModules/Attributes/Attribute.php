@@ -99,7 +99,7 @@ class Attribute
         if(!$this->data || $forceQuery){
             $customModuleAttributeValue = CustomModuleAttributeValue::where('custom_module_id', '=', $customModuleId)->where('attribute_id', '=', $this->id)->first();
             if (!$customModuleAttributeValue) {
-                $this->data = [];
+                $this->data = null;
                 return;
             }
             if ($this->multiLang) {
