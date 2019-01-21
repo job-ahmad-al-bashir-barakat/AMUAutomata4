@@ -10,6 +10,10 @@
             <p class="author mt-10">
                 @isset($subText)<span class="text-theme-colored">{{ $subText }}</span>@endisset @isset($smallText)<small><em>{{ $smallText }}</em></small>@endisset
             </p>
+            @if($url ?? false)
+                <br>
+                <a href="{{ $url }}" class="btn btn-gray btn-xs ">@lang('app.read_more')</a>
+            @endif
         </div>
     </div>
 </div>

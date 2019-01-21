@@ -20,7 +20,7 @@ class EventsFactory extends GlobalFactory
         return $this->table
             ->queryConfig('datatable-events')
             ->queryDatatable($query)
-            ->queryMultiLang(['title'])
+            ->queryMultiLang(['title', 'url'])
             ->queryUpdateButton()
             ->queryDeleteButton()
             ->queryRender();
@@ -35,7 +35,7 @@ class EventsFactory extends GlobalFactory
             ->config('datatable-events', trans('utilities::app.events'))
             ->addPrimaryKey('id', 'id')
             ->addHiddenInput('event_group_id', 'event_group_id', $request->get('event_group_id'), false, true)
-            ->addMultiInputTextLangs(['title'])
+            ->addMultiInputTextLangs(['title', 'url'])
             ->addInputColor(trans('app.color'), 'color', 'color')
             ->addInputDate(trans('app.start_date'), 'start_date', 'start_date')
             ->addInputDate(trans('app.end_date'), 'end_date', 'end_date')

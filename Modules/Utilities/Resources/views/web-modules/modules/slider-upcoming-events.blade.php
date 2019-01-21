@@ -6,7 +6,8 @@
         @include('utilities::web-modules.modules.sub.vertical-slider', [
             'borderDir' => $borderDir,
             'text' => $slider->lang_title[$lang]->text,
-            'smallText' => "{$slider->start_date->format('d/m/Y')}" . ($slider->end_date? (" " . trans('app.until') . "{$slider->end_date->format('d/m/Y')}"): '')
+            'smallText' => "{$slider->start_date->format('d/m/Y')}" . ($slider->end_date? (" " . trans('app.until') . "{$slider->end_date->format('d/m/Y')}"): ''),
+            'url' => $slider->lang_url[$lang]->text ?? null,
         ])
             @if($borderDir == 'left')
                 @php($borderDir = 'right')

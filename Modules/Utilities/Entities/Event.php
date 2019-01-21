@@ -4,6 +4,7 @@ namespace Modules\Utilities\Entities;
 
 use Aut\Eloquent\Models\Model;
 use DateTime;
+use Modules\Utilities\Entities\LangModels\EventUrlLang;
 use Modules\Utilities\Traits\MultiLangs;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Modules\Utilities\Entities\LangModels\EventTitleLang;
@@ -17,7 +18,7 @@ class Event extends Model implements EventCalendar
 
     protected $dates = ['created_at', 'updated_at', 'deleted_at', 'start_date', 'end_date'];
 
-    protected $appends  = ['lang_title'];
+    protected $appends  = ['lang_title', 'lang_url'];
 
     public function transTitle()
     {
@@ -27,6 +28,16 @@ class Event extends Model implements EventCalendar
     public function getLangTitleAttribute()
     {
         return $this->transTitle->keyBy('lang_code');
+    }
+
+    public function transUrl()
+    {
+        return $this->hasMany(EventUrlLang::class);
+    }
+
+    public function getLangUrlAttribute()
+    {
+        return $this->transUrl->keyBy('lang_code');
     }
 
     /**
@@ -78,6 +89,7 @@ class Event extends Model implements EventCalendar
     {
         return [
             'color' => $this->color ?? null,
+            'url' => $this->lang_url[app()->getLocale()]->text ?? null,
         ];
     }
 
