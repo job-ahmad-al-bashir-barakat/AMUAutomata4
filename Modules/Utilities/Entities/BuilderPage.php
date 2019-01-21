@@ -77,6 +77,9 @@ class BuilderPage extends Model
      */
     public function getModuleAttribute()
     {
+        if (!$this->customModule) {
+            return null;
+        }
         $module = Module::setModule($this->customModule->module_id);
         $module->customModuleId = $this->custom_module_id;
         $module->data = $this->customModule->attributeValues->pluck('value', 'attribute.code');

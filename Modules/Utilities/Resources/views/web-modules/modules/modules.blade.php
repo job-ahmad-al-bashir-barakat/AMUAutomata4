@@ -1,3 +1,5 @@
 @foreach($modules as $module)
-{!! $module->getModuleHtml() !!}
+    @if($module)
+        {!! $module->getModuleHtml() !!}
+    @endif
 @endforeach
