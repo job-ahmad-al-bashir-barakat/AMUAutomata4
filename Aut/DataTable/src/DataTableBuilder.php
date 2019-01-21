@@ -2226,7 +2226,7 @@ class DataTableBuilder
         $column->put('name'       ,$param["name"]);
         $column->put('class'      ,$param['class_attr']['class_table']);
         $column->put('width'      ,$param["width"]);
-        $column->put('visible'    ,$choosen["visible"]);
+        $column->put('visible'    ,$param['class_attr']['visible'] && $choosen["visible"]);
         $column->put('orderable'  ,$param["orderable"]);
         $column->put('searchable' ,$param["searchable"]);
         $column->put('printable'  ,$param["printable"]);
@@ -2256,6 +2256,7 @@ class DataTableBuilder
     protected function dialogClassAttr($class , $attr , $type)
     {
         $class_dialog = '';
+        $visible      = true;
 
         $attr = convertArrayToString($attr);
         $attr = empty($this->params['attr']) ? $attr : convertArrayToString($this->params['attr'] ,$attr);
@@ -2281,6 +2282,7 @@ class DataTableBuilder
         if(matchClass('text-editor' ,$class)) {
             $class_dialog = "$class_dialog datatable-text-editor";
             $attr = "$attr data-resize=true data-resize-type=vertical";
+            $visible = false;
         }
 
         if($type == 'number')
@@ -2333,7 +2335,7 @@ class DataTableBuilder
         }
 
         // return all
-        return ['class_dialog' => trim($class_dialog) ,'class_table' => trim($class_table) ,'attr' => trim($attr)];
+        return ['class_dialog' => trim($class_dialog) ,'class_table' => trim($class_table) ,'attr' => trim($attr), 'visible' => $visible];
     }
 
     /**
