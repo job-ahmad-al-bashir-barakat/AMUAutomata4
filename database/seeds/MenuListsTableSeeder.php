@@ -97,6 +97,38 @@ class MenuListsTableSeeder extends Seeder
                 'updated_at' => '2018-12-10 08:19:58',
                 'deleted_at' => NULL,
             ),
+            10 => 
+            array (
+                'id' => 11,
+                'is_default' => 1,
+                'created_at' => '2018-12-29 13:31:34',
+                'updated_at' => '2018-12-29 13:31:34',
+                'deleted_at' => NULL,
+            ),
+            11 => 
+            array (
+                'id' => 12,
+                'is_default' => 1,
+                'created_at' => '2018-12-29 13:49:47',
+                'updated_at' => '2018-12-29 13:49:47',
+                'deleted_at' => NULL,
+            ),
+            12 => 
+            array (
+                'id' => 13,
+                'is_default' => 1,
+                'created_at' => '2018-12-30 07:44:05',
+                'updated_at' => '2018-12-30 07:44:05',
+                'deleted_at' => NULL,
+            ),
+            13 => 
+            array (
+                'id' => 14,
+                'is_default' => 1,
+                'created_at' => '2018-12-30 07:55:22',
+                'updated_at' => '2018-12-30 07:55:22',
+                'deleted_at' => NULL,
+            ),
         ));
         
         

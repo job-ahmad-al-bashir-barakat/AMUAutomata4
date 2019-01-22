@@ -239,6 +239,16 @@ return [
         'relationId'   => 'back_image_id',
     ],
 
+    'cards' => [
+        'model' => \Modules\Utilities\Entities\Card::class,
+        'ratio' => [
+            'card' => ['width' => '600', 'height' => '300'],
+        ],
+        'relationType' => 'one',
+        'relationName' => 'image',
+        'relationId'   => 'image_id',
+    ],
+
     'partner-large-image' => [
         'model' => \Modules\Admin\Entities\Partner::class,
         'ratio' => [

@@ -82,9 +82,9 @@ class BlockNameLangsTableSeeder extends Seeder
                 'id' => 7,
                 'block_id' => 4,
                 'lang_id' => 1,
-                'text' => 'College blocks',
+                'text' => 'Al bramkeh blocks',
                 'created_at' => '2018-10-06 04:59:46',
-                'updated_at' => '2018-10-13 08:13:14',
+                'updated_at' => '2019-01-19 10:49:53',
                 'deleted_at' => NULL,
             ),
             7 => 
@@ -92,9 +92,9 @@ class BlockNameLangsTableSeeder extends Seeder
                 'id' => 8,
                 'block_id' => 4,
                 'lang_id' => 2,
-                'text' => 'كتل الكليات',
+                'text' => 'كتل البرامكة',
                 'created_at' => '2018-10-06 04:59:46',
-                'updated_at' => '2018-10-13 08:13:14',
+                'updated_at' => '2019-01-19 10:49:53',
                 'deleted_at' => NULL,
             ),
             8 => 

@@ -65,6 +65,12 @@ class ModelHasPermissionsTableSeeder extends Seeder
                 'model_type' => 'Modules\\Utilities\\Entities\\User',
                 'model_id' => 18,
             ),
+            8 => 
+            array (
+                'permission_id' => 36,
+                'model_type' => 'Modules\\Utilities\\Entities\\User',
+                'model_id' => 20,
+            ),
         ));
         
         

@@ -217,6 +217,86 @@ class MenuListNameLangsTableSeeder extends Seeder
                 'updated_at' => '2018-12-10 08:19:58',
                 'deleted_at' => NULL,
             ),
+            20 => 
+            array (
+                'id' => 21,
+                'menu_list_id' => 11,
+                'lang_id' => 1,
+                'text' => 'Dentistry Menu',
+                'created_at' => '2018-12-29 13:31:34',
+                'updated_at' => '2018-12-29 13:31:34',
+                'deleted_at' => NULL,
+            ),
+            21 => 
+            array (
+                'id' => 22,
+                'menu_list_id' => 11,
+                'lang_id' => 2,
+                'text' => 'قائمة طب اسنان-لازقية',
+                'created_at' => '2018-12-29 13:31:34',
+                'updated_at' => '2018-12-29 13:31:34',
+                'deleted_at' => NULL,
+            ),
+            22 => 
+            array (
+                'id' => 23,
+                'menu_list_id' => 12,
+                'lang_id' => 1,
+                'text' => 'Pharmacy Menu',
+                'created_at' => '2018-12-29 13:49:47',
+                'updated_at' => '2018-12-29 13:49:47',
+                'deleted_at' => NULL,
+            ),
+            23 => 
+            array (
+                'id' => 24,
+                'menu_list_id' => 12,
+                'lang_id' => 2,
+                'text' => 'قائمة الصيدلة-لازقية',
+                'created_at' => '2018-12-29 13:49:47',
+                'updated_at' => '2018-12-29 13:49:47',
+                'deleted_at' => NULL,
+            ),
+            24 => 
+            array (
+                'id' => 25,
+                'menu_list_id' => 13,
+                'lang_id' => 1,
+                'text' => 'Administrative Sciences Menu',
+                'created_at' => '2018-12-30 07:44:05',
+                'updated_at' => '2018-12-30 07:44:05',
+                'deleted_at' => NULL,
+            ),
+            25 => 
+            array (
+                'id' => 26,
+                'menu_list_id' => 13,
+                'lang_id' => 2,
+                'text' => 'قائمة العلوم الادارية_اللازقية',
+                'created_at' => '2018-12-30 07:44:06',
+                'updated_at' => '2018-12-30 07:44:06',
+                'deleted_at' => NULL,
+            ),
+            26 => 
+            array (
+                'id' => 27,
+                'menu_list_id' => 14,
+                'lang_id' => 1,
+                'text' => 'law menu',
+                'created_at' => '2018-12-30 07:55:22',
+                'updated_at' => '2018-12-30 07:55:22',
+                'deleted_at' => NULL,
+            ),
+            27 => 
+            array (
+                'id' => 28,
+                'menu_list_id' => 14,
+                'lang_id' => 2,
+                'text' => 'قائمة الحقوق-اللازقية',
+                'created_at' => '2018-12-30 07:55:22',
+                'updated_at' => '2018-12-30 07:55:22',
+                'deleted_at' => NULL,
+            ),
         ));
         
         

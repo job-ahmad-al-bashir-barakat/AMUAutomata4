@@ -27,6 +27,7 @@ return [
     'events_groups' => 'Events Groups',
     'url' => 'Url',
     'height' => 'Height',
+    'cards' => 'Cards',
 
     'degrees' => 'Degrees',
     'faculty' => 'Faculty',

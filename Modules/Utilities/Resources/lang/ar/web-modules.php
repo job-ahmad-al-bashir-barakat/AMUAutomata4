@@ -27,6 +27,7 @@ return [
     'url' => 'رابط',
     'height' => 'الارتفاع',
     'image_limit' => 'حدود الصور',
+    'cards' => 'بطاقات',
 
     'degrees' => 'الشهادات',
     'faculty' => 'الكلية',

@@ -50,6 +50,8 @@ function () {
         Route::get('blocks', 'BuilderController@blocks')->middleware('permission:blocks')->name('blocks');
         Route::get('blocks/{block}', 'BuilderController@block')->middleware('permission:blocks')->name('block-detail');
 
+        Route::get('cards', 'BuilderController@cards')->middleware('permission:cards')->name('cards');
+
         Route::get('steps', 'BuilderController@steps')->middleware('permission:steps')->name('steps');
 
         Route::get('text-cards', 'BuilderController@textCards')->middleware('permission:text-cards')->name('text-cards');

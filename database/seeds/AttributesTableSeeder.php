@@ -213,32 +213,40 @@ class AttributesTableSeeder extends Seeder
             array (
                 'id' => 25,
                 'code' => 'faculty',
-                'created_at' => '2018-12-27 05:16:05',
-                'updated_at' => '2018-12-27 05:16:05',
+                'created_at' => '2018-12-27 03:16:05',
+                'updated_at' => '2018-12-27 03:16:05',
                 'deleted_at' => NULL,
             ),
             25 => 
             array (
                 'id' => 26,
                 'code' => 'events_groups',
-                'created_at' => '2018-12-30 09:44:43',
-                'updated_at' => '2018-12-30 09:44:43',
+                'created_at' => '2018-12-30 07:44:43',
+                'updated_at' => '2018-12-30 07:44:43',
                 'deleted_at' => NULL,
             ),
             26 => 
             array (
                 'id' => 27,
                 'code' => 'height',
-                'created_at' => '2019-01-16 15:01:55',
-                'updated_at' => '2019-01-16 15:01:55',
+                'created_at' => '2019-01-16 13:01:55',
+                'updated_at' => '2019-01-16 13:01:55',
                 'deleted_at' => NULL,
             ),
             27 => 
             array (
                 'id' => 28,
                 'code' => 'image_limit',
-                'created_at' => '2019-01-17 08:01:19',
-                'updated_at' => '2019-01-17 08:01:19',
+                'created_at' => '2019-01-17 06:01:19',
+                'updated_at' => '2019-01-17 06:01:19',
+                'deleted_at' => NULL,
+            ),
+            28 => 
+            array (
+                'id' => 29,
+                'code' => 'cards',
+                'created_at' => '2019-01-22 07:55:54',
+                'updated_at' => '2019-01-22 07:55:54',
                 'deleted_at' => NULL,
             ),
         ));

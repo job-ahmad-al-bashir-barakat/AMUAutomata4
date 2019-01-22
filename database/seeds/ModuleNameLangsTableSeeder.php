@@ -172,9 +172,9 @@ class ModuleNameLangsTableSeeder extends Seeder
                 'id' => 22,
                 'module_id' => 9,
                 'lang_id' => 2,
-                'text' => 'شرائح افقيه',
+                'text' => 'شرائح عمودية',
                 'created_at' => '2017-09-24 18:39:16',
-                'updated_at' => '2017-09-24 18:39:16',
+                'updated_at' => '2019-01-06 07:27:42',
                 'deleted_at' => NULL,
             ),
             16 => 
@@ -424,8 +424,8 @@ class ModuleNameLangsTableSeeder extends Seeder
                 'lang_id' => 1,
                 'text' => 'Breadcrumb',
                 'created_at' => '2017-10-19 18:08:25',
-                'updated_at' => '2017-10-19 18:08:25',
-                'deleted_at' => NULL,
+                'updated_at' => '2019-01-07 13:09:17',
+                'deleted_at' => '2019-01-07 13:09:17',
             ),
             41 => 
             array (
@@ -434,8 +434,8 @@ class ModuleNameLangsTableSeeder extends Seeder
                 'lang_id' => 2,
                 'text' => 'Breadcrumb',
                 'created_at' => '2017-10-19 18:08:25',
-                'updated_at' => '2017-10-19 18:08:25',
-                'deleted_at' => NULL,
+                'updated_at' => '2019-01-07 13:09:17',
+                'deleted_at' => '2019-01-07 13:09:17',
             ),
             42 => 
             array (
@@ -823,8 +823,8 @@ class ModuleNameLangsTableSeeder extends Seeder
                 'module_id' => 41,
                 'lang_id' => 1,
                 'text' => 'Faculty Researches',
-                'created_at' => '2018-12-27 09:01:57',
-                'updated_at' => '2018-12-27 09:01:57',
+                'created_at' => '2018-12-27 07:01:57',
+                'updated_at' => '2018-12-27 07:01:57',
                 'deleted_at' => NULL,
             ),
             81 => 
@@ -833,8 +833,8 @@ class ModuleNameLangsTableSeeder extends Seeder
                 'module_id' => 41,
                 'lang_id' => 2,
                 'text' => 'ابحاث الكلية',
-                'created_at' => '2018-12-27 09:01:57',
-                'updated_at' => '2018-12-27 09:01:57',
+                'created_at' => '2018-12-27 07:01:57',
+                'updated_at' => '2018-12-27 07:01:57',
                 'deleted_at' => NULL,
             ),
             82 => 
@@ -843,8 +843,8 @@ class ModuleNameLangsTableSeeder extends Seeder
                 'module_id' => 42,
                 'lang_id' => 1,
                 'text' => 'Calender',
-                'created_at' => '2018-12-30 10:04:47',
-                'updated_at' => '2018-12-30 10:04:47',
+                'created_at' => '2018-12-30 08:04:47',
+                'updated_at' => '2018-12-30 08:04:47',
                 'deleted_at' => NULL,
             ),
             83 => 
@@ -853,8 +853,8 @@ class ModuleNameLangsTableSeeder extends Seeder
                 'module_id' => 42,
                 'lang_id' => 2,
                 'text' => 'التقويم',
-                'created_at' => '2018-12-30 10:04:47',
-                'updated_at' => '2018-12-30 10:04:47',
+                'created_at' => '2018-12-30 08:04:47',
+                'updated_at' => '2018-12-30 08:04:47',
                 'deleted_at' => NULL,
             ),
             84 => 
@@ -863,8 +863,8 @@ class ModuleNameLangsTableSeeder extends Seeder
                 'module_id' => 43,
                 'lang_id' => 1,
                 'text' => 'Person Card #2',
-                'created_at' => '2019-01-13 08:07:17',
-                'updated_at' => '2019-01-13 08:07:17',
+                'created_at' => '2019-01-13 06:07:17',
+                'updated_at' => '2019-01-13 06:07:17',
                 'deleted_at' => NULL,
             ),
             85 => 
@@ -873,8 +873,8 @@ class ModuleNameLangsTableSeeder extends Seeder
                 'module_id' => 43,
                 'lang_id' => 2,
                 'text' => 'بطاقة اشخاص #2',
-                'created_at' => '2019-01-13 08:07:17',
-                'updated_at' => '2019-01-13 08:07:17',
+                'created_at' => '2019-01-13 06:07:17',
+                'updated_at' => '2019-01-13 06:07:17',
                 'deleted_at' => NULL,
             ),
             86 => 
@@ -883,8 +883,8 @@ class ModuleNameLangsTableSeeder extends Seeder
                 'module_id' => 44,
                 'lang_id' => 1,
                 'text' => 'Slider Upcoming Events',
-                'created_at' => '2019-01-19 11:51:37',
-                'updated_at' => '2019-01-19 11:51:37',
+                'created_at' => '2019-01-19 09:51:37',
+                'updated_at' => '2019-01-19 09:51:37',
                 'deleted_at' => NULL,
             ),
             87 => 
@@ -893,8 +893,28 @@ class ModuleNameLangsTableSeeder extends Seeder
                 'module_id' => 44,
                 'lang_id' => 2,
                 'text' => 'شرائح الأحداث القادمة',
-                'created_at' => '2019-01-19 11:51:38',
-                'updated_at' => '2019-01-19 11:51:38',
+                'created_at' => '2019-01-19 09:51:38',
+                'updated_at' => '2019-01-19 09:51:38',
+                'deleted_at' => NULL,
+            ),
+            88 => 
+            array (
+                'id' => 109,
+                'module_id' => 45,
+                'lang_id' => 1,
+                'text' => 'Cards',
+                'created_at' => '2019-01-22 08:12:13',
+                'updated_at' => '2019-01-22 08:12:13',
+                'deleted_at' => NULL,
+            ),
+            89 => 
+            array (
+                'id' => 110,
+                'module_id' => 45,
+                'lang_id' => 2,
+                'text' => 'بطاقات',
+                'created_at' => '2019-01-22 08:12:13',
+                'updated_at' => '2019-01-22 08:12:13',
                 'deleted_at' => NULL,
             ),
         ));

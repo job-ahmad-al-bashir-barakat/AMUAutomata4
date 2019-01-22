@@ -1617,6 +1617,706 @@ class PageNameLangsTableSeeder extends Seeder
                 'updated_at' => '2018-12-10 08:17:24',
                 'deleted_at' => NULL,
             ),
+            160 => 
+            array (
+                'id' => 163,
+                'page_id' => 82,
+                'lang_id' => 1,
+                'text' => 'college Council',
+                'created_at' => '2018-12-19 13:03:42',
+                'updated_at' => '2018-12-19 13:03:42',
+                'deleted_at' => NULL,
+            ),
+            161 => 
+            array (
+                'id' => 164,
+                'page_id' => 82,
+                'lang_id' => 2,
+                'text' => 'مجلس الكلية',
+                'created_at' => '2018-12-19 13:03:42',
+                'updated_at' => '2018-12-19 13:03:42',
+                'deleted_at' => NULL,
+            ),
+            162 => 
+            array (
+                'id' => 165,
+                'page_id' => 83,
+                'lang_id' => 1,
+                'text' => 'college Council',
+                'created_at' => '2018-12-19 13:04:18',
+                'updated_at' => '2018-12-19 13:04:18',
+                'deleted_at' => NULL,
+            ),
+            163 => 
+            array (
+                'id' => 166,
+                'page_id' => 83,
+                'lang_id' => 2,
+                'text' => 'مجلس الكلية',
+                'created_at' => '2018-12-19 13:04:18',
+                'updated_at' => '2018-12-19 13:04:18',
+                'deleted_at' => NULL,
+            ),
+            164 => 
+            array (
+                'id' => 167,
+                'page_id' => 84,
+                'lang_id' => 1,
+                'text' => 'college Council',
+                'created_at' => '2018-12-19 13:04:54',
+                'updated_at' => '2018-12-19 13:04:54',
+                'deleted_at' => NULL,
+            ),
+            165 => 
+            array (
+                'id' => 168,
+                'page_id' => 84,
+                'lang_id' => 2,
+                'text' => 'مجلس الكلية',
+                'created_at' => '2018-12-19 13:04:54',
+                'updated_at' => '2018-12-19 13:04:54',
+                'deleted_at' => NULL,
+            ),
+            166 => 
+            array (
+                'id' => 169,
+                'page_id' => 85,
+                'lang_id' => 1,
+                'text' => 'college Council',
+                'created_at' => '2018-12-19 13:05:39',
+                'updated_at' => '2018-12-19 13:05:39',
+                'deleted_at' => NULL,
+            ),
+            167 => 
+            array (
+                'id' => 170,
+                'page_id' => 85,
+                'lang_id' => 2,
+                'text' => 'مجلس الكلية',
+                'created_at' => '2018-12-19 13:05:39',
+                'updated_at' => '2018-12-19 13:05:39',
+                'deleted_at' => NULL,
+            ),
+            168 => 
+            array (
+                'id' => 171,
+                'page_id' => 86,
+                'lang_id' => 1,
+                'text' => 'college Council',
+                'created_at' => '2018-12-19 13:06:42',
+                'updated_at' => '2018-12-19 13:06:42',
+                'deleted_at' => NULL,
+            ),
+            169 => 
+            array (
+                'id' => 172,
+                'page_id' => 86,
+                'lang_id' => 2,
+                'text' => 'مجلس الكلية',
+                'created_at' => '2018-12-19 13:06:42',
+                'updated_at' => '2018-12-19 13:06:42',
+                'deleted_at' => NULL,
+            ),
+            170 => 
+            array (
+                'id' => 173,
+                'page_id' => 87,
+                'lang_id' => 1,
+                'text' => 'College Council',
+                'created_at' => '2018-12-19 13:08:01',
+                'updated_at' => '2018-12-19 13:08:01',
+                'deleted_at' => NULL,
+            ),
+            171 => 
+            array (
+                'id' => 174,
+                'page_id' => 87,
+                'lang_id' => 2,
+                'text' => 'مجلس كلية',
+                'created_at' => '2018-12-19 13:08:01',
+                'updated_at' => '2018-12-19 13:08:01',
+                'deleted_at' => NULL,
+            ),
+            172 => 
+            array (
+                'id' => 175,
+                'page_id' => 88,
+                'lang_id' => 1,
+                'text' => 'College Council',
+                'created_at' => '2018-12-19 13:08:54',
+                'updated_at' => '2018-12-19 13:08:54',
+                'deleted_at' => NULL,
+            ),
+            173 => 
+            array (
+                'id' => 176,
+                'page_id' => 88,
+                'lang_id' => 2,
+                'text' => 'مجلس كلية',
+                'created_at' => '2018-12-19 13:08:54',
+                'updated_at' => '2018-12-19 13:08:54',
+                'deleted_at' => NULL,
+            ),
+            174 => 
+            array (
+                'id' => 177,
+                'page_id' => 89,
+                'lang_id' => 1,
+                'text' => 'Dean',
+                'created_at' => '2018-12-29 13:22:13',
+                'updated_at' => '2018-12-29 13:22:13',
+                'deleted_at' => NULL,
+            ),
+            175 => 
+            array (
+                'id' => 178,
+                'page_id' => 89,
+                'lang_id' => 2,
+                'text' => 'عميد كلية',
+                'created_at' => '2018-12-29 13:22:13',
+                'updated_at' => '2018-12-29 13:22:13',
+                'deleted_at' => NULL,
+            ),
+            176 => 
+            array (
+                'id' => 179,
+                'page_id' => 90,
+                'lang_id' => 1,
+                'text' => 'College Message',
+                'created_at' => '2018-12-29 13:23:48',
+                'updated_at' => '2018-12-29 13:23:48',
+                'deleted_at' => NULL,
+            ),
+            177 => 
+            array (
+                'id' => 180,
+                'page_id' => 90,
+                'lang_id' => 2,
+                'text' => 'رسالة الكلية',
+                'created_at' => '2018-12-29 13:23:48',
+                'updated_at' => '2018-12-29 13:23:48',
+                'deleted_at' => NULL,
+            ),
+            178 => 
+            array (
+                'id' => 181,
+                'page_id' => 91,
+                'lang_id' => 1,
+                'text' => 'Degrees',
+                'created_at' => '2018-12-29 13:24:43',
+                'updated_at' => '2018-12-29 13:24:43',
+                'deleted_at' => NULL,
+            ),
+            179 => 
+            array (
+                'id' => 182,
+                'page_id' => 91,
+                'lang_id' => 2,
+                'text' => 'الاختصاصات',
+                'created_at' => '2018-12-29 13:24:43',
+                'updated_at' => '2018-12-29 13:24:43',
+                'deleted_at' => NULL,
+            ),
+            180 => 
+            array (
+                'id' => 183,
+                'page_id' => 92,
+                'lang_id' => 1,
+                'text' => 'Study Plan',
+                'created_at' => '2018-12-29 13:25:48',
+                'updated_at' => '2018-12-29 13:25:48',
+                'deleted_at' => NULL,
+            ),
+            181 => 
+            array (
+                'id' => 184,
+                'page_id' => 92,
+                'lang_id' => 2,
+                'text' => 'الخطة الدرسية',
+                'created_at' => '2018-12-29 13:25:48',
+                'updated_at' => '2018-12-29 13:25:48',
+                'deleted_at' => NULL,
+            ),
+            182 => 
+            array (
+                'id' => 185,
+                'page_id' => 93,
+                'lang_id' => 1,
+                'text' => 'Faculty Members',
+                'created_at' => '2018-12-29 13:28:20',
+                'updated_at' => '2018-12-29 13:28:20',
+                'deleted_at' => NULL,
+            ),
+            183 => 
+            array (
+                'id' => 186,
+                'page_id' => 93,
+                'lang_id' => 2,
+                'text' => 'أعضاء الهيئة التدريسية',
+                'created_at' => '2018-12-29 13:28:20',
+                'updated_at' => '2018-12-29 13:28:20',
+                'deleted_at' => NULL,
+            ),
+            184 => 
+            array (
+                'id' => 187,
+                'page_id' => 94,
+                'lang_id' => 1,
+                'text' => 'Contact Us',
+                'created_at' => '2018-12-29 13:29:18',
+                'updated_at' => '2018-12-29 13:29:18',
+                'deleted_at' => NULL,
+            ),
+            185 => 
+            array (
+                'id' => 188,
+                'page_id' => 94,
+                'lang_id' => 2,
+                'text' => 'اتصل بنا',
+                'created_at' => '2018-12-29 13:29:18',
+                'updated_at' => '2018-12-29 13:29:18',
+                'deleted_at' => NULL,
+            ),
+            186 => 
+            array (
+                'id' => 189,
+                'page_id' => 95,
+                'lang_id' => 1,
+                'text' => 'College Council',
+                'created_at' => '2018-12-29 13:30:33',
+                'updated_at' => '2018-12-29 13:30:33',
+                'deleted_at' => NULL,
+            ),
+            187 => 
+            array (
+                'id' => 190,
+                'page_id' => 95,
+                'lang_id' => 2,
+                'text' => 'مجلس كلية',
+                'created_at' => '2018-12-29 13:30:33',
+                'updated_at' => '2018-12-29 13:30:33',
+                'deleted_at' => NULL,
+            ),
+            188 => 
+            array (
+                'id' => 191,
+                'page_id' => 96,
+                'lang_id' => 1,
+                'text' => 'Dean',
+                'created_at' => '2018-12-29 13:41:48',
+                'updated_at' => '2018-12-29 13:41:48',
+                'deleted_at' => NULL,
+            ),
+            189 => 
+            array (
+                'id' => 192,
+                'page_id' => 96,
+                'lang_id' => 2,
+                'text' => 'عميد الكلية',
+                'created_at' => '2018-12-29 13:41:48',
+                'updated_at' => '2018-12-29 13:41:48',
+                'deleted_at' => NULL,
+            ),
+            190 => 
+            array (
+                'id' => 193,
+                'page_id' => 97,
+                'lang_id' => 1,
+                'text' => 'College Message',
+                'created_at' => '2018-12-29 13:43:13',
+                'updated_at' => '2018-12-29 13:43:13',
+                'deleted_at' => NULL,
+            ),
+            191 => 
+            array (
+                'id' => 194,
+                'page_id' => 97,
+                'lang_id' => 2,
+                'text' => 'رسالة الكلية',
+                'created_at' => '2018-12-29 13:43:13',
+                'updated_at' => '2018-12-29 13:43:13',
+                'deleted_at' => NULL,
+            ),
+            192 => 
+            array (
+                'id' => 195,
+                'page_id' => 98,
+                'lang_id' => 1,
+                'text' => 'Degrees',
+                'created_at' => '2018-12-29 13:43:58',
+                'updated_at' => '2018-12-29 13:43:58',
+                'deleted_at' => NULL,
+            ),
+            193 => 
+            array (
+                'id' => 196,
+                'page_id' => 98,
+                'lang_id' => 2,
+                'text' => 'الاختصاصات',
+                'created_at' => '2018-12-29 13:43:58',
+                'updated_at' => '2018-12-29 13:43:58',
+                'deleted_at' => NULL,
+            ),
+            194 => 
+            array (
+                'id' => 197,
+                'page_id' => 99,
+                'lang_id' => 1,
+                'text' => 'Study Plan',
+                'created_at' => '2018-12-29 13:45:24',
+                'updated_at' => '2018-12-29 13:45:24',
+                'deleted_at' => NULL,
+            ),
+            195 => 
+            array (
+                'id' => 198,
+                'page_id' => 99,
+                'lang_id' => 2,
+                'text' => 'الخطة الدرسية',
+                'created_at' => '2018-12-29 13:45:24',
+                'updated_at' => '2018-12-29 13:45:24',
+                'deleted_at' => NULL,
+            ),
+            196 => 
+            array (
+                'id' => 199,
+                'page_id' => 100,
+                'lang_id' => 1,
+                'text' => 'Faculty Members',
+                'created_at' => '2018-12-29 13:46:18',
+                'updated_at' => '2018-12-29 13:46:18',
+                'deleted_at' => NULL,
+            ),
+            197 => 
+            array (
+                'id' => 200,
+                'page_id' => 100,
+                'lang_id' => 2,
+                'text' => 'أعضاء الهيئة التدريسية',
+                'created_at' => '2018-12-29 13:46:18',
+                'updated_at' => '2018-12-30 08:24:19',
+                'deleted_at' => NULL,
+            ),
+            198 => 
+            array (
+                'id' => 201,
+                'page_id' => 101,
+                'lang_id' => 1,
+                'text' => 'Contact Us',
+                'created_at' => '2018-12-29 13:47:09',
+                'updated_at' => '2018-12-29 13:47:09',
+                'deleted_at' => NULL,
+            ),
+            199 => 
+            array (
+                'id' => 202,
+                'page_id' => 101,
+                'lang_id' => 2,
+                'text' => 'اتصل بنا',
+                'created_at' => '2018-12-29 13:47:09',
+                'updated_at' => '2018-12-29 13:47:09',
+                'deleted_at' => NULL,
+            ),
+            200 => 
+            array (
+                'id' => 203,
+                'page_id' => 102,
+                'lang_id' => 1,
+                'text' => 'College Council',
+                'created_at' => '2018-12-29 13:48:43',
+                'updated_at' => '2018-12-29 13:48:43',
+                'deleted_at' => NULL,
+            ),
+            201 => 
+            array (
+                'id' => 204,
+                'page_id' => 102,
+                'lang_id' => 2,
+                'text' => 'مجلس الكلية',
+                'created_at' => '2018-12-29 13:48:43',
+                'updated_at' => '2018-12-29 13:48:43',
+                'deleted_at' => NULL,
+            ),
+            202 => 
+            array (
+                'id' => 205,
+                'page_id' => 103,
+                'lang_id' => 1,
+                'text' => 'Dean',
+                'created_at' => '2018-12-30 07:23:29',
+                'updated_at' => '2018-12-30 07:23:29',
+                'deleted_at' => NULL,
+            ),
+            203 => 
+            array (
+                'id' => 206,
+                'page_id' => 103,
+                'lang_id' => 2,
+                'text' => 'عميد الكلية',
+                'created_at' => '2018-12-30 07:23:29',
+                'updated_at' => '2018-12-30 07:23:29',
+                'deleted_at' => NULL,
+            ),
+            204 => 
+            array (
+                'id' => 207,
+                'page_id' => 104,
+                'lang_id' => 1,
+                'text' => 'College Message',
+                'created_at' => '2018-12-30 07:38:14',
+                'updated_at' => '2018-12-30 07:38:14',
+                'deleted_at' => NULL,
+            ),
+            205 => 
+            array (
+                'id' => 208,
+                'page_id' => 104,
+                'lang_id' => 2,
+                'text' => 'رسالة الكلية',
+                'created_at' => '2018-12-30 07:38:14',
+                'updated_at' => '2018-12-30 07:38:14',
+                'deleted_at' => NULL,
+            ),
+            206 => 
+            array (
+                'id' => 209,
+                'page_id' => 105,
+                'lang_id' => 1,
+                'text' => 'Degrees',
+                'created_at' => '2018-12-30 07:38:51',
+                'updated_at' => '2018-12-30 07:38:51',
+                'deleted_at' => NULL,
+            ),
+            207 => 
+            array (
+                'id' => 210,
+                'page_id' => 105,
+                'lang_id' => 2,
+                'text' => 'الاختصاصات',
+                'created_at' => '2018-12-30 07:38:51',
+                'updated_at' => '2018-12-30 07:38:51',
+                'deleted_at' => NULL,
+            ),
+            208 => 
+            array (
+                'id' => 211,
+                'page_id' => 106,
+                'lang_id' => 1,
+                'text' => 'Study Plan',
+                'created_at' => '2018-12-30 07:39:38',
+                'updated_at' => '2018-12-30 07:39:38',
+                'deleted_at' => NULL,
+            ),
+            209 => 
+            array (
+                'id' => 212,
+                'page_id' => 106,
+                'lang_id' => 2,
+                'text' => 'الخطة الدرسية',
+                'created_at' => '2018-12-30 07:39:38',
+                'updated_at' => '2018-12-30 07:39:38',
+                'deleted_at' => NULL,
+            ),
+            210 => 
+            array (
+                'id' => 213,
+                'page_id' => 107,
+                'lang_id' => 1,
+                'text' => 'Faculty Members',
+                'created_at' => '2018-12-30 07:40:49',
+                'updated_at' => '2018-12-30 07:40:49',
+                'deleted_at' => NULL,
+            ),
+            211 => 
+            array (
+                'id' => 214,
+                'page_id' => 107,
+                'lang_id' => 2,
+                'text' => 'اعضاء الهيئة التدريسية',
+                'created_at' => '2018-12-30 07:40:49',
+                'updated_at' => '2018-12-30 07:40:49',
+                'deleted_at' => NULL,
+            ),
+            212 => 
+            array (
+                'id' => 215,
+                'page_id' => 108,
+                'lang_id' => 1,
+                'text' => 'Contact Us',
+                'created_at' => '2018-12-30 07:41:38',
+                'updated_at' => '2018-12-30 07:41:38',
+                'deleted_at' => NULL,
+            ),
+            213 => 
+            array (
+                'id' => 216,
+                'page_id' => 108,
+                'lang_id' => 2,
+                'text' => 'اتصل بنا',
+                'created_at' => '2018-12-30 07:41:38',
+                'updated_at' => '2018-12-30 07:41:38',
+                'deleted_at' => NULL,
+            ),
+            214 => 
+            array (
+                'id' => 217,
+                'page_id' => 109,
+                'lang_id' => 1,
+                'text' => 'College Council',
+                'created_at' => '2018-12-30 07:42:20',
+                'updated_at' => '2018-12-30 07:42:20',
+                'deleted_at' => NULL,
+            ),
+            215 => 
+            array (
+                'id' => 218,
+                'page_id' => 109,
+                'lang_id' => 2,
+                'text' => 'مجلس الكلية',
+                'created_at' => '2018-12-30 07:42:20',
+                'updated_at' => '2018-12-30 07:42:20',
+                'deleted_at' => NULL,
+            ),
+            216 => 
+            array (
+                'id' => 219,
+                'page_id' => 110,
+                'lang_id' => 1,
+                'text' => 'Dean',
+                'created_at' => '2018-12-30 07:49:23',
+                'updated_at' => '2018-12-30 07:49:23',
+                'deleted_at' => NULL,
+            ),
+            217 => 
+            array (
+                'id' => 220,
+                'page_id' => 110,
+                'lang_id' => 2,
+                'text' => 'عميد الكلية',
+                'created_at' => '2018-12-30 07:49:23',
+                'updated_at' => '2018-12-30 07:49:23',
+                'deleted_at' => NULL,
+            ),
+            218 => 
+            array (
+                'id' => 221,
+                'page_id' => 111,
+                'lang_id' => 1,
+                'text' => 'College Message',
+                'created_at' => '2018-12-30 07:50:12',
+                'updated_at' => '2018-12-30 07:50:12',
+                'deleted_at' => NULL,
+            ),
+            219 => 
+            array (
+                'id' => 222,
+                'page_id' => 111,
+                'lang_id' => 2,
+                'text' => 'رسالة الكلية',
+                'created_at' => '2018-12-30 07:50:12',
+                'updated_at' => '2018-12-30 07:50:12',
+                'deleted_at' => NULL,
+            ),
+            220 => 
+            array (
+                'id' => 223,
+                'page_id' => 112,
+                'lang_id' => 1,
+                'text' => 'Degrees',
+                'created_at' => '2018-12-30 07:50:48',
+                'updated_at' => '2018-12-30 07:50:48',
+                'deleted_at' => NULL,
+            ),
+            221 => 
+            array (
+                'id' => 224,
+                'page_id' => 112,
+                'lang_id' => 2,
+                'text' => 'الاختصاصات',
+                'created_at' => '2018-12-30 07:50:48',
+                'updated_at' => '2018-12-30 07:50:48',
+                'deleted_at' => NULL,
+            ),
+            222 => 
+            array (
+                'id' => 225,
+                'page_id' => 113,
+                'lang_id' => 1,
+                'text' => 'study plan',
+                'created_at' => '2018-12-30 07:51:32',
+                'updated_at' => '2018-12-30 07:51:32',
+                'deleted_at' => NULL,
+            ),
+            223 => 
+            array (
+                'id' => 226,
+                'page_id' => 113,
+                'lang_id' => 2,
+                'text' => 'الخطة الدرسية',
+                'created_at' => '2018-12-30 07:51:32',
+                'updated_at' => '2018-12-30 07:51:32',
+                'deleted_at' => NULL,
+            ),
+            224 => 
+            array (
+                'id' => 227,
+                'page_id' => 114,
+                'lang_id' => 1,
+                'text' => 'Faculty Members',
+                'created_at' => '2018-12-30 07:52:22',
+                'updated_at' => '2018-12-30 07:52:22',
+                'deleted_at' => NULL,
+            ),
+            225 => 
+            array (
+                'id' => 228,
+                'page_id' => 114,
+                'lang_id' => 2,
+                'text' => 'اعضاء الهيئة التدريسية',
+                'created_at' => '2018-12-30 07:52:22',
+                'updated_at' => '2018-12-30 07:52:22',
+                'deleted_at' => NULL,
+            ),
+            226 => 
+            array (
+                'id' => 229,
+                'page_id' => 115,
+                'lang_id' => 1,
+                'text' => 'Contact Us',
+                'created_at' => '2018-12-30 07:53:16',
+                'updated_at' => '2018-12-30 07:53:16',
+                'deleted_at' => NULL,
+            ),
+            227 => 
+            array (
+                'id' => 230,
+                'page_id' => 115,
+                'lang_id' => 2,
+                'text' => 'اتصل بنا',
+                'created_at' => '2018-12-30 07:53:16',
+                'updated_at' => '2018-12-30 07:53:16',
+                'deleted_at' => NULL,
+            ),
+            228 => 
+            array (
+                'id' => 231,
+                'page_id' => 116,
+                'lang_id' => 1,
+                'text' => 'College Council',
+                'created_at' => '2018-12-30 07:54:08',
+                'updated_at' => '2018-12-30 07:54:08',
+                'deleted_at' => NULL,
+            ),
+            229 => 
+            array (
+                'id' => 232,
+                'page_id' => 116,
+                'lang_id' => 2,
+                'text' => 'مجلس الكلية',
+                'created_at' => '2018-12-30 07:54:08',
+                'updated_at' => '2018-12-30 07:54:08',
+                'deleted_at' => NULL,
+            ),
         ));
         
         

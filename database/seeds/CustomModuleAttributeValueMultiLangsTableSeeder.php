@@ -22,9 +22,9 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                 'id' => 1,
                 'custom_module_attribute_value_id' => 12,
                 'lang_id' => 1,
-                'text' => 'Interested in discussing?',
+                'text' => 'faculty of information engineering',
                 'created_at' => '2017-10-16 09:11:05',
-                'updated_at' => '2017-10-16 09:11:05',
+                'updated_at' => '2019-01-06 13:23:35',
                 'deleted_at' => NULL,
             ),
             1 => 
@@ -32,9 +32,9 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                 'id' => 2,
                 'custom_module_attribute_value_id' => 12,
                 'lang_id' => 2,
-                'text' => 'Interested in discussing?',
+                'text' => 'كلية الهندسة المعلوماتية',
                 'created_at' => '2017-10-16 09:11:05',
-                'updated_at' => '2017-10-16 09:11:05',
+                'updated_at' => '2019-01-06 13:23:35',
                 'deleted_at' => NULL,
             ),
             2 => 
@@ -42,9 +42,9 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                 'id' => 3,
                 'custom_module_attribute_value_id' => 13,
                 'lang_id' => 1,
-            'text' => '<p><span style="color: rgb(102, 102, 102); font-family: &quot;Open Sans&quot;, sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error optio in quia ipsum quae neque alias eligendi, nulla nisi. Veniam ut quis similique culpa natus dolor aliquam officiis ratione libero. Expedita asperiores aliquam provident amet dolores.</span></p>',
+                'text' => '<p>-</p>',
                 'created_at' => '2017-10-16 09:11:05',
-                'updated_at' => '2017-10-16 09:11:05',
+                'updated_at' => '2019-01-06 13:23:35',
                 'deleted_at' => NULL,
             ),
             3 => 
@@ -52,9 +52,9 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                 'id' => 4,
                 'custom_module_attribute_value_id' => 13,
                 'lang_id' => 2,
-            'text' => '<p><span style="color: rgb(102, 102, 102); font-family: &quot;Open Sans&quot;, sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error optio in quia ipsum quae neque alias eligendi, nulla nisi. Veniam ut quis similique culpa natus dolor aliquam officiis ratione libero. Expedita asperiores aliquam provident amet dolores.</span></p>',
+                'text' => '<p><font color="#666666">-</font></p>',
                 'created_at' => '2017-10-16 09:11:05',
-                'updated_at' => '2017-10-16 09:11:05',
+                'updated_at' => '2019-01-06 13:23:35',
                 'deleted_at' => NULL,
             ),
             4 => 
@@ -210,9 +210,9 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                 'id' => 19,
                 'custom_module_attribute_value_id' => 51,
                 'lang_id' => 1,
-                'text' => '<p><font color="#666666">&nbsp;</font>&nbsp;اااا</p>',
+                'text' => '<p>..</p>',
                 'created_at' => '2017-10-28 23:07:32',
-                'updated_at' => '2018-12-17 08:57:39',
+                'updated_at' => '2019-01-16 07:47:31',
                 'deleted_at' => NULL,
             ),
             19 => 
@@ -220,9 +220,9 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                 'id' => 20,
                 'custom_module_attribute_value_id' => 51,
                 'lang_id' => 2,
-                'text' => '<p><strong>&nbsp;للاغعغالبا</strong></p>',
+                'text' => '<p>.</p>',
                 'created_at' => '2017-10-28 23:07:32',
-                'updated_at' => '2018-12-17 08:57:39',
+                'updated_at' => '2019-01-16 07:47:31',
                 'deleted_at' => NULL,
             ),
             20 => 
@@ -274,55 +274,55 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
 
 <p style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;"><strong style="box-sizing: border-box; font-weight: bold; font-family: DroidKufi-Regular !important;">First: Faculty of Dentistry</strong></p>
 
-<p style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">&bull; This college was opened in the academic year of (2007-2008). The college grants a bachelor in dentistry after a study period of five years. The College has four clinics with (44) dental chairs for clinical training. Each clinic has a screen and a senor, as well as two panoramic cameras, two topography cameras, and two sterilization rooms. The laboratories of the college are equipped with all educational means of hammers, crutches, industrial devices, gypsum laboratories and compensation for under-clinical training.</p>
+<p style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">• This college was opened in the academic year of (2007-2008). The college grants a bachelor in dentistry after a study period of five years. The College has four clinics with (44) dental chairs for clinical training. Each clinic has a screen and a senor, as well as two panoramic cameras, two topography cameras, and two sterilization rooms. The laboratories of the college are equipped with all educational means of hammers, crutches, industrial devices, gypsum laboratories and compensation for under-clinical training.</p>
 
-<p style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">&bull; Four classes have been graduated with an excellent scientific level from this college. This is confirmed by the results of the national test, where the success rate in this exam was 72% for the academic year (2014-2015).</p>
+<p style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">• Four classes have been graduated with an excellent scientific level from this college. This is confirmed by the results of the national test, where the success rate in this exam was 72% for the academic year (2014-2015).</p>
 
-<p style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">&bull; Scientific Research: Stem Cells and Dentistry.</p>
+<p style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">• Scientific Research: Stem Cells and Dentistry.</p>
 
 <p style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;"><strong style="box-sizing: border-box; font-weight: bold; font-family: DroidKufi-Regular !important;">Second: Faculty of Pharmacy</strong></p>
 
-<p style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">&bull; The Faculty of Pharmacy was inaugurated in 2007-2008. The college grants a degree in pharmacy. The duration of study in this college is five years. The College aims at preparing scientific cadres that contribute to raising the level of health awareness of citizens regarding medicines and the need to use them properly. The college is equipped with the latest laboratory and teaching supplies needed by the student. Four batches of college students were graduated, and the graduates are of a good scientific level. This was confirmed by the results obtained in the national test. The success rate in this exam was 70%.</p>
+<p style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">• The Faculty of Pharmacy was inaugurated in 2007-2008. The college grants a degree in pharmacy. The duration of study in this college is five years. The College aims at preparing scientific cadres that contribute to raising the level of health awareness of citizens regarding medicines and the need to use them properly. The college is equipped with the latest laboratory and teaching supplies needed by the student. Four batches of college students were graduated, and the graduates are of a good scientific level. This was confirmed by the results obtained in the national test. The success rate in this exam was 70%.</p>
 
-<p style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">&bull; Scientific Research: Immuno-drugs and medicinal plants.</p>
+<p style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">• Scientific Research: Immuno-drugs and medicinal plants.</p>
 
 <p style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;"><strong style="box-sizing: border-box; font-weight: bold; font-family: DroidKufi-Regular !important;">Third: Faculty of Medicine</strong></p>
 
-<p style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">&bull; The College was inaugurated in 2011-2012. The college grants a degree in medicine. The duration of study is six years.</p>
+<p style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">• The College was inaugurated in 2011-2012. The college grants a degree in medicine. The duration of study is six years.</p>
 
-<p style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">&bull; The college has two buildings:</p>
+<p style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">• The college has two buildings:</p>
 
 <p style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">- The college building which contains teaching halls, laboratories, offices for the teaching staff, and other service offices.</p>
 
 <p style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">- Al-Andalus University Hospital, which contains 133 beds, emergency rooms and 8 surgery rooms, as well as outpatient clinics in various specialties, radiology laboratories, medical analysis, etc.</p>
 
-<p style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">&bull; Scientific Research: developing the bio-artificial kidney.</p>
+<p style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">• Scientific Research: developing the bio-artificial kidney.</p>
 
 <p style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;"><strong style="box-sizing: border-box; font-weight: bold; font-family: DroidKufi-Regular !important;">Fourth: Faculty of Medical Engineering</strong></p>
 
-<p style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">&bull; The Faculty of Medical Engineering was inaugurated in 2011-2012. The College grants a bachelor in medical engineering after a study period of five years. The college has multiple electronic and electrical laboratories that meet the educational needs of the college. The opening of the college was motivated by the need for medical engineers to work in hospitals and medical institutions for processing, maintenance, development and manufacture, these engineers are the hope for the future.</p>
+<p style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">• The Faculty of Medical Engineering was inaugurated in 2011-2012. The College grants a bachelor in medical engineering after a study period of five years. The college has multiple electronic and electrical laboratories that meet the educational needs of the college. The opening of the college was motivated by the need for medical engineers to work in hospitals and medical institutions for processing, maintenance, development and manufacture, these engineers are the hope for the future.</p>
 
-<p style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">&bull; The first class will graduate in the current academic year.</p>
+<p style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">• The first class will graduate in the current academic year.</p>
 
-<p style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">&bull; Scientific Research: Development of Proton Tumor Therapy.</p>
+<p style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">• Scientific Research: Development of Proton Tumor Therapy.</p>
 
 <p style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;"><strong style="box-sizing: border-box; font-weight: bold; font-family: DroidKufi-Regular !important;">Fifth: Faculty of Nursing</strong></p>
 
-<p style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">&bull; The Faculty of Nursing was inaugurated for the academic year (2015-2016). Duration of study is four years. The College aims at graduating nurses that are distinguished on a scientific and practical level, which complements the work of the doctor, and might even represent him/her in many cases. Therefore, the College has been equipped with the best training and study methods to achieve this goal.</p>
+<p style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">• The Faculty of Nursing was inaugurated for the academic year (2015-2016). Duration of study is four years. The College aims at graduating nurses that are distinguished on a scientific and practical level, which complements the work of the doctor, and might even represent him/her in many cases. Therefore, the College has been equipped with the best training and study methods to achieve this goal.</p>
 
-<p style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">&bull; Scientific Research: Mental health and full recovery.</p>
+<p style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">• Scientific Research: Mental health and full recovery.</p>
 
 <p style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;"><strong style="box-sizing: border-box; font-weight: bold; font-family: DroidKufi-Regular !important;">Sixth: Faculty of Hospital Management</strong></p>
 
-<p style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">&bull; The Faculty of Hospital Management was inaugurated for the academic year (2015-2016). Duration of study in the college is four years.</p>
+<p style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">• The Faculty of Hospital Management was inaugurated for the academic year (2015-2016). Duration of study in the college is four years.</p>
 
-<p style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">&bull; The college aims at graduating the scientific administrator who is confident and capable of making the decision and finding scientific solutions to the administrative issues facing his medical institution.</p>
+<p style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">• The college aims at graduating the scientific administrator who is confident and capable of making the decision and finding scientific solutions to the administrative issues facing his medical institution.</p>
 
-<p style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">&bull; Scientific Research: Affiliation and continuous development.</p>
+<p style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">• Scientific Research: Affiliation and continuous development.</p>
 
-<p>&nbsp;</p>',
+<p> </p>',
                 'created_at' => '2017-10-31 11:27:47',
-                'updated_at' => '2017-10-31 11:27:47',
+                'updated_at' => '2019-01-15 13:42:10',
                 'deleted_at' => NULL,
             ),
             23 => 
@@ -330,93 +330,95 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                 'id' => 24,
                 'custom_module_attribute_value_id' => 61,
                 'lang_id' => 2,
-            'text' => '<h1 class="article-title" itemprop="headline" style="direction: rtl; box-sizing: border-box; font-size: 36px; margin: 0px 0px 20px; font-family: DroidKufi-Regular; font-weight: 500; line-height: 1.1; color: rgb(51, 51, 51); font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;"><a href="http://au.edu.sy/university/univ-message" itemprop="url" style="box-sizing: border-box; background-color: transparent; color: rgb(66, 139, 202); text-decoration: none !important; font-family: DroidKufi-Regular !important;" title="عن الجامعة، الرسالة والأهداف">عن الجامعة، الرسالة والأهداف</a></h1>
+            'text' => '<p><a href="http://au.edu.sy/university/univ-message" style="box-sizing: border-box; background-color: transparent; color: rgb(66, 139, 202); text-decoration: none !important; font-family: DroidKufi-Regular !important;" title="عن الجامعة، الرسالة والأهداف">عن الجامعة، الرسالة والأهداف</a></p>
 
-<p dir="RTL" style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;"><strong style="box-sizing: border-box; font-weight: bold; font-family: DroidKufi-Regular !important;">رسالة الجامعة:</strong></p>
+<p dir="RTL" style="text-align:start"><strong>رسالة الجامعة:</strong></p>
 
-<p dir="RTL" style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">الاهتمام بالطلاب علمياً وعملياً وتربوياً و السعي لتحقيق ذلك بجودة عالية بما يتناسب مع المعايير العالمية. وتأمين التدريب المستمر للكادر التعليمي والفني والخدمي في الجامعة, والعمل على بلوغ مركز متقدم في مجال الابحاث العلمية الأصلية والهادفة, وهذا لا يمكن تحقيقه إلا من خلال وجود : باحثين _ اماكن وأدوات بحث &ndash; تمويل &ndash; منظومة معلومات متطورة ..إلخ. وهذا الأمر ادركته الجامعة فرسمت منهجية علمية واضحة من أجل ذلك بغية تعزيز الناحية التعليمية والخدمية الطبية الصحية بأعلى جوده على مر الأجيال.</p>
+<p dir="RTL" style="text-align:start">الاهتمام بالطلاب علمياً وعملياً وتربوياً و السعي لتحقيق ذلك بجودة عالية بما يتناسب مع المعايير العالمية. وتأمين التدريب المستمر للكادر التعليمي والفني والخدمي في الجامعة, والعمل على بلوغ مركز متقدم في مجال الابحاث العلمية الأصلية والهادفة, وهذا لا يمكن تحقيقه إلا من خلال وجود : باحثين _ اماكن وأدوات بحث &ndash; تمويل &ndash; منظومة معلومات متطورة ..إلخ. وهذا الأمر ادركته الجامعة فرسمت منهجية علمية واضحة من أجل ذلك بغية تعزيز الناحية التعليمية والخدمية الطبية الصحية بأعلى جوده على مر الأجيال.</p>
 
-<p dir="RTL" style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;"><strong style="box-sizing: border-box; font-weight: bold; font-family: DroidKufi-Regular !important;">أهداف الجامعة:</strong></p>
+<p dir="RTL" style="text-align:start"><strong>أهداف الجامعة:</strong></p>
 
-<p dir="RTL" style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">1- رفع السوية العلمية والتعليمية بما يتماشى مع التطور العلمي الحديث.</p>
+<p dir="RTL" style="text-align:start">1- رفع السوية العلمية والتعليمية بما يتماشى مع التطور العلمي الحديث.</p>
 
-<p dir="RTL" style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">2- تبادل الخبرات والمعلومات واستقطاب العقول المهاجرة وتشجيع عودتها إلى الوطن،.</p>
+<p dir="RTL" style="text-align:start">2- تبادل الخبرات والمعلومات واستقطاب العقول المهاجرة وتشجيع عودتها إلى الوطن،.</p>
 
-<p dir="RTL" style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">3- تأمين فرص تعلمية محلية ذات مستوي عال تسمح للطلاب متابعة الاختصاص في الجامعات العالمية.</p>
+<p dir="RTL" style="text-align:start">3- تأمين فرص تعلمية محلية ذات مستوي عال تسمح للطلاب متابعة الاختصاص في الجامعات العالمية.</p>
 
-<p dir="RTL" style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">4- التعاون مع مؤسسات تعليمية عالمية. وتأمين الهيئة التدريسية ذات الكفاءات العلمية المميزة.</p>
+<p dir="RTL" style="text-align:start">4- التعاون مع مؤسسات تعليمية عالمية. وتأمين الهيئة التدريسية ذات الكفاءات العلمية المميزة.</p>
 
-<p dir="RTL" style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">5- تشجيع البحث العلمي، عن طريق التعاون مع مراكز الابحاث العالمية.</p>
+<p dir="RTL" style="text-align:start">5- تشجيع البحث العلمي، عن طريق التعاون مع مراكز الابحاث العالمية.</p>
 
-<p dir="RTL" style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">6- تحسين مستوى الخدمات الطبية، المقدمة للمرضى في سوريا.</p>
+<p dir="RTL" style="text-align:start">6- تحسين مستوى الخدمات الطبية، المقدمة للمرضى في سوريا.</p>
 
-<p dir="RTL" style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;"><strong style="box-sizing: border-box; font-weight: bold; font-family: DroidKufi-Regular !important;">كليات الجامعة :</strong></p>
+<p dir="RTL" style="text-align:start"><strong>كليات الجامعة :</strong></p>
 
-<p dir="RTL" style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;"><strong style="box-sizing: border-box; font-weight: bold; font-family: DroidKufi-Regular !important;">أولاً: كلية طب الأسنان</strong></p>
+<p dir="RTL" style="text-align:start"><strong>أولاً: كلية طب الأسنان</strong></p>
 
-<p dir="RTL" style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">&middot; افتتحت الكلية عام (2007-2008) م . تمنح الكلية إجازة في طب الأسنان, مدة الدراسة خمس سنوات. تضم الكلية أربع عيادات فيها (44) كرسي اسنان للتدريب السريري . يوجد في كل عيادة شاشة عرض و جهاز اشعة(senor), بالإضافة إلى جهازي تصوير بانورامي وجهازي تصوير ذروي في قسم الأشعة, وغرفتي تعقيم . إن مخابر الكلية مجهزة بكل الوسائل التعليمية من هامات, وقبضات وأجهزة صناعية ومخابر جبس وتعويضات للتدريب ما تحت السريري .</p>
+<p dir="RTL" style="text-align:start">&middot; افتتحت الكلية عام (2007-2008) م . تمنح الكلية إجازة في طب الأسنان, مدة الدراسة خمس سنوات. تضم الكلية أربع عيادات فيها (44) كرسي اسنان للتدريب السريري . يوجد في كل عيادة شاشة عرض و جهاز اشعة(senor), بالإضافة إلى جهازي تصوير بانورامي وجهازي تصوير ذروي في قسم الأشعة, وغرفتي تعقيم . إن مخابر الكلية مجهزة بكل الوسائل التعليمية من هامات, وقبضات وأجهزة صناعية ومخابر جبس وتعويضات للتدريب ما تحت السريري .</p>
 
-<p dir="RTL" style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">&middot; تم تخريج اربع دفعات من الكلية بسوية علمية ممتازة وهذا ما أكدته نتائج الاختبار الوطني حيث بلغت نسبة النجاح في هذا الامتحان 72 % للعام الدراسي ( 2014 - 2015 ) م .</p>
+<p dir="RTL" style="text-align:start">&middot; تم تخريج اربع دفعات من الكلية بسوية علمية ممتازة وهذا ما أكدته نتائج الاختبار الوطني حيث بلغت نسبة النجاح في هذا الامتحان 72 % للعام الدراسي ( 2014 - 2015 ) م .</p>
 
-<p dir="RTL" style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">&middot; البحث العلمي للكلية :</p>
+<p dir="RTL" style="text-align:start">&middot; البحث العلمي للكلية :</p>
 
-<p dir="RTL" style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">الخلايا الجذعية وطب الأسنان</p>
+<p dir="RTL" style="text-align:start">الخلايا الجذعية وطب الأسنان</p>
 
-<p dir="RTL" style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">&nbsp;</p>
+<p dir="RTL" style="text-align:start">&nbsp;</p>
 
-<p dir="RTL" style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;"><strong style="box-sizing: border-box; font-weight: bold; font-family: DroidKufi-Regular !important;">ثانياً: كلية الصيدلة<span>&nbsp;</span></strong></p>
+<p dir="RTL" style="text-align:start"><strong>ثانياً: كلية الصيدلة&nbsp;</strong></p>
 
-<p dir="RTL" style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">&middot; تم افتتاح كلية الصيدلة في عام (2007-2008)م . تمنح الكلية إجازة في الصيدلة. مدة الدراسة في الكلية خمس سنوات. تهدف الكلية إلى اعداد كوادر علمية تساهم في رفع مستوى الوعي الصحي للمواطنين فيما يخص الأدوية وضرورة استخدامها بشكل سليم. الكلية مجهزة بأحدث اللوازم المخبرية و التدريسية التي يحتاجها الطالب .تمَ تخريج أربع دفعات من طلاب الكلية, والخريجون من سوية علمية جيدة وهذا ما أكدته النتائج التي حصلوا عليها في الاختبار الوطني حيث بلغت نسبة النجاح في هذا الامتحان 70%.</p>
+<p dir="RTL" style="text-align:start">&middot; تم افتتاح كلية الصيدلة في عام (2007-2008)م . تمنح الكلية إجازة في الصيدلة. مدة الدراسة في الكلية خمس سنوات. تهدف الكلية إلى اعداد كوادر علمية تساهم في رفع مستوى الوعي الصحي للمواطنين فيما يخص الأدوية وضرورة استخدامها بشكل سليم. الكلية مجهزة بأحدث اللوازم المخبرية و التدريسية التي يحتاجها الطالب .تمَ تخريج أربع دفعات من طلاب الكلية, والخريجون من سوية علمية جيدة وهذا ما أكدته النتائج التي حصلوا عليها في الاختبار الوطني حيث بلغت نسبة النجاح في هذا الامتحان 70%.</p>
 
-<p dir="RTL" style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">&middot; البحث العلمي للكلية :</p>
+<p dir="RTL" style="text-align:start">&middot; البحث العلمي للكلية :</p>
 
-<p dir="RTL" style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">الأدوية المناعية والنباتات الطبية</p>
+<p dir="RTL" style="text-align:start">الأدوية المناعية والنباتات الطبية</p>
 
-<p dir="RTL" style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;"><strong style="box-sizing: border-box; font-weight: bold; font-family: DroidKufi-Regular !important;">ثالثاً: كلية الطب البشري<span>&nbsp;</span></strong></p>
+<p dir="RTL" style="text-align:start"><strong>ثالثاً: كلية الطب البشري&nbsp;</strong></p>
 
-<p dir="RTL" style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">&middot; تم افتتاح الكلية عام (2011-2012) م . تمنح الكلية إجازة في الطب البشري. مدة الدراسة ست سنوات .</p>
+<p dir="RTL" style="text-align:start">&middot; تم افتتاح الكلية عام (2011-2012) م . تمنح الكلية إجازة في الطب البشري. مدة الدراسة ست سنوات .</p>
 
-<p dir="RTL" style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">&middot; تضم الكلية مبنيين:</p>
+<p dir="RTL" style="text-align:start">&middot; تضم الكلية مبنيين:</p>
 
-<p dir="RTL" style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">- مبنى الكلية الذي يحتوي قاعات تدريس ومخابر ومكاتب أعضاء الهيئة التدريسية, ومكاتب خدمية أخرى .</p>
+<p dir="RTL" style="text-align:start">- مبنى الكلية الذي يحتوي قاعات تدريس ومخابر ومكاتب أعضاء الهيئة التدريسية, ومكاتب خدمية أخرى .</p>
 
-<p dir="RTL" style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">- مبنى مشفى جامعة الاندلس الذي يحتوي/133/ سريراً و قسماً للإسعاف و/8/ غرف عمليات بالإضافة إلى العيادات الخارجية بمختلف الاختصاصات ومخابر للتصوير الشعاعي والتحاليل الطبية ...إلخ .</p>
+<p dir="RTL" style="text-align:start">- مبنى مشفى جامعة الاندلس الذي يحتوي/133/ سريراً و قسماً للإسعاف و/8/ غرف عمليات بالإضافة إلى العيادات الخارجية بمختلف الاختصاصات ومخابر للتصوير الشعاعي والتحاليل الطبية ...إلخ .</p>
 
-<p dir="RTL" style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">&middot; البحث العلمي للكلية :</p>
+<p dir="RTL" style="text-align:start">&middot; البحث العلمي للكلية :</p>
 
-<p dir="RTL" style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">تطوير الكلية البديلة</p>
+<p dir="RTL" style="text-align:start">تطوير الكلية البديلة</p>
 
-<p dir="RTL" style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;"><strong style="box-sizing: border-box; font-weight: bold; font-family: DroidKufi-Regular !important;">رابعاً: كلية الهندسة الطبية<span>&nbsp;</span></strong></p>
+<p dir="RTL" style="text-align:start"><strong>رابعاً: كلية الهندسة الطبية&nbsp;</strong></p>
 
-<p dir="RTL" style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">&middot; تم افتتاح كلية الهندسة الطبية عام (2011-2012 ) م. تمنح الكلية شهادة الإجازة في الهندسة الطبية .مدة الدراسة خمس سنوات. تحتوي الكلية مخابر متعددة الكترونية وكهربائية توافق الحاجة التعليمية في الكلية. كان الدافع وراء افتتاح الكلية الحاجة إلى مهندسين طبيين للعمل في المشافي و المؤسسات الطبية من اجل التجهيز والصيانة والتطوير والتصنيع , والأمل معقود على هؤلاء المهندسين في المستقبل.</p>
+<p dir="RTL" style="text-align:start">&middot; تم افتتاح كلية الهندسة الطبية عام (2011-2012 ) م. تمنح الكلية شهادة الإجازة في الهندسة الطبية .مدة الدراسة خمس سنوات. تحتوي الكلية مخابر متعددة الكترونية وكهربائية توافق الحاجة التعليمية في الكلية. كان الدافع وراء افتتاح الكلية الحاجة إلى مهندسين طبيين للعمل في المشافي و المؤسسات الطبية من اجل التجهيز والصيانة والتطوير والتصنيع , والأمل معقود على هؤلاء المهندسين في المستقبل.</p>
 
-<p dir="RTL" style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">&middot; سيتم تخريج الدفعة الأولى في العام الدراسي الحالي.</p>
+<p dir="RTL" style="text-align:start">&middot; سيتم تخريج الدفعة الأولى في العام الدراسي الحالي.</p>
 
-<p dir="RTL" style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">&middot; البحث العلمي للكلية :</p>
+<p dir="RTL" style="text-align:start">&middot; البحث العلمي للكلية :</p>
 
-<p dir="RTL" style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">تطوير معالجة الأورام بالبروتون</p>
+<p dir="RTL" style="text-align:start">تطوير معالجة الأورام بالبروتون</p>
 
-<p dir="RTL" style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">&nbsp;</p>
+<p dir="RTL" style="text-align:start">&nbsp;</p>
 
-<p dir="RTL" style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;"><strong style="box-sizing: border-box; font-weight: bold; font-family: DroidKufi-Regular !important;">خامساً : كلية التمريض<span>&nbsp;</span></strong></p>
+<p dir="RTL" style="text-align:start"><strong>خامساً : كلية التمريض&nbsp;</strong></p>
 
-<p dir="RTL" style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">&middot; تم افتتاح كلية التمريض للعام الدراسي (2015-2016 ) م . مدة الدراسة اربع سنوات. تهدف الكلية إلى تخريج ممرضين وممرضات من سوية علمية وعملية مميزة , مما يكمل عمل الطبيب لابل قد ينوب عنه في حالات كثيرة , ومن أجل ذلك فقد جهزت الكلية بأفضل الوسائل التدريبية والدراسية لتحقيق هذه الغاية .</p>
+<ul dir="rtl">
+<li style="text-align: start;">&middot; تم افتتاح كلية التمريض للعام الدراسي (2015-2016 ) م . مدة الدراسة اربع سنوات. تهدف الكلية إلى تخريج ممرضين وممرضات من سوية علمية وعملية مميزة , مما يكمل عمل الطبيب لابل قد ينوب عنه في حالات كثيرة , ومن أجل ذلك فقد جهزت الكلية بأفضل الوسائل التدريبية والدراسية لتحقيق هذه الغاية .</li>
+</ul>
 
-<p dir="RTL" style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">&middot; البحث العلمي للكلية :</p>
+<p dir="RTL" style="text-align:start">&middot; البحث العلمي للكلية :</p>
 
-<p dir="RTL" style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">الصحة النفسية والشفاء التام</p>
+<p dir="RTL" style="text-align:start">الصحة النفسية والشفاء التام</p>
 
-<p dir="RTL" style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;"><strong style="box-sizing: border-box; font-weight: bold; font-family: DroidKufi-Regular !important;">سادساً : كلية ادارة المشافي<span>&nbsp;</span></strong></p>
+<p dir="RTL" style="text-align:start"><strong>سادساً : كلية ادارة المشافي&nbsp;</strong></p>
 
-<p dir="RTL" style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">&middot; تم افتتاح كلية إدارة المشافي للعام الدراسي (2015-2016 ) م. مدة الدراسة في الكلية اربع سنوات .</p>
+<p dir="RTL" style="text-align:start">&middot; تم افتتاح كلية إدارة المشافي للعام الدراسي (2015-2016 ) م. مدة الدراسة في الكلية اربع سنوات .</p>
 
-<p dir="RTL" style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">&middot; تهدف الكلية إلى تخريج الإداري العلمي المنتمي و الواثق من نفسه والقادر على اتخاذ القرار وايجاد الحلول العلمية للقضايا الإدارية التي تواجه مؤسسته الطبية</p>
+<p dir="RTL" style="text-align:start">&middot; تهدف الكلية إلى تخريج الإداري العلمي المنتمي و الواثق من نفسه والقادر على اتخاذ القرار وايجاد الحلول العلمية للقضايا الإدارية التي تواجه مؤسسته الطبية</p>
 
-<p dir="RTL" style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">&middot; البحث العلمي للكلية :</p>
+<p dir="RTL" style="text-align:start">&middot; البحث العلمي للكلية :</p>
 
-<p dir="RTL" style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">الانتماء والتطور المستمر</p>',
+<p dir="RTL" style="text-align:start">الانتماء والتطور المستمر</p>',
                 'created_at' => '2017-10-31 11:27:47',
-                'updated_at' => '2017-10-31 11:27:47',
+                'updated_at' => '2019-01-15 13:42:10',
                 'deleted_at' => NULL,
             ),
             24 => 
@@ -472,35 +474,35 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                 'id' => 29,
                 'custom_module_attribute_value_id' => 116,
                 'lang_id' => 1,
-            'text' => '<h3 helvetica="" neue="" style="box-sizing: border-box; color: rgb(51, 51, 51); font-family: Arial, "><span new="" roman="" style="box-sizing: border-box; font-size: 14pt; font-family: " times="">   <img alt="" src="http://localhost/ASU/public/photos/1/د_ياسر.jpg" style="margin:5px 25px; width:150px; height:169px; float:right" />Prof.</span> Dr. Yasser Houriah</h3>
+            'text' => '<h3 helvetica="" neue="" style="box-sizing: border-box; color: rgb(51, 51, 51); font-family: Arial, "><span new="" roman="" style="box-sizing: border-box; font-size: 14pt; font-family: " times="">&nbsp; &nbsp;<img alt="" src="http://localhost/ASU/public/photos/1/د_ياسر.jpg" style="margin:5px 25px; width:150px; height:169px; float:right" />Prof.</span> Dr. Yasser Houriah</h3>
 
-<h3 helvetica="" neue="">  president of al Sham Private University</h3>
+<h3 helvetica="" neue="">&nbsp; president of al Sham Private University</h3>
 
-<p helvetica="" neue=""> </p>
+<p helvetica="" neue="">&nbsp;</p>
 
 <p helvetica="" neue=""><a href="http://www.aspu.edu.sy/images/CURRICULUM_VITAE-5-2-10-2016.pdf">CURRICULUM VITAE</a></p>
 
-<p helvetica="" neue=""> </p>
+<p helvetica="" neue="">&nbsp;</p>
 
-<p helvetica="" neue="">As a man of  Academia, Rector of al Sham Private University, Prof. Dr. Yasser Hourieh  having a high experience in planining & adminstration for about 32 years in higher education, and  achieved a record in scientific research  with numerous  researches  and reports, published in  local and international periodicals, organizing and participating in so many scientific conferences, in addition to  technical reports and studies about  various institutions.</p>
+<p helvetica="" neue="">As a man of&nbsp; Academia, Rector of al Sham Private University, Prof. Dr. Yasser Hourieh &nbsp;having a high experience in planining &amp; adminstration for about 32 years in higher education, and &nbsp;achieved a record in scientific research &nbsp;with numerous &nbsp;researches &nbsp;and reports, published in &nbsp;local and international periodicals, organizing and participating in so many scientific conferences, in addition to &nbsp;technical reports and studies about &nbsp;various institutions.</p>
 
-<p helvetica="" neue=""> Dr. Hourieh is married with three children.</p>
+<p helvetica="" neue="">&nbsp;Dr. Hourieh is married with three children.</p>
 
 <p helvetica="" neue="">Dr. Yasser Hourieh worked as a professor at al-Baath University and then as its rector.</p>
 
 <p helvetica="" neue="">Throughout his scientific and practical career, Dr. Hourieh served several administrative and scientific positions. Most recently, he was appointed rector of al Sham Private University, since its inception.</p>
 
-<p helvetica="" neue="">Despite the heavy  burden  and  large responsibilities assigned to him as a University rector, still,  Dr. Hourieh is  in close contact with teaching and scientific research. He has been actively contributing to the process of teaching of  higher studies  and undergraduate students, participating in scientific research and composing  university curricula  books.</p>
+<p helvetica="" neue="">Despite the heavy &nbsp;burden &nbsp;and &nbsp;large responsibilities assigned to him as a University rector, still, &nbsp;Dr. Hourieh is &nbsp;in close contact with teaching and scientific research. He has been actively contributing to the process of teaching of &nbsp;higher studies &nbsp;and undergraduate students, participating in scientific research and composing &nbsp;university curricula &nbsp;books.</p>
 
-<p helvetica="" neue=""> </p>
+<p helvetica="" neue="">&nbsp;</p>
 
 <p helvetica="" neue=""><a href="http://db/files/2/السيرة_الذاتية_للدكتور_ياسر-عربي-2-10-2016.pdf" target="_blank">CV attachment</a></p>
 
-<p helvetica="" neue=""> </p>
+<p helvetica="" neue="">&nbsp;</p>
 
-<p helvetica="" neue=""> </p>',
+<p helvetica="" neue="">&nbsp;</p>',
                 'created_at' => '2018-09-26 14:24:31',
-                'updated_at' => '2019-01-07 08:38:48',
+                'updated_at' => '2018-10-15 05:40:36',
                 'deleted_at' => NULL,
             ),
             29 => 
@@ -508,32 +510,30 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                 'id' => 30,
                 'custom_module_attribute_value_id' => 116,
                 'lang_id' => 2,
-                'text' => '<p><span>الاستاذ الدكتور ياسر حورية</span></p>
+            'text' => '<h2 helvetica="" neue="" style="box-sizing: border-box; color: rgb(51, 51, 51); text-align: justify;"><span new="" roman="" style="box-sizing: border-box; font-family: " times="">الاستاذ الدكتور ياسر حورية</span></h2>
 
-<p><span>رئيس جامعة الشام الخاصة</span></p>
+<h2 helvetica="" neue="" style="box-sizing: border-box; color: rgb(51, 51, 51); text-align: justify;"><span new="" roman="" style="box-sizing: border-box; font-family: " times="">رئيس جامعة الشام الخاصة</span></h2>
 
-<p style="text-align:justify"> </p>
+<p style="text-align: justify;"> </p>
 
-<p><span style="font-size:18pt">الأبناء الطلاب ... أُحدِثَتْ جامعة الشام الخاصة بالمرسومِ التشريعيِ، ذي الرقمِ سبعةٍ وتسعينَ 97 لعامِ أحدَ عشَرَ وألفَيْنِ 2011 , وبدأتْ نشاطَها العلميَّ بافتتاحِ كليتي "الحقوقِ" و"العلومِ الإداريةِ" في العامِ ثلاثةَ عشَرِ وألفَيْنِ 2013.</span></p>
+<h3 helvetica="" neue="" style="box-sizing: border-box; color: rgb(51, 51, 51); text-align: justify;"><span new="" roman="" style="box-sizing: border-box; font-size: 18pt; font-family: " times="">الأبناء الطلاب ... أُحدِثَتْ جامعة الشام الخاصة بالمرسومِ التشريعيِ، ذي الرقمِ سبعةٍ وتسعينَ 97 لعامِ أحدَ عشَرَ وألفَيْنِ 2011 , وبدأتْ نشاطَها العلميَّ بافتتاحِ كليتي "الحقوقِ" و"العلومِ الإداريةِ" في العامِ ثلاثةَ عشَرِ وألفَيْنِ 2013.</span></h3>
 
-<p><span style="font-size:18pt">تطورَتِ الجامعةُ في أثْناءِ السنواتِ الماضيةِ، وازدادَ عددُ كليّاتِها، ففي دمشقَ الآنَ سبعُ كلّياتٍ في موقعينِ، هما البرامكةُ والمزرعةُ، وهي: كلّياتُ "الطِبِ البشريِّ" و"طِبِ الأسنانِ" و"الصيدلةِ" و"الهندسةِ المعلوماتيةِ" و"الحقوقِ" و"العلومِ الإداريةِ التي تمنح شهادات باختصاصات : التسويق – الموارد البشرية – المحاسبة – المؤسسات المالية والمصرفية "، ، فضلًا عنْ كليةِ "العلاقاتِ الدوليةِ والدبلوماسيةِ"، وفي اللاذقية الآنَ أربعُ كلّياتٍ: هي كليَّتا "الصيدلةِ" و"طِبِّ الأسنانِ" و كليَّتا "الحقوقِ" و"العلومِ الإداريةِ التي تمنح شهادات باختصاصات : التسويق – الموارد البشرية "، وقد ازدادَ عددُ طُلابِ الجامعةِ ازدياداً لافتاً، فبلغَ خمسَمئة وألفي 2500 طالبٍ وطالبةٍ.</span></p>
+<h3 helvetica="" neue="" style="box-sizing: border-box; color: rgb(51, 51, 51); text-align: justify;"><span new="" roman="" style="box-sizing: border-box; font-size: 18pt; font-family: " times="">تطورَتِ الجامعةُ في أثْناءِ السنواتِ الماضيةِ، وازدادَ عددُ كليّاتِها، ففي دمشقَ الآنَ سبعُ كلّياتٍ في موقعينِ، هما البرامكةُ والمزرعةُ، وهي: كلّياتُ "الطِبِ البشريِّ" و"طِبِ الأسنانِ" و"الصيدلةِ" و"الهندسةِ المعلوماتيةِ" و"الحقوقِ" و"العلومِ الإداريةِ التي تمنح شهادات باختصاصات : التسويق – الموارد البشرية – المحاسبة – المؤسسات المالية والمصرفية "، ، فضلًا عنْ كليةِ "العلاقاتِ الدوليةِ والدبلوماسيةِ"، وفي اللاذقية الآنَ أربعُ كلّياتٍ: هي كليَّتا "الصيدلةِ" و"طِبِّ الأسنانِ" و كليَّتا "الحقوقِ" و"العلومِ الإداريةِ التي تمنح شهادات باختصاصات : التسويق – الموارد البشرية "، وقد ازدادَ عددُ طُلابِ الجامعةِ ازدياداً لافتاً، فبلغَ خمسَمئة وألفي 2500 طالبٍ وطالبةٍ.</span></h3>
 
-<p><span style="font-size:18pt">هيَّأَتْ إدارةُ الجامعةِ جميعَ مستلزماتِ العمليَّةِ التعليميَّةِ والبحثيَّةِ، منْ خطط درسية حديثة، وأساتذةٍ متميزينَ، وأطرٍ فنيةٍ، ومخابرَ، وتجهيزاتٍ، وهي مستمرةٌ في نهجِها العلميِّ هذا، ساعيَةً بالتعاونِ والتنسيقِ المستمرِ مَعَ وزارةِ التعليمِ العالي للارتقاء بهذه الجامعة التي تحرص على تطبيق معاييرِ الجودةِ والاعتماديَّةِ، وقدِ اختارَ مجلسُ الجامعةِ التركيزَ على التدريبِ العمليِّ الميداني في الكليَّاتِ كافة، وعدَّ الارتِقَاءَ بمستوياتِ ذلك التدريبِ نقطةَ تميّزٍ تُضافُ إلى نقاطِ إيجابياتِ الجامعةِ، التي تطبق نمطِ التعليمِ التفاعليِّ مهيِّئةً السبلَ التقنيةَ لآفاقِه، كما عدَّتِ الجامعةُ طُلابَها الأعزاءَ شركاءَ في العمليِّةِ التعليميةِ، منطلقةً مِنِ اختيارِها شِعاراً لأدائها منسجماً مَعَ رسالتِها وأهدافِها، هو " نعمل معا لتحقيق حُلمك ". وقد اعتمدت الجامعة خططاً درسية وفق نظام الساعات المعتمدة والتي تتيح المرونة في التطبيق واختصار مدة الدراسة ، وقد تخرج العديد من الطلاب بعضهم خلال ثلاث سنوات من الدراسة في الكليات ذات نظام الأربع سنوات كالحقوق مثلاً، فهنيئاً لطلابِنا الأعزاءِ بتحقيق حلمهم وحصولهم على المعارف اللازمة ودرجة الاجازة الجامعية في الاختصاص الذي اختاروه وتحية كبيرة لذوي الطلاب على ما يذلونه من جهد لأجل مساعدة أبنائهم في تحقيق حلمهم. ولا بد من شكر الزملاء أعضاء الهيئة التدريسية والاداريين الذين يبذلون جهوداً كبيرة من أجل تنفيذ الخطط الدراسية وتقديم أفضل الخدمات لطلابنا الأعزاء وبما يعزز مكانة الجامعة.</span></p>
+<h3 helvetica="" neue="" style="box-sizing: border-box; color: rgb(51, 51, 51); text-align: justify;"><span new="" roman="" style="box-sizing: border-box; font-size: 18pt; font-family: " times="">هيَّأَتْ إدارةُ الجامعةِ جميعَ مستلزماتِ العمليَّةِ التعليميَّةِ والبحثيَّةِ، منْ خطط درسية حديثة، وأساتذةٍ متميزينَ، وأطرٍ فنيةٍ، ومخابرَ، وتجهيزاتٍ، وهي مستمرةٌ في نهجِها العلميِّ هذا، ساعيَةً بالتعاونِ والتنسيقِ المستمرِ مَعَ وزارةِ التعليمِ العالي للارتقاء بهذه الجامعة التي تحرص على تطبيق معاييرِ الجودةِ والاعتماديَّةِ، وقدِ اختارَ مجلسُ الجامعةِ التركيزَ على التدريبِ العمليِّ الميداني في الكليَّاتِ كافة، وعدَّ الارتِقَاءَ بمستوياتِ ذلك التدريبِ نقطةَ تميّزٍ تُضافُ إلى نقاطِ إيجابياتِ الجامعةِ، التي تطبق نمطِ التعليمِ التفاعليِّ مهيِّئةً السبلَ التقنيةَ لآفاقِه، كما عدَّتِ الجامعةُ طُلابَها الأعزاءَ شركاءَ في العمليِّةِ التعليميةِ، منطلقةً مِنِ اختيارِها شِعاراً لأدائها منسجماً مَعَ رسالتِها وأهدافِها، هو " نعمل معا لتحقيق حُلمك ". وقد اعتمدت الجامعة خططاً درسية وفق نظام الساعات المعتمدة والتي تتيح المرونة في التطبيق واختصار مدة الدراسة ، وقد تخرج العديد من الطلاب بعضهم خلال ثلاث سنوات من الدراسة في الكليات ذات نظام الأربع سنوات كالحقوق مثلاً، فهنيئاً لطلابِنا الأعزاءِ بتحقيق حلمهم وحصولهم على المعارف اللازمة ودرجة الاجازة الجامعية في الاختصاص الذي اختاروه وتحية كبيرة لذوي الطلاب على ما يذلونه من جهد لأجل مساعدة أبنائهم في تحقيق حلمهم. ولا بد من شكر الزملاء أعضاء الهيئة التدريسية والاداريين الذين يبذلون جهوداً كبيرة من أجل تنفيذ الخطط الدراسية وتقديم أفضل الخدمات لطلابنا الأعزاء وبما يعزز مكانة الجامعة.</span></h3>
 
-<p><span style="font-size:18pt">وقرر مجلس الجامعة في جلسته الأخيرة إحداث مكتب لمتابعة شؤون الخريجين وذلك للتواصل معهم في مرحلة ما بعد التخرج ، ومن أجل مساعدتهم في تأمين فرص عمل مناسبة لهم ، ولاستمرار تواصلهم مع جامعتهم على الدوام، وسيتابع هذا المكتب أداء الخريجين في مواقع عملهم لمعرفة مستوى أدائهم المهني ومساعدتهم في تطويره.</span></p>
+<h3 helvetica="" neue="" style="box-sizing: border-box; color: rgb(51, 51, 51); text-align: justify;"><span new="" roman="" style="box-sizing: border-box; font-size: 18pt; font-family: " times="">وقرر مجلس الجامعة في جلسته الأخيرة إحداث مكتب لمتابعة شؤون الخريجين وذلك للتواصل معهم في مرحلة ما بعد التخرج ، ومن أجل مساعدتهم في تأمين فرص عمل مناسبة لهم ، ولاستمرار تواصلهم مع جامعتهم على الدوام، وسيتابع هذا المكتب أداء الخريجين في مواقع عملهم لمعرفة مستوى أدائهم المهني ومساعدتهم في تطويره.</span></h3>
 
-<p><span style="font-size:18pt">وتسعى الجامعة وبالتعاون مع وزارة التعليم العالي لإحداث الدراسات العليا (الماجستير والدكتوراه) ، وهي تعمل لأن تكون جامعة غير ربحية بما يغطي تكاليف التشغيل.</span></p>
+<h3 helvetica="" neue="" style="box-sizing: border-box; color: rgb(51, 51, 51); text-align: justify;"><span new="" roman="" style="box-sizing: border-box; font-size: 18pt; font-family: " times="">وتسعى الجامعة وبالتعاون مع وزارة التعليم العالي لإحداث الدراسات العليا (الماجستير والدكتوراه) ، وهي تعمل لأن تكون جامعة غير ربحية بما يغطي تكاليف التشغيل.</span></h3>
 
-<p><span style="font-size:18pt">ولا بد من توجيه الشكر للسيد وزير التعليم العالي ومعاونيه وجميع العاملين في وزارة التعليم العالي على الدعم المستمر للجامعات الخاصة ولجامعة الشام، والشكر أيضاً لرئيس وأعضاء مجلس أمناء الجامعة على دعمهم اللامحدود لتطوير الجامعة والارتقاء بأدائها بما يخدم العملية التعليمية والبحث العلمي ، والشكر موصول للسادة أعضاء مجلس الجامعة على جهودهم المستمرة في تطوير أداء الجامعة وتقديم أفضل المعارف لطلابها.</span></p>
+<h3 helvetica="" neue="" style="box-sizing: border-box; color: rgb(51, 51, 51); text-align: justify;"><span new="" roman="" style="box-sizing: border-box; font-size: 18pt; font-family: " times="">ولا بد من توجيه الشكر للسيد وزير التعليم العالي ومعاونيه وجميع العاملين في وزارة التعليم العالي على الدعم المستمر للجامعات الخاصة ولجامعة الشام، والشكر أيضاً لرئيس وأعضاء مجلس أمناء الجامعة على دعمهم اللامحدود لتطوير الجامعة والارتقاء بأدائها بما يخدم العملية التعليمية والبحث العلمي ، والشكر موصول للسادة أعضاء مجلس الجامعة على جهودهم المستمرة في تطوير أداء الجامعة وتقديم أفضل المعارف لطلابها.</span></h3>
 
-<p><span style="font-size:18pt">والله الموفق ...</span></p>
+<h3 helvetica="" neue="" style="box-sizing: border-box; color: rgb(51, 51, 51); text-align: justify;"><span new="" roman="" style="box-sizing: border-box; font-size: 18pt; font-family: " times="">والله الموفق ...</span></h3>
 
-<p style="text-align:justify"><br />
-<span><a href="http://db/files/2/السماحيات.pdf" onclick="window.open(this.href, \'\', \'resizable=no,status=no,location=no,toolbar=no,menubar=yes,fullscreen=no,scrollbars=no,dependent=no\'); return false;">مرفق السيرة الذاتية</a></span></p>
-
-<p style="text-align:justify"><a href="http://localhost/Web/Andalus/public/laravel-filemanager/files/1/empty.pdf"><span>مرفق 2</span></a></p>',
+<p style="text-align: justify;"><br />
+<span new="" roman="" style="box-sizing: border-box; font-family: " times=""><a href="http://db/files/2/السماحيات.pdf" onclick="window.open(this.href, \'\', \'resizable=no,status=no,location=no,toolbar=no,menubar=yes,fullscreen=no,scrollbars=no,dependent=no\'); return false;">مرفق السيرة الذاتية</a></span></p>',
                 'created_at' => '2018-09-26 14:24:31',
-                'updated_at' => '2019-01-07 08:45:48',
+                'updated_at' => '2018-10-15 05:40:36',
                 'deleted_at' => NULL,
             ),
             30 => 
@@ -860,35 +860,29 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                 'id' => 41,
                 'custom_module_attribute_value_id' => 147,
                 'lang_id' => 1,
-                'text' => '<p dir="LTR" style="margin-left:0cm; margin-right:0cm; text-align:left"><img alt="" height="251" src="http://db/photos/2/د_ياسر.jpg" width="223" /></p>
+                'text' => '<p dir="LTR" style="text-align:left; margin:0cm 0cm 8pt"><img alt="" height="251" src="http://db/photos/2/د_ياسر.jpg" style="float:right" width="223" /></p>
 
-<p dir="LTR" style="margin-left:0cm; margin-right:0cm; text-align:left"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:18.0pt">Prof. Dr. Yasser Hourieh</span></strong></span></span></span></p>
+<p dir="LTR" style="text-align:left; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span style="font-size:18.0pt"><span new="" roman="" style="font-family:" times="">Prof. Dr. Yasser Hourieh</span></span></b></span></span></span></span></span></p>
 
-<p dir="LTR" style="margin-left:0cm; margin-right:0cm; text-align:left"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:18.0pt">president of al Sham Private University</span></strong><span style="font-size:18.0pt"> </span></span></span></span></p>
+<p dir="LTR" style="text-align:left; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span style="font-size:18.0pt"><span new="" roman="" style="font-family:" times="">president of al Sham Private University</span></span></b><span style="font-size:18.0pt"><span new="" roman="" style="font-family:" times=""> </span></span></span></span></span></span></span></p>
 
-<p dir="LTR" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">As a man of Academia, Rector of al Sham Private University, Prof. Dr. Yasser Hourieh having a high experience in planning & administration for about 32 years in higher education, </span></span></span></span><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">and achieved a record in scientific research</span> <span style="font-size:14.0pt">with numerous researches and reports, published in</span> <span style="font-size:14.0pt">local and international periodicals, organizing and participating in so many scientific conferences, in addition to technical reports and studies about</span> <span style="font-size:14.0pt">various institutions.</span></span></span></span></p>
+<p dir="LTR" style="text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt"><span new="" roman="" style="font-family:" times="">As a man of Academia, Rector of al Sham Private University, Prof. Dr. Yasser Hourieh having a high experience in planning & administration for about 32 years in higher education, </span></span></span></span></span></span></span><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt"><span new="" roman="" style="font-family:" times="">and achieved a record in scientific research</span></span> <span style="font-size:14.0pt"><span new="" roman="" style="font-family:" times="">with numerous researches and reports, published in</span></span> <span style="font-size:14.0pt"><span new="" roman="" style="font-family:" times="">local and international periodicals, organizing and participating in so many scientific conferences, in addition to technical reports and studies about</span></span> <span style="font-size:14.0pt"><span new="" roman="" style="font-family:" times="">various institutions.</span></span></span></span></span></span></span></p>
 
-<figure class="easyimage easyimage-side"><img alt="" src="blob:http://localhost/c26260ec-c29a-47fb-8fbb-529a293fee51" width="595" />
-<figcaption></figcaption>
-</figure>
+<p dir="LTR" style="text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt"><span new="" roman="" style="font-family:" times="">Dr. Hourieh is married with three children.</span></span></span></span></span></span></span></p>
 
-<p dir="LTR" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">Dr. Hourieh is married with three children.</span></span></span></span></p>
+<p dir="LTR" style="text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt"><span new="" roman="" style="font-family:" times="">Dr. Yasser Hourieh worked as a professor at al-Baath University and then as its rector.</span></span></span></span></span></span></span></p>
 
-<p dir="LTR" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">Dr. Yasser Hourieh worked as a professor at al-Baath University and then as its rector.</span></span></span></span></p>
+<p dir="LTR" style="text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt"><span new="" roman="" style="font-family:" times="">Throughout his scientific and practical career, Dr. Hourieh served several administrative and scientific positions. Most recently, he was appointed rector of al Sham Private University, since its inception.</span></span></span></span></span></span></span></p>
 
-<p dir="LTR" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">Throughout his scientific and practical career, Dr. Hourieh served several administrative and scientific positions. Most recently, he was appointed rector of al Sham Private University, since its inception.</span></span></span></span></p>
+<p dir="LTR" style="text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt"><span new="" roman="" style="font-family:" times="">Despite the heavy burden and</span></span> <span style="font-size:14.0pt"><span new="" roman="" style="font-family:" times="">large responsibilities assigned to him as a University rector, still, Dr Hourieh is</span></span> <span style="font-size:14.0pt"><span new="" roman="" style="font-family:" times="">in close contact with teaching and scientific research. He has been actively contributing to the process of teaching of higher studies and undergraduate students, participating in scientific research and composing university curricula books.</span></span></span></span></span></span></span></p>
 
-<p dir="LTR" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">Despite the heavy burden and</span> <span style="font-size:14.0pt">large responsibilities assigned to him as a University rector, still, Dr Hourieh is</span> <span style="font-size:14.0pt">in close contact with teaching and scientific research. He has been actively contributing to the process of teaching of higher studies and undergraduate students, participating in scientific research and composing university curricula books.</span></span></span></span></p>
+<p dir="LTR" style="text-align:justify; margin:0cm 0cm 8pt"><span style="font-size:20px;"><span style="line-height:normal"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span new="" roman="" style="font-family:" times=""><a href="http://db/laravel-filemanager/files/2/السيرة_الذاتية_للدكتور_ياسر-عربي-2-10-2016.pdf" target="_blank"><span style="color:#2980b9;">To download the CV click here</span></a></span></span></span></span></span></p>
 
-<p dir="LTR" style="margin-left:0cm; margin-right:0cm; text-align:justify"><span style="font-size:20px"><span style="font-family:Calibri,sans-serif"><a href="http://db/laravel-filemanager/files/2/السيرة_الذاتية_للدكتور_ياسر-عربي-2-10-2016.pdf" target="_blank"><span style="color:#2980b9">To download the CV click here</span></a></span></span></p>
+<p dir="LTR" style="text-align:justify; margin:0cm 0cm 8pt"> </p>
 
-<p dir="LTR" style="margin-left:0cm; margin-right:0cm; text-align:justify"><a href="http://localhost/Web/Andalus/public/laravel-filemanager/files/1/empty.pdf"><span style="font-size:20px"><span style="font-family:Calibri,sans-serif"><span style="color:#2980b9">or here</span></span></span></a></p>
-
-<p dir="LTR" style="margin-left:0cm; margin-right:0cm; text-align:justify"> </p>
-
-<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:right"> </p>',
+<p dir="RTL" style="margin:0cm 0cm 8pt; text-align:right"> </p>',
                 'created_at' => '2018-10-04 03:12:03',
-                'updated_at' => '2019-01-08 07:56:03',
+                'updated_at' => '2019-01-07 09:39:01',
                 'deleted_at' => NULL,
             ),
             41 => 
@@ -896,33 +890,29 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                 'id' => 42,
                 'custom_module_attribute_value_id' => 147,
                 'lang_id' => 2,
-                'text' => '<p dir="RTL" style="text-align:right"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:18.0pt">الأستاذ الدكتور ياسر حورية</span></strong></span></span></span></p>
+                'text' => '<p dir="RTL" style="margin-bottom:.0001pt; margin:0cm 0cm 8pt; text-align:right"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span lang="AR-SA" style="font-size:18.0pt"><span arabic="" simplified="" style="font-family:">الأستاذ الدكتور ياسر حورية</span></span></b></span></span></span></span></span></span></p>
 
-<p dir="LTR" style="text-align:right"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span dir="RTL" style="font-size:18.0pt">رئيس جامعة الشام الخاصة</span></strong></span></span></span></p>
+<p align="right" dir="LTR" style="text-align:right; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span dir="RTL" lang="AR-SA" style="font-size:18.0pt"><span arabic="" simplified="" style="font-family:">رئيس جامعة الشام الخاصة</span></span></b></span></span></span></span></span></p>
 
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">الأبناء الطلاب ... أُحدِثَتْ جامعة الشام الخاصة بالمرسومِ التشريعيِ، ذي الرقمِ سبعةٍ وتسعينَ 97 لعامِ أحدَ عشَرَ وألفَيْنِ 2011 </span><span style="font-size:14.0pt">،</span><span style="font-size:14.0pt"> وبدأتْ نشاطَها العلميَّ بافتتاحِ كليتي &quot;الحقوقِ&quot; و&quot;العلومِ الإداريةِ&quot; في العامِ ثلاثةَ عشَرِ وألفَيْنِ 2013</span><span dir="LTR" style="font-size:14.0pt">.</span></span></span></span></p>
+<p dir="RTL" style="text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SA" style="font-size:14.0pt"><span arabic="" simplified="" style="font-family:">الأبناء الطلاب ... أُحدِثَتْ جامعة الشام الخاصة بالمرسومِ التشريعيِ، ذي الرقمِ سبعةٍ وتسعينَ 97 لعامِ أحدَ عشَرَ وألفَيْنِ 2011 </span></span><span lang="AR-SY" style="font-size:14.0pt"><span arabic="" simplified="" style="font-family:">،</span></span><span lang="AR-SA" style="font-size:14.0pt"><span arabic="" simplified="" style="font-family:"> وبدأتْ نشاطَها العلميَّ بافتتاحِ كليتي &quot;الحقوقِ&quot; و&quot;العلومِ الإداريةِ&quot; في العامِ ثلاثةَ عشَرِ وألفَيْنِ 2013</span></span><span dir="LTR" style="font-size:14.0pt"><span arabic="" simplified="" style="font-family:">.</span></span></span></span></span></span></span></span></p>
 
-<p><img alt="" src="blob:http://localhost/e173bb92-2e96-4044-a932-22938abc81fd" width="595" /></p>
+<p dir="RTL" style="text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SA" style="font-size:14.0pt"><span arabic="" simplified="" style="font-family:">تطورَتِ الجامعةُ أثْناءِ السنواتِ الماضيةِ، وازدادَ عددُ كليّاتِها، ففي دمشقَ الآنَ سبعُ كلّياتٍ في موقعينِ، هما البرامكةُ والمزرعةُ، وهي</span></span><span dir="LTR" style="font-size:14.0pt"><span arabic="" simplified="" style="font-family:">: </span></span><span lang="AR-SA" style="font-size:14.0pt"><span arabic="" simplified="" style="font-family:">كلّياتُ &quot;الطِبِ البشريِّ&quot; و&quot;طِبِ الأسنانِ&quot; و&quot;الصيدلةِ&quot; و&quot;الهندسةِ المعلوماتيةِ&quot; و&quot;الحقوقِ&quot; و&quot;العلومِ الإداريةِ التي تمنح شهادات باختصاصات</span></span><span dir="LTR" style="font-size:14.0pt"><span arabic="" simplified="" style="font-family:"> : </span></span><span lang="AR-SA" style="font-size:14.0pt"><span arabic="" simplified="" style="font-family:">التسويق &ndash; الموارد البشرية &ndash; المحاسبة &ndash; المؤسسات المالية والمصرفية</span></span><span dir="LTR" style="font-size:14.0pt"><span arabic="" simplified="" style="font-family:"> &quot;</span></span><span lang="AR-SA" style="font-size:14.0pt"><span arabic="" simplified="" style="font-family:"> فضلًا عنْ كليةِ &quot;العلاقاتِ الدوليةِ والدبلوماسيةِ&quot;، وفي اللاذقية الآنَ أربعُ كلّياتٍ: هي كليَّتا &quot;الصيدلةِ&quot; و&quot;طِبِّ الأسنانِ&quot; و كليَّتا </span></span><span dir="LTR" style="font-size:14.0pt"><span arabic="" simplified="" style="font-family:">&quot;</span></span><span lang="AR-SA" style="font-size:14.0pt"><span arabic="" simplified="" style="font-family:">الحقوقِ&quot; و&quot;العلومِ الإداريةِ التي تمنح شهادات باختصاصات : التسويق</span></span><span dir="LTR" style="font-size:14.0pt"><span arabic="" simplified="" style="font-family:"> &ndash; </span></span><span lang="AR-SA" style="font-size:14.0pt"><span arabic="" simplified="" style="font-family:">الموارد البشرية &quot;، وقد ازدادَ عددُ طُلابِ الجامعةِ ازدياداً لافتاً، فبلغَ خمسَمئة وألفي 2500 طالبٍ وطالبةٍ</span></span><span dir="LTR" style="font-size:14.0pt"><span arabic="" simplified="" style="font-family:">.</span></span></span></span></span></span></span></span></p>
 
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">تطورَتِ الجامعةُ أثْناءِ السنواتِ الماضيةِ، وازدادَ عددُ كليّاتِها، ففي دمشقَ الآنَ سبعُ كلّياتٍ في موقعينِ، هما البرامكةُ والمزرعةُ، وهي</span><span dir="LTR" style="font-size:14.0pt">: </span><span style="font-size:14.0pt">كلّياتُ &quot;الطِبِ البشريِّ&quot; و&quot;طِبِ الأسنانِ&quot; و&quot;الصيدلةِ&quot; و&quot;الهندسةِ المعلوماتيةِ&quot; و&quot;الحقوقِ&quot; و&quot;العلومِ الإداريةِ التي تمنح شهادات باختصاصات</span><span dir="LTR" style="font-size:14.0pt"> : </span><span style="font-size:14.0pt">التسويق &ndash; الموارد البشرية &ndash; المحاسبة &ndash; المؤسسات المالية والمصرفية</span><span dir="LTR" style="font-size:14.0pt"> &quot;</span><span style="font-size:14.0pt"> فضلًا عنْ كليةِ &quot;العلاقاتِ الدوليةِ والدبلوماسيةِ&quot;، وفي اللاذقية الآنَ أربعُ كلّياتٍ: هي كليَّتا &quot;الصيدلةِ&quot; و&quot;طِبِّ الأسنانِ&quot; و كليَّتا </span><span dir="LTR" style="font-size:14.0pt">&quot;</span><span style="font-size:14.0pt">الحقوقِ&quot; و&quot;العلومِ الإداريةِ التي تمنح شهادات باختصاصات : التسويق</span><span dir="LTR" style="font-size:14.0pt"> &ndash; </span><span style="font-size:14.0pt">الموارد البشرية &quot;، وقد ازدادَ عددُ طُلابِ الجامعةِ ازدياداً لافتاً، فبلغَ خمسَمئة وألفي 2500 طالبٍ وطالبةٍ</span><span dir="LTR" style="font-size:14.0pt">.</span></span></span></span></p>
+<p dir="RTL" style="text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SA" style="font-size:14.0pt"><span arabic="" simplified="" style="font-family:">هيَّأَتْ إدارةُ الجامعةِ جميعَ مستلزماتِ العمليَّةِ التعليميَّةِ والبحثيَّةِ، منْ خطط دراسية حديثة وأساتذةٍ متميزينَ، وأطرٍ فنيةٍ، ومخابرَ، وتجهيزاتٍ، وهي مستمرةٌ في نهجِها العلميِّ هذا ساعيَةً بالتعاونِ والتنسيقِ المستمرِ مَعَ وزارةِ التعليمِ العالي للارتقاء بهذه الجامعة التي تحرص على تطبيق معاييرِ الجودةِ والاعتماديَّةِ، وقدِ اختارَ مجلسُ الجامعةِ التركيزَ على التدريبِ العمليِّ الميداني في الكليَّاتِ كافة، وعدَّ الارتِقَاءَ بمستوياتِ ذلك التدريبِ نقطةَ تميّزٍ تُضافُ إلى نقاطِ إيجابياتِ الجامعةِ، التي تطبق نمطِ التعليمِ التفاعليِّ مهيِّئةً السبلَ التقنيةَ لآفاقِه كما عدَّتِ الجامعةُ طُلابَها الأعزاءَ شركاءَ في العمليِّةِ التعليميةِ، منطلقةً مِنِ اختيارِها شِعاراً لأدائها منسجماً مَعَ رسالتِها وأهدافِها، هو &quot; نعمل معا لتحقيق حُلمك &quot;.</span></span></span></span></span></span></span></span></p>
 
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">هيَّأَتْ إدارةُ الجامعةِ جميعَ مستلزماتِ العمليَّةِ التعليميَّةِ والبحثيَّةِ، منْ خطط دراسية حديثة وأساتذةٍ متميزينَ، وأطرٍ فنيةٍ، ومخابرَ، وتجهيزاتٍ، وهي مستمرةٌ في نهجِها العلميِّ هذا ساعيَةً بالتعاونِ والتنسيقِ المستمرِ مَعَ وزارةِ التعليمِ العالي للارتقاء بهذه الجامعة التي تحرص على تطبيق معاييرِ الجودةِ والاعتماديَّةِ، وقدِ اختارَ مجلسُ الجامعةِ التركيزَ على التدريبِ العمليِّ الميداني في الكليَّاتِ كافة، وعدَّ الارتِقَاءَ بمستوياتِ ذلك التدريبِ نقطةَ تميّزٍ تُضافُ إلى نقاطِ إيجابياتِ الجامعةِ، التي تطبق نمطِ التعليمِ التفاعليِّ مهيِّئةً السبلَ التقنيةَ لآفاقِه كما عدَّتِ الجامعةُ طُلابَها الأعزاءَ شركاءَ في العمليِّةِ التعليميةِ، منطلقةً مِنِ اختيارِها شِعاراً لأدائها منسجماً مَعَ رسالتِها وأهدافِها، هو &quot; نعمل معا لتحقيق حُلمك &quot;.</span></span></span></span></p>
+<p dir="RTL" style="text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SA" style="font-size:14.0pt"><span arabic="" simplified="" style="font-family:">&nbsp;وقد اعتمدت الجامعة خططاً دراسية وفق نظام الساعات المعتمدة والتي تتيح المرونة في التطبيق واختصار مدة الدراسة ، وقد تخرج العديد من الطلاب بعضهم خلال ثلاث سنوات من الدراسة في الكليات ذات نظام الأربع سنوات كالحقوق مثلاً، فهنيئاً لطلابِنا الأعزاءِ بتحقيق حلمهم وحصولهم على المعارف اللازمة ودرجة الاجازة الجامعية في الاختصاص الذي اختاروه وتحية كبيرة لذوي الطلاب على ما يبذلونه من جهد لأجل مساعدة أبنائهم في تحقيق حلمهم. ولا بد من شكر الزملاء أعضاء الهيئة التدريسية والإداريين الذين يبذلون جهوداً كبيرة من أجل تنفيذ الخطط الدراسية وتقديم أفضل الخدمات لطلابنا الأعزاء وبما يعزز مكانة الجامعة</span></span><span dir="LTR" style="font-size:14.0pt"><span arabic="" simplified="" style="font-family:">.</span></span></span></span></span></span></span></span></p>
 
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">&nbsp;وقد اعتمدت الجامعة خططاً دراسية وفق نظام الساعات المعتمدة والتي تتيح المرونة في التطبيق واختصار مدة الدراسة ، وقد تخرج العديد من الطلاب بعضهم خلال ثلاث سنوات من الدراسة في الكليات ذات نظام الأربع سنوات كالحقوق مثلاً، فهنيئاً لطلابِنا الأعزاءِ بتحقيق حلمهم وحصولهم على المعارف اللازمة ودرجة الاجازة الجامعية في الاختصاص الذي اختاروه وتحية كبيرة لذوي الطلاب على ما يبذلونه من جهد لأجل مساعدة أبنائهم في تحقيق حلمهم. ولا بد من شكر الزملاء أعضاء الهيئة التدريسية والإداريين الذين يبذلون جهوداً كبيرة من أجل تنفيذ الخطط الدراسية وتقديم أفضل الخدمات لطلابنا الأعزاء وبما يعزز مكانة الجامعة</span><span dir="LTR" style="font-size:14.0pt">.</span></span></span></span></p>
+<p dir="RTL" style="text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SA" style="font-size:14.0pt"><span arabic="" simplified="" style="font-family:">وقرر مجلس الجامعة في جلسته الأخيرة إحداث مكتب لمتابعة شؤون الخريجين وذلك للتواصل معهم في مرحلة ما بعد التخرج ، ومن أجل مساعدتهم في تأمين فرص عمل مناسبة لهم ولاستمرار تواصلهم مع جامعتهم على الدوام، وسيتابع هذا المكتب أداء الخريجين في مواقع عملهم لمعرفة مستوى أدائهم المهني ومساعدتهم في تطويره</span></span><span dir="LTR" style="font-size:14.0pt"><span arabic="" simplified="" style="font-family:">.</span></span></span></span></span></span></span></span></p>
 
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">وقرر مجلس الجامعة في جلسته الأخيرة إحداث مكتب لمتابعة شؤون الخريجين وذلك للتواصل معهم في مرحلة ما بعد التخرج ، ومن أجل مساعدتهم في تأمين فرص عمل مناسبة لهم ولاستمرار تواصلهم مع جامعتهم على الدوام، وسيتابع هذا المكتب أداء الخريجين في مواقع عملهم لمعرفة مستوى أدائهم المهني ومساعدتهم في تطويره</span><span dir="LTR" style="font-size:14.0pt">.</span></span></span></span></p>
+<p dir="RTL" style="text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SA" style="font-size:14.0pt"><span arabic="" simplified="" style="font-family:">وتسعى الجامعة وبالتعاون مع وزارة التعليم العالي لإحداث الدراسات العليا</span></span><span lang="AR-SY" style="font-size:14.0pt"><span arabic="" simplified="" style="font-family:">(</span></span><span lang="AR-SA" style="font-size:14.0pt"><span arabic="" simplified="" style="font-family:">الماجستير والدكتوراه) ، وهي تعمل لأن تكون جامعة غير ربحية بما يغطي تكاليف التشغيل</span></span><span dir="LTR" style="font-size:14.0pt"><span arabic="" simplified="" style="font-family:">.</span></span></span></span></span></span></span></span></p>
 
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">وتسعى الجامعة وبالتعاون مع وزارة التعليم العالي لإحداث الدراسات العليا</span><span style="font-size:14.0pt">(</span><span style="font-size:14.0pt">الماجستير والدكتوراه) ، وهي تعمل لأن تكون جامعة غير ربحية بما يغطي تكاليف التشغيل</span><span dir="LTR" style="font-size:14.0pt">.</span></span></span></span></p>
+<p dir="RTL" style="text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SA" style="font-size:14.0pt"><span arabic="" simplified="" style="font-family:">ولا بد من توجيه الشكر للسيد وزير التعليم العالي ومعاونيه وجميع العاملين في وزارة التعليم العالي على الدعم المستمر للجامعات الخاصة ولجامعة الشام، والشكر أيضاً لرئيس وأعضاء مجلس أمناء الجامعة على دعمهم اللامحدود لتطوير الجامعة والارتقاء بأدائها بما يخدم العملية التعليمية والبحث العلمي ، والشكر موصول للسادة أعضاء مجلس الجامعة على جهودهم المستمرة في تطوير أداء الجامعة وتقديم أفضل المعارف لطلابها</span></span><span dir="LTR" style="font-size:14.0pt"><span arabic="" simplified="" style="font-family:">.</span></span></span></span></span></span></span></span></p>
 
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">ولا بد من توجيه الشكر للسيد وزير التعليم العالي ومعاونيه وجميع العاملين في وزارة التعليم العالي على الدعم المستمر للجامعات الخاصة ولجامعة الشام، والشكر أيضاً لرئيس وأعضاء مجلس أمناء الجامعة على دعمهم اللامحدود لتطوير الجامعة والارتقاء بأدائها بما يخدم العملية التعليمية والبحث العلمي ، والشكر موصول للسادة أعضاء مجلس الجامعة على جهودهم المستمرة في تطوير أداء الجامعة وتقديم أفضل المعارف لطلابها</span><span dir="LTR" style="font-size:14.0pt">.</span></span></span></span></p>
+<p dir="RTL" style="text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SA" style="font-size:14.0pt"><span arabic="" simplified="" style="font-family:">والله الموفق</span></span><span dir="LTR" style="font-size:14.0pt"><span arabic="" simplified="" style="font-family:"> ...</span></span></span></span></span></span></span></span></p>
 
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">والله الموفق</span><span dir="LTR" style="font-size:14.0pt"> ...</span></span></span></span></p>
-
-<p dir="RTL" style="text-align:justify"><span style="font-size:20px"><span style="font-family:Calibri,sans-serif"><span dir="LTR"><a class="link-icon" href="http://db/laravel-filemanager/files/2/السيرة_الذاتية_للدكتور_ياسر-عربي-2-10-2016.pdf" target="_blank"><span style="color:#2980b9">لتحميل السيرة الذاتية اضغط هنا</span></a></span></span></span></p>
-
-<p dir="RTL" style="text-align:justify"><a href="http://localhost/Web/Andalus/public/laravel-filemanager/files/1/empty.pdf"><span style="font-size:20px"><span style="font-family:Calibri,sans-serif"><span dir="LTR"><span style="color:#2980b9">مرفق 2</span></span></span></span></a></p>',
+<p dir="RTL" style="text-align:justify; margin:0cm 0cm 8pt"><span style="font-size:20px;"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span dir="LTR"><span arabic="" simplified="" style="font-family:"><a href="http://localhost/laravel-filemanager/files/1/السيرة_الذاتية_للدكتور_ياسر-عربي-2-10-2016.pdf" target="_blank"><span style="color:#2980b9;">لتحميل السيرة الذاتية اضغط هنا</span></a></span></span></span></span></span></span></span></p>',
                 'created_at' => '2018-10-04 03:12:03',
-                'updated_at' => '2019-01-17 15:29:51',
+                'updated_at' => '2019-01-07 09:39:01',
                 'deleted_at' => NULL,
             ),
             42 => 
@@ -3475,800 +3465,802 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                         'id' => 69,
                         'custom_module_attribute_value_id' => 217,
                         'lang_id' => 1,
-                        'text' => '<h1 class="line-bottom mt-0 text-uppercase" dir="ltr" style="margin-left:0cm; margin-right:0cm">Al Sham Private University <span class="text-theme-color-2">ASPU Scholarships</span></h1>
+                        'text' => '<p dir="ltr" style="margin: 0cm 0cm 8pt;">&nbsp;</p>
 
-<h1 class="line-bottom mt-0 text-uppercase" dir="ltr" style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:14.0pt">First-  Full scholarships:</span></strong></span></span></span></h1>
+<p dir="ltr" style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><b><span style="font-size:16.0pt">Al Sham Private University ASPU Scholarships </span></b></span></span></span></span></span></p>
 
-<p dir="ltr" style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">ASPU offers annually free grants as follows:</span></span></span></span></p>
+<p dir="ltr" style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><b><span style="font-size:14.0pt">First- &nbsp;Full scholarships:</span></b></span></span></span></span></span></p>
 
-<ul dir="ltr" style="list-style:decimal; padding:0 20px">
-<li style="margin-left: 0cm; margin-right: 0cm;"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">scholarships for the Ministry of Higher Education at 5% of the number of students admitted to the university in each college and specialization.</span></span></span></span></li>
-<li style="margin-left: 0cm; margin-right: 0cm;"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">One scholarship per year for the Ministry of Justice at the Faculty of Law and the Ministry of Administrative Development at the Faculty of Administrative Sciences.</span></span></span></span></li>
-<li style="margin-left: 0cm; margin-right: 0cm;"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">Full scholarships for the children of the army martyrs 100%.</span></span></span></span></li>
-</ul>
+<p dir="ltr" style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">ASPU offers annually free grants as follows:</span></span></span></span></span></span></p>
 
-<p dir="ltr" style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">These scholarships include exemption from the fees of the credit hours, registration fees, admission, differentiation and services for the minimum period required for the completion of the first university degree.</span></span></span></span></p>
+<p dir="ltr" style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">1) scholarships for the Ministry of Higher Education at 5% of the number of students admitted to the university in each college and specialization.</span></span></span></span></span></span></p>
 
-<p dir="ltr" style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:14.0pt">Second- Secondary Certificate scholarships:</span></strong></span></span></span></p>
+<p dir="ltr" style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">2) One scholarship per year for the Ministry of Justice at the Faculty of Law and the Ministry of Administrative Development at the Faculty of Administrative Sciences.</span></span></span></span></span></span></p>
 
-<p dir="ltr" style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">ASPU offer scholarships and discounts for outstanding students in the Syrian secondary school certificate for the current year and following the exclusion of religious education and one of the two foreign languages (whichever is less), as follows:</span></span></span></span></p>
+<p dir="ltr" style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">3) Full scholarships for the children of the army martyrs 100%.</span></span></span></span></span></span></p>
 
-<p dir="ltr" style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">1. Scholarship to the first student at the level of the country in the secondary certificate of the branches (literary / scientific / sharia)</span></span></span></span></p>
+<p dir="ltr" style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">These scholarships include exemption from the fees of the credit hours, registration fees, admission, differentiation and services for the minimum period required for the completion of the first university degree.</span></span></span></span></span></span></p>
 
-<p dir="ltr" style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">2. Scholarship for the second student only at the country level in the secondary certificate (scientific branch only)</span></span></span></span></p>
+<p dir="ltr" style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><b><span style="font-size:14.0pt">Second- Secondary Certificate scholarships:</span></b></span></span></span></span></span></p>
 
-<p dir="ltr" style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">3. Discounts for successful students with high grades in secondary school who wish to enroll in faculties (non-medical), as follows:</span></span></span></span></p>
+<p dir="ltr" style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">ASPU offer scholarships and discounts for outstanding students in the Syrian secondary school certificate for the current year and following the exclusion of religious education and one of the two foreign languages (whichever is less), as follows:</span></span></span></span></span></span></p>
 
-<table align="center" border="1" cellspacing="0" class="MsoTableGrid" dir="ltr" style="border-collapse:collapse; border:solid windowtext 1.0pt">
+<p dir="ltr" style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">1. Scholarship to the first student at the level of the country in the secondary certificate of the branches (literary / scientific / sharia)</span></span></span></span></span></span></p>
+
+<p dir="ltr" style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">2. Scholarship for the second student only at the country level in the secondary certificate (scientific branch only)</span></span></span></span></span></span></p>
+
+<p dir="ltr" style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">3. Discounts for successful students with high grades in secondary school who wish to enroll in faculties (non-medical), as follows:</span></span></span></span></span></span></p>
+
+<table align="center" class="MsoTableGrid" dir="ltr" style="border-collapse:collapse; border:solid windowtext 1.0pt">
 <tbody>
 <tr>
-<td style="vertical-align:top; width:77.9pt">
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:12.0pt">Secondary school certificate </span></strong></span></span></span></p>
+<td style="border:solid windowtext 1.0pt; width:77.9pt; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="104">
+<p style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><b><span style="font-size:12.0pt">Secondary school certificate </span></b></span></span></span></span></span></p>
 </td>
-<td style="vertical-align:top; width:77.9pt">
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:12.0pt">Discount rate </span></strong></span></span></span></p>
+<td style="border:solid windowtext 1.0pt; width:77.9pt; border-left:none; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="104">
+<p style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><b><span style="font-size:12.0pt">Discount rate </span></b></span></span></span></span></span></p>
 </td>
-<td colspan="4" style="vertical-align:top; width:311.7pt">
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:12.0pt">Total grades after excluding degrees of religious education</span></strong></span></span></span></p>
+<td colspan="4" style="border:solid windowtext 1.0pt; width:311.7pt; border-left:none; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="416">
+<p style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><b><span style="font-size:12.0pt">Total grades after excluding degrees of religious education</span></b></span></span></span></span></span></p>
 
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">From                         To                          From                      To </span></span></span></span></p>
+<p style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">From&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; To&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; From&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; To </span></span></span></span></span></span></p>
 </td>
 </tr>
 <tr>
-<td style="vertical-align:top; width:77.9pt">
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">General / Scientific</span></span></span></span></p>
+<td style="border:solid windowtext 1.0pt; width:77.9pt; border-top:none; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="104">
+<p style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">General / Scientific</span></span></span></span></span></span></p>
 </td>
-<td style="vertical-align:top; width:77.9pt">
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">10%</span></span></span></span></p>
+<td style="border-bottom:solid windowtext 1.0pt; width:77.9pt; border-top:none; border-left:none; border-right:solid windowtext 1.0pt; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="104">
+<p style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">10%</span></span></span></span></span></span></p>
 </td>
-<td style="vertical-align:top; width:77.9pt">
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">75%</span></span></span></span></p>
+<td style="border-bottom:solid windowtext 1.0pt; width:77.9pt; border-top:none; border-left:none; border-right:solid windowtext 1.0pt; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="104">
+<p style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">75%</span></span></span></span></span></span></p>
 </td>
-<td style="vertical-align:top; width:77.9pt">
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">84.99%</span></span></span></span></p>
+<td style="border-bottom:solid windowtext 1.0pt; width:77.9pt; border-top:none; border-left:none; border-right:solid windowtext 1.0pt; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="104">
+<p style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">84.99%</span></span></span></span></span></span></p>
 </td>
-<td style="vertical-align:top; width:77.95pt">
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">1800</span></span></span></span></p>
+<td style="border-bottom:solid windowtext 1.0pt; width:77.95pt; border-top:none; border-left:none; border-right:solid windowtext 1.0pt; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="104">
+<p style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">1800</span></span></span></span></span></span></p>
 </td>
-<td style="vertical-align:top; width:77.95pt">
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">2039</span></span></span></span></p>
-</td>
-</tr>
-<tr>
-<td style="vertical-align:top; width:77.9pt">
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">General / Scientific</span></span></span></span></p>
-</td>
-<td style="vertical-align:top; width:77.9pt">
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">20%</span></span></span></span></p>
-</td>
-<td style="vertical-align:top; width:77.9pt">
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">85%</span></span></span></span></p>
-</td>
-<td style="vertical-align:top; width:77.9pt">
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">100%</span></span></span></span></p>
-</td>
-<td style="vertical-align:top; width:77.95pt">
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">2040</span></span></span></span></p>
-</td>
-<td style="vertical-align:top; width:77.95pt">
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">2400</span></span></span></span></p>
+<td style="border-bottom:solid windowtext 1.0pt; width:77.95pt; border-top:none; border-left:none; border-right:solid windowtext 1.0pt; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="104">
+<p style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">2039</span></span></span></span></span></span></p>
 </td>
 </tr>
 <tr>
-<td style="vertical-align:top; width:77.9pt">
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">General/ literary </span></span></span></span></p>
+<td style="border:solid windowtext 1.0pt; width:77.9pt; border-top:none; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="104">
+<p style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">General / Scientific</span></span></span></span></span></span></p>
 </td>
-<td style="vertical-align:top; width:77.9pt">
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">10%</span></span></span></span></p>
+<td style="border-bottom:solid windowtext 1.0pt; width:77.9pt; border-top:none; border-left:none; border-right:solid windowtext 1.0pt; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="104">
+<p style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">20%</span></span></span></span></span></span></p>
 </td>
-<td style="vertical-align:top; width:77.9pt">
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">75%</span></span></span></span></p>
+<td style="border-bottom:solid windowtext 1.0pt; width:77.9pt; border-top:none; border-left:none; border-right:solid windowtext 1.0pt; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="104">
+<p style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">85%</span></span></span></span></span></span></p>
 </td>
-<td style="vertical-align:top; width:77.9pt">
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">84.99%</span></span></span></span></p>
+<td style="border-bottom:solid windowtext 1.0pt; width:77.9pt; border-top:none; border-left:none; border-right:solid windowtext 1.0pt; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="104">
+<p style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">100%</span></span></span></span></span></span></p>
 </td>
-<td style="vertical-align:top; width:77.95pt">
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">1650</span></span></span></span></p>
+<td style="border-bottom:solid windowtext 1.0pt; width:77.95pt; border-top:none; border-left:none; border-right:solid windowtext 1.0pt; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="104">
+<p style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">2040</span></span></span></span></span></span></p>
 </td>
-<td style="vertical-align:top; width:77.95pt">
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">1869</span></span></span></span></p>
-</td>
-</tr>
-<tr>
-<td style="vertical-align:top; width:77.9pt">
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">General/ literary</span></span></span></span></p>
-</td>
-<td style="vertical-align:top; width:77.9pt">
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">20%</span></span></span></span></p>
-</td>
-<td style="vertical-align:top; width:77.9pt">
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">85%</span></span></span></span></p>
-</td>
-<td style="vertical-align:top; width:77.9pt">
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">100%</span></span></span></span></p>
-</td>
-<td style="vertical-align:top; width:77.95pt">
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">1870</span></span></span></span></p>
-</td>
-<td style="vertical-align:top; width:77.95pt">
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">2200</span></span></span></span></p>
+<td style="border-bottom:solid windowtext 1.0pt; width:77.95pt; border-top:none; border-left:none; border-right:solid windowtext 1.0pt; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="104">
+<p style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">2400</span></span></span></span></span></span></p>
 </td>
 </tr>
 <tr>
-<td style="vertical-align:top; width:77.9pt">
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">Sharia</span></span></span></span></p>
+<td style="border:solid windowtext 1.0pt; width:77.9pt; border-top:none; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="104">
+<p style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">General/ literary </span></span></span></span></span></span></p>
 </td>
-<td style="vertical-align:top; width:77.9pt">
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">15%</span></span></span></span></p>
+<td style="border-bottom:solid windowtext 1.0pt; width:77.9pt; border-top:none; border-left:none; border-right:solid windowtext 1.0pt; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="104">
+<p style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">10%</span></span></span></span></span></span></p>
 </td>
-<td style="vertical-align:top; width:77.9pt">
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">85%</span></span></span></span></p>
+<td style="border-bottom:solid windowtext 1.0pt; width:77.9pt; border-top:none; border-left:none; border-right:solid windowtext 1.0pt; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="104">
+<p style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">75%</span></span></span></span></span></span></p>
 </td>
-<td style="vertical-align:top; width:77.9pt">
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">100%</span></span></span></span></p>
+<td style="border-bottom:solid windowtext 1.0pt; width:77.9pt; border-top:none; border-left:none; border-right:solid windowtext 1.0pt; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="104">
+<p style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">84.99%</span></span></span></span></span></span></p>
 </td>
-<td style="vertical-align:top; width:77.95pt">
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">1870</span></span></span></span></p>
+<td style="border-bottom:solid windowtext 1.0pt; width:77.95pt; border-top:none; border-left:none; border-right:solid windowtext 1.0pt; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="104">
+<p style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">1650</span></span></span></span></span></span></p>
 </td>
-<td style="vertical-align:top; width:77.95pt">
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">2200</span></span></span></span></p>
-</td>
-</tr>
-<tr>
-<td style="vertical-align:top; width:77.9pt">
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">Vocational/ Commercial</span></span></span></span></p>
-</td>
-<td style="vertical-align:top; width:77.9pt">
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">15%</span></span></span></span></p>
-</td>
-<td style="vertical-align:top; width:77.9pt">
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">85%</span></span></span></span></p>
-</td>
-<td style="vertical-align:top; width:77.9pt">
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">100%</span></span></span></span></p>
-</td>
-<td style="vertical-align:top; width:77.95pt">
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">3230</span></span></span></span></p>
-</td>
-<td style="vertical-align:top; width:77.95pt">
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">4500</span></span></span></span></p>
+<td style="border-bottom:solid windowtext 1.0pt; width:77.95pt; border-top:none; border-left:none; border-right:solid windowtext 1.0pt; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="104">
+<p style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">1869</span></span></span></span></span></span></p>
 </td>
 </tr>
 <tr>
-<td style="vertical-align:top; width:77.9pt">
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">Vocational/ Industrial </span></span></span></span></p>
+<td style="border:solid windowtext 1.0pt; width:77.9pt; border-top:none; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="104">
+<p style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">General/ literary</span></span></span></span></span></span></p>
 </td>
-<td style="vertical-align:top; width:77.9pt">
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">15%</span></span></span></span></p>
+<td style="border-bottom:solid windowtext 1.0pt; width:77.9pt; border-top:none; border-left:none; border-right:solid windowtext 1.0pt; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="104">
+<p style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">20%</span></span></span></span></span></span></p>
 </td>
-<td style="vertical-align:top; width:77.9pt">
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">85%</span></span></span></span></p>
+<td style="border-bottom:solid windowtext 1.0pt; width:77.9pt; border-top:none; border-left:none; border-right:solid windowtext 1.0pt; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="104">
+<p style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">85%</span></span></span></span></span></span></p>
 </td>
-<td style="vertical-align:top; width:77.9pt">
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">100%</span></span></span></span></p>
+<td style="border-bottom:solid windowtext 1.0pt; width:77.9pt; border-top:none; border-left:none; border-right:solid windowtext 1.0pt; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="104">
+<p style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">100%</span></span></span></span></span></span></p>
 </td>
-<td style="vertical-align:top; width:77.95pt">
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">3400</span></span></span></span></p>
+<td style="border-bottom:solid windowtext 1.0pt; width:77.95pt; border-top:none; border-left:none; border-right:solid windowtext 1.0pt; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="104">
+<p style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">1870</span></span></span></span></span></span></p>
 </td>
-<td style="vertical-align:top; width:77.95pt">
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">4500</span></span></span></span></p>
+<td style="border-bottom:solid windowtext 1.0pt; width:77.95pt; border-top:none; border-left:none; border-right:solid windowtext 1.0pt; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="104">
+<p style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">2200</span></span></span></span></span></span></p>
+</td>
+</tr>
+<tr>
+<td style="border:solid windowtext 1.0pt; width:77.9pt; border-top:none; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="104">
+<p style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">Sharia</span></span></span></span></span></span></p>
+</td>
+<td style="border-bottom:solid windowtext 1.0pt; width:77.9pt; border-top:none; border-left:none; border-right:solid windowtext 1.0pt; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="104">
+<p style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">15%</span></span></span></span></span></span></p>
+</td>
+<td style="border-bottom:solid windowtext 1.0pt; width:77.9pt; border-top:none; border-left:none; border-right:solid windowtext 1.0pt; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="104">
+<p style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">85%</span></span></span></span></span></span></p>
+</td>
+<td style="border-bottom:solid windowtext 1.0pt; width:77.9pt; border-top:none; border-left:none; border-right:solid windowtext 1.0pt; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="104">
+<p style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">100%</span></span></span></span></span></span></p>
+</td>
+<td style="border-bottom:solid windowtext 1.0pt; width:77.95pt; border-top:none; border-left:none; border-right:solid windowtext 1.0pt; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="104">
+<p style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">1870</span></span></span></span></span></span></p>
+</td>
+<td style="border-bottom:solid windowtext 1.0pt; width:77.95pt; border-top:none; border-left:none; border-right:solid windowtext 1.0pt; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="104">
+<p style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">2200</span></span></span></span></span></span></p>
+</td>
+</tr>
+<tr>
+<td style="border:solid windowtext 1.0pt; width:77.9pt; border-top:none; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="104">
+<p style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">Vocational/ Commercial</span></span></span></span></span></span></p>
+</td>
+<td style="border-bottom:solid windowtext 1.0pt; width:77.9pt; border-top:none; border-left:none; border-right:solid windowtext 1.0pt; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="104">
+<p style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">15%</span></span></span></span></span></span></p>
+</td>
+<td style="border-bottom:solid windowtext 1.0pt; width:77.9pt; border-top:none; border-left:none; border-right:solid windowtext 1.0pt; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="104">
+<p style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">85%</span></span></span></span></span></span></p>
+</td>
+<td style="border-bottom:solid windowtext 1.0pt; width:77.9pt; border-top:none; border-left:none; border-right:solid windowtext 1.0pt; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="104">
+<p style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">100%</span></span></span></span></span></span></p>
+</td>
+<td style="border-bottom:solid windowtext 1.0pt; width:77.95pt; border-top:none; border-left:none; border-right:solid windowtext 1.0pt; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="104">
+<p style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">3230</span></span></span></span></span></span></p>
+</td>
+<td style="border-bottom:solid windowtext 1.0pt; width:77.95pt; border-top:none; border-left:none; border-right:solid windowtext 1.0pt; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="104">
+<p style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">4500</span></span></span></span></span></span></p>
+</td>
+</tr>
+<tr>
+<td style="border:solid windowtext 1.0pt; width:77.9pt; border-top:none; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="104">
+<p style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">Vocational/ Industrial </span></span></span></span></span></span></p>
+</td>
+<td style="border-bottom:solid windowtext 1.0pt; width:77.9pt; border-top:none; border-left:none; border-right:solid windowtext 1.0pt; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="104">
+<p style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">15%</span></span></span></span></span></span></p>
+</td>
+<td style="border-bottom:solid windowtext 1.0pt; width:77.9pt; border-top:none; border-left:none; border-right:solid windowtext 1.0pt; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="104">
+<p style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">85%</span></span></span></span></span></span></p>
+</td>
+<td style="border-bottom:solid windowtext 1.0pt; width:77.9pt; border-top:none; border-left:none; border-right:solid windowtext 1.0pt; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="104">
+<p style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">100%</span></span></span></span></span></span></p>
+</td>
+<td style="border-bottom:solid windowtext 1.0pt; width:77.95pt; border-top:none; border-left:none; border-right:solid windowtext 1.0pt; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="104">
+<p style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">3400</span></span></span></span></span></span></p>
+</td>
+<td style="border-bottom:solid windowtext 1.0pt; width:77.95pt; border-top:none; border-left:none; border-right:solid windowtext 1.0pt; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="104">
+<p style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">4500</span></span></span></span></span></span></p>
 </td>
 </tr>
 </tbody>
 </table>
 
-<p dir="ltr" style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:14.0pt">Third-Discounts (partial scholarships):</span></strong></span></span></span></p>
+<p dir="ltr" style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><b><span style="font-size:14.0pt">Third-Discounts (partial scholarships):</span></b></span></span></span></span></span></p>
 
-<p dir="ltr" style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt"> These include the reduction of the fees of the credit hours for the minimum period necessary for the completion of the study at the first university level. These scholarships are in the form of rebates as follows:</span></span></span></span></p>
+<p dir="ltr" style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">&nbsp;These include the reduction of the fees of the credit hours for the minimum period necessary for the completion of the study at the first university level. These scholarships are in the form of rebates as follows:</span></span></span></span></span></span></p>
 
-<table align="center" border="1" cellspacing="0" class="MsoTableGrid" dir="ltr" style="border-collapse:collapse; border:solid windowtext 1.0pt">
+<table align="center" class="MsoTableGrid" dir="ltr" style="border-collapse:collapse; border:solid windowtext 1.0pt">
 <tbody>
 <tr>
-<td style="vertical-align:top; width:76.25pt">
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">50%</span></span></span></span></p>
+<td style="border:solid windowtext 1.0pt; width:76.25pt; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="102">
+<p style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">50%</span></span></span></span></span></span></p>
 </td>
-<td style="vertical-align:top; width:391.25pt">
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">For the families of martyrs including (father - mother - husband - brothers and sisters) for the minimum period of study</span></span></span></span></p>
-</td>
-</tr>
-<tr>
-<td style="vertical-align:top; width:76.25pt">
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">25%</span></span></span></span></p>
-</td>
-<td style="vertical-align:top; width:391.25pt">
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">For the children of volunteers in the armed forces (combat units) registered in medical colleges and for the minimum period of study</span></span></span></span></p>
+<td style="border:solid windowtext 1.0pt; width:391.25pt; border-left:none; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="522">
+<p style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">For the families of martyrs including (father - mother - husband - brothers and sisters) for the minimum period of study</span></span></span></span></span></span></p>
 </td>
 </tr>
 <tr>
-<td style="vertical-align:top; width:76.25pt">
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">25%</span></span></span></span></p>
+<td style="border:solid windowtext 1.0pt; width:76.25pt; border-top:none; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="102">
+<p style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">25%</span></span></span></span></span></span></p>
 </td>
-<td style="vertical-align:top; width:391.25pt">
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">For children of volunteers in the armed forces ,  registered in non-medical colleges , for the minimum period of study</span></span></span></span></p>
-</td>
-</tr>
-<tr>
-<td style="vertical-align:top; width:76.25pt">
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">20%</span></span></span></span></p>
-</td>
-<td style="vertical-align:top; width:391.25pt">
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">Each of the two brothers;/ sisters  students (who are registered at the university together) is entitled to complete their studies throughout the minimum period of study, and discount is 25% for the third brother, if the number of siblings becomes three</span></span></span></span></p>
+<td style="border-bottom:solid windowtext 1.0pt; width:391.25pt; border-top:none; border-left:none; border-right:solid windowtext 1.0pt; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="522">
+<p style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">For the children of volunteers in the armed forces (combat units) registered in medical colleges and for the minimum period of study</span></span></span></span></span></span></p>
 </td>
 </tr>
 <tr>
-<td style="vertical-align:top; width:76.25pt">
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">20%</span></span></span></span></p>
+<td style="border:solid windowtext 1.0pt; width:76.25pt; border-top:none; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="102">
+<p style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">25%</span></span></span></span></span></span></p>
 </td>
-<td style="vertical-align:top; width:391.25pt">
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">For members of the full-time teaching staff at the university for the duration of their full time work. Discount for the minimum period of study</span></span></span></span></p>
-</td>
-</tr>
-<tr>
-<td style="vertical-align:top; width:76.25pt">
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">20%</span></span></span></span></p>
-</td>
-<td style="vertical-align:top; width:391.25pt">
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">Deduction from the tuition fees for the married  couple (as long as they are registered together) at the university</span></span></span></span></p>
+<td style="border-bottom:solid windowtext 1.0pt; width:391.25pt; border-top:none; border-left:none; border-right:solid windowtext 1.0pt; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="522">
+<p style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">For children of volunteers in the armed forces , &nbsp;registered in non-medical colleges , for the minimum period of study</span></span></span></span></span></span></p>
 </td>
 </tr>
 <tr>
-<td style="vertical-align:top; width:76.25pt">
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">20%</span></span></span></span></p>
+<td style="border:solid windowtext 1.0pt; width:76.25pt; border-top:none; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="102">
+<p style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">20%</span></span></span></span></span></span></p>
 </td>
-<td style="vertical-align:top; width:391.25pt">
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">Deduction  from the tuition fees for students ,members of the Revolutionary Youth Union, who are  distinguished scientifically or militarily</span></span></span></span></p>
+<td style="border-bottom:solid windowtext 1.0pt; width:391.25pt; border-top:none; border-left:none; border-right:solid windowtext 1.0pt; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="522">
+<p style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">Each of the two brothers;/ sisters &nbsp;students (who are registered at the university together) is entitled to complete their studies throughout the minimum period of study, and discount is 25% for the third brother, if the number of siblings becomes three</span></span></span></span></span></span></p>
 </td>
 </tr>
 <tr>
-<td style="height:3.5pt; vertical-align:top; width:76.25pt">
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">15%</span></span></span></span></p>
+<td style="border:solid windowtext 1.0pt; width:76.25pt; border-top:none; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="102">
+<p style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">20%</span></span></span></span></span></span></p>
 </td>
-<td style="height:3.5pt; vertical-align:top; width:391.25pt">
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">For members of the technical and administrative staff, for the duration of their work at the university. Discount for the minimum period of study</span></span></span></span></p>
+<td style="border-bottom:solid windowtext 1.0pt; width:391.25pt; border-top:none; border-left:none; border-right:solid windowtext 1.0pt; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="522">
+<p style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">For members of the full-time teaching staff at the university for the duration of their full time work. Discount for the minimum period of study</span></span></span></span></span></span></p>
+</td>
+</tr>
+<tr>
+<td style="border:solid windowtext 1.0pt; width:76.25pt; border-top:none; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="102">
+<p style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">20%</span></span></span></span></span></span></p>
+</td>
+<td style="border-bottom:solid windowtext 1.0pt; width:391.25pt; border-top:none; border-left:none; border-right:solid windowtext 1.0pt; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="522">
+<p style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">Deduction from the tuition fees for the married &nbsp;couple (as long as they are registered together) at the university</span></span></span></span></span></span></p>
+</td>
+</tr>
+<tr>
+<td style="border:solid windowtext 1.0pt; width:76.25pt; border-top:none; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="102">
+<p style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">20%</span></span></span></span></span></span></p>
+</td>
+<td style="border-bottom:solid windowtext 1.0pt; width:391.25pt; border-top:none; border-left:none; border-right:solid windowtext 1.0pt; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="522">
+<p style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">Deduction &nbsp;from the tuition fees for students ,members of the Revolutionary Youth Union, who are &nbsp;distinguished scientifically or militarily</span></span></span></span></span></span></p>
+</td>
+</tr>
+<tr style="height:3.5pt">
+<td style="border:solid windowtext 1.0pt; width:76.25pt; border-top:none; padding:0cm 5.4pt 0cm 5.4pt; height:3.5pt" valign="top" width="102">
+<p style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">15%</span></span></span></span></span></span></p>
+</td>
+<td style="border-bottom:solid windowtext 1.0pt; width:391.25pt; border-top:none; border-left:none; border-right:solid windowtext 1.0pt; padding:0cm 5.4pt 0cm 5.4pt; height:3.5pt" valign="top" width="522">
+<p style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">For members of the technical and administrative staff, for the duration of their work at the university. Discount for the minimum period of study</span></span></span></span></span></span></p>
 </td>
 </tr>
 </tbody>
 </table>
 
-<p dir="ltr" style="margin-left:0cm; margin-right:0cm"> </p>
+<p dir="ltr" style="margin: 0cm 0cm 8pt;">&nbsp;</p>
 
-<p dir="ltr" style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:14.0pt">Fourth - Prepayment rebates:</span></strong></span></span></span></p>
+<p dir="ltr" style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><b><span style="font-size:14.0pt">Fourth - Prepayment rebates:</span></b></span></span></span></span></span></p>
 
-<p dir="ltr" style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">• Discount (2.50%) two and a half percent of the course fees if the student has paid the courses fees in full and one payment in advance, in any semester except for the first semester of the new student, provided that number of credit hours registered is not less than (15 credit hours).</span></span></span></span></p>
+<p dir="ltr" style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">&bull; Discount (2.50%) two and a half percent of the course fees if the student has paid the courses fees in full and one payment in advance, in any semester except for the first semester of the new student, provided that number of credit hours registered is not less than (15 credit hours).</span></span></span></span></span></span></p>
 
-<p dir="ltr" style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">• 5% discount of course fees if the student pays full course fees at one payment in advance for one or more academic years, provided that the number of credit hours registered is not less than (30 credit hours).</span></span></span></span></p>
+<p dir="ltr" style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">&bull; 5% discount of course fees if the student pays full course fees at one payment in advance for one or more academic years, provided that the number of credit hours registered is not less than (30 credit hours).</span></span></span></span></span></span></p>
 
-<p dir="ltr" style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:14.0pt">Fifth- Discount for trade unions members (10%):</span></strong></span></span></span></p>
+<p dir="ltr" style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><b><span style="font-size:14.0pt">Fifth- Discount for trade unions members (10%):</span></b></span></span></span></span></span></p>
 
-<p dir="ltr" style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">ASPU offers a 10% discount on tuition fees for the children of members of trade unions and members of people’s organizations.</span></span></span></span></p>
+<p dir="ltr" style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">ASPU offers a 10% discount on tuition fees for the children of members of trade unions and members of people&rsquo;s organizations.</span></span></span></span></span></span></p>
 
-<p dir="ltr" style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:14.0pt">Sixth-Discounts on academic excellence for university students:</span></strong></span></span></span></p>
+<p dir="ltr" style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><b><span style="font-size:14.0pt">Sixth-Discounts on academic excellence for university students:</span></b></span></span></span></span></span></p>
 
-<p dir="ltr" style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">This discount is added to any other discount the student has received.</span></span></span></span></p>
+<p dir="ltr" style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">This discount is added to any other discount the student has received.</span></span></span></span></span></span></p>
 
-<table align="center" border="1" cellspacing="0" class="MsoTableGrid" dir="ltr" style="border-collapse:collapse; border:solid windowtext 1.0pt">
+<table align="center" class="MsoTableGrid" dir="ltr" style="border-collapse:collapse; border:solid windowtext 1.0pt">
 <tbody>
 <tr>
-<td style="vertical-align:top; width:155.8pt">
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">Rate%</span></span></span></span></p>
+<td style="border:solid windowtext 1.0pt; width:155.8pt; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="208">
+<p style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">Rate%</span></span></span></span></span></span></p>
 </td>
-<td style="vertical-align:top; width:155.85pt">
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">discount on course fees (without other fees)</span></span></span></span></p>
+<td style="border:solid windowtext 1.0pt; width:155.85pt; border-left:none; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="208">
+<p style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">discount on course fees (without other fees)</span></span></span></span></span></span></p>
 </td>
-<td style="vertical-align:top; width:155.85pt">
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">Rank</span></span></span></span></p>
+<td style="border:solid windowtext 1.0pt; width:155.85pt; border-left:none; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="208">
+<p style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">Rank</span></span></span></span></span></span></p>
+</td>
+</tr>
+<tr style="height:16.15pt">
+<td style="border:solid windowtext 1.0pt; width:155.8pt; border-top:none; padding:0cm 5.4pt 0cm 5.4pt; height:16.15pt" valign="top" width="208">
+<p style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">75.00 - 79.99</span></span></span></span></span></span></p>
+</td>
+<td style="border-bottom:solid windowtext 1.0pt; width:155.85pt; border-top:none; border-left:none; border-right:solid windowtext 1.0pt; padding:0cm 5.4pt 0cm 5.4pt; height:16.15pt" valign="top" width="208">
+<p style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">5%</span></span></span></span></span></span></p>
+</td>
+<td style="border-bottom:solid windowtext 1.0pt; width:155.85pt; border-top:none; border-left:none; border-right:solid windowtext 1.0pt; padding:0cm 5.4pt 0cm 5.4pt; height:16.15pt" valign="top" width="208">
+<p style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">Very good</span></span></span></span></span></span></p>
 </td>
 </tr>
 <tr>
-<td style="height:16.15pt; vertical-align:top; width:155.8pt">
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">75.00 - 79.99</span></span></span></span></p>
+<td style="border:solid windowtext 1.0pt; width:155.8pt; border-top:none; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="208">
+<p style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">80.00 - 84.99</span></span></span></span></span></span></p>
 </td>
-<td style="height:16.15pt; vertical-align:top; width:155.85pt">
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">5%</span></span></span></span></p>
+<td style="border-bottom:solid windowtext 1.0pt; width:155.85pt; border-top:none; border-left:none; border-right:solid windowtext 1.0pt; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="208">
+<p style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">10%</span></span></span></span></span></span></p>
 </td>
-<td style="height:16.15pt; vertical-align:top; width:155.85pt">
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">Very good</span></span></span></span></p>
-</td>
-</tr>
-<tr>
-<td style="vertical-align:top; width:155.8pt">
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">80.00 - 84.99</span></span></span></span></p>
-</td>
-<td style="vertical-align:top; width:155.85pt">
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">10%</span></span></span></span></p>
-</td>
-<td style="vertical-align:top; width:155.85pt">
-<p style="margin-left:0cm; margin-right:0cm"> </p>
+<td style="border-bottom:solid windowtext 1.0pt; width:155.85pt; border-top:none; border-left:none; border-right:solid windowtext 1.0pt; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="208">
+<p style="margin: 0cm 0cm 8pt;">&nbsp;</p>
 </td>
 </tr>
 <tr>
-<td style="vertical-align:top; width:155.8pt">
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">85.00 - 89.99</span></span></span></span></p>
+<td style="border:solid windowtext 1.0pt; width:155.8pt; border-top:none; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="208">
+<p style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">85.00 - 89.99</span></span></span></span></span></span></p>
 </td>
-<td style="vertical-align:top; width:155.85pt">
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">25%</span></span></span></span></p>
+<td style="border-bottom:solid windowtext 1.0pt; width:155.85pt; border-top:none; border-left:none; border-right:solid windowtext 1.0pt; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="208">
+<p style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">25%</span></span></span></span></span></span></p>
 </td>
-<td rowspan="2" style="vertical-align:top; width:155.85pt">
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">Excellence </span></span></span></span></p>
-</td>
-</tr>
-<tr>
-<td style="vertical-align:top; width:155.8pt">
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">90.00 - 94.99</span></span></span></span></p>
-</td>
-<td style="vertical-align:top; width:155.85pt">
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">50%</span></span></span></span></p>
+<td rowspan="2" style="border-bottom:solid windowtext 1.0pt; width:155.85pt; border-top:none; border-left:none; border-right:solid windowtext 1.0pt; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="208">
+<p style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">Excellence </span></span></span></span></span></span></p>
 </td>
 </tr>
 <tr>
-<td style="vertical-align:top; width:155.8pt">
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">95.00 - and above</span></span></span></span></p>
+<td style="border:solid windowtext 1.0pt; width:155.8pt; border-top:none; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="208">
+<p style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">90.00 - 94.99</span></span></span></span></span></span></p>
 </td>
-<td style="vertical-align:top; width:155.85pt">
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">75%</span></span></span></span></p>
-</td>
-<td rowspan="2" style="vertical-align:top; width:155.85pt">
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">Honor </span></span></span></span></p>
+<td style="border-bottom:solid windowtext 1.0pt; width:155.85pt; border-top:none; border-left:none; border-right:solid windowtext 1.0pt; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="208">
+<p style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">50%</span></span></span></span></span></span></p>
 </td>
 </tr>
 <tr>
-<td style="vertical-align:top; width:155.8pt">
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">The first on the college, no matter his rank</span></span></span></span></p>
+<td style="border:solid windowtext 1.0pt; width:155.8pt; border-top:none; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="208">
+<p style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">95.00 - and above</span></span></span></span></span></span></p>
 </td>
-<td style="vertical-align:top; width:155.85pt">
-<p style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">100%</span></span></span></span></p>
+<td style="border-bottom:solid windowtext 1.0pt; width:155.85pt; border-top:none; border-left:none; border-right:solid windowtext 1.0pt; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="208">
+<p style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">75%</span></span></span></span></span></span></p>
+</td>
+<td rowspan="2" style="border-bottom:solid windowtext 1.0pt; width:155.85pt; border-top:none; border-left:none; border-right:solid windowtext 1.0pt; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="208">
+<p style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">Honor </span></span></span></span></span></span></p>
+</td>
+</tr>
+<tr>
+<td style="border:solid windowtext 1.0pt; width:155.8pt; border-top:none; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="208">
+<p style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">The first on the college, no matter his rank</span></span></span></span></span></span></p>
+</td>
+<td style="border-bottom:solid windowtext 1.0pt; width:155.85pt; border-top:none; border-left:none; border-right:solid windowtext 1.0pt; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="208">
+<p style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">100%</span></span></span></span></span></span></p>
 </td>
 </tr>
 </tbody>
 </table>
 
-<p dir="ltr" style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:14.0pt">Central Administration</span></strong><span style="font-size:14.0pt">: </span><span style="font-size:12.0pt">Damascus-Baramkeh-Musab Bin Omeer Street - next to Tishreen Sports city </span></span></span></span></p>
+<p dir="ltr" style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><b><span style="font-size:14.0pt">Central Administration</span></b><span style="font-size:14.0pt">: </span><span style="font-size:12.0pt">Damascus-Baramkeh-Musab Bin Omeer Street - next to Tishreen Sports city </span></span></span></span></span></span></p>
 
-<p dir="ltr" style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:14.0pt">Damascus Faculties</span></strong><span style="font-size:14.0pt">: </span><span style="font-size:12.0pt">(Information Engineering - Law - International Relations and Diplomacy - Administrative Sciences) Al-Baramkeh next to Tishreen Sports city</span></span></span></span></p>
+<p dir="ltr" style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><b><span style="font-size:14.0pt">Damascus Faculties</span></b><span style="font-size:14.0pt">: </span><span style="font-size:12.0pt">(Information Engineering - Law - International Relations and Diplomacy - Administrative Sciences) Al-Baramkeh next to Tishreen Sports city</span></span></span></span></span></span></p>
 
-<p dir="ltr" style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">                Telephone: 00963 11 215 33 60/ 00963 11 2066/ 0934602121</span></span></span></span></p>
+<p dir="ltr" style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Telephone: 00963 11 215 33 60/ 00963 11 2066/ 0934602121</span></span></span></span></span></span></p>
 
-<p dir="ltr" style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">                Fax: +963-11 2153364</span></span></span></span></p>
+<p dir="ltr" style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fax: +963-11 2153364</span></span></span></span></span></span></p>
 
-<p dir="ltr" style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:14.0pt">Medical Colleges:</span></strong> <span style="font-size:12.0pt">(human medicine-dentistry) Damascus - Mazraa - next to al-Eman mosque</span></span></span></span></p>
+<p dir="ltr" style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><b><span style="font-size:14.0pt">Medical Colleges:</span></b> <span style="font-size:12.0pt">(human medicine-dentistry) Damascus - Mazraa - next to al-Eman mosque</span></span></span></span></span></span></p>
 
-<p dir="ltr" style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">                Telephone: 00963-11-4438461 / 00963-11-4438462 / 0934602121</span></span></span></span></p>
+<p dir="ltr" style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Telephone: 00963-11-4438461 / 00963-11-4438462 / 0934602121</span></span></span></span></span></span></p>
 
-<p dir="ltr" style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">                Fax: +963-441-438465</span></span></span></span></p>
+<p dir="ltr" style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fax: +963-441-438465</span></span></span></span></span></span></p>
 
-<p dir="ltr" style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:14.0pt">Faculty of Pharmacy</span></strong><span style="font-size:14.0pt">: </span><span style="font-size:12.0pt">Al-Tal City-Damascus countryside(formerly Faculty of Political Science)</span></span></span></span></p>
+<p dir="ltr" style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><b><span style="font-size:14.0pt">Faculty of Pharmacy</span></b><span style="font-size:14.0pt">: </span><span style="font-size:12.0pt">Al-Tal City-Damascus countryside(formerly Faculty of Political Science)</span></span></span></span></span></span></p>
 
-<p dir="ltr" style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:14.0pt">Lattakia Colleges</span></strong><span style="font-size:14.0pt">: </span><span style="font-size:12.0pt">(Pharmacy- Dentistry - Law - Administrative Sciences) al-Sleibeh quarters - next to the Revolutionary Youth Union</span></span></span></span></p>
+<p dir="ltr" style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><b><span style="font-size:14.0pt">Lattakia Colleges</span></b><span style="font-size:14.0pt">: </span><span style="font-size:12.0pt">(Pharmacy- Dentistry - Law - Administrative Sciences) al-Sleibeh quarters - next to the Revolutionary Youth Union</span></span></span></span></span></span></p>
 
-<p dir="ltr" style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">                  Telephone: 00963-41-493412 / 00963-41-493415 /</span></span></span></span></p>
+<p dir="ltr" style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;Telephone: 00963-41-493412 / 00963-41-493415 /</span></span></span></span></span></span></p>
 
-<p dir="ltr" style="margin-left:0cm; margin-right:0cm"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">                   Fax: +963-41-343415 </span></span></span></span></p>
+<p dir="ltr" style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; Fax: +963-41-343415&nbsp;</span></span></span></span></span></span></p>
 
-<p dir="ltr" style="margin-left:0cm; margin-right:0cm"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><a href="mailto:info@alsham-univ.sy" style="color:blue; text-decoration:underline"><span style="color:#000000"><span style="font-size:14.0pt">info@alsham-univ.sy</span></span></a><span style="color:#000000"><span style="font-size:14.0pt">     <u>Alsham.University@facebook.com</u>       </span></span><a href="http://www.Aspu.edu.sy" style="color:blue; text-decoration:underline"><span style="color:#000000"><span style="font-size:14.0pt">www.Aspu.edu.sy</span></span></a></span></span></p>',
-                        'created_at' => '2018-10-22 05:12:02',
-                        'updated_at' => '2019-01-06 09:52:21',
-                        'deleted_at' => NULL,
-                    ),
-                    69 => 
-                    array (
-                        'id' => 70,
-                        'custom_module_attribute_value_id' => 217,
-                        'lang_id' => 2,
-                        'text' => '<h1 class="line-bottom mt-0 text-uppercase" dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:18.0pt">المنح المقدمة من جامعة الشام الخاصة</span></strong></span></span></span></h1>
+<p dir="ltr" style="margin: 0cm 0cm 8pt;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><a href="mailto:info@alsham-univ.sy" style="color:blue; text-decoration:underline"><span style="color:#000000;"><span style="font-size:14.0pt">info@alsham-univ.sy</span></span></a><span style="color:#000000;"><span style="font-size:14.0pt">&nbsp;&nbsp;&nbsp; &nbsp;<u>Alsham.University@facebook.com</u> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span><a href="http://www.Aspu.edu.sy" style="color:blue; text-decoration:underline"><span style="color:#000000;"><span style="font-size:14.0pt">www.Aspu.edu.sy</span></span></a></span></span></span></span></p>',
+            'created_at' => '2018-10-22 05:12:02',
+            'updated_at' => '2018-11-06 06:35:40',
+            'deleted_at' => NULL,
+        ),
+        69 => 
+        array (
+            'id' => 70,
+            'custom_module_attribute_value_id' => 217,
+            'lang_id' => 2,
+            'text' => '<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span lang="AR-SY" style="font-size:18.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">المنح المقدمة من جامعة الشام الخاصة</span></span></b></span></span></span></span></span></span></p>
 
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:16.0pt">أولاً - المنح الكاملة :</span></strong></span></span></span></p>
+<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span lang="AR-SY" style="font-size:16.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">أولاً - المنح الكاملة :</span></span></b></span></span></span></span></span></span></p>
 
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">تقدم الجامعة سنويا منحاً مجانية وفق الآتي:</span></span></span></span></p>
-
-<ul style="list-style:decimal; padding:0 20px">
-<li dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:14.0pt">منح وزارة التعليم العالي بنسبة 5% من عدد الطلاب المقبولين في الجامعة في كل كلية واختصاص.</span></span></li>
-<li dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:14.0pt">منحة دراسية واحدة في كل سنة لكل من وزارة العدل في كلية الحقوق، ووزارة التنمية الإدارية في كلية العلوم الإدارية.</span></span></li>
-<li dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:14.0pt">منح كاملة لأبناء الشهداء من العسكريين 100%</span></span></li>
-</ul>
-
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">تشمل هذه المنح الإعفاء من رسوم الساعات المعتمدة ورسوم التسجيل والقبول والمفاضلة والخدمات طيلة المدة الدنيا اللازمة لإتمام المرحلة الجامعية الأولى.</span></span></span></span></p>
-
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:16.0pt">ثانياً - منح الشهادة الثانوية:</span></strong></span></span></span></p>
-
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">تقدم الجامعة منحاً وحسومات للط</span></span></span><span style="font-size:14.0pt"><img alt="" height="120" src="http://localhost/Web/Andalus/public/laravel-filemanager/photos/1/265x195.jpg" style="float:right" width="163" /></span><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">لاب الناجحين والمتفوقين دراسياً في الشهادة الثانوية السورية لدورة العام الحالي وبعد طي درجتي التربية الدينية وإحدى اللغتين الأجنبيتين (أيهما أقل)، حسب الآتي:</span></span></span></span></p>
+<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">تقدم الجامعة سنويا منحاً مجانية وفق الآتي:</span></span></span></span></span></span></span></span></p>
 
 <ol>
-<li dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:14.0pt">منحة للطالب الأول على مستوى القطر في الشهادة الثانوية العامة للفروع (الأدبي / العلمي / الشرعي)</span></span></li>
-<li dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:14.0pt">منحة للطالب الثاني فقط على مستوى القطر في الشهادة الثانوية (الفرع العلمي فقط</span></span></li>
-<li dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:14.0pt">حسومات للطلاب الناجحين الحاصلين على درجات عالية في الثانوية الراغبين بالتسجيل في الكليات <strong>(غير الطبية)</strong>، وفق الآتي:</span></span></li>
+<li dir="RTL" style="margin-right:24.0pt; text-align:justify"><span style="color:#000000;"><span style="direction:rtl"><span style="unicode-bidi:embed"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">منح وزارة التعليم العالي بنسبة 5% من عدد الطلاب المقبولين في الجامعة في كل كلية واختصاص.</span></span></span></span></span></li>
+<li dir="RTL" style="margin-right:24.0pt; text-align:justify"><span style="color:#000000;"><span style="direction:rtl"><span style="unicode-bidi:embed"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">منحة دراسية واحدة في كل سنة لكل من وزارة العدل في كلية الحقوق، ووزارة التنمية الإدارية في كلية العلوم الإدارية.</span></span></span></span></span></li>
+<li dir="RTL" style="margin-right:24.0pt; text-align:justify"><span style="color:#000000;"><span style="direction:rtl"><span style="unicode-bidi:embed"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">منح كاملة لأبناء الشهداء من العسكريين 100%</span></span></span></span></span></li>
 </ol>
 
-<div dir="rtl">
-<table border="1" cellspacing="0" dir="rtl" style="width:446.0pt">
-<tbody>
-<tr>
-<td rowspan="2" style="height:66.25pt; width:110.2pt">
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">الشهادة الثانوية</span></span></span></span></p>
-</td>
-<td rowspan="2" style="height:66.25pt; width:80.0pt">
-<p dir="RTL" style="text-align:right"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">نسبة الحسم</span></span></span></span></p>
-</td>
-<td colspan="4" style="height:66.25pt; width:255.8pt">
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">مجموع الدرجات بعد طي درجتي التربية الدينية</span></span></span></span></p>
+<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">تشمل هذه المنح الإعفاء من رسوم الساعات المعتمدة ورسوم التسجيل والقبول والمفاضلة والخدمات طيلة المدة الدنيا اللازمة لإتمام المرحلة الجامعية الأولى.</span></span></span></span></span></span></span></span></p>
 
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">وإحدى اللغتين الأجنبيتين</span></span></span></span></p>
+<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span lang="AR-SY" style="font-size:16.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">ثانياً - منح الشهادة الثانوية:</span></span></b></span></span></span></span></span></span></p>
+
+<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">تقدم الجامعة منحاً وحسومات للطلاب الناجحين والمتفوقين دراسياً في الشهادة الثانوية السورية لدورة العام الحالي وبعد طي درجتي التربية الدينية وإحدى اللغتين الأجنبيتين (أيهما أقل)، حسب الآتي:</span></span></span></span></span></span></span></span></p>
+
+<ol>
+<li dir="RTL" style="margin-right:30.75pt; text-align:justify"><span style="color:#000000;"><span style="direction:rtl"><span style="unicode-bidi:embed"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">منحة للطالب الأول على مستوى القطر في الشهادة الثانوية العامة للفروع (الأدبي / العلمي / الشرعي)</span></span></span></span></span></li>
+<li dir="RTL" style="margin-right:30.75pt; text-align:justify"><span style="color:#000000;"><span style="direction:rtl"><span style="unicode-bidi:embed"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">منحة للطالب الثاني فقط على مستوى القطر في الشهادة الثانوية (الفرع العلمي فقط</span></span></span></span></span></li>
+<li dir="RTL" style="margin-right:30.75pt; text-align:justify"><span style="color:#000000;"><span style="direction:rtl"><span style="unicode-bidi:embed"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">حسومات للطلاب الناجحين الحاصلين على درجات عالية في الثانوية الراغبين بالتسجيل في الكليات <b>(غير الطبية)</b>، وفق الآتي:</span></span></span></span></span></li>
+</ol>
+
+<div align="center" dir="rtl">
+<table class="Table" dir="rtl" style="width:446.0pt; border-collapse:collapse; border:solid windowtext 1.0pt" width="595">
+<tbody>
+<tr style="height:66.25pt">
+<td rowspan="2" style="border:solid windowtext 1.0pt; width:110.2pt; padding:0cm 5.4pt 0cm 5.4pt; height:66.25pt" width="147">
+<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">الشهادة الثانوية</span></span></span></span></span></span></span></span></p>
+</td>
+<td rowspan="2" style="border:solid windowtext 1.0pt; width:80.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:66.25pt" width="107">
+<p dir="RTL" style="margin-bottom:.0001pt; margin:0cm 0cm 8pt; text-align:right"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">نسبة الحسم</span></span></span></span></span></span></span></span></p>
+</td>
+<td colspan="4" style="border:solid windowtext 1.0pt; width:255.8pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:66.25pt" width="341">
+<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">مجموع الدرجات بعد طي درجتي التربية الدينية</span></span></span></span></span></span></span></span></p>
+
+<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">وإحدى اللغتين الأجنبيتين</span></span></span></span></span></span></span></span></p>
 </td>
 </tr>
-<tr>
-<td style="height:21.15pt; width:58.45pt">
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">من</span></span></span></span></p>
+<tr style="height:21.15pt">
+<td style="border-bottom:solid windowtext 1.0pt; width:58.45pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:21.15pt" width="78">
+<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">من</span></span></span></span></span></span></span></span></p>
 </td>
-<td style="height:21.15pt; width:57.2pt">
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">إلى</span></span></span></span></p>
+<td style="border-bottom:solid windowtext 1.0pt; width:57.2pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:21.15pt" width="76">
+<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">إلى</span></span></span></span></span></span></span></span></p>
 </td>
-<td style="height:21.15pt; width:67.45pt">
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">من</span></span></span></span></p>
+<td style="border-bottom:solid windowtext 1.0pt; width:67.45pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:21.15pt" width="90">
+<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">من</span></span></span></span></span></span></span></span></p>
 </td>
-<td style="height:21.15pt; width:72.7pt">
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">إلى</span></span></span></span></p>
-</td>
-</tr>
-<tr>
-<td style="height:19.85pt; width:110.2pt">
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">العامة / علمي</span></span></span></span></p>
-</td>
-<td style="height:19.85pt; width:80.0pt">
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">10 %</span></span></span></span></p>
-</td>
-<td style="height:19.85pt; width:58.45pt">
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">75%</span></span></span></span></p>
-</td>
-<td style="height:19.85pt; width:57.2pt">
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">84.99%</span></span></span></span></p>
-</td>
-<td style="height:19.85pt; width:67.45pt">
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">1800</span></span></span></span></p>
-</td>
-<td style="height:19.85pt; width:72.7pt">
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">2039</span></span></span></span></p>
+<td style="border-bottom:solid windowtext 1.0pt; width:72.7pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:21.15pt" width="97">
+<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">إلى</span></span></span></span></span></span></span></span></p>
 </td>
 </tr>
-<tr>
-<td style="height:19.85pt; width:110.2pt">
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">العامة / علمي</span></span></span></span></p>
+<tr style="height:19.85pt">
+<td style="border:solid windowtext 1.0pt; width:110.2pt; border-top:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="147">
+<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">العامة / علمي</span></span></span></span></span></span></span></span></p>
 </td>
-<td style="height:19.85pt; width:80.0pt">
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">20%</span></span></span></span></p>
+<td style="border-bottom:solid windowtext 1.0pt; width:80.0pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="107">
+<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">10 %</span></span></span></span></span></span></span></span></p>
 </td>
-<td style="height:19.85pt; width:58.45pt">
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">85%</span></span></span></span></p>
+<td style="border-bottom:solid windowtext 1.0pt; width:58.45pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="78">
+<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">75%</span></span></span></span></span></span></span></span></p>
 </td>
-<td style="height:19.85pt; width:57.2pt">
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">100%</span></span></span></span></p>
+<td style="border-bottom:solid windowtext 1.0pt; width:57.2pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="76">
+<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">84.99%</span></span></span></span></span></span></span></span></p>
 </td>
-<td style="height:19.85pt; width:67.45pt">
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">2040</span></span></span></span></p>
+<td style="border-bottom:solid windowtext 1.0pt; width:67.45pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="90">
+<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">1800</span></span></span></span></span></span></span></span></p>
 </td>
-<td style="height:19.85pt; width:72.7pt">
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">2400</span></span></span></span></p>
-</td>
-</tr>
-<tr>
-<td style="height:19.85pt; width:110.2pt">
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">العامة / أدبي</span></span></span></span></p>
-</td>
-<td style="height:19.85pt; width:80.0pt">
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">10 %</span></span></span></span></p>
-</td>
-<td style="height:19.85pt; width:58.45pt">
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">75%</span></span></span></span></p>
-</td>
-<td style="height:19.85pt; width:57.2pt">
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">84.99%</span></span></span></span></p>
-</td>
-<td style="height:19.85pt; width:67.45pt">
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">1650</span></span></span></span></p>
-</td>
-<td style="height:19.85pt; width:72.7pt">
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">1869</span></span></span></span></p>
+<td style="border-bottom:solid windowtext 1.0pt; width:72.7pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="97">
+<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">2039</span></span></span></span></span></span></span></span></p>
 </td>
 </tr>
-<tr>
-<td style="height:19.85pt; width:110.2pt">
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">العامة / أدبي</span></span></span></span></p>
+<tr style="height:19.85pt">
+<td style="border:solid windowtext 1.0pt; width:110.2pt; border-top:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="147">
+<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">العامة / علمي</span></span></span></span></span></span></span></span></p>
 </td>
-<td style="height:19.85pt; width:80.0pt">
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">20%</span></span></span></span></p>
+<td style="border-bottom:solid windowtext 1.0pt; width:80.0pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="107">
+<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">20%</span></span></span></span></span></span></span></span></p>
 </td>
-<td style="height:19.85pt; width:58.45pt">
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">85%</span></span></span></span></p>
+<td style="border-bottom:solid windowtext 1.0pt; width:58.45pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="78">
+<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">85%</span></span></span></span></span></span></span></span></p>
 </td>
-<td style="height:19.85pt; width:57.2pt">
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">100%</span></span></span></span></p>
+<td style="border-bottom:solid windowtext 1.0pt; width:57.2pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="76">
+<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">100%</span></span></span></span></span></span></span></span></p>
 </td>
-<td style="height:19.85pt; width:67.45pt">
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">1870</span></span></span></span></p>
+<td style="border-bottom:solid windowtext 1.0pt; width:67.45pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="90">
+<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">2040</span></span></span></span></span></span></span></span></p>
 </td>
-<td style="height:19.85pt; width:72.7pt">
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">2200</span></span></span></span></p>
-</td>
-</tr>
-<tr>
-<td style="height:19.85pt; width:110.2pt">
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">الشرعية</span></span></span></span></p>
-</td>
-<td style="height:19.85pt; width:80.0pt">
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">15%</span></span></span></span></p>
-</td>
-<td style="height:19.85pt; width:58.45pt">
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">85%</span></span></span></span></p>
-</td>
-<td style="height:19.85pt; width:57.2pt">
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">100%</span></span></span></span></p>
-</td>
-<td style="height:19.85pt; width:67.45pt">
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">1870</span></span></span></span></p>
-</td>
-<td style="height:19.85pt; width:72.7pt">
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">2200</span></span></span></span></p>
+<td style="border-bottom:solid windowtext 1.0pt; width:72.7pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="97">
+<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">2400</span></span></span></span></span></span></span></span></p>
 </td>
 </tr>
-<tr>
-<td style="height:19.85pt; width:110.2pt">
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">المهنية / تجارية</span></span></span></span></p>
+<tr style="height:19.85pt">
+<td style="border:solid windowtext 1.0pt; width:110.2pt; border-top:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="147">
+<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">العامة / أدبي</span></span></span></span></span></span></span></span></p>
 </td>
-<td style="height:19.85pt; width:80.0pt">
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">15%</span></span></span></span></p>
+<td style="border-bottom:solid windowtext 1.0pt; width:80.0pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="107">
+<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">10 %</span></span></span></span></span></span></span></span></p>
 </td>
-<td style="height:19.85pt; width:58.45pt">
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">85%</span></span></span></span></p>
+<td style="border-bottom:solid windowtext 1.0pt; width:58.45pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="78">
+<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">75%</span></span></span></span></span></span></span></span></p>
 </td>
-<td style="height:19.85pt; width:57.2pt">
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">100%</span></span></span></span></p>
+<td style="border-bottom:solid windowtext 1.0pt; width:57.2pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="76">
+<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">84.99%</span></span></span></span></span></span></span></span></p>
 </td>
-<td style="height:19.85pt; width:67.45pt">
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">3230</span></span></span></span></p>
+<td style="border-bottom:solid windowtext 1.0pt; width:67.45pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="90">
+<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">1650</span></span></span></span></span></span></span></span></p>
 </td>
-<td style="height:19.85pt; width:72.7pt">
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">4500</span></span></span></span></p>
+<td style="border-bottom:solid windowtext 1.0pt; width:72.7pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="97">
+<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">1869</span></span></span></span></span></span></span></span></p>
 </td>
 </tr>
-<tr>
-<td style="height:19.85pt; width:110.2pt">
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">المهنية / صناعية</span></span></span></span></p>
+<tr style="height:19.85pt">
+<td style="border:solid windowtext 1.0pt; width:110.2pt; border-top:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="147">
+<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">العامة / أدبي</span></span></span></span></span></span></span></span></p>
 </td>
-<td style="height:19.85pt; width:80.0pt">
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">15%</span></span></span></span></p>
+<td style="border-bottom:solid windowtext 1.0pt; width:80.0pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="107">
+<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">20%</span></span></span></span></span></span></span></span></p>
 </td>
-<td style="height:19.85pt; width:58.45pt">
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">85%</span></span></span></span></p>
+<td style="border-bottom:solid windowtext 1.0pt; width:58.45pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="78">
+<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">85%</span></span></span></span></span></span></span></span></p>
 </td>
-<td style="height:19.85pt; width:57.2pt">
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">100%</span></span></span></span></p>
+<td style="border-bottom:solid windowtext 1.0pt; width:57.2pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="76">
+<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">100%</span></span></span></span></span></span></span></span></p>
 </td>
-<td style="height:19.85pt; width:67.45pt">
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">3400</span></span></span></span></p>
+<td style="border-bottom:solid windowtext 1.0pt; width:67.45pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="90">
+<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">1870</span></span></span></span></span></span></span></span></p>
 </td>
-<td style="height:19.85pt; width:72.7pt">
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">4500</span></span></span></span></p>
+<td style="border-bottom:solid windowtext 1.0pt; width:72.7pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="97">
+<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">2200</span></span></span></span></span></span></span></span></p>
+</td>
+</tr>
+<tr style="height:19.85pt">
+<td style="border:solid windowtext 1.0pt; width:110.2pt; border-top:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="147">
+<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">الشرعية</span></span></span></span></span></span></span></span></p>
+</td>
+<td style="border-bottom:solid windowtext 1.0pt; width:80.0pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="107">
+<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">15%</span></span></span></span></span></span></span></span></p>
+</td>
+<td style="border-bottom:solid windowtext 1.0pt; width:58.45pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="78">
+<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">85%</span></span></span></span></span></span></span></span></p>
+</td>
+<td style="border-bottom:solid windowtext 1.0pt; width:57.2pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="76">
+<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">100%</span></span></span></span></span></span></span></span></p>
+</td>
+<td style="border-bottom:solid windowtext 1.0pt; width:67.45pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="90">
+<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">1870</span></span></span></span></span></span></span></span></p>
+</td>
+<td style="border-bottom:solid windowtext 1.0pt; width:72.7pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="97">
+<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">2200</span></span></span></span></span></span></span></span></p>
+</td>
+</tr>
+<tr style="height:19.85pt">
+<td style="border:solid windowtext 1.0pt; width:110.2pt; border-top:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="147">
+<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">المهنية / تجارية</span></span></span></span></span></span></span></span></p>
+</td>
+<td style="border-bottom:solid windowtext 1.0pt; width:80.0pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="107">
+<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">15%</span></span></span></span></span></span></span></span></p>
+</td>
+<td style="border-bottom:solid windowtext 1.0pt; width:58.45pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="78">
+<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">85%</span></span></span></span></span></span></span></span></p>
+</td>
+<td style="border-bottom:solid windowtext 1.0pt; width:57.2pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="76">
+<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">100%</span></span></span></span></span></span></span></span></p>
+</td>
+<td style="border-bottom:solid windowtext 1.0pt; width:67.45pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="90">
+<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">3230</span></span></span></span></span></span></span></span></p>
+</td>
+<td style="border-bottom:solid windowtext 1.0pt; width:72.7pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="97">
+<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">4500</span></span></span></span></span></span></span></span></p>
+</td>
+</tr>
+<tr style="height:19.85pt">
+<td style="border:solid windowtext 1.0pt; width:110.2pt; border-top:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="147">
+<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">المهنية / صناعية</span></span></span></span></span></span></span></span></p>
+</td>
+<td style="border-bottom:solid windowtext 1.0pt; width:80.0pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="107">
+<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">15%</span></span></span></span></span></span></span></span></p>
+</td>
+<td style="border-bottom:solid windowtext 1.0pt; width:58.45pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="78">
+<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">85%</span></span></span></span></span></span></span></span></p>
+</td>
+<td style="border-bottom:solid windowtext 1.0pt; width:57.2pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="76">
+<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">100%</span></span></span></span></span></span></span></span></p>
+</td>
+<td style="border-bottom:solid windowtext 1.0pt; width:67.45pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="90">
+<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">3400</span></span></span></span></span></span></span></span></p>
+</td>
+<td style="border-bottom:solid windowtext 1.0pt; width:72.7pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" width="97">
+<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">4500</span></span></span></span></span></span></span></span></p>
 </td>
 </tr>
 </tbody>
 </table>
 </div>
 
-<p dir="RTL" style="text-align:justify">&nbsp;</p>
+<p dir="RTL" style="text-align:justify; margin:0cm 0cm 8pt">&nbsp;</p>
 
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:16.0pt">ثالثاً - الحسومات (منح جزئية):</span></strong></span></span></span></p>
+<p dir="RTL" style="text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span lang="AR-SY" style="font-size:16.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">ثالثاً - الحسومات (منح جزئية):</span></span></b></span></span></span></span></span></span></p>
 
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">وتشمل تخفيض رسوم الساعات المعتمدة طيلة المدة الدنيا اللازمة لإنهاء الدراسة في المرحلة الجامعية الأولى وتكون هذه المنح بشكل حسومات وفق الآتي:</span></span></span></span></p>
+<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">وتشمل تخفيض رسوم الساعات المعتمدة طيلة المدة الدنيا اللازمة لإنهاء الدراسة في المرحلة الجامعية الأولى وتكون هذه المنح بشكل حسومات وفق الآتي:</span></span></span></span></span></span></span></span></p>
 
-<p dir="RTL" style="text-align:justify">&nbsp;</p>
+<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt">&nbsp;</p>
 
-<div dir="rtl">
-<table border="1" cellspacing="0" dir="rtl" style="width:435.35pt">
+<div align="center" dir="rtl">
+<table class="Table" dir="rtl" style="width:435.35pt; border-collapse:collapse; border:solid windowtext 1.0pt" width="580">
 <tbody>
 <tr>
-<td style="width:59.65pt">
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:14.0pt">50%</span></strong></span></span></span></p>
+<td style="border:solid windowtext 1.0pt; width:59.65pt; padding:0cm 5.4pt 0cm 5.4pt" width="80">
+<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">50%</span></span></b></span></span></span></span></span></span></p>
 </td>
-<td style="vertical-align:top; width:375.7pt">
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">لذوي الشهداء تشمل (الأب - الأم - الزوج - الأخوة والأخوات) وللمدة الدنيا من الدراسة</span></span></span></span></p>
-</td>
-</tr>
-<tr>
-<td style="width:59.65pt">
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:14.0pt">25%</span></strong></span></span></span></p>
-</td>
-<td style="vertical-align:top; width:375.7pt">
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">لأبناء المتطوعين في القوات المسلحة (الوحدات المقاتلة) والمسجلين في الكليات الطبية وللمدة الدنيا من الدراسة</span></span></span></span></p>
+<td style="border:solid windowtext 1.0pt; width:375.7pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="501">
+<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">لذوي الشهداء تشمل (الأب - الأم - الزوج - الأخوة والأخوات) وللمدة الدنيا من الدراسة</span></span></span></span></span></span></span></span></p>
 </td>
 </tr>
 <tr>
-<td style="width:59.65pt">
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:14.0pt">25%</span></strong></span></span></span></p>
+<td style="border:solid windowtext 1.0pt; width:59.65pt; border-top:none; padding:0cm 5.4pt 0cm 5.4pt" width="80">
+<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">25%</span></span></b></span></span></span></span></span></span></p>
 </td>
-<td style="vertical-align:top; width:375.7pt">
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">لأبناء المتطوعين في القوات المسلحة والمسجلين في الكليات غير الطبية وللمدة الدنيا من الدراسة</span></span></span></span></p>
-</td>
-</tr>
-<tr>
-<td style="width:59.65pt">
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:14.0pt">20%</span></strong></span></span></span></p>
-</td>
-<td style="vertical-align:top; width:375.7pt">
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">لكل طالب من الطلبة الأشقاء (ما داما مسجلين في الجامعة معاً) عن كامل دراستهما طيلة المدة الدنيا من الدراسة، ويصبح الحسم 25% للشقيق الثالث، إذا أصبح عدد الأشقاء الطلبة ثلاثة</span></span></span></span></p>
+<td style="border-bottom:solid windowtext 1.0pt; width:375.7pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="501">
+<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">لأبناء المتطوعين في القوات المسلحة (الوحدات المقاتلة) والمسجلين في الكليات الطبية وللمدة الدنيا من الدراسة</span></span></span></span></span></span></span></span></p>
 </td>
 </tr>
 <tr>
-<td style="width:59.65pt">
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:14.0pt">20%</span></strong></span></span></span></p>
+<td style="border:solid windowtext 1.0pt; width:59.65pt; border-top:none; padding:0cm 5.4pt 0cm 5.4pt" width="80">
+<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">25%</span></span></b></span></span></span></span></span></span></p>
 </td>
-<td style="vertical-align:top; width:375.7pt">
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">لأبناء أعضاء الهيئة التدريسية المتفرغين كلياً في الجامعة طيلة مدة تفرغهم، ويكون الحسم للمدة الدنيا من الدراسة</span></span></span></span></p>
-</td>
-</tr>
-<tr>
-<td style="height:26.45pt; width:59.65pt">
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:14.0pt">20%</span></strong></span></span></span></p>
-</td>
-<td style="height:26.45pt; vertical-align:top; width:375.7pt">
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">حسم من الرسوم الدراسية للزوجين، (ما داما مسجلين معاً) في الجامعة</span></span></span></span></p>
+<td style="border-bottom:solid windowtext 1.0pt; width:375.7pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="501">
+<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">لأبناء المتطوعين في القوات المسلحة والمسجلين في الكليات غير الطبية وللمدة الدنيا من الدراسة</span></span></span></span></span></span></span></span></p>
 </td>
 </tr>
 <tr>
-<td style="width:59.65pt">
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:14.0pt">20%</span></strong></span></span></span></p>
+<td style="border:solid windowtext 1.0pt; width:59.65pt; border-top:none; padding:0cm 5.4pt 0cm 5.4pt" width="80">
+<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">20%</span></span></b></span></span></span></span></span></span></p>
 </td>
-<td style="vertical-align:top; width:375.7pt">
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">حسم من الرسوم الدراسية للطلبة المنتسبين لاتحاد شبيبة الثورة المتميزين علمياً أو نضالياً</span></span></span></span></p>
+<td style="border-bottom:solid windowtext 1.0pt; width:375.7pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="501">
+<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">لكل طالب من الطلبة الأشقاء (ما داما مسجلين في الجامعة معاً) عن كامل دراستهما طيلة المدة الدنيا من الدراسة، ويصبح الحسم 25% للشقيق الثالث، إذا أصبح عدد الأشقاء الطلبة ثلاثة</span></span></span></span></span></span></span></span></p>
 </td>
 </tr>
 <tr>
-<td style="width:59.65pt">
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:14.0pt">15%</span></strong></span></span></span></p>
+<td style="border:solid windowtext 1.0pt; width:59.65pt; border-top:none; padding:0cm 5.4pt 0cm 5.4pt" width="80">
+<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">20%</span></span></b></span></span></span></span></span></span></p>
 </td>
-<td style="vertical-align:top; width:375.7pt">
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">لأبناء أعضاء الهيئة الفنية والإدارية، طيلة مدة عملهم في الجامعة ويكون الحسم للمدة الدنيا من الدراسة</span></span></span></span></p>
+<td style="border-bottom:solid windowtext 1.0pt; width:375.7pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="501">
+<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">لأبناء أعضاء الهيئة التدريسية المتفرغين كلياً في الجامعة طيلة مدة تفرغهم، ويكون الحسم للمدة الدنيا من الدراسة</span></span></span></span></span></span></span></span></p>
+</td>
+</tr>
+<tr style="height:26.45pt">
+<td style="border:solid windowtext 1.0pt; width:59.65pt; border-top:none; padding:0cm 5.4pt 0cm 5.4pt; height:26.45pt" width="80">
+<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">20%</span></span></b></span></span></span></span></span></span></p>
+</td>
+<td style="border-bottom:solid windowtext 1.0pt; width:375.7pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:26.45pt" valign="top" width="501">
+<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">حسم من الرسوم الدراسية للزوجين، (ما داما مسجلين معاً) في الجامعة</span></span></span></span></span></span></span></span></p>
+</td>
+</tr>
+<tr>
+<td style="border:solid windowtext 1.0pt; width:59.65pt; border-top:none; padding:0cm 5.4pt 0cm 5.4pt" width="80">
+<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">20%</span></span></b></span></span></span></span></span></span></p>
+</td>
+<td style="border-bottom:solid windowtext 1.0pt; width:375.7pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="501">
+<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">حسم من الرسوم الدراسية للطلبة المنتسبين لاتحاد شبيبة الثورة المتميزين علمياً أو نضالياً</span></span></span></span></span></span></span></span></p>
+</td>
+</tr>
+<tr>
+<td style="border:solid windowtext 1.0pt; width:59.65pt; border-top:none; padding:0cm 5.4pt 0cm 5.4pt" width="80">
+<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">15%</span></span></b></span></span></span></span></span></span></p>
+</td>
+<td style="border-bottom:solid windowtext 1.0pt; width:375.7pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt" valign="top" width="501">
+<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">لأبناء أعضاء الهيئة الفنية والإدارية، طيلة مدة عملهم في الجامعة ويكون الحسم للمدة الدنيا من الدراسة</span></span></span></span></span></span></span></span></p>
 </td>
 </tr>
 </tbody>
 </table>
 </div>
 
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:14.0pt">رابعاً - حسومات تسديد الرسوم مقدماً:</span></strong></span></span></span></p>
+<p dir="RTL" style="margin-bottom:6.0pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">رابعاً - حسومات تسديد الرسوم مقدماً:</span></span></b></span></span></span></span></span></span></p>
 
 <ul>
-<li dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:12pt">&nbsp;<span style="font-size:14.0pt">حسم (2,50%) اثنان ونصف بالمائة من رسوم المقررات الدراسية في حال قام الطالب بتسديد رسوم المقررات كاملة ودفعة واحدة مقدماً، في أي فصل دراسي باستثناء الفصل الأول للطالب المستجد شريطة ألا يقل عدد الساعات المعتمدة المسجلة عن (15 ساعة معتمدة) .</span></span></span></li>
-<li dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:12pt"><span style="font-size:14.0pt">حسم (5%) خمسة بالمائة من رسوم المقررات الدراسية في حال قام الطالب بتسديد رسوم المقررات كاملة ودفعة واحدة مقدماً لعام دراسي واحد أو أكثر، شريطة ألا يقل عدد الساعات المعتمدة المسجلة عن (30 ساعة معتمدة). </span></span></span></li>
+<li dir="RTL" style="margin-right:25.05pt; text-align:justify"><span style="color:#000000;"><span style="font-size:12pt"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:&quot;Times New Roman&quot;,serif">&nbsp;<span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">حسم (2,50%) اثنان ونصف بالمائة من رسوم المقررات الدراسية في حال قام الطالب بتسديد رسوم المقررات كاملة ودفعة واحدة مقدماً، في أي فصل دراسي باستثناء الفصل الأول للطالب المستجد شريطة ألا يقل عدد الساعات المعتمدة المسجلة عن (15 ساعة معتمدة) .</span></span></span></span></span></span></span></li>
+<li dir="RTL" style="margin-right:25.05pt; text-align:justify"><span style="color:#000000;"><span style="font-size:12pt"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:&quot;Times New Roman&quot;,serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">حسم (5%) خمسة بالمائة من رسوم المقررات الدراسية في حال قام الطالب بتسديد رسوم المقررات كاملة ودفعة واحدة مقدماً لعام دراسي واحد أو أكثر، شريطة ألا يقل عدد الساعات المعتمدة المسجلة عن (30 ساعة معتمدة). </span></span></span></span></span></span></span></li>
 </ul>
 
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:14.0pt">خامساً -حسم</span></strong><strong><span style="font-size:14.0pt"> المنتسبين للنقابات (10%):</span></strong></span></span></span></p>
+<p dir="RTL" style="margin-bottom:6.0pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">خامساً -حسم</span></span></b><b><span lang="AR-SA" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif"> المنتسبين للنقابات (10%):</span></span></b></span></span></span></span></span></span></p>
 
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">تقدم الجامعة حسماً مقدراه (10%) عشرة بالمئة فقط من الرسوم الدراسية لأبناء المنتسبين للنقابات المهنية وأبناء أعضاء المنظمات الشعبية.</span></span></span></span></p>
+<p dir="RTL" style="margin-bottom:6.0pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">تقدم الجامعة حسماً مقدراه (10%) عشرة بالمئة فقط من الرسوم الدراسية لأبناء المنتسبين للنقابات المهنية وأبناء أعضاء المنظمات الشعبية.</span></span></span></span></span></span></span></span></p>
 
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:14.0pt">سادساً - </span></strong><strong><span style="font-size:14.0pt">حسومات التفوق الدراسي لطلاب الجامعة: </span></strong></span></span></span></p>
+<p dir="RTL" style="margin-bottom:6.0pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">سادساً - </span></span></b><b><span lang="AR-SA" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">حسومات التفوق الدراسي لطلاب الجامعة: </span></span></b></span></span></span></span></span></span></p>
 
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">يضاف هذا الحسم إلى أي حسم آخر حصل عليه الطالب.</span></span></span></span></p>
+<p dir="RTL" style="margin-bottom:6.0pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SA" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">يضاف هذا الحسم إلى أي حسم آخر حصل عليه الطالب.</span></span></span></span></span></span></span></span></p>
 
-<div dir="rtl">
-<table border="1" cellspacing="0" dir="rtl" style="width:357.35pt">
+<div align="center" dir="rtl">
+<table class="MsoTableGrid" dir="rtl" style="width:357.35pt; border-collapse:collapse; border:solid windowtext 1.0pt" width="476">
 <tbody>
-<tr>
-<td style="height:49.0pt; vertical-align:top; width:127.35pt">
-<p dir="RTL" style="text-align:center"><span style="color:#000000"><strong><span style="font-size:14.0pt">المعدل&nbsp; %</span></strong></span></p>
+<tr style="height:49.0pt">
+<td style="border:solid windowtext 1.0pt; width:127.35pt; padding:0cm 5.4pt 0cm 5.4pt; height:49.0pt" valign="top" width="170">
+<p align="center" class="CxSpMiddle" dir="RTL" style="margin-bottom:.0001pt; text-align:center"><span style="color:#000000;"><span style="line-height:normal"><b><span lang="AR-SA" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">المعدل&nbsp; %</span></span></b></span></span></p>
 </td>
-<td style="height:49.0pt; vertical-align:top; width:180.4pt">
-<p dir="RTL"><span style="color:#000000"><strong><span style="font-size:14.0pt">نسبة الحسم على رسوم المقررات (دون الرسوم الأخرى)</span></strong></span></p>
+<td style="border:solid windowtext 1.0pt; width:180.4pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:49.0pt" valign="top" width="241">
+<p class="CxSpMiddle" dir="RTL" style="margin-bottom:.0001pt"><span style="color:#000000;"><span style="line-height:normal"><b><span lang="AR-SA" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">نسبة الحسم على رسوم المقررات (دون الرسوم الأخرى)</span></span></b></span></span></p>
 </td>
-<td style="height:49.0pt; vertical-align:top; width:49.6pt">
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><strong><span style="font-size:14.0pt">المرتبة</span></strong></span></p>
-</td>
-</tr>
-<tr>
-<td style="height:20.45pt; vertical-align:top; width:127.35pt">
-<p dir="RTL" style="text-align:center"><span style="color:#000000"><span style="font-size:14.0pt">75.00 &ndash; 79.99</span></span></p>
-</td>
-<td style="height:20.45pt; vertical-align:top; width:180.4pt">
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:14.0pt">5%</span></span></p>
-</td>
-<td rowspan="2" style="height:20.45pt; vertical-align:top; width:49.6pt">
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:14.0pt">جيد جداً</span></span></p>
+<td style="border:solid windowtext 1.0pt; width:49.6pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:49.0pt" valign="top" width="66">
+<p class="CxSpMiddle" dir="RTL" style="margin-bottom:.0001pt; text-align:justify"><span style="color:#000000;"><span style="line-height:normal"><b><span lang="AR-SA" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">المرتبة</span></span></b></span></span></p>
 </td>
 </tr>
-<tr>
-<td style="height:19.85pt; vertical-align:top; width:127.35pt">
-<p dir="RTL" style="text-align:center"><span style="color:#000000"><span style="font-size:14.0pt">80.00 &ndash; 84.99</span></span></p>
+<tr style="height:20.45pt">
+<td style="border:solid windowtext 1.0pt; width:127.35pt; border-top:none; padding:0cm 5.4pt 0cm 5.4pt; height:20.45pt" valign="top" width="170">
+<p align="center" class="CxSpMiddle" dir="RTL" style="margin-bottom:.0001pt; text-align:center"><span style="color:#000000;"><span style="line-height:normal"><span lang="AR-SA" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">75.00 &ndash; 79.99</span></span></span></span></p>
 </td>
-<td style="height:19.85pt; vertical-align:top; width:180.4pt">
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:14.0pt">10%</span></span></p>
+<td style="border-bottom:solid windowtext 1.0pt; width:180.4pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:20.45pt" valign="top" width="241">
+<p class="CxSpMiddle" dir="RTL" style="margin-bottom:.0001pt; text-align:justify"><span style="color:#000000;"><span style="line-height:normal"><span lang="AR-SA" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">5%</span></span></span></span></p>
 </td>
-</tr>
-<tr>
-<td style="height:19.85pt; vertical-align:top; width:127.35pt">
-<p dir="RTL" style="text-align:center"><span style="color:#000000"><span style="font-size:14.0pt">85.00 &ndash; 89.99</span></span></p>
-</td>
-<td style="height:19.85pt; vertical-align:top; width:180.4pt">
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:14.0pt">25%</span></span></p>
-</td>
-<td rowspan="2" style="height:19.85pt; vertical-align:top; width:49.6pt">
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:14.0pt">امتياز</span></span></p>
+<td rowspan="2" style="border-bottom:solid windowtext 1.0pt; width:49.6pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:20.45pt" valign="top" width="66">
+<p class="CxSpMiddle" dir="RTL" style="margin-bottom:.0001pt; text-align:justify"><span style="color:#000000;"><span style="line-height:normal"><span lang="AR-SA" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">جيد جداً</span></span></span></span></p>
 </td>
 </tr>
-<tr>
-<td style="height:19.85pt; vertical-align:top; width:127.35pt">
-<p dir="RTL" style="text-align:center"><span style="color:#000000"><span style="font-size:14.0pt">90.00 &ndash; 94.99</span></span></p>
+<tr style="height:19.85pt">
+<td style="border:solid windowtext 1.0pt; width:127.35pt; border-top:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" valign="top" width="170">
+<p align="center" class="CxSpMiddle" dir="RTL" style="margin-bottom:.0001pt; text-align:center"><span style="color:#000000;"><span style="line-height:normal"><span lang="AR-SA" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">80.00 &ndash; 84.99</span></span></span></span></p>
 </td>
-<td style="height:19.85pt; vertical-align:top; width:180.4pt">
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:14.0pt">50%</span></span></p>
-</td>
-</tr>
-<tr>
-<td style="height:26.95pt; vertical-align:top; width:127.35pt">
-<p dir="RTL" style="text-align:center"><span style="color:#000000"><span style="font-size:14.0pt">95.00 &ndash; فما فوق</span></span></p>
-</td>
-<td style="height:26.95pt; vertical-align:top; width:180.4pt">
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:14.0pt">75%</span></span></p>
-</td>
-<td style="height:26.95pt; vertical-align:top; width:49.6pt">
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:14.0pt">شرف</span></span></p>
+<td style="border-bottom:solid windowtext 1.0pt; width:180.4pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" valign="top" width="241">
+<p class="CxSpMiddle" dir="RTL" style="margin-bottom:.0001pt; text-align:justify"><span style="color:#000000;"><span style="line-height:normal"><span lang="AR-SA" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">10%</span></span></span></span></p>
 </td>
 </tr>
-<tr>
-<td style="height:20.95pt; vertical-align:top; width:127.35pt">
-<p dir="RTL" style="text-align:center"><span style="color:#000000"><span style="font-size:14.0pt">الأول على الكلية مهما كان معدله</span></span></p>
+<tr style="height:19.85pt">
+<td style="border:solid windowtext 1.0pt; width:127.35pt; border-top:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" valign="top" width="170">
+<p align="center" class="CxSpMiddle" dir="RTL" style="margin-bottom:.0001pt; text-align:center"><span style="color:#000000;"><span style="line-height:normal"><span lang="AR-SA" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">85.00 &ndash; 89.99</span></span></span></span></p>
 </td>
-<td style="height:20.95pt; vertical-align:top; width:180.4pt">
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:14.0pt">100%</span></span></p>
+<td style="border-bottom:solid windowtext 1.0pt; width:180.4pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" valign="top" width="241">
+<p class="CxSpMiddle" dir="RTL" style="margin-bottom:.0001pt; text-align:justify"><span style="color:#000000;"><span style="line-height:normal"><span lang="AR-SA" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">25%</span></span></span></span></p>
 </td>
-<td style="height:20.95pt; vertical-align:top; width:49.6pt">
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:14.0pt">-</span></span></p>
+<td rowspan="2" style="border-bottom:solid windowtext 1.0pt; width:49.6pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" valign="top" width="66">
+<p class="CxSpMiddle" dir="RTL" style="margin-bottom:.0001pt; text-align:justify"><span style="color:#000000;"><span style="line-height:normal"><span lang="AR-SA" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">امتياز</span></span></span></span></p>
+</td>
+</tr>
+<tr style="height:19.85pt">
+<td style="border:solid windowtext 1.0pt; width:127.35pt; border-top:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" valign="top" width="170">
+<p align="center" class="CxSpMiddle" dir="RTL" style="margin-bottom:.0001pt; text-align:center"><span style="color:#000000;"><span style="line-height:normal"><span lang="AR-SA" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">90.00 &ndash; 94.99</span></span></span></span></p>
+</td>
+<td style="border-bottom:solid windowtext 1.0pt; width:180.4pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:19.85pt" valign="top" width="241">
+<p class="CxSpMiddle" dir="RTL" style="margin-bottom:.0001pt; text-align:justify"><span style="color:#000000;"><span style="line-height:normal"><span lang="AR-SA" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">50%</span></span></span></span></p>
+</td>
+</tr>
+<tr style="height:26.95pt">
+<td style="border:solid windowtext 1.0pt; width:127.35pt; border-top:none; padding:0cm 5.4pt 0cm 5.4pt; height:26.95pt" valign="top" width="170">
+<p align="center" class="CxSpMiddle" dir="RTL" style="margin-bottom:.0001pt; text-align:center"><span style="color:#000000;"><span style="line-height:normal"><span lang="AR-SA" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">95.00 &ndash; فما فوق</span></span></span></span></p>
+</td>
+<td style="border-bottom:solid windowtext 1.0pt; width:180.4pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:26.95pt" valign="top" width="241">
+<p class="CxSpMiddle" dir="RTL" style="margin-bottom:.0001pt; text-align:justify"><span style="color:#000000;"><span style="line-height:normal"><span lang="AR-SA" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">75%</span></span></span></span></p>
+</td>
+<td style="border-bottom:solid windowtext 1.0pt; width:49.6pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:26.95pt" valign="top" width="66">
+<p class="CxSpMiddle" dir="RTL" style="margin-bottom:.0001pt; text-align:justify"><span style="color:#000000;"><span style="line-height:normal"><span lang="AR-SA" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">شرف</span></span></span></span></p>
+</td>
+</tr>
+<tr style="height:20.95pt">
+<td style="border:solid windowtext 1.0pt; width:127.35pt; border-top:none; padding:0cm 5.4pt 0cm 5.4pt; height:20.95pt" valign="top" width="170">
+<p align="center" class="CxSpMiddle" dir="RTL" style="margin-bottom:.0001pt; text-align:center"><span style="color:#000000;"><span style="line-height:normal"><span lang="AR-SA" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">الأول على الكلية مهما كان معدله</span></span></span></span></p>
+</td>
+<td style="border-bottom:solid windowtext 1.0pt; width:180.4pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:20.95pt" valign="top" width="241">
+<p class="CxSpMiddle" dir="RTL" style="margin-bottom:.0001pt; text-align:justify"><span style="color:#000000;"><span style="line-height:normal"><span lang="AR-SA" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">100%</span></span></span></span></p>
+</td>
+<td style="border-bottom:solid windowtext 1.0pt; width:49.6pt; border-top:none; border-left:solid windowtext 1.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt; height:20.95pt" valign="top" width="66">
+<p class="CxSpMiddle" dir="RTL" style="margin-bottom:.0001pt; text-align:justify"><span style="color:#000000;"><span style="line-height:normal"><span lang="AR-SA" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">-</span></span></span></span></p>
 </td>
 </tr>
 </tbody>
 </table>
 </div>
 
-<p dir="RTL" style="text-align:justify">&nbsp;</p>
+<p dir="RTL" style="margin-top:0cm; margin-right:35.4pt; margin-bottom:.0001pt; margin-left:0cm; text-align:justify; margin:0cm 0cm 8pt">&nbsp;</p>
 
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:16.0pt">الإدارة المركزية</span></strong><span style="font-size:16.0pt">:</span> <span style="font-size:14.0pt">دمشق</span><span style="font-size:14.0pt">- البرامكة- شارع مصعب بن عُمير- بجوار مدينة تشرين الرياضية</span></span></span></span></p>
+<p dir="RTL" style="margin-top:0cm; margin-right:35.4pt; margin-bottom:.0001pt; margin-left:0cm; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span lang="AR-SY" style="font-size:16.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">الإدارة المركزية</span></span></b><span lang="AR-SY" style="font-size:16.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">:</span></span> <span lang="AR-SA" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">دمشق</span></span><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">- البرامكة- شارع مصعب بن عُمير- بجوار مدينة تشرين الرياضية</span></span></span></span></span></span></span></span></p>
 
-<p dir="RTL" style="text-align:right"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:16.0pt">كــليات دمشق</span></strong><span style="font-size:16.0pt">:</span><span style="font-size:14.0pt">(الهندسة المعلوماتية - الحقوق - العلاقات الدولية والدبلوماسية- العلوم الإدارية) البرامكة بجوار مدينة</span> <span style="font-size:14.0pt">تشرين الرياضية</span></span></span></span></p>
+<p dir="RTL" style="margin-top:0cm; margin-right:35.4pt; margin-bottom:.0001pt; margin-left:0cm; margin:0cm 0cm 8pt; text-align:right"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span lang="AR-SY" style="font-size:16.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">كــليات دمشق</span></span></b><span lang="AR-SY" style="font-size:16.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">:</span></span><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">(الهندسة المعلوماتية - الحقوق - العلاقات الدولية والدبلوماسية- العلوم الإدارية) البرامكة بجوار مدينة</span></span> <span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">تشرين الرياضية</span></span></span></span></span></span></span></span></p>
 
-<p dir="RTL" style="text-align:right"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">هــ: </span><span dir="LTR" style="font-size:14.0pt">00963 11 215 33 60/ 00963 11 2066</span><span style="font-size:14.0pt">/ 0934602121</span></span></span></span></p>
+<p dir="RTL" style="margin-top:0cm; margin-right:85.0pt; margin-bottom:.0001pt; margin-left:0cm; margin:0cm 0cm 8pt; text-align:right"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">هــ: </span></span><span dir="LTR" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">00963 11 215 33 60/ 00963 11 2066</span></span><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">/ 0934602121</span></span></span></span></span></span></span></span></p>
 
-<p dir="RTL" style="text-align:right"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">فاكس:&nbsp; 2153364&ndash;11-963</span></span></span></span></p>
+<p dir="RTL" style="margin-top:0cm; margin-right:85.0pt; margin-bottom:.0001pt; margin-left:0cm; margin:0cm 0cm 8pt; text-align:right"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">فاكس:&nbsp; 2153364&ndash;11-963</span></span></span></span></span></span></span></span></p>
 
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:16.0pt">الكليات الطبية:</span></strong> <span style="font-size:14.0pt">(الطب البشري - طب الأسنان) دمشق- المزرعة - بجوار جامع الإيمان</span></span></span></span></p>
+<p dir="RTL" style="margin-top:0cm; margin-right:35.4pt; margin-bottom:.0001pt; margin-left:0cm; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span lang="AR-SY" style="font-size:16.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">الكليات الطبية:</span></span></b> <span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">(الطب البشري - طب الأسنان) دمشق- المزرعة - بجوار جامع الإيمان</span></span></span></span></span></span></span></span></p>
 
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">هــ: </span><span dir="LTR" style="font-size:14.0pt">00963-11-4438461/ 00963-11-4438462</span><span style="font-size:14.0pt">/ </span><span style="font-size:14.0pt">0934602121</span></span></span></span></p>
+<p dir="RTL" style="text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">هــ: </span></span><span dir="LTR" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">00963-11-4438461/ 00963-11-4438462</span></span><span lang="AR-SA" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">/ </span></span><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">0934602121</span></span></span></span></span></span></span></span></p>
 
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">فاكس: 4438465&ndash;41-963+</span></span></span></span></p>
+<p dir="RTL" style="margin-top:0cm; margin-right:35.4pt; margin-bottom:.0001pt; margin-left:0cm; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">فاكس: 4438465&ndash;41-963+</span></span></span></span></span></span></span></span></p>
 
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:16.0pt">كلية الصيدلة: </span></strong>&nbsp;<span style="font-size:14.0pt">مدينة التل &ndash; ريف دمشق (كلية العلوم السياسية سابقاً</span><span dir="LTR" style="font-size:14.0pt">(</span></span></span></span></p>
+<p dir="RTL" style="margin-top:0cm; margin-right:2.0cm; margin-bottom:.0001pt; margin-left:0cm; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span lang="AR-SY" style="font-size:16.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">كلية الصيدلة: </span></span></b>&nbsp;<span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">مدينة التل &ndash; ريف دمشق (كلية العلوم السياسية سابقاً</span></span><span dir="LTR" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">(</span></span></span></span></span></span></span></span></p>
 
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:16.0pt">كليات اللاذقية</span></strong><span style="font-size:16.0pt">:</span><span style="font-size:14.0pt"> (الصيدلة &ndash; طب الأسنان &ndash; الحقوق &ndash; العلوم الإدارية) مشروع الصليبة &ndash; بجوار اتحاد شبيبة الثورة</span></span></span></span></p>
+<p dir="RTL" style="margin-top:0cm; margin-right:2.0cm; margin-bottom:.0001pt; margin-left:0cm; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span lang="AR-SY" style="font-size:16.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">كليات اللاذقية</span></span></b><span lang="AR-SY" style="font-size:16.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">:</span></span><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif"> (الصيدلة &ndash; طب الأسنان &ndash; الحقوق &ndash; العلوم الإدارية) مشروع الصليبة &ndash; بجوار اتحاد شبيبة الثورة</span></span></span></span></span></span></span></span></p>
 
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt">هــ: </span><span dir="LTR" style="font-size:14.0pt">00963-41-493412/ 00963-41-493415</span><span style="font-size:14.0pt">/</span></span></span></span></p>
+<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">هــ: </span></span><span dir="LTR" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">00963-41-493412/ 00963-41-493415</span></span><span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">/</span></span></span></span></span></span></span></span></p>
 
-<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="font-size:14.0pt">&nbsp;فاكس: 493415&ndash;41-963+</span></span></span></span></p>
+<p dir="RTL" style="text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span lang="AR-SY" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">&nbsp;فاكس: 493415&ndash;41-963+</span></span></span></span></span></span></span></span></p>
 
-<p dir="RTL" style="text-align:justify"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="color:#000000">&nbsp; </span><a href="mailto:info@alsham-univ.sy"><span style="color:#000000"><span style="font-size:14.0pt">info@alsham-univ.sy</span></span></a><span style="color:#000000">&nbsp;&nbsp; &nbsp;&nbsp;</span><a href="mailto:Alsham.University@facebook.com"><span style="color:#000000"><span style="font-size:14.0pt">Alsham.University@facebook.com</span></span></a><span style="color:#000000">&nbsp;&nbsp;&nbsp; </span></span></span></p>',
-                                'created_at' => '2018-10-22 05:12:02',
-                                'updated_at' => '2019-01-16 07:21:05',
-                                'deleted_at' => NULL,
-                            ),
-                            70 => 
-                            array (
-                                'id' => 71,
-                                'custom_module_attribute_value_id' => 226,
-                                'lang_id' => 1,
-                                'text' => '<p>-</p>',
-                                'created_at' => '2018-11-11 09:55:44',
-                                'updated_at' => '2018-11-11 09:55:44',
-                                'deleted_at' => NULL,
-                            ),
-                            71 => 
-                            array (
-                                'id' => 72,
-                                'custom_module_attribute_value_id' => 226,
-                                'lang_id' => 2,
-                                'text' => '<p dir="RTL" style="margin-bottom:7.5pt; text-align:justify; margin:0cm 0cm 8pt; margin-right:0cm; margin-left:0cm"><span style="color:#000000;"><span style="font-size:11pt"><span style="background:white"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><u><span lang="AR-SA" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">مقر كليات دمشق</span></span></u></b><span lang="AR-SA" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">&nbsp;: البرامكة &ndash; جانب ملعب تشرين - قرب مسجد مصعب بن عمير</span></span></span></span></span></span></span></span></span></p>
+<p dir="RTL" style="margin-top:0cm; margin-right:-42.55pt; margin-bottom:.0001pt; margin-left:0cm; text-align:justify; margin:0cm 0cm 8pt"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span style="color:#000000;">&nbsp; </span><a href="mailto:info@alsham-univ.sy"><span style="color:#000000;"><span style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">info@alsham-univ.sy</span></span></span></a><span style="color:#000000;">&nbsp;&nbsp; &nbsp;&nbsp;</span><a href="mailto:Alsham.University@facebook.com"><span style="color:#000000;"><span style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">Alsham.University@facebook.com</span></span></span></a><span style="color:#000000;">&nbsp;&nbsp;&nbsp; </span></span></span></span></span></span></p>',
+                    'created_at' => '2018-10-22 05:12:02',
+                    'updated_at' => '2018-11-06 05:24:37',
+                    'deleted_at' => NULL,
+                ),
+                70 => 
+                array (
+                    'id' => 71,
+                    'custom_module_attribute_value_id' => 226,
+                    'lang_id' => 1,
+                    'text' => '<p>-</p>',
+                    'created_at' => '2018-11-11 09:55:44',
+                    'updated_at' => '2018-11-11 09:55:44',
+                    'deleted_at' => NULL,
+                ),
+                71 => 
+                array (
+                    'id' => 72,
+                    'custom_module_attribute_value_id' => 226,
+                    'lang_id' => 2,
+                    'text' => '<p dir="RTL" style="margin-bottom:7.5pt; text-align:justify; margin:0cm 0cm 8pt; margin-right:0cm; margin-left:0cm"><span style="color:#000000;"><span style="font-size:11pt"><span style="background:white"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><u><span lang="AR-SA" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">مقر كليات دمشق</span></span></u></b><span lang="AR-SA" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">&nbsp;: البرامكة &ndash; جانب ملعب تشرين - قرب مسجد مصعب بن عمير</span></span></span></span></span></span></span></span></span></p>
 
 <p dir="RTL" style="margin-bottom:7.5pt; text-align:justify; margin:0cm 0cm 8pt; margin-right:0cm; margin-left:0cm"><span style="color:#000000;"><span style="font-size:11pt"><span style="background:white"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><u><span lang="AR-SA" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">للاستعلام</span></span></u></b><b><u><span dir="LTR" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">:</span></span></u></b></span></span></span></span></span></span></span></p>
 
@@ -4316,52 +4308,54 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
 <p dir="RTL" style="margin:0cm; margin-bottom:.0001pt; text-align:start; -webkit-text-stroke-width:0px; margin-right:0cm; margin-left:0cm"><span style="font-size:12pt"><span style="background:white"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="box-sizing:border-box"><span style="font-variant-ligatures:normal"><span style="font-variant-caps:normal"><span style="orphans:2"><span style="widows:2"><span style="text-decoration-style:initial"><span style="text-decoration-color:initial"><span style="word-spacing:0px"><span style="font-family:&quot;Times New Roman&quot;,serif"><span style="color:#000000;"><strong style="box-sizing:border-box"><span style="box-sizing:border-box"><span style="box-sizing:border-box"><span lang="AR-SA" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">أو عبر البريد الالكتروني :&nbsp;</span></span></span></span></strong></span><strong><span style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif"><span id="cloak72186" style="box-sizing:border-box"><a href="mailto:youmnothman90@hotmail.com" style="box-sizing:border-box; color:blue; text-decoration:underline"><span style="color:#000000;"><span style="box-sizing:border-box">info@alsham-univ.s</span>y</span></a></span></span></span></strong></span></span></span></span></span></span></span></span></span></span></span></span></span></p>
 
 <p style="margin:0cm 0cm 8pt; margin-right:0cm; margin-left:0cm">&nbsp;</p>',
-                                'created_at' => '2018-11-11 09:55:44',
-                                'updated_at' => '2018-11-11 09:55:44',
-                                'deleted_at' => NULL,
-                            ),
-                            72 => 
-                            array (
-                                'id' => 73,
-                                'custom_module_attribute_value_id' => 242,
-                                'lang_id' => 1,
-                                'text' => '<p>-</p>',
-                                'created_at' => '2018-12-11 13:04:25',
-                                'updated_at' => '2018-12-11 13:04:25',
-                                'deleted_at' => NULL,
-                            ),
-                            73 => 
-                            array (
-                                'id' => 74,
-                                'custom_module_attribute_value_id' => 242,
-                                'lang_id' => 2,
-                                'text' => '<p dir="RTL" style="text-align:justify; margin:0cm 0cm 8pt"><span style="color:#27ae60;"><span style="font-size:11pt"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span lang="AR-SY" style="font-size:18.0pt"><span style="line-height:107%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">رؤية الكلية</span></span></span></b></span></span></span></span></span></span></p>
+                    'created_at' => '2018-11-11 09:55:44',
+                    'updated_at' => '2018-11-11 09:55:44',
+                    'deleted_at' => NULL,
+                ),
+                72 => 
+                array (
+                    'id' => 73,
+                    'custom_module_attribute_value_id' => 242,
+                    'lang_id' => 1,
+                    'text' => '<p>-</p>',
+                    'created_at' => '2018-12-11 13:04:25',
+                    'updated_at' => '2018-12-11 13:04:25',
+                    'deleted_at' => NULL,
+                ),
+                73 => 
+                array (
+                    'id' => 74,
+                    'custom_module_attribute_value_id' => 242,
+                    'lang_id' => 2,
+                    'text' => '<p dir="RTL" style="text-align:justify"><span style="font-size:12pt"><span style="font-family:&quot;Times New Roman&quot;,serif"><strong><span style="font-size:22.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;"><span style="color:#385723">رؤية الكلية</span></span></span></strong></span></span></p>
 
-<p dir="RTL" style="text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="line-height:107%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">الوصول إلى الريادة في البحث العلمي، وفي التعليم الجامعي في مجال العلوم القانونية بفروعها كافة، لتقدم للمجتمع مُخرجات تحفظ للعدالة مكانتها، من خلال تطبيق القواعد القانونية، بالإضافة إلى تنمية القدرات الشخصية، في بيئة تنافسية ترقى بالكلية لمستوى الكليات العالمية.</span></span></span></span></span></span></span></span></span></p>
+<p dir="RTL" style="text-align:justify"><span style="font-size:12pt"><span style="font-family:&quot;Times New Roman&quot;,serif"><span style="font-size:18.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;"><span style="color:#2c3e50">تتلخص رؤية الكلية في الوصول إلى الريادة في البحث العلمي والعملية التعليمية في مجال العلوم القانونية بمختلف فروعها، حتى تقدم لهذا المجتمع مخرجات تحفظ للعدالة مكانتها، عن طريق تطبيق القاعدة القانونية في أسمى صورة لها، ليحتمي الجميع بعدل القضاء وسيادة القانون، بالإضافة إلى تنمية القدرات الشخصية في بيئة تنافسية ترقى بالكلية إلى مصاف الكليات العالمية.</span></span></span></span></span></p>
 
-<p dir="RTL" style="text-align:justify; margin:0cm 0cm 8pt"><span style="color:#27ae60;"><span style="font-size:11pt"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span lang="AR-SY" style="font-size:18.0pt"><span style="line-height:107%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">رسالة الكلية</span></span></span></b></span></span></span></span></span></span></p>
+<p dir="RTL" style="text-align:justify"><span style="font-size:12pt"><span style="font-family:&quot;Times New Roman&quot;,serif"><strong><span style="font-size:22.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;"><span style="color:#385723">رسالة الكلية</span></span></span></strong></span></span></p>
 
-<p dir="RTL" style="text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="line-height:107%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">تعمل الكلية على تحقيق رسالتها في خدمة المجتمع، وتنمية الوعي الفكري والقانوني لدى أبنائها، كما تسعى إلى إعداد كفاءات ذات دور ريادي وفعّال، والارتقاء بالأداء إلى المستويات القياسية، منن حيث السلوك المهني، والأخلاقي، وفقاً لمعايير الجودة والاعتمادية الوطنية والعالمية.</span></span></span></span></span></span></span></span></span></p>',
-                                'created_at' => '2018-12-11 13:04:25',
-                                'updated_at' => '2018-12-11 13:04:25',
-                                'deleted_at' => NULL,
-                            ),
-                            74 => 
-                            array (
-                                'id' => 75,
-                                'custom_module_attribute_value_id' => 245,
-                                'lang_id' => 1,
-                                'text' => '<p>-</p>',
-                                'created_at' => '2018-12-11 13:56:01',
-                                'updated_at' => '2018-12-11 13:56:01',
-                                'deleted_at' => NULL,
-                            ),
-                            75 => 
-                            array (
-                                'id' => 76,
-                                'custom_module_attribute_value_id' => 245,
-                                'lang_id' => 2,
-                                'text' => '<p dir="RTL" style="text-align:justify; margin:0cm 0cm 8pt">&nbsp;</p>
+<p dir="RTL" style="text-align:justify"><span style="font-size:12pt"><span style="font-family:&quot;Times New Roman&quot;,serif"><span style="font-size:18.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;"><span style="color:#2c3e50">تعد رسالة الكلية جزء من رسالة الجامعة إذ تسعى كلية الحقوق إلى خدمة المجتمع وتنمية الوعي الفكري لدى ابنائه، كما وتسعى إلى إعداد كفاءات ذات دور ريادي وفعال، والارتقاء بمستوى الأداء إلى المستويات القياسية من حيث السلوك المهني والأخلاقي وفقاً لمعايير الجودة والاعتمادية العالمية والوطنية</span></span></span><span style="font-size:18.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">.</span></span></span></span></p>
+
+<p dir="RTL" style="text-align:right">&nbsp;</p>',
+                    'created_at' => '2018-12-11 13:04:25',
+                    'updated_at' => '2019-01-09 07:51:37',
+                    'deleted_at' => NULL,
+                ),
+                74 => 
+                array (
+                    'id' => 75,
+                    'custom_module_attribute_value_id' => 245,
+                    'lang_id' => 1,
+                    'text' => '<p>-</p>',
+                    'created_at' => '2018-12-11 13:56:01',
+                    'updated_at' => '2018-12-11 13:56:01',
+                    'deleted_at' => NULL,
+                ),
+                75 => 
+                array (
+                    'id' => 76,
+                    'custom_module_attribute_value_id' => 245,
+                    'lang_id' => 2,
+                    'text' => '<p dir="RTL" style="text-align:justify; margin:0cm 0cm 8pt">&nbsp;</p>
 
 <p dir="RTL" style="text-align:justify; margin:0cm 0cm 8pt"><span style="color:#2980b9;"><span style="font-size:11pt"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span lang="AR-SY" style="font-size:18.0pt"><span style="line-height:107%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">رؤية الكلية</span></span></span></b></span></span></span></span></span></span></p>
 
@@ -4378,26 +4372,26 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
 </ul>
 
 <p><span style="color:#000000;">&nbsp;</span></p>',
-                                'created_at' => '2018-12-11 13:56:01',
-                                'updated_at' => '2018-12-11 13:56:01',
-                                'deleted_at' => NULL,
-                            ),
-                            76 => 
-                            array (
-                                'id' => 77,
-                                'custom_module_attribute_value_id' => 247,
-                                'lang_id' => 1,
-                                'text' => '-',
-                                'created_at' => '2018-12-12 07:38:51',
-                                'updated_at' => '2018-12-12 07:38:51',
-                                'deleted_at' => NULL,
-                            ),
-                            77 => 
-                            array (
-                                'id' => 78,
-                                'custom_module_attribute_value_id' => 247,
-                                'lang_id' => 2,
-                                'text' => '<p dir="RTL" style="text-align:justify; margin:0cm 0cm 8pt"><span style="color:#2ecc71;"><span style="font-size:11pt"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span lang="AR-SY" style="font-size:18.0pt"><span style="line-height:107%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">رسالة الكلية </span></span></span></b></span></span></span></span></span></span></p>
+                    'created_at' => '2018-12-11 13:56:01',
+                    'updated_at' => '2018-12-11 13:56:01',
+                    'deleted_at' => NULL,
+                ),
+                76 => 
+                array (
+                    'id' => 77,
+                    'custom_module_attribute_value_id' => 247,
+                    'lang_id' => 1,
+                    'text' => '-',
+                    'created_at' => '2018-12-12 07:38:51',
+                    'updated_at' => '2018-12-12 07:38:51',
+                    'deleted_at' => NULL,
+                ),
+                77 => 
+                array (
+                    'id' => 78,
+                    'custom_module_attribute_value_id' => 247,
+                    'lang_id' => 2,
+                    'text' => '<p dir="RTL" style="text-align:justify; margin:0cm 0cm 8pt"><span style="color:#2ecc71;"><span style="font-size:11pt"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span lang="AR-SY" style="font-size:18.0pt"><span style="line-height:107%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">رسالة الكلية </span></span></span></b></span></span></span></span></span></span></p>
 
 <p dir="RTL" style="text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="line-height:107%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">تسعى كلية الطب البشري في جامعة الشام الخاصة إلى التميز في إعداد الخريج ذي الكفاءة العالية علمياً وأخلاقيا والقادر على تطوير مهاراته ومعلوماته باستمرار وفق آخر المعطيات العلمية العالمية، ليضعها في خدمة تطوير نوعية الرعاية الصحية المقدمة للمواطنين في الجمهوري العربية السورية.</span></span></span></span></span></span></span></span></span></p>
 
@@ -4415,135 +4409,143 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
 </ol>
 
 <p>&nbsp;</p>',
-                                'created_at' => '2018-12-12 07:38:51',
-                                'updated_at' => '2018-12-12 07:38:51',
-                                'deleted_at' => NULL,
-                            ),
-                            78 => 
-                            array (
-                                'id' => 79,
-                                'custom_module_attribute_value_id' => 248,
-                                'lang_id' => 1,
-                                'text' => '<p>-</p>',
-                                'created_at' => '2018-12-12 08:12:57',
-                                'updated_at' => '2018-12-12 08:12:57',
-                                'deleted_at' => NULL,
-                            ),
-                            79 => 
-                            array (
-                                'id' => 80,
-                                'custom_module_attribute_value_id' => 248,
-                                'lang_id' => 2,
-                                'text' => '<p dir="RTL" style="text-align:justify; margin:0cm 0cm 8pt"><span style="color:#8e44ad;"><span style="font-size:11pt"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span lang="AR-SY" style="font-size:18.0pt"><span style="line-height:107%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">رسالة الكلية</span></span></span></b></span></span></span></span></span></span></p>
+                    'created_at' => '2018-12-12 07:38:51',
+                    'updated_at' => '2018-12-12 07:38:51',
+                    'deleted_at' => NULL,
+                ),
+                78 => 
+                array (
+                    'id' => 79,
+                    'custom_module_attribute_value_id' => 248,
+                    'lang_id' => 1,
+                    'text' => '<p>-</p>',
+                    'created_at' => '2018-12-12 08:12:57',
+                    'updated_at' => '2018-12-12 08:12:57',
+                    'deleted_at' => NULL,
+                ),
+                79 => 
+                array (
+                    'id' => 80,
+                    'custom_module_attribute_value_id' => 248,
+                    'lang_id' => 2,
+                    'text' => '<p dir="RTL" style="text-align:justify; margin:0cm 0cm 8pt"><span style="font-size:22px;"><span style="color:#8e44ad;"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span lang="AR-SY"><span style="line-height:107%"><span arabic="" simplified="">رسالة الكلية</span></span></span></b></span></span></span></span></span></span></p>
 
-<p dir="RTL" style="text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="line-height:107%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">تسعى كلية طب الأسنان في جامعة الشام الخاصة إلى التميز في إعداد الخريج ذي الكفاءة العالية علميا وأخلاقيا والقادر على تطوير مهاراته ومعلوماته باستمرار وفق آخر المعطيات العلمية العالمية، ليضعها في خدمة تطوير نوعية الرعاية الصحية السنية المقدمة للمواطنين، وسيتم ذلك من خلال تعزيز الخدمات المقدمة للمجتمع بفئاته المختلفة وبعلاقات تعاون مع العديد من الجامعات والهيئات الصحية المحلية والعربية والدولية.</span></span></span></span></span></span></span></span></span></p>
+<p dir="RTL" style="text-align:justify; margin:0cm 0cm 8pt"><span style="font-size:18px;"><span style="color:#000000;"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY"><span style="line-height:107%"><span arabic="" simplified="">تسعى كلية طب الأسنان في جامعة الشام الخاصة إلى التميز في إعداد الخريج ذي الكفاءة العالية علميا وأخلاقيا والقادر على تطوير مهاراته ومعلوماته باستمرار وفق آخر المعطيات العلمية العالمية، ليضعها في خدمة تطوير نوعية الرعاية الصحية السنية المقدمة للمواطنين، وسيتم ذلك من خلال تعزيز الخدمات المقدمة للمجتمع بفئاته المختلفة وبعلاقات تعاون مع العديد من الجامعات والهيئات الصحية المحلية والعربية والدولية.</span></span></span></span></span></span></span></span></span></p>
 
-<p dir="RTL" style="text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="line-height:107%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">وستسعى الكلية الى المشاركة في الفعاليات الاجتماعية والاقتصادية والثقافية وكذلك الإسهام في الأبحاث العلمية التي تدفع لتطوير نوعية حياة الناس.</span></span></span></span></span></span></span></span></span></p>
+<p dir="RTL" style="text-align:justify; margin:0cm 0cm 8pt"><span style="font-size:18px;"><span style="color:#000000;"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY"><span style="line-height:107%"><span arabic="" simplified="">وستسعى الكلية الى المشاركة في الفعاليات الاجتماعية والاقتصادية والثقافية وكذلك الإسهام في الأبحاث العلمية التي تدفع لتطوير نوعية حياة الناس.</span></span></span></span></span></span></span></span></span></p>
 
-<p dir="RTL" style="text-align:justify; margin:0cm 0cm 8pt"><span style="color:#8e44ad;"><span style="font-size:11pt"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span lang="AR-SY" style="font-size:18.0pt"><span style="line-height:107%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">أهداف الكلية</span></span></span></b></span></span></span></span></span></span></p>
+<p dir="RTL" style="text-align:justify; margin:0cm 0cm 8pt"><span style="font-size:22px;"><span style="color:#8e44ad;"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span lang="AR-SY"><span style="line-height:107%"><span arabic="" simplified="">أهداف الكلية</span></span></span></b></span></span></span></span></span></span></p>
 
-<p dir="RTL" style="text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="line-height:107%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">يهدف برنامج كلية طب الأسنان في جامعة الشام الخاصة إلى:</span></span></span></span></span></span></span></span></span></p>
+<p dir="RTL" style="text-align:justify; margin:0cm 0cm 8pt"><span style="font-size:18px;"><span style="color:#000000;"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY"><span style="line-height:107%"><span arabic="" simplified="">يهدف برنامج كلية طب الأسنان في جامعة الشام الخاصة إلى:</span></span></span></span></span></span></span></span></span></p>
 
 <ol>
-<li dir="RTL" style="margin-right:18.0pt; text-align:justify; margin:0cm 36pt 0.0001pt 0cm"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="line-height:107%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">إعداد خريجين بمستوى مهني عال يحقق متطلبات المهنية وفق المعايير الدولية.</span></span></span></span></span></span></span></span></span></li>
-<li dir="RTL" style="margin-right:18.0pt; text-align:justify; margin:0cm 36pt 0.0001pt 0cm"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="line-height:107%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">تزويد الطلاب بما هو ضروري من المعارف في العلوم الأساسية والطبية لفهم العلوم الطبية السنية السريرية.</span></span></span></span></span></span></span></span></span></li>
-<li dir="RTL" style="margin-right:18.0pt; text-align:justify; margin:0cm 36pt 0.0001pt 0cm"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="line-height:107%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">تزويد الطلاب بما يلزمهم لتشخيص الإصابات السنية وحول السنية والفموية، ووضع خطط معالجة شاملة تراعي حاجات المريض.</span></span></span></span></span></span></span></span></span></li>
-<li dir="RTL" style="margin-right:18.0pt; text-align:justify; margin:0cm 36pt 0.0001pt 0cm"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="line-height:107%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">تزويد الطلاب بالمعارف والمهارات اللازمة لمعالجة المشكلات السنية والفموية وفق مبادئ طب الأسنان الحديث.</span></span></span></span></span></span></span></span></span></li>
-<li dir="RTL" style="margin-right:18.0pt; text-align:justify; margin:0cm 36pt 0.0001pt 0cm"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="line-height:107%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">إتقان تدبير مرضى عيادات الأسنان ممن لديهم امراض جهازية.</span></span></span></span></span></span></span></span></span></li>
-<li dir="RTL" style="margin-right:18.0pt; text-align:justify; margin:0cm 36pt 0.0001pt 0cm"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="line-height:107%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">مراعاة حاجات المعالجة الفموية والدعم النفسي للمرضى المحتاجين.</span></span></span></span></span></span></span></span></span></li>
-<li dir="RTL" style="margin-right:18.0pt; text-align:justify; margin:0cm 36pt 0.0001pt 0cm"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="line-height:107%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">إتقان التدابير الوقائية في طب الاسنان.</span></span></span></span></span></span></span></span></span></li>
-<li dir="RTL" style="margin-right:18.0pt; text-align:justify; margin:0cm 36pt 0.0001pt 0cm"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="line-height:107%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">تقديم المعارف والمهارات اللازمة لتلبية حاجات الصحة الفموية في المجتمع.</span></span></span></span></span></span></span></span></span></li>
-<li dir="RTL" style="margin-right:18.0pt; text-align:justify; margin:0cm 36pt 0.0001pt 0cm"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="line-height:107%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">ممارسة طب الأسنان وفق مستوى عال من القيم الأخلاقية وضمان حقوق المرضى.</span></span></span></span></span></span></span></span></span></li>
-<li dir="RTL" style="margin-right:18.0pt; text-align:justify; margin:0cm 36pt 0.0001pt 0cm"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="line-height:107%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">تطبيق مبادئ مكافحة العدوى والسلامة المهنية ضمانا لسلامة مرضى عيادات الأسنان وجميع أفراد الطاقم الطبي السني.</span></span></span></span></span></span></span></span></span></li>
-<li dir="RTL" style="margin-right:18.0pt; text-align:justify; margin:0cm 36pt 0.0001pt 0cm"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="line-height:107%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">تطوير مهارات القدرة على التعلم الذاتي والتثقيب المستمر</span></span></span></span></span></span></span></span></span></li>
-<li dir="RTL" style="margin-right:18.0pt; text-align:justify; margin:0cm 36pt 0.0001pt 0cm"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="line-height:107%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">تطوير المهارات في مجال المعلوماتية الطبية.</span></span></span></span></span></span></span></span></span></li>
-<li dir="RTL" style="margin-right:18.0pt; text-align:justify; margin:0cm 36pt 0.0001pt 0cm"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="line-height:107%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">إتقان استخدام اللغة العربية واللغة الإنكليزية الطبية في ممارسة طب الاسنان</span></span></span></span></span></span></span></span></span></li>
-<li dir="RTL" style="margin-right:18.0pt; text-align:justify; margin:0cm 36pt 0.0001pt 0cm"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="line-height:107%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">تطوير التفكير النقدي، وتعلم النقد المنهجي للأبحاث وأصول البحث العلمي، والمشاركة في نشاطات بحثية في مجال الصحة الفموية، وتطوير ممارسة طب الأسنان المبنية على الدليل.</span></span></span></span></span></span></span></span></span></li>
-<li dir="RTL" style="margin-right:18.0pt; text-align:justify; margin:0cm 36pt 8pt 0cm"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="line-height:107%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">تطوير مهارات تدبير الوقت، والعمل ضمن الفريق.</span></span></span></span></span></span></span></span></span></li>
+<li dir="RTL" style="margin-right:18.0pt; text-align:justify; margin:0cm 36pt 0.0001pt 0cm"><span style="font-size:18px;"><span style="color:#000000;"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY"><span style="line-height:107%"><span arabic="" simplified="">إعداد خريجين بمستوى مهني عال يحقق متطلبات المهنية وفق المعايير الدولية.</span></span></span></span></span></span></span></span></span></li>
+<li dir="RTL" style="margin-right:18.0pt; text-align:justify; margin:0cm 36pt 0.0001pt 0cm"><span style="font-size:18px;"><span style="color:#000000;"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY"><span style="line-height:107%"><span arabic="" simplified="">تزويد الطلاب بما هو ضروري من المعارف في العلوم الأساسية والطبية لفهم العلوم الطبية السنية السريرية.</span></span></span></span></span></span></span></span></span></li>
+<li dir="RTL" style="margin-right:18.0pt; text-align:justify; margin:0cm 36pt 0.0001pt 0cm"><span style="font-size:18px;"><span style="color:#000000;"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY"><span style="line-height:107%"><span arabic="" simplified="">تزويد الطلاب بما يلزمهم لتشخيص الإصابات السنية وحول السنية والفموية، ووضع خطط معالجة شاملة تراعي حاجات المريض.</span></span></span></span></span></span></span></span></span></li>
+<li dir="RTL" style="margin-right:18.0pt; text-align:justify; margin:0cm 36pt 0.0001pt 0cm"><span style="font-size:18px;"><span style="color:#000000;"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY"><span style="line-height:107%"><span arabic="" simplified="">تزويد الطلاب بالمعارف والمهارات اللازمة لمعالجة المشكلات السنية والفموية وفق مبادئ طب الأسنان الحديث.</span></span></span></span></span></span></span></span></span></li>
+<li dir="RTL" style="margin-right:18.0pt; text-align:justify; margin:0cm 36pt 0.0001pt 0cm"><span style="font-size:18px;"><span style="color:#000000;"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY"><span style="line-height:107%"><span arabic="" simplified="">إتقان تدبير مرضى عيادات الأسنان ممن لديهم امراض جهازية.</span></span></span></span></span></span></span></span></span></li>
+<li dir="RTL" style="margin-right:18.0pt; text-align:justify; margin:0cm 36pt 0.0001pt 0cm"><span style="font-size:18px;"><span style="color:#000000;"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY"><span style="line-height:107%"><span arabic="" simplified="">مراعاة حاجات المعالجة الفموية والدعم النفسي للمرضى المحتاجين.</span></span></span></span></span></span></span></span></span></li>
+<li dir="RTL" style="margin-right:18.0pt; text-align:justify; margin:0cm 36pt 0.0001pt 0cm"><span style="font-size:18px;"><span style="color:#000000;"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY"><span style="line-height:107%"><span arabic="" simplified="">إتقان التدابير الوقائية في طب الاسنان.</span></span></span></span></span></span></span></span></span></li>
+<li dir="RTL" style="margin-right:18.0pt; text-align:justify; margin:0cm 36pt 0.0001pt 0cm"><span style="font-size:18px;"><span style="color:#000000;"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY"><span style="line-height:107%"><span arabic="" simplified="">تقديم المعارف والمهارات اللازمة لتلبية حاجات الصحة الفموية في المجتمع.</span></span></span></span></span></span></span></span></span></li>
+<li dir="RTL" style="margin-right:18.0pt; text-align:justify; margin:0cm 36pt 0.0001pt 0cm"><span style="font-size:18px;"><span style="color:#000000;"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY"><span style="line-height:107%"><span arabic="" simplified="">ممارسة طب الأسنان وفق مستوى عال من القيم الأخلاقية وضمان حقوق المرضى.</span></span></span></span></span></span></span></span></span></li>
+<li dir="RTL" style="margin-right:18.0pt; text-align:justify; margin:0cm 36pt 0.0001pt 0cm"><span style="font-size:18px;"><span style="color:#000000;"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY"><span style="line-height:107%"><span arabic="" simplified="">تطبيق مبادئ مكافحة العدوى والسلامة المهنية ضمانا لسلامة مرضى عيادات الأسنان وجميع أفراد الطاقم الطبي السني.</span></span></span></span></span></span></span></span></span></li>
+<li dir="RTL" style="margin-right:18.0pt; text-align:justify; margin:0cm 36pt 0.0001pt 0cm"><span style="font-size:18px;"><span style="color:#000000;"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY"><span style="line-height:107%"><span arabic="" simplified="">تطوير مهارات القدرة على التعلم الذاتي والتثقيب المستمر</span></span></span></span></span></span></span></span></span></li>
+<li dir="RTL" style="margin-right:18.0pt; text-align:justify; margin:0cm 36pt 0.0001pt 0cm"><span style="font-size:18px;"><span style="color:#000000;"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY"><span style="line-height:107%"><span arabic="" simplified="">تطوير المهارات في مجال المعلوماتية الطبية.</span></span></span></span></span></span></span></span></span></li>
+<li dir="RTL" style="margin-right:18.0pt; text-align:justify; margin:0cm 36pt 0.0001pt 0cm"><span style="font-size:18px;"><span style="color:#000000;"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY"><span style="line-height:107%"><span arabic="" simplified="">إتقان استخدام اللغة العربية واللغة الإنكليزية الطبية في ممارسة طب الاسنان</span></span></span></span></span></span></span></span></span></li>
+<li dir="RTL" style="margin-right:18.0pt; text-align:justify; margin:0cm 36pt 0.0001pt 0cm"><span style="font-size:18px;"><span style="color:#000000;"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY"><span style="line-height:107%"><span arabic="" simplified="">تطوير التفكير النقدي، وتعلم النقد المنهجي للأبحاث وأصول البحث العلمي، والمشاركة في نشاطات بحثية في مجال الصحة الفموية، وتطوير ممارسة طب الأسنان المبنية على الدليل.</span></span></span></span></span></span></span></span></span></li>
+<li dir="RTL" style="margin-right:18.0pt; text-align:justify; margin:0cm 36pt 8pt 0cm"><span style="font-size:18px;"><span style="color:#000000;"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY"><span style="line-height:107%"><span arabic="" simplified="">تطوير مهارات تدبير الوقت، والعمل ضمن الفريق.</span></span></span></span></span></span></span></span></span></li>
 </ol>',
-                                'created_at' => '2018-12-12 08:12:57',
-                                'updated_at' => '2018-12-12 08:12:57',
-                                'deleted_at' => NULL,
-                            ),
-                            80 => 
-                            array (
-                                'id' => 81,
-                                'custom_module_attribute_value_id' => 249,
-                                'lang_id' => 1,
-                                'text' => '<p>-</p>',
-                                'created_at' => '2018-12-12 08:26:55',
-                                'updated_at' => '2018-12-12 08:26:55',
-                                'deleted_at' => NULL,
-                            ),
-                            81 => 
-                            array (
-                                'id' => 82,
-                                'custom_module_attribute_value_id' => 249,
-                                'lang_id' => 2,
-                                'text' => '<p dir="RTL" style="text-align:justify; margin:0cm 0cm 8pt"><span style="color:#2980b9;"><span style="font-size:11pt"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span lang="AR-SY" style="font-size:18.0pt"><span style="line-height:107%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">رؤية الكلية</span></span></span></b></span></span></span></span></span></span></p>
+                    'created_at' => '2018-12-12 08:12:57',
+                    'updated_at' => '2018-12-30 09:48:07',
+                    'deleted_at' => NULL,
+                ),
+                80 => 
+                array (
+                    'id' => 81,
+                    'custom_module_attribute_value_id' => 249,
+                    'lang_id' => 1,
+                    'text' => '<p>-</p>',
+                    'created_at' => '2018-12-12 08:26:55',
+                    'updated_at' => '2018-12-12 08:26:55',
+                    'deleted_at' => NULL,
+                ),
+                81 => 
+                array (
+                    'id' => 82,
+                    'custom_module_attribute_value_id' => 249,
+                    'lang_id' => 2,
+                    'text' => '<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify">&nbsp;</p>
 
-<p dir="RTL" style="text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="line-height:107%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">أن تصبح كلية الصيدلة من الكليات المتميزة وذات السمعة الممتازة في التعليم الصيدلاني والبحث العلمي على الصعيدين الإقليمي والدولي وأن تكون رمزاً للتميز والنزاهة والعدالة والشفافية في التعليم والبحث العلمي والرعاية الصحية.</span></span></span></span></span></span></span></span></span></p>
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify">&nbsp;</p>
 
-<p dir="RTL" style="text-align:justify; margin:0cm 0cm 8pt"><span style="color:#2980b9;"><span style="font-size:11pt"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span lang="AR-SY" style="font-size:18.0pt"><span style="line-height:107%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">رسالة الكلية</span></span></span></b></span></span></span></span></span></span></p>
+<p dir="RTL" style="margin-left:0cm; margin-right:0cm; text-align:justify">&nbsp;</p>
 
-<p dir="RTL" style="text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="line-height:107%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">تسعى كلية الصيدلة في جامعة الشام الخاصة إلى التميز في إعداد الخريج ذي الكفاءة العالية علمياً وأخلاقيا والقادر على تطوير مهاراته ومعلوماته باستمرار وفق آخر المعطيات العلمية العالمية وتحقيق التميز العلمي والأكاديمي لخرجيها في مجالات العلوم الصيدلانية كافة، وذلك من خلال بناء شخصية الطالب وتوسيع مداركه العقلية والعلمية وأخلاقياتها المهنية عبر أتباعه لأحدث وسائل التعليم والبحث العلمي في الصيدلة بكافة مجالاتها، وذلك لتلبية لمواجهة المتطلبات الحالية والمستقبلية للصيدلاني ليكون مثالاً للصيادلة الملتزمين بواجباتهم تجاه خدمة مجتمعهم ووطنهم في جميع مناطق الجمهورية العربية السورية.</span></span></span></span></span></span></span></span></span></p>',
-                                'created_at' => '2018-12-12 08:26:55',
-                                'updated_at' => '2018-12-12 08:26:55',
-                                'deleted_at' => NULL,
-                            ),
-                            82 => 
-                            array (
-                                'id' => 83,
-                                'custom_module_attribute_value_id' => 250,
-                                'lang_id' => 1,
-                                'text' => '<p>-</p>',
-                                'created_at' => '2018-12-12 08:56:37',
-                                'updated_at' => '2018-12-12 08:56:37',
-                                'deleted_at' => NULL,
-                            ),
-                            83 => 
-                            array (
-                                'id' => 84,
-                                'custom_module_attribute_value_id' => 250,
-                                'lang_id' => 2,
-                                'text' => '<p dir="RTL" style="text-align:justify; margin:0cm 0cm 8pt"><span style="color:#e67e22;"><span style="font-size:11pt"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span lang="AR-SY" style="font-size:18.0pt"><span style="line-height:107%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">رسالة الكلية</span></span></span></b></span></span></span></span></span></span></p>
+<p dir="RTL" style="text-align:justify"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:22.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;"><span style="color:#00b0f0">رؤية الكلية:</span></span></span></strong></span></span></p>
 
-<p dir="RTL" style="text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="line-height:107%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">تسعى كلية العلاقات الدولية والدبلوماسية إلى بناء شخصية الطالب، وإعداد وتأهيل كفاءات علمية متميزة، قادرة على القيام بدور فاعل في المجالين السياسي والدبلوماسي، بحيث تشكل رديفا لمراكز اتخاذ القرار على الصعيدين الوطني والدولي، وأداة للارتقاء بأداء المندوبين والعاملين لدى المنظمات الدولية والهيئات الدبلوماسية، ومواجهة المتغيرات الدولية بشكل فعال.</span></span></span></span></span></span></span></span></span></p>
+<p dir="RTL" style="text-align:justify"><span style="color:#2c3e50"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:18.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">أن تصبح كلية الصيدلة من الكليات المتميزة وذات السمعة الممتازة في التعليم الصيدلاني والبحث العلمي على الصعيدين الإقليمي والدولي وأن تكون رمزاً للتميز والنزاهة والعدالة والشفافية في التعليم والبحث العلمي والرعاية الصحية.</span></span></span></span></span></p>
 
-<p dir="RTL" style="text-align:justify; margin:0cm 0cm 8pt"><span style="color:#e67e22;"><span style="font-size:11pt"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span lang="AR-SY" style="font-size:18.0pt"><span style="line-height:107%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">أهداف الكلية</span></span></span></b></span></span></span></span></span></span></p>
+<p dir="RTL" style="text-align:justify"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:22.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;"><span style="color:#00b0f0">رسالة الكلية:</span></span></span></strong></span></span></p>
+
+<p dir="RTL" style="text-align:justify"><span style="color:#2c3e50"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:18.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">تسعى كلية الصيدلة في جامعة الشام الخاصة إلى التميز في إعداد الخريج ذي الكفاءة العالية علمياً وأخلاقياً والقادر على تطوير مهاراته ومعلوماته باستمرار وفق آخر المعطيات العلمية العالمية وتحقيق التميز العلمي والأكاديمي لخرجيها في مجالات العلوم الصيدلانية كافة، ويتم تحقيق ذلك من خلال بناء شخصية الطالب وتوسيع مداركه العقلية والعلمية وأخلاقياته المهنية عبر إتباعه لأحدث وسائل التعليم والبحث العلمي في الصيدلة بكافة مجالاتها. وكل ذلك تلبية لمواجهة المتطلبات الحالية والمستقبلية للصيدلاني ليكون مثالاً للصيادلة الملتزمين بواجباتهم تجاه خدمة مجتمعهم ووطنهم في جميع مناطق الجمهورية العربية السورية، وسيتم ذلك من خلال تعزيز الخدمات المقدمة للمجتمع بفئاته المختلفة وبعلاقات تعاون مع العديد من الجامعات والهيئات الصحية المحلية والعربية والدولية. وستسعى الكلية إلى المشاركة في الفعاليات الاجتماعية والاقتصادية والثقافية وكذلك الإسهام في الأبحاث العلمية التي تدفع لتطوير نوعية حياة الناس.</span></span></span></span></span></p>
+
+<p dir="RTL" style="text-align:justify">&nbsp;</p>',
+                    'created_at' => '2018-12-12 08:26:55',
+                    'updated_at' => '2019-01-12 11:29:45',
+                    'deleted_at' => NULL,
+                ),
+                82 => 
+                array (
+                    'id' => 83,
+                    'custom_module_attribute_value_id' => 250,
+                    'lang_id' => 1,
+                    'text' => '<p>-</p>',
+                    'created_at' => '2018-12-12 08:56:37',
+                    'updated_at' => '2018-12-12 08:56:37',
+                    'deleted_at' => NULL,
+                ),
+                83 => 
+                array (
+                    'id' => 84,
+                    'custom_module_attribute_value_id' => 250,
+                    'lang_id' => 2,
+                    'text' => '<p dir="RTL" style="text-align:justify"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:22.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;"><span style="color:#e67e22">رسالة الكلية</span></span></span></strong></span></span></p>
+
+<p dir="RTL" style="text-align:justify"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:18.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;"><span style="color:black">تسعى كلية العلاقات الدولية والدبلوماسية إلى بناء شخصية الطالب، وإعداد وتأهيل كفاءات علمية متميزة، قادرة على القيام بدور فاعل في المجالين السياسي والدبلوماسي، بحيث تشكل رديفا لمراكز اتخاذ القرار على الصعيدين الوطني والدولي، وأداة للارتقاء بأداء المندوبين والعاملين لدى المنظمات الدولية والهيئات الدبلوماسية، ومواجهة المتغيرات الدولية بشكل فعال.</span></span></span></span></span></p>
+
+<p dir="RTL" style="text-align:justify"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:22.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;"><span style="color:#e67e22">أهداف الكلية</span></span></span></strong></span></span></p>
 
 <ul>
-<li dir="RTL" style="margin-right:18.0pt; text-align:justify; margin:0cm 36pt 0.0001pt 0cm"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="line-height:107%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">تأهيل المختصين في مجال إدارة العلاقات الدولية والدبلوماسية.</span></span></span></span></span></span></span></span></span></li>
-<li dir="RTL" style="margin-right:18.0pt; text-align:justify; margin:0cm 36pt 0.0001pt 0cm"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="line-height:107%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">إنشاء قاعدة نخبوية من الخريجين تجمع بين مفهوم الانتماء الوطني والقومي، وممارسة العمل السياسي والدبلوماسي.</span></span></span></span></span></span></span></span></span></li>
-<li dir="RTL" style="margin-right:18.0pt; text-align:justify; margin:0cm 36pt 0.0001pt 0cm"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span style="font-size:14.0pt"><span style="line-height:107%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">&nbsp;رفد المجتمع بأطر وطنية متخصصة بقضايا المنطقة والعالم، وقادرة على التعامل معها بفعالية، ويتقنون اللغات الأجنبية والاستخدام الأمثل للحاسوب وتقنيات المعلوماتية، ويتمتعون بقدر عال من اللياقة وقواعد البروتوكول الدبلوماسي.</span></span></span></span></span></span></span></span></span></li>
-<li dir="RTL" style="margin-right:18.0pt; text-align:justify; margin:0cm 36pt 0.0001pt 0cm"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="line-height:107%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">التركيز على الإسهامات التراثية والمنظومة الفكرية في مجال العلاقات الدولية.</span></span></span></span></span></span></span></span></span></li>
-<li dir="RTL" style="margin-right:18.0pt; text-align:justify; margin:0cm 36pt 0.0001pt 0cm"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="line-height:107%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">تطوير ثقافة البحث العلمي في مجال العلاقات الدولية والدبلوماسية.</span></span></span></span></span></span></span></span></span></li>
-<li dir="RTL" style="margin-right:18.0pt; text-align:justify; margin:0cm 36pt 0.0001pt 0cm"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="line-height:107%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">تعزيز التعاون العلمي مع الجامعات والمؤسسات الاكاديمية الأخرى، وخصوصا في مجال العلاقات الدولية والدبلوماسية.</span></span></span></span></span></span></span></span></span></li>
-<li dir="RTL" style="margin-right:18.0pt; text-align:justify; margin:0cm 36pt 0.0001pt 0cm"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="line-height:107%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">تمتين أواصر التعاون مع الوزارات والمؤسسات العامة والخاصة، والمنظمات والهيئات الدولية الأخرى.</span></span></span></span></span></span></span></span></span></li>
-<li dir="RTL" style="margin-right:18.0pt; text-align:justify; margin:0cm 36pt 8pt 0cm"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="line-height:107%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">إقامة دورات تدريبية وتخصصية، وتدريب الطلاب داخليا وخارجيا، في مجال العلاقات الدولية والدبلوماسية.</span></span></span></span></span></span></span></span></span></li>
+<li dir="RTL" style="text-align:justify"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:18.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;"><span style="color:black">تأهيل المختصين في مجال إدارة العلاقات الدولية والدبلوماسية.</span></span></span></span></span></li>
+<li dir="RTL" style="text-align:justify"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:18.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;"><span style="color:black">إنشاء قاعدة نخبوية من الخريجين تجمع بين مفهوم الانتماء الوطني والقومي، وممارسة العمل السياسي والدبلوماسي.</span></span></span></span></span></li>
+<li dir="RTL" style="text-align:justify"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:18.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;"><span style="color:black">رفد المجتمع بأطر وطنية متخصصة بقضايا المنطقة والعالم، وقادرة على التعامل معها بفعالية، ويتقنون اللغات الأجنبية والاستخدام الأمثل للحاسوب وتقنيات المعلوماتية، ويتمتعون بقدر عال من اللياقة وقواعد البروتوكول الدبلوماسي.</span></span></span></span></span></li>
+<li dir="RTL" style="text-align:justify"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:18.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;"><span style="color:black">التركيز على الإسهامات التراثية والمنظومة الفكرية في مجال العلاقات الدولية.</span></span></span></span></span></li>
+<li dir="RTL" style="text-align:justify"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:18.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;"><span style="color:black">تطوير ثقافة البحث العلمي في مجال العلاقات الدولية والدبلوماسية.</span></span></span></span></span></li>
+<li dir="RTL" style="text-align:justify"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:18.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;"><span style="color:black">تعزيز التعاون العلمي مع الجامعات والمؤسسات الاكاديمية الأخرى، وخصوصا في مجال العلاقات الدولية والدبلوماسية.</span></span></span></span></span></li>
+<li dir="RTL" style="text-align:justify"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:18.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;"><span style="color:black">تمتين أواصر التعاون مع الوزارات والمؤسسات العامة والخاصة، والمنظمات والهيئات الدولية الأخرى.</span></span></span></span></span></li>
+<li dir="RTL" style="text-align:justify"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:18.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;"><span style="color:black">إقامة دورات تدريبية وتخصصية، وتدريب الطلاب داخليا وخارجيا، في مجال العلاقات الدولية والدبلوماسية.</span></span></span></span></span></li>
 </ul>
 
-<p><span style="color:#000000;">&nbsp;</span></p>',
-                                'created_at' => '2018-12-12 08:56:37',
-                                'updated_at' => '2018-12-12 08:56:37',
-                                'deleted_at' => NULL,
-                            ),
-                            84 => 
-                            array (
-                                'id' => 85,
-                                'custom_module_attribute_value_id' => 253,
-                                'lang_id' => 1,
-                                'text' => '<p>-</p>',
-                                'created_at' => '2018-12-12 10:48:31',
-                                'updated_at' => '2018-12-12 10:48:31',
-                                'deleted_at' => NULL,
-                            ),
-                            85 => 
-                            array (
-                                'id' => 86,
-                                'custom_module_attribute_value_id' => 253,
-                                'lang_id' => 2,
-                                'text' => '<p><span style="font-size:20px;"><strong><span style="color:#000000;">الخطة الدرسية لكلية الهندسة المعلوماتية</span></strong></span></p>
+<p><span style="color:#000000">&nbsp;</span></p>',
+                    'created_at' => '2018-12-12 08:56:37',
+                    'updated_at' => '2019-01-09 09:38:24',
+                    'deleted_at' => NULL,
+                ),
+                84 => 
+                array (
+                    'id' => 85,
+                    'custom_module_attribute_value_id' => 253,
+                    'lang_id' => 1,
+                    'text' => '<p>-</p>',
+                    'created_at' => '2018-12-12 10:48:31',
+                    'updated_at' => '2018-12-12 10:48:31',
+                    'deleted_at' => NULL,
+                ),
+                85 => 
+                array (
+                    'id' => 86,
+                    'custom_module_attribute_value_id' => 253,
+                    'lang_id' => 2,
+                    'text' => '<p><span style="font-size:20px;"><strong><span style="color:#000000;">الخطة الدرسية لكلية الهندسة المعلوماتية</span></strong></span></p>
 
 <p>&nbsp;</p>
 
@@ -4552,160 +4554,328 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
 <p>&nbsp;</p>
 
 <p><ins><span style="font-size:20px;"><a href="http://db/laravel-filemanager/files/2/الخطة-الدرسية-قسم-الهندسة-المعلوماتية-18-10-2014.pdf" target="_blank"><span style="color:#2980b9;">اضغط هنا..</span></a></span></ins></p>',
-                                'created_at' => '2018-12-12 10:48:31',
-                                'updated_at' => '2018-12-12 11:17:59',
-                                'deleted_at' => NULL,
-                            ),
-                            86 => 
-                            array (
-                                'id' => 87,
-                                'custom_module_attribute_value_id' => 256,
-                                'lang_id' => 1,
-                                'text' => '<p>-</p>',
-                                'created_at' => '2018-12-12 11:10:41',
-                                'updated_at' => '2018-12-12 11:10:41',
-                                'deleted_at' => NULL,
-                            ),
-                            87 => 
-                            array (
-                                'id' => 88,
-                                'custom_module_attribute_value_id' => 256,
-                                'lang_id' => 2,
-                                'text' => '<p><span style="font-size:20px;"><span style="color:#000000;"><strong>الخطة الدرسية لكلية الحقوق</strong></span></span></p>
+                    'created_at' => '2018-12-12 10:48:31',
+                    'updated_at' => '2018-12-12 11:17:59',
+                    'deleted_at' => NULL,
+                ),
+                86 => 
+                array (
+                    'id' => 87,
+                    'custom_module_attribute_value_id' => 256,
+                    'lang_id' => 1,
+                    'text' => '<p>-</p>',
+                    'created_at' => '2018-12-12 11:10:41',
+                    'updated_at' => '2018-12-12 11:10:41',
+                    'deleted_at' => NULL,
+                ),
+                87 => 
+                array (
+                    'id' => 88,
+                    'custom_module_attribute_value_id' => 256,
+                    'lang_id' => 2,
+                    'text' => '<p><span style="color:#16a085;"><span style="font-size:11pt"><span style="line-height:150%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span lang="AR-AE" style="font-size:20.0pt"><span style="line-height:150%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">الخطة الدرسية لكلية الحقوق</span></span></span></b></span></span></span></span></span></span></p>
 
-<p><span style="font-size:18px;"><span style="color:#000000;">للاطلاع على الخطة الدرسية لكلية الحقوق يرجى الضغط على الرابطة الموجود بالاسفل</span></span></p>
+<p dir="RTL" style="text-align:justify; margin:0cm 0cm 10pt"><span style="color:#2c3e50;"><span style="font-size:11pt"><span style="line-height:150%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-AE" style="font-size:18.0pt"><span style="line-height:150%"><span arabic="" simplified="" style="font-family:">تضم الخطة الدراسية لكلية الحقوق ما يلي: </span></span></span></span></span></span></span></span></span></p>
 
-<p>&nbsp;</p>
+<ul>
+<li dir="RTL" style="margin:0cm; margin-bottom:.0001pt; text-align:justify"><span style="color:#2c3e50;"><span style="font-size:11pt"><span style="line-height:150%"><span style="vertical-align:baseline"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-AE" style="font-size:18.0pt"><span style="line-height:150%"><span arabic="" simplified="" style="font-family:">وصفاً شاملاً لبرنامج الدراسة الذي يدرسه الطالب.</span></span></span></span></span></span></span></span></span></span></li>
+<li dir="RTL" style="margin-top:0cm; margin-right:70.85pt; margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 10pt"><span style="color:#2c3e50;"><span style="font-size:11pt"><span style="line-height:150%"><span style="vertical-align:baseline"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-AE" style="font-size:18.0pt"><span style="line-height:150%"><span arabic="" simplified="" style="font-family:">مجموعة من المقررات المتكاملة التي ينبغي على الطالب دراستها وذلك لأجل الحصول على الدرجة الجامعية الأولى الإجازة. </span></span></span></span></span></span></span></span></span></span></li>
+<li dir="RTL" style="margin:0cm; margin-bottom:.0001pt; text-align:justify"><span style="color:#2c3e50;"><span style="font-size:11pt"><span style="line-height:150%"><span style="vertical-align:baseline"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-AE" style="font-size:18.0pt"><span style="line-height:150%"><span arabic="" simplified="" style="font-family:">فترة تدريب عملي (داخلي وخارجي) يحددها مجلس الكلية.</span></span></span></span></span></span></span></span></span></span></li>
+<li dir="RTL" style="margin-top:0cm; margin-right:70.85pt; margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 10pt"><span style="color:#2c3e50;"><span style="font-size:11pt"><span style="line-height:150%"><span style="vertical-align:baseline"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-AE" style="font-size:18.0pt"><span style="line-height:150%"><span arabic="" simplified="" style="font-family:">بحث تخرج أو (مشروع بحث تخرج) ويشمل دراسة أساليب وطرق البحث القانوني إضافة إلى كتابة البحث. </span></span></span></span></span></span></span></span></span></span></li>
+</ul>
 
-<p><span style="font-size:22px;"><ins><a href="http://db/laravel-filemanager/files/2/الخطة-الدرسية-لكلية-الحقوق-المعتمدة-من-الوزارة.pdf" target="_blank"><span style="color:#2980b9;">اضغط هنا..</span></a></ins></span></p>',
-                                'created_at' => '2018-12-12 11:10:41',
-                                'updated_at' => '2018-12-12 11:10:41',
-                                'deleted_at' => NULL,
-                            ),
-                            88 => 
-                            array (
-                                'id' => 89,
-                                'custom_module_attribute_value_id' => 259,
-                                'lang_id' => 1,
-                                'text' => '<p>-</p>',
-                                'created_at' => '2018-12-12 11:22:52',
-                                'updated_at' => '2018-12-12 11:22:52',
-                                'deleted_at' => NULL,
-                            ),
-                            89 => 
-                            array (
-                                'id' => 90,
-                                'custom_module_attribute_value_id' => 259,
-                                'lang_id' => 2,
-                                'text' => '<p><strong><span style="font-size:20px;">الخطة الدرسية لكلية العلوم الادارية</span></strong></p>
+<p><span style="color:#2c3e50;"><span style="font-size:12pt"><span new="" roman="" style="font-family:" times=""><span dir="RTL" lang="AR-AE" style="font-size:18.0pt"><span arabic="" simplified="" style="font-family:">للاطلاع على الخطة الدرسية لكلية الحقوق يرجى الضغط على الرابطة الموجود بالإسفل</span></span></span></span></span></p>
 
 <p>&nbsp;</p>
 
-<p><span style="font-size:18px;"><span style="color:#000000;">للاطلاع على الخطة الدرسية لكلية العلوم الادارية يرجى الضغط على الرابط الموجود بالاسفل..</span></span></p>
+<p><span style="font-size:24px;"><ins><a href="http://db/laravel-filemanager/files/2/الخطة-الدرسية-لكلية-الحقوق-المعتمدة-من-الوزارة.pdf" target="_blank"><span style="color:#16a085;">اضغط هنا.</span></a></ins></span><span style="font-size:22px;"><ins><a href="http://db/laravel-filemanager/files/2/الخطة-الدرسية-لكلية-الحقوق-المعتمدة-من-الوزارة.pdf" target="_blank"><span style="color:#16a085;">.</span></a></ins></span></p>',
+                    'created_at' => '2018-12-12 11:10:41',
+                    'updated_at' => '2018-12-31 10:10:20',
+                    'deleted_at' => NULL,
+                ),
+                88 => 
+                array (
+                    'id' => 89,
+                    'custom_module_attribute_value_id' => 259,
+                    'lang_id' => 1,
+                    'text' => '<p>-</p>',
+                    'created_at' => '2018-12-12 11:22:52',
+                    'updated_at' => '2018-12-12 11:22:52',
+                    'deleted_at' => NULL,
+                ),
+                89 => 
+                array (
+                    'id' => 90,
+                    'custom_module_attribute_value_id' => 259,
+                    'lang_id' => 2,
+                    'text' => '<p> </p>
 
-<p>&nbsp;</p>
+<p dir="RTL" style="text-align:justify; margin-right:0cm; margin-left:0cm"><span style="color:#2c3e50;"><span style="font-size:12pt"><span style="line-height:150%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span new="" roman="" style="font-family:" times=""><strong><span lang="AR-SA" style="font-size:22.0pt"><span style="line-height:150%"><span arabic="" simplified="" style="font-family:">الخطة الدرسية لكلية العلوم الادارية</span></span></span></strong></span></span></span></span></span></span></p>
 
-<p><ins><span style="font-size:20px;"><a href="http://db/laravel-filemanager/files/2/الخطة-الدرسية-ك-ع-إدارية-معتمدة-من-الوزارة.pdf" target="_blank"><span style="color:#2980b9;">اضغط هنا..</span></a></span></ins></p>',
-                                'created_at' => '2018-12-12 11:22:52',
-                                'updated_at' => '2018-12-12 11:22:52',
-                                'deleted_at' => NULL,
-                            ),
-                            90 => 
-                            array (
-                                'id' => 91,
-                                'custom_module_attribute_value_id' => 262,
-                                'lang_id' => 1,
-                                'text' => '<p>-</p>',
-                                'created_at' => '2018-12-12 11:38:28',
-                                'updated_at' => '2018-12-12 11:38:28',
-                                'deleted_at' => NULL,
-                            ),
-                            91 => 
-                            array (
-                                'id' => 92,
-                                'custom_module_attribute_value_id' => 262,
-                                'lang_id' => 2,
-                                'text' => '<p><span style="font-size:20px;"><strong><span style="color:#000000;">الخطة الدرسية لكلية العلاقات الدولية والدبلوماسية</span></strong></span></p>
+<p dir="RTL" style="margin-bottom:10.0pt; text-align:justify; margin:0cm 0cm 8pt; margin-right:0cm; margin-left:0cm"><span style="color:#2c3e50;"><span style="font-size:11pt"><span style="line-height:150%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-JO" style="font-size:18.0pt"><span style="line-height:150%"><span arabic="" simplified="" style="font-family:">تتكون الخطة الدراسية لكلية العلوم الإدارية للحصول على درجة الإجازة باختصاصاتها المختلفة (الخمسة) من (139) ساعة معتمدة موزعة على النحو الآتي:</span></span></span></span></span></span></span></span></span></p>
 
-<p>&nbsp;</p>
+<table align="right" class="Table" dir="rtl" style="width:446.55pt; margin-left:-15.95pt; border-collapse:collapse; border:ridge windowtext 6.0pt" width="595">
+<tbody>
+<tr>
+<td rowspan="2" style="border:ridge windowtext 6.0pt; background:#dfdfdf; width:58.0pt; padding:0cm 5.4pt 0cm 5.4pt" width="77">
+<p align="center" dir="LTR" style="margin-bottom:.0001pt; text-align:center; margin:0cm 0cm 8pt"><span style="color:#2c3e50;"><span style="font-size:11pt"><span style="line-height:normal"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span dir="RTL" lang="AR-JO" style="font-size:18.0pt"><span arabic="" simplified="" style="font-family:">م</span></span></b></span></span></span></span></span></p>
+</td>
+<td rowspan="2" style="border:ridge windowtext 6.0pt; background:#dfdfdf; width:119.2pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt" width="159">
+<p align="center" dir="LTR" style="margin-bottom:.0001pt; text-align:center; margin:0cm 0cm 8pt"><span style="color:#2c3e50;"><span style="font-size:11pt"><span style="line-height:normal"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span dir="RTL" lang="AR-JO" style="font-size:18.0pt"><span arabic="" simplified="" style="font-family:">التفاصيل</span></span></b></span></span></span></span></span></p>
+</td>
+<td colspan="3" style="border:ridge windowtext 6.0pt; background:#dfdfdf; width:186.15pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt" width="248">
+<p align="center" dir="LTR" style="margin-bottom:.0001pt; text-align:center; margin:0cm 0cm 8pt"><span style="color:#2c3e50;"><span style="font-size:11pt"><span style="line-height:normal"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span dir="RTL" lang="AR-JO" style="font-size:18.0pt"><span arabic="" simplified="" style="font-family:">عدد الساعات المعتمدة</span></span></b></span></span></span></span></span></p>
+</td>
+<td rowspan="2" style="border:ridge windowtext 6.0pt; background:#dfdfdf; width:83.2pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt" width="111">
+<p align="center" dir="LTR" style="margin-bottom:.0001pt; text-align:center; margin:0cm 0cm 8pt"><span style="color:#2c3e50;"><span style="font-size:11pt"><span style="line-height:normal"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span dir="RTL" lang="AR-JO" style="font-size:18.0pt"><span arabic="" simplified="" style="font-family:">النسبة المئوية</span></span></b></span></span></span></span></span></p>
+</td>
+</tr>
+<tr>
+<td style="border-bottom:ridge windowtext 6.0pt; background:#dfdfdf; width:59.85pt; border-top:none; border-left:ridge windowtext 6.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt" width="80">
+<p align="center" dir="LTR" style="margin-bottom:.0001pt; text-align:center; margin:0cm 0cm 8pt"><span style="color:#2c3e50;"><span style="font-size:11pt"><span style="line-height:normal"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span dir="RTL" lang="AR-JO" style="font-size:18.0pt"><span arabic="" simplified="" style="font-family:">الإلزامية</span></span></b></span></span></span></span></span></p>
+</td>
+<td style="border-bottom:ridge windowtext 6.0pt; background:#dfdfdf; width:65.15pt; border-top:none; border-left:ridge windowtext 6.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt" width="87">
+<p align="center" dir="LTR" style="margin-bottom:.0001pt; text-align:center; margin:0cm 0cm 8pt"><span style="color:#2c3e50;"><span style="font-size:11pt"><span style="line-height:normal"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span dir="RTL" lang="AR-JO" style="font-size:18.0pt"><span arabic="" simplified="" style="font-family:">الاختيارية</span></span></b></span></span></span></span></span></p>
+</td>
+<td style="border-bottom:ridge windowtext 6.0pt; background:#dfdfdf; width:61.15pt; border-top:none; border-left:ridge windowtext 6.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt" width="82">
+<p align="center" dir="LTR" style="margin-bottom:.0001pt; text-align:center; margin:0cm 0cm 8pt"><span style="color:#2c3e50;"><span style="font-size:11pt"><span style="line-height:normal"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span dir="RTL" lang="AR-JO" style="font-size:18.0pt"><span arabic="" simplified="" style="font-family:">الإجمالية</span></span></b></span></span></span></span></span></p>
+</td>
+</tr>
+<tr>
+<td style="border:ridge windowtext 6.0pt; width:58.0pt; border-top:none; padding:0cm 5.4pt 0cm 5.4pt" width="77">
+<p align="center" dir="LTR" style="margin-bottom:.0001pt; text-align:center; margin:0cm 0cm 8pt"><span style="color:#2c3e50;"><span style="font-size:11pt"><span style="line-height:normal"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span dir="RTL" lang="AR-JO" style="font-size:18.0pt"><span arabic="" simplified="" style="font-family:">أ</span></span></span></span></span></span></span></p>
+</td>
+<td style="border-bottom:ridge windowtext 6.0pt; width:119.2pt; border-top:none; border-left:ridge windowtext 6.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt" width="159">
+<p align="center" dir="LTR" style="margin-bottom:.0001pt; text-align:center; margin:0cm 0cm 8pt"><span style="color:#2c3e50;"><span style="font-size:11pt"><span style="line-height:normal"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span dir="RTL" lang="AR-JO" style="font-size:18.0pt"><span arabic="" simplified="" style="font-family:">متطلبات الجامعة</span></span></span></span></span></span></span></p>
+</td>
+<td style="border-bottom:ridge windowtext 6.0pt; width:59.85pt; border-top:none; border-left:ridge windowtext 6.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt" width="80">
+<p align="center" dir="LTR" style="margin-bottom:.0001pt; text-align:center; margin:0cm 0cm 8pt"><span style="color:#2c3e50;"><span style="font-size:11pt"><span style="line-height:normal"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span dir="RTL" lang="AR-JO" style="font-size:18.0pt"><span arabic="" simplified="" style="font-family:">13</span></span></span></span></span></span></span></p>
+</td>
+<td style="border-bottom:ridge windowtext 6.0pt; width:65.15pt; border-top:none; border-left:ridge windowtext 6.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt" width="87">
+<p align="center" dir="LTR" style="margin-bottom:.0001pt; text-align:center; margin:0cm 0cm 8pt"><span style="color:#2c3e50;"><span style="font-size:11pt"><span style="line-height:normal"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span dir="RTL" lang="AR-JO" style="font-size:18.0pt"><span arabic="" simplified="" style="font-family:">4</span></span></span></span></span></span></span></p>
+</td>
+<td style="border-bottom:ridge windowtext 6.0pt; width:61.15pt; border-top:none; border-left:ridge windowtext 6.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt" width="82">
+<p align="center" dir="LTR" style="margin-bottom:.0001pt; text-align:center; margin:0cm 0cm 8pt"><span style="color:#2c3e50;"><span style="font-size:11pt"><span style="line-height:normal"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span dir="RTL" lang="AR-SY" style="font-size:18.0pt"><span arabic="" simplified="" style="font-family:">17</span></span></span></span></span></span></span></p>
+</td>
+<td style="border-bottom:ridge windowtext 6.0pt; width:83.2pt; border-top:none; border-left:ridge windowtext 6.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt" width="111">
+<p align="center" dir="LTR" style="margin-bottom:.0001pt; text-align:center; margin:0cm 0cm 8pt"><span style="color:#2c3e50;"><span style="font-size:11pt"><span style="line-height:normal"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span dir="RTL" lang="AR-JO" style="font-size:18.0pt"><span arabic="" simplified="" style="font-family:">12,2 %</span></span></span></span></span></span></span></p>
+</td>
+</tr>
+<tr>
+<td style="border:ridge windowtext 6.0pt; width:58.0pt; border-top:none; padding:0cm 5.4pt 0cm 5.4pt" width="77">
+<p align="center" dir="LTR" style="margin-bottom:.0001pt; text-align:center; margin:0cm 0cm 8pt"><span style="color:#2c3e50;"><span style="font-size:11pt"><span style="line-height:normal"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span dir="RTL" lang="AR-JO" style="font-size:18.0pt"><span arabic="" simplified="" style="font-family:">ب</span></span></span></span></span></span></span></p>
+</td>
+<td style="border-bottom:ridge windowtext 6.0pt; width:119.2pt; border-top:none; border-left:ridge windowtext 6.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt" width="159">
+<p align="center" dir="LTR" style="margin-bottom:.0001pt; text-align:center; margin:0cm 0cm 8pt"><span style="color:#2c3e50;"><span style="font-size:11pt"><span style="line-height:normal"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span dir="RTL" lang="AR-JO" style="font-size:18.0pt"><span arabic="" simplified="" style="font-family:">متطلبات الكلية</span></span></span></span></span></span></span></p>
+</td>
+<td style="border-bottom:ridge windowtext 6.0pt; width:59.85pt; border-top:none; border-left:ridge windowtext 6.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt" width="80">
+<p align="center" dir="LTR" style="margin-bottom:.0001pt; text-align:center; margin:0cm 0cm 8pt"><span style="color:#2c3e50;"><span style="font-size:11pt"><span style="line-height:normal"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span dir="RTL" lang="AR-JO" style="font-size:18.0pt"><span arabic="" simplified="" style="font-family:">44</span></span></span></span></span></span></span></p>
+</td>
+<td style="border-bottom:ridge windowtext 6.0pt; width:65.15pt; border-top:none; border-left:ridge windowtext 6.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt" width="87">
+<p align="center" dir="LTR" style="margin-bottom:.0001pt; text-align:center; margin:0cm 0cm 8pt"><span style="color:#2c3e50;"><span style="font-size:11pt"><span style="line-height:normal"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span dir="RTL" lang="AR-SY" style="font-size:18.0pt"><span arabic="" simplified="" style="font-family:">6</span></span></span></span></span></span></span></p>
+</td>
+<td style="border-bottom:ridge windowtext 6.0pt; width:61.15pt; border-top:none; border-left:ridge windowtext 6.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt" width="82">
+<p align="center" dir="LTR" style="margin-bottom:.0001pt; text-align:center; margin:0cm 0cm 8pt"><span style="color:#2c3e50;"><span style="font-size:11pt"><span style="line-height:normal"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span dir="RTL" lang="AR-JO" style="font-size:18.0pt"><span arabic="" simplified="" style="font-family:">50</span></span></span></span></span></span></span></p>
+</td>
+<td style="border-bottom:ridge windowtext 6.0pt; width:83.2pt; border-top:none; border-left:ridge windowtext 6.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt" width="111">
+<p align="center" dir="LTR" style="margin-bottom:.0001pt; text-align:center; margin:0cm 0cm 8pt"><span style="color:#2c3e50;"><span style="font-size:11pt"><span style="line-height:normal"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span dir="RTL" lang="AR-JO" style="font-size:18.0pt"><span arabic="" simplified="" style="font-family:">36,0 %</span></span></span></span></span></span></span></p>
+</td>
+</tr>
+<tr>
+<td style="border:ridge windowtext 6.0pt; width:58.0pt; border-top:none; padding:0cm 5.4pt 0cm 5.4pt" width="77">
+<p align="center" dir="LTR" style="margin-bottom:.0001pt; text-align:center; margin:0cm 0cm 8pt"><span style="color:#2c3e50;"><span style="font-size:11pt"><span style="line-height:normal"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span dir="RTL" lang="AR-JO" style="font-size:18.0pt"><span arabic="" simplified="" style="font-family:">ج</span></span></span></span></span></span></span></p>
+</td>
+<td style="border-bottom:ridge windowtext 6.0pt; width:119.2pt; border-top:none; border-left:ridge windowtext 6.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt" width="159">
+<p align="center" dir="LTR" style="margin-bottom:.0001pt; text-align:center; margin:0cm 0cm 8pt"><span style="color:#2c3e50;"><span style="font-size:11pt"><span style="line-height:normal"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span dir="RTL" lang="AR-JO" style="font-size:18.0pt"><span arabic="" simplified="" style="font-family:">متطلبات القسم (التخصص)</span></span></span></span></span></span></span></p>
+</td>
+<td style="border-bottom:ridge windowtext 6.0pt; width:59.85pt; border-top:none; border-left:ridge windowtext 6.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt" width="80">
+<p align="center" dir="LTR" style="margin-bottom:.0001pt; text-align:center; margin:0cm 0cm 8pt"><span style="color:#2c3e50;"><span style="font-size:11pt"><span style="line-height:normal"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span dir="RTL" lang="AR-JO" style="font-size:18.0pt"><span arabic="" simplified="" style="font-family:">66</span></span></span></span></span></span></span></p>
+</td>
+<td style="border-bottom:ridge windowtext 6.0pt; width:65.15pt; border-top:none; border-left:ridge windowtext 6.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt" width="87">
+<p align="center" dir="LTR" style="margin-bottom:.0001pt; text-align:center; margin:0cm 0cm 8pt"><span style="color:#2c3e50;"><span style="font-size:11pt"><span style="line-height:normal"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span dir="RTL" lang="AR-JO" style="font-size:18.0pt"><span arabic="" simplified="" style="font-family:">6</span></span></span></span></span></span></span></p>
+</td>
+<td style="border-bottom:ridge windowtext 6.0pt; width:61.15pt; border-top:none; border-left:ridge windowtext 6.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt" width="82">
+<p align="center" dir="LTR" style="margin-bottom:.0001pt; text-align:center; margin:0cm 0cm 8pt"><span style="color:#2c3e50;"><span style="font-size:11pt"><span style="line-height:normal"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span dir="RTL" lang="AR-JO" style="font-size:18.0pt"><span arabic="" simplified="" style="font-family:">72</span></span></span></span></span></span></span></p>
+</td>
+<td style="border-bottom:ridge windowtext 6.0pt; width:83.2pt; border-top:none; border-left:ridge windowtext 6.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt" width="111">
+<p align="center" dir="LTR" style="margin-bottom:.0001pt; text-align:center; margin:0cm 0cm 8pt"><span style="color:#2c3e50;"><span style="font-size:11pt"><span style="line-height:normal"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span dir="RTL" lang="AR-JO" style="font-size:18.0pt"><span arabic="" simplified="" style="font-family:">51,8 %</span></span></span></span></span></span></span></p>
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border:ridge windowtext 6.0pt; width:177.2pt; border-top:none; padding:0cm 5.4pt 0cm 5.4pt" width="236">
+<p align="center" dir="LTR" style="margin-bottom:.0001pt; text-align:center; margin:0cm 0cm 8pt"><span style="color:#2c3e50;"><span style="font-size:11pt"><span style="line-height:normal"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span dir="RTL" lang="AR-JO" style="font-size:18.0pt"><span arabic="" simplified="" style="font-family:">مجموع الساعات المعتمدة الإجمالية</span></span></b></span></span></span></span></span></p>
+</td>
+<td style="border-bottom:ridge windowtext 6.0pt; width:59.85pt; border-top:none; border-left:ridge windowtext 6.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt" width="80">
+<p align="center" dir="LTR" style="margin-bottom:.0001pt; text-align:center; margin:0cm 0cm 8pt"><span style="color:#2c3e50;"><span style="font-size:11pt"><span style="line-height:normal"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span dir="RTL" lang="AR-JO" style="font-size:18.0pt"><span arabic="" simplified="" style="font-family:">123</span></span></b></span></span></span></span></span></p>
+</td>
+<td style="border-bottom:ridge windowtext 6.0pt; width:65.15pt; border-top:none; border-left:ridge windowtext 6.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt" width="87">
+<p align="center" dir="LTR" style="margin-bottom:.0001pt; text-align:center; margin:0cm 0cm 8pt"><span style="color:#2c3e50;"><span style="font-size:11pt"><span style="line-height:normal"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span dir="RTL" lang="AR-JO" style="font-size:18.0pt"><span arabic="" simplified="" style="font-family:">16</span></span></b></span></span></span></span></span></p>
+</td>
+<td style="border-bottom:ridge windowtext 6.0pt; width:61.15pt; border-top:none; border-left:ridge windowtext 6.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt" width="82">
+<p align="center" dir="LTR" style="margin-bottom:.0001pt; text-align:center; margin:0cm 0cm 8pt"><span style="color:#2c3e50;"><span style="font-size:11pt"><span style="line-height:normal"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span dir="RTL" lang="AR-SY" style="font-size:18.0pt"><span arabic="" simplified="" style="font-family:">139</span></span></b></span></span></span></span></span></p>
+</td>
+<td style="border-bottom:ridge windowtext 6.0pt; width:83.2pt; border-top:none; border-left:ridge windowtext 6.0pt; border-right:none; padding:0cm 5.4pt 0cm 5.4pt" width="111">
+<p align="center" dir="RTL" style="margin-bottom:.0001pt; text-align:center; margin:0cm 0cm 8pt"><span style="color:#2c3e50;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span lang="AR-JO" style="font-size:18.0pt"><span arabic="" simplified="" style="font-family:">100%</span></span></b></span></span></span></span></span></span></p>
+</td>
+</tr>
+</tbody>
+</table>
 
-<p><span style="font-size:18px;"><span style="color:#000000;">للاطلاع على الخطة الدرسية لكلية العلاقات الدولية والدبلوماسية يرجى الضغط على الرابط الموجود بالاسفل</span></span></p>
+<p> </p>
 
-<p>&nbsp;</p>
+<p> </p>
 
-<p><ins><a href="http://db/laravel-filemanager/files/2/الخطة-الدرسية-لكلية-العلاقات-الدولية-و-الدبلوماسية.pdf" style="font-size: 18px; background-color: rgb(255, 255, 255);" target="_blank"><span style="color:#2980b9;">اضغط هنا..</span></a></ins></p>',
-                                'created_at' => '2018-12-12 11:38:28',
-                                'updated_at' => '2018-12-12 11:38:28',
-                                'deleted_at' => NULL,
-                            ),
-                            92 => 
-                            array (
-                                'id' => 93,
-                                'custom_module_attribute_value_id' => 265,
-                                'lang_id' => 1,
-                                'text' => '<p>-</p>',
-                                'created_at' => '2018-12-12 12:30:10',
-                                'updated_at' => '2018-12-12 12:30:10',
-                                'deleted_at' => NULL,
-                            ),
-                            93 => 
-                            array (
-                                'id' => 94,
-                                'custom_module_attribute_value_id' => 265,
-                                'lang_id' => 2,
-                                'text' => '<p><strong><span style="font-size:20px;"><span style="color:#000000;">الخطة الدرسية لكلية الصيدلة</span></span></strong></p>
+<p> </p>
 
-<p><span style="color:#000000;">للاطلاع على الخطة الدرسية لكلية الصيدلة يرجى الضغط على الرابط الموجود بالاسفل</span></p>
+<p> </p>
 
-<p>&nbsp;</p>
+<p> </p>
 
-<p><span style="font-size:20px;"><a href="http://db/laravel-filemanager/files/2/الخطة-الدرسية-لكلية-الصيدلة-22-11-2016.pdf" target="_blank"><span style="color:#2980b9;">اضغط هنا</span></a></span></p>',
-                                'created_at' => '2018-12-12 12:30:10',
-                                'updated_at' => '2018-12-12 12:30:10',
-                                'deleted_at' => NULL,
-                            ),
-                            94 => 
-                            array (
-                                'id' => 95,
-                                'custom_module_attribute_value_id' => 268,
-                                'lang_id' => 1,
-                                'text' => '<p>-</p>',
-                                'created_at' => '2018-12-12 12:37:28',
-                                'updated_at' => '2018-12-12 12:37:28',
-                                'deleted_at' => NULL,
-                            ),
-                            95 => 
-                            array (
-                                'id' => 96,
-                                'custom_module_attribute_value_id' => 268,
-                                'lang_id' => 2,
-                                'text' => '<p><strong><span style="color:#000000;">ا<span style="font-size:20px;">لخطة الدرسية لكلية طب الاسنان</span></span></strong></p>
+<p> </p>
 
-<p><span style="color:#000000;"><span style="font-size:20px;">للاطلاع على الخطة الدرسية لكلية طب الاسنان يرجى الضغط على الرابط الموجود بالاسفل</span></span></p>
+<p> </p>
 
-<p>&nbsp;</p>
+<p> </p>
 
-<p><ins><span style="font-size:22px;"><a href="http://db/laravel-filemanager/files/2/الخطة-الدراسية-لكلية-طب-الاسنان-نهائية-مختار.pdf" target="_blank">اضغط هنا..</a></span></ins></p>',
-                                'created_at' => '2018-12-12 12:37:28',
-                                'updated_at' => '2018-12-12 12:37:28',
-                                'deleted_at' => NULL,
-                            ),
-                            96 => 
-                            array (
-                                'id' => 97,
-                                'custom_module_attribute_value_id' => 271,
-                                'lang_id' => 1,
-                                'text' => '<p>-</p>',
-                                'created_at' => '2018-12-16 11:42:56',
-                                'updated_at' => '2018-12-16 11:42:56',
-                                'deleted_at' => NULL,
-                            ),
-                            97 => 
-                            array (
-                                'id' => 98,
-                                'custom_module_attribute_value_id' => 271,
-                                'lang_id' => 2,
-                                'text' => '<p dir="RTL" style="text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span lang="AR-SY" style="font-size:20.0pt"><span style="line-height:107%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">اتفاقيات التعاون مع الجامعات والمؤسسات الأكاديمية</span></span></span></b></span></span></span></span></span></span></p>
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>
+
+<p><span style="color:#2c3e50;"><span style="font-size:12pt"><span style="direction:rtl"><span style="unicode-bidi:embed"><span new="" roman="" style="font-family:" times=""><span lang="AR-SA" style="font-size:18.0pt"><span arabic="" simplified="" style="font-family:">للاطلاع على الخطة الدرسية لكلية العلوم الادارية يرجى الضغط على الرابط الموجود بالأسفل</span></span><span dir="LTR" style="font-size:18.0pt"><span arabic="" simplified="" style="font-family:">..</span></span></span></span></span></span></span></p>
+
+<p><span style="font-size:24px;"><ins><a href="http://db/laravel-filemanager/files/2/الخطة-الدرسية-ك-ع-إدارية-معتمدة-من-الوزارة.pdf" target="_blank"><span style="color:#2980b9;">اضغط هنا..</span></a></ins></span></p>',
+                    'created_at' => '2018-12-12 11:22:52',
+                    'updated_at' => '2019-01-06 09:06:21',
+                    'deleted_at' => NULL,
+                ),
+                90 => 
+                array (
+                    'id' => 91,
+                    'custom_module_attribute_value_id' => 262,
+                    'lang_id' => 1,
+                    'text' => '<p>-</p>',
+                    'created_at' => '2018-12-12 11:38:28',
+                    'updated_at' => '2018-12-12 11:38:28',
+                    'deleted_at' => NULL,
+                ),
+                91 => 
+                array (
+                    'id' => 92,
+                    'custom_module_attribute_value_id' => 262,
+                    'lang_id' => 2,
+                    'text' => '<p dir="RTL" style="text-align:right"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:22.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;"><span style="color:#843c0c">الخطة الدرسية لكلية العلاقات الدولية والدبلوماسية:</span></span></span></strong></span></span></p>
+
+<p dir="RTL" style="text-align:right"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:18.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;"><span style="color:black">للاطلاع على الخطة الدرسية لكلية العلاقات الدولية والدبلوماسية يرجى الضغط على الرابط الموجود بالأسفل</span></span></span></span></span></p>
+
+<p><span style="font-size:26px"><ins><a href="http://db/asu/public/laravel-filemanager/files/2/الخطة الدرسية لكلية العلوم الدبلوماسية -جامعة الشام.pdf" style="font-size: 18px; background-color: rgb(255, 255, 255);" target="_blank"><span style="color:#d35400">اضغط هنا..</span></a></ins></span></p>',
+                    'created_at' => '2018-12-12 11:38:28',
+                    'updated_at' => '2019-01-09 09:57:14',
+                    'deleted_at' => NULL,
+                ),
+                92 => 
+                array (
+                    'id' => 93,
+                    'custom_module_attribute_value_id' => 265,
+                    'lang_id' => 1,
+                    'text' => '<p>-</p>',
+                    'created_at' => '2018-12-12 12:30:10',
+                    'updated_at' => '2018-12-12 12:30:10',
+                    'deleted_at' => NULL,
+                ),
+                93 => 
+                array (
+                    'id' => 94,
+                    'custom_module_attribute_value_id' => 265,
+                    'lang_id' => 2,
+                    'text' => '<p dir="RTL" style="text-align:right"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:22.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;"><span style="color:#00b0f0">أهداف البرنامج والخطة الدراسية</span></span></span></strong><strong><span dir="LTR" style="font-size:22.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;"><span style="color:#00b0f0">:</span></span></span></strong></span></span></p>
+
+<p dir="RTL" style="text-align:right"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:18.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">&nbsp;<span style="color:black">يهدف برنامج كلية الصيدلة في جامعة الشام الخاصة إلى:</span></span></span></span></span></p>
+
+<ul>
+<li dir="RTL" style="text-align:right"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:18.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;"><span style="color:black">إعداد طلاب كلية الصيدلة وتأهيلهم للعمل في مختلف المهن الصيدلانية وتوفير الكوادر اللازمة لتلبية احتياجات المجتمع العربي السوري في مجال صيدلة الخدمات وصيدلة الإنتاج. </span></span></span></span></span></li>
+<li dir="RTL" style="text-align:right"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:18.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;"><span style="color:black">تطوير أصول التدريس حسب أساليب تفاعلية بين الطالب والأستاذ بحيث يُؤدي ذلك إلى تنمية مهارات الطالب من خلال التفاعل مع الأستاذ وبالتالي اكتساب أُسس التفكير العلمي والابداع.</span></span></span></span></span></li>
+<li dir="RTL" style="text-align:right"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:18.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;"><span style="color:black">نقل المعرفة من وسائل التعليم العالمية إلى الطالب من خلال مؤلفات ومترجمات ومراجع علمية وتوفيرها للطالب.</span></span></span></span></span></li>
+<li dir="RTL" style="text-align:right"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:18.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;"><span style="color:black">تفعيل الأنشطة الطلابية وتشجيعها والعمل على تنمية شخصية الطالب بحيث يكون في المستقبل قادراً على حل مشكلاته والإسهام في حل مشكلات المجتمع وتطويره.</span></span></span></span></span></li>
+<li dir="RTL" style="text-align:right"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:18.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;"><span style="color:black">زيادة التعاون مع مختلف المؤسسات الصيدلانية في الجمهورية العربية السورية ومع مختلف كليات الصيدلة العربية والأجنبية.</span></span></span></span></span></li>
+<li dir="RTL" style="text-align:right"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:18.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;"><span style="color:black">الإسهام في تطوير البحث العلمي من خلال بحوث يقوم بها أعضاء الهيئة التدريسية والطلاب بما يكفل مواكبة العلم الصيدلاني العالمي.</span></span></span></span></span></li>
+<li dir="RTL" style="text-align:right"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:18.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;"><span style="color:black">تطوير مهارات القدرة على التعلّم الذاتي والتثقيف المستمر.</span></span></span></span></span></li>
+<li dir="RTL" style="text-align:right"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:18.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;"><span style="color:black">تطوير المهارات في مجال المعلوماتية الطبية.</span></span></span></span></span></li>
+<li dir="RTL" style="text-align:right"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:18.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;"><span style="color:black">إتقان استخدام اللغة العربية واللغة الإنكليزية الطبية في ممارسة الصيدلة.</span></span></span></span></span></li>
+<li dir="RTL" style="text-align:right"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:18.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;"><span style="color:black">تطوير التفكير النقدي، وتعلّم النقد المنهجي للأبحاث وأصول البحث العلمي، والمشاركة في نشاطات بحثية في مجال الصحة الفموية، وتطوير ممارسة الصيدلة المبنية على الدليل.</span></span></span></span></span></li>
+<li dir="RTL" style="text-align:right"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:18.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;"><span style="color:black">تطوير مهارات تدبير الوقت، والعمل ضمن الفريق</span></span></span></span></span></li>
+</ul>
+
+<p dir="RTL" style="text-align:right"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:22.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;"><span style="color:#00b0f0">الأهداف التعليمية للبرنامج</span></span></span></strong><strong><span dir="LTR" style="font-size:22.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;"><span style="color:#00b0f0">:</span></span></span></strong></span></span></p>
+
+<p dir="RTL" style="text-align:right"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:18.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;"><span style="color:black">&nbsp;تسعى هذه الخطة الدراسية لإعداد خريج كلية الصيدلة يتمتع بالصفات الآتية: </span></span></span></span></span></p>
+
+<ul>
+<li dir="RTL" style="text-align:right"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:18.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;"><span style="color:black">معرفة ما يلزم الصيدلاني من العلوم الأساسية والطبية وتطبيقها في الصيدلة.</span></span></span></span></span></li>
+<li dir="RTL" style="text-align:right"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:18.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;"><span style="color:black">معرفة بالعلوم السلوكية، وبناء الثقة مع المرضى.</span></span></span></span></span></li>
+<li dir="RTL" style="text-align:right"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:18.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;"><span style="color:black">معرفة جيدة بتدبير المرضى ذوي الاحتياجات الخاصة والمسنين.</span></span></span></span></span></li>
+<li dir="RTL" style="text-align:right"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:18.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;"><span style="color:black">معرفة متميزة بأساليب البحث العلمي ومبادئ الصيدلة.</span></span></span></span></span></li>
+<li dir="RTL" style="text-align:right"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:18.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;"><span style="color:black">تطوير التفكير النقدي.</span></span></span></span></span></li>
+<li dir="RTL" style="text-align:right"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:18.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;"><span style="color:black">ممارسة الصيدلة وفق مبادئ أخلاقية صارمة والالتزام بقوانين ممارسة المهنة واحترام حقوق المرضى. </span></span></span></span></span></li>
+<li dir="RTL" style="text-align:right"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:18.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;"><span style="color:black">القدرة على التعلّم الذاتي واتباع الدورات وحضور المؤتمرات والقراءة في الدوريات العلمية.</span></span></span></span></span></li>
+<li dir="RTL" style="text-align:right"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:18.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;"><span style="color:black">التواصل الجيد باللغة العربية والإنكليزية.</span></span></span></span></span></li>
+<li dir="RTL" style="text-align:right"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:18.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;"><span style="color:black">تدبير الوقت والعمل ضمن فريق متعدد المهام أو الاختصاصات.</span></span></span></span></span></li>
+</ul>
+
+<p dir="RTL" style="text-align:right"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:20.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;"><span style="color:black">للاطلاع على الخطة الدرسية لكلية الصيدلة يرجى الضغط على الرابط الموجود بالأسفل</span></span></span></span></span></p>
+
+<p dir="RTL" style="text-align:right"><span style="font-size:20px"><a href="http://db/laravel-filemanager/files/2/الخطة-الدرسية-لكلية-الصيدلة-22-11-2016.pdf" target="_blank"><span style="color:#2980b9">اضغط هنا</span></a></span></p>',
+                    'created_at' => '2018-12-12 12:30:10',
+                    'updated_at' => '2019-01-12 13:11:33',
+                    'deleted_at' => NULL,
+                ),
+                94 => 
+                array (
+                    'id' => 95,
+                    'custom_module_attribute_value_id' => 268,
+                    'lang_id' => 1,
+                    'text' => '<p>-</p>',
+                    'created_at' => '2018-12-12 12:37:28',
+                    'updated_at' => '2018-12-12 12:37:28',
+                    'deleted_at' => NULL,
+                ),
+                95 => 
+                array (
+                    'id' => 96,
+                    'custom_module_attribute_value_id' => 268,
+                    'lang_id' => 2,
+                    'text' => '<p dir="RTL" style="text-align:right; margin-right:0cm; margin-left:0cm"><span style="font-size:12pt"><span style="direction:rtl"><span style="unicode-bidi:embed"><span new="" roman="" style="font-family:" times=""><strong><span lang="AR-SA" style="font-size:22.0pt"><span arabic="" simplified="" style="font-family:"><span style="color:#8e44ad">الخطة الدرسية لكلية طب الاسنان</span></span></span></strong></span></span></span></span></p>
+
+<p dir="RTL" style="text-align:right; margin-right:0cm; margin-left:0cm"><span style="font-size:12pt"><span style="direction:rtl"><span style="unicode-bidi:embed"><span new="" roman="" style="font-family:" times=""><span lang="AR-SA" style="font-size:18.0pt"><span arabic="" simplified="" style="font-family:"><span style="color:black">للاطلاع على الخطة الدرسية لكلية طب الاسنان يرجى الضغط على الرابط الموجود بالأسفل</span></span></span></span></span></span></span></p>
+
+<p><span style="font-size:24px;"><ins><a href="http://db/laravel-filemanager/files/2/الخطة-الدراسية-لكلية-طب-الاسنان-نهائية-مختار.pdf" target="_blank"><span style="color:#8e44ad;">اضغط هنا..</span></a></ins></span></p>',
+                    'created_at' => '2018-12-12 12:37:28',
+                    'updated_at' => '2018-12-30 10:29:27',
+                    'deleted_at' => NULL,
+                ),
+                96 => 
+                array (
+                    'id' => 97,
+                    'custom_module_attribute_value_id' => 271,
+                    'lang_id' => 1,
+                    'text' => '<p>-</p>',
+                    'created_at' => '2018-12-16 11:42:56',
+                    'updated_at' => '2018-12-16 11:42:56',
+                    'deleted_at' => NULL,
+                ),
+                97 => 
+                array (
+                    'id' => 98,
+                    'custom_module_attribute_value_id' => 271,
+                    'lang_id' => 2,
+                    'text' => '<p dir="RTL" style="text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span lang="AR-SY" style="font-size:20.0pt"><span style="line-height:107%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">اتفاقيات التعاون مع الجامعات والمؤسسات الأكاديمية</span></span></span></b></span></span></span></span></span></span></p>
 
 <p dir="RTL" style="text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:18.0pt"><span style="line-height:107%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">ترتبط الجامعة باتفاقيات تعاون محلّية ودولية مع جامعات في ألمانيا وغيرها وشهادتها معترف بها محلياً من قبل وزارة التعليم ومن الجامعات خارج سورية، وأهمها:</span></span></span></span></span></span></span></span></span></p>
 
@@ -4719,111 +4889,920 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
 <li dir="RTL" style="text-align:justify; margin:0cm 36pt 0.0001pt 0cm"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:18.0pt"><span style="line-height:107%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">وزارة العدل (سورية).</span></span></span></span></span></span></span></span></span></li>
 <li dir="RTL" style="text-align:justify; margin:0cm 36pt 8pt 0cm"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:18.0pt"><span style="line-height:107%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">الجامعة اللبنانية الدولية </span></span></span><span dir="LTR" style="font-size:18.0pt"><span style="line-height:107%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">LIU</span></span></span><span lang="AR-SY" style="font-size:18.0pt"><span style="line-height:107%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">.</span></span></span></span></span></span></span></span></span></li>
 </ul>',
-                                'created_at' => '2018-12-16 11:42:56',
-                                'updated_at' => '2018-12-16 11:42:56',
-                                'deleted_at' => NULL,
-                            ),
-                            98 => 
-                            array (
-                                'id' => 99,
-                                'custom_module_attribute_value_id' => 282,
-                                'lang_id' => 1,
-                                'text' => 'test my title',
-                                'created_at' => '2019-01-01 07:52:59',
-                                'updated_at' => '2019-01-01 08:05:29',
-                                'deleted_at' => NULL,
-                            ),
-                            99 => 
-                            array (
-                                'id' => 100,
-                                'custom_module_attribute_value_id' => 282,
-                                'lang_id' => 2,
-                                'text' => 'عنوان',
-                                'created_at' => '2019-01-01 07:52:59',
-                                'updated_at' => '2019-01-01 07:52:59',
-                                'deleted_at' => NULL,
-                            ),
-                            100 => 
-                            array (
-                                'id' => 101,
-                                'custom_module_attribute_value_id' => 284,
-                                'lang_id' => 1,
-                                'text' => 'http://localhost/Web/Andalus/public/en/news',
-                                'created_at' => '2019-01-01 13:27:51',
-                                'updated_at' => '2019-01-01 13:27:51',
-                                'deleted_at' => NULL,
-                            ),
-                            101 => 
-                            array (
-                                'id' => 102,
-                                'custom_module_attribute_value_id' => 284,
-                                'lang_id' => 2,
-                                'text' => 'http://localhost/Web/Andalus/public/ar/news',
-                                'created_at' => '2019-01-01 13:27:51',
-                                'updated_at' => '2019-01-01 13:27:51',
-                                'deleted_at' => NULL,
-                            ),
-                            102 => 
-                            array (
-                                'id' => 103,
-                                'custom_module_attribute_value_id' => 288,
-                                'lang_id' => 1,
-                                'text' => 'Top Teachers of the week',
-                                'created_at' => '2019-01-13 08:21:08',
-                                'updated_at' => '2019-01-13 08:26:35',
-                                'deleted_at' => NULL,
-                            ),
-                            103 => 
-                            array (
-                                'id' => 104,
-                                'custom_module_attribute_value_id' => 288,
-                                'lang_id' => 2,
-                                'text' => 'افضل المدرسون هذا الاسبوع',
-                                'created_at' => '2019-01-13 08:21:08',
-                                'updated_at' => '2019-01-13 08:26:35',
-                                'deleted_at' => NULL,
-                            ),
-                            104 => 
-                            array (
-                                'id' => 105,
-                                'custom_module_attribute_value_id' => 294,
-                                'lang_id' => 1,
-                                'text' => 'Upcoming Evetns',
-                                'created_at' => '2019-01-19 12:49:44',
-                                'updated_at' => '2019-01-19 12:49:44',
-                                'deleted_at' => NULL,
-                            ),
-                            105 => 
-                            array (
-                                'id' => 106,
-                                'custom_module_attribute_value_id' => 294,
-                                'lang_id' => 2,
-                                'text' => 'الاداث القادمة',
-                                'created_at' => '2019-01-19 12:49:44',
-                                'updated_at' => '2019-01-19 12:49:44',
-                                'deleted_at' => NULL,
-                            ),
-                            106 => 
-                            array (
-                                'id' => 107,
-                                'custom_module_attribute_value_id' => 301,
-                                'lang_id' => 1,
-                                'text' => 'a',
-                                'created_at' => '2019-01-20 06:32:51',
-                                'updated_at' => '2019-01-20 06:32:51',
-                                'deleted_at' => NULL,
-                            ),
-                            107 => 
-                            array (
-                                'id' => 108,
-                                'custom_module_attribute_value_id' => 301,
-                                'lang_id' => 2,
-                                'text' => 'a',
-                                'created_at' => '2019-01-20 06:32:51',
-                                'updated_at' => '2019-01-20 06:32:51',
-                                'deleted_at' => NULL,
-                            ),
-                        ));
+                    'created_at' => '2018-12-16 11:42:56',
+                    'updated_at' => '2018-12-16 11:42:56',
+                    'deleted_at' => NULL,
+                ),
+                98 => 
+                array (
+                    'id' => 99,
+                    'custom_module_attribute_value_id' => 274,
+                    'lang_id' => 1,
+                    'text' => 'tenders',
+                    'created_at' => '2018-12-22 11:38:08',
+                    'updated_at' => '2018-12-23 07:44:20',
+                    'deleted_at' => NULL,
+                ),
+                99 => 
+                array (
+                    'id' => 100,
+                    'custom_module_attribute_value_id' => 274,
+                    'lang_id' => 2,
+                    'text' => 'المناقصات',
+                    'created_at' => '2018-12-22 11:38:08',
+                    'updated_at' => '2018-12-23 07:44:20',
+                    'deleted_at' => NULL,
+                ),
+                100 => 
+                array (
+                    'id' => 101,
+                    'custom_module_attribute_value_id' => 275,
+                    'lang_id' => 1,
+                    'text' => '<p>-</p>',
+                    'created_at' => '2018-12-22 11:38:08',
+                    'updated_at' => '2018-12-22 11:38:08',
+                    'deleted_at' => NULL,
+                ),
+                101 => 
+                array (
+                    'id' => 102,
+                    'custom_module_attribute_value_id' => 275,
+                    'lang_id' => 2,
+                    'text' => '<p><img alt="الفعالية" height="330" src="http://db/asu/public/laravel-filemanager/photos/2/p3.jpg" width="660" /></p>',
+                    'created_at' => '2018-12-22 11:38:08',
+                    'updated_at' => '2018-12-23 07:19:16',
+                    'deleted_at' => NULL,
+                ),
+                102 => 
+                array (
+                    'id' => 103,
+                    'custom_module_attribute_value_id' => 308,
+                    'lang_id' => 1,
+                    'text' => '<p>-</p>',
+                    'created_at' => '2018-12-30 09:43:58',
+                    'updated_at' => '2018-12-30 09:43:58',
+                    'deleted_at' => NULL,
+                ),
+                103 => 
+                array (
+                    'id' => 104,
+                    'custom_module_attribute_value_id' => 308,
+                    'lang_id' => 2,
+                    'text' => '<p dir="RTL" style="margin:0cm 0cm 8pt; text-align:right">&nbsp;</p>
+
+<p dir="RTL" style="margin:0cm 0cm 8pt; text-align:right"><span style="font-size:11pt"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span lang="AR-SY" style="font-size:22.0pt"><span style="line-height:107%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;"><span style="color:#7030a0">كلمة عميد الكلية:</span></span></span></span></b></span></span></span></span></span></p>
+
+<p dir="RTL" style="text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SA" style="font-size:18.0pt"><span style="line-height:107%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">باسم اسرة كلية طب الاسنان في جامعة الشام الخاصة أرحب بك في كليتك/ لن ندخر جهداً في أنت تكون مناهجكم ومحاضراتكم ومراجعكم ومخابركم وعياداتكم على أعلى مستوى ممكن ... وننتظر منكم التميز والجد والاجتهاد ... الطب رسالة واليوم تخطون أول حروف رسالتكم فكونوا أهلاً لحمل لقب الطبيب.</span></span></span></span></span></span></span></span></span></p>
+
+<p dir="RTL" style="text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SA" style="font-size:18.0pt"><span style="line-height:107%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">الطب طريقه طويلة وجناه أحلى من العسل وطب الأسنان أحد جداول النهر الكبير فلتكونوا أنتم الرافد الذي يؤازر التيار ولتكن أنفسكم مليئة بالفخر بنفسكم وكليتكم وجامعتكم حتى يكون لكم اسم عالٍ في المجتمع وبين أهلكم وفي بلدكم.</span></span></span></span></span></span></span></span></span></p>
+
+<p dir="RTL" style="text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SA" style="font-size:18.0pt"><span style="line-height:107%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">شعار جامعتكم هو: (نعمل معاً لتحقيق حلمكم) ومعاً سنجعل الشعار حقيقة.</span></span></span></span></span></span></span></span></span></p>
+
+<p dir="RTL" style="text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SA" style="font-size:18.0pt"><span style="line-height:107%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">بكم نبدأ ومعكم نرتقي إلى علياء العلم والمعرفة وختاماً أجدد تحياتي وتمنياتي لكم بالتوفيق.</span></span></span></span></span></span></span></span></span></p>',
+                    'created_at' => '2018-12-30 09:43:58',
+                    'updated_at' => '2018-12-30 09:43:58',
+                    'deleted_at' => NULL,
+                ),
+                104 => 
+                array (
+                    'id' => 105,
+                    'custom_module_attribute_value_id' => 311,
+                    'lang_id' => 1,
+                    'text' => '<p>-</p>',
+                    'created_at' => '2018-12-30 10:19:55',
+                    'updated_at' => '2018-12-30 10:19:55',
+                    'deleted_at' => NULL,
+                ),
+                105 => 
+                array (
+                    'id' => 106,
+                    'custom_module_attribute_value_id' => 311,
+                    'lang_id' => 2,
+                    'text' => '<p dir="RTL" style="text-align:justify; margin:0cm 0cm 8pt"><span style="color:#2c3e50;"><span style="font-size:11pt"><span style="line-height:150%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SA" style="font-size:18.0pt"><span style="line-height:150%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">للتواصل مع عمادة كلية طب أسنان يمكنكم الاتصال على الأرقام الأتية:</span></span></span></span></span></span></span></span></span></p>
+
+<ul>
+<li dir="RTL" style="text-align:justify; margin:0cm 36pt 0.0001pt 0cm"><span style="color:#2c3e50;"><span style="font-size:11pt"><span style="line-height:150%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SA" style="font-size:18.0pt"><span style="line-height:150%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">عميد كلية طب الأسنان&nbsp; : 0114438468 &ndash; 0958899043</span></span></span></span></span></span></span></span></span></li>
+<li dir="RTL" style="margin:0cm 36pt 0.0001pt 0cm; text-align:right"><span style="color:#2c3e50;"><span style="font-size:11pt"><span style="line-height:150%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SA" style="font-size:18.0pt"><span style="line-height:150%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">نائب العميد&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : 0114438460</span></span></span></span></span></span></span></span></span></li>
+<li dir="RTL" style="margin:0cm 36pt 8pt 0cm; text-align:right"><span style="color:#2c3e50;"><span style="font-size:11pt"><span style="line-height:150%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SA" style="font-size:18.0pt"><span style="line-height:150%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">رئيسة الدائرة&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : 0114438460</span></span></span></span></span></span></span></span></span></li>
+</ul>
+
+<p>&nbsp;</p>',
+                    'created_at' => '2018-12-30 10:19:55',
+                    'updated_at' => '2018-12-31 08:31:33',
+                    'deleted_at' => NULL,
+                ),
+                106 => 
+                array (
+                    'id' => 107,
+                    'custom_module_attribute_value_id' => 314,
+                    'lang_id' => 1,
+                    'text' => '<p>-</p>',
+                    'created_at' => '2018-12-30 10:52:11',
+                    'updated_at' => '2018-12-30 10:52:11',
+                    'deleted_at' => NULL,
+                ),
+                107 => 
+                array (
+                    'id' => 108,
+                    'custom_module_attribute_value_id' => 314,
+                    'lang_id' => 2,
+                    'text' => '<p dir="RTL" style="margin:0cm 0cm 8pt; text-align:right"><span style="font-size:11pt"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span lang="AR-SA" style="font-size:22.0pt"><span style="line-height:107%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;"><span style="color:#2e75b6">كلمة العميد:</span></span></span></span></b></span></span></span></span></span></p>
+
+<p dir="RTL" style="margin:0cm 0cm 8pt; text-align:right">&nbsp;</p>
+
+<p dir="RTL" style="text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SA" style="font-size:18.0pt"><span style="line-height:107%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">الزائرون الكرام لموقع كلية الصيدلة جامعة الشام الخاصة &ndash; كليات اللاذقية على شبكة الانترنت تحية محبة واحترام واهلا وسهلا بكم. </span></span></span></span></span></span></span></span></span></p>
+
+<p dir="RTL" style="text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SA" style="font-size:18.0pt"><span style="line-height:107%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">تحقيقاً&nbsp;للنمو التكاملي لجامعة الشام الخاصة وتلبيةً لحاجة المجتمع والتزاماً بدعم وتطوير البحث العلمي واستثماراً للطاقات البشرية، سعت الجامعة في الحصول على الموافقة باستحداث كلية الصيدلة في جامعة الشام الخاصة &ndash; كليات اللاذقية للعام الجامعي 2016-2017.</span></span></span></span></span></span></span></span></span></p>
+
+<p dir="RTL" style="text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SA" style="font-size:18.0pt"><span style="line-height:107%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">يسعدني أن أهنئ طلاب الكلية على انتمائهم لهذا الصرح العلمي الشامخ، وأشد على أيديهم وأؤكد لهم أن كلية الصيدلة بجامعة الشام الخاصة بإدارتها وأعضاء هيئة التدريس بها وجميع منسوبيها ومن خلفهم إدارة الجامعة يبذلون أقصى الجهد لتوفير الجو التعليمي المناسب لطلاب الكلية سعياً لتحقيق أعلى المستويات العلمية لخرجيها</span></span></span><span dir="LTR" style="font-size:18.0pt"><span style="line-height:107%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">.</span></span></span></span></span></span></span></span></span></p>
+
+<p dir="RTL" style="text-align:justify; margin:0cm 0cm 8pt">&nbsp;</p>
+
+<p style="margin: 0cm 0cm 8pt; text-align: left;"><span style="font-size:11pt"><span style="unicode-bidi:embed"><span style="line-height:107%"><span style="font-family:Calibri,sans-serif"><b><span dir="RTL" lang="AR-SA" style="font-size:22.0pt"><span style="line-height:107%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;"><span style="color:#2e75b6">عميد كلية الصيدلة</span></span></span></span></b></span></span></span></span></p>
+
+<p style="margin: 0cm 0cm 8pt; text-align: left;"><span style="font-size:11pt"><span style="unicode-bidi:embed"><span style="line-height:107%"><span style="font-family:Calibri,sans-serif"><b><span dir="RTL" lang="AR-SA" style="font-size:22.0pt"><span style="line-height:107%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;"><span style="color:#2e75b6">&nbsp;أ.د. فاتن شومان</span></span></span></span></b></span></span></span></span></p>',
+                    'created_at' => '2018-12-30 10:52:11',
+                    'updated_at' => '2018-12-30 10:52:11',
+                    'deleted_at' => NULL,
+                ),
+                108 => 
+                array (
+                    'id' => 109,
+                    'custom_module_attribute_value_id' => 329,
+                    'lang_id' => 1,
+                    'text' => '<p>-</p>',
+                    'created_at' => '2018-12-31 08:04:14',
+                    'updated_at' => '2018-12-31 08:04:14',
+                    'deleted_at' => NULL,
+                ),
+                109 => 
+                array (
+                    'id' => 110,
+                    'custom_module_attribute_value_id' => 329,
+                    'lang_id' => 2,
+                    'text' => '<p dir="RTL" style="margin-left:6px; margin-right:-9px; text-align:right"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:22.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;"><span style="color:#00b0f0">أقسام كلية الصيدلة </span></span></span></strong><strong><span style="font-size:22.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;"><span style="color:#00b0f0">وتبعية المقررات</span></span></span></strong><strong> </strong></span></span></p>
+
+<p dir="RTL" style="margin-left:6px; margin-right:-9px; text-align:right"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:18.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;"><span style="color:black">يتبع للكلية ستة اقسام متنوعة وهي:</span></span></span></span></span></p>
+
+<ol>
+<li dir="RTL" style="text-align:right"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:18.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;"><span style="color:black">قسم الكيمياء الصيدلية والمراقبة الدوائية</span></span></span> &nbsp;&nbsp;</span></span></li>
+<li dir="RTL" style="text-align:right"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:18.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;"><span style="color:black">قسم الصيدلانيات والتكنولوجيا الصيدلانية</span></span></span></span></span></li>
+<li dir="RTL" style="text-align:right"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:18.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;"><span style="color:black">قسم علم الادوية والسموم</span></span></span></span></span></li>
+<li dir="RTL" style="text-align:right"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:18.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;"><span style="color:black">قـسم العقاقير وكيمياء العقاقير</span></span></span></span></span></li>
+<li dir="RTL" style="text-align:right"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:18.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;"><span style="color:black">قسم الكيمياء الحيوية والاحياء الدقيقة</span></span></span></span></span></li>
+</ol>
+
+<p><span dir="RTL" lang="AR-SA" style="font-size:18.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;"><span style="color:black">قسم الكيمياء التحليلية والغذائية</span></span></span></p>',
+                    'created_at' => '2018-12-31 08:04:14',
+                    'updated_at' => '2019-01-12 13:07:16',
+                    'deleted_at' => NULL,
+                ),
+                110 => 
+                array (
+                    'id' => 111,
+                    'custom_module_attribute_value_id' => 334,
+                    'lang_id' => 1,
+                    'text' => 'كلية الصيدلة',
+                    'created_at' => '2018-12-31 08:26:55',
+                    'updated_at' => '2018-12-31 08:35:30',
+                    'deleted_at' => NULL,
+                ),
+                111 => 
+                array (
+                    'id' => 112,
+                    'custom_module_attribute_value_id' => 334,
+                    'lang_id' => 2,
+                    'text' => 'كلية الصيدلة',
+                    'created_at' => '2018-12-31 08:26:55',
+                    'updated_at' => '2018-12-31 08:35:30',
+                    'deleted_at' => NULL,
+                ),
+                112 => 
+                array (
+                    'id' => 113,
+                    'custom_module_attribute_value_id' => 335,
+                    'lang_id' => 1,
+                    'text' => '<p>-</p>',
+                    'created_at' => '2018-12-31 08:26:55',
+                    'updated_at' => '2018-12-31 08:26:55',
+                    'deleted_at' => NULL,
+                ),
+                113 => 
+                array (
+                    'id' => 114,
+                    'custom_module_attribute_value_id' => 335,
+                    'lang_id' => 2,
+                    'text' => '<p dir="RTL" style="text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:150%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SA" style="font-size:18.0pt"><span style="line-height:150%"><span arabic="" simplified="" style="font-family:">للتواصل مع عمادة كلية الصيدلة يمكنكم الاتصال على الأرقام الأتية:</span></span></span></span></span></span></span></span></span></p>
+
+<ul>
+<li dir="RTL" style="text-align:justify; margin:0cm 36pt 0.0001pt 0cm"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:150%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:18.0pt"><span style="line-height:150%"><span arabic="" simplified="" style="font-family:">عميد كلية الصيدلة&nbsp; : 0933755028 </span></span></span></span></span></span></span></span></span></li>
+<li dir="RTL" style="text-align:justify; margin:0cm 36pt 0.0001pt 0cm"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:150%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:18.0pt"><span style="line-height:150%"><span arabic="" simplified="" style="font-family:">رئيسة الدائرة&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;: 0932705811 </span></span></span></span></span></span></span></span></span></li>
+<li dir="RTL" style="text-align:justify; margin:0cm 36pt 8pt 0cm"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:150%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:18.0pt"><span style="line-height:150%"><span arabic="" simplified="" style="font-family:">سكرتيرة الكلية&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; : 0947606136</span></span></span></span></span></span></span></span></span></li>
+</ul>
+
+<p>&nbsp;</p>',
+                    'created_at' => '2018-12-31 08:26:55',
+                    'updated_at' => '2018-12-31 08:36:24',
+                    'deleted_at' => NULL,
+                ),
+                114 => 
+                array (
+                    'id' => 115,
+                    'custom_module_attribute_value_id' => 336,
+                    'lang_id' => 1,
+                    'text' => 'كلية طب الأسنان',
+                    'created_at' => '2018-12-31 08:31:33',
+                    'updated_at' => '2018-12-31 08:31:33',
+                    'deleted_at' => NULL,
+                ),
+                115 => 
+                array (
+                    'id' => 116,
+                    'custom_module_attribute_value_id' => 336,
+                    'lang_id' => 2,
+                    'text' => 'كلية طب الأسنان',
+                    'created_at' => '2018-12-31 08:31:33',
+                    'updated_at' => '2018-12-31 08:31:33',
+                    'deleted_at' => NULL,
+                ),
+                116 => 
+                array (
+                    'id' => 117,
+                    'custom_module_attribute_value_id' => 339,
+                    'lang_id' => 1,
+                    'text' => '<p>-</p>',
+                    'created_at' => '2018-12-31 09:00:03',
+                    'updated_at' => '2018-12-31 09:00:03',
+                    'deleted_at' => NULL,
+                ),
+                117 => 
+                array (
+                    'id' => 118,
+                    'custom_module_attribute_value_id' => 339,
+                    'lang_id' => 2,
+                    'text' => '<p dir="RTL" style="text-align:justify; margin:0cm 0cm 10pt"><span style="color:#16a085;"><span style="font-size:11pt"><span style="line-height:150%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span lang="AR-SY" style="font-size:22.0pt"><span style="line-height:150%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">كلمة عميد الكلية:</span></span></span></b></span></span></span></span></span></span></p>
+
+<p dir="RTL" style="text-align:justify; margin:0cm 0cm 10pt"><span style="color:#2c3e50;"><span style="font-size:11pt"><span style="line-height:150%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:18.0pt"><span style="line-height:150%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">تهدف كلية الحقوق في جامعة الشام الخاصة إلى إعداد خريجين قانونيين متميزين في مجال الدراسات القانونية، ومؤهلين لأن يكونوا كوادر رائدة في مجال القضاة والمحاماة والإدارات القانونية سواء في القطاعات الحكومية أو الخاصة، وذلك من خلال تزويد الطلاب بأصول المعرفة في العلوم القانونية والاقتصادية والسياسية عبر خطة دراسية متميزة وابتكارية في مختلف فروع الدراسات القانونية.</span></span></span></span></span></span></span></span></span></p>
+
+<p dir="RTL" style="text-align:justify; margin:0cm 0cm 10pt"><span style="color:#2c3e50;"><span style="font-size:11pt"><span style="line-height:150%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:18.0pt"><span style="line-height:150%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">إن كلية الحقوق تسعى إلى الريادة والتميز وصولاً إلى اعتبار الشهادة التي تمنحها من أرقى الشهادات الجامعية، وتقوم الكلية في سبيل ذلك بتوفير مستلزمات العملية التعليمية كافة بأرقى مستوى ممكن. وتتميز الكلية بتقديم تدريب عملي للطلاب خلال الفصول الدراسية كافة من خلال المحكمة الافتراضية المجهزة داخل الكلية، وبالتعاون مع المؤسسات القانونية والقضائية في سورية، وذلك من خلال ابرامها لاتفاق تعاون علمي ثقافي مع وزارة العدل يسمح لطلاب الجامعة بالتدريب في القصور العدلية.</span></span></span></span></span></span></span></span></span></p>',
+                    'created_at' => '2018-12-31 09:00:03',
+                    'updated_at' => '2018-12-31 09:00:03',
+                    'deleted_at' => NULL,
+                ),
+                118 => 
+                array (
+                    'id' => 119,
+                    'custom_module_attribute_value_id' => 344,
+                    'lang_id' => 1,
+                    'text' => 'Faculty of low',
+                    'created_at' => '2018-12-31 10:14:46',
+                    'updated_at' => '2018-12-31 10:14:46',
+                    'deleted_at' => NULL,
+                ),
+                119 => 
+                array (
+                    'id' => 120,
+                    'custom_module_attribute_value_id' => 344,
+                    'lang_id' => 2,
+                    'text' => 'كلية الحقوق',
+                    'created_at' => '2018-12-31 10:14:46',
+                    'updated_at' => '2018-12-31 10:14:46',
+                    'deleted_at' => NULL,
+                ),
+                120 => 
+                array (
+                    'id' => 121,
+                    'custom_module_attribute_value_id' => 345,
+                    'lang_id' => 1,
+                    'text' => '<p>-</p>',
+                    'created_at' => '2018-12-31 10:14:46',
+                    'updated_at' => '2018-12-31 10:14:46',
+                    'deleted_at' => NULL,
+                ),
+                121 => 
+                array (
+                    'id' => 122,
+                    'custom_module_attribute_value_id' => 345,
+                    'lang_id' => 2,
+                    'text' => '<p dir="RTL" style="text-align:right"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:20.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">للتواصل مع عمادة كلية الحقوق يمكنكم الاتصال على الأرقام الأتية</span></span><span dir="LTR" style="font-size:20.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">:</span></span></span></span></span></p>
+
+<p dir="RTL" style="text-align:right"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:20.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">عميد كلية الحقوق&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : 2153362 </span></span></span></span></span></p>',
+                    'created_at' => '2018-12-31 10:14:46',
+                    'updated_at' => '2019-01-08 13:34:34',
+                    'deleted_at' => NULL,
+                ),
+                122 => 
+                array (
+                    'id' => 123,
+                    'custom_module_attribute_value_id' => 348,
+                    'lang_id' => 1,
+                    'text' => 'Faculty of low',
+                    'created_at' => '2018-12-31 11:02:08',
+                    'updated_at' => '2018-12-31 11:02:08',
+                    'deleted_at' => NULL,
+                ),
+                123 => 
+                array (
+                    'id' => 124,
+                    'custom_module_attribute_value_id' => 348,
+                    'lang_id' => 2,
+                    'text' => 'كلية الحقوق',
+                    'created_at' => '2018-12-31 11:02:08',
+                    'updated_at' => '2018-12-31 11:02:08',
+                    'deleted_at' => NULL,
+                ),
+                124 => 
+                array (
+                    'id' => 125,
+                    'custom_module_attribute_value_id' => 349,
+                    'lang_id' => 1,
+                    'text' => '<p>-</p>',
+                    'created_at' => '2018-12-31 11:02:08',
+                    'updated_at' => '2018-12-31 11:02:08',
+                    'deleted_at' => NULL,
+                ),
+                125 => 
+                array (
+                    'id' => 126,
+                    'custom_module_attribute_value_id' => 349,
+                    'lang_id' => 2,
+                    'text' => '<p>-</p>',
+                    'created_at' => '2018-12-31 11:02:08',
+                    'updated_at' => '2018-12-31 11:02:08',
+                    'deleted_at' => NULL,
+                ),
+                126 => 
+                array (
+                    'id' => 127,
+                    'custom_module_attribute_value_id' => 352,
+                    'lang_id' => 1,
+                    'text' => '<p>-</p>',
+                    'created_at' => '2018-12-31 11:19:35',
+                    'updated_at' => '2018-12-31 11:19:35',
+                    'deleted_at' => NULL,
+                ),
+                127 => 
+                array (
+                    'id' => 128,
+                    'custom_module_attribute_value_id' => 352,
+                    'lang_id' => 2,
+                    'text' => '<p dir="RTL" style="text-align:justify; margin:0cm 0cm 10pt"><span style="font-size:11pt"><span style="line-height:115%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><u><span lang="AR-SY" style="font-size:22.0pt"><span style="line-height:115%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;"><span style="color:#385623">الاختصاصات في كلية الحقوق:</span></span></span></span></u></b></span></span></span></span></span></p>
+
+<ol>
+<li dir="RTL" style="text-align:justify; margin:0cm 36pt 0.0001pt 0cm"><span style="color:#2c3e50;"><span style="font-size:11pt"><span style="line-height:115%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:22.0pt"><span style="line-height:115%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">قسم القانون العام.</span></span></span></span></span></span></span></span></span></li>
+<li dir="RTL" style="text-align:justify; margin:0cm 36pt 10pt 0cm"><span style="color:#2c3e50;"><span style="font-size:11pt"><span style="line-height:115%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:22.0pt"><span style="line-height:115%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">قسم القانون الخاص.</span></span></span></span></span></span></span></span></span></li>
+</ol>
+
+<p>&nbsp;</p>',
+                    'created_at' => '2018-12-31 11:19:35',
+                    'updated_at' => '2018-12-31 11:19:35',
+                    'deleted_at' => NULL,
+                ),
+                128 => 
+                array (
+                    'id' => 129,
+                    'custom_module_attribute_value_id' => 356,
+                    'lang_id' => 1,
+                    'text' => '<p>-</p>',
+                    'created_at' => '2019-01-06 07:36:13',
+                    'updated_at' => '2019-01-06 07:36:13',
+                    'deleted_at' => NULL,
+                ),
+                129 => 
+                array (
+                    'id' => 130,
+                    'custom_module_attribute_value_id' => 356,
+                    'lang_id' => 2,
+                    'text' => '<p dir="RTL" style="margin:0cm 0cm 8pt; text-align:right"><span style="color:#2c3e50;"><span style="font-size:11pt"><span style="line-height:150%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span lang="AR-SA" style="font-size:22.0pt"><span style="line-height:150%"><span arabic="" simplified="" style="font-family:">كلمة عميد الكلية:</span></span></span></b></span></span></span></span></span></span></p>
+
+<p dir="RTL" style="text-align:justify; margin:0cm 0cm 8pt"><span style="color:#2c3e50;"><span style="font-size:11pt"><span style="line-height:150%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SA" style="font-size:18.0pt"><span style="line-height:150%"><span arabic="" simplified="" style="font-family:">يُعد علم الإدارة من أهم العلوم الحديثة الرائدة التي لها دور كبير في نهضة اقتصاد الدول المتقدمة، وتلبية لتطلعات الشباب المتعلم في البحث عن فرص العمل والمشاركة الفعالة في بناء المستقبل المشرق، تشارك كلية العلوم الإدارية &ndash; بجامعة الشام الخاصة في اللاذقية بإتاحة فرص الدراسة والتخصص العلمي الحديث في مختلف فروع علم الإدارة المعاصرة/إدارة موارد بشرية &ndash; التسويق &ndash; المصارف والمؤسسات المالية &ndash; المحاسبة &ndash; نظم المعلومات الإدارية، ويمنح الطالب شهادة الإجازة الجامعية (البكالوريوس) في أحد هذه الاختصاصات.</span></span></span></span></span></span></span></span></span></p>
+
+<p dir="RTL" style="text-align:justify; margin:0cm 0cm 8pt"><span style="color:#2c3e50;"><span style="font-size:11pt"><span style="line-height:150%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SA" style="font-size:18.0pt"><span style="line-height:150%"><span arabic="" simplified="" style="font-family:">تعتمد كلية العلوم الإدارية خطة دراسية عالمية متطورة وتعد التدريب العملي جزءاً مهماً من الدراسة وقيمة مضافة لها، إضافة إلى كادر تعليمي وإداري متميز من أصحاب الاختصاص والخبرة والكفاءة، لترقى بذلك إلى مستويات الجامعات العالمية.</span></span></span></span></span></span></span></span></span></p>
+
+<p dir="RTL" style="text-align:justify; margin:0cm 0cm 8pt"><span style="color:#2c3e50;"><span style="font-size:11pt"><span style="line-height:150%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SA" style="font-size:18.0pt"><span style="line-height:150%"><span arabic="" simplified="" style="font-family:">كل الشكر لمن عمل ويعمل بصدق وجهد في سبيل بناء هذا الصرح العلمي الذي سيبقى بإذن الله مصنع العلماء والقادة والإداريين الذين سيساهمون في بناء ونهضة وتنمية أوطانهم.</span></span></span></span></span></span></span></span></span></p>
+
+<p dir="RTL" style="text-align:justify; margin:0cm 0cm 8pt">&nbsp;</p>
+
+<p style="text-align:left; margin:0cm 0cm 8pt"><span style="color:#2c3e50;"><span style="font-size:11pt"><span style="line-height:150%"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span dir="RTL" lang="AR-SY" style="font-size:20.0pt"><span style="line-height:150%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">عميد كلية العلوم الإدارية</span></span></span></b></span></span></span></span></span></p>
+
+<p dir="RTL" style="margin: 0cm 0cm 8pt; text-align: left;"><span style="color:#2c3e50;"><b><span dir="RTL" lang="AR-SY" style="font-size:20.0pt"><span style="line-height:107%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">د. نورالدين هرمز</span></span></span></b></span></p>',
+                    'created_at' => '2019-01-06 07:36:13',
+                    'updated_at' => '2019-01-06 07:40:31',
+                    'deleted_at' => NULL,
+                ),
+                130 => 
+                array (
+                    'id' => 131,
+                    'custom_module_attribute_value_id' => 359,
+                    'lang_id' => 1,
+                    'text' => '<p>-</p>',
+                    'created_at' => '2019-01-06 07:55:29',
+                    'updated_at' => '2019-01-06 07:55:29',
+                    'deleted_at' => NULL,
+                ),
+                131 => 
+                array (
+                    'id' => 132,
+                    'custom_module_attribute_value_id' => 359,
+                    'lang_id' => 2,
+                    'text' => '<p dir="RTL" style="text-align:justify; margin:0cm 0cm 8pt"><span style="color:#2c3e50;"><span style="font-size:11pt"><span style="line-height:150%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span lang="AR-SA" style="font-size:22.0pt"><span style="line-height:150%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">رسالة الكلية:</span></span></span></b></span></span></span></span></span></span></p>
+
+<p dir="RTL" style="text-align:justify; margin:0cm 0cm 8pt"><span style="color:#2c3e50;"><span style="font-size:11pt"><span style="line-height:150%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SA" style="font-size:18.0pt"><span style="line-height:150%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">نقل المعرفة ونشرها في مختلف مجالات العلوم الإدارية من خلال إعداد الإداريين والأكاديميين، وتزويدهم بالمعارف والمهارات التي تمكنهم من أداء المهام التي توكل إليهم مستقبلاً وفق معايير الجودة وبما يسهم في رفد مؤسسات المجتمع المحلي والعربي بالكفاءات والطاقات الفاعلة، وكذلك تقديم برامج تعليمية ذات تقنية متطورة.</span></span></span></span></span></span></span></span></span></p>',
+                    'created_at' => '2019-01-06 07:55:29',
+                    'updated_at' => '2019-01-06 07:55:29',
+                    'deleted_at' => NULL,
+                ),
+                132 => 
+                array (
+                    'id' => 133,
+                    'custom_module_attribute_value_id' => 362,
+                    'lang_id' => 1,
+                    'text' => '<p>-</p>',
+                    'created_at' => '2019-01-06 08:51:59',
+                    'updated_at' => '2019-01-06 08:51:59',
+                    'deleted_at' => NULL,
+                ),
+                133 => 
+                array (
+                    'id' => 134,
+                    'custom_module_attribute_value_id' => 362,
+                    'lang_id' => 2,
+                    'text' => '<p dir="RTL" style="margin:0cm 0cm 8pt; text-align:right"><span style="color:#2c3e50;"><span style="font-size:11pt"><span style="line-height:150%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span lang="AR-SA" style="font-size:22.0pt"><span style="line-height:150%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">الاختصاصات في كلية العلوم الإدارية</span></span></span></b></span></span></span></span></span></span></p>
+
+<p dir="RTL" style="margin:0cm 0cm 8pt; text-align:right"><span style="color:#2c3e50;"><span style="font-size:11pt"><span style="line-height:150%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SA" style="font-size:18.0pt"><span style="line-height:150%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">يتبع لكلية العلوم الإدارية الاختصاصات التالية:</span></span></span></span></span></span></span></span></span></p>
+
+<ol>
+<li dir="RTL" style="margin:0cm 36pt 0.0001pt 0cm; text-align:right"><span style="color:#2c3e50;"><span style="font-size:11pt"><span style="line-height:150%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SA" style="font-size:18.0pt"><span style="line-height:150%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">إدارة الموارد البشرية.</span></span></span></span></span></span></span></span></span></li>
+<li dir="RTL" style="margin:0cm 36pt 0.0001pt 0cm; text-align:right"><span style="color:#2c3e50;"><span style="font-size:11pt"><span style="line-height:150%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SA" style="font-size:18.0pt"><span style="line-height:150%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">التسويق.</span></span></span></span></span></span></span></span></span></li>
+<li dir="RTL" style="margin:0cm 36pt 0.0001pt 0cm; text-align:right"><span style="color:#2c3e50;"><span style="font-size:11pt"><span style="line-height:150%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SA" style="font-size:18.0pt"><span style="line-height:150%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">المصارف والمؤسسات المالية.</span></span></span></span></span></span></span></span></span></li>
+<li dir="RTL" style="margin:0cm 36pt 0.0001pt 0cm; text-align:right"><span style="color:#2c3e50;"><span style="font-size:11pt"><span style="line-height:150%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SA" style="font-size:18.0pt"><span style="line-height:150%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">المحاسبة.</span></span></span></span></span></span></span></span></span></li>
+<li dir="RTL" style="margin:0cm 36pt 8pt 0cm; text-align:right"><span style="color:#2c3e50;"><span style="font-size:11pt"><span style="line-height:150%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SA" style="font-size:18.0pt"><span style="line-height:150%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">نظم المعلومات الإدارية.</span></span></span></span></span></span></span></span></span></li>
+</ol>
+
+<p>&nbsp;</p>',
+                    'created_at' => '2019-01-06 08:51:59',
+                    'updated_at' => '2019-01-06 08:51:59',
+                    'deleted_at' => NULL,
+                ),
+                134 => 
+                array (
+                    'id' => 135,
+                    'custom_module_attribute_value_id' => 365,
+                    'lang_id' => 1,
+                    'text' => 'Faculty of Administrative Sciences',
+                    'created_at' => '2019-01-06 09:17:52',
+                    'updated_at' => '2019-01-06 09:17:52',
+                    'deleted_at' => NULL,
+                ),
+                135 => 
+                array (
+                    'id' => 136,
+                    'custom_module_attribute_value_id' => 365,
+                    'lang_id' => 2,
+                    'text' => 'كلية العلوم الادارية',
+                    'created_at' => '2019-01-06 09:17:52',
+                    'updated_at' => '2019-01-06 09:17:52',
+                    'deleted_at' => NULL,
+                ),
+                136 => 
+                array (
+                    'id' => 137,
+                    'custom_module_attribute_value_id' => 366,
+                    'lang_id' => 1,
+                    'text' => '<p>-</p>',
+                    'created_at' => '2019-01-06 09:17:52',
+                    'updated_at' => '2019-01-06 09:17:52',
+                    'deleted_at' => NULL,
+                ),
+                137 => 
+                array (
+                    'id' => 138,
+                    'custom_module_attribute_value_id' => 366,
+                    'lang_id' => 2,
+                'text' => '<p><span style="color: rgb(44, 62, 80); font-family: &quot;Simplified Arabic&quot;, serif; font-size: 24px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: justify; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;">للتواصل مع عمادة كلية العلوم الادارية يمكنكم الاتصال على الأرقام الأتية:</span></p>',
+                    'created_at' => '2019-01-06 09:17:52',
+                    'updated_at' => '2019-01-06 09:17:52',
+                    'deleted_at' => NULL,
+                ),
+                138 => 
+                array (
+                    'id' => 139,
+                    'custom_module_attribute_value_id' => 369,
+                    'lang_id' => 1,
+                    'text' => '<p style="margin: 0cm 0cm 8pt; text-align: left;"><span style="font-size:12pt"><span style="font-family:&quot;Times New Roman&quot;,serif"><span lang="EN" style="font-size:22.0pt"><span style="background:white"><span style="font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;"><span style="color:#8e44ad">Degrees in the Faculty of Dentistry</span></span></span></span>:</span></span></p>
+
+<p style="margin: 0cm 0cm 8pt; text-align: left;"><span style="font-size:22.0pt"><span style="background:white"><span style="line-height:107%"><span style="font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;"><span style="color:#212121">The Faculty of Dentistry has one specialty :</span></span></span></span></span><b><span style="font-size:22.0pt"><span style="line-height:107%"><span style="font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;">(</span></span></span></b><span style="font-size:22.0pt"><span style="background:white"><span style="line-height:107%"><span style="font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;"><span style="color:#212121"> Bachelor of Dentistry</span></span></span></span></span></p>',
+                        'created_at' => '2019-01-08 08:22:21',
+                        'updated_at' => '2019-01-08 08:29:40',
+                        'deleted_at' => NULL,
+                    ),
+                    139 => 
+                    array (
+                        'id' => 140,
+                        'custom_module_attribute_value_id' => 369,
+                        'lang_id' => 2,
+                        'text' => '<p dir="RTL" style="margin:0cm 0cm 8pt; text-align:right"><span style="color:#8e44ad;"><span style="font-size:11pt"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span lang="AR-SY" style="font-size:22.0pt"><span style="line-height:107%"><span style="font-family:"Simplified Arabic","serif"">الاختصاصات في كل كلية طب اسنان:</span></span></span></b></span></span></span></span></span></span></p>
+
+<p dir="RTL" style="text-align:justify; margin:0cm 0cm 8pt"><span style="color:#2c3e50;"><span style="font-size:11pt"><span style="line-height:150%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SA" style="font-size:22.0pt"><span style="line-height:150%"><span style="font-family:"Simplified Arabic","serif"">كلية طب الأسنان تخرج اختصاصاً واحداً هو: (إجازة في طب الأسنان)</span></span></span></span></span></span></span></span></span></p>',
+                        'created_at' => '2019-01-08 08:22:21',
+                        'updated_at' => '2019-01-08 08:26:57',
+                        'deleted_at' => NULL,
+                    ),
+                    140 => 
+                    array (
+                        'id' => 141,
+                        'custom_module_attribute_value_id' => 372,
+                        'lang_id' => 1,
+                        'text' => 'faculty of Pharmacy',
+                        'created_at' => '2019-01-08 09:06:55',
+                        'updated_at' => '2019-01-08 09:06:55',
+                        'deleted_at' => NULL,
+                    ),
+                    141 => 
+                    array (
+                        'id' => 142,
+                        'custom_module_attribute_value_id' => 372,
+                        'lang_id' => 2,
+                        'text' => 'كلية الصيدلة',
+                        'created_at' => '2019-01-08 09:06:55',
+                        'updated_at' => '2019-01-08 09:06:55',
+                        'deleted_at' => NULL,
+                    ),
+                    142 => 
+                    array (
+                        'id' => 143,
+                        'custom_module_attribute_value_id' => 373,
+                        'lang_id' => 1,
+                        'text' => '<p>-</p>',
+                        'created_at' => '2019-01-08 09:06:55',
+                        'updated_at' => '2019-01-08 09:06:55',
+                        'deleted_at' => NULL,
+                    ),
+                    143 => 
+                    array (
+                        'id' => 144,
+                        'custom_module_attribute_value_id' => 373,
+                        'lang_id' => 2,
+                        'text' => '<p><span style="color:#2c3e50"><span style="background-color:#ffffff; font-family:Calibri,sans-serif; font-size:24px">للتواصل مع عمادة كلية الصيدلة يمكنكم الاتصال على الأرقام الأتية:</span></span></p>
+
+<p dir="RTL" style="margin-right:-19px"><span style="color:#2c3e50"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:22.0pt">العميد&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : 0944577090</span></span></span></span></p>
+
+<p dir="RTL" style="margin-right:-19px"><span style="color:#2c3e50"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:22.0pt">نائب العميد&nbsp;&nbsp; &nbsp;: 0988525255</span></span></span></span></p>
+
+<p dir="RTL" style="margin-right:-19px"><span style="color:#2c3e50"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:22.0pt">رئيس الدائرة&nbsp; &nbsp;&nbsp;: 0956417889</span></span></span></span></p>',
+                        'created_at' => '2019-01-08 09:06:55',
+                        'updated_at' => '2019-01-12 13:32:25',
+                        'deleted_at' => NULL,
+                    ),
+                    144 => 
+                    array (
+                        'id' => 145,
+                        'custom_module_attribute_value_id' => 376,
+                        'lang_id' => 1,
+                        'text' => 'Faculty of Medicine',
+                        'created_at' => '2019-01-08 09:17:50',
+                        'updated_at' => '2019-01-08 09:17:50',
+                        'deleted_at' => NULL,
+                    ),
+                    145 => 
+                    array (
+                        'id' => 146,
+                        'custom_module_attribute_value_id' => 376,
+                        'lang_id' => 2,
+                        'text' => 'كلية طب بشري',
+                        'created_at' => '2019-01-08 09:17:50',
+                        'updated_at' => '2019-01-08 09:17:50',
+                        'deleted_at' => NULL,
+                    ),
+                    146 => 
+                    array (
+                        'id' => 147,
+                        'custom_module_attribute_value_id' => 377,
+                        'lang_id' => 1,
+                        'text' => '<p>-</p>',
+                        'created_at' => '2019-01-08 09:17:50',
+                        'updated_at' => '2019-01-08 09:17:50',
+                        'deleted_at' => NULL,
+                    ),
+                    147 => 
+                    array (
+                        'id' => 148,
+                        'custom_module_attribute_value_id' => 377,
+                        'lang_id' => 2,
+                        'text' => '<p>-</p>',
+                        'created_at' => '2019-01-08 09:17:50',
+                        'updated_at' => '2019-01-08 09:17:50',
+                        'deleted_at' => NULL,
+                    ),
+                    148 => 
+                    array (
+                        'id' => 149,
+                        'custom_module_attribute_value_id' => 380,
+                        'lang_id' => 1,
+                        'text' => 'Faculty of International Relations and Diplomacy',
+                        'created_at' => '2019-01-08 09:42:49',
+                        'updated_at' => '2019-01-08 09:42:49',
+                        'deleted_at' => NULL,
+                    ),
+                    149 => 
+                    array (
+                        'id' => 150,
+                        'custom_module_attribute_value_id' => 380,
+                        'lang_id' => 2,
+                        'text' => 'كلية العلاقات الدولية والدبلوماسية',
+                        'created_at' => '2019-01-08 09:42:49',
+                        'updated_at' => '2019-01-08 09:42:49',
+                        'deleted_at' => NULL,
+                    ),
+                    150 => 
+                    array (
+                        'id' => 151,
+                        'custom_module_attribute_value_id' => 381,
+                        'lang_id' => 1,
+                        'text' => '<p>-</p>',
+                        'created_at' => '2019-01-08 09:42:49',
+                        'updated_at' => '2019-01-08 09:42:49',
+                        'deleted_at' => NULL,
+                    ),
+                    151 => 
+                    array (
+                        'id' => 152,
+                        'custom_module_attribute_value_id' => 381,
+                        'lang_id' => 2,
+                        'text' => '<p dir="RTL" style="text-align:justify"><span style="color:#2c3e50"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:18.0pt"><span style="background-color:white">للتواصل مع عمادة كلية العلاقات الدولية والدبلوماسية يمكنكم الاتصال على الأرقام الأتية</span></span>:</span></span></span></p>
+
+<p dir="RTL" style="text-align:right"><span style="color:#2c3e50"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:18.0pt">عميد كلية العلاقات الدولية والدبلوماسية: </span><span dir="LTR" style="font-size:18.0pt">2153360 </span></span></span></span></p>
+
+<p dir="RTL" style="text-align:center"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:18.0pt"><a href="mailto:DEAN.FOIR@aspu.edu.sy" style="color:#0563c1; text-decoration:underline">DEAN.FOIR@aspu.edu.sy</a></span></span></span></p>
+
+<p dir="RTL" style="text-align:justify"><span style="color:#2c3e50"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:18.0pt">نائب عميد العلاقات الدولية والدبلوماسية: </span><span dir="LTR" style="font-size:18.0pt">2153360</span></span></span></span></p>
+
+<p dir="RTL" style="margin-right:-4px; text-align:center"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:18.0pt"><a href="mailto:H.M.FOIR@aspu.edu.sy" style="color:#0563c1; text-decoration:underline">H.M.FOIR@aspu.edu.sy</a></span></span></span></p>
+
+<p dir="RTL" style="text-align:justify"><span style="color:#2c3e50"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:18.0pt">رئيس قسم العلاقات الدولية والدبلوماسية: </span><span dir="LTR" style="font-size:18.0pt">2153360 </span></span></span></span></p>
+
+<p dir="RTL" style="text-align:center"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:18.0pt"><a href="mailto:S.K.FOIR@aspu.edu.sy" style="color:#0563c1; text-decoration:underline">S.K.FOIR@aspu.edu.sy</a></span></span></span></p>
+
+<p dir="RTL" style="text-align:justify"><span style="color:#2c3e50"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:18.0pt">رئيس دائرة العلاقات الدولية والدبلوماسية:</span><span dir="LTR" style="font-size:18.0pt">2153360 &nbsp;</span></span></span></span></p>',
+                        'created_at' => '2019-01-08 09:42:49',
+                        'updated_at' => '2019-01-09 12:28:27',
+                        'deleted_at' => NULL,
+                    ),
+                    152 => 
+                    array (
+                        'id' => 153,
+                        'custom_module_attribute_value_id' => 384,
+                        'lang_id' => 1,
+                        'text' => 'Faculty of Administrative Sciences',
+                        'created_at' => '2019-01-08 09:53:22',
+                        'updated_at' => '2019-01-08 09:53:22',
+                        'deleted_at' => NULL,
+                    ),
+                    153 => 
+                    array (
+                        'id' => 154,
+                        'custom_module_attribute_value_id' => 384,
+                        'lang_id' => 2,
+                        'text' => 'كلية العلوم الادارية',
+                        'created_at' => '2019-01-08 09:53:22',
+                        'updated_at' => '2019-01-08 09:53:22',
+                        'deleted_at' => NULL,
+                    ),
+                    154 => 
+                    array (
+                        'id' => 155,
+                        'custom_module_attribute_value_id' => 385,
+                        'lang_id' => 1,
+                        'text' => '<p>-</p>',
+                        'created_at' => '2019-01-08 09:53:22',
+                        'updated_at' => '2019-01-08 09:53:22',
+                        'deleted_at' => NULL,
+                    ),
+                    155 => 
+                    array (
+                        'id' => 156,
+                        'custom_module_attribute_value_id' => 385,
+                        'lang_id' => 2,
+                        'text' => '<p>-</p>',
+                        'created_at' => '2019-01-08 09:53:22',
+                        'updated_at' => '2019-01-08 09:53:22',
+                        'deleted_at' => NULL,
+                    ),
+                    156 => 
+                    array (
+                        'id' => 157,
+                        'custom_module_attribute_value_id' => 391,
+                        'lang_id' => 1,
+                        'text' => '<p>-</p>',
+                        'created_at' => '2019-01-08 13:06:28',
+                        'updated_at' => '2019-01-08 13:06:28',
+                        'deleted_at' => NULL,
+                    ),
+                    157 => 
+                    array (
+                        'id' => 158,
+                        'custom_module_attribute_value_id' => 391,
+                        'lang_id' => 2,
+                        'text' => '<p dir="RTL" style="text-align:justify"><span style="color:#16a085"><span style="font-size:12pt"><span style="font-family:&quot;Times New Roman&quot;,serif"><strong><span style="font-size:22.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">الزملاء الأعزاء أعضاء الهيئة التدريسية</span></span></strong></span></span></span></p>
+
+<p dir="RTL" style="text-align:justify"><span style="color:#16a085"><span style="font-size:12pt"><span style="font-family:&quot;Times New Roman&quot;,serif"><strong><span style="font-size:22.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">الطلاب الأعزاء في كلية الحقوق</span></span></strong></span></span></span></p>
+
+<p dir="RTL" style="text-align:justify"><span style="color:#16a085"><span style="font-size:12pt"><span style="font-family:&quot;Times New Roman&quot;,serif"><strong><span style="font-size:22.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">تحية طيبة وبعد:</span></span></strong></span></span></span></p>
+
+<p dir="RTL" style="text-align:justify"><span style="color:#2c3e50"><span style="font-size:12pt"><span style="font-family:&quot;Times New Roman&quot;,serif"><span style="font-size:18.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">أذكّركم بأن كلية الحقوق ستظل محراب الحق والعدل، والبوتقة التي تدفع لوطننا الحبيب بشوامخ أبنائها الذين تفخر بهم وتفاخر، من علماء مخلصين وقضاة ورجالات يصححون المسار ويدققون الأداء، وهم في الحقيقة منتشرون في كافة الأجهزة والمؤسسات. إذ ستظل كلية الحقوق الحصن المعنى بإعلاء مبدأ سيادة القانون، وترسيخ قيم الحق والعدل والانصاف. وسيظل رجال القانون لا يعرفون للحقيقة وجهين ولا يعرفون للعدالة صنفين ولا يعرفون للمشروعية مسارين وأن مناط العدالة لديهم جميعاً إعمال ميزان الحق فيما بين الناس جميعاً.</span></span></span></span></span></p>
+
+<p dir="RTL" style="text-align:justify"><span style="color:#2c3e50"><span style="font-size:12pt"><span style="font-family:&quot;Times New Roman&quot;,serif"><span style="font-size:18.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">كما أود أن أتقدم بالشكر لزملائنا المخلصين على كل ما قدموه ويقدمونه من جهد وإخلاص في عملهم، وفق الله جميع الأساتذة الأجلاء الذين لا يبخلون على جميع أبنائهم بعلمهم وتوجيهاتهم وخبراتهم. كما أتوجه بالتحية إلى الكادر الإداري في الجامعة على جهودهم واتقانهم لعملهم ومتابعتهم الدقيقة لكل الأمور والمستجدات. وتحية حب وتقدير لكل طالب يتفوق في دراسته ويكون قدوةً لغيره علماً وخُلقاً، فعلى عاتقكم تقع مسؤولية كبيرة .. فالوطن بحاجة أبنائه المخلصين الذين يشمِّرون أياديهم الأمينة لإعماره بالحب والعدل والإخلاص والخير. </span></span></span></span></span></p>
+
+<p dir="RTL" style="text-align:justify"><span style="color:#2c3e50"><span style="font-size:12pt"><span style="font-family:&quot;Times New Roman&quot;,serif"><span style="font-size:18.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">دعواتي للجميع بالتوفيق وأن نصل بالعمل والإخلاص لأعلى المراتب وأن يقر الله تعالى أعيننا بأن نرى أبناءنا الطلاب يتقلدون أعلى المناصب وبذلك نكون قد أدينا الأمانة على خير وجه، وفق الله الجميع لما فيه رفعة الوطن وأمنه وأمانه وسلامه. </span></span></span></span></span></p>',
+                        'created_at' => '2019-01-08 13:06:28',
+                        'updated_at' => '2019-01-08 13:06:28',
+                        'deleted_at' => NULL,
+                    ),
+                    158 => 
+                    array (
+                        'id' => 159,
+                        'custom_module_attribute_value_id' => 394,
+                        'lang_id' => 1,
+                        'text' => '<p>-</p>',
+                        'created_at' => '2019-01-08 13:19:51',
+                        'updated_at' => '2019-01-08 13:19:51',
+                        'deleted_at' => NULL,
+                    ),
+                    159 => 
+                    array (
+                        'id' => 160,
+                        'custom_module_attribute_value_id' => 394,
+                        'lang_id' => 2,
+                        'text' => '<p dir="RTL" style="text-align:justify"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:22.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;"><span style="color:#385723">الاختصاصات في كلية الحقوق:</span></span></span></strong></span></span></p>
+
+<p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:22.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">يوجد قسمين رئيسين في كلية الحقوق هما:</span></span></span></span></span></p>
+
+<ul>
+<li dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:22.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">قسم القانون العام </span></span></span></span></span></li>
+<li dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:22.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">قسم القانون الخاص </span></span></span></span></span></li>
+</ul>
+
+<p dir="RTL" style="text-align:justify"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:22.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;"><span style="color:#000000">وتدرس ضمن كل قسم العديد من المقررات التي تسهم في تشكيل البناء القانوني للطالب وإكسابه المهارات القانونية المختلفة</span>.</span></span></span></span></p>',
+                        'created_at' => '2019-01-08 13:19:51',
+                        'updated_at' => '2019-01-08 13:19:51',
+                        'deleted_at' => NULL,
+                    ),
+                    160 => 
+                    array (
+                        'id' => 161,
+                        'custom_module_attribute_value_id' => 397,
+                        'lang_id' => 1,
+                        'text' => '<p>-</p>',
+                        'created_at' => '2019-01-09 09:49:24',
+                        'updated_at' => '2019-01-09 09:49:24',
+                        'deleted_at' => NULL,
+                    ),
+                    161 => 
+                    array (
+                        'id' => 162,
+                        'custom_module_attribute_value_id' => 397,
+                        'lang_id' => 2,
+                        'text' => '<p dir="RTL" style="text-align:justify"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:22.0pt"><span style="color:#843c0c">الاختصاصات في كلية العلاقات الدولية والدبلوماسية:</span></span></strong></span></span></p>
+
+<ul>
+<li style="text-align: justify;"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:18.0pt">العلاقات الدولية. </span></span></span></li>
+<li style="text-align: justify;"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:18.0pt">العلاقات الدبلوماسية.</span></span></span></li>
+</ul>',
+                        'created_at' => '2019-01-09 09:49:24',
+                        'updated_at' => '2019-01-15 13:43:32',
+                        'deleted_at' => NULL,
+                    ),
+                    162 => 
+                    array (
+                        'id' => 163,
+                        'custom_module_attribute_value_id' => 400,
+                        'lang_id' => 1,
+                        'text' => '<p>-</p>',
+                        'created_at' => '2019-01-12 11:20:23',
+                        'updated_at' => '2019-01-12 11:20:23',
+                        'deleted_at' => NULL,
+                    ),
+                    163 => 
+                    array (
+                        'id' => 164,
+                        'custom_module_attribute_value_id' => 400,
+                        'lang_id' => 2,
+                        'text' => '<p dir="RTL" style="text-align:center"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:22.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;"><span style="color:#00b0f0">كلمة عميد الكلية</span></span></span></strong></span></span></p>
+
+<p dir="RTL" style="text-align:center">&nbsp;</p>
+
+<p dir="RTL" style="text-align:justify"><span style="color:#2c3e50"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:18.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; كلية الصيدلة واحدة من الكليات الطبية الثلاث في جامعة الشام الخاصة، فهي بالإضافة إلى كليتي الطب البشري وطب الأسنان، معنية بتهيئة المؤهلين القادرين على أداء خدمات صحية مهنية لأبناء مجتمعنا العربي السوري وكذلك الراغبين بمتابعة تحصيلهم الأكاديمي في مجال العلوم الصيدلانية كافةً.</span></span></span></span></span></p>
+
+<p dir="RTL" style="text-align:justify"><span style="color:#2c3e50"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:18.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; قد يكون من المبكر حالياً تقييم المخرجات التعليمية على ضوء المدخلات المقدمة، خاصة وأن العام الدراسي الحالي (2018-2019) هو الثالث في عمر الكلية، إلا أن الهدف المرسوم والذي يجري السعي لتحقيقه هو الارتقاء بالعملية التدريسية والتدريبية المهنية لتنسجم مع كل ما هو عريق وفي الوقت ذاته لتواكب كل ما هو حديث؛ فلاغنى عن علوم أساسية وقوانينها الثابتة في الفيزياء والكيمياء والرياضيات والبيولوجيا والفيزيولوجيا، كما أنه لا يمكن مواكبة المستجدات اليومية، بل الساعية، في العلوم الصيدلية دون اتقان المعلوماتية الحيوية وطرق التقانات الحيوية والدخول إلى عالم النانو.</span></span></span></span></span></p>
+
+<p dir="RTL" style="text-align:justify"><span style="color:#2c3e50"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:18.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; كل ذلك يحتم على الطالب والأستاذ بذل الجهد والتشاركية في العملية التدريسية والتحول بها من الطرق التقليدية، من يملي المعلومة ومن يقوم بتلقيها، إلى من يوجه إلى كيفية الحصول على المعلومة وتصويبها الدقيق لترسخ في الذهن وتحليلها بغية الإفادة منها في الجوانب والحقول العلمية الأخرى ذات الصلة.</span></span></span></span></span></p>
+
+<p dir="RTL" style="text-align:justify"><span style="color:#2c3e50"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:18.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; من هنا ينبغي التأكيد على أهمية التعاون بين كلية الصيدلة والكليات العلمية والطبية الاخرى، لتصبح المخرجات إلى سوق العمل متكاملة عملياً وتسمح لها سويتها العلمية باداء الخدمة الصحية المطلوبة وبمتابعة آخر المستجدات في الحقل الذي تعمل به. وطالما أن علاج المرض يقتضي وعياً صحياً للمريض وتشخيصاً دقيقاً للداء ودواءً جيداً وفعالاً، فإن الصيدلاني المؤهل بشكل صحيح يكون قادراً على المساهمة في هذا الأمر سواء بالمساعدة في التشخيص إلى جانب الطبيب السريري (بإجراء تحاليل لمتثابتات كيميائية حيوية) أو بالتصنيع الجيد للدواء الفعال والتقليل من تأثيراته الضائرة. </span></span></span></span></span></p>
+
+<p dir="RTL" style="text-align:center"><span style="color:#2c3e50"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:22.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">والله ولي التوفيق </span></span></strong></span></span></span></p>
+
+<p dir="RTL" style="text-align:center">&nbsp;</p>
+
+<p dir="RTL" style="text-align:left"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:22.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;"><span style="color:#00b0f0">عميد كلية الصيدلة في جامعة الشام الخاصة</span></span></span></strong></span></span></p>
+
+<p dir="RTL" style="text-align:left"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:22.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;"><span style="color:#00b0f0">الأستاذة الدكتورة فايزة القبيلي</span></span></span></strong></span></span></p>',
+                        'created_at' => '2019-01-12 11:20:23',
+                        'updated_at' => '2019-01-12 11:22:23',
+                        'deleted_at' => NULL,
+                    ),
+                    164 => 
+                    array (
+                        'id' => 165,
+                        'custom_module_attribute_value_id' => 404,
+                        'lang_id' => 1,
+                        'text' => 'مجلس الكلية',
+                        'created_at' => '2019-01-15 11:32:09',
+                        'updated_at' => '2019-01-15 11:32:09',
+                        'deleted_at' => NULL,
+                    ),
+                    165 => 
+                    array (
+                        'id' => 166,
+                        'custom_module_attribute_value_id' => 404,
+                        'lang_id' => 2,
+                        'text' => 'مجلس الكلية',
+                        'created_at' => '2019-01-15 11:32:09',
+                        'updated_at' => '2019-01-15 11:32:09',
+                        'deleted_at' => NULL,
+                    ),
+                    166 => 
+                    array (
+                        'id' => 167,
+                        'custom_module_attribute_value_id' => 408,
+                        'lang_id' => 1,
+                        'text' => '<p>-</p>',
+                        'created_at' => '2019-01-20 11:49:19',
+                        'updated_at' => '2019-01-20 11:49:19',
+                        'deleted_at' => NULL,
+                    ),
+                    167 => 
+                    array (
+                        'id' => 168,
+                        'custom_module_attribute_value_id' => 408,
+                        'lang_id' => 2,
+                        'text' => '<p dir="RTL" style="text-align:center"><span style="color:#2c3e50"><span style="font-size:11pt"><span style="background-color:white"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:22.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">كلمة العميد</span></span></strong></span></span></span></span></p>
+
+<p dir="RTL" style="text-align:justify"><span style="color:#2c3e50"><span style="font-size:11pt"><span style="background-color:white"><span style="font-family:Calibri,sans-serif"><span style="font-size:18.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">كلية الهندسة المعلوماتية في جامعة الشام الخاصة واحة إبداع</span></span>&nbsp;<span style="font-size:18.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">وعطاء، تَنشر العلم بأجمل عطاءاته وأرقى صوره</span></span><span dir="LTR" style="font-size:18.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">.</span></span></span></span></span></span></p>
+
+<p dir="RTL" style="text-align:justify"><span style="color:#2c3e50"><span style="font-size:11pt"><span style="background-color:white"><span style="font-family:Calibri,sans-serif"><span style="font-size:18.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">يسعدني أن أرحب بكم في موقع الجامعة الإلكتروني، وأهنئ أبنائي الطلبة الأعزاء على انتمائهم لهذا الصرح العلمي الأكاديمي العالي الشامخ البنيان في سورية الحبيبة</span></span><span dir="LTR" style="font-size:18.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">.</span></span></span></span></span></span></p>
+
+<p dir="RTL" style="text-align:justify"><span style="color:#2c3e50"><span style="font-size:11pt"><span style="background-color:white"><span style="font-family:Calibri,sans-serif"><span style="font-size:18.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">تتفرد كلية الهندسة المعلوماتية ببيئة دراسية جامعية مُفعمة بالحياة للطلبة، من خلال تقديم تجارب علمية متميزة ومرموقة يقدمها كوكبة من أعضاء الهيئة التدريسية الذين لهم إسهاماتهم في البحث العلمي وإنجازاتهم الإيجابية</span></span><span dir="LTR" style="font-size:18.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">.</span></span></span></span></span></span></p>
+
+<p dir="RTL" style="text-align:justify"><span style="color:#2c3e50"><span style="font-size:11pt"><span style="background-color:white"><span style="font-family:Calibri,sans-serif"><span style="font-size:18.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">تسعى كليتنا&nbsp; بشكل دائم إلى بث روح الارتقاء بالعملية التعلمية الأكاديمية والتطور المثمر البناء، ومن هذا المنطلق تبذل إدارة الكلية جهوداً حثيثة لاختيار الأحدث لمناهج التدريس ودمجها بأحدث التقنيات المتطورة، كما تعمل بشكل دؤوب لاختيار خيرة أعضاء الهيئة التدريسية من ذوي الخبرات العلمية الأكاديمية المتميزة في التدريس الجامعي ومختلف مجالات البحث العلمي، وأصحاب القدرات الإبداعية الخلاقة الذين يقدمون الدعم المتواصل لطلبة الكلية في بيئة تسودها علاقات الود والأبوة والاحترام بين الأساتذة والطلبة. </span></span></span></span></span></span></p>
+
+<p dir="RTL" style="text-align:justify"><span style="color:#2c3e50"><span style="font-size:11pt"><span style="background-color:white"><span style="font-family:Calibri,sans-serif"><span style="font-size:18.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">انطلاقاً من الحرص على تقوية الروابط&nbsp; بين الجامعة والمجتمع، تتطلع كليتنا إلى إكساب طلبتنا كفاءة أكاديمية عالية، وتميزا في الابتكار والإبداع، والمشاركة في المؤتمرات والمسابقات المحلية والدولية</span></span><span dir="LTR" style="font-size:18.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">.</span></span></span></span></span></span></p>
+
+<p dir="RTL" style="text-align:justify"><span style="color:#2c3e50"><span style="font-size:11pt"><span style="background-color:white"><span style="font-family:Calibri,sans-serif"><span style="font-size:18.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">كما تسعى إلى توفير جميع سبل الدعم غير المحدودة للطلبة من أجل تشجيعهم على التفوق العلمي والتميز الدراسي</span></span><span dir="LTR" style="font-size:18.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">.</span></span></span></span></span></span></p>
+
+<p dir="RTL" style="text-align:justify"><span style="color:#2c3e50"><span style="font-size:11pt"><span style="background-color:white"><span style="font-family:Calibri,sans-serif"><span style="font-size:18.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">وفي السياق ذاته تسعى كليتنا إلى إكساب الطلبة القدرات والمهارات الأساسية لتواكب الاحتياجات المتزايدة المطلوبة في سوق العمل في سورية والعالم في عصر التقدم التقني والذكاء الصنعي، في عصر أصبحت المعلومات وقوده الأساسي. </span></span></span></span></span></span></p>
+
+<p dir="RTL" style="text-align:justify"><span style="color:#2c3e50"><span style="font-size:11pt"><span style="background-color:white"><span style="font-family:Calibri,sans-serif"><span style="font-size:18.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">لذا أود ان أوجه لكم الدعوة بالتفضل لزيارة موقعنا على شبكة الإنترنت، والتعرف على طرق التدريس المتطورة الخاصة بنا ومناهجنا العلمية، التي تستند إلى المشاركة الفاعلة بين الأستاذ والطالب لا إلى&nbsp;الإلقاء والتلقين التقليدي</span></span><span dir="LTR" style="font-size:18.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">.</span></span></span></span></span></span></p>
+
+<p dir="RTL" style="text-align:justify"><span style="color:#2c3e50"><span style="font-size:11pt"><span style="background-color:white"><span style="font-family:Calibri,sans-serif"><span style="font-size:18.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">ويمكنكم مقابلة طلبتنا وأعضاء الهيئة التدريسية المتميزين وفريق الموظفين المتفانين، وكلي ثقة أنكم ستجدون جامعة الشام الخاصة هي قلعة العطاء والنماء والأصالة والمعاصرة العلمية، وهي المكان الأفضل للجميع</span></span><span dir="LTR" style="font-size:18.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">.</span></span></span></span></span></span></p>
+
+<p dir="RTL" style="text-align:justify"><span style="color:#2c3e50"><span style="font-size:11pt"><span style="background-color:white"><span style="font-family:Calibri,sans-serif"><span style="font-size:18.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">وإننا جميعاً في الكلية على استعدادٍ تام للإجابة عن أسئلتكم واستفساراتكم وتقبل أي اقتراحات يمكن لنا تحقيقها</span></span><span dir="LTR" style="font-size:18.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">.</span></span></span></span></span></span></p>
+
+<p dir="RTL" style="text-align:justify"><span style="color:#2c3e50"><span style="font-size:11pt"><span style="background-color:white"><span style="font-family:Calibri,sans-serif"><span style="font-size:18.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">والله ولي التوفيق.</span></span></span></span></span></span></p>
+
+<p dir="RTL" style="text-align:justify">&nbsp;</p>
+
+<p dir="RTL" style="text-align:left"><span style="color:#2c3e50"><span style="font-size:11pt"><span style="background-color:white"><span style="font-family:Calibri,sans-serif"><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong><strong><span style="font-size:20.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">عميد كلية الهندسة المعلوماتية </span></span></strong></span></span></span></span></p>
+
+<p dir="RTL" style="text-align:left"><span style="color:#2c3e50"><span style="font-size:11pt"><span style="background-color:white"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:20.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;الدكتـور المهندس&nbsp; &nbsp;&nbsp;</span></span></strong></span></span></span></span></p>
+
+<p dir="RTL" style="text-align:left"><span style="color:#2c3e50"><span style="font-size:11pt"><span style="background-color:white"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:20.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;جــــورج أنــــور كـــــرّاز</span></span></strong><strong>&nbsp;</strong></span></span></span></span></p>
+
+<p dir="RTL" style="text-align:justify">&nbsp;</p>',
+                        'created_at' => '2019-01-20 11:49:19',
+                        'updated_at' => '2019-01-20 11:52:31',
+                        'deleted_at' => NULL,
+                    ),
+                    168 => 
+                    array (
+                        'id' => 169,
+                        'custom_module_attribute_value_id' => 412,
+                        'lang_id' => 1,
+                        'text' => 'Umpcoming Events',
+                        'created_at' => '2019-01-21 11:49:14',
+                        'updated_at' => '2019-01-21 11:49:14',
+                        'deleted_at' => NULL,
+                    ),
+                    169 => 
+                    array (
+                        'id' => 170,
+                        'custom_module_attribute_value_id' => 412,
+                        'lang_id' => 2,
+                        'text' => 'الاخداث القادمة',
+                        'created_at' => '2019-01-21 11:49:14',
+                        'updated_at' => '2019-01-21 11:49:14',
+                        'deleted_at' => NULL,
+                    ),
+                ));
         
         
     }

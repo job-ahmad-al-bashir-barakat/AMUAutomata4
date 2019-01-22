@@ -1,10 +1,10 @@
 <?php
 
-return array (
+return array(
     'dashboard' => 'لوحة التحكم',
     'setting' => 'اعدادات',
     'general_section' => 'القسم العام',
-    'automata4_group' => 'جميع الحقوق محفوظة © '.date("Y").' مجموعة أتوماتا 4',
+    'automata4_group' => 'جميع الحقوق محفوظة © ' . date("Y") . ' مجموعة أتوماتا 4',
     'back_to_home' => 'العودة الى الرئيسية',
     'logout' => 'تسجيل الخروج',
     'add' => 'إضافة',
@@ -32,8 +32,9 @@ return array (
     'color' => 'اللون',
     'start_date' => 'تاريخ البداية',
     'end_date' => 'تاريخ النهاية',
+    'link' => 'عنوان الرابط',
     'oper' =>
-        array (
+        array(
             'success' => 'تمت العملية بنجاح',
             'error' => 'فشلت العملية',
             'successOrder' => 'تم الترتيب بنجاح',
@@ -54,10 +55,10 @@ return array (
     'image_name' => 'اسم الصورة',
     'crop_ratio' => 'نسبة القص',
     'allowed_ratio' => 'النسبة المسموحة (العرض × الطول) بالبيكسل:',
-    'can_not_delete_node_has_parent'   => 'لا يمكنك الحذف هذه المقدة مرتبطة بعقدة أب',
+    'can_not_delete_node_has_parent' => 'لا يمكنك الحذف هذه المقدة مرتبطة بعقدة أب',
     'can_not_delete_node_has_children' => 'لا يمكنك الحف تحتوي العقدة على أولاد',
     'labs' =>
-        array (
+        array(
             'description' => 'عن المخبر',
             'photo' => 'صور المخبر',
         ),
@@ -67,7 +68,7 @@ return array (
     'clear' => 'إزالة',
     'pixel' => ' بيكسل',
     'hot_line' => 'الخط الساخن',
-    'theme_rights_reserved'       => 'جميع الحقوق محفوظة © '.date("Y").' '.setting('website_title')->value.' ',
+    'theme_rights_reserved' => 'جميع الحقوق محفوظة © ' . date("Y") . ' ' . setting('website_title')->value . ' ',
     'about_me' => 'عن',
     'find_location' => 'الموقع على الخريطة',
     'red' => 'أحمر',
@@ -91,11 +92,11 @@ return array (
      * 404
      */
     'page_not_found' => 'الصفحة غير موجودة',
-    'return_home'    => 'عودة إلى الصفحة الرئيسية',
-    'go_back'        => 'رجوع',
-    'researches'        => 'الابحاث',
-    'useful_links'        => 'روابط مفيدة',
-    'quick_contact'        => 'للتواصل السريع',
-    'latest_news'        => 'اخر الاخبار',
-    'read_more'        => 'قراءة المزيد >>',
+    'return_home' => 'عودة إلى الصفحة الرئيسية',
+    'go_back' => 'رجوع',
+    'researches' => 'الابحاث',
+    'useful_links' => 'روابط مفيدة',
+    'quick_contact' => 'للتواصل السريع',
+    'latest_news' => 'اخر الاخبار',
+    'read_more' => 'قراءة المزيد >>',
 );

@@ -122,6 +122,10 @@ return [
         ],
     ],
 
+    'cards' => [
+        'model' => \Modules\Utilities\Entities\Card::class,
+    ],
+
     'steps' => [
         'model' => \Modules\Utilities\Entities\Step::class,
         'colName'  => 'transTitle->text',

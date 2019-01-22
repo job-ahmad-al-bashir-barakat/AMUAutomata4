@@ -177,6 +177,26 @@ class RoleNameLangsTableSeeder extends Seeder
                 'updated_at' => '2018-10-15 06:03:43',
                 'deleted_at' => NULL,
             ),
+            16 => 
+            array (
+                'id' => 17,
+                'role_id' => 10,
+                'lang_id' => 1,
+                'text' => 'Marwa Rule',
+                'created_at' => '2018-12-24 08:54:28',
+                'updated_at' => '2018-12-24 08:54:28',
+                'deleted_at' => NULL,
+            ),
+            17 => 
+            array (
+                'id' => 18,
+                'role_id' => 10,
+                'lang_id' => 2,
+                'text' => 'دور مروة',
+                'created_at' => '2018-12-24 08:54:28',
+                'updated_at' => '2018-12-24 08:54:28',
+                'deleted_at' => NULL,
+            ),
         ));
         
         

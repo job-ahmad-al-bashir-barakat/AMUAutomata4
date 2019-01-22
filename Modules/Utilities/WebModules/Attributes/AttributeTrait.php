@@ -76,6 +76,8 @@ trait AttributeTrait
                 return new HeightAttribute();
             case '28':
                 return new ImageLimitAttribute();
+            case '29':
+                return new CardsAttribute();
             default:
                 throw new \Exception('Undefined Attributes');
         }
@@ -147,6 +149,8 @@ trait AttributeTrait
                 return new HeightAttribute();
             case 'image_limit':
                 return new ImageLimitAttribute();
+            case 'cards':
+                return new CardsAttribute();
             default:
                 throw new \Exception('Undefined Attributes');
         }

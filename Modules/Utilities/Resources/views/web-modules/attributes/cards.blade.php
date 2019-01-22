@@ -1,0 +1,1 @@
+{!! FormComponent::autocomplete($title, 'cards', "webModule[{$code}][]", 'autocomplete/cards', $data, 0, 'group required l:col-lg-3 i:col-lg-8', ['multiple']) !!}

@@ -139,6 +139,12 @@ return [
         'factory'       => Modules\Utilities\Factories\BlockDetailFactory::class
     ],
 
+
+    'cards' => [
+        'model'         => Modules\Utilities\Entities\Card::class,
+        'factory'       => Modules\Utilities\Factories\CardFactory::class
+    ],
+
     'steps' => [
         'model'         => Modules\Utilities\Entities\Step::class,
         'factory'       => Modules\Utilities\Factories\StepFactory::class

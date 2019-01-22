@@ -737,6 +737,321 @@ class PagesTableSeeder extends Seeder
                 'updated_at' => '2018-12-10 08:17:24',
                 'deleted_at' => NULL,
             ),
+            80 => 
+            array (
+                'id' => 82,
+                'page_code' => 'council_ite',
+                'route' => 'council_ite',
+                'created_at' => '2018-12-19 13:03:42',
+                'updated_at' => '2018-12-19 13:03:42',
+                'deleted_at' => NULL,
+            ),
+            81 => 
+            array (
+                'id' => 83,
+                'page_code' => 'council_law',
+                'route' => 'council_law',
+                'created_at' => '2018-12-19 13:04:18',
+                'updated_at' => '2018-12-19 13:04:18',
+                'deleted_at' => NULL,
+            ),
+            82 => 
+            array (
+                'id' => 84,
+                'page_code' => 'council_AS',
+                'route' => 'council_AS',
+                'created_at' => '2018-12-19 13:04:54',
+                'updated_at' => '2018-12-19 13:04:54',
+                'deleted_at' => NULL,
+            ),
+            83 => 
+            array (
+                'id' => 85,
+                'page_code' => 'council_IRD',
+                'route' => 'council_IRD',
+                'created_at' => '2018-12-19 13:05:39',
+                'updated_at' => '2018-12-19 13:05:39',
+                'deleted_at' => NULL,
+            ),
+            84 => 
+            array (
+                'id' => 86,
+                'page_code' => 'council_ Medicine',
+                'route' => 'council_ Medicine',
+                'created_at' => '2018-12-19 13:06:42',
+                'updated_at' => '2018-12-19 13:06:42',
+                'deleted_at' => NULL,
+            ),
+            85 => 
+            array (
+                'id' => 87,
+                'page_code' => 'council_ Pharmacy',
+                'route' => 'council_ Pharmacy',
+                'created_at' => '2018-12-19 13:08:01',
+                'updated_at' => '2018-12-19 13:08:01',
+                'deleted_at' => NULL,
+            ),
+            86 => 
+            array (
+                'id' => 88,
+                'page_code' => 'council_ dentistry',
+                'route' => 'council_ dentistry',
+                'created_at' => '2018-12-19 13:08:54',
+                'updated_at' => '2018-12-19 13:08:54',
+                'deleted_at' => NULL,
+            ),
+            87 => 
+            array (
+                'id' => 89,
+                'page_code' => 'Dentistry-Dean-la',
+                'route' => 'Dentistry-Dean-la',
+                'created_at' => '2018-12-29 13:22:13',
+                'updated_at' => '2018-12-29 13:22:13',
+                'deleted_at' => NULL,
+            ),
+            88 => 
+            array (
+                'id' => 90,
+                'page_code' => 'C-Mess- Dentistry-la',
+                'route' => 'C-Mess- Dentistry-la',
+                'created_at' => '2018-12-29 13:23:48',
+                'updated_at' => '2018-12-29 13:23:48',
+                'deleted_at' => NULL,
+            ),
+            89 => 
+            array (
+                'id' => 91,
+                'page_code' => 'Degrees- Dentistry-la',
+                'route' => 'Degrees- Dentistry-la',
+                'created_at' => '2018-12-29 13:24:43',
+                'updated_at' => '2018-12-29 13:24:43',
+                'deleted_at' => NULL,
+            ),
+            90 => 
+            array (
+                'id' => 92,
+                'page_code' => 'Study Plan- Dentistry-la',
+                'route' => 'Study Plan- Dentistry-la',
+                'created_at' => '2018-12-29 13:25:48',
+                'updated_at' => '2018-12-29 13:25:48',
+                'deleted_at' => NULL,
+            ),
+            91 => 
+            array (
+                'id' => 93,
+                'page_code' => 'F-Members- Dentistry-la',
+                'route' => 'F-Members- Dentistry-la',
+                'created_at' => '2018-12-29 13:28:20',
+                'updated_at' => '2018-12-29 13:28:20',
+                'deleted_at' => NULL,
+            ),
+            92 => 
+            array (
+                'id' => 94,
+                'page_code' => 'Contact-Us- Dentistry-la',
+                'route' => 'Contact-Us- Dentistry-la',
+                'created_at' => '2018-12-29 13:29:18',
+                'updated_at' => '2018-12-29 13:29:18',
+                'deleted_at' => NULL,
+            ),
+            93 => 
+            array (
+                'id' => 95,
+                'page_code' => 'council_ dentistry-la',
+                'route' => 'council_ dentistry-la',
+                'created_at' => '2018-12-29 13:30:33',
+                'updated_at' => '2018-12-29 13:30:33',
+                'deleted_at' => NULL,
+            ),
+            94 => 
+            array (
+                'id' => 96,
+                'page_code' => 'Pharmacy-Dean-la',
+                'route' => 'Pharmacy-Dean-la',
+                'created_at' => '2018-12-29 13:41:48',
+                'updated_at' => '2018-12-29 13:41:48',
+                'deleted_at' => NULL,
+            ),
+            95 => 
+            array (
+                'id' => 97,
+                'page_code' => 'C-Mess- Pharmacy-la',
+                'route' => 'C-Mess- Pharmacy-la',
+                'created_at' => '2018-12-29 13:43:13',
+                'updated_at' => '2018-12-29 13:43:13',
+                'deleted_at' => NULL,
+            ),
+            96 => 
+            array (
+                'id' => 98,
+                'page_code' => 'Degrees- Pharmacy-la',
+                'route' => 'Degrees- Pharmacy-la',
+                'created_at' => '2018-12-29 13:43:58',
+                'updated_at' => '2018-12-29 13:43:58',
+                'deleted_at' => NULL,
+            ),
+            97 => 
+            array (
+                'id' => 99,
+                'page_code' => 'Study-Plan- Pharmacy-la',
+                'route' => 'Study-Plan- Pharmacy-la',
+                'created_at' => '2018-12-29 13:45:24',
+                'updated_at' => '2018-12-29 13:45:24',
+                'deleted_at' => NULL,
+            ),
+            98 => 
+            array (
+                'id' => 100,
+                'page_code' => 'F-Members Pharmacy-la',
+                'route' => 'F-Members Pharmacy-la',
+                'created_at' => '2018-12-29 13:46:18',
+                'updated_at' => '2018-12-29 13:46:18',
+                'deleted_at' => NULL,
+            ),
+            99 => 
+            array (
+                'id' => 101,
+                'page_code' => 'Contact-Us- Pharmacy-la',
+                'route' => 'Contact-Us- Pharmacy-la',
+                'created_at' => '2018-12-29 13:47:09',
+                'updated_at' => '2018-12-29 13:47:09',
+                'deleted_at' => NULL,
+            ),
+            100 => 
+            array (
+                'id' => 102,
+                'page_code' => 'council_ Pharmacy_la',
+                'route' => 'council_ Pharmacy_la',
+                'created_at' => '2018-12-29 13:48:43',
+                'updated_at' => '2018-12-29 13:48:43',
+                'deleted_at' => NULL,
+            ),
+            101 => 
+            array (
+                'id' => 103,
+                'page_code' => 'Administrative Sciences-dean-la',
+                'route' => 'Administrative Sciences-dean-la',
+                'created_at' => '2018-12-30 07:23:29',
+                'updated_at' => '2018-12-30 07:23:29',
+                'deleted_at' => NULL,
+            ),
+            102 => 
+            array (
+                'id' => 104,
+                'page_code' => 'C-Mess-AS-la',
+                'route' => 'C-Mess-AS-la',
+                'created_at' => '2018-12-30 07:38:14',
+                'updated_at' => '2018-12-30 07:38:14',
+                'deleted_at' => NULL,
+            ),
+            103 => 
+            array (
+                'id' => 105,
+                'page_code' => 'Degrees-AS-la',
+                'route' => 'Degrees-AS-la',
+                'created_at' => '2018-12-30 07:38:51',
+                'updated_at' => '2018-12-30 07:38:51',
+                'deleted_at' => NULL,
+            ),
+            104 => 
+            array (
+                'id' => 106,
+                'page_code' => 'Study Plan-AS-la',
+                'route' => 'Study Plan-AS-la',
+                'created_at' => '2018-12-30 07:39:38',
+                'updated_at' => '2018-12-30 07:39:38',
+                'deleted_at' => NULL,
+            ),
+            105 => 
+            array (
+                'id' => 107,
+                'page_code' => 'F-Members-AS-la',
+                'route' => 'F-Members-AS-la',
+                'created_at' => '2018-12-30 07:40:49',
+                'updated_at' => '2018-12-30 07:40:49',
+                'deleted_at' => NULL,
+            ),
+            106 => 
+            array (
+                'id' => 108,
+                'page_code' => 'Contact-Us-AS-la',
+                'route' => 'Contact-Us-AS-la',
+                'created_at' => '2018-12-30 07:41:38',
+                'updated_at' => '2018-12-30 07:41:38',
+                'deleted_at' => NULL,
+            ),
+            107 => 
+            array (
+                'id' => 109,
+                'page_code' => 'council_AS-la',
+                'route' => 'council_AS-la',
+                'created_at' => '2018-12-30 07:42:20',
+                'updated_at' => '2018-12-30 07:42:20',
+                'deleted_at' => NULL,
+            ),
+            108 => 
+            array (
+                'id' => 110,
+                'page_code' => 'law-dean-la',
+                'route' => 'law-dean-la',
+                'created_at' => '2018-12-30 07:49:23',
+                'updated_at' => '2018-12-30 07:49:23',
+                'deleted_at' => NULL,
+            ),
+            109 => 
+            array (
+                'id' => 111,
+                'page_code' => 'C-Mess-law-la',
+                'route' => 'C-Mess-law-la',
+                'created_at' => '2018-12-30 07:50:12',
+                'updated_at' => '2018-12-30 07:50:12',
+                'deleted_at' => NULL,
+            ),
+            110 => 
+            array (
+                'id' => 112,
+                'page_code' => 'Degrees-law-la',
+                'route' => 'Degrees-law-la',
+                'created_at' => '2018-12-30 07:50:48',
+                'updated_at' => '2018-12-30 07:50:48',
+                'deleted_at' => NULL,
+            ),
+            111 => 
+            array (
+                'id' => 113,
+                'page_code' => 'study-plan-law-la',
+                'route' => 'study-plan-law-la',
+                'created_at' => '2018-12-30 07:51:32',
+                'updated_at' => '2018-12-30 07:51:32',
+                'deleted_at' => NULL,
+            ),
+            112 => 
+            array (
+                'id' => 114,
+                'page_code' => 'f-members-law-la',
+                'route' => 'f-members-law-la',
+                'created_at' => '2018-12-30 07:52:22',
+                'updated_at' => '2018-12-30 07:52:22',
+                'deleted_at' => NULL,
+            ),
+            113 => 
+            array (
+                'id' => 115,
+                'page_code' => 'contact-us-law-la',
+                'route' => 'contact-us-law-la',
+                'created_at' => '2018-12-30 07:53:16',
+                'updated_at' => '2018-12-30 07:53:16',
+                'deleted_at' => NULL,
+            ),
+            114 => 
+            array (
+                'id' => 116,
+                'page_code' => 'council_law-la',
+                'route' => 'council_law-la',
+                'created_at' => '2018-12-30 07:54:08',
+                'updated_at' => '2018-12-30 07:54:08',
+                'deleted_at' => NULL,
+            ),
         ));
         
         

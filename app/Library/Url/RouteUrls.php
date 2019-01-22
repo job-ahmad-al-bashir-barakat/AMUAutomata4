@@ -167,6 +167,11 @@ class RouteUrls
         return $this->localizeUrl("builder/blocks/{$id}", 'utilities');
     }
 
+    public function cards()
+    {
+        return $this->localizeUrl('builder/cards', 'utilities');
+    }
+
     public function getBuilderPageModules()
     {
         return $this->localizeUrl('builder/modules', 'utilities');

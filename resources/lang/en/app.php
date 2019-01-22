@@ -1,10 +1,10 @@
 <?php
 
-return array (
+return array(
     'dashboard' => 'Dashboard',
     'setting' => 'Setting',
     'general_section' => 'General Section',
-    'automata4_group' => 'Copyrights © '.date("Y").' All Rights Reserved - Automata4 Group4',
+    'automata4_group' => 'Copyrights © ' . date("Y") . ' All Rights Reserved - Automata4 Group4',
     'back_to_home' => 'Back To Home',
     'logout' => 'Logout',
     'add' => 'Add',
@@ -32,8 +32,9 @@ return array (
     'color' => 'Color',
     'start_date' => 'Start Date',
     'end_date' => 'ENd Date',
+    'link' => 'Link',
     'oper' =>
-        array (
+        array(
             'success' => 'Operation done successfuly',
             'error' => 'Operation fails',
             'successOrder' => 'Order done successfully',
@@ -54,10 +55,10 @@ return array (
     'image_name' => 'Image Name',
     'crop_ratio' => 'Crop Ratio',
     'allowed_ratio' => 'allowed ratio (width × height) px:',
-    'can_not_delete_node_has_parent'   => 'you can not delete because this node has parent',
+    'can_not_delete_node_has_parent' => 'you can not delete because this node has parent',
     'can_not_delete_node_has_children' => 'you can not delete because this node has children',
     'labs' =>
-        array (
+        array(
             'description' => 'Lab Description',
             'photo' => 'Lab Photo',
         ),
@@ -69,7 +70,7 @@ return array (
     'hot_line' => 'Hot Line',
     'about_me' => 'About Me',
     'find_location' => 'Find Location',
-    'theme_rights_reserved'       => 'Copyrights © '.date("Y").' All Rights Reserved - Al-Sham Private University',
+    'theme_rights_reserved' => 'Copyrights © ' . date("Y") . ' All Rights Reserved - Al-Sham Private University',
     'red' => 'Red',
     'blue' => 'Blue',
     'yellow' => 'Yellow',
@@ -91,11 +92,11 @@ return array (
     * 404
     */
     'page_not_found' => 'Oops! Page Not Found',
-    'return_home'    => 'Return Home',
-    'go_back'        => 'Go Back',
-    'researches'        => 'Researches',
-    'useful_links'        => 'Useful Links',
-    'quick_contact'        => 'Quick Contact',
-    'latest_news'        => 'Latest News',
-    'read_more'        => 'Read More >>',
+    'return_home' => 'Return Home',
+    'go_back' => 'Go Back',
+    'researches' => 'Researches',
+    'useful_links' => 'Useful Links',
+    'quick_contact' => 'Quick Contact',
+    'latest_news' => 'Latest News',
+    'read_more' => 'Read More >>',
 );

@@ -628,49 +628,345 @@ class CustomModulesTableSeeder extends Seeder
             76 => 
             array (
                 'id' => 81,
-                'module_id' => 41,
-                'created_at' => '2018-12-27 09:11:54',
-                'updated_at' => '2018-12-27 09:11:54',
+                'module_id' => 9,
+                'created_at' => '2018-12-22 11:38:08',
+                'updated_at' => '2018-12-23 07:44:20',
                 'deleted_at' => NULL,
             ),
             77 => 
             array (
                 'id' => 82,
-                'module_id' => 42,
-                'created_at' => '2018-12-30 10:21:28',
-                'updated_at' => '2018-12-30 10:21:28',
+                'module_id' => 40,
+                'created_at' => '2018-12-25 09:18:03',
+                'updated_at' => '2018-12-25 09:18:03',
                 'deleted_at' => NULL,
             ),
             78 => 
             array (
                 'id' => 83,
-                'module_id' => 10,
-                'created_at' => '2019-01-01 07:52:59',
-                'updated_at' => '2019-01-01 07:52:59',
+                'module_id' => 39,
+                'created_at' => '2018-12-25 09:33:20',
+                'updated_at' => '2018-12-25 09:33:20',
                 'deleted_at' => NULL,
             ),
             79 => 
             array (
                 'id' => 84,
-                'module_id' => 43,
-                'created_at' => '2019-01-13 08:21:07',
-                'updated_at' => '2019-01-13 08:21:07',
+                'module_id' => 28,
+                'created_at' => '2018-12-29 11:04:54',
+                'updated_at' => '2018-12-29 11:04:54',
                 'deleted_at' => NULL,
             ),
             80 => 
             array (
                 'id' => 85,
-                'module_id' => 44,
-                'created_at' => '2019-01-19 12:49:44',
-                'updated_at' => '2019-01-19 12:49:44',
+                'module_id' => 28,
+                'created_at' => '2018-12-29 11:08:53',
+                'updated_at' => '2018-12-29 11:08:53',
                 'deleted_at' => NULL,
             ),
             81 => 
             array (
                 'id' => 86,
+                'module_id' => 28,
+                'created_at' => '2018-12-29 11:09:51',
+                'updated_at' => '2018-12-29 11:09:51',
+                'deleted_at' => NULL,
+            ),
+            82 => 
+            array (
+                'id' => 87,
+                'module_id' => 28,
+                'created_at' => '2018-12-29 11:17:09',
+                'updated_at' => '2018-12-29 11:17:09',
+                'deleted_at' => NULL,
+            ),
+            83 => 
+            array (
+                'id' => 88,
+                'module_id' => 28,
+                'created_at' => '2018-12-29 11:20:15',
+                'updated_at' => '2018-12-29 11:20:15',
+                'deleted_at' => NULL,
+            ),
+            84 => 
+            array (
+                'id' => 89,
+                'module_id' => 28,
+                'created_at' => '2018-12-29 11:21:30',
+                'updated_at' => '2018-12-29 11:21:30',
+                'deleted_at' => NULL,
+            ),
+            85 => 
+            array (
+                'id' => 90,
+                'module_id' => 41,
+                'created_at' => '2018-12-30 07:16:23',
+                'updated_at' => '2018-12-30 07:16:23',
+                'deleted_at' => NULL,
+            ),
+            86 => 
+            array (
+                'id' => 91,
+                'module_id' => 1,
+                'created_at' => '2018-12-30 09:43:58',
+                'updated_at' => '2018-12-30 09:43:58',
+                'deleted_at' => NULL,
+            ),
+            87 => 
+            array (
+                'id' => 92,
+                'module_id' => 17,
+                'created_at' => '2018-12-30 10:19:55',
+                'updated_at' => '2018-12-31 08:31:33',
+                'deleted_at' => NULL,
+            ),
+            88 => 
+            array (
+                'id' => 93,
+                'module_id' => 1,
+                'created_at' => '2018-12-30 10:52:11',
+                'updated_at' => '2018-12-30 10:52:11',
+                'deleted_at' => NULL,
+            ),
+            89 => 
+            array (
+                'id' => 94,
+                'module_id' => 28,
+                'created_at' => '2018-12-30 11:51:50',
+                'updated_at' => '2018-12-30 11:51:50',
+                'deleted_at' => NULL,
+            ),
+            90 => 
+            array (
+                'id' => 95,
+                'module_id' => 28,
+                'created_at' => '2018-12-30 11:52:43',
+                'updated_at' => '2018-12-30 11:52:43',
+                'deleted_at' => NULL,
+            ),
+            91 => 
+            array (
+                'id' => 96,
+                'module_id' => 28,
+                'created_at' => '2018-12-30 11:53:30',
+                'updated_at' => '2018-12-30 11:53:30',
+                'deleted_at' => NULL,
+            ),
+            92 => 
+            array (
+                'id' => 97,
+                'module_id' => 28,
+                'created_at' => '2018-12-30 11:54:23',
+                'updated_at' => '2018-12-30 11:54:23',
+                'deleted_at' => NULL,
+            ),
+            93 => 
+            array (
+                'id' => 98,
+                'module_id' => 1,
+                'created_at' => '2018-12-31 08:04:14',
+                'updated_at' => '2018-12-31 08:04:14',
+                'deleted_at' => NULL,
+            ),
+            94 => 
+            array (
+                'id' => 99,
+                'module_id' => 42,
+                'created_at' => '2018-12-31 08:23:34',
+                'updated_at' => '2018-12-31 08:23:34',
+                'deleted_at' => NULL,
+            ),
+            95 => 
+            array (
+                'id' => 100,
+                'module_id' => 17,
+                'created_at' => '2018-12-31 08:26:55',
+                'updated_at' => '2018-12-31 08:26:55',
+                'deleted_at' => NULL,
+            ),
+            96 => 
+            array (
+                'id' => 101,
+                'module_id' => 1,
+                'created_at' => '2018-12-31 09:00:03',
+                'updated_at' => '2018-12-31 09:00:03',
+                'deleted_at' => NULL,
+            ),
+            97 => 
+            array (
+                'id' => 102,
+                'module_id' => 42,
+                'created_at' => '2018-12-31 09:10:35',
+                'updated_at' => '2018-12-31 09:10:35',
+                'deleted_at' => NULL,
+            ),
+            98 => 
+            array (
+                'id' => 103,
+                'module_id' => 17,
+                'created_at' => '2018-12-31 10:14:46',
+                'updated_at' => '2018-12-31 10:14:46',
+                'deleted_at' => NULL,
+            ),
+            99 => 
+            array (
+                'id' => 104,
+                'module_id' => 17,
+                'created_at' => '2018-12-31 11:02:08',
+                'updated_at' => '2018-12-31 11:02:08',
+                'deleted_at' => NULL,
+            ),
+            100 => 
+            array (
+                'id' => 105,
+                'module_id' => 1,
+                'created_at' => '2018-12-31 11:19:35',
+                'updated_at' => '2018-12-31 11:19:35',
+                'deleted_at' => NULL,
+            ),
+            101 => 
+            array (
+                'id' => 106,
+                'module_id' => 1,
+                'created_at' => '2019-01-06 07:36:13',
+                'updated_at' => '2019-01-06 07:36:13',
+                'deleted_at' => NULL,
+            ),
+            102 => 
+            array (
+                'id' => 107,
+                'module_id' => 1,
+                'created_at' => '2019-01-06 07:55:29',
+                'updated_at' => '2019-01-06 07:55:29',
+                'deleted_at' => NULL,
+            ),
+            103 => 
+            array (
+                'id' => 108,
+                'module_id' => 1,
+                'created_at' => '2019-01-06 08:51:59',
+                'updated_at' => '2019-01-06 08:51:59',
+                'deleted_at' => NULL,
+            ),
+            104 => 
+            array (
+                'id' => 109,
+                'module_id' => 17,
+                'created_at' => '2019-01-06 09:17:52',
+                'updated_at' => '2019-01-06 09:17:52',
+                'deleted_at' => NULL,
+            ),
+            105 => 
+            array (
+                'id' => 110,
+                'module_id' => 1,
+                'created_at' => '2019-01-08 08:22:21',
+                'updated_at' => '2019-01-08 08:22:21',
+                'deleted_at' => NULL,
+            ),
+            106 => 
+            array (
+                'id' => 111,
+                'module_id' => 17,
+                'created_at' => '2019-01-08 09:06:55',
+                'updated_at' => '2019-01-08 09:06:55',
+                'deleted_at' => NULL,
+            ),
+            107 => 
+            array (
+                'id' => 112,
+                'module_id' => 17,
+                'created_at' => '2019-01-08 09:17:50',
+                'updated_at' => '2019-01-08 09:17:50',
+                'deleted_at' => NULL,
+            ),
+            108 => 
+            array (
+                'id' => 113,
+                'module_id' => 17,
+                'created_at' => '2019-01-08 09:42:49',
+                'updated_at' => '2019-01-08 09:42:49',
+                'deleted_at' => NULL,
+            ),
+            109 => 
+            array (
+                'id' => 114,
+                'module_id' => 17,
+                'created_at' => '2019-01-08 09:53:22',
+                'updated_at' => '2019-01-08 09:53:22',
+                'deleted_at' => NULL,
+            ),
+            110 => 
+            array (
+                'id' => 115,
+                'module_id' => 41,
+                'created_at' => '2019-01-08 12:01:34',
+                'updated_at' => '2019-01-08 12:01:34',
+                'deleted_at' => NULL,
+            ),
+            111 => 
+            array (
+                'id' => 116,
+                'module_id' => 1,
+                'created_at' => '2019-01-08 13:06:28',
+                'updated_at' => '2019-01-08 13:06:28',
+                'deleted_at' => NULL,
+            ),
+            112 => 
+            array (
+                'id' => 117,
+                'module_id' => 1,
+                'created_at' => '2019-01-08 13:19:51',
+                'updated_at' => '2019-01-08 13:19:51',
+                'deleted_at' => NULL,
+            ),
+            113 => 
+            array (
+                'id' => 118,
+                'module_id' => 1,
+                'created_at' => '2019-01-09 09:49:24',
+                'updated_at' => '2019-01-09 09:49:24',
+                'deleted_at' => NULL,
+            ),
+            114 => 
+            array (
+                'id' => 119,
+                'module_id' => 1,
+                'created_at' => '2019-01-12 11:20:23',
+                'updated_at' => '2019-01-12 11:20:23',
+                'deleted_at' => NULL,
+            ),
+            115 => 
+            array (
+                'id' => 120,
+                'module_id' => 43,
+                'created_at' => '2019-01-15 11:32:09',
+                'updated_at' => '2019-01-15 11:39:20',
+                'deleted_at' => '2019-01-15 11:39:20',
+            ),
+            116 => 
+            array (
+                'id' => 121,
+                'module_id' => 1,
+                'created_at' => '2019-01-20 11:49:19',
+                'updated_at' => '2019-01-20 11:49:19',
+                'deleted_at' => NULL,
+            ),
+            117 => 
+            array (
+                'id' => 122,
                 'module_id' => 44,
-                'created_at' => '2019-01-20 06:32:50',
-                'updated_at' => '2019-01-20 06:32:50',
+                'created_at' => '2019-01-21 11:49:14',
+                'updated_at' => '2019-01-21 11:49:14',
+                'deleted_at' => NULL,
+            ),
+            118 => 
+            array (
+                'id' => 123,
+                'module_id' => 45,
+                'created_at' => '2019-01-22 08:24:03',
+                'updated_at' => '2019-01-22 08:24:03',
                 'deleted_at' => NULL,
             ),
         ));

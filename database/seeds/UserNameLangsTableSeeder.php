@@ -224,8 +224,8 @@ class UserNameLangsTableSeeder extends Seeder
                 'lang_id' => 1,
                 'text' => 'ganda',
                 'created_at' => '2018-12-03 09:31:19',
-                'updated_at' => '2018-12-03 09:31:19',
-                'deleted_at' => NULL,
+                'updated_at' => '2018-12-24 08:55:10',
+                'deleted_at' => '2018-12-24 08:55:10',
             ),
             21 => 
             array (
@@ -234,7 +234,27 @@ class UserNameLangsTableSeeder extends Seeder
                 'lang_id' => 2,
                 'text' => 'جاندة',
                 'created_at' => '2018-12-03 09:31:19',
-                'updated_at' => '2018-12-03 09:31:19',
+                'updated_at' => '2018-12-24 08:55:10',
+                'deleted_at' => '2018-12-24 08:55:10',
+            ),
+            22 => 
+            array (
+                'id' => 23,
+                'user_id' => 20,
+                'lang_id' => 1,
+                'text' => 'Marwa',
+                'created_at' => '2018-12-24 09:07:06',
+                'updated_at' => '2018-12-24 09:07:06',
+                'deleted_at' => NULL,
+            ),
+            23 => 
+            array (
+                'id' => 24,
+                'user_id' => 20,
+                'lang_id' => 2,
+                'text' => 'مروة',
+                'created_at' => '2018-12-24 09:07:06',
+                'updated_at' => '2018-12-24 09:07:06',
                 'deleted_at' => NULL,
             ),
         ));

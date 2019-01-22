@@ -473,8 +473,8 @@ class PermissionsTableSeeder extends Seeder
                 'name' => 'calendar',
                 'guard_name' => 'web',
                 'hidden' => 'N',
-                'created_at' => '2018-12-30 13:46:18',
-                'updated_at' => '2018-12-30 13:46:18',
+                'created_at' => '2018-12-30 11:46:18',
+                'updated_at' => '2018-12-30 11:46:18',
                 'deleted_at' => NULL,
             ),
             46 => 
@@ -483,8 +483,8 @@ class PermissionsTableSeeder extends Seeder
                 'name' => 'footer',
                 'guard_name' => 'web',
                 'hidden' => 'N',
-                'created_at' => '2019-01-05 05:51:45',
-                'updated_at' => '2019-01-05 05:51:45',
+                'created_at' => '2019-01-05 03:51:45',
+                'updated_at' => '2019-01-05 03:51:45',
                 'deleted_at' => NULL,
             ),
             47 => 
@@ -493,8 +493,18 @@ class PermissionsTableSeeder extends Seeder
                 'name' => 'show-modules',
                 'guard_name' => 'web',
                 'hidden' => 'N',
-                'created_at' => '2019-01-06 12:50:41',
-                'updated_at' => '2019-01-06 12:50:41',
+                'created_at' => '2019-01-06 10:50:41',
+                'updated_at' => '2019-01-06 10:50:41',
+                'deleted_at' => NULL,
+            ),
+            48 => 
+            array (
+                'id' => 49,
+                'name' => 'cards',
+                'guard_name' => 'web',
+                'hidden' => 'N',
+                'created_at' => '2019-01-22 05:14:31',
+                'updated_at' => '2019-01-22 05:14:31',
                 'deleted_at' => NULL,
             ),
         ));

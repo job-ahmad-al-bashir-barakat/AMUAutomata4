@@ -292,6 +292,16 @@ class BuilderController extends Controller
         ]);
     }
 
+    public function cards()
+    {
+        return view('utilities::page.table',[
+            'table' => 'cards',
+            'param' => '',
+            'title' => trans('utilities::app.cards'),
+            'subPage' => 'utilities::page.table-sub.cards',
+        ]);
+    }
+
     /**
      * Lists
      */
