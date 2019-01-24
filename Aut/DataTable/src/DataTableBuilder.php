@@ -654,6 +654,14 @@ class DataTableBuilder
         return $this;
     }
 
+    function when($condition, $func)
+    {
+        if ($condition) {
+            $func($this);
+        }
+        return $this;
+    }
+
     function each($items, $func)
     {
         foreach ($items as $key => $item) {
