@@ -19,7 +19,7 @@ class PersonFactory extends GlobalFactory
     {
         $query = Person::with(['contact' => function($query) {
             return $query->allLangs();
-        }])->allLangs()->Type();
+        },'faculty.transName'])->allLangs()->Type();
 
         $tableId = 'datatable-persons-'.Str::snake(\Route::input('model'));
 
@@ -58,7 +58,7 @@ class PersonFactory extends GlobalFactory
             ->startTab(trans('admin::app.personal_Info'), 'fa fa-user fa-2x')
             ->startHorizontalTab()
                 ->when(Person::PERSON_STAFF == \Route::input('model'), function ($table) {
-                    $table->addAutocomplete('autocomplete/faculty', trans('admin::app.faculty'), 'faculty_id', "faculty.lang_name.$this->lang.text", "faculty.lang_name.$this->lang.text", 'req');
+                    $table->addAutocomplete('autocomplete/faculty', trans('admin::app.faculty'), 'faculty_id', "faculty.transName.text", "faculty.lang_name.$this->lang.text", 'req');
                 })
                 ->openHorizontalTab("name-$type", $this->name, 'req', true)
                     ->addMultiInputTextLangs(['name'], 'req required')
@@ -70,10 +70,10 @@ class PersonFactory extends GlobalFactory
                     ->addMultiTextareaLangs(['experience'], 'none text-editor')
                 ->closeHorizontalTab()
                 ->openHorizontalTab("extra-$type", trans('admin::app.extra_info'), 'req')
-                    ->addAutocomplete('autocomplete/gender', trans('admin::app.gender'), 'gender_id', "gender.lang_name.$this->lang.text", "gender.lang_name.$this->lang.text", 'req required none', '', '', true, false, true, false)
-                    ->addAutocomplete('autocomplete/position', trans('utilities::app.position'), 'position_id', "position.lang_name.$this->lang.text", "position.lang_name.$this->lang.text", 'req required none', '', '', true, false, true, false)
+                    ->addAutocomplete('autocomplete/gender', trans('admin::app.gender'), 'gender_id', "gender.transName.text", "gender.lang_name.$this->lang.text", 'req required none', '', '', true, false, true, false)
+                    ->addAutocomplete('autocomplete/position', trans('utilities::app.position'), 'position_id', "position.transName.text", "position.lang_name.$this->lang.text", 'req required none', '', '', true, false, true, false)
                     ->startRelation('jobTitle')
-                        ->addMultiAutocomplete('autocomplete/job-title', "job_title[ ,].lang_name.$this->lang.text", trans('utilities::app.job_title'), 'job_title.id', "job_title.lang_name.$this->lang.text", "job_title.lang_name.$this->lang.text", 'req required none', '', '', true, false, false, false)
+                        ->addMultiAutocomplete('autocomplete/job-title', "job_title[ ,].lang_name.$this->lang.text", trans('utilities::app.job_title'), 'job_title.id', "job_title.transName.text", "job_title.lang_name.$this->lang.text", 'req required none', '', '', true, false, false, false)
                     ->endRelation()
                 ->closeHorizontalTab()
             ->endHorizontalTab()
