@@ -24,6 +24,7 @@ return [
     'publish_date'       => 'Publish Date',
     'books'              => 'Books',
     'book'               => 'Book',
+    'tenders'               => 'Tenders',
 
     'name'               => 'Name',
     'type'               => 'Type',

@@ -307,6 +307,11 @@ return [
         'factory' => \Modules\Admin\Factories\NewsFactory::class,
     ],
 
+    'tenders' => [
+        'model'   => \Modules\Admin\Entities\Tender::class,
+        'factory' => \Modules\Admin\Factories\TendersFactory::class,
+    ],
+
     'list' => [
         'model'   => \Modules\Utilities\Entities\MenuList::class,
         'factory' => \Modules\Utilities\Factories\MenuListFactory::class,

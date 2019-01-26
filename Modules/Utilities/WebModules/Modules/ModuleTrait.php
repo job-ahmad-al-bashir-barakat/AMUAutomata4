@@ -116,6 +116,8 @@ trait ModuleTrait
                 return new SliderUpcomingEventsModule();
             case 45:
                 return new CardsModule();
+            case 46:
+                return new TendersListModule();
             default:
                 throw new \Exception("Undefined Web Module [id:$moduleId]");
         }
@@ -227,6 +229,8 @@ trait ModuleTrait
                 return new SliderUpcomingEventsModule();
             case 'cards':
                 return new CardsModule();
+            case 'tenders_list':
+                return new TendersListModule();
             default:
                 throw new \Exception("Undefined Web Module [$moduleCode]");
         }

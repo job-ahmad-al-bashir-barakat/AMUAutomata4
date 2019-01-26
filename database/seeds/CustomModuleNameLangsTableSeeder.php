@@ -2397,6 +2397,26 @@ class CustomModuleNameLangsTableSeeder extends Seeder
                 'updated_at' => '2019-01-22 08:24:03',
                 'deleted_at' => NULL,
             ),
+            238 => 
+            array (
+                'id' => 249,
+                'custom_module_id' => 124,
+                'lang_id' => 1,
+                'text' => 'Tenders',
+                'created_at' => '2019-01-26 13:18:04',
+                'updated_at' => '2019-01-26 13:18:04',
+                'deleted_at' => NULL,
+            ),
+            239 => 
+            array (
+                'id' => 250,
+                'custom_module_id' => 124,
+                'lang_id' => 2,
+                'text' => 'المناقصات',
+                'created_at' => '2019-01-26 13:18:04',
+                'updated_at' => '2019-01-26 13:18:04',
+                'deleted_at' => NULL,
+            ),
         ));
         
         

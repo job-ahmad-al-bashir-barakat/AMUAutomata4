@@ -3,7 +3,7 @@
 
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.7.14 on 2019-01-22 13:40:26.
+ * Generated for Laravel 5.7.14 on 2019-01-26 13:51:12.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -16245,6 +16245,16 @@ namespace Aut\DataTable {
          *
          * @static 
          */ 
+        public static function when($condition, $func)
+        {
+            return \Aut\DataTable\DataTableBuilder::when($condition, $func);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
         public static function each($items, $func)
         {
             return \Aut\DataTable\DataTableBuilder::each($items, $func);
@@ -18325,6 +18335,16 @@ namespace App\Library\Url\Facades {
         public static function managementStaff()
         {
             return \App\Library\Url\RouteUrls::managementStaff();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function tenders()
+        {
+            return \App\Library\Url\RouteUrls::tenders();
         }
         
         /**

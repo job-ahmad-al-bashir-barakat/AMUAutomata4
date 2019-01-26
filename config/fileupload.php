@@ -269,6 +269,18 @@ return [
         'relationParam' => ['image_type'],
     ],
 
+    'tenders' => [
+        'model' => \Modules\Admin\Entities\Tender::class,
+        'ratio' => [
+            'news' => ['width' => '570', 'height' => '390'],
+        ],
+        'thumps' => [
+            'small' => ['width' => '280', 'height' => '160'],
+        ],
+        'relationType' => 'one',
+        'relationName' => 'image',
+    ],
+
     'news-570-390' => [
         'model' => \Modules\Admin\Entities\News::class,
         'ratio' => [

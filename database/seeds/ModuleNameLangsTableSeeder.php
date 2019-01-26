@@ -917,6 +917,26 @@ class ModuleNameLangsTableSeeder extends Seeder
                 'updated_at' => '2019-01-22 08:12:13',
                 'deleted_at' => NULL,
             ),
+            90 => 
+            array (
+                'id' => 111,
+                'module_id' => 46,
+                'lang_id' => 1,
+                'text' => 'Tenders List',
+                'created_at' => '2019-01-26 13:06:18',
+                'updated_at' => '2019-01-26 13:06:18',
+                'deleted_at' => NULL,
+            ),
+            91 => 
+            array (
+                'id' => 112,
+                'module_id' => 46,
+                'lang_id' => 2,
+                'text' => 'قائمة المناقصات',
+                'created_at' => '2019-01-26 13:06:18',
+                'updated_at' => '2019-01-26 13:06:18',
+                'deleted_at' => NULL,
+            ),
         ));
         
         

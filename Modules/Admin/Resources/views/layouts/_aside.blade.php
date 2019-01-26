@@ -126,6 +126,13 @@
         </ul>
     </li>
     @endif
+    @can('tenders')
+        <li class="">
+            <a href="{{ RouteUrls::tenders() }}" class="ajax" title="{{ trans('admin::app.tenders') }}">
+                <span>{{ trans('admin::app.tenders') }}</span>
+            </a>
+        </li>
+    @endcan
     @if(auth()->user()->hasAnyPermission([
         'news-status',
         'news',

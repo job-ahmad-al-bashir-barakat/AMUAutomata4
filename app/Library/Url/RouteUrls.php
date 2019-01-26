@@ -325,6 +325,11 @@ class RouteUrls
         return $this->localizeUrl('management-staff', 'admin');
     }
 
+    public function tenders()
+    {
+        return $this->localizeUrl('tenders', 'admin');
+    }
+
     public function news()
     {
         return $this->localizeUrl('news', 'admin');
