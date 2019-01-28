@@ -28,6 +28,7 @@ return [
     'height' => 'الارتفاع',
     'image_limit' => 'حدود الصور',
     'cards' => 'بطاقات',
+    'links' => 'روابط',
 
     'degrees' => 'الشهادات',
     'faculty' => 'الكلية',

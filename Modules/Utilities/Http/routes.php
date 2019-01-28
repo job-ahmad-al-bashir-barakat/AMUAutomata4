@@ -51,6 +51,7 @@ function () {
         Route::get('blocks/{block}', 'BuilderController@block')->middleware('permission:blocks')->name('block-detail');
 
         Route::get('cards', 'BuilderController@cards')->middleware('permission:cards')->name('cards');
+        Route::get('links', 'BuilderController@links')->middleware('permission:links')->name('links');
 
         Route::get('steps', 'BuilderController@steps')->middleware('permission:steps')->name('steps');
 

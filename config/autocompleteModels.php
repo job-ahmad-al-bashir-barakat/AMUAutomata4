@@ -126,6 +126,14 @@ return [
         'model' => \Modules\Utilities\Entities\Card::class,
     ],
 
+    'links' => [
+        'model' => \Modules\Utilities\Entities\Link::class,
+        'colName'  => 'transText->text',
+        'q'        => [
+            'transText' => 'text',
+        ],
+    ],
+
     'steps' => [
         'model' => \Modules\Utilities\Entities\Step::class,
         'colName'  => 'transTitle->text',

@@ -139,10 +139,14 @@ return [
         'factory'       => Modules\Utilities\Factories\BlockDetailFactory::class
     ],
 
-
     'cards' => [
         'model'         => Modules\Utilities\Entities\Card::class,
         'factory'       => Modules\Utilities\Factories\CardFactory::class
+    ],
+
+    'links' => [
+        'model'         => Modules\Utilities\Entities\Link::class,
+        'factory'       => Modules\Utilities\Factories\LinkFactory::class
     ],
 
     'steps' => [

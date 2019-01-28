@@ -1017,6 +1017,26 @@ class PermissionNameLangsTableSeeder extends Seeder
                 'updated_at' => '2019-01-26 12:01:55',
                 'deleted_at' => NULL,
             ),
+            100 => 
+            array (
+                'id' => 101,
+                'permission_id' => 51,
+                'lang_id' => 1,
+                'text' => 'Links',
+                'created_at' => '2019-01-28 10:15:58',
+                'updated_at' => '2019-01-28 10:15:58',
+                'deleted_at' => NULL,
+            ),
+            101 => 
+            array (
+                'id' => 102,
+                'permission_id' => 51,
+                'lang_id' => 2,
+                'text' => 'روابط',
+                'created_at' => '2019-01-28 10:15:58',
+                'updated_at' => '2019-01-28 10:15:58',
+                'deleted_at' => NULL,
+            ),
         ));
         
         

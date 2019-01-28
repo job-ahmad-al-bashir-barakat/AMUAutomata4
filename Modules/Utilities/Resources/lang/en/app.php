@@ -30,6 +30,8 @@ return [
     'show-modules' => 'Modules',
     'cards' => 'Cards',
     'link' => 'Link',
+    'links' => 'Links',
+    'bg_color' => 'Background Color',
 
     'tables' => 'Tables',
     'table_name' => 'Table Name',

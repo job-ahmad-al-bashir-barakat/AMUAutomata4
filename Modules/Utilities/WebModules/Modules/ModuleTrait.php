@@ -19,12 +19,6 @@ trait ModuleTrait
      */
     public static function setModule($moduleId)
     {
-        /*$module = ModuleModel::find($moduleId);
-        if (!$module) {
-            throw new \Exception("Undefined Web Module [id:$moduleId]");
-        }
-        $object = new Module($module->id, $module->code, str_replace('_', '-', $module->code));
-        return $object;*/
         switch ($moduleId) {
             case 1:
                 return new TextEditorModule();
@@ -118,6 +112,8 @@ trait ModuleTrait
                 return new CardsModule();
             case 46:
                 return new TendersListModule();
+            case 47:
+                return new LinkListModule();
             default:
                 throw new \Exception("Undefined Web Module [id:$moduleId]");
         }
@@ -132,12 +128,6 @@ trait ModuleTrait
      */
     public static function setModuleByCode($moduleCode)
     {
-        /*$module = ModuleModel::whereCode($module);
-        if (!$module) {
-            throw new \Exception("Undefined Web Module [$moduleCode]");
-        }
-        $object = new Module($module->id, $module->code, str_replace('_', '-', $module->code));
-        return $object;*/
         switch ($moduleCode) {
             case 'text_editor':
                 return new TextEditorModule();
@@ -231,6 +221,8 @@ trait ModuleTrait
                 return new CardsModule();
             case 'tenders_list':
                 return new TendersListModule();
+            case 'link_list':
+                return new LinkListModule();
             default:
                 throw new \Exception("Undefined Web Module [$moduleCode]");
         }

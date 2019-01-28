@@ -78,6 +78,8 @@ trait AttributeTrait
                 return new ImageLimitAttribute();
             case '29':
                 return new CardsAttribute();
+            case '30':
+                return new LinksAttribute();
             default:
                 throw new \Exception('Undefined Attributes');
         }
@@ -151,6 +153,8 @@ trait AttributeTrait
                 return new ImageLimitAttribute();
             case 'cards':
                 return new CardsAttribute();
+            case 'links':
+                return new LinksAttribute();
             default:
                 throw new \Exception('Undefined Attributes');
         }

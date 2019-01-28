@@ -160,6 +160,7 @@
         'vertical-sliders',
         'blocks',
         'cards',
+        'links',
         'steps',
         'text-cards',
         'galleries',
@@ -200,6 +201,13 @@
             <li class="">
                 <a href="{{ RouteUrls::cards() }}" class="ajax" title="{{ trans('utilities::app.cards') }}">
                     <span>{{ trans('utilities::app.cards') }}</span>
+                </a>
+            </li>
+            @endcan
+            @can('links')
+            <li class="">
+                <a href="{{ RouteUrls::links() }}" class="ajax" title="{{ trans('utilities::app.links') }}">
+                    <span>{{ trans('utilities::app.links') }}</span>
                 </a>
             </li>
             @endcan

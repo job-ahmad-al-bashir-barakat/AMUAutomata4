@@ -302,6 +302,16 @@ class BuilderController extends Controller
         ]);
     }
 
+    public function links()
+    {
+        return view('utilities::page.table',[
+            'table' => 'links',
+            'param' => '',
+            'title' => trans('utilities::app.links'),
+            'subPage' => false,//'utilities::page.table-sub.cards',
+        ]);
+    }
+
     /**
      * Lists
      */
