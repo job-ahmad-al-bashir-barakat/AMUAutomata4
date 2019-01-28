@@ -129,6 +129,7 @@
     @can('tenders')
         <li class="">
             <a href="{{ RouteUrls::tenders() }}" class="ajax" title="{{ trans('admin::app.tenders') }}">
+                <em class="icon-list"></em>
                 <span>{{ trans('admin::app.tenders') }}</span>
             </a>
         </li>
