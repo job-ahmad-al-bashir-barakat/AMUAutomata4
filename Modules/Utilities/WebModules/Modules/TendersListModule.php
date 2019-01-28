@@ -17,7 +17,7 @@ class TendersListModule extends Module
 
     public function getModuleData($data)
     {
-        $data['tenders'] = Tender::with(['image'])->get();
+        $data['tenders'] = Tender::with(['image'])->latest()->get();
         return $data;
     }
 }
