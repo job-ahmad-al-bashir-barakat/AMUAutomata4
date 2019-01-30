@@ -15,12 +15,13 @@ class EventsFactory extends GlobalFactory
      */
     public function getDatatable($table, $request)
     {
-        $query = $table::allLangs()->whereEventGroupId($request->get('event_group_id'));
+        $query = $table::allLangs()->with(['image'])->whereEventGroupId($request->get('event_group_id'));
 
         return $this->table
             ->queryConfig('datatable-events')
             ->queryDatatable($query)
             ->queryMultiLang(['title', 'url'])
+            ->queryCustomButton('upload_image', 'id', 'fa fa-image', '', 'onclick="showFileUploadModal(this)"')
             ->queryUpdateButton()
             ->queryDeleteButton()
             ->queryRender();
@@ -39,6 +40,7 @@ class EventsFactory extends GlobalFactory
             ->addInputColor(trans('app.color'), 'color', 'color')
             ->addInputDate(trans('app.start_date'), 'start_date', 'start_date')
             ->addInputDate(trans('app.end_date'), 'end_date', 'end_date')
+            ->addActionButton(trans('utilities::app.upload_image'), 'upload_image', 'upload_image', 'center all', '60px')
             ->addActionButton($this->update, 'update', 'update')
             ->addActionButton($this->delete, 'delete', 'delete')
             ->addNavButton()

@@ -3,6 +3,7 @@
 namespace Modules\Utilities\Entities;
 
 use Aut\Eloquent\Models\Model;
+use Aut\FileUpload\Entities\Image;
 use DateTime;
 use Modules\Utilities\Entities\LangModels\EventUrlLang;
 use Modules\Utilities\Traits\MultiLangs;
@@ -14,11 +15,13 @@ class Event extends Model implements EventCalendar
 {
     use SoftDeletes, MultiLangs;
 
-    protected $fillable = ['event_group_id', 'start_date', 'end_date', 'color'];
+    const IMAGE_PATH = 'storage/upload/image/';
+
+    protected $fillable = ['event_group_id', 'start_date', 'end_date', 'color', 'image_id'];
 
     protected $dates = ['created_at', 'updated_at', 'deleted_at', 'start_date', 'end_date'];
 
-    protected $appends  = ['lang_title', 'lang_url'];
+    protected $appends  = ['lang_title', 'lang_url', 'image_path'];
 
     public function transTitle()
     {
@@ -38,6 +41,19 @@ class Event extends Model implements EventCalendar
     public function getLangUrlAttribute()
     {
         return $this->transUrl->keyBy('lang_code');
+    }
+
+    function image()
+    {
+        return $this->belongsTo(Image::class, 'image_id');
+    }
+
+    public function getImagePathAttribute()
+    {
+        if ($this->image) {
+            return self::IMAGE_PATH . 'events/' . $this->image->hash_name;
+        }
+        return null;
     }
 
     /**

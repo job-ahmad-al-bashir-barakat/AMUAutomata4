@@ -245,16 +245,16 @@ class AttributesTableSeeder extends Seeder
             array (
                 'id' => 29,
                 'code' => 'cards',
-                'created_at' => '2019-01-22 07:55:54',
-                'updated_at' => '2019-01-22 07:55:54',
+                'created_at' => '2019-01-22 05:55:54',
+                'updated_at' => '2019-01-22 05:55:54',
                 'deleted_at' => NULL,
             ),
             29 => 
             array (
                 'id' => 30,
                 'code' => 'links',
-                'created_at' => '2019-01-28 10:53:00',
-                'updated_at' => '2019-01-28 10:53:00',
+                'created_at' => '2019-01-28 08:53:00',
+                'updated_at' => '2019-01-28 08:53:00',
                 'deleted_at' => NULL,
             ),
         ));

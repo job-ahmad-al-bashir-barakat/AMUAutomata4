@@ -54,6 +54,13 @@ class LoadMoreController extends Controller
             'func' => 'news',
             'var' => 'news',
         ],
+
+        'events' => [
+            'model' => \Modules\Utilities\Entities\Event::class,
+            'view' => 'utilities::web-modules.modules.sub.events-list-1',
+            'func' => 'events',
+            'var' => 'events',
+        ],
     ];
 
     public function getHtml(Request $request, $class)
@@ -111,5 +118,10 @@ class LoadMoreController extends Controller
     private function getQueryBuilderNews($model)
     {
         return $model::orderBy('publish_date','desc')->paginate(8);
+    }
+
+    private function getQueryBuilderEvents($model)
+    {
+        return $model::with(['image'])->latest()->paginate(8);
     }
 }

@@ -65,6 +65,7 @@ return [
     'sub_text' => 'Sub Text',
     'small_text' => 'Small Text',
     'upload_images' => 'Upload Images',
+    'upload_image' => 'Upload Image',
     'btn' => 'Button',
     'url' => 'Url',
     'page_route' => 'Page Url',
