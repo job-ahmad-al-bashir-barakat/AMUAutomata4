@@ -22,5 +22,4 @@ class VerticalSliderModule extends Module
         }
         return $data;
     }
-
 }

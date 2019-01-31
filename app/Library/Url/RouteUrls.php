@@ -245,6 +245,11 @@ class RouteUrls
         return $this->localizeUrl('load-more/news');
     }
 
+    public function eventsListHtml()
+    {
+        return $this->localizeUrl('load-more/events');
+    }
+
     public function hierarchyType()
     {
         return $this->localizeURL('hierarchy-type', 'admin');

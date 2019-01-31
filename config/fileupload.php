@@ -281,6 +281,16 @@ return [
         'relationName' => 'image',
     ],
 
+    'events' => [
+        'model' => \Modules\Utilities\Entities\Event::class,
+        'ratio' => [
+            'news' => ['width' => '570', 'height' => '390'],
+        ],
+        'relationType' => 'one',
+        'relationName' => 'image',
+        'relationId' => 'image_id',
+    ],
+
     'news-570-390' => [
         'model' => \Modules\Admin\Entities\News::class,
         'ratio' => [

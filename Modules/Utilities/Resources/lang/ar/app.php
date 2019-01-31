@@ -60,6 +60,7 @@ return [
     'sub_text' => 'نص فرعي',
     'small_text' => 'نص صغير',
     'upload_images' => 'رفع الصور',
+    'upload_image' => 'رفع الصورة',
     'btn' => 'زر',
     'url' => 'رابط',
     'page_route' => 'رابط الصفحة',

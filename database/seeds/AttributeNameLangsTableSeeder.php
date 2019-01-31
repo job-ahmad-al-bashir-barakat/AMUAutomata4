@@ -583,8 +583,8 @@ class AttributeNameLangsTableSeeder extends Seeder
                 'attribute_id' => 29,
                 'lang_id' => 1,
                 'text' => 'Cards',
-                'created_at' => '2019-01-22 07:55:54',
-                'updated_at' => '2019-01-22 07:55:54',
+                'created_at' => '2019-01-22 05:55:54',
+                'updated_at' => '2019-01-22 05:55:54',
                 'deleted_at' => NULL,
             ),
             57 => 
@@ -593,8 +593,8 @@ class AttributeNameLangsTableSeeder extends Seeder
                 'attribute_id' => 29,
                 'lang_id' => 2,
                 'text' => 'البطاقات',
-                'created_at' => '2019-01-22 07:55:54',
-                'updated_at' => '2019-01-22 07:55:54',
+                'created_at' => '2019-01-22 05:55:54',
+                'updated_at' => '2019-01-22 05:55:54',
                 'deleted_at' => NULL,
             ),
             58 => 
@@ -603,8 +603,8 @@ class AttributeNameLangsTableSeeder extends Seeder
                 'attribute_id' => 30,
                 'lang_id' => 1,
                 'text' => 'LInks',
-                'created_at' => '2019-01-28 10:53:00',
-                'updated_at' => '2019-01-28 10:53:00',
+                'created_at' => '2019-01-28 08:53:00',
+                'updated_at' => '2019-01-28 08:53:00',
                 'deleted_at' => NULL,
             ),
             59 => 
@@ -613,8 +613,8 @@ class AttributeNameLangsTableSeeder extends Seeder
                 'attribute_id' => 30,
                 'lang_id' => 2,
                 'text' => 'روابط',
-                'created_at' => '2019-01-28 10:53:00',
-                'updated_at' => '2019-01-28 10:53:00',
+                'created_at' => '2019-01-28 08:53:00',
+                'updated_at' => '2019-01-28 08:53:00',
                 'deleted_at' => NULL,
             ),
         ));

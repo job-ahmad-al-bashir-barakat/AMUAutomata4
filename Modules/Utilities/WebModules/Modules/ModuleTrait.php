@@ -114,6 +114,8 @@ trait ModuleTrait
                 return new TendersListModule();
             case 47:
                 return new LinkListModule();
+            case 48:
+                return new EventsListModule();
             default:
                 throw new \Exception("Undefined Web Module [id:$moduleId]");
         }
@@ -223,6 +225,8 @@ trait ModuleTrait
                 return new TendersListModule();
             case 'link_list':
                 return new LinkListModule();
+            case 'events_list':
+                return new EventsListModule();
             default:
                 throw new \Exception("Undefined Web Module [$moduleCode]");
         }

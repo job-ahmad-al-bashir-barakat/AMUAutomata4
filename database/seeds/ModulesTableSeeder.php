@@ -463,8 +463,8 @@ class ModulesTableSeeder extends Seeder
                 'image_id' => NULL,
                 'code' => 'cards',
                 'customized' => '1',
-                'created_at' => '2019-01-22 08:12:12',
-                'updated_at' => '2019-01-22 08:12:12',
+                'created_at' => '2019-01-22 06:12:12',
+                'updated_at' => '2019-01-22 06:12:12',
                 'deleted_at' => NULL,
             ),
             45 => 
@@ -473,8 +473,8 @@ class ModulesTableSeeder extends Seeder
                 'image_id' => NULL,
                 'code' => 'tenders_list',
                 'customized' => '1',
-                'created_at' => '2019-01-26 13:06:18',
-                'updated_at' => '2019-01-26 13:06:18',
+                'created_at' => '2019-01-26 11:06:18',
+                'updated_at' => '2019-01-26 11:06:18',
                 'deleted_at' => NULL,
             ),
             46 => 
@@ -483,8 +483,18 @@ class ModulesTableSeeder extends Seeder
                 'image_id' => NULL,
                 'code' => 'link_list',
                 'customized' => '1',
-                'created_at' => '2019-01-28 11:06:50',
-                'updated_at' => '2019-01-28 11:06:50',
+                'created_at' => '2019-01-28 09:06:50',
+                'updated_at' => '2019-01-28 09:06:50',
+                'deleted_at' => NULL,
+            ),
+            47 => 
+            array (
+                'id' => 48,
+                'image_id' => NULL,
+                'code' => 'events_list',
+                'customized' => '1',
+                'created_at' => '2019-01-30 06:16:15',
+                'updated_at' => '2019-01-30 06:16:15',
                 'deleted_at' => NULL,
             ),
         ));

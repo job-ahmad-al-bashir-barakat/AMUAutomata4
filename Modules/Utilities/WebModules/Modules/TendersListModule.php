@@ -17,7 +17,7 @@ class TendersListModule extends Module
 
     public function getModuleData($data)
     {
-        $data['tenders'] = Tender::with(['image'])->orderBy('created_at','desc')->get();
+        $data['tenders'] = Tender::with(['image'])->get();
         return $data;
     }
 }
