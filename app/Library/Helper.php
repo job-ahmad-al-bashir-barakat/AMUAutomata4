@@ -370,7 +370,7 @@ if (!function_exists('facebookShare')) {
     function facebookShare($url = null)
     {
         $sharedUrl = urlencode($url ?? Request::fullUrl());
-        return "https://web.facebook.com/sharer/sharer.php?u={$sharedUrl}";
+        return "https://www.facebook.com/sharer/sharer.php?u={$sharedUrl}";
         //https://web.facebook.com/sharer/sharer.php?kid_directed_site=0&sdk=joey&u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&display=popup&ref=plugin&src=share_button
     }
 }
