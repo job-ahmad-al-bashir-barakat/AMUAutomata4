@@ -115,13 +115,35 @@
 
     function initSiteMenu(event) {
 
-        $('.general-tree').off('click').on('click' , '.trash' ,function () {
+        $('.general-tree').off('click.show').on('click.show' , '.is-show' ,function () {
 
-            var $this         = $(this),
-                   li         = $this.closest('li'),
-                   tree       = $this.closest('.aut-tree'),
-                   url        = tree.data('url'),
-                   urlParams  = typeof tree.data('param') != typeof undefined ? tree.data('param') : '';
+            var $this      = $(this),
+                li         = $this.closest('li'),
+                tree       = $this.closest('.aut-tree'),
+                url        = tree.data('url'),
+                urlParams  = typeof tree.data('param') != typeof undefined ? tree.data('param') : '';
+
+            var isShow = li.data('is-show');
+            li.data('is-show', !isShow)
+
+            $.put(url +'/'+ li.data('id') + urlParams, { 'is_show' : (!isShow ? 1 : 0) },function () {
+
+                if(!isShow)
+                    $this.find('i').removeClass('fa-eye-slash').addClass('fa-eye');
+                else
+                    $this.find('i').removeClass('fa-eye').addClass('fa-eye-slash');
+
+                AUT_HELPER.notify({message: OPERATION_MESSAGE_SUCCESS, status: 'success'});
+            });
+        });
+
+        $('.general-tree').off('click.trash').on('click.trash' , '.trash' ,function () {
+
+            var $this      = $(this),
+                li         = $this.closest('li'),
+                tree       = $this.closest('.aut-tree'),
+                url        = tree.data('url'),
+                urlParams  = typeof tree.data('param') != typeof undefined ? tree.data('param') : '';
 
             // has children
             if(li.data('children') > 0) {

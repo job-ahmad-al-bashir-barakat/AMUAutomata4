@@ -23,6 +23,7 @@ class CreateSiteMenuTable extends Migration
             $table->string('prefix')->nullable();
             $table->string('url',500)->nullable();
             $table->boolean('is_link')->default(0)->nullable();
+            $table->boolean('is_show')->default(1)->nullable();
             $table->nullableMorphs('menuable');
             $table->string('dynamic')->nullable();
             $table->timestamps();

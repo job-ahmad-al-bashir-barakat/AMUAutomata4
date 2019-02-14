@@ -33,6 +33,7 @@ class SiteMenuFactory
             'order'       => 'order',
             'type'        => 'menuable_type',
             'link'        => 'is_link',
+            'is-show'     => 'is_show',
             'prefix'      => 'prefix',
             'url'         => 'url',
             'fixed_field' => 'data-saved',
@@ -42,9 +43,21 @@ class SiteMenuFactory
 
     function setContent($control)
     {
+        if($control->is_show)
+            $isShow = "<i class='fa fa-eye'></i>";
+        else
+            $isShow = "<i class='fa fa-eye-slash'></i>";
+
         $items = [
             //todo: make delete button
-            'icons' => "<span style='padding: 4px; display: flex;' class='trash pull-right hand'><i class='icon-trash'></i></span>",
+            'icons' => "
+                <span style='padding: 4px; display: flex;' class='trash pull-right hand'>
+                    <i class='icon-trash'></i>
+                </span>
+                <span style='padding: 4px; display: flex;' class='is-show pull-right hand'>
+                    $isShow
+                </span>
+            ",
         ];
 
         if($control->is_link)

@@ -17,7 +17,7 @@ class SiteMenu extends Model
 {
     use NodeTrait ,MultiLangs ,SoftDeletes;
 
-    protected $fillable = ['id', 'menu_list_id', 'parent_id', 'name_route', 'order', 'is_link', 'prefix', 'url', 'menuable_id', 'menuable_type', 'dynamic'];
+    protected $fillable = ['id', 'menu_list_id', 'parent_id', 'name_route', 'order', 'is_link', 'is_show', 'prefix', 'url', 'menuable_id', 'menuable_type', 'dynamic'];
 
     protected $appends = ['lang_name', 'title', 'title_dynamic', 'title_autocomplete', 'titles' ,'dynamic_info'];
 
