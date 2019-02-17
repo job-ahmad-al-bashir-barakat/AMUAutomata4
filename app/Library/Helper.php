@@ -243,6 +243,9 @@ if (!function_exists('buildHtmlTree')) {
     {
         $html = '';
         foreach ($tree as $item) {
+            if (!$item->is_show) {
+                continue;
+            }
             $url = '#';
             $newPage = '';
             if ($item->url) {
