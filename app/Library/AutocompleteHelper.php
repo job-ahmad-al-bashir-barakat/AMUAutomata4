@@ -11,6 +11,10 @@ class AutocompleteHelper
     {
         $query = $query->typeGeneralCondition();
 
+        if ($listId = $request->input('menuListId')) {
+            $query->whereMenuListId($listId);
+        }
+
         if($request->input('type') == 'dialog')
             return $this->whereNotNodeAndChildren($query)->whereIsLink(false);
         else
