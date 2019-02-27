@@ -1228,7 +1228,7 @@ class DataTableBuilder
                 ->addInputText("{$title} [{$lang['native']}]", [
                     'table' => "translations.{$index}.{$data}",
                     'dialog' => "translations{.locale === '{$code}'}.{$data}",
-                ], $name, $colClass, $dialogAttr, $colWidth, $visible, $orderable, $searchable, $choosen, $printable)
+                ], $name, "{$code} {$colClass}", $dialogAttr, $colWidth, $visible, $orderable, $searchable, $choosen, $printable)
                 ->endRelation()
             ;
         });
