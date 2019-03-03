@@ -4,6 +4,7 @@ namespace Modules\Utilities\Entities;
 
 use Aut\Eloquent\Models\Model;
 use Kalnoy\Nestedset\NodeTrait;
+use Modules\Admin\Entities\Campus;
 use Modules\Admin\Entities\Course;
 use Modules\Admin\Entities\Degree;
 use Modules\Admin\Entities\Faculty;
@@ -86,7 +87,6 @@ class SiteMenu extends Model
         $q = str_replace(' ', '%', request()->input('q', ''));
 
         $query->whereHas('transName' ,function ($query) use($q) {
-
             $query->where('text', 'like', '%' . $q . '%');
         });
 
@@ -141,5 +141,9 @@ class SiteMenu extends Model
 
     function lab() {
         return $this->belongsTo(Lab::class,'menuable_id');
+    }
+
+    function campus() {
+        return $this->belongsTo(Campus::class,'menuable_id');
     }
 }

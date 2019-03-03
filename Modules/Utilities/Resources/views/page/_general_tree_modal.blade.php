@@ -6,7 +6,7 @@
     {!! FormComponent::modalBodyOpen() !!}
         {!! FormComponent::fill('id')->primarykey('id' ,'id') !!}
         {!! FormComponent::fill('menu_list_id')->hidden('menu_list_id' ,'menu_list_id',$menu,'',[],true) !!}
-        {!! FormComponent::placeholder(trans('utilities::app.parent'))->fill('parent')->autocomplete(trans('utilities::app.parent') ,'parent-id' ,'parent_id','autocomplete/general?type=dialog',[],'3' ,'tree-autocomplete-change') !!}
+        {!! FormComponent::placeholder(trans('utilities::app.parent'))->fill('parent')->autocomplete(trans('utilities::app.parent') ,'parent-id' ,'parent_id',"autocomplete/general?type=dialog&menuListId={$menu}",[],'3' ,'tree-autocomplete-change') !!}
         {{--tree-autocomplete-change is class for change event to fill order with its value--}}
         {!! FormComponent::fill('name-{lang}')->trans()->langs()->text(trans('utilities::app.name'),'name' ,'name' ,null ,'required') !!}
         {!! FormComponent::fill('prefix')->text(trans('utilities::app.prefix'),'prefix','prefix','','slug') !!}
