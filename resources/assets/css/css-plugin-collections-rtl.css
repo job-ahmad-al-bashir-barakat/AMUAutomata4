@@ -1,0 +1,14 @@
+.menuzord-menu li .indicator{
+  margin-left: 0;
+  margin-right: 3px;
+}
+.menuzord-menu ul.dropdown li ul.dropdown{
+  right:100%;
+}
+.fa-angle-right:before{
+  content: "\f104" !important;
+}
+
+.menuzord-responsive .menuzord-menu li .indicator {
+  left: 10px !important;
+}
