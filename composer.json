@@ -81,8 +81,7 @@
         "post-update-cmd": [
             "Illuminate\\Foundation\\ComposerScripts::postUpdate",
             "php artisan ide-helper:generate",
-            "php artisan ide-helper:meta",
-            "npm install"
+            "php artisan ide-helper:meta"
         ]
     },
     "config": {

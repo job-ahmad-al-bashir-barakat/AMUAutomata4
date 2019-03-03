@@ -5,9 +5,7 @@ yarn-error.log
 /storage/*.key
 /public/hot
 
-/public/storage/
 /node_modules
 /vendor
 /.idea
-
 .env
