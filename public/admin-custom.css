@@ -1,0 +1,176 @@
+/*-----------------------------------------------------
+                     General section
+--------------------------------------------------------*/
+
+html[lang="en"] > body ,
+html[lang="en"] > h1,h2,h3,h4,h5,h6,
+html[lang="en"] .panel,
+html[lang="en"] > * {
+    font-family: "Source Sans Pro" ,sans-serif ,FontAwesome !important;
+}
+
+html[lang="ar"] > body ,
+html[lang="ar"] > h1,h2,h3,h4,h5,h6,
+html[lang="ar"] .panel,
+html[lang="ar"] > * {
+    font-family: "Source Sans Pro" ,"JF Flat Regular" ,sans-serif, FontAwesome !important;
+}
+
+/*---------------------------------------------------------
+                            form
+----------------------------------------------------------*/
+
+.overlay {
+    background-color: rgba(226, 226, 226, 0.42);
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+}
+
+.validate-error {
+    border-color: #f05050 !important;
+}
+
+.validate-error-help-block {
+    display: block;
+}
+
+.validate-error-style {
+    font-size: 12px;
+    list-style: none;
+    color: #f05050;
+}
+
+/*-----------------------------------------------------
+        Fix Autocompelte validation color border
+--------------------------------------------------------*/
+.select2-container--bootstrap.select2-container--focus .select2-selection,
+.select2-container--bootstrap.select2-container--open .select2-selection {
+
+    box-shadow: none;
+    transition: none;
+}
+
+.has-error .select2-dropdown, .has-error .select2-selection {
+
+    border-color: #f05050 !important;
+}
+
+.has-error .select2-container--focus .select2-selection, .has-error .select2-container--open .select2-selection {
+
+    border-color: #f05050 !important;
+}
+
+.select2-container .select2-search,
+.select2-container .select2-search__field{
+    width: 100% !important;
+}
+
+/*-----------------------------------------------------
+                    Set Helper Class
+--------------------------------------------------------*/
+.hand {
+
+    cursor: pointer;
+}
+
+.move {
+
+    cursor: move;
+}
+
+.star:after {
+
+    content: ' *';
+    color: #f05050;
+}
+
+/*-----------------------------------------------------
+    Google map :  # autocomplete on modal bootstrap
+--------------------------------------------------------*/
+
+.map-autocomplete {
+
+    margin-top: 9px;
+    margin-right: 8px;
+    padding: 8px;
+    border: 1px solid #e2e2e2;
+    width: 80%;
+}
+
+.pac-container {
+
+    z-index: 999999;
+}
+
+.table-dynamic .delete-action{
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    cursor: pointer;
+    color: #f05050;
+}
+
+.table-dynamic .delete-action:before{
+    content: "\f00d";
+}
+
+.table-dynamic .row-for-delete .delete-action:before {
+    color: #27c24c;
+}
+.table-dynamic .row-for-delete .delete-action:before {
+    content: "\f112";
+}
+.table-dynamic .row-for-delete{
+    background-color: rgba(240, 80, 80, 0.13) !important;
+}
+
+td.center {
+    text-align: center;
+}
+
+.sortable-placeholder-dot
+{
+    border-style: dotted;
+    height: 1.5em;
+    line-height: 1.2em;
+}
+
+.sortable-placeholder-dashed
+{
+    border-style: dashed;
+    height: 1.5em;
+    line-height: 1.2em;
+}
+
+/*-----------------------------------------------------
+                     Jquery Nestable
+--------------------------------------------------------*/
+
+.dd-empty {
+
+    padding: 15%;
+    text-align: center;
+}
+
+/*-----------------------------------------------------
+                         Notify
+--------------------------------------------------------*/
+
+.uk-notify {
+    z-index: 999999999;
+}
+
+.uk-notify .notify span:first-child {
+
+    padding: 10px 12px;
+    display: flex;
+    float: right;
+    font-size: 25px;
+}
