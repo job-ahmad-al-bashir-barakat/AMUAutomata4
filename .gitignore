@@ -9,3 +9,4 @@ yarn-error.log
 /vendor
 /.idea
 .env
+/storage/
