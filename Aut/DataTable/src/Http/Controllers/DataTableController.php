@@ -87,7 +87,7 @@ class DataTableController extends Controller
         {
             $model = $this->model;
 
-            $req = $request->input();
+            $req = $request->except('id');
 
             $result = $model::create($req);
         }
