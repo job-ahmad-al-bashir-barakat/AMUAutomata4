@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Config;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Relations\Relation;
