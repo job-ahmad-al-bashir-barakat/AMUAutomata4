@@ -12,7 +12,7 @@ class LinkFactory extends GlobalFactory
      */
     public function getDatatable($link, $request)
     {
-        $query = $link::with(['icon']);
+        $query = $link::with(['icon'])->allLangs();
 
         return $this->table
             ->queryConfig('datatable-links')
