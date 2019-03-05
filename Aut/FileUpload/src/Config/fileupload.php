@@ -78,5 +78,7 @@ return [
         // 'user_has_field'     => 'user id with image',
 
         // 'model_field'        => 'true put model id instead of user id ex : 12_lajfusa_file_ex.png -- 12 will be news id',
+
+        // 'validate' => 'required|maxSize:3m'
     ]
 ];
