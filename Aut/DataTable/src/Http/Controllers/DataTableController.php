@@ -167,6 +167,10 @@ class DataTableController extends Controller
 
             $result = $model::findOrFail($id);
 
+            if (in_array('Dimsav\Translatable\Translatable', class_uses($model))) {
+                $result->deleteTranslations();
+            }
+
             $model::destroy([$id]);
         }
 
