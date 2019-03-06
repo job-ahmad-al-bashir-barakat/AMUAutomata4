@@ -13,7 +13,7 @@ class LinkListModule extends Module
 
     public function getModuleData($data)
     {
-        $data['linkLists'] = Link::with(['icon'])->get();
+        $data['linkLists'] = Link::with(['icon'])->whereIn('id', array_keys($data['links']))->get();
         return $data;
     }
 }
