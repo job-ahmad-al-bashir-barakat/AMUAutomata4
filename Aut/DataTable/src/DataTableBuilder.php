@@ -383,6 +383,17 @@ class DataTableBuilder
         return $this;
     }
 
+    function cont($id, $func , $class = '' , $attr = '')
+    {
+        $this->startCont($id, $class, $attr);
+
+        $func($this);
+
+        $this->endCont();
+
+        return $this;
+    }
+
     /**
      * @param string $id
      * @param string $class
@@ -408,6 +419,18 @@ class DataTableBuilder
 
         if($this->isCustom)
             $this->customHtml .= $isCustom;
+
+        return $this;
+    }
+
+    function fieldset($id, $title, $func, $class = '' , $attr = '')
+    {
+
+        $this->startFieldSet($id, $title, $class, $attr);
+
+        $func($this);
+
+        $this->endFieldSet();
 
         return $this;
     }
@@ -442,6 +465,15 @@ class DataTableBuilder
         return $this;
     }
 
+    function relation($relation, $func)
+    {
+        $this->startRelation($relation);
+        $func($this);
+        $this->endRelation();
+
+        return $this;
+    }
+
     /**
      * @param $relation
      * @return $this
@@ -459,6 +491,17 @@ class DataTableBuilder
     function endRelation()
     {
         $this->relation_key = '';
+
+        return $this;
+    }
+
+    function tap($title, $func, $icon ='' , $class = '', $attr = '')
+    {
+        $this->startTab($title, $icon, $class, $attr);
+
+        $func($this);
+
+        $this->endTab();
 
         return $this;
     }
@@ -495,6 +538,17 @@ class DataTableBuilder
         return $this;
     }
 
+    function formGroup($id, $func, $class = '' , $attr = '')
+    {
+        $this->openFromGroup($id, $class, $attr);
+
+        $func($this);
+
+        $this->closeFromGroup();
+
+        return $this;
+    }
+
     /**
      * @param string $id
      * @param string $class
@@ -518,12 +572,35 @@ class DataTableBuilder
         return $this;
     }
 
+    function horizontalTabCont($func)
+    {
+        $this->startHorizontalTab();
+
+        $func($this);
+
+        $this->endHorizontalTab();
+
+        return $this;
+    }
+
     /**
      * @return $this
      */
     function startHorizontalTab()
     {
         $this->HTabs = [];
+
+        return $this;
+    }
+
+
+    function horizontalTab($id, $title, $func, $class = '', $active = false)
+    {
+        $this->openHorizontalTab($id, $title, $class, $active);
+
+        $func($this);
+
+        $this->closeHorizontalTab();
 
         return $this;
     }
