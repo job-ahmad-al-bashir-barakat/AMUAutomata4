@@ -47,7 +47,10 @@ class UserFactory extends GlobalFactory
             ->addMultiInputTextLangs(['name'], 'req required')
             ->addMultiTextareaLangs(['summary'], 'req required')
             ->startRelation('roles')
-                ->addMultiAutocomplete('autocomplete/roles', "roles[ ,].lang_name.$this->lang.text", trans('utilities::app.roles'), 'roles.id', "roles.lang_name.$this->lang.text", "roles.lang_name.$this->lang.text", '', 'multiple')
+                ->addMultiAutocomplete('autocomplete/roles', [
+                    'table' => "roles[ ,].lang_name.$this->lang.text",
+                    'dialog' => "roles.lang_name.$this->lang.id",
+                ], trans('utilities::app.roles'), 'roles.id', "roles.lang_name.$this->lang.text", "roles.lang_name.$this->lang.text", '', 'multiple')
             ->endRelation()
             ->startRelation('permissions')
                 ->addMultiAutocomplete('autocomplete/permissions', [
