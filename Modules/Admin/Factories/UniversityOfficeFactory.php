@@ -2,6 +2,7 @@
 
 namespace Modules\Admin\Factories;
 
+use Aut\DataTable\DataTableBuilder;
 use Aut\DataTable\Factories\GlobalFactory;
 use Modules\Admin\Entities\Contact;
 use Modules\Admin\Entities\UniversityOffice;
@@ -36,25 +37,24 @@ class UniversityOfficeFactory extends GlobalFactory
     public function buildDatatable($model, $request)
     {
         return $this->table
-            ->config('datatable-university-office',trans('admin::app.university_office') ,['dialogWidth' => '650px'])
-            ->addPrimaryKey('id' ,'id')
-            ->addHiddenInput('contact_id' ,'contact_id')
-            ->addAutocomplete('autocomplete/person' ,trans('admin::app.responsible_person') ,'person_id' ,"lang_name.{$this->lang}.text" ,"lang_name.{$this->lang}.text" ,'req required')
-            ->addMultiInputTextLangs(['name'] ,'req required')
-            ->startRelation('contact')
-                ->addInputEmail(trans('admin::app.email') ,'contact.email' ,'contact.email' ,'required req none')
-                ->addInputText(trans('admin::app.phone') ,'contact.phone' ,'contact.phone' ,'required req none' ,['data-masked' , 'data-inputmask-type' => "phone"])
-                ->addInputText(trans('admin::app.mobile') ,'contact.mobile' ,'contact.mobile' ,'required req none',['data-masked' , 'data-inputmask-type' => "mobile"])
-                ->addInputText(trans('admin::app.fax') ,'contact.fax' ,'contact.fax' ,'none' ,['data-masked' , 'data-inputmask-type' => "fax"])
-                ->addMultiTextareaLangs(['address'] ,'req required')
-            ->endRelation()
-            ->startRelation('contact')
-                ->addInputGroup(trans('admin::app.gelocation'),'contact.gelocation' ,'contact.gelocation' ,'req required none' ,'icon-location-pin' ,'input-location hand' ,['data-modal' => '#modal-university-office-input-location'] ,'' ,true ,false ,false ,false ,false)
-            ->endRelation()
-            ->addActionButton(trans('admin::app.addresses'),'addresses','addresses' ,'center all' ,'60px')
-            ->addActionButton(trans('admin::app.numbers'),'numbers','numbers' ,'center all' ,'60px')
-            ->addActionButton($this->update,'update','update')
-            ->addActionButton($this->delete,'delete','delete')
+            ->config('datatable-university-office', trans('admin::app.university_office'), ['dialogWidth' => '650px'])
+            ->addPrimaryKey('id', 'id')
+            ->addHiddenInput('contact_id', 'contact_id')
+            ->addAutocomplete('autocomplete/person', trans('admin::app.responsible_person'), 'person_id', "lang_name.{$this->lang}.text", "lang_name.{$this->lang}.text", 'req required')
+            ->addMultiInputTextLangs(['name'], 'req required')
+            ->relation('contact', function (DataTableBuilder $table) {
+                $table
+                    ->addInputEmail(trans('admin::app.email'), 'contact.email', 'contact.email', 'required req none')
+                    ->addInputText(trans('admin::app.phone'), 'contact.phone', 'contact.phone', 'required req none', ['data-masked', 'data-inputmask-type' => "phone"])
+                    ->addInputText(trans('admin::app.mobile'), 'contact.mobile', 'contact.mobile', 'required req none', ['data-masked', 'data-inputmask-type' => "mobile"])
+                    ->addInputText(trans('admin::app.fax'), 'contact.fax', 'contact.fax', 'none', ['data-masked', 'data-inputmask-type' => "fax"])
+                    ->addMultiTextareaLangs(['address'], 'req required')
+                    ->addInputGroup(trans('admin::app.gelocation'), 'contact.gelocation', 'contact.gelocation', 'req required none', 'icon-location-pin', 'input-location hand', ['data-modal' => '#modal-university-office-input-location'], '', true, false, false, false, false);
+            })
+            ->addActionButton(trans('admin::app.addresses'), 'addresses', 'addresses', 'center all', '60px')
+            ->addActionButton(trans('admin::app.numbers'), 'numbers', 'numbers', 'center all', '60px')
+            ->addActionButton($this->update, 'update', 'update')
+            ->addActionButton($this->delete, 'delete', 'delete')
             ->addNavButton()
             ->render();
     }

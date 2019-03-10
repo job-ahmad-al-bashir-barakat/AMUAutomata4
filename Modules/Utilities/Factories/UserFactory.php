@@ -15,22 +15,18 @@ class UserFactory extends GlobalFactory
     {
         $query = $user::with(['permissions', 'roles'])->allLangs();
 
-         $this->table
+        $this->table
             ->queryConfig('datatable-users')
             ->queryDatatable($query)
-            ->queryMultiLang(['name' ,'summary'])
+            ->queryMultiLang(['name', 'summary'])
             ->queryUpdateButton('id')
             ->queryDeleteButton('id')
-            ->queryCustomButton('upload_image' ,'id' ,'fa fa-image' ,'' ,'onclick="showFileUploadModal(this)"');
-
-        if (auth()->user()->can('automata')) {
-            //@todo check if user has automata permission to do this action
-//            $this->table->queryCustomButton('login_as' ,'id' ,'icon-login' ,'' ,'onclick="loginAs(this)"');
-            $this->table->queryAddColumn('login_as', function ($row) {
-                return "<a href='" . RouteUrls::loginAs($row->id) . "'><i class='icon-login'></i></a>";
+            ->queryCustomButton('upload_image', 'id', 'fa fa-image', '', 'onclick="showFileUploadModal(this)"')
+            ->when(auth()->user()->can('automata'), function (DataTableBuilder $table) {
+                $table->queryAddColumn('login_as', function ($row) {
+                    return "<a href='" . RouteUrls::loginAs($row->id) . "'><i class='icon-login'></i></a>";
+                });
             });
-        }
-
         return $this->table->queryRender(true);
     }
 
@@ -46,18 +42,20 @@ class UserFactory extends GlobalFactory
             ->addInputText(trans('utilities::app.email'), 'email', 'email', 'required req d:email')
             ->addMultiInputTextLangs(['name'], 'req required')
             ->addMultiTextareaLangs(['summary'], 'req required')
-            ->startRelation('roles')
-                ->addMultiAutocomplete('autocomplete/roles', [
-                    'table' => "roles[ ,].lang_name.$this->lang.text",
-                    'dialog' => "roles.lang_name.$this->lang.id",
-                ], trans('utilities::app.roles'), 'roles.id', "roles.lang_name.$this->lang.text", "roles.lang_name.$this->lang.text", '', 'multiple')
-            ->endRelation()
-            ->startRelation('permissions')
-                ->addMultiAutocomplete('autocomplete/permissions', [
-                    'table' => "permissions[ ,].lang_name.$this->lang.text",
-                    'dialog' => "permissions.lang_name.$this->lang.id",
-                ], trans('utilities::app.permissions'), 'permissions.id', "permissions.lang_name.$this->lang.text", "permissions.lang_name.$this->lang.text", '', 'multiple')
-            ->endRelation()
+            ->relation('roles', function (DataTableBuilder $table) {
+                $table
+                    ->addMultiAutocomplete('autocomplete/roles', [
+                        'table' => "roles[ ,].lang_name.$this->lang.text",
+                        'dialog' => "roles.lang_name.$this->lang.id",
+                    ], trans('utilities::app.roles'), 'roles.id', "roles.lang_name.$this->lang.text", "roles.lang_name.$this->lang.text", '', 'multiple');
+            })
+            ->relation('permissions', function (DataTableBuilder $table) {
+                $table
+                    ->addMultiAutocomplete('autocomplete/permissions', [
+                        'table' => "permissions[ ,].lang_name.$this->lang.text",
+                        'dialog' => "permissions.lang_name.$this->lang.id",
+                    ], trans('utilities::app.permissions'), 'permissions.id', "permissions.lang_name.$this->lang.text", "permissions.lang_name.$this->lang.text", '', 'multiple');
+            })
             ->addInputPassword(trans('utilities::app.password'), 'password', 'password', '', '', '', false, false, false, false)
             ->addActionButton(trans('utilities::app.upload_images'), 'upload_image', 'upload_image', 'center all', '100px')
             ->when(auth()->user()->can('automata'), function (DataTableBuilder $table) {

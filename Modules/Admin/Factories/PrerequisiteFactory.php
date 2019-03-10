@@ -2,6 +2,7 @@
 
 namespace Modules\Admin\Factories;
 
+use Aut\DataTable\DataTableBuilder;
 use Aut\DataTable\Factories\GlobalFactory;
 use Modules\Admin\Entities\Course;
 use Modules\Admin\Entities\PrerequisiteGroup;
@@ -37,9 +38,9 @@ class PrerequisiteFactory extends GlobalFactory
             ->config('datatable-prerequisite',trans('admin::app.prerequisite'))
             ->addPrimaryKey('id' ,'id')
             ->addHiddenInput('course_id' ,'course_id' ,$course ,'' ,true)
-            ->startRelation('courses')
-                ->addMultiAutocomplete('autocomplete/course' ,'courses_temp' ,trans('admin::app.courses') ,'courses.id' ,"courses.lang_name.$this->lang.text" ,"courses.lang_name.$this->lang.text" ,'req required' ,["data-remote-param" => "course=$course,faculty=$faculty"])
-            ->endRelation()
+            ->relation('courses', function (DataTableBuilder $table) use ($faculty, $course){
+                $table->addMultiAutocomplete('autocomplete/course', 'courses_temp', trans('admin::app.courses'), 'courses.id', "courses.lang_name.$this->lang.text", "courses.lang_name.$this->lang.text", 'req required', ["data-remote-param" => "course=$course,faculty=$faculty"]);
+            })
             ->addInputText(trans('admin::app.code') ,'code' ,'code' ,'req required')
             ->addActionButton($this->update,'update','update')
             ->addActionButton($this->delete,'delete','delete')

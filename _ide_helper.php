@@ -16136,7 +16136,7 @@ namespace Aut\DataTable {
          */ 
         public static function tap($title, $func, $icon = '', $class = '', $attr = '')
         {
-            return \Aut\DataTable\DataTableBuilder::tap($title, $func, $icon, $class, $attr);
+            return \Aut\DataTable\DataTableBuilder::tab($title, $func, $icon, $class, $attr);
         }
         
         /**

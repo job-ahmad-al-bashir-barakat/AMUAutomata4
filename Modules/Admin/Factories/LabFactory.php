@@ -2,7 +2,9 @@
 
 namespace Modules\Admin\Factories;
 
+use Aut\DataTable\DataTableBuilder;
 use Aut\DataTable\Factories\GlobalFactory;
+use Illuminate\Http\Request;
 use Modules\Admin\Entities\Contact;
 use Modules\Admin\Entities\Lab;
 use Modules\Utilities\Entities\Setting;
@@ -30,17 +32,18 @@ class LabFactory extends GlobalFactory
     /**
      *  build datatable modal and table
      */
-    public function buildDatatable($model ,$request)
+    public function buildDatatable($model ,Request $request)
     {
         return $this->table
             ->config('datatable-labs',trans('admin::app.labs') ,['gridSystem' => true ,'dialogWidth' => '60%'])
             ->addPrimaryKey('id' ,'id')
             ->addHiddenInput('faculty_id' ,'faculty_id' ,$request->input('id') ,false ,true)
             ->addMultiInputTextLangs(['name'] ,'req required')
-            ->startRelation('contact')
-                ->addInputText(trans('admin::app.phone'),'contact.phone' ,'contact.phone' ,'req required',['data-masked' , 'data-inputmask-type' => "phone"])
-                ->addInputGroup(trans('admin::app.gelocation'),'contact.gelocation' ,'contact.gelocation' ,'req required' ,'icon-location-pin' ,'input-location hand' ,['data-modal' => '#modal-labs-input-location'])
-            ->endRelation()
+            ->relation('contact', function (DataTableBuilder $table) {
+                $table
+                    ->addInputText(trans('admin::app.phone'), 'contact.phone', 'contact.phone', 'req required', ['data-masked', 'data-inputmask-type' => "phone"])
+                    ->addInputGroup(trans('admin::app.gelocation'), 'contact.gelocation', 'contact.gelocation', 'req required', 'icon-location-pin', 'input-location hand', ['data-modal' => '#modal-labs-input-location']);
+            })
             ->setGridNormalCol(12)
             ->addMultiTextareaLangs(['description'] ,'req required text-editor d:tabs d:noLabel none')
             ->addActionButton(trans('admin::app.main_image') ,'main_upload_image' ,'main_upload_image','center all' ,'100px')

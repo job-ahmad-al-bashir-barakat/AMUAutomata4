@@ -2,6 +2,7 @@
 
 namespace Modules\Admin\Factories;
 
+use Aut\DataTable\DataTableBuilder;
 use Aut\DataTable\Factories\GlobalFactory;
 use Modules\Admin\Entities\Faculty;
 use RouteUrls;
@@ -37,9 +38,9 @@ class FacultyFactory extends GlobalFactory
             ->addPrimaryKey('id','id')
             ->addAutocomplete('campus',trans('admin::app.campus'),'campus_id',"campus.lang_name.{$this->lang}.text","campus.lang_name.{$this->lang}.text" ,'req required')
             ->addMultiInputTextLangs(['name'], 'req required')
-            ->startRelation('study_year')
-                ->addMultiAutocomplete('autocomplete/study-year' ,'study_year_temp' ,trans('admin::app.study_year') ,'study_year.id' ,"study_year.lang_name.{$this->lang}.text" ,"study_year.lang_name.{$this->lang}.text" ,'req required')
-            ->endRelation()
+            ->relation('study_year', function (DataTableBuilder $table) {
+                $table->addMultiAutocomplete('autocomplete/study-year', 'study_year_temp', trans('admin::app.study_year'), 'study_year.id', "study_year.lang_name.{$this->lang}.text", "study_year.lang_name.{$this->lang}.text", 'req required');
+            })
             ->addActionButton(trans('admin::app.courses') ,'courses' ,'courses' ,'center all')
             ->addActionButton(trans('admin::app.labs') ,'labs' ,'labs')
             ->addActionButton($this->update,'update','update')

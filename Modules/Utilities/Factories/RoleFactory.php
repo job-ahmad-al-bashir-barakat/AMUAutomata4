@@ -2,6 +2,7 @@
 
 namespace Modules\Utilities\Factories;
 
+use Aut\DataTable\DataTableBuilder;
 use Aut\DataTable\Factories\GlobalFactory;
 
 class RoleFactory extends GlobalFactory
@@ -33,12 +34,13 @@ class RoleFactory extends GlobalFactory
             ->addPrimaryKey('id','id')
             ->addMultiInputTextLangs(['name'] ,'req required')
             ->addInputText(trans('utilities::app.name'),'name','name', 'required req')
-            ->startRelation('permissions')
-                ->addMultiAutocomplete('autocomplete/permissions' ,[
-                    'table' => "permissions[ ,].lang_name.$this->lang.text",
-                    'dialog' => "permissions.lang_name.$this->lang.id",
-                ],trans('utilities::app.permissions') , 'permissions.id', "permissions.lang_name.$this->lang.text", "permissions.lang_name.$this->lang.text" ,'req required' ,'multiple')
-            ->endRelation()
+            ->relation('permissions', function (DataTableBuilder $table){
+                $table
+                    ->addMultiAutocomplete('autocomplete/permissions', [
+                        'table' => "permissions[ ,].lang_name.$this->lang.text",
+                        'dialog' => "permissions.lang_name.$this->lang.id",
+                    ], trans('utilities::app.permissions'), 'permissions.id', "permissions.lang_name.$this->lang.text", "permissions.lang_name.$this->lang.text", 'req required', 'multiple');
+            })
             ->addActionButton($this->update,'update','update')
             ->addActionButton($this->delete,'delete','delete')
             ->addNavButton()

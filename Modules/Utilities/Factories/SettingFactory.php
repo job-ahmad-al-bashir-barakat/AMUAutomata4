@@ -2,6 +2,7 @@
 
 namespace Modules\Utilities\Factories;
 
+use Aut\DataTable\DataTableBuilder;
 use Aut\DataTable\Factories\GlobalFactory;
 
 class SettingFactory extends GlobalFactory
@@ -33,15 +34,13 @@ class SettingFactory extends GlobalFactory
             ->addPrimaryKey('id', 'id')
             ->addMultiInputTextLangs(['name'], 'req required')
             ->addInputText(trans('utilities::app.code'), 'code', 'code', 'required req')
-            ->addInputText(trans('utilities::app.value'), 'value', 'value', 'required req');
-
-        if (auth()->user()->can('automata')) {
-            $this->table
-                ->addActionButton($this->delete, 'delete', 'delete')
-                ->addActionButton($this->update, 'update', 'update')
-                ->addNavButton();
-        }
-
+            ->addInputText(trans('utilities::app.value'), 'value', 'value', 'required req')
+            ->when(auth()->user()->can('automata'), function (DataTableBuilder $table) {
+                $table
+                    ->addActionButton($this->delete, 'delete', 'delete')
+                    ->addActionButton($this->update, 'update', 'update')
+                    ->addNavButton();
+            });
         return $this->table->render();
     }
 

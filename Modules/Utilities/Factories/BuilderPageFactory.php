@@ -53,36 +53,31 @@ class BuilderPageFactory extends GlobalFactory
 
         $this->table
             ->queryConfig("datatable-builder-pages-{$this->builderTable}-{$objectId}")
-            ->queryDatatable($query);
-
-        if ($this->builderColumnWithLang) {
-            $this->table->queryMultiLang($this->builderColumnWithLang);
-        }
-
-        $this->table->queryAddColumn('modules', function ($row) use ($hasSubPages, $objectId) {
-            if ($hasSubPages) {
-                return "<i data-table_name='{$this->builderTable}' data-object_id='{$row->id}' class='icon-layers hand' onclick='subPagesModal(this)'></i>";
-            }
-            $pageName = $row->{camel_case("lang{$this->builderColumnFirst}")}[$this->lang]->text;
-            return "<i data-object_id='{$objectId}' data-table_name='{$this->builderTable}' data-page_id='{$row->id}' data-page_name='{$pageName}' class='fa fa-cubes hand' data-toggle='modal' data-target='#page_modules'></i>";
-        });
-
-        $this->table->queryAddColumn('seos', function ($row) use ($hasSubPages, $objectId) {
-            if (!$hasSubPages) {
-                $param = collect(['table_name' => $this->builderTable, 'page_id' => $row->id, 'optional_id' => $objectId]);
+            ->queryDatatable($query)
+            ->when($this->builderColumnWithLang, function (DataTableBuilder $table) {
+                $table->queryMultiLang($this->builderColumnWithLang);
+            })
+            ->queryAddColumn('modules', function ($row) use ($hasSubPages, $objectId) {
+                if ($hasSubPages) {
+                    return "<i data-table_name='{$this->builderTable}' data-object_id='{$row->id}' class='icon-layers hand' onclick='subPagesModal(this)'></i>";
+                }
                 $pageName = $row->{camel_case("lang{$this->builderColumnFirst}")}[$this->lang]->text;
-                return "<i data-object_id='{$objectId}' data-table_name='{$this->builderTable}' data-page_id='{$row->id}' data-page_name='{$pageName}' class='fa fa-google-wallet hand' data-toggle='modal' data-target='#page_seos_modal' data-form-update data-editable-target='".\RouteUrls::builderSeo()."' data-editable-target-param='$param'></i>";
-            }
-        });
-
-        $this->table->queryAddColumn('menu', function ($row) use ($hasSubPages, $objectId) {
-            if (!$hasSubPages) {
-                $param = collect(['table_name' => $this->builderTable, 'page_id' => $row->id, 'optional_id' => $objectId]);
-                $pageName = $row->{camel_case("lang{$this->builderColumnFirst}")}[$this->lang]->text;
-                return "<i data-object_id='{$objectId}' data-table_name='{$this->builderTable}' data-page_id='{$row->id}' data-page_name='{$pageName}' class='fa fa-list hand' data-toggle='modal' data-target='#page_menu_modal' data-form-update data-editable-target='".\RouteUrls::builderMenu()."' data-editable-target-param='$param'></i>";
-            }
-        });
-
+                return "<i data-object_id='{$objectId}' data-table_name='{$this->builderTable}' data-page_id='{$row->id}' data-page_name='{$pageName}' class='fa fa-cubes hand' data-toggle='modal' data-target='#page_modules'></i>";
+            })
+            ->queryAddColumn('seos', function ($row) use ($hasSubPages, $objectId) {
+                if (!$hasSubPages) {
+                    $param = collect(['table_name' => $this->builderTable, 'page_id' => $row->id, 'optional_id' => $objectId]);
+                    $pageName = $row->{camel_case("lang{$this->builderColumnFirst}")}[$this->lang]->text;
+                    return "<i data-object_id='{$objectId}' data-table_name='{$this->builderTable}' data-page_id='{$row->id}' data-page_name='{$pageName}' class='fa fa-google-wallet hand' data-toggle='modal' data-target='#page_seos_modal' data-form-update data-editable-target='" . \RouteUrls::builderSeo() . "' data-editable-target-param='$param'></i>";
+                }
+            })
+            ->queryAddColumn('menu', function ($row) use ($hasSubPages, $objectId) {
+                if (!$hasSubPages) {
+                    $param = collect(['table_name' => $this->builderTable, 'page_id' => $row->id, 'optional_id' => $objectId]);
+                    $pageName = $row->{camel_case("lang{$this->builderColumnFirst}")}[$this->lang]->text;
+                    return "<i data-object_id='{$objectId}' data-table_name='{$this->builderTable}' data-page_id='{$row->id}' data-page_name='{$pageName}' class='fa fa-list hand' data-toggle='modal' data-target='#page_menu_modal' data-form-update data-editable-target='" . \RouteUrls::builderMenu() . "' data-editable-target-param='$param'></i>";
+                }
+            });
         return $this->table->queryRender(true);
     }
 
@@ -93,30 +88,25 @@ class BuilderPageFactory extends GlobalFactory
     {
         $objectId = $request->get('objectId', false);
         $this->table
-            ->config("datatable-builder-pages-{$this->builderTable}-{$objectId}", trans('utilities::app.pages') ,['pagingType' => 'simple'])
-            ->addPrimaryKey('id','id');
-
-        if ($this->builderColumnWithLang) {
-            $this->table->addMultiInputTextLangs($this->builderColumnWithLang, 'req required');
-        }
-
-        foreach ($this->builderColumn as $column) {
-            $this->table->addInputText(trans("utilities::app.{$column}"), $column, $column);
-        }
-
-        $this->table->addActionButton(trans('utilities::app.modules'), 'modules', 'modules', 'center all', '50px')
+            ->config("datatable-builder-pages-{$this->builderTable}-{$objectId}", trans('utilities::app.pages'), ['pagingType' => 'simple'])
+            ->addPrimaryKey('id', 'id')
+            ->when($this->builderColumnWithLang, function (DataTableBuilder $table) {
+                $table->addMultiInputTextLangs($this->builderColumnWithLang, 'req required');
+            })
+            ->each($this->builderColumn, function (DataTableBuilder $table, $column) {
+                $table->addInputText(trans("utilities::app.{$column}"), $column, $column);
+            })
+            ->addActionButton(trans('utilities::app.modules'), 'modules', 'modules', 'center all', '50px')
             ->addActionButton(trans('utilities::app.seos'), 'seos', 'seos', 'center all', '80px')
             ->addActionButton(trans('utilities::app.menu'), 'menu', 'menu', 'center all', '80px')
-            ->addNavButton([], ['add']);
-
-        if (in_array($this->builderTable, $this->allowGeneralContent)) {
-            $this->table->addCustomNavButton(
-                'Add General Template',
-                'fa fa-cubes hand', '',
-                "data-table_name='{$this->builderTable}' data-toggle='modal' data-target='#page_modules' data-page_name='General Template'"
-            );
-        }
-
+            ->addNavButton([], ['add'])
+            ->when(in_array($this->builderTable, $this->allowGeneralContent), function (DataTableBuilder $table) {
+                $table->addCustomNavButton(
+                    'Add General Template',
+                    'fa fa-cubes hand', '',
+                    "data-table_name='{$this->builderTable}' data-toggle='modal' data-target='#page_modules' data-page_name='General Template'"
+                );
+            });
         return $this->table->render();
     }
 

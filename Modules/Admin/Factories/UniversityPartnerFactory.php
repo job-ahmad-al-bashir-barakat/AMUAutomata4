@@ -2,7 +2,9 @@
 
 namespace Modules\Admin\Factories;
 
+use Aut\DataTable\DataTableBuilder;
 use Aut\DataTable\Factories\GlobalFactory;
+use function foo\func;
 use Modules\Admin\Entities\Contact;
 use Modules\Admin\Entities\Partner;
 use Modules\Utilities\Entities\Setting;
@@ -36,34 +38,34 @@ class UniversityPartnerFactory extends GlobalFactory
         $socialNetworks = SocialNetwork::all();
 
         $table = $this->table
-            ->config('datatable-partner',trans('admin::app.partners'),['withTab' => true , 'dialogWidth' => '700px'])
-            ->startTab(trans('admin::app.personal_Info'),'fa fa-user fa-2x')
-                ->addPrimaryKey('id' ,'id')
-                ->addMultiInputTextLangs(['name'] ,'req required')
-                ->addMultiTextareaLangs(['description'])
-                ->startRelation('contact')
-                    ->addInputEmail(trans('admin::app.email') ,'contact.email' ,'contact.email' ,'req required')
-                    ->setPlaceholder('http://website.com')
-                    ->addInputText(trans('admin::app.website') ,'contact.url' ,'contact.url' ,'req d:url')
-                    ->addInputGroup(trans('admin::app.gelocation'),'contact.gelocation' ,'contact.gelocation' ,'req required' ,'icon-location-pin' ,'input-location hand' ,['data-modal' => '#modal-partner-input-location'])
-                ->endRelation()
-            ->endTab()
-            ->startTab(trans('admin::app.social_media'),'fa fa-facebook fa-2x');
-            foreach ($socialNetworks as $socialNetwork)
-                $table = $table->startRelation('contact[social]['.$socialNetwork->id.']')
-                               ->setDefaultValue('#')
-                               ->addInputText($socialNetwork->lang_name[$this->lang]['text'],'contact.social.'.$socialNetwork->code.'.pivot.url' ,'contact.social.'.$socialNetwork->code.'.pivot.url','none' ,'' ,'' ,true ,false ,true ,false)
-                               ->endRelation();
+            ->config('datatable-partner', trans('admin::app.partners'), ['withTab' => true, 'dialogWidth' => '700px'])
+            ->tab(trans('admin::app.personal_Info'), function (DataTableBuilder $table) {
+                $table
+                    ->addPrimaryKey('id', 'id')
+                    ->addMultiInputTextLangs(['name'], 'req required')
+                    ->addMultiTextareaLangs(['description'])
+                    ->relation('contact', function (DataTableBuilder $table) {
+                        $table
+                            ->addInputEmail(trans('admin::app.email'), 'contact.email', 'contact.email', 'req required')
+                            ->setPlaceholder('http://website.com')
+                            ->addInputText(trans('admin::app.website'), 'contact.url', 'contact.url', 'req d:url')
+                            ->addInputGroup(trans('admin::app.gelocation'), 'contact.gelocation', 'contact.gelocation', 'req required', 'icon-location-pin', 'input-location hand', ['data-modal' => '#modal-partner-input-location']);
+                    });
+            }, 'fa fa-user fa-2x')
+            ->tab(trans('admin::app.social_media'), function (DataTableBuilder $table) use ($socialNetworks) {
+                $table->each($socialNetworks, function (DataTableBuilder $table, $socialNetwork) {
+                    $table->relation("contact[social][{$socialNetwork->id}]", function (DataTableBuilder $table) use ($socialNetwork) {
+                        $table->setDefaultValue('#')->addInputText($socialNetwork->lang_name[$this->lang]['text'], 'contact.social.' . $socialNetwork->code . '.pivot.url', 'contact.social.' . $socialNetwork->code . '.pivot.url', 'none', '', '', true, false, true, false);
+                    });
+                });
+            }, 'fa fa-facebook fa-2x')
+            ->addActionButton(trans('admin::app.partner_larg_image'), 'upload_image_large', 'upload_image_large', 'center all', '80px')
+            ->addActionButton(trans('admin::app.partner_small_image'), 'upload_image_small', 'upload_image_small', 'center all', '80px')
+            ->addActionButton($this->update, 'update', 'update')
+            ->addActionButton($this->delete, 'delete', 'delete')
+            ->addNavButton();
 
-        $table = $table->endTab()
-        ->addActionButton(trans('admin::app.partner_larg_image'),'upload_image_large','upload_image_large' ,'center all' ,'80px')
-        ->addActionButton(trans('admin::app.partner_small_image'),'upload_image_small','upload_image_small' ,'center all' ,'80px')
-        ->addActionButton($this->update,'update','update')
-        ->addActionButton($this->delete,'delete','delete')
-        ->addNavButton()
-        ->render();
-
-        return $table;
+        return $table->render();
     }
 
     public function storeDatatable($model ,$request ,$result)

@@ -495,7 +495,7 @@ class DataTableBuilder
         return $this;
     }
 
-    function tap($title, $func, $icon ='' , $class = '', $attr = '')
+    function tab($title, $func, $icon ='' , $class = '', $attr = '')
     {
         $this->startTab($title, $icon, $class, $attr);
 
