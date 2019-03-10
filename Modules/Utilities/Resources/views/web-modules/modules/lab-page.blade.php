@@ -7,7 +7,7 @@
                     <div class="icon-box left media bg-deep p-30 mb-20"> <a class="media-left pull-left" href="#"> <i class="pe-7s-pin text-theme-colored"></i></a>
                         <div class="media-body">
                             <strong>@lang('app.labs.description')</strong>
-                            <p class="pt-5">{!! $lab->lang_description[$lang]->text !!}</p>
+                            <p class="pt-5">{!! $lab->lang_description[$lang]->text ?? '' !!}</p>
                         </div>
                     </div>
                 </div>

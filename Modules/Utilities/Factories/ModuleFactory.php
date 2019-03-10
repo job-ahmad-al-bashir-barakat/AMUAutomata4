@@ -2,6 +2,7 @@
 
 namespace Modules\Utilities\Factories;
 
+use Aut\DataTable\DataTableBuilder;
 use Aut\DataTable\Factories\GlobalFactory;
 
 class ModuleFactory extends GlobalFactory
@@ -20,7 +21,7 @@ class ModuleFactory extends GlobalFactory
             ->queryAddColumn('customized_show', function ($row) {
                 return $row->customized ? trans('utilities::app.yes') : trans('utilities::app.no');
             })
-            ->queryMultiAutocompleteFilter('attributes_filter','attributes',"lang_name->{$this->lang}->text")
+            ->queryMultiAutocompleteFilter('attributes_filter', 'attributes', "lang_name->{$this->lang}->text")
             ->queryCustomButton('upload_image', 'id', 'fa fa-image', '', 'onclick="showFileUploadModal(this)"')
             ->queryUpdateButton('id')
             ->queryDeleteButton('id')
@@ -39,22 +40,23 @@ class ModuleFactory extends GlobalFactory
             ->addPrimaryKey('id', 'id')
             ->addInputText(trans('utilities::app.code'), 'code', 'code', 'required req')
             ->addMultiInputTextLangs(['name'], 'req required')
-            ->addMultiTextareaLangs(['description']);
-        if ($isAutomata) {
-            $this->table
-                ->addSelect([1 => trans('utilities::app.yes'), 0 => trans('utilities::app.no')], trans('utilities::app.customized'), 'customized', 'customized_show', 'customized_show');
-        }
-        $this->table
-            ->startRelation('attributes')
-                ->addMultiAutocomplete('autocomplete/attributes', "attributes[ ,].lang_name.$this->lang.text", trans('utilities::app.attributes'), 'attributes.id', "attributes_filter", "attributes.lang_name.$this->lang.text", ''/*'req required'*/)
-            ->endRelation()
-            ->addActionButton(trans('utilities::app.upload_images'), 'upload_image', 'upload_image', 'center all', '60px');
-        if ($isAutomata) {
-            $this->table
-                ->addActionButton($this->update, 'update', 'update')
-                ->addActionButton($this->delete, 'delete', 'delete')
-                ->addNavButton();
-        }
+            ->addMultiTextareaLangs(['description'])
+            ->when($isAutomata, function (DataTableBuilder $table) {
+                $table->addSelect([1 => trans('utilities::app.yes'), 0 => trans('utilities::app.no')], trans('utilities::app.customized'), 'customized', 'customized_show', 'customized_show');
+            })
+            ->relation('attributes', function (DataTableBuilder $table) {
+                $table->addMultiAutocomplete('autocomplete/attributes', [
+                    'table' => "attributes[,].lang_name.$this->lang.text",
+                    'dialog' => "attributes.lang_name.$this->lang.id",
+                ], trans('utilities::app.attributes'), 'attributes.id', "attributes_filter", "attributes.lang_name.{$this->lang}.text", ''/*'req required'*/);
+            })
+            ->addActionButton(trans('utilities::app.upload_images'), 'upload_image', 'upload_image', 'center all', '60px')
+            ->when($isAutomata, function (DataTableBuilder $table) {
+                $table
+                    ->addActionButton($this->update, 'update', 'update')
+                    ->addActionButton($this->delete, 'delete', 'delete')
+                    ->addNavButton();
+            });
         return $this->table->render();
     }
 

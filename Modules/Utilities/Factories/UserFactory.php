@@ -50,7 +50,10 @@ class UserFactory extends GlobalFactory
                 ->addMultiAutocomplete('autocomplete/roles', "roles[ ,].lang_name.$this->lang.text", trans('utilities::app.roles'), 'roles.id', "roles.lang_name.$this->lang.text", "roles.lang_name.$this->lang.text", '', 'multiple')
             ->endRelation()
             ->startRelation('permissions')
-                ->addMultiAutocomplete('autocomplete/permissions', "permissions[ ,].lang_name.$this->lang.text", trans('utilities::app.permissions'), 'permissions.id', "permissions.lang_name.$this->lang.text", "permissions.lang_name.$this->lang.text", '', 'multiple')
+                ->addMultiAutocomplete('autocomplete/permissions', [
+                    'table' => "permissions[ ,].lang_name.$this->lang.text",
+                    'dialog' => "permissions.lang_name.$this->lang.id",
+                ], trans('utilities::app.permissions'), 'permissions.id', "permissions.lang_name.$this->lang.text", "permissions.lang_name.$this->lang.text", '', 'multiple')
             ->endRelation()
             ->addInputPassword(trans('utilities::app.password'), 'password', 'password', '', '', '', false, false, false, false)
             ->addActionButton(trans('utilities::app.upload_images'), 'upload_image', 'upload_image', 'center all', '100px')

@@ -1,7 +1,12 @@
 <?php
 Route::get('test', function () {
+    /*return \Modules\Utilities\Entities\CustomModule::whereIn('module_id',
+            \Modules\Utilities\Entities\Module::where('customized', true)->pluck('id')
+        )->delete();
     return view('test');
-    return \Modules\Utilities\Entities\SchemaLanguageTable::with(['languageTable'])->tablesOf('users')->get();
+    return \Modules\Utilities\Entities\SchemaLanguageTable::with(['languageTable'])->tablesOf('users')->get();*/
+
+    return ['empty' => 'there is nothing set to do'];
 });
 
 Route::group(

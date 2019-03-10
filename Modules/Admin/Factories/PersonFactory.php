@@ -73,7 +73,10 @@ class PersonFactory extends GlobalFactory
                     ->addAutocomplete('autocomplete/gender', trans('admin::app.gender'), 'gender_id', "gender.transName.text", "gender.lang_name.$this->lang.text", 'req required none', '', '', true, false, true, false)
                     ->addAutocomplete('autocomplete/position', trans('utilities::app.position'), 'position_id', "position.transName.text", "position.lang_name.$this->lang.text", 'req required none', '', '', true, false, true, false)
                     ->startRelation('jobTitle')
-                        ->addMultiAutocomplete('autocomplete/job-title', "job_title[ ,].lang_name.$this->lang.text", trans('utilities::app.job_title'), 'job_title.id', "job_title.transName.text", "job_title.lang_name.$this->lang.text", 'req required none', '', '', true, false, false, false)
+                        ->addMultiAutocomplete('autocomplete/job-title', [
+                            'table' => "job_title[ ,].lang_name.$this->lang.text",
+                            'dialog' => "job_title.lang_name.$this->lang.id",
+                        ], trans('utilities::app.job_title'), 'job_title.id', "job_title.transName.text", "job_title.lang_name.$this->lang.text", 'req required none', '', '', true, false, false, false)
                     ->endRelation()
                 ->closeHorizontalTab()
             ->endHorizontalTab()

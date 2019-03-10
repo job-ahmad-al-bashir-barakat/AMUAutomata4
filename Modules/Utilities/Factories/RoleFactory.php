@@ -34,7 +34,10 @@ class RoleFactory extends GlobalFactory
             ->addMultiInputTextLangs(['name'] ,'req required')
             ->addInputText(trans('utilities::app.name'),'name','name', 'required req')
             ->startRelation('permissions')
-                ->addMultiAutocomplete('autocomplete/permissions' ,"permissions[ ,].lang_name.$this->lang.text",trans('utilities::app.permissions') , 'permissions.id', "permissions.lang_name.$this->lang.text", "permissions.lang_name.$this->lang.text" ,'req required' ,'multiple')
+                ->addMultiAutocomplete('autocomplete/permissions' ,[
+                    'table' => "permissions[ ,].lang_name.$this->lang.text",
+                    'dialog' => "permissions.lang_name.$this->lang.id",
+                ],trans('utilities::app.permissions') , 'permissions.id', "permissions.lang_name.$this->lang.text", "permissions.lang_name.$this->lang.text" ,'req required' ,'multiple')
             ->endRelation()
             ->addActionButton($this->update,'update','update')
             ->addActionButton($this->delete,'delete','delete')
