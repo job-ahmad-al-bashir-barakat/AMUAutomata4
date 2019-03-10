@@ -3,7 +3,7 @@
 
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.7.14 on 2019-01-30 06:40:43.
+ * Generated for Laravel 5.7.14 on 2019-03-10 13:00:26.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -16028,6 +16028,16 @@ namespace Aut\DataTable {
         /**
          * 
          *
+         * @static 
+         */ 
+        public static function cont($id, $func, $class = '', $attr = '')
+        {
+            return \Aut\DataTable\DataTableBuilder::cont($id, $func, $class, $attr);
+        }
+        
+        /**
+         * 
+         *
          * @param string $id
          * @param string $class
          * @param string $attr
@@ -16048,6 +16058,16 @@ namespace Aut\DataTable {
         public static function endCont()
         {
             return \Aut\DataTable\DataTableBuilder::endCont();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function fieldset($id, $title, $func, $class = '', $attr = '')
+        {
+            return \Aut\DataTable\DataTableBuilder::fieldset($id, $title, $func, $class, $attr);
         }
         
         /**
@@ -16079,6 +16099,16 @@ namespace Aut\DataTable {
         /**
          * 
          *
+         * @static 
+         */ 
+        public static function relation($relation, $func)
+        {
+            return \Aut\DataTable\DataTableBuilder::relation($relation, $func);
+        }
+        
+        /**
+         * 
+         *
          * @param $relation
          * @return $this 
          * @static 
@@ -16097,6 +16127,16 @@ namespace Aut\DataTable {
         public static function endRelation()
         {
             return \Aut\DataTable\DataTableBuilder::endRelation();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function tap($title, $func, $icon = '', $class = '', $attr = '')
+        {
+            return \Aut\DataTable\DataTableBuilder::tap($title, $func, $icon, $class, $attr);
         }
         
         /**
@@ -16128,6 +16168,16 @@ namespace Aut\DataTable {
         /**
          * 
          *
+         * @static 
+         */ 
+        public static function formGroup($id, $func, $class = '', $attr = '')
+        {
+            return \Aut\DataTable\DataTableBuilder::formGroup($id, $func, $class, $attr);
+        }
+        
+        /**
+         * 
+         *
          * @param string $id
          * @param string $class
          * @param string $attr
@@ -16153,12 +16203,32 @@ namespace Aut\DataTable {
         /**
          * 
          *
+         * @static 
+         */ 
+        public static function horizontalTabCont($func)
+        {
+            return \Aut\DataTable\DataTableBuilder::horizontalTabCont($func);
+        }
+        
+        /**
+         * 
+         *
          * @return $this 
          * @static 
          */ 
         public static function startHorizontalTab()
         {
             return \Aut\DataTable\DataTableBuilder::startHorizontalTab();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function horizontalTab($id, $title, $func, $class = '', $active = false)
+        {
+            return \Aut\DataTable\DataTableBuilder::horizontalTab($id, $title, $func, $class, $active);
         }
         
         /**
@@ -16515,6 +16585,16 @@ namespace Aut\DataTable {
         public static function addMultiInputTextLangs($cols = array(), $colClass = '', $colWidth = '', $dialogAttr = '', $visible = true, $orderable = true, $searchable = true, $choosen = true, $printable = true)
         {
             return \Aut\DataTable\DataTableBuilder::addMultiInputTextLangs($cols, $colClass, $colWidth, $dialogAttr, $visible, $orderable, $searchable, $choosen, $printable);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function addTranslationsInputText($title = '', $data = '', $name = '', $colClass = '', $dialogAttr = '', $colWidth = '', $visible = true, $orderable = true, $searchable = true, $choosen = true, $printable = true)
+        {
+            return \Aut\DataTable\DataTableBuilder::addTranslationsInputText($title, $data, $name, $colClass, $dialogAttr, $colWidth, $visible, $orderable, $searchable, $choosen, $printable);
         }
         
         /**

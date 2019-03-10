@@ -4,7 +4,6 @@ use Illuminate\Database\Seeder;
 
 class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
 {
-
     /**
      * Auto generated seed file
      *
@@ -12,245 +11,245 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
      */
     public function run()
     {
-        
+
 
         \DB::table('custom_module_attribute_value_multi_langs')->delete();
-        
+
         \DB::table('custom_module_attribute_value_multi_langs')->insert(array (
-            0 => 
-            array (
-                'id' => 1,
-                'custom_module_attribute_value_id' => 12,
-                'lang_id' => 1,
-                'text' => 'faculty of information engineering',
-                'created_at' => '2017-10-16 09:11:05',
-                'updated_at' => '2019-01-06 13:23:35',
-                'deleted_at' => NULL,
-            ),
-            1 => 
-            array (
-                'id' => 2,
-                'custom_module_attribute_value_id' => 12,
-                'lang_id' => 2,
-                'text' => 'كلية الهندسة المعلوماتية',
-                'created_at' => '2017-10-16 09:11:05',
-                'updated_at' => '2019-01-06 13:23:35',
-                'deleted_at' => NULL,
-            ),
-            2 => 
-            array (
-                'id' => 3,
-                'custom_module_attribute_value_id' => 13,
-                'lang_id' => 1,
-                'text' => '<p>-</p>',
-                'created_at' => '2017-10-16 09:11:05',
-                'updated_at' => '2019-01-06 13:23:35',
-                'deleted_at' => NULL,
-            ),
-            3 => 
-            array (
-                'id' => 4,
-                'custom_module_attribute_value_id' => 13,
-                'lang_id' => 2,
-                'text' => '<p><font color="#666666">-</font></p>',
-                'created_at' => '2017-10-16 09:11:05',
-                'updated_at' => '2019-01-06 13:23:35',
-                'deleted_at' => NULL,
-            ),
-            4 => 
-            array (
-                'id' => 5,
-                'custom_module_attribute_value_id' => 18,
-                'lang_id' => 1,
-                'text' => 'OUR OFFICE LOCATION',
-                'created_at' => '2017-10-16 09:17:49',
-                'updated_at' => '2017-10-16 09:17:49',
-                'deleted_at' => NULL,
-            ),
-            5 => 
-            array (
-                'id' => 6,
-                'custom_module_attribute_value_id' => 18,
-                'lang_id' => 2,
-                'text' => 'OUR OFFICE LOCATION',
-                'created_at' => '2017-10-16 09:17:49',
-                'updated_at' => '2017-10-16 09:17:49',
-                'deleted_at' => NULL,
-            ),
-            6 => 
-            array (
-                'id' => 7,
-                'custom_module_attribute_value_id' => 23,
-                'lang_id' => 1,
-                'text' => 'OUR CONTACT NUMBER',
-                'created_at' => '2017-10-16 09:19:15',
-                'updated_at' => '2017-10-16 09:19:15',
-                'deleted_at' => NULL,
-            ),
-            7 => 
-            array (
-                'id' => 8,
-                'custom_module_attribute_value_id' => 23,
-                'lang_id' => 2,
-                'text' => 'OUR CONTACT NUMBER',
-                'created_at' => '2017-10-16 09:19:15',
-                'updated_at' => '2017-10-16 09:19:15',
-                'deleted_at' => NULL,
-            ),
-            8 => 
-            array (
-                'id' => 9,
-                'custom_module_attribute_value_id' => 30,
-                'lang_id' => 1,
-                'text' => 'WELCOME TO STUDYPRESS HTML5 TEMPALTE',
-                'created_at' => '2017-10-23 09:01:02',
-                'updated_at' => '2017-10-23 09:01:02',
-                'deleted_at' => NULL,
-            ),
-            9 => 
-            array (
-                'id' => 10,
-                'custom_module_attribute_value_id' => 30,
-                'lang_id' => 2,
-                'text' => 'WELCOME TO STUDYPRESS HTML5 TEMPALTE',
-                'created_at' => '2017-10-23 09:01:02',
-                'updated_at' => '2017-10-23 09:01:02',
-                'deleted_at' => NULL,
-            ),
-            10 => 
-            array (
-                'id' => 11,
-                'custom_module_attribute_value_id' => 31,
-                'lang_id' => 1,
-            'text' => '<h4 class="text-gray-dimgray font-weight-400" style="box-sizing: border-box; font-family: "Open Sans", sans-serif; font-weight: 400 !important; line-height: 1.42857; color: rgb(102, 102, 102); margin-top: 10px; margin-bottom: 10px; font-size: 18px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;"><em style="box-sizing: border-box;">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</em></h4>
+            0 =>
+                array (
+                    'id' => 1,
+                    'custom_module_attribute_value_id' => 12,
+                    'lang_id' => 1,
+                    'text' => 'faculty of information engineering',
+                    'created_at' => '2017-10-16 09:11:05',
+                    'updated_at' => '2019-01-06 13:23:35',
+                    'deleted_at' => NULL,
+                ),
+            1 =>
+                array (
+                    'id' => 2,
+                    'custom_module_attribute_value_id' => 12,
+                    'lang_id' => 2,
+                    'text' => 'كلية الهندسة المعلوماتية',
+                    'created_at' => '2017-10-16 09:11:05',
+                    'updated_at' => '2019-01-06 13:23:35',
+                    'deleted_at' => NULL,
+                ),
+            2 =>
+                array (
+                    'id' => 3,
+                    'custom_module_attribute_value_id' => 13,
+                    'lang_id' => 1,
+                    'text' => '<p>-</p>',
+                    'created_at' => '2017-10-16 09:11:05',
+                    'updated_at' => '2019-01-06 13:23:35',
+                    'deleted_at' => NULL,
+                ),
+            3 =>
+                array (
+                    'id' => 4,
+                    'custom_module_attribute_value_id' => 13,
+                    'lang_id' => 2,
+                    'text' => '<p><font color="#666666">-</font></p>',
+                    'created_at' => '2017-10-16 09:11:05',
+                    'updated_at' => '2019-01-06 13:23:35',
+                    'deleted_at' => NULL,
+                ),
+            4 =>
+                array (
+                    'id' => 5,
+                    'custom_module_attribute_value_id' => 18,
+                    'lang_id' => 1,
+                    'text' => 'OUR OFFICE LOCATION',
+                    'created_at' => '2017-10-16 09:17:49',
+                    'updated_at' => '2017-10-16 09:17:49',
+                    'deleted_at' => NULL,
+                ),
+            5 =>
+                array (
+                    'id' => 6,
+                    'custom_module_attribute_value_id' => 18,
+                    'lang_id' => 2,
+                    'text' => 'OUR OFFICE LOCATION',
+                    'created_at' => '2017-10-16 09:17:49',
+                    'updated_at' => '2017-10-16 09:17:49',
+                    'deleted_at' => NULL,
+                ),
+            6 =>
+                array (
+                    'id' => 7,
+                    'custom_module_attribute_value_id' => 23,
+                    'lang_id' => 1,
+                    'text' => 'OUR CONTACT NUMBER',
+                    'created_at' => '2017-10-16 09:19:15',
+                    'updated_at' => '2017-10-16 09:19:15',
+                    'deleted_at' => NULL,
+                ),
+            7 =>
+                array (
+                    'id' => 8,
+                    'custom_module_attribute_value_id' => 23,
+                    'lang_id' => 2,
+                    'text' => 'OUR CONTACT NUMBER',
+                    'created_at' => '2017-10-16 09:19:15',
+                    'updated_at' => '2017-10-16 09:19:15',
+                    'deleted_at' => NULL,
+                ),
+            8 =>
+                array (
+                    'id' => 9,
+                    'custom_module_attribute_value_id' => 30,
+                    'lang_id' => 1,
+                    'text' => 'WELCOME TO STUDYPRESS HTML5 TEMPALTE',
+                    'created_at' => '2017-10-23 09:01:02',
+                    'updated_at' => '2017-10-23 09:01:02',
+                    'deleted_at' => NULL,
+                ),
+            9 =>
+                array (
+                    'id' => 10,
+                    'custom_module_attribute_value_id' => 30,
+                    'lang_id' => 2,
+                    'text' => 'WELCOME TO STUDYPRESS HTML5 TEMPALTE',
+                    'created_at' => '2017-10-23 09:01:02',
+                    'updated_at' => '2017-10-23 09:01:02',
+                    'deleted_at' => NULL,
+                ),
+            10 =>
+                array (
+                    'id' => 11,
+                    'custom_module_attribute_value_id' => 31,
+                    'lang_id' => 1,
+                    'text' => '<h4 class="text-gray-dimgray font-weight-400" style="box-sizing: border-box; font-family: "Open Sans", sans-serif; font-weight: 400 !important; line-height: 1.42857; color: rgb(102, 102, 102); margin-top: 10px; margin-bottom: 10px; font-size: 18px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;"><em style="box-sizing: border-box;">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</em></h4>
 
 <p style="box-sizing: border-box; margin: 0px 0px 10px; color: rgb(102, 102, 102); font-family: "Open Sans", sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">Sit amet consectetur adipisicing elit. Aliquid iste iusto reiciendis praesentium dolorem doloribus nisi architecto voluptatibus explicabo, possimus ullam quae illum maiores aperiam consequuntur.</p>
 
 <p style="box-sizing: border-box; margin: 0px 0px 10px; color: rgb(102, 102, 102); font-family: "Open Sans", sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">Sit amet consectetur adipisicing elit. Aliquid iste iusto reiciendis praesentium dolorem doloribus nisi architecto voluptatibus explicabo, possimus ullam quae illum maiores aperiam consequuntur facere similique voluptatum.</p>',
-                'created_at' => '2017-10-23 09:01:02',
-                'updated_at' => '2018-10-04 04:54:42',
-                'deleted_at' => NULL,
-            ),
-            11 => 
-            array (
-                'id' => 12,
-                'custom_module_attribute_value_id' => 31,
-                'lang_id' => 2,
-            'text' => '<h4 class="text-gray-dimgray font-weight-400" style="box-sizing: border-box; font-family: "Open Sans", sans-serif; font-weight: 400 !important; line-height: 1.42857; color: rgb(102, 102, 102); margin-top: 10px; margin-bottom: 10px; font-size: 18px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;"><em style="box-sizing: border-box;">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</em></h4>
+                    'created_at' => '2017-10-23 09:01:02',
+                    'updated_at' => '2018-10-04 04:54:42',
+                    'deleted_at' => NULL,
+                ),
+            11 =>
+                array (
+                    'id' => 12,
+                    'custom_module_attribute_value_id' => 31,
+                    'lang_id' => 2,
+                    'text' => '<h4 class="text-gray-dimgray font-weight-400" style="box-sizing: border-box; font-family: "Open Sans", sans-serif; font-weight: 400 !important; line-height: 1.42857; color: rgb(102, 102, 102); margin-top: 10px; margin-bottom: 10px; font-size: 18px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;"><em style="box-sizing: border-box;">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</em></h4>
 
 <p style="box-sizing: border-box; margin: 0px 0px 10px; color: rgb(102, 102, 102); font-family: "Open Sans", sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">Sit amet consectetur adipisicing elit. Aliquid iste iusto reiciendis praesentium dolorem doloribus nisi architecto voluptatibus explicabo, possimus ullam quae illum maiores aperiam consequuntur.</p>
 
 <p style="box-sizing: border-box; margin: 0px 0px 10px; color: rgb(102, 102, 102); font-family: "Open Sans", sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">Sit amet consectetur adipisicing elit. Aliquid iste iusto reiciendis praesentium dolorem doloribus nisi architecto voluptatibus explicabo, possimus ullam quae illum maiores aperiam consequuntur facere similique voluptatum.</p>',
-                'created_at' => '2017-10-23 09:01:02',
-                'updated_at' => '2018-10-04 04:54:42',
-                'deleted_at' => NULL,
-            ),
-            12 => 
-            array (
-                'id' => 13,
-                'custom_module_attribute_value_id' => 38,
-                'lang_id' => 1,
-                'text' => 'Our Courses',
-                'created_at' => '2017-10-25 07:26:39',
-                'updated_at' => '2017-10-25 07:26:39',
-                'deleted_at' => NULL,
-            ),
-            13 => 
-            array (
-                'id' => 14,
-                'custom_module_attribute_value_id' => 38,
-                'lang_id' => 2,
-                'text' => 'Our Courses',
-                'created_at' => '2017-10-25 07:26:39',
-                'updated_at' => '2017-10-25 07:26:39',
-                'deleted_at' => NULL,
-            ),
-            14 => 
-            array (
-                'id' => 15,
-                'custom_module_attribute_value_id' => 41,
-                'lang_id' => 1,
-                'text' => 'CLIENT TESTIMONIALS',
-                'created_at' => '2017-10-25 10:27:30',
-                'updated_at' => '2017-10-25 10:27:30',
-                'deleted_at' => NULL,
-            ),
-            15 => 
-            array (
-                'id' => 16,
-                'custom_module_attribute_value_id' => 41,
-                'lang_id' => 2,
-                'text' => 'CLIENT TESTIMONIALS',
-                'created_at' => '2017-10-25 10:27:30',
-                'updated_at' => '2017-10-25 10:27:30',
-                'deleted_at' => NULL,
-            ),
-            16 => 
-            array (
-                'id' => 17,
-                'custom_module_attribute_value_id' => 50,
-                'lang_id' => 1,
-                'text' => 'Services',
-                'created_at' => '2017-10-28 23:07:31',
-                'updated_at' => '2018-10-03 03:55:27',
-                'deleted_at' => NULL,
-            ),
-            17 => 
-            array (
-                'id' => 18,
-                'custom_module_attribute_value_id' => 50,
-                'lang_id' => 2,
-                'text' => 'الإعلانات والخدمات',
-                'created_at' => '2017-10-28 23:07:31',
-                'updated_at' => '2018-10-03 03:55:27',
-                'deleted_at' => NULL,
-            ),
-            18 => 
-            array (
-                'id' => 19,
-                'custom_module_attribute_value_id' => 51,
-                'lang_id' => 1,
-                'text' => '<p>..</p>',
-                'created_at' => '2017-10-28 23:07:32',
-                'updated_at' => '2019-01-16 07:47:31',
-                'deleted_at' => NULL,
-            ),
-            19 => 
-            array (
-                'id' => 20,
-                'custom_module_attribute_value_id' => 51,
-                'lang_id' => 2,
-                'text' => '<p>.</p>',
-                'created_at' => '2017-10-28 23:07:32',
-                'updated_at' => '2019-01-16 07:47:31',
-                'deleted_at' => NULL,
-            ),
-            20 => 
-            array (
-                'id' => 21,
-                'custom_module_attribute_value_id' => 58,
-                'lang_id' => 1,
-                'text' => 'OUR TEACHERS',
-                'created_at' => '2017-10-30 11:54:51',
-                'updated_at' => '2017-10-30 11:54:51',
-                'deleted_at' => NULL,
-            ),
-            21 => 
-            array (
-                'id' => 22,
-                'custom_module_attribute_value_id' => 58,
-                'lang_id' => 2,
-                'text' => 'الكادر التدريسي',
-                'created_at' => '2017-10-30 11:54:51',
-                'updated_at' => '2018-10-04 04:49:47',
-                'deleted_at' => NULL,
-            ),
-            22 => 
-            array (
-                'id' => 23,
-                'custom_module_attribute_value_id' => 61,
-                'lang_id' => 1,
-            'text' => '<h1 class="article-title" itemprop="headline" style="box-sizing: border-box; font-size: 36px; margin: 0px 0px 20px; font-family: DroidKufi-Regular; font-weight: 500; line-height: 1.1; color: rgb(51, 51, 51); font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;"><a href="http://au.edu.sy/en/university/univ-message" itemprop="url" style="box-sizing: border-box; background-color: transparent; color: rgb(66, 139, 202); text-decoration: none !important; font-family: DroidKufi-Regular !important;" title="About Al Andalus University">About Al Andalus University</a></h1>
+                    'created_at' => '2017-10-23 09:01:02',
+                    'updated_at' => '2018-10-04 04:54:42',
+                    'deleted_at' => NULL,
+                ),
+            12 =>
+                array (
+                    'id' => 13,
+                    'custom_module_attribute_value_id' => 38,
+                    'lang_id' => 1,
+                    'text' => 'Our Courses',
+                    'created_at' => '2017-10-25 07:26:39',
+                    'updated_at' => '2017-10-25 07:26:39',
+                    'deleted_at' => NULL,
+                ),
+            13 =>
+                array (
+                    'id' => 14,
+                    'custom_module_attribute_value_id' => 38,
+                    'lang_id' => 2,
+                    'text' => 'Our Courses',
+                    'created_at' => '2017-10-25 07:26:39',
+                    'updated_at' => '2017-10-25 07:26:39',
+                    'deleted_at' => NULL,
+                ),
+            14 =>
+                array (
+                    'id' => 15,
+                    'custom_module_attribute_value_id' => 41,
+                    'lang_id' => 1,
+                    'text' => 'CLIENT TESTIMONIALS',
+                    'created_at' => '2017-10-25 10:27:30',
+                    'updated_at' => '2017-10-25 10:27:30',
+                    'deleted_at' => NULL,
+                ),
+            15 =>
+                array (
+                    'id' => 16,
+                    'custom_module_attribute_value_id' => 41,
+                    'lang_id' => 2,
+                    'text' => 'CLIENT TESTIMONIALS',
+                    'created_at' => '2017-10-25 10:27:30',
+                    'updated_at' => '2017-10-25 10:27:30',
+                    'deleted_at' => NULL,
+                ),
+            16 =>
+                array (
+                    'id' => 17,
+                    'custom_module_attribute_value_id' => 50,
+                    'lang_id' => 1,
+                    'text' => 'Services',
+                    'created_at' => '2017-10-28 23:07:31',
+                    'updated_at' => '2018-10-03 03:55:27',
+                    'deleted_at' => NULL,
+                ),
+            17 =>
+                array (
+                    'id' => 18,
+                    'custom_module_attribute_value_id' => 50,
+                    'lang_id' => 2,
+                    'text' => 'الإعلانات والخدمات',
+                    'created_at' => '2017-10-28 23:07:31',
+                    'updated_at' => '2018-10-03 03:55:27',
+                    'deleted_at' => NULL,
+                ),
+            18 =>
+                array (
+                    'id' => 19,
+                    'custom_module_attribute_value_id' => 51,
+                    'lang_id' => 1,
+                    'text' => '<p>..</p>',
+                    'created_at' => '2017-10-28 23:07:32',
+                    'updated_at' => '2019-01-16 07:47:31',
+                    'deleted_at' => NULL,
+                ),
+            19 =>
+                array (
+                    'id' => 20,
+                    'custom_module_attribute_value_id' => 51,
+                    'lang_id' => 2,
+                    'text' => '<p>.</p>',
+                    'created_at' => '2017-10-28 23:07:32',
+                    'updated_at' => '2019-01-16 07:47:31',
+                    'deleted_at' => NULL,
+                ),
+            20 =>
+                array (
+                    'id' => 21,
+                    'custom_module_attribute_value_id' => 58,
+                    'lang_id' => 1,
+                    'text' => 'OUR TEACHERS',
+                    'created_at' => '2017-10-30 11:54:51',
+                    'updated_at' => '2017-10-30 11:54:51',
+                    'deleted_at' => NULL,
+                ),
+            21 =>
+                array (
+                    'id' => 22,
+                    'custom_module_attribute_value_id' => 58,
+                    'lang_id' => 2,
+                    'text' => 'الكادر التدريسي',
+                    'created_at' => '2017-10-30 11:54:51',
+                    'updated_at' => '2018-10-04 04:49:47',
+                    'deleted_at' => NULL,
+                ),
+            22 =>
+                array (
+                    'id' => 23,
+                    'custom_module_attribute_value_id' => 61,
+                    'lang_id' => 1,
+                    'text' => '<h1 class="article-title" itemprop="headline" style="box-sizing: border-box; font-size: 36px; margin: 0px 0px 20px; font-family: DroidKufi-Regular; font-weight: 500; line-height: 1.1; color: rgb(51, 51, 51); font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;"><a href="http://au.edu.sy/en/university/univ-message" itemprop="url" style="box-sizing: border-box; background-color: transparent; color: rgb(66, 139, 202); text-decoration: none !important; font-family: DroidKufi-Regular !important;" title="About Al Andalus University">About Al Andalus University</a></h1>
 
 <p style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;"><strong style="box-sizing: border-box; font-weight: bold; font-family: DroidKufi-Regular !important;">University message</strong></p>
 
@@ -321,16 +320,16 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
 <p style="box-sizing: border-box; margin: 0px 0px 10px; font-family: DroidKufi-Regular; color: rgb(51, 51, 51); font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">• Scientific Research: Affiliation and continuous development.</p>
 
 <p> </p>',
-                'created_at' => '2017-10-31 11:27:47',
-                'updated_at' => '2019-01-15 13:42:10',
-                'deleted_at' => NULL,
-            ),
-            23 => 
-            array (
-                'id' => 24,
-                'custom_module_attribute_value_id' => 61,
-                'lang_id' => 2,
-            'text' => '<p><a href="http://au.edu.sy/university/univ-message" style="box-sizing: border-box; background-color: transparent; color: rgb(66, 139, 202); text-decoration: none !important; font-family: DroidKufi-Regular !important;" title="عن الجامعة، الرسالة والأهداف">عن الجامعة، الرسالة والأهداف</a></p>
+                    'created_at' => '2017-10-31 11:27:47',
+                    'updated_at' => '2019-01-15 13:42:10',
+                    'deleted_at' => NULL,
+                ),
+            23 =>
+                array (
+                    'id' => 24,
+                    'custom_module_attribute_value_id' => 61,
+                    'lang_id' => 2,
+                    'text' => '<p><a href="http://au.edu.sy/university/univ-message" style="box-sizing: border-box; background-color: transparent; color: rgb(66, 139, 202); text-decoration: none !important; font-family: DroidKufi-Regular !important;" title="عن الجامعة، الرسالة والأهداف">عن الجامعة، الرسالة والأهداف</a></p>
 
 <p dir="RTL" style="text-align:start"><strong>رسالة الجامعة:</strong></p>
 
@@ -417,64 +416,64 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
 <p dir="RTL" style="text-align:start">&middot; البحث العلمي للكلية :</p>
 
 <p dir="RTL" style="text-align:start">الانتماء والتطور المستمر</p>',
-                'created_at' => '2017-10-31 11:27:47',
-                'updated_at' => '2019-01-15 13:42:10',
-                'deleted_at' => NULL,
-            ),
-            24 => 
-            array (
-                'id' => 25,
-                'custom_module_attribute_value_id' => 68,
-                'lang_id' => 1,
-                'text' => 'OUR FEATURES',
-                'created_at' => '2017-10-31 14:06:14',
-                'updated_at' => '2017-10-31 14:06:14',
-                'deleted_at' => NULL,
-            ),
-            25 => 
-            array (
-                'id' => 26,
-                'custom_module_attribute_value_id' => 68,
-                'lang_id' => 2,
-                'text' => 'OUR FEATURES',
-                'created_at' => '2017-10-31 14:06:14',
-                'updated_at' => '2017-10-31 14:06:14',
-                'deleted_at' => NULL,
-            ),
-            26 => 
-            array (
-                'id' => 27,
-                'custom_module_attribute_value_id' => 103,
-                'lang_id' => 1,
-            'text' => '<h5 style="box-sizing: border-box; font-family: "Open Sans", sans-serif; font-weight: 400; line-height: 1.42857; color: rgb(51, 51, 51); margin-top: 10px; margin-bottom: 10px; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;"><em style="box-sizing: border-box;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo unde,<span> </span><span class="text-theme-color-2" style="box-sizing: border-box; color: rgb(1, 163, 222);">accounting technologies</span><span> </span>corporis dolorum blanditiis ullam officia<span> </span><span class="text-theme-color-2" style="box-sizing: border-box; color: rgb(1, 163, 222);">our university<span> </span></span>natus minima fugiat repellat! Corrupti voluptatibus aperiam voluptatem. Exercitationem, placeat, cupiditate.</em></h5>
+                    'created_at' => '2017-10-31 11:27:47',
+                    'updated_at' => '2019-01-15 13:42:10',
+                    'deleted_at' => NULL,
+                ),
+            24 =>
+                array (
+                    'id' => 25,
+                    'custom_module_attribute_value_id' => 68,
+                    'lang_id' => 1,
+                    'text' => 'OUR FEATURES',
+                    'created_at' => '2017-10-31 14:06:14',
+                    'updated_at' => '2017-10-31 14:06:14',
+                    'deleted_at' => NULL,
+                ),
+            25 =>
+                array (
+                    'id' => 26,
+                    'custom_module_attribute_value_id' => 68,
+                    'lang_id' => 2,
+                    'text' => 'OUR FEATURES',
+                    'created_at' => '2017-10-31 14:06:14',
+                    'updated_at' => '2017-10-31 14:06:14',
+                    'deleted_at' => NULL,
+                ),
+            26 =>
+                array (
+                    'id' => 27,
+                    'custom_module_attribute_value_id' => 103,
+                    'lang_id' => 1,
+                    'text' => '<h5 style="box-sizing: border-box; font-family: "Open Sans", sans-serif; font-weight: 400; line-height: 1.42857; color: rgb(51, 51, 51); margin-top: 10px; margin-bottom: 10px; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;"><em style="box-sizing: border-box;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo unde,<span> </span><span class="text-theme-color-2" style="box-sizing: border-box; color: rgb(1, 163, 222);">accounting technologies</span><span> </span>corporis dolorum blanditiis ullam officia<span> </span><span class="text-theme-color-2" style="box-sizing: border-box; color: rgb(1, 163, 222);">our university<span> </span></span>natus minima fugiat repellat! Corrupti voluptatibus aperiam voluptatem. Exercitationem, placeat, cupiditate.</em></h5>
 
 <p style="box-sizing: border-box; margin: 0px 0px 10px; color: rgb(102, 102, 102); font-family: "Open Sans", sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore suscipit, inventore aliquid incidunt, quasi error! Natus esse rem eaque asperiores eligendi dicta quidem iure, excepturi doloremque eius neque autem sint error qui tenetur, modi provident aut, maiores laudantium reiciendis expedita. Eligendi</p>
 
 <p style="box-sizing: border-box; margin: 0px 0px 10px; color: rgb(102, 102, 102); font-family: "Open Sans", sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore voluptatem officiis quod animi possimus a, iure nam sunt quas aperiam non recusandae reprehenderit, nesciunt cumque pariatur totam repellendus delectus? Maxime quasi earum nobis, dicta, aliquam facere reiciendis, delectus voluptas, ea assumenda blanditiis placeat dignissimos quas iusto repellat cumque.</p>',
-                'created_at' => '2018-05-20 06:38:53',
-                'updated_at' => '2018-05-21 06:16:10',
-                'deleted_at' => NULL,
-            ),
-            27 => 
-            array (
-                'id' => 28,
-                'custom_module_attribute_value_id' => 103,
-                'lang_id' => 2,
-            'text' => '<h5 style="box-sizing: border-box; font-family: "Open Sans", sans-serif; font-weight: 400; line-height: 1.42857; color: rgb(51, 51, 51); margin-top: 10px; margin-bottom: 10px; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;"><em style="box-sizing: border-box;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo unde,<span> </span><span class="text-theme-color-2" style="box-sizing: border-box; color: rgb(1, 163, 222);">accounting technologies</span><span> </span>corporis dolorum blanditiis ullam officia<span> </span><span class="text-theme-color-2" style="box-sizing: border-box; color: rgb(1, 163, 222);">our university<span> </span></span>natus minima fugiat repellat! Corrupti voluptatibus aperiam voluptatem. Exercitationem, placeat, cupiditate.</em></h5>
+                    'created_at' => '2018-05-20 06:38:53',
+                    'updated_at' => '2018-05-21 06:16:10',
+                    'deleted_at' => NULL,
+                ),
+            27 =>
+                array (
+                    'id' => 28,
+                    'custom_module_attribute_value_id' => 103,
+                    'lang_id' => 2,
+                    'text' => '<h5 style="box-sizing: border-box; font-family: "Open Sans", sans-serif; font-weight: 400; line-height: 1.42857; color: rgb(51, 51, 51); margin-top: 10px; margin-bottom: 10px; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;"><em style="box-sizing: border-box;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo unde,<span> </span><span class="text-theme-color-2" style="box-sizing: border-box; color: rgb(1, 163, 222);">accounting technologies</span><span> </span>corporis dolorum blanditiis ullam officia<span> </span><span class="text-theme-color-2" style="box-sizing: border-box; color: rgb(1, 163, 222);">our university<span> </span></span>natus minima fugiat repellat! Corrupti voluptatibus aperiam voluptatem. Exercitationem, placeat, cupiditate.</em></h5>
 
 <p style="box-sizing: border-box; margin: 0px 0px 10px; color: rgb(102, 102, 102); font-family: "Open Sans", sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore suscipit, inventore aliquid incidunt, quasi error! Natus esse rem eaque asperiores eligendi dicta quidem iure, excepturi doloremque eius neque autem sint error qui tenetur, modi provident aut, maiores laudantium reiciendis expedita. Eligendi</p>
 
 <p style="box-sizing: border-box; margin: 0px 0px 10px; color: rgb(102, 102, 102); font-family: "Open Sans", sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore voluptatem officiis quod animi possimus a, iure nam sunt quas aperiam non recusandae reprehenderit, nesciunt cumque pariatur totam repellendus delectus? Maxime quasi earum nobis, dicta, aliquam facere reiciendis, delectus voluptas, ea assumenda blanditiis placeat dignissimos quas iusto repellat cumque.</p>',
-                'created_at' => '2018-05-20 06:38:53',
-                'updated_at' => '2018-05-21 06:16:10',
-                'deleted_at' => NULL,
-            ),
-            28 => 
-            array (
-                'id' => 29,
-                'custom_module_attribute_value_id' => 116,
-                'lang_id' => 1,
-            'text' => '<h3 helvetica="" neue="" style="box-sizing: border-box; color: rgb(51, 51, 51); font-family: Arial, "><span new="" roman="" style="box-sizing: border-box; font-size: 14pt; font-family: " times="">&nbsp; &nbsp;<img alt="" src="http://localhost/ASU/public/photos/1/د_ياسر.jpg" style="margin:5px 25px; width:150px; height:169px; float:right" />Prof.</span> Dr. Yasser Houriah</h3>
+                    'created_at' => '2018-05-20 06:38:53',
+                    'updated_at' => '2018-05-21 06:16:10',
+                    'deleted_at' => NULL,
+                ),
+            28 =>
+                array (
+                    'id' => 29,
+                    'custom_module_attribute_value_id' => 116,
+                    'lang_id' => 1,
+                    'text' => '<h3 helvetica="" neue="" style="box-sizing: border-box; color: rgb(51, 51, 51); font-family: Arial, "><span new="" roman="" style="box-sizing: border-box; font-size: 14pt; font-family: " times="">&nbsp; &nbsp;<img alt="" src="http://localhost/ASU/public/photos/1/د_ياسر.jpg" style="margin:5px 25px; width:150px; height:169px; float:right" />Prof.</span> Dr. Yasser Houriah</h3>
 
 <h3 helvetica="" neue="">&nbsp; president of al Sham Private University</h3>
 
@@ -501,16 +500,16 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
 <p helvetica="" neue="">&nbsp;</p>
 
 <p helvetica="" neue="">&nbsp;</p>',
-                'created_at' => '2018-09-26 14:24:31',
-                'updated_at' => '2018-10-15 05:40:36',
-                'deleted_at' => NULL,
-            ),
-            29 => 
-            array (
-                'id' => 30,
-                'custom_module_attribute_value_id' => 116,
-                'lang_id' => 2,
-            'text' => '<h2 helvetica="" neue="" style="box-sizing: border-box; color: rgb(51, 51, 51); text-align: justify;"><span new="" roman="" style="box-sizing: border-box; font-family: " times="">الاستاذ الدكتور ياسر حورية</span></h2>
+                    'created_at' => '2018-09-26 14:24:31',
+                    'updated_at' => '2018-10-15 05:40:36',
+                    'deleted_at' => NULL,
+                ),
+            29 =>
+                array (
+                    'id' => 30,
+                    'custom_module_attribute_value_id' => 116,
+                    'lang_id' => 2,
+                    'text' => '<h2 helvetica="" neue="" style="box-sizing: border-box; color: rgb(51, 51, 51); text-align: justify;"><span new="" roman="" style="box-sizing: border-box; font-family: " times="">الاستاذ الدكتور ياسر حورية</span></h2>
 
 <h2 helvetica="" neue="" style="box-sizing: border-box; color: rgb(51, 51, 51); text-align: justify;"><span new="" roman="" style="box-sizing: border-box; font-family: " times="">رئيس جامعة الشام الخاصة</span></h2>
 
@@ -532,16 +531,16 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
 
 <p style="text-align: justify;"><br />
 <span new="" roman="" style="box-sizing: border-box; font-family: " times=""><a href="http://db/files/2/السماحيات.pdf" onclick="window.open(this.href, \'\', \'resizable=no,status=no,location=no,toolbar=no,menubar=yes,fullscreen=no,scrollbars=no,dependent=no\'); return false;">مرفق السيرة الذاتية</a></span></p>',
-                'created_at' => '2018-09-26 14:24:31',
-                'updated_at' => '2018-10-15 05:40:36',
-                'deleted_at' => NULL,
-            ),
-            30 => 
-            array (
-                'id' => 31,
-                'custom_module_attribute_value_id' => 122,
-                'lang_id' => 1,
-                'text' => '<p dir="LTR" style="text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span style="font-size:16.0pt"><span style="font-family:"Times New Roman",serif">Al Sham Private University</span></span></b></span></span></span></span></span></p>
+                    'created_at' => '2018-09-26 14:24:31',
+                    'updated_at' => '2018-10-15 05:40:36',
+                    'deleted_at' => NULL,
+                ),
+            30 =>
+                array (
+                    'id' => 31,
+                    'custom_module_attribute_value_id' => 122,
+                    'lang_id' => 1,
+                    'text' => '<p dir="LTR" style="text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span style="font-size:16.0pt"><span style="font-family:"Times New Roman",serif">Al Sham Private University</span></span></b></span></span></span></span></span></p>
 
 <p dir="LTR" style="text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span style="font-size:14.0pt"><span style="font-family:"Times New Roman",serif">Reasons for Founding al Sham Private University:</span></span></b></span></span></span></span></span></p>
 
@@ -644,16 +643,16 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
 <p dir="LTR" style="text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt"><span style="font-family:"Times New Roman",serif">* Memorandum of Understanding for cooperation with Dresden  private International University – Germany.</span></span></span></span></span></span></span></p>
 
 <p style="text-align: justify; margin: 0cm 0cm 8pt;"> </p>',
-                'created_at' => '2018-10-03 02:43:32',
-                'updated_at' => '2018-10-22 09:36:26',
-                'deleted_at' => NULL,
-            ),
-            31 => 
-            array (
-                'id' => 32,
-                'custom_module_attribute_value_id' => 122,
-                'lang_id' => 2,
-                'text' => '<p dir="RTL" style="text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span lang="AR-SA" style="font-size:16.0pt"><span new="" roman="" style="font-family:" times="">تأسيس جامعة الشام الخاصة:</span></span></b></span></span></span></span></span></span></p>
+                    'created_at' => '2018-10-03 02:43:32',
+                    'updated_at' => '2018-10-22 09:36:26',
+                    'deleted_at' => NULL,
+                ),
+            31 =>
+                array (
+                    'id' => 32,
+                    'custom_module_attribute_value_id' => 122,
+                    'lang_id' => 2,
+                    'text' => '<p dir="RTL" style="text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span lang="AR-SA" style="font-size:16.0pt"><span new="" roman="" style="font-family:" times="">تأسيس جامعة الشام الخاصة:</span></span></b></span></span></span></span></span></span></p>
 
 <p dir="RTL" style="text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SA" style="font-size:14.0pt"><span new="" roman="" style="font-family:" times="">إن تأسيس جامعة خاصة سيساهم مع وزارة التعليم العالي وباقي مؤسسات الدولة التعليمية في توفير فرص التعليم وبناء مجتمع المعرفة وفق خطط الدولة، وفي دفع عجلة التنمية الشاملة في سورية، واستقطاب الشباب المتحمس للعلم&nbsp; ولبناء وطنه وهي غير ربحية وتكاليف الدراسة فيها معقولة مع ضمان سوية علمية عالية ومتميزة، وستكون الجامعة نموذجاً تعليمياً وتربوياً نوعياً يساعد شريحة الشباب في إتمام دراستهم في الوطن الأم بدلاً من الاغتراب، وستساهم الجامعة في بناء وتطوير الموارد البشرية، وفي تعزيز المهارات التي يتطلبها سوق العمل، الأمر الذي يساهم في توفير فرص العمل، إضافة إلى تقديم خدمات علمية واجتماعية للمجتمع (دراسات، استشارات، &hellip;إلخ)، والمساهمة في عملية البحث العلمي.</span></span></span></span></span></span></span></span></p>
 
@@ -771,96 +770,96 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
 <li dir="RTL" style="text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><u><span lang="AR-SA" style="font-size:14.0pt"><span arial="" style="font-family:">الفصل الثاني</span></span></u><u><span dir="LTR" style="font-size:14.0pt"><span arial="" style="font-family:"> (Spring) </span></span></u><u><span lang="AR-SA" style="font-size:14.0pt"><span arial="" style="font-family:">إلزامي</span></span></u> <span dir="LTR" style="font-size:14.0pt"><span arial="" style="font-family:">: </span></span><span lang="AR-SA" style="font-size:14.0pt"><span arial="" style="font-family:">مدته 16 الى 19 أسبوعاً ، من ضمنها فترة الامتحان</span></span><span dir="LTR" style="font-size:14.0pt"><span arial="" style="font-family:">.</span></span></span></span></span></span></span></span></li>
 <li dir="RTL" style="text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><u><span lang="AR-SA" style="font-size:14.0pt"><span arial="" style="font-family:">الفصل الثالث</span></span></u><u><span dir="LTR" style="font-size:14.0pt"><span arial="" style="font-family:"> (Summer) </span></span></u><u><span lang="AR-SA" style="font-size:14.0pt"><span arial="" style="font-family:">اختياري</span></span></u> <span dir="LTR" style="font-size:14.0pt"><span arial="" style="font-family:">: </span></span><span lang="AR-SA" style="font-size:14.0pt"><span arial="" style="font-family:">مدته 8 أسابيع ، بما في ذلك فترة الامتحان.</span></span></span></span></span></span></span></span></li>
 </ul>',
-                'created_at' => '2018-10-03 02:43:32',
-                'updated_at' => '2018-10-22 09:36:26',
-                'deleted_at' => NULL,
-            ),
-            32 => 
-            array (
-                'id' => 33,
-                'custom_module_attribute_value_id' => 125,
-                'lang_id' => 1,
-                'text' => 'Activities Activities',
-                'created_at' => '2018-10-03 03:34:59',
-                'updated_at' => '2018-10-14 17:17:20',
-                'deleted_at' => NULL,
-            ),
-            33 => 
-            array (
-                'id' => 34,
-                'custom_module_attribute_value_id' => 125,
-                'lang_id' => 2,
-                'text' => 'فعاليات ومناسبات',
-                'created_at' => '2018-10-03 03:34:59',
-                'updated_at' => '2018-10-03 03:47:45',
-                'deleted_at' => NULL,
-            ),
-            34 => 
-            array (
-                'id' => 35,
-                'custom_module_attribute_value_id' => 135,
-                'lang_id' => 1,
-                'text' => 'Test Steps',
-                'created_at' => '2018-10-04 02:49:46',
-                'updated_at' => '2018-10-04 02:49:46',
-                'deleted_at' => NULL,
-            ),
-            35 => 
-            array (
-                'id' => 36,
-                'custom_module_attribute_value_id' => 135,
-                'lang_id' => 2,
-                'text' => 'تجريب الخطوات',
-                'created_at' => '2018-10-04 02:49:46',
-                'updated_at' => '2018-10-04 02:49:46',
-                'deleted_at' => NULL,
-            ),
-            36 => 
-            array (
-                'id' => 37,
-                'custom_module_attribute_value_id' => 136,
-                'lang_id' => 1,
-                'text' => '<p>تجريب الخطوات</p>',
-                'created_at' => '2018-10-04 02:52:35',
-                'updated_at' => '2018-10-04 02:52:35',
-                'deleted_at' => NULL,
-            ),
-            37 => 
-            array (
-                'id' => 38,
-                'custom_module_attribute_value_id' => 136,
-                'lang_id' => 2,
-                'text' => '<p>تجريب الخطوات&nbsp;تجريب الخطوات&nbsp;تجريب الخطوات&nbsp;تجريب الخطوات&nbsp;تجريب الخطوات&nbsp;تجريب الخطوات</p>',
-                'created_at' => '2018-10-04 02:52:35',
-                'updated_at' => '2018-10-04 02:52:35',
-                'deleted_at' => NULL,
-            ),
-            38 => 
-            array (
-                'id' => 39,
-                'custom_module_attribute_value_id' => 141,
-                'lang_id' => 1,
-                'text' => 'Test Gallery',
-                'created_at' => '2018-10-04 02:54:51',
-                'updated_at' => '2018-10-04 02:54:51',
-                'deleted_at' => NULL,
-            ),
-            39 => 
-            array (
-                'id' => 40,
-                'custom_module_attribute_value_id' => 141,
-                'lang_id' => 2,
-                'text' => 'تجريب معرض الصور',
-                'created_at' => '2018-10-04 02:54:51',
-                'updated_at' => '2018-10-04 02:54:51',
-                'deleted_at' => NULL,
-            ),
-            40 => 
-            array (
-                'id' => 41,
-                'custom_module_attribute_value_id' => 147,
-                'lang_id' => 1,
-                'text' => '<p dir="LTR" style="text-align:left; margin:0cm 0cm 8pt"><img alt="" height="251" src="http://db/photos/2/د_ياسر.jpg" style="float:right" width="223" /></p>
+                    'created_at' => '2018-10-03 02:43:32',
+                    'updated_at' => '2018-10-22 09:36:26',
+                    'deleted_at' => NULL,
+                ),
+            32 =>
+                array (
+                    'id' => 33,
+                    'custom_module_attribute_value_id' => 125,
+                    'lang_id' => 1,
+                    'text' => 'Activities Activities',
+                    'created_at' => '2018-10-03 03:34:59',
+                    'updated_at' => '2018-10-14 17:17:20',
+                    'deleted_at' => NULL,
+                ),
+            33 =>
+                array (
+                    'id' => 34,
+                    'custom_module_attribute_value_id' => 125,
+                    'lang_id' => 2,
+                    'text' => 'فعاليات ومناسبات',
+                    'created_at' => '2018-10-03 03:34:59',
+                    'updated_at' => '2018-10-03 03:47:45',
+                    'deleted_at' => NULL,
+                ),
+            34 =>
+                array (
+                    'id' => 35,
+                    'custom_module_attribute_value_id' => 135,
+                    'lang_id' => 1,
+                    'text' => 'Test Steps',
+                    'created_at' => '2018-10-04 02:49:46',
+                    'updated_at' => '2018-10-04 02:49:46',
+                    'deleted_at' => NULL,
+                ),
+            35 =>
+                array (
+                    'id' => 36,
+                    'custom_module_attribute_value_id' => 135,
+                    'lang_id' => 2,
+                    'text' => 'تجريب الخطوات',
+                    'created_at' => '2018-10-04 02:49:46',
+                    'updated_at' => '2018-10-04 02:49:46',
+                    'deleted_at' => NULL,
+                ),
+            36 =>
+                array (
+                    'id' => 37,
+                    'custom_module_attribute_value_id' => 136,
+                    'lang_id' => 1,
+                    'text' => '<p>تجريب الخطوات</p>',
+                    'created_at' => '2018-10-04 02:52:35',
+                    'updated_at' => '2018-10-04 02:52:35',
+                    'deleted_at' => NULL,
+                ),
+            37 =>
+                array (
+                    'id' => 38,
+                    'custom_module_attribute_value_id' => 136,
+                    'lang_id' => 2,
+                    'text' => '<p>تجريب الخطوات&nbsp;تجريب الخطوات&nbsp;تجريب الخطوات&nbsp;تجريب الخطوات&nbsp;تجريب الخطوات&nbsp;تجريب الخطوات</p>',
+                    'created_at' => '2018-10-04 02:52:35',
+                    'updated_at' => '2018-10-04 02:52:35',
+                    'deleted_at' => NULL,
+                ),
+            38 =>
+                array (
+                    'id' => 39,
+                    'custom_module_attribute_value_id' => 141,
+                    'lang_id' => 1,
+                    'text' => 'Test Gallery',
+                    'created_at' => '2018-10-04 02:54:51',
+                    'updated_at' => '2018-10-04 02:54:51',
+                    'deleted_at' => NULL,
+                ),
+            39 =>
+                array (
+                    'id' => 40,
+                    'custom_module_attribute_value_id' => 141,
+                    'lang_id' => 2,
+                    'text' => 'تجريب معرض الصور',
+                    'created_at' => '2018-10-04 02:54:51',
+                    'updated_at' => '2018-10-04 02:54:51',
+                    'deleted_at' => NULL,
+                ),
+            40 =>
+                array (
+                    'id' => 41,
+                    'custom_module_attribute_value_id' => 147,
+                    'lang_id' => 1,
+                    'text' => '<p dir="LTR" style="text-align:left; margin:0cm 0cm 8pt"><img alt="" height="251" src="http://db/photos/2/د_ياسر.jpg" style="float:right" width="223" /></p>
 
 <p dir="LTR" style="text-align:left; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span style="font-size:18.0pt"><span new="" roman="" style="font-family:" times="">Prof. Dr. Yasser Hourieh</span></span></b></span></span></span></span></span></p>
 
@@ -881,16 +880,16 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
 <p dir="LTR" style="text-align:justify; margin:0cm 0cm 8pt"> </p>
 
 <p dir="RTL" style="margin:0cm 0cm 8pt; text-align:right"> </p>',
-                'created_at' => '2018-10-04 03:12:03',
-                'updated_at' => '2019-01-07 09:39:01',
-                'deleted_at' => NULL,
-            ),
-            41 => 
-            array (
-                'id' => 42,
-                'custom_module_attribute_value_id' => 147,
-                'lang_id' => 2,
-                'text' => '<p dir="RTL" style="margin-bottom:.0001pt; margin:0cm 0cm 8pt; text-align:right"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span lang="AR-SA" style="font-size:18.0pt"><span arabic="" simplified="" style="font-family:">الأستاذ الدكتور ياسر حورية</span></span></b></span></span></span></span></span></span></p>
+                    'created_at' => '2018-10-04 03:12:03',
+                    'updated_at' => '2019-01-07 09:39:01',
+                    'deleted_at' => NULL,
+                ),
+            41 =>
+                array (
+                    'id' => 42,
+                    'custom_module_attribute_value_id' => 147,
+                    'lang_id' => 2,
+                    'text' => '<p dir="RTL" style="margin-bottom:.0001pt; margin:0cm 0cm 8pt; text-align:right"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span lang="AR-SA" style="font-size:18.0pt"><span arabic="" simplified="" style="font-family:">الأستاذ الدكتور ياسر حورية</span></span></b></span></span></span></span></span></span></p>
 
 <p align="right" dir="LTR" style="text-align:right; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span dir="RTL" lang="AR-SA" style="font-size:18.0pt"><span arabic="" simplified="" style="font-family:">رئيس جامعة الشام الخاصة</span></span></b></span></span></span></span></span></p>
 
@@ -911,16 +910,16 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
 <p dir="RTL" style="text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SA" style="font-size:14.0pt"><span arabic="" simplified="" style="font-family:">والله الموفق</span></span><span dir="LTR" style="font-size:14.0pt"><span arabic="" simplified="" style="font-family:"> ...</span></span></span></span></span></span></span></span></p>
 
 <p dir="RTL" style="text-align:justify; margin:0cm 0cm 8pt"><span style="font-size:20px;"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span dir="LTR"><span arabic="" simplified="" style="font-family:"><a href="http://localhost/laravel-filemanager/files/1/السيرة_الذاتية_للدكتور_ياسر-عربي-2-10-2016.pdf" target="_blank"><span style="color:#2980b9;">لتحميل السيرة الذاتية اضغط هنا</span></a></span></span></span></span></span></span></span></p>',
-                'created_at' => '2018-10-04 03:12:03',
-                'updated_at' => '2019-01-07 09:39:01',
-                'deleted_at' => NULL,
-            ),
-            42 => 
-            array (
-                'id' => 43,
-                'custom_module_attribute_value_id' => 150,
-                'lang_id' => 1,
-                'text' => '<div class="t3-content col-xs-12 col-sm-8  col-md-9" id="t3-content" style="box-sizing: border-box; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; float: right; width: 877.5px; padding-top: 10px;">
+                    'created_at' => '2018-10-04 03:12:03',
+                    'updated_at' => '2019-01-07 09:39:01',
+                    'deleted_at' => NULL,
+                ),
+            42 =>
+                array (
+                    'id' => 43,
+                    'custom_module_attribute_value_id' => 150,
+                    'lang_id' => 1,
+                    'text' => '<div class="t3-content col-xs-12 col-sm-8  col-md-9" id="t3-content" style="box-sizing: border-box; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; float: right; width: 877.5px; padding-top: 10px;">
 <div class="item-page clearfix" style="box-sizing: border-box;">
 <article itemscope="" itemtype="http://schema.org/Article" style="box-sizing: border-box; display: block;">
 <section class="article-content clearfix" itemprop="articleBody" style="box-sizing: border-box; display: block;">
@@ -1052,16 +1051,16 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
 </article>
 </div>
 </div>',
-                'created_at' => '2018-10-04 04:09:18',
-                'updated_at' => '2018-10-14 04:18:46',
-                'deleted_at' => NULL,
-            ),
-            43 => 
-            array (
-                'id' => 44,
-                'custom_module_attribute_value_id' => 150,
-                'lang_id' => 2,
-                'text' => '<div class="t3-content col-xs-12 col-sm-8  col-md-9" id="t3-content" style="box-sizing: border-box; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; float: right; width: 877.5px; padding-top: 10px;">
+                    'created_at' => '2018-10-04 04:09:18',
+                    'updated_at' => '2018-10-14 04:18:46',
+                    'deleted_at' => NULL,
+                ),
+            43 =>
+                array (
+                    'id' => 44,
+                    'custom_module_attribute_value_id' => 150,
+                    'lang_id' => 2,
+                    'text' => '<div class="t3-content col-xs-12 col-sm-8  col-md-9" id="t3-content" style="box-sizing: border-box; position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px; float: right; width: 877.5px; padding-top: 10px;">
 <div class="item-page clearfix" style="box-sizing: border-box;">
 <article itemscope="" itemtype="http://schema.org/Article" style="box-sizing: border-box; display: block;">
 <section class="article-content clearfix" itemprop="articleBody" style="box-sizing: border-box; display: block;">
@@ -1193,66 +1192,66 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
 </article>
 </div>
 </div>',
-                'created_at' => '2018-10-04 04:09:18',
-                'updated_at' => '2018-10-14 04:18:46',
-                'deleted_at' => NULL,
-            ),
-            44 => 
-            array (
-                'id' => 45,
-                'custom_module_attribute_value_id' => 153,
-                'lang_id' => 1,
-                'text' => 'information',
-                'created_at' => '2018-10-06 03:56:22',
-                'updated_at' => '2018-10-06 03:56:22',
-                'deleted_at' => NULL,
-            ),
-            45 => 
-            array (
-                'id' => 46,
-                'custom_module_attribute_value_id' => 153,
-                'lang_id' => 2,
-                'text' => 'information',
-                'created_at' => '2018-10-06 03:56:22',
-                'updated_at' => '2018-10-06 03:56:22',
-                'deleted_at' => NULL,
-            ),
-            46 => 
-            array (
-                'id' => 47,
-                'custom_module_attribute_value_id' => 154,
-                'lang_id' => 1,
-                'text' => '<h4 class="text-gray-dimgray font-weight-400" open="" sans=""><em style="box-sizing: border-box;">it amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore</em></h4>',
-                'created_at' => '2018-10-06 03:56:22',
-                'updated_at' => '2018-10-06 03:56:22',
-                'deleted_at' => NULL,
-            ),
-            47 => 
-            array (
-                'id' => 48,
-                'custom_module_attribute_value_id' => 154,
-                'lang_id' => 2,
-                'text' => '<h4 class="text-gray-dimgray font-weight-400" open="" sans=""><em style="box-sizing: border-box;">it amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore</em></h4>',
-                'created_at' => '2018-10-06 03:56:22',
-                'updated_at' => '2018-10-06 03:56:22',
-                'deleted_at' => NULL,
-            ),
-            48 => 
-            array (
-                'id' => 49,
-                'custom_module_attribute_value_id' => 161,
-                'lang_id' => 1,
-                'text' => '<p style="text-align: justify;"><font color="#333333" face="Arial, sans-serif"><span style="font-size: 18.6667px;"> -</span></font></p>',
-                'created_at' => '2018-10-06 04:08:24',
-                'updated_at' => '2018-12-11 12:35:09',
-                'deleted_at' => NULL,
-            ),
-            49 => 
-            array (
-                'id' => 50,
-                'custom_module_attribute_value_id' => 161,
-                'lang_id' => 2,
-                'text' => '<p dir="RTL" style="text-align:justify; margin:0cm 0cm 8pt">&nbsp;</p>
+                    'created_at' => '2018-10-04 04:09:18',
+                    'updated_at' => '2018-10-14 04:18:46',
+                    'deleted_at' => NULL,
+                ),
+            44 =>
+                array (
+                    'id' => 45,
+                    'custom_module_attribute_value_id' => 153,
+                    'lang_id' => 1,
+                    'text' => 'information',
+                    'created_at' => '2018-10-06 03:56:22',
+                    'updated_at' => '2018-10-06 03:56:22',
+                    'deleted_at' => NULL,
+                ),
+            45 =>
+                array (
+                    'id' => 46,
+                    'custom_module_attribute_value_id' => 153,
+                    'lang_id' => 2,
+                    'text' => 'information',
+                    'created_at' => '2018-10-06 03:56:22',
+                    'updated_at' => '2018-10-06 03:56:22',
+                    'deleted_at' => NULL,
+                ),
+            46 =>
+                array (
+                    'id' => 47,
+                    'custom_module_attribute_value_id' => 154,
+                    'lang_id' => 1,
+                    'text' => '<h4 class="text-gray-dimgray font-weight-400" open="" sans=""><em style="box-sizing: border-box;">it amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore</em></h4>',
+                    'created_at' => '2018-10-06 03:56:22',
+                    'updated_at' => '2018-10-06 03:56:22',
+                    'deleted_at' => NULL,
+                ),
+            47 =>
+                array (
+                    'id' => 48,
+                    'custom_module_attribute_value_id' => 154,
+                    'lang_id' => 2,
+                    'text' => '<h4 class="text-gray-dimgray font-weight-400" open="" sans=""><em style="box-sizing: border-box;">it amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore</em></h4>',
+                    'created_at' => '2018-10-06 03:56:22',
+                    'updated_at' => '2018-10-06 03:56:22',
+                    'deleted_at' => NULL,
+                ),
+            48 =>
+                array (
+                    'id' => 49,
+                    'custom_module_attribute_value_id' => 161,
+                    'lang_id' => 1,
+                    'text' => '<p style="text-align: justify;"><font color="#333333" face="Arial, sans-serif"><span style="font-size: 18.6667px;"> -</span></font></p>',
+                    'created_at' => '2018-10-06 04:08:24',
+                    'updated_at' => '2018-12-11 12:35:09',
+                    'deleted_at' => NULL,
+                ),
+            49 =>
+                array (
+                    'id' => 50,
+                    'custom_module_attribute_value_id' => 161,
+                    'lang_id' => 2,
+                    'text' => '<p dir="RTL" style="text-align:justify; margin:0cm 0cm 8pt">&nbsp;</p>
 
 <p dir="RTL" style="text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span lang="AR-SY" style="font-size:18.0pt"><span style="line-height:107%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">رسالة الكلية</span></span></span></b></span></span></span></span></span></span></p>
 
@@ -1265,156 +1264,156 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
 <p dir="RTL" style="text-align:justify; margin:0cm 0cm 8pt"><span style="color:#e67e22;"><span style="font-size:11pt"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span lang="AR-SY" style="font-size:16.0pt"><span style="line-height:107%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">البحث:</span></span></span></b></span></span></span></span></span></span><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="line-height:107%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;"> توفير بيئة بحثية عالية المستوى بحيث يتمكن أساتذتها وباحثوها وطلابها من القيام بالبحوث في المجالات الهندسية الأساسية والتطبيقية والاستكشافية ونشر وتطبيق المعرفة المتوفرة والمستجدة.</span></span></span></span></span></span></span></span></span></p>
 
 <p dir="RTL" style="text-align:justify; margin:0cm 0cm 8pt"><span style="color:#e67e22;"><span style="font-size:11pt"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span lang="AR-SY" style="font-size:16.0pt"><span style="line-height:107%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">خدمة المجتمع:</span></span></span></b></span></span></span></span></span></span><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SY" style="font-size:14.0pt"><span style="line-height:107%"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;"> التفاعل مع المجتمع والانخراط في مجال تطوير صناعة البرمجيات المحلية مما يساهم في التطوير الاجتماعي والاقتصادي للبلد.</span></span></span></span></span></span></span></span></span></p>',
-                'created_at' => '2018-10-06 04:08:24',
-                'updated_at' => '2018-12-11 12:52:30',
-                'deleted_at' => NULL,
-            ),
-            50 => 
-            array (
-                'id' => 51,
-                'custom_module_attribute_value_id' => 164,
-                'lang_id' => 1,
-                'text' => 'step info',
-                'created_at' => '2018-10-06 04:18:37',
-                'updated_at' => '2018-10-06 04:18:37',
-                'deleted_at' => NULL,
-            ),
-            51 => 
-            array (
-                'id' => 52,
-                'custom_module_attribute_value_id' => 164,
-                'lang_id' => 2,
-                'text' => 'step info',
-                'created_at' => '2018-10-06 04:18:37',
-                'updated_at' => '2018-10-06 04:18:37',
-                'deleted_at' => NULL,
-            ),
-            52 => 
-            array (
-                'id' => 53,
-                'custom_module_attribute_value_id' => 165,
-                'lang_id' => 1,
-                'text' => '<p>step infostep infostep infostep infostep info</p>',
-                'created_at' => '2018-10-06 04:18:37',
-                'updated_at' => '2018-10-06 04:18:37',
-                'deleted_at' => NULL,
-            ),
-            53 => 
-            array (
-                'id' => 54,
-                'custom_module_attribute_value_id' => 165,
-                'lang_id' => 2,
-                'text' => '<p>step infostep infostep infostep infostep infostep info</p>',
-                'created_at' => '2018-10-06 04:18:37',
-                'updated_at' => '2018-10-06 04:18:37',
-                'deleted_at' => NULL,
-            ),
-            54 => 
-            array (
-                'id' => 55,
-                'custom_module_attribute_value_id' => 169,
-                'lang_id' => 1,
-                'text' => 'اخبار المعلوماتية',
-                'created_at' => '2018-10-06 04:39:39',
-                'updated_at' => '2018-10-06 04:39:39',
-                'deleted_at' => NULL,
-            ),
-            55 => 
-            array (
-                'id' => 56,
-                'custom_module_attribute_value_id' => 169,
-                'lang_id' => 2,
-                'text' => 'اخبار المعلوماتية',
-                'created_at' => '2018-10-06 04:39:39',
-                'updated_at' => '2018-10-06 04:39:39',
-                'deleted_at' => NULL,
-            ),
-            56 => 
-            array (
-                'id' => 57,
-                'custom_module_attribute_value_id' => 178,
-                'lang_id' => 1,
-                'text' => '.',
-                'created_at' => '2018-10-10 01:11:06',
-                'updated_at' => '2018-10-10 01:11:06',
-                'deleted_at' => NULL,
-            ),
-            57 => 
-            array (
-                'id' => 58,
-                'custom_module_attribute_value_id' => 178,
-                'lang_id' => 2,
-                'text' => '.',
-                'created_at' => '2018-10-10 01:11:06',
-                'updated_at' => '2018-10-10 01:11:06',
-                'deleted_at' => NULL,
-            ),
-            58 => 
-            array (
-                'id' => 59,
-                'custom_module_attribute_value_id' => 184,
-                'lang_id' => 1,
-                'text' => '.',
-                'created_at' => '2018-10-10 01:13:47',
-                'updated_at' => '2018-10-10 01:13:47',
-                'deleted_at' => NULL,
-            ),
-            59 => 
-            array (
-                'id' => 60,
-                'custom_module_attribute_value_id' => 184,
-                'lang_id' => 2,
-                'text' => '.',
-                'created_at' => '2018-10-10 01:13:47',
-                'updated_at' => '2018-10-10 01:13:47',
-                'deleted_at' => NULL,
-            ),
-            60 => 
-            array (
-                'id' => 61,
-                'custom_module_attribute_value_id' => 190,
-                'lang_id' => 1,
-                'text' => 'tt',
-                'created_at' => '2018-10-10 01:21:11',
-                'updated_at' => '2018-10-10 01:21:11',
-                'deleted_at' => NULL,
-            ),
-            61 => 
-            array (
-                'id' => 62,
-                'custom_module_attribute_value_id' => 190,
-                'lang_id' => 2,
-                'text' => 'tt',
-                'created_at' => '2018-10-10 01:21:11',
-                'updated_at' => '2018-10-10 01:21:11',
-                'deleted_at' => NULL,
-            ),
-            62 => 
-            array (
-                'id' => 63,
-                'custom_module_attribute_value_id' => 191,
-                'lang_id' => 1,
-                'text' => 'test',
-                'created_at' => '2018-10-10 18:00:00',
-                'updated_at' => NULL,
-                'deleted_at' => NULL,
-            ),
-            63 => 
-            array (
-                'id' => 64,
-                'custom_module_attribute_value_id' => 192,
-                'lang_id' => 1,
-                'text' => 'test',
-                'created_at' => NULL,
-                'updated_at' => NULL,
-                'deleted_at' => NULL,
-            ),
-            64 => 
-            array (
-                'id' => 65,
-                'custom_module_attribute_value_id' => 201,
-                'lang_id' => 1,
-                'text' => '<p dir="ltr" style="margin: 0cm 0cm 8pt; text-align: left;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><b><u><span style="font-size:16.0pt">ASPU Admission Rates &amp; Enrollment Procedures </span></u></b></span></span></span></span></span></p>
+                    'created_at' => '2018-10-06 04:08:24',
+                    'updated_at' => '2018-12-11 12:52:30',
+                    'deleted_at' => NULL,
+                ),
+            50 =>
+                array (
+                    'id' => 51,
+                    'custom_module_attribute_value_id' => 164,
+                    'lang_id' => 1,
+                    'text' => 'step info',
+                    'created_at' => '2018-10-06 04:18:37',
+                    'updated_at' => '2018-10-06 04:18:37',
+                    'deleted_at' => NULL,
+                ),
+            51 =>
+                array (
+                    'id' => 52,
+                    'custom_module_attribute_value_id' => 164,
+                    'lang_id' => 2,
+                    'text' => 'step info',
+                    'created_at' => '2018-10-06 04:18:37',
+                    'updated_at' => '2018-10-06 04:18:37',
+                    'deleted_at' => NULL,
+                ),
+            52 =>
+                array (
+                    'id' => 53,
+                    'custom_module_attribute_value_id' => 165,
+                    'lang_id' => 1,
+                    'text' => '<p>step infostep infostep infostep infostep info</p>',
+                    'created_at' => '2018-10-06 04:18:37',
+                    'updated_at' => '2018-10-06 04:18:37',
+                    'deleted_at' => NULL,
+                ),
+            53 =>
+                array (
+                    'id' => 54,
+                    'custom_module_attribute_value_id' => 165,
+                    'lang_id' => 2,
+                    'text' => '<p>step infostep infostep infostep infostep infostep info</p>',
+                    'created_at' => '2018-10-06 04:18:37',
+                    'updated_at' => '2018-10-06 04:18:37',
+                    'deleted_at' => NULL,
+                ),
+            54 =>
+                array (
+                    'id' => 55,
+                    'custom_module_attribute_value_id' => 169,
+                    'lang_id' => 1,
+                    'text' => 'اخبار المعلوماتية',
+                    'created_at' => '2018-10-06 04:39:39',
+                    'updated_at' => '2018-10-06 04:39:39',
+                    'deleted_at' => NULL,
+                ),
+            55 =>
+                array (
+                    'id' => 56,
+                    'custom_module_attribute_value_id' => 169,
+                    'lang_id' => 2,
+                    'text' => 'اخبار المعلوماتية',
+                    'created_at' => '2018-10-06 04:39:39',
+                    'updated_at' => '2018-10-06 04:39:39',
+                    'deleted_at' => NULL,
+                ),
+            56 =>
+                array (
+                    'id' => 57,
+                    'custom_module_attribute_value_id' => 178,
+                    'lang_id' => 1,
+                    'text' => '.',
+                    'created_at' => '2018-10-10 01:11:06',
+                    'updated_at' => '2018-10-10 01:11:06',
+                    'deleted_at' => NULL,
+                ),
+            57 =>
+                array (
+                    'id' => 58,
+                    'custom_module_attribute_value_id' => 178,
+                    'lang_id' => 2,
+                    'text' => '.',
+                    'created_at' => '2018-10-10 01:11:06',
+                    'updated_at' => '2018-10-10 01:11:06',
+                    'deleted_at' => NULL,
+                ),
+            58 =>
+                array (
+                    'id' => 59,
+                    'custom_module_attribute_value_id' => 184,
+                    'lang_id' => 1,
+                    'text' => '.',
+                    'created_at' => '2018-10-10 01:13:47',
+                    'updated_at' => '2018-10-10 01:13:47',
+                    'deleted_at' => NULL,
+                ),
+            59 =>
+                array (
+                    'id' => 60,
+                    'custom_module_attribute_value_id' => 184,
+                    'lang_id' => 2,
+                    'text' => '.',
+                    'created_at' => '2018-10-10 01:13:47',
+                    'updated_at' => '2018-10-10 01:13:47',
+                    'deleted_at' => NULL,
+                ),
+            60 =>
+                array (
+                    'id' => 61,
+                    'custom_module_attribute_value_id' => 190,
+                    'lang_id' => 1,
+                    'text' => 'tt',
+                    'created_at' => '2018-10-10 01:21:11',
+                    'updated_at' => '2018-10-10 01:21:11',
+                    'deleted_at' => NULL,
+                ),
+            61 =>
+                array (
+                    'id' => 62,
+                    'custom_module_attribute_value_id' => 190,
+                    'lang_id' => 2,
+                    'text' => 'tt',
+                    'created_at' => '2018-10-10 01:21:11',
+                    'updated_at' => '2018-10-10 01:21:11',
+                    'deleted_at' => NULL,
+                ),
+            62 =>
+                array (
+                    'id' => 63,
+                    'custom_module_attribute_value_id' => 191,
+                    'lang_id' => 1,
+                    'text' => 'test',
+                    'created_at' => '2018-10-10 18:00:00',
+                    'updated_at' => NULL,
+                    'deleted_at' => NULL,
+                ),
+            63 =>
+                array (
+                    'id' => 64,
+                    'custom_module_attribute_value_id' => 192,
+                    'lang_id' => 1,
+                    'text' => 'test',
+                    'created_at' => NULL,
+                    'updated_at' => NULL,
+                    'deleted_at' => NULL,
+                ),
+            64 =>
+                array (
+                    'id' => 65,
+                    'custom_module_attribute_value_id' => 201,
+                    'lang_id' => 1,
+                    'text' => '<p dir="ltr" style="margin: 0cm 0cm 8pt; text-align: left;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><b><u><span style="font-size:16.0pt">ASPU Admission Rates &amp; Enrollment Procedures </span></u></b></span></span></span></span></span></p>
 
 <p dir="ltr" style="margin: 0cm 0cm 8pt; text-align: left;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:16.0pt">&nbsp; Conditions of admission </span></span></span></span></span></span></p>
 
@@ -2064,16 +2063,16 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
 <p dir="ltr" style="margin: 0cm 0cm 8pt; text-align: left;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fax: +963-41-343415</span></span></span></span></span></p>
 
 <p dir="ltr" style="margin: 0cm 0cm 8pt; text-align: left;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="color:#000000;">&nbsp;&nbsp;<u>info@alsham-univ.sy&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Alsham.University@facebook.com&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </u></span><a href="http://www.Aspu.edu.sy" style="color:blue; text-decoration:underline"><span style="color:#000000;">www.Aspu.edu.sy</span></a></span></span></span></span></p>',
-                'created_at' => '2018-10-14 04:31:24',
-                'updated_at' => '2018-11-06 07:28:35',
-                'deleted_at' => NULL,
-            ),
-            65 => 
-            array (
-                'id' => 66,
-                'custom_module_attribute_value_id' => 201,
-                'lang_id' => 2,
-                'text' => '<p dir="RTL" style="text-align:justify; margin:0cm 0cm 8pt"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><a href="http://aspu.edu.sy/2015-06-30-09-31-50/القبول-والتسجيل" title="معدلات القبول و طريقة التسجيل في الجامعة"><span style="color:#000000;"><b><span lang="AR-SA" style="font-size:18.0pt"><span arabic="" simplified="" style="font-family:"><span style="text-decoration:none">معدلات القبول و طريقة التسجيل في الجامعة</span></span></span></b></span></a><span style="color:#000000;"> &nbsp;</span></span></span></span></span></span></p>
+                    'created_at' => '2018-10-14 04:31:24',
+                    'updated_at' => '2018-11-06 07:28:35',
+                    'deleted_at' => NULL,
+                ),
+            65 =>
+                array (
+                    'id' => 66,
+                    'custom_module_attribute_value_id' => 201,
+                    'lang_id' => 2,
+                    'text' => '<p dir="RTL" style="text-align:justify; margin:0cm 0cm 8pt"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><a href="http://aspu.edu.sy/2015-06-30-09-31-50/القبول-والتسجيل" title="معدلات القبول و طريقة التسجيل في الجامعة"><span style="color:#000000;"><b><span lang="AR-SA" style="font-size:18.0pt"><span arabic="" simplified="" style="font-family:"><span style="text-decoration:none">معدلات القبول و طريقة التسجيل في الجامعة</span></span></span></b></span></a><span style="color:#000000;"> &nbsp;</span></span></span></span></span></span></p>
 
 <p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span lang="AR-SA" style="font-size:16.0pt"><span arabic="" simplified="" style="font-family:">شـــــــروط القبــــــــول في الجــــــــــامعة</span></span></b><b>&nbsp;</b></span></span></span></span></span></span></p>
 
@@ -2725,16 +2724,16 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
 <p dir="RTL" style="margin-top:0cm; margin-right:21.25pt; margin-bottom:.0001pt; margin-left:0cm; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif">&nbsp;</span></span></span></span></span></span></p>
 
 <p align="center" dir="RTL" style="margin-top:0cm; margin-right:-42.55pt; margin-bottom:.0001pt; margin-left:0cm; text-align:center; margin:0cm 0cm 8pt"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><a href="mailto:info@alsham-univ.sy"><span style="color:#000000;"><span dir="LTR" style="font-size:14.0pt"><span arabic="" simplified="" style="font-family:">info@alsham-univ.sy</span></span></span></a><span style="color:#000000;">&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;</span><a href="mailto:Alsham.University@facebook.com"><span style="color:#000000;"><span style="font-size:14.0pt"><span arabic="" simplified="" style="font-family:">Alsham.University@facebook.com</span></span></span></a><span style="color:#000000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span></span></span></span></p>',
-                'created_at' => '2018-10-14 04:31:24',
-                'updated_at' => '2018-11-06 07:28:36',
-                'deleted_at' => NULL,
-            ),
-            66 => 
-            array (
-                'id' => 67,
-                'custom_module_attribute_value_id' => 214,
-                'lang_id' => 1,
-                'text' => '<p>المنح المقدمة من جامعة الشام الخاصة<br />
+                    'created_at' => '2018-10-14 04:31:24',
+                    'updated_at' => '2018-11-06 07:28:36',
+                    'deleted_at' => NULL,
+                ),
+            66 =>
+                array (
+                    'id' => 67,
+                    'custom_module_attribute_value_id' => 214,
+                    'lang_id' => 1,
+                    'text' => '<p>المنح المقدمة من جامعة الشام الخاصة<br />
 أولاً - المنح الكاملة :<br />
 تقدم الجامعة سنويا منحاً مجانية وفق الآتي:<br />
 1.    منح وزارة التعليم العالي بنسبة 5% من عدد الطلاب المقبولين في الجامعة في كل كلية واختصاص.<br />
@@ -2795,16 +2794,16 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
 هــ: 00963-41-493412/ 00963-41-493415/<br />
          فاكس: 493415–41-963+<br />
   info@alsham-univ.sy     Alsham.University@facebook.com    </p>',
-                        'created_at' => '2018-10-22 05:02:26',
-                        'updated_at' => '2018-10-29 10:46:34',
-                        'deleted_at' => NULL,
-                    ),
-                    67 => 
-                    array (
-                        'id' => 68,
-                        'custom_module_attribute_value_id' => 214,
-                        'lang_id' => 2,
-                        'text' => '<p dir="RTL" style="margin: 0cm 0cm 8pt;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><a href="http://aspu.edu.sy/2015-06-30-09-31-50/القبول-والتسجيل" title="معدلات القبول و طريقة التسجيل في الجامعة"><span style="color:#000000;"><b><span lang="AR-SA" style="font-size:18.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif"><span style="text-decoration:none">معدلات القبول و طريقة التسجيل في الجامعة</span></span></span></b></span></a><span style="color:#000000;"> &nbsp;</span></span></span></span></span></span></p>
+                    'created_at' => '2018-10-22 05:02:26',
+                    'updated_at' => '2018-10-29 10:46:34',
+                    'deleted_at' => NULL,
+                ),
+            67 =>
+                array (
+                    'id' => 68,
+                    'custom_module_attribute_value_id' => 214,
+                    'lang_id' => 2,
+                    'text' => '<p dir="RTL" style="margin: 0cm 0cm 8pt;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><a href="http://aspu.edu.sy/2015-06-30-09-31-50/القبول-والتسجيل" title="معدلات القبول و طريقة التسجيل في الجامعة"><span style="color:#000000;"><b><span lang="AR-SA" style="font-size:18.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif"><span style="text-decoration:none">معدلات القبول و طريقة التسجيل في الجامعة</span></span></span></b></span></a><span style="color:#000000;"> &nbsp;</span></span></span></span></span></span></p>
 
 <p dir="RTL" style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span lang="AR-SA" style="font-size:16.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">شـــــــروط القبــــــــول في الجــــــــــامعة</span></span></b><b>&nbsp;</b></span></span></span></span></span></span></p>
 
@@ -3456,16 +3455,16 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
 <p dir="RTL" style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif">&nbsp;</span></span></span></span></span></span></p>
 
 <p dir="RTL" style="margin: 0cm 0cm 8pt;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><a href="mailto:info@alsham-univ.sy"><span style="color:#000000;"><span dir="LTR" style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">info@alsham-univ.sy</span></span></span></a><span style="color:#000000;">&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;</span><a href="mailto:Alsham.University@facebook.com"><span style="color:#000000;"><span style="font-size:14.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">Alsham.University@facebook.com</span></span></span></a><span style="color:#000000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span></span></span></span></p>',
-                        'created_at' => '2018-10-22 05:02:26',
-                        'updated_at' => '2018-11-06 05:37:53',
-                        'deleted_at' => NULL,
-                    ),
-                    68 => 
-                    array (
-                        'id' => 69,
-                        'custom_module_attribute_value_id' => 217,
-                        'lang_id' => 1,
-                        'text' => '<p dir="ltr" style="margin: 0cm 0cm 8pt;">&nbsp;</p>
+                    'created_at' => '2018-10-22 05:02:26',
+                    'updated_at' => '2018-11-06 05:37:53',
+                    'deleted_at' => NULL,
+                ),
+            68 =>
+                array (
+                    'id' => 69,
+                    'custom_module_attribute_value_id' => 217,
+                    'lang_id' => 1,
+                    'text' => '<p dir="ltr" style="margin: 0cm 0cm 8pt;">&nbsp;</p>
 
 <p dir="ltr" style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><b><span style="font-size:16.0pt">Al Sham Private University ASPU Scholarships </span></b></span></span></span></span></span></p>
 
@@ -3837,16 +3836,16 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
 <p dir="ltr" style="margin: 0cm 0cm 8pt;"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><span style="font-size:12.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; Fax: +963-41-343415&nbsp;</span></span></span></span></span></span></p>
 
 <p dir="ltr" style="margin: 0cm 0cm 8pt;"><span style="font-size:11pt"><span style="line-height:normal"><span style="vertical-align:middle"><span style="font-family:Calibri,sans-serif"><a href="mailto:info@alsham-univ.sy" style="color:blue; text-decoration:underline"><span style="color:#000000;"><span style="font-size:14.0pt">info@alsham-univ.sy</span></span></a><span style="color:#000000;"><span style="font-size:14.0pt">&nbsp;&nbsp;&nbsp; &nbsp;<u>Alsham.University@facebook.com</u> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span><a href="http://www.Aspu.edu.sy" style="color:blue; text-decoration:underline"><span style="color:#000000;"><span style="font-size:14.0pt">www.Aspu.edu.sy</span></span></a></span></span></span></span></p>',
-            'created_at' => '2018-10-22 05:12:02',
-            'updated_at' => '2018-11-06 06:35:40',
-            'deleted_at' => NULL,
-        ),
-        69 => 
-        array (
-            'id' => 70,
-            'custom_module_attribute_value_id' => 217,
-            'lang_id' => 2,
-            'text' => '<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span lang="AR-SY" style="font-size:18.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">المنح المقدمة من جامعة الشام الخاصة</span></span></b></span></span></span></span></span></span></p>
+                    'created_at' => '2018-10-22 05:12:02',
+                    'updated_at' => '2018-11-06 06:35:40',
+                    'deleted_at' => NULL,
+                ),
+            69 =>
+                array (
+                    'id' => 70,
+                    'custom_module_attribute_value_id' => 217,
+                    'lang_id' => 2,
+                    'text' => '<p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span lang="AR-SY" style="font-size:18.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">المنح المقدمة من جامعة الشام الخاصة</span></span></b></span></span></span></span></span></span></p>
 
 <p dir="RTL" style="margin-bottom:.0001pt; text-align:justify; margin:0cm 0cm 8pt"><span style="color:#000000;"><span style="font-size:11pt"><span style="line-height:normal"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span lang="AR-SY" style="font-size:16.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,serif">أولاً - المنح الكاملة :</span></span></b></span></span></span></span></span></span></p>
 
@@ -4245,7 +4244,7 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                     'updated_at' => '2018-11-06 05:24:37',
                     'deleted_at' => NULL,
                 ),
-                70 => 
+            70 =>
                 array (
                     'id' => 71,
                     'custom_module_attribute_value_id' => 226,
@@ -4255,7 +4254,7 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                     'updated_at' => '2018-11-11 09:55:44',
                     'deleted_at' => NULL,
                 ),
-                71 => 
+            71 =>
                 array (
                     'id' => 72,
                     'custom_module_attribute_value_id' => 226,
@@ -4312,7 +4311,7 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                     'updated_at' => '2018-11-11 09:55:44',
                     'deleted_at' => NULL,
                 ),
-                72 => 
+            72 =>
                 array (
                     'id' => 73,
                     'custom_module_attribute_value_id' => 242,
@@ -4322,7 +4321,7 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                     'updated_at' => '2018-12-11 13:04:25',
                     'deleted_at' => NULL,
                 ),
-                73 => 
+            73 =>
                 array (
                     'id' => 74,
                     'custom_module_attribute_value_id' => 242,
@@ -4340,7 +4339,7 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                     'updated_at' => '2019-01-09 07:51:37',
                     'deleted_at' => NULL,
                 ),
-                74 => 
+            74 =>
                 array (
                     'id' => 75,
                     'custom_module_attribute_value_id' => 245,
@@ -4350,7 +4349,7 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                     'updated_at' => '2018-12-11 13:56:01',
                     'deleted_at' => NULL,
                 ),
-                75 => 
+            75 =>
                 array (
                     'id' => 76,
                     'custom_module_attribute_value_id' => 245,
@@ -4376,7 +4375,7 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                     'updated_at' => '2018-12-11 13:56:01',
                     'deleted_at' => NULL,
                 ),
-                76 => 
+            76 =>
                 array (
                     'id' => 77,
                     'custom_module_attribute_value_id' => 247,
@@ -4386,7 +4385,7 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                     'updated_at' => '2018-12-12 07:38:51',
                     'deleted_at' => NULL,
                 ),
-                77 => 
+            77 =>
                 array (
                     'id' => 78,
                     'custom_module_attribute_value_id' => 247,
@@ -4413,7 +4412,7 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                     'updated_at' => '2018-12-12 07:38:51',
                     'deleted_at' => NULL,
                 ),
-                78 => 
+            78 =>
                 array (
                     'id' => 79,
                     'custom_module_attribute_value_id' => 248,
@@ -4423,7 +4422,7 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                     'updated_at' => '2018-12-12 08:12:57',
                     'deleted_at' => NULL,
                 ),
-                79 => 
+            79 =>
                 array (
                     'id' => 80,
                     'custom_module_attribute_value_id' => 248,
@@ -4459,7 +4458,7 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                     'updated_at' => '2018-12-30 09:48:07',
                     'deleted_at' => NULL,
                 ),
-                80 => 
+            80 =>
                 array (
                     'id' => 81,
                     'custom_module_attribute_value_id' => 249,
@@ -4469,7 +4468,7 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                     'updated_at' => '2018-12-12 08:26:55',
                     'deleted_at' => NULL,
                 ),
-                81 => 
+            81 =>
                 array (
                     'id' => 82,
                     'custom_module_attribute_value_id' => 249,
@@ -4493,7 +4492,7 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                     'updated_at' => '2019-01-12 11:29:45',
                     'deleted_at' => NULL,
                 ),
-                82 => 
+            82 =>
                 array (
                     'id' => 83,
                     'custom_module_attribute_value_id' => 250,
@@ -4503,7 +4502,7 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                     'updated_at' => '2018-12-12 08:56:37',
                     'deleted_at' => NULL,
                 ),
-                83 => 
+            83 =>
                 array (
                     'id' => 84,
                     'custom_module_attribute_value_id' => 250,
@@ -4530,7 +4529,7 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                     'updated_at' => '2019-01-09 09:38:24',
                     'deleted_at' => NULL,
                 ),
-                84 => 
+            84 =>
                 array (
                     'id' => 85,
                     'custom_module_attribute_value_id' => 253,
@@ -4540,7 +4539,7 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                     'updated_at' => '2018-12-12 10:48:31',
                     'deleted_at' => NULL,
                 ),
-                85 => 
+            85 =>
                 array (
                     'id' => 86,
                     'custom_module_attribute_value_id' => 253,
@@ -4558,7 +4557,7 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                     'updated_at' => '2018-12-12 11:17:59',
                     'deleted_at' => NULL,
                 ),
-                86 => 
+            86 =>
                 array (
                     'id' => 87,
                     'custom_module_attribute_value_id' => 256,
@@ -4568,7 +4567,7 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                     'updated_at' => '2018-12-12 11:10:41',
                     'deleted_at' => NULL,
                 ),
-                87 => 
+            87 =>
                 array (
                     'id' => 88,
                     'custom_module_attribute_value_id' => 256,
@@ -4593,7 +4592,7 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                     'updated_at' => '2018-12-31 10:10:20',
                     'deleted_at' => NULL,
                 ),
-                88 => 
+            88 =>
                 array (
                     'id' => 89,
                     'custom_module_attribute_value_id' => 259,
@@ -4603,7 +4602,7 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                     'updated_at' => '2018-12-12 11:22:52',
                     'deleted_at' => NULL,
                 ),
-                89 => 
+            89 =>
                 array (
                     'id' => 90,
                     'custom_module_attribute_value_id' => 259,
@@ -4756,7 +4755,7 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                     'updated_at' => '2019-01-06 09:06:21',
                     'deleted_at' => NULL,
                 ),
-                90 => 
+            90 =>
                 array (
                     'id' => 91,
                     'custom_module_attribute_value_id' => 262,
@@ -4766,7 +4765,7 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                     'updated_at' => '2018-12-12 11:38:28',
                     'deleted_at' => NULL,
                 ),
-                91 => 
+            91 =>
                 array (
                     'id' => 92,
                     'custom_module_attribute_value_id' => 262,
@@ -4780,7 +4779,7 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                     'updated_at' => '2019-01-09 09:57:14',
                     'deleted_at' => NULL,
                 ),
-                92 => 
+            92 =>
                 array (
                     'id' => 93,
                     'custom_module_attribute_value_id' => 265,
@@ -4790,7 +4789,7 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                     'updated_at' => '2018-12-12 12:30:10',
                     'deleted_at' => NULL,
                 ),
-                93 => 
+            93 =>
                 array (
                     'id' => 94,
                     'custom_module_attribute_value_id' => 265,
@@ -4836,7 +4835,7 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                     'updated_at' => '2019-01-12 13:11:33',
                     'deleted_at' => NULL,
                 ),
-                94 => 
+            94 =>
                 array (
                     'id' => 95,
                     'custom_module_attribute_value_id' => 268,
@@ -4846,7 +4845,7 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                     'updated_at' => '2018-12-12 12:37:28',
                     'deleted_at' => NULL,
                 ),
-                95 => 
+            95 =>
                 array (
                     'id' => 96,
                     'custom_module_attribute_value_id' => 268,
@@ -4860,7 +4859,7 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                     'updated_at' => '2018-12-30 10:29:27',
                     'deleted_at' => NULL,
                 ),
-                96 => 
+            96 =>
                 array (
                     'id' => 97,
                     'custom_module_attribute_value_id' => 271,
@@ -4870,7 +4869,7 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                     'updated_at' => '2018-12-16 11:42:56',
                     'deleted_at' => NULL,
                 ),
-                97 => 
+            97 =>
                 array (
                     'id' => 98,
                     'custom_module_attribute_value_id' => 271,
@@ -4893,7 +4892,7 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                     'updated_at' => '2018-12-16 11:42:56',
                     'deleted_at' => NULL,
                 ),
-                98 => 
+            98 =>
                 array (
                     'id' => 99,
                     'custom_module_attribute_value_id' => 274,
@@ -4903,7 +4902,7 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                     'updated_at' => '2018-12-23 07:44:20',
                     'deleted_at' => NULL,
                 ),
-                99 => 
+            99 =>
                 array (
                     'id' => 100,
                     'custom_module_attribute_value_id' => 274,
@@ -4913,7 +4912,7 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                     'updated_at' => '2018-12-23 07:44:20',
                     'deleted_at' => NULL,
                 ),
-                100 => 
+            100 =>
                 array (
                     'id' => 101,
                     'custom_module_attribute_value_id' => 275,
@@ -4923,7 +4922,7 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                     'updated_at' => '2018-12-22 11:38:08',
                     'deleted_at' => NULL,
                 ),
-                101 => 
+            101 =>
                 array (
                     'id' => 102,
                     'custom_module_attribute_value_id' => 275,
@@ -4933,7 +4932,7 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                     'updated_at' => '2018-12-23 07:19:16',
                     'deleted_at' => NULL,
                 ),
-                102 => 
+            102 =>
                 array (
                     'id' => 103,
                     'custom_module_attribute_value_id' => 308,
@@ -4943,7 +4942,7 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                     'updated_at' => '2018-12-30 09:43:58',
                     'deleted_at' => NULL,
                 ),
-                103 => 
+            103 =>
                 array (
                     'id' => 104,
                     'custom_module_attribute_value_id' => 308,
@@ -4963,7 +4962,7 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                     'updated_at' => '2018-12-30 09:43:58',
                     'deleted_at' => NULL,
                 ),
-                104 => 
+            104 =>
                 array (
                     'id' => 105,
                     'custom_module_attribute_value_id' => 311,
@@ -4973,7 +4972,7 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                     'updated_at' => '2018-12-30 10:19:55',
                     'deleted_at' => NULL,
                 ),
-                105 => 
+            105 =>
                 array (
                     'id' => 106,
                     'custom_module_attribute_value_id' => 311,
@@ -4991,7 +4990,7 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                     'updated_at' => '2018-12-31 08:31:33',
                     'deleted_at' => NULL,
                 ),
-                106 => 
+            106 =>
                 array (
                     'id' => 107,
                     'custom_module_attribute_value_id' => 314,
@@ -5001,7 +5000,7 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                     'updated_at' => '2018-12-30 10:52:11',
                     'deleted_at' => NULL,
                 ),
-                107 => 
+            107 =>
                 array (
                     'id' => 108,
                     'custom_module_attribute_value_id' => 314,
@@ -5025,7 +5024,7 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                     'updated_at' => '2018-12-30 10:52:11',
                     'deleted_at' => NULL,
                 ),
-                108 => 
+            108 =>
                 array (
                     'id' => 109,
                     'custom_module_attribute_value_id' => 329,
@@ -5035,7 +5034,7 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                     'updated_at' => '2018-12-31 08:04:14',
                     'deleted_at' => NULL,
                 ),
-                109 => 
+            109 =>
                 array (
                     'id' => 110,
                     'custom_module_attribute_value_id' => 329,
@@ -5057,7 +5056,7 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                     'updated_at' => '2019-01-12 13:07:16',
                     'deleted_at' => NULL,
                 ),
-                110 => 
+            110 =>
                 array (
                     'id' => 111,
                     'custom_module_attribute_value_id' => 334,
@@ -5067,7 +5066,7 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                     'updated_at' => '2018-12-31 08:35:30',
                     'deleted_at' => NULL,
                 ),
-                111 => 
+            111 =>
                 array (
                     'id' => 112,
                     'custom_module_attribute_value_id' => 334,
@@ -5077,7 +5076,7 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                     'updated_at' => '2018-12-31 08:35:30',
                     'deleted_at' => NULL,
                 ),
-                112 => 
+            112 =>
                 array (
                     'id' => 113,
                     'custom_module_attribute_value_id' => 335,
@@ -5087,7 +5086,7 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                     'updated_at' => '2018-12-31 08:26:55',
                     'deleted_at' => NULL,
                 ),
-                113 => 
+            113 =>
                 array (
                     'id' => 114,
                     'custom_module_attribute_value_id' => 335,
@@ -5105,7 +5104,7 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                     'updated_at' => '2018-12-31 08:36:24',
                     'deleted_at' => NULL,
                 ),
-                114 => 
+            114 =>
                 array (
                     'id' => 115,
                     'custom_module_attribute_value_id' => 336,
@@ -5115,7 +5114,7 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                     'updated_at' => '2018-12-31 08:31:33',
                     'deleted_at' => NULL,
                 ),
-                115 => 
+            115 =>
                 array (
                     'id' => 116,
                     'custom_module_attribute_value_id' => 336,
@@ -5125,7 +5124,7 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                     'updated_at' => '2018-12-31 08:31:33',
                     'deleted_at' => NULL,
                 ),
-                116 => 
+            116 =>
                 array (
                     'id' => 117,
                     'custom_module_attribute_value_id' => 339,
@@ -5135,7 +5134,7 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                     'updated_at' => '2018-12-31 09:00:03',
                     'deleted_at' => NULL,
                 ),
-                117 => 
+            117 =>
                 array (
                     'id' => 118,
                     'custom_module_attribute_value_id' => 339,
@@ -5149,7 +5148,7 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                     'updated_at' => '2018-12-31 09:00:03',
                     'deleted_at' => NULL,
                 ),
-                118 => 
+            118 =>
                 array (
                     'id' => 119,
                     'custom_module_attribute_value_id' => 344,
@@ -5159,7 +5158,7 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                     'updated_at' => '2018-12-31 10:14:46',
                     'deleted_at' => NULL,
                 ),
-                119 => 
+            119 =>
                 array (
                     'id' => 120,
                     'custom_module_attribute_value_id' => 344,
@@ -5169,7 +5168,7 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                     'updated_at' => '2018-12-31 10:14:46',
                     'deleted_at' => NULL,
                 ),
-                120 => 
+            120 =>
                 array (
                     'id' => 121,
                     'custom_module_attribute_value_id' => 345,
@@ -5179,7 +5178,7 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                     'updated_at' => '2018-12-31 10:14:46',
                     'deleted_at' => NULL,
                 ),
-                121 => 
+            121 =>
                 array (
                     'id' => 122,
                     'custom_module_attribute_value_id' => 345,
@@ -5191,7 +5190,7 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                     'updated_at' => '2019-01-08 13:34:34',
                     'deleted_at' => NULL,
                 ),
-                122 => 
+            122 =>
                 array (
                     'id' => 123,
                     'custom_module_attribute_value_id' => 348,
@@ -5201,7 +5200,7 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                     'updated_at' => '2018-12-31 11:02:08',
                     'deleted_at' => NULL,
                 ),
-                123 => 
+            123 =>
                 array (
                     'id' => 124,
                     'custom_module_attribute_value_id' => 348,
@@ -5211,7 +5210,7 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                     'updated_at' => '2018-12-31 11:02:08',
                     'deleted_at' => NULL,
                 ),
-                124 => 
+            124 =>
                 array (
                     'id' => 125,
                     'custom_module_attribute_value_id' => 349,
@@ -5221,7 +5220,7 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                     'updated_at' => '2018-12-31 11:02:08',
                     'deleted_at' => NULL,
                 ),
-                125 => 
+            125 =>
                 array (
                     'id' => 126,
                     'custom_module_attribute_value_id' => 349,
@@ -5231,7 +5230,7 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                     'updated_at' => '2018-12-31 11:02:08',
                     'deleted_at' => NULL,
                 ),
-                126 => 
+            126 =>
                 array (
                     'id' => 127,
                     'custom_module_attribute_value_id' => 352,
@@ -5241,7 +5240,7 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                     'updated_at' => '2018-12-31 11:19:35',
                     'deleted_at' => NULL,
                 ),
-                127 => 
+            127 =>
                 array (
                     'id' => 128,
                     'custom_module_attribute_value_id' => 352,
@@ -5258,7 +5257,7 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                     'updated_at' => '2018-12-31 11:19:35',
                     'deleted_at' => NULL,
                 ),
-                128 => 
+            128 =>
                 array (
                     'id' => 129,
                     'custom_module_attribute_value_id' => 356,
@@ -5268,7 +5267,7 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                     'updated_at' => '2019-01-06 07:36:13',
                     'deleted_at' => NULL,
                 ),
-                129 => 
+            129 =>
                 array (
                     'id' => 130,
                     'custom_module_attribute_value_id' => 356,
@@ -5290,7 +5289,7 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                     'updated_at' => '2019-01-06 07:40:31',
                     'deleted_at' => NULL,
                 ),
-                130 => 
+            130 =>
                 array (
                     'id' => 131,
                     'custom_module_attribute_value_id' => 359,
@@ -5300,7 +5299,7 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                     'updated_at' => '2019-01-06 07:55:29',
                     'deleted_at' => NULL,
                 ),
-                131 => 
+            131 =>
                 array (
                     'id' => 132,
                     'custom_module_attribute_value_id' => 359,
@@ -5312,7 +5311,7 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                     'updated_at' => '2019-01-06 07:55:29',
                     'deleted_at' => NULL,
                 ),
-                132 => 
+            132 =>
                 array (
                     'id' => 133,
                     'custom_module_attribute_value_id' => 362,
@@ -5322,7 +5321,7 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                     'updated_at' => '2019-01-06 08:51:59',
                     'deleted_at' => NULL,
                 ),
-                133 => 
+            133 =>
                 array (
                     'id' => 134,
                     'custom_module_attribute_value_id' => 362,
@@ -5344,7 +5343,7 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                     'updated_at' => '2019-01-06 08:51:59',
                     'deleted_at' => NULL,
                 ),
-                134 => 
+            134 =>
                 array (
                     'id' => 135,
                     'custom_module_attribute_value_id' => 365,
@@ -5354,7 +5353,7 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                     'updated_at' => '2019-01-06 09:17:52',
                     'deleted_at' => NULL,
                 ),
-                135 => 
+            135 =>
                 array (
                     'id' => 136,
                     'custom_module_attribute_value_id' => 365,
@@ -5364,7 +5363,7 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                     'updated_at' => '2019-01-06 09:17:52',
                     'deleted_at' => NULL,
                 ),
-                136 => 
+            136 =>
                 array (
                     'id' => 137,
                     'custom_module_attribute_value_id' => 366,
@@ -5374,17 +5373,17 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                     'updated_at' => '2019-01-06 09:17:52',
                     'deleted_at' => NULL,
                 ),
-                137 => 
+            137 =>
                 array (
                     'id' => 138,
                     'custom_module_attribute_value_id' => 366,
                     'lang_id' => 2,
-                'text' => '<p><span style="color: rgb(44, 62, 80); font-family: &quot;Simplified Arabic&quot;, serif; font-size: 24px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: justify; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;">للتواصل مع عمادة كلية العلوم الادارية يمكنكم الاتصال على الأرقام الأتية:</span></p>',
+                    'text' => '<p><span style="color: rgb(44, 62, 80); font-family: &quot;Simplified Arabic&quot;, serif; font-size: 24px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: justify; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;">للتواصل مع عمادة كلية العلوم الادارية يمكنكم الاتصال على الأرقام الأتية:</span></p>',
                     'created_at' => '2019-01-06 09:17:52',
                     'updated_at' => '2019-01-06 09:17:52',
                     'deleted_at' => NULL,
                 ),
-                138 => 
+            138 =>
                 array (
                     'id' => 139,
                     'custom_module_attribute_value_id' => 369,
@@ -5392,144 +5391,144 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
                     'text' => '<p style="margin: 0cm 0cm 8pt; text-align: left;"><span style="font-size:12pt"><span style="font-family:&quot;Times New Roman&quot;,serif"><span lang="EN" style="font-size:22.0pt"><span style="background:white"><span style="font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;"><span style="color:#8e44ad">Degrees in the Faculty of Dentistry</span></span></span></span>:</span></span></p>
 
 <p style="margin: 0cm 0cm 8pt; text-align: left;"><span style="font-size:22.0pt"><span style="background:white"><span style="line-height:107%"><span style="font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;"><span style="color:#212121">The Faculty of Dentistry has one specialty :</span></span></span></span></span><b><span style="font-size:22.0pt"><span style="line-height:107%"><span style="font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;">(</span></span></span></b><span style="font-size:22.0pt"><span style="background:white"><span style="line-height:107%"><span style="font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;"><span style="color:#212121"> Bachelor of Dentistry</span></span></span></span></span></p>',
-                        'created_at' => '2019-01-08 08:22:21',
-                        'updated_at' => '2019-01-08 08:29:40',
-                        'deleted_at' => NULL,
-                    ),
-                    139 => 
-                    array (
-                        'id' => 140,
-                        'custom_module_attribute_value_id' => 369,
-                        'lang_id' => 2,
-                        'text' => '<p dir="RTL" style="margin:0cm 0cm 8pt; text-align:right"><span style="color:#8e44ad;"><span style="font-size:11pt"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span lang="AR-SY" style="font-size:22.0pt"><span style="line-height:107%"><span style="font-family:"Simplified Arabic","serif"">الاختصاصات في كل كلية طب اسنان:</span></span></span></b></span></span></span></span></span></span></p>
+                    'created_at' => '2019-01-08 08:22:21',
+                    'updated_at' => '2019-01-08 08:29:40',
+                    'deleted_at' => NULL,
+                ),
+            139 =>
+                array (
+                    'id' => 140,
+                    'custom_module_attribute_value_id' => 369,
+                    'lang_id' => 2,
+                    'text' => '<p dir="RTL" style="margin:0cm 0cm 8pt; text-align:right"><span style="color:#8e44ad;"><span style="font-size:11pt"><span style="line-height:107%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><b><span lang="AR-SY" style="font-size:22.0pt"><span style="line-height:107%"><span style="font-family:"Simplified Arabic","serif"">الاختصاصات في كل كلية طب اسنان:</span></span></span></b></span></span></span></span></span></span></p>
 
 <p dir="RTL" style="text-align:justify; margin:0cm 0cm 8pt"><span style="color:#2c3e50;"><span style="font-size:11pt"><span style="line-height:150%"><span style="direction:rtl"><span style="unicode-bidi:embed"><span style="font-family:Calibri,sans-serif"><span lang="AR-SA" style="font-size:22.0pt"><span style="line-height:150%"><span style="font-family:"Simplified Arabic","serif"">كلية طب الأسنان تخرج اختصاصاً واحداً هو: (إجازة في طب الأسنان)</span></span></span></span></span></span></span></span></span></p>',
-                        'created_at' => '2019-01-08 08:22:21',
-                        'updated_at' => '2019-01-08 08:26:57',
-                        'deleted_at' => NULL,
-                    ),
-                    140 => 
-                    array (
-                        'id' => 141,
-                        'custom_module_attribute_value_id' => 372,
-                        'lang_id' => 1,
-                        'text' => 'faculty of Pharmacy',
-                        'created_at' => '2019-01-08 09:06:55',
-                        'updated_at' => '2019-01-08 09:06:55',
-                        'deleted_at' => NULL,
-                    ),
-                    141 => 
-                    array (
-                        'id' => 142,
-                        'custom_module_attribute_value_id' => 372,
-                        'lang_id' => 2,
-                        'text' => 'كلية الصيدلة',
-                        'created_at' => '2019-01-08 09:06:55',
-                        'updated_at' => '2019-01-08 09:06:55',
-                        'deleted_at' => NULL,
-                    ),
-                    142 => 
-                    array (
-                        'id' => 143,
-                        'custom_module_attribute_value_id' => 373,
-                        'lang_id' => 1,
-                        'text' => '<p>-</p>',
-                        'created_at' => '2019-01-08 09:06:55',
-                        'updated_at' => '2019-01-08 09:06:55',
-                        'deleted_at' => NULL,
-                    ),
-                    143 => 
-                    array (
-                        'id' => 144,
-                        'custom_module_attribute_value_id' => 373,
-                        'lang_id' => 2,
-                        'text' => '<p><span style="color:#2c3e50"><span style="background-color:#ffffff; font-family:Calibri,sans-serif; font-size:24px">للتواصل مع عمادة كلية الصيدلة يمكنكم الاتصال على الأرقام الأتية:</span></span></p>
+                    'created_at' => '2019-01-08 08:22:21',
+                    'updated_at' => '2019-01-08 08:26:57',
+                    'deleted_at' => NULL,
+                ),
+            140 =>
+                array (
+                    'id' => 141,
+                    'custom_module_attribute_value_id' => 372,
+                    'lang_id' => 1,
+                    'text' => 'faculty of Pharmacy',
+                    'created_at' => '2019-01-08 09:06:55',
+                    'updated_at' => '2019-01-08 09:06:55',
+                    'deleted_at' => NULL,
+                ),
+            141 =>
+                array (
+                    'id' => 142,
+                    'custom_module_attribute_value_id' => 372,
+                    'lang_id' => 2,
+                    'text' => 'كلية الصيدلة',
+                    'created_at' => '2019-01-08 09:06:55',
+                    'updated_at' => '2019-01-08 09:06:55',
+                    'deleted_at' => NULL,
+                ),
+            142 =>
+                array (
+                    'id' => 143,
+                    'custom_module_attribute_value_id' => 373,
+                    'lang_id' => 1,
+                    'text' => '<p>-</p>',
+                    'created_at' => '2019-01-08 09:06:55',
+                    'updated_at' => '2019-01-08 09:06:55',
+                    'deleted_at' => NULL,
+                ),
+            143 =>
+                array (
+                    'id' => 144,
+                    'custom_module_attribute_value_id' => 373,
+                    'lang_id' => 2,
+                    'text' => '<p><span style="color:#2c3e50"><span style="background-color:#ffffff; font-family:Calibri,sans-serif; font-size:24px">للتواصل مع عمادة كلية الصيدلة يمكنكم الاتصال على الأرقام الأتية:</span></span></p>
 
 <p dir="RTL" style="margin-right:-19px"><span style="color:#2c3e50"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:22.0pt">العميد&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : 0944577090</span></span></span></span></p>
 
 <p dir="RTL" style="margin-right:-19px"><span style="color:#2c3e50"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:22.0pt">نائب العميد&nbsp;&nbsp; &nbsp;: 0988525255</span></span></span></span></p>
 
 <p dir="RTL" style="margin-right:-19px"><span style="color:#2c3e50"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:22.0pt">رئيس الدائرة&nbsp; &nbsp;&nbsp;: 0956417889</span></span></span></span></p>',
-                        'created_at' => '2019-01-08 09:06:55',
-                        'updated_at' => '2019-01-12 13:32:25',
-                        'deleted_at' => NULL,
-                    ),
-                    144 => 
-                    array (
-                        'id' => 145,
-                        'custom_module_attribute_value_id' => 376,
-                        'lang_id' => 1,
-                        'text' => 'Faculty of Medicine',
-                        'created_at' => '2019-01-08 09:17:50',
-                        'updated_at' => '2019-01-08 09:17:50',
-                        'deleted_at' => NULL,
-                    ),
-                    145 => 
-                    array (
-                        'id' => 146,
-                        'custom_module_attribute_value_id' => 376,
-                        'lang_id' => 2,
-                        'text' => 'كلية طب بشري',
-                        'created_at' => '2019-01-08 09:17:50',
-                        'updated_at' => '2019-01-08 09:17:50',
-                        'deleted_at' => NULL,
-                    ),
-                    146 => 
-                    array (
-                        'id' => 147,
-                        'custom_module_attribute_value_id' => 377,
-                        'lang_id' => 1,
-                        'text' => '<p>-</p>',
-                        'created_at' => '2019-01-08 09:17:50',
-                        'updated_at' => '2019-01-08 09:17:50',
-                        'deleted_at' => NULL,
-                    ),
-                    147 => 
-                    array (
-                        'id' => 148,
-                        'custom_module_attribute_value_id' => 377,
-                        'lang_id' => 2,
-                        'text' => '<p>-</p>',
-                        'created_at' => '2019-01-08 09:17:50',
-                        'updated_at' => '2019-01-08 09:17:50',
-                        'deleted_at' => NULL,
-                    ),
-                    148 => 
-                    array (
-                        'id' => 149,
-                        'custom_module_attribute_value_id' => 380,
-                        'lang_id' => 1,
-                        'text' => 'Faculty of International Relations and Diplomacy',
-                        'created_at' => '2019-01-08 09:42:49',
-                        'updated_at' => '2019-01-08 09:42:49',
-                        'deleted_at' => NULL,
-                    ),
-                    149 => 
-                    array (
-                        'id' => 150,
-                        'custom_module_attribute_value_id' => 380,
-                        'lang_id' => 2,
-                        'text' => 'كلية العلاقات الدولية والدبلوماسية',
-                        'created_at' => '2019-01-08 09:42:49',
-                        'updated_at' => '2019-01-08 09:42:49',
-                        'deleted_at' => NULL,
-                    ),
-                    150 => 
-                    array (
-                        'id' => 151,
-                        'custom_module_attribute_value_id' => 381,
-                        'lang_id' => 1,
-                        'text' => '<p>-</p>',
-                        'created_at' => '2019-01-08 09:42:49',
-                        'updated_at' => '2019-01-08 09:42:49',
-                        'deleted_at' => NULL,
-                    ),
-                    151 => 
-                    array (
-                        'id' => 152,
-                        'custom_module_attribute_value_id' => 381,
-                        'lang_id' => 2,
-                        'text' => '<p dir="RTL" style="text-align:justify"><span style="color:#2c3e50"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:18.0pt"><span style="background-color:white">للتواصل مع عمادة كلية العلاقات الدولية والدبلوماسية يمكنكم الاتصال على الأرقام الأتية</span></span>:</span></span></span></p>
+                    'created_at' => '2019-01-08 09:06:55',
+                    'updated_at' => '2019-01-12 13:32:25',
+                    'deleted_at' => NULL,
+                ),
+            144 =>
+                array (
+                    'id' => 145,
+                    'custom_module_attribute_value_id' => 376,
+                    'lang_id' => 1,
+                    'text' => 'Faculty of Medicine',
+                    'created_at' => '2019-01-08 09:17:50',
+                    'updated_at' => '2019-01-08 09:17:50',
+                    'deleted_at' => NULL,
+                ),
+            145 =>
+                array (
+                    'id' => 146,
+                    'custom_module_attribute_value_id' => 376,
+                    'lang_id' => 2,
+                    'text' => 'كلية طب بشري',
+                    'created_at' => '2019-01-08 09:17:50',
+                    'updated_at' => '2019-01-08 09:17:50',
+                    'deleted_at' => NULL,
+                ),
+            146 =>
+                array (
+                    'id' => 147,
+                    'custom_module_attribute_value_id' => 377,
+                    'lang_id' => 1,
+                    'text' => '<p>-</p>',
+                    'created_at' => '2019-01-08 09:17:50',
+                    'updated_at' => '2019-01-08 09:17:50',
+                    'deleted_at' => NULL,
+                ),
+            147 =>
+                array (
+                    'id' => 148,
+                    'custom_module_attribute_value_id' => 377,
+                    'lang_id' => 2,
+                    'text' => '<p>-</p>',
+                    'created_at' => '2019-01-08 09:17:50',
+                    'updated_at' => '2019-01-08 09:17:50',
+                    'deleted_at' => NULL,
+                ),
+            148 =>
+                array (
+                    'id' => 149,
+                    'custom_module_attribute_value_id' => 380,
+                    'lang_id' => 1,
+                    'text' => 'Faculty of International Relations and Diplomacy',
+                    'created_at' => '2019-01-08 09:42:49',
+                    'updated_at' => '2019-01-08 09:42:49',
+                    'deleted_at' => NULL,
+                ),
+            149 =>
+                array (
+                    'id' => 150,
+                    'custom_module_attribute_value_id' => 380,
+                    'lang_id' => 2,
+                    'text' => 'كلية العلاقات الدولية والدبلوماسية',
+                    'created_at' => '2019-01-08 09:42:49',
+                    'updated_at' => '2019-01-08 09:42:49',
+                    'deleted_at' => NULL,
+                ),
+            150 =>
+                array (
+                    'id' => 151,
+                    'custom_module_attribute_value_id' => 381,
+                    'lang_id' => 1,
+                    'text' => '<p>-</p>',
+                    'created_at' => '2019-01-08 09:42:49',
+                    'updated_at' => '2019-01-08 09:42:49',
+                    'deleted_at' => NULL,
+                ),
+            151 =>
+                array (
+                    'id' => 152,
+                    'custom_module_attribute_value_id' => 381,
+                    'lang_id' => 2,
+                    'text' => '<p dir="RTL" style="text-align:justify"><span style="color:#2c3e50"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:18.0pt"><span style="background-color:white">للتواصل مع عمادة كلية العلاقات الدولية والدبلوماسية يمكنكم الاتصال على الأرقام الأتية</span></span>:</span></span></span></p>
 
 <p dir="RTL" style="text-align:right"><span style="color:#2c3e50"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:18.0pt">عميد كلية العلاقات الدولية والدبلوماسية: </span><span dir="LTR" style="font-size:18.0pt">2153360 </span></span></span></span></p>
 
@@ -5544,66 +5543,66 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
 <p dir="RTL" style="text-align:center"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:18.0pt"><a href="mailto:S.K.FOIR@aspu.edu.sy" style="color:#0563c1; text-decoration:underline">S.K.FOIR@aspu.edu.sy</a></span></span></span></p>
 
 <p dir="RTL" style="text-align:justify"><span style="color:#2c3e50"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:18.0pt">رئيس دائرة العلاقات الدولية والدبلوماسية:</span><span dir="LTR" style="font-size:18.0pt">2153360 &nbsp;</span></span></span></span></p>',
-                        'created_at' => '2019-01-08 09:42:49',
-                        'updated_at' => '2019-01-09 12:28:27',
-                        'deleted_at' => NULL,
-                    ),
-                    152 => 
-                    array (
-                        'id' => 153,
-                        'custom_module_attribute_value_id' => 384,
-                        'lang_id' => 1,
-                        'text' => 'Faculty of Administrative Sciences',
-                        'created_at' => '2019-01-08 09:53:22',
-                        'updated_at' => '2019-01-08 09:53:22',
-                        'deleted_at' => NULL,
-                    ),
-                    153 => 
-                    array (
-                        'id' => 154,
-                        'custom_module_attribute_value_id' => 384,
-                        'lang_id' => 2,
-                        'text' => 'كلية العلوم الادارية',
-                        'created_at' => '2019-01-08 09:53:22',
-                        'updated_at' => '2019-01-08 09:53:22',
-                        'deleted_at' => NULL,
-                    ),
-                    154 => 
-                    array (
-                        'id' => 155,
-                        'custom_module_attribute_value_id' => 385,
-                        'lang_id' => 1,
-                        'text' => '<p>-</p>',
-                        'created_at' => '2019-01-08 09:53:22',
-                        'updated_at' => '2019-01-08 09:53:22',
-                        'deleted_at' => NULL,
-                    ),
-                    155 => 
-                    array (
-                        'id' => 156,
-                        'custom_module_attribute_value_id' => 385,
-                        'lang_id' => 2,
-                        'text' => '<p>-</p>',
-                        'created_at' => '2019-01-08 09:53:22',
-                        'updated_at' => '2019-01-08 09:53:22',
-                        'deleted_at' => NULL,
-                    ),
-                    156 => 
-                    array (
-                        'id' => 157,
-                        'custom_module_attribute_value_id' => 391,
-                        'lang_id' => 1,
-                        'text' => '<p>-</p>',
-                        'created_at' => '2019-01-08 13:06:28',
-                        'updated_at' => '2019-01-08 13:06:28',
-                        'deleted_at' => NULL,
-                    ),
-                    157 => 
-                    array (
-                        'id' => 158,
-                        'custom_module_attribute_value_id' => 391,
-                        'lang_id' => 2,
-                        'text' => '<p dir="RTL" style="text-align:justify"><span style="color:#16a085"><span style="font-size:12pt"><span style="font-family:&quot;Times New Roman&quot;,serif"><strong><span style="font-size:22.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">الزملاء الأعزاء أعضاء الهيئة التدريسية</span></span></strong></span></span></span></p>
+                    'created_at' => '2019-01-08 09:42:49',
+                    'updated_at' => '2019-01-09 12:28:27',
+                    'deleted_at' => NULL,
+                ),
+            152 =>
+                array (
+                    'id' => 153,
+                    'custom_module_attribute_value_id' => 384,
+                    'lang_id' => 1,
+                    'text' => 'Faculty of Administrative Sciences',
+                    'created_at' => '2019-01-08 09:53:22',
+                    'updated_at' => '2019-01-08 09:53:22',
+                    'deleted_at' => NULL,
+                ),
+            153 =>
+                array (
+                    'id' => 154,
+                    'custom_module_attribute_value_id' => 384,
+                    'lang_id' => 2,
+                    'text' => 'كلية العلوم الادارية',
+                    'created_at' => '2019-01-08 09:53:22',
+                    'updated_at' => '2019-01-08 09:53:22',
+                    'deleted_at' => NULL,
+                ),
+            154 =>
+                array (
+                    'id' => 155,
+                    'custom_module_attribute_value_id' => 385,
+                    'lang_id' => 1,
+                    'text' => '<p>-</p>',
+                    'created_at' => '2019-01-08 09:53:22',
+                    'updated_at' => '2019-01-08 09:53:22',
+                    'deleted_at' => NULL,
+                ),
+            155 =>
+                array (
+                    'id' => 156,
+                    'custom_module_attribute_value_id' => 385,
+                    'lang_id' => 2,
+                    'text' => '<p>-</p>',
+                    'created_at' => '2019-01-08 09:53:22',
+                    'updated_at' => '2019-01-08 09:53:22',
+                    'deleted_at' => NULL,
+                ),
+            156 =>
+                array (
+                    'id' => 157,
+                    'custom_module_attribute_value_id' => 391,
+                    'lang_id' => 1,
+                    'text' => '<p>-</p>',
+                    'created_at' => '2019-01-08 13:06:28',
+                    'updated_at' => '2019-01-08 13:06:28',
+                    'deleted_at' => NULL,
+                ),
+            157 =>
+                array (
+                    'id' => 158,
+                    'custom_module_attribute_value_id' => 391,
+                    'lang_id' => 2,
+                    'text' => '<p dir="RTL" style="text-align:justify"><span style="color:#16a085"><span style="font-size:12pt"><span style="font-family:&quot;Times New Roman&quot;,serif"><strong><span style="font-size:22.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">الزملاء الأعزاء أعضاء الهيئة التدريسية</span></span></strong></span></span></span></p>
 
 <p dir="RTL" style="text-align:justify"><span style="color:#16a085"><span style="font-size:12pt"><span style="font-family:&quot;Times New Roman&quot;,serif"><strong><span style="font-size:22.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">الطلاب الأعزاء في كلية الحقوق</span></span></strong></span></span></span></p>
 
@@ -5614,26 +5613,26 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
 <p dir="RTL" style="text-align:justify"><span style="color:#2c3e50"><span style="font-size:12pt"><span style="font-family:&quot;Times New Roman&quot;,serif"><span style="font-size:18.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">كما أود أن أتقدم بالشكر لزملائنا المخلصين على كل ما قدموه ويقدمونه من جهد وإخلاص في عملهم، وفق الله جميع الأساتذة الأجلاء الذين لا يبخلون على جميع أبنائهم بعلمهم وتوجيهاتهم وخبراتهم. كما أتوجه بالتحية إلى الكادر الإداري في الجامعة على جهودهم واتقانهم لعملهم ومتابعتهم الدقيقة لكل الأمور والمستجدات. وتحية حب وتقدير لكل طالب يتفوق في دراسته ويكون قدوةً لغيره علماً وخُلقاً، فعلى عاتقكم تقع مسؤولية كبيرة .. فالوطن بحاجة أبنائه المخلصين الذين يشمِّرون أياديهم الأمينة لإعماره بالحب والعدل والإخلاص والخير. </span></span></span></span></span></p>
 
 <p dir="RTL" style="text-align:justify"><span style="color:#2c3e50"><span style="font-size:12pt"><span style="font-family:&quot;Times New Roman&quot;,serif"><span style="font-size:18.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">دعواتي للجميع بالتوفيق وأن نصل بالعمل والإخلاص لأعلى المراتب وأن يقر الله تعالى أعيننا بأن نرى أبناءنا الطلاب يتقلدون أعلى المناصب وبذلك نكون قد أدينا الأمانة على خير وجه، وفق الله الجميع لما فيه رفعة الوطن وأمنه وأمانه وسلامه. </span></span></span></span></span></p>',
-                        'created_at' => '2019-01-08 13:06:28',
-                        'updated_at' => '2019-01-08 13:06:28',
-                        'deleted_at' => NULL,
-                    ),
-                    158 => 
-                    array (
-                        'id' => 159,
-                        'custom_module_attribute_value_id' => 394,
-                        'lang_id' => 1,
-                        'text' => '<p>-</p>',
-                        'created_at' => '2019-01-08 13:19:51',
-                        'updated_at' => '2019-01-08 13:19:51',
-                        'deleted_at' => NULL,
-                    ),
-                    159 => 
-                    array (
-                        'id' => 160,
-                        'custom_module_attribute_value_id' => 394,
-                        'lang_id' => 2,
-                        'text' => '<p dir="RTL" style="text-align:justify"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:22.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;"><span style="color:#385723">الاختصاصات في كلية الحقوق:</span></span></span></strong></span></span></p>
+                    'created_at' => '2019-01-08 13:06:28',
+                    'updated_at' => '2019-01-08 13:06:28',
+                    'deleted_at' => NULL,
+                ),
+            158 =>
+                array (
+                    'id' => 159,
+                    'custom_module_attribute_value_id' => 394,
+                    'lang_id' => 1,
+                    'text' => '<p>-</p>',
+                    'created_at' => '2019-01-08 13:19:51',
+                    'updated_at' => '2019-01-08 13:19:51',
+                    'deleted_at' => NULL,
+                ),
+            159 =>
+                array (
+                    'id' => 160,
+                    'custom_module_attribute_value_id' => 394,
+                    'lang_id' => 2,
+                    'text' => '<p dir="RTL" style="text-align:justify"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:22.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;"><span style="color:#385723">الاختصاصات في كلية الحقوق:</span></span></span></strong></span></span></p>
 
 <p dir="RTL" style="text-align:justify"><span style="color:#000000"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:22.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;">يوجد قسمين رئيسين في كلية الحقوق هما:</span></span></span></span></span></p>
 
@@ -5643,51 +5642,51 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
 </ul>
 
 <p dir="RTL" style="text-align:justify"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:22.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;"><span style="color:#000000">وتدرس ضمن كل قسم العديد من المقررات التي تسهم في تشكيل البناء القانوني للطالب وإكسابه المهارات القانونية المختلفة</span>.</span></span></span></span></p>',
-                        'created_at' => '2019-01-08 13:19:51',
-                        'updated_at' => '2019-01-08 13:19:51',
-                        'deleted_at' => NULL,
-                    ),
-                    160 => 
-                    array (
-                        'id' => 161,
-                        'custom_module_attribute_value_id' => 397,
-                        'lang_id' => 1,
-                        'text' => '<p>-</p>',
-                        'created_at' => '2019-01-09 09:49:24',
-                        'updated_at' => '2019-01-09 09:49:24',
-                        'deleted_at' => NULL,
-                    ),
-                    161 => 
-                    array (
-                        'id' => 162,
-                        'custom_module_attribute_value_id' => 397,
-                        'lang_id' => 2,
-                        'text' => '<p dir="RTL" style="text-align:justify"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:22.0pt"><span style="color:#843c0c">الاختصاصات في كلية العلاقات الدولية والدبلوماسية:</span></span></strong></span></span></p>
+                    'created_at' => '2019-01-08 13:19:51',
+                    'updated_at' => '2019-01-08 13:19:51',
+                    'deleted_at' => NULL,
+                ),
+            160 =>
+                array (
+                    'id' => 161,
+                    'custom_module_attribute_value_id' => 397,
+                    'lang_id' => 1,
+                    'text' => '<p>-</p>',
+                    'created_at' => '2019-01-09 09:49:24',
+                    'updated_at' => '2019-01-09 09:49:24',
+                    'deleted_at' => NULL,
+                ),
+            161 =>
+                array (
+                    'id' => 162,
+                    'custom_module_attribute_value_id' => 397,
+                    'lang_id' => 2,
+                    'text' => '<p dir="RTL" style="text-align:justify"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:22.0pt"><span style="color:#843c0c">الاختصاصات في كلية العلاقات الدولية والدبلوماسية:</span></span></strong></span></span></p>
 
 <ul>
 <li style="text-align: justify;"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:18.0pt">العلاقات الدولية. </span></span></span></li>
 <li style="text-align: justify;"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><span style="font-size:18.0pt">العلاقات الدبلوماسية.</span></span></span></li>
 </ul>',
-                        'created_at' => '2019-01-09 09:49:24',
-                        'updated_at' => '2019-01-15 13:43:32',
-                        'deleted_at' => NULL,
-                    ),
-                    162 => 
-                    array (
-                        'id' => 163,
-                        'custom_module_attribute_value_id' => 400,
-                        'lang_id' => 1,
-                        'text' => '<p>-</p>',
-                        'created_at' => '2019-01-12 11:20:23',
-                        'updated_at' => '2019-01-12 11:20:23',
-                        'deleted_at' => NULL,
-                    ),
-                    163 => 
-                    array (
-                        'id' => 164,
-                        'custom_module_attribute_value_id' => 400,
-                        'lang_id' => 2,
-                        'text' => '<p dir="RTL" style="text-align:center"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:22.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;"><span style="color:#00b0f0">كلمة عميد الكلية</span></span></span></strong></span></span></p>
+                    'created_at' => '2019-01-09 09:49:24',
+                    'updated_at' => '2019-01-15 13:43:32',
+                    'deleted_at' => NULL,
+                ),
+            162 =>
+                array (
+                    'id' => 163,
+                    'custom_module_attribute_value_id' => 400,
+                    'lang_id' => 1,
+                    'text' => '<p>-</p>',
+                    'created_at' => '2019-01-12 11:20:23',
+                    'updated_at' => '2019-01-12 11:20:23',
+                    'deleted_at' => NULL,
+                ),
+            163 =>
+                array (
+                    'id' => 164,
+                    'custom_module_attribute_value_id' => 400,
+                    'lang_id' => 2,
+                    'text' => '<p dir="RTL" style="text-align:center"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:22.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;"><span style="color:#00b0f0">كلمة عميد الكلية</span></span></span></strong></span></span></p>
 
 <p dir="RTL" style="text-align:center">&nbsp;</p>
 
@@ -5706,46 +5705,46 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
 <p dir="RTL" style="text-align:left"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:22.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;"><span style="color:#00b0f0">عميد كلية الصيدلة في جامعة الشام الخاصة</span></span></span></strong></span></span></p>
 
 <p dir="RTL" style="text-align:left"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:22.0pt"><span style="font-family:&quot;Simplified Arabic&quot;,&quot;serif&quot;"><span style="color:#00b0f0">الأستاذة الدكتورة فايزة القبيلي</span></span></span></strong></span></span></p>',
-                        'created_at' => '2019-01-12 11:20:23',
-                        'updated_at' => '2019-01-12 11:22:23',
-                        'deleted_at' => NULL,
-                    ),
-                    164 => 
-                    array (
-                        'id' => 165,
-                        'custom_module_attribute_value_id' => 404,
-                        'lang_id' => 1,
-                        'text' => 'مجلس الكلية',
-                        'created_at' => '2019-01-15 11:32:09',
-                        'updated_at' => '2019-01-15 11:32:09',
-                        'deleted_at' => NULL,
-                    ),
-                    165 => 
-                    array (
-                        'id' => 166,
-                        'custom_module_attribute_value_id' => 404,
-                        'lang_id' => 2,
-                        'text' => 'مجلس الكلية',
-                        'created_at' => '2019-01-15 11:32:09',
-                        'updated_at' => '2019-01-15 11:32:09',
-                        'deleted_at' => NULL,
-                    ),
-                    166 => 
-                    array (
-                        'id' => 167,
-                        'custom_module_attribute_value_id' => 408,
-                        'lang_id' => 1,
-                        'text' => '<p>-</p>',
-                        'created_at' => '2019-01-20 11:49:19',
-                        'updated_at' => '2019-01-20 11:49:19',
-                        'deleted_at' => NULL,
-                    ),
-                    167 => 
-                    array (
-                        'id' => 168,
-                        'custom_module_attribute_value_id' => 408,
-                        'lang_id' => 2,
-                        'text' => '<p dir="RTL" style="text-align:center"><span style="color:#2c3e50"><span style="font-size:11pt"><span style="background-color:white"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:22.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">كلمة العميد</span></span></strong></span></span></span></span></p>
+                    'created_at' => '2019-01-12 11:20:23',
+                    'updated_at' => '2019-01-12 11:22:23',
+                    'deleted_at' => NULL,
+                ),
+            164 =>
+                array (
+                    'id' => 165,
+                    'custom_module_attribute_value_id' => 404,
+                    'lang_id' => 1,
+                    'text' => 'مجلس الكلية',
+                    'created_at' => '2019-01-15 11:32:09',
+                    'updated_at' => '2019-01-15 11:32:09',
+                    'deleted_at' => NULL,
+                ),
+            165 =>
+                array (
+                    'id' => 166,
+                    'custom_module_attribute_value_id' => 404,
+                    'lang_id' => 2,
+                    'text' => 'مجلس الكلية',
+                    'created_at' => '2019-01-15 11:32:09',
+                    'updated_at' => '2019-01-15 11:32:09',
+                    'deleted_at' => NULL,
+                ),
+            166 =>
+                array (
+                    'id' => 167,
+                    'custom_module_attribute_value_id' => 408,
+                    'lang_id' => 1,
+                    'text' => '<p>-</p>',
+                    'created_at' => '2019-01-20 11:49:19',
+                    'updated_at' => '2019-01-20 11:49:19',
+                    'deleted_at' => NULL,
+                ),
+            167 =>
+                array (
+                    'id' => 168,
+                    'custom_module_attribute_value_id' => 408,
+                    'lang_id' => 2,
+                    'text' => '<p dir="RTL" style="text-align:center"><span style="color:#2c3e50"><span style="font-size:11pt"><span style="background-color:white"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:22.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">كلمة العميد</span></span></strong></span></span></span></span></p>
 
 <p dir="RTL" style="text-align:justify"><span style="color:#2c3e50"><span style="font-size:11pt"><span style="background-color:white"><span style="font-family:Calibri,sans-serif"><span style="font-size:18.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">كلية الهندسة المعلوماتية في جامعة الشام الخاصة واحة إبداع</span></span>&nbsp;<span style="font-size:18.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">وعطاء، تَنشر العلم بأجمل عطاءاته وأرقى صوره</span></span><span dir="LTR" style="font-size:18.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">.</span></span></span></span></span></span></p>
 
@@ -5778,32 +5777,32 @@ class CustomModuleAttributeValueMultiLangsTableSeeder extends Seeder
 <p dir="RTL" style="text-align:left"><span style="color:#2c3e50"><span style="font-size:11pt"><span style="background-color:white"><span style="font-family:Calibri,sans-serif"><strong><span style="font-size:20.0pt"><span style="font-family:&quot;Times New Roman&quot;,serif">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;جــــورج أنــــور كـــــرّاز</span></span></strong><strong>&nbsp;</strong></span></span></span></span></p>
 
 <p dir="RTL" style="text-align:justify">&nbsp;</p>',
-                        'created_at' => '2019-01-20 11:49:19',
-                        'updated_at' => '2019-01-20 11:52:31',
-                        'deleted_at' => NULL,
-                    ),
-                    168 => 
-                    array (
-                        'id' => 169,
-                        'custom_module_attribute_value_id' => 412,
-                        'lang_id' => 1,
-                        'text' => 'Umpcoming Events',
-                        'created_at' => '2019-01-21 11:49:14',
-                        'updated_at' => '2019-01-21 11:49:14',
-                        'deleted_at' => NULL,
-                    ),
-                    169 => 
-                    array (
-                        'id' => 170,
-                        'custom_module_attribute_value_id' => 412,
-                        'lang_id' => 2,
-                        'text' => 'الاخداث القادمة',
-                        'created_at' => '2019-01-21 11:49:14',
-                        'updated_at' => '2019-01-21 11:49:14',
-                        'deleted_at' => NULL,
-                    ),
-                ));
-        
-        
+                    'created_at' => '2019-01-20 11:49:19',
+                    'updated_at' => '2019-01-20 11:52:31',
+                    'deleted_at' => NULL,
+                ),
+            168 =>
+                array (
+                    'id' => 169,
+                    'custom_module_attribute_value_id' => 412,
+                    'lang_id' => 1,
+                    'text' => 'Umpcoming Events',
+                    'created_at' => '2019-01-21 11:49:14',
+                    'updated_at' => '2019-01-21 11:49:14',
+                    'deleted_at' => NULL,
+                ),
+            169 =>
+                array (
+                    'id' => 170,
+                    'custom_module_attribute_value_id' => 412,
+                    'lang_id' => 2,
+                    'text' => 'الاخداث القادمة',
+                    'created_at' => '2019-01-21 11:49:14',
+                    'updated_at' => '2019-01-21 11:49:14',
+                    'deleted_at' => NULL,
+                ),
+        ));
+
+
     }
 }
