@@ -22,7 +22,7 @@ class UserFactory extends GlobalFactory
             ->queryUpdateButton('id')
             ->queryDeleteButton('id')
             ->queryCustomButton('upload_image', 'id', 'fa fa-image', '', 'onclick="showFileUploadModal(this)"')
-            ->when(auth()->user()->can('automata'), function (DataTableBuilder $table) {
+            ->can('automata', function (DataTableBuilder $table) {
                 $table->queryAddColumn('login_as', function ($row) {
                     return "<a href='" . RouteUrls::loginAs($row->id) . "'><i class='icon-login'></i></a>";
                 });

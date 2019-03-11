@@ -35,7 +35,7 @@ class SettingFactory extends GlobalFactory
             ->addMultiInputTextLangs(['name'], 'req required')
             ->addInputText(trans('utilities::app.code'), 'code', 'code', 'required req')
             ->addInputText(trans('utilities::app.value'), 'value', 'value', 'required req')
-            ->when(auth()->user()->can('automata'), function (DataTableBuilder $table) {
+            ->can('automata', function (DataTableBuilder $table) {
                 $table
                     ->addActionButton($this->delete, 'delete', 'delete')
                     ->addActionButton($this->update, 'update', 'update')
