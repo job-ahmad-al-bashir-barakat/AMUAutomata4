@@ -1316,6 +1316,31 @@ class DataTableBuilder
         return $this;
     }
 
+    public function addTranslationsTextarea(
+        $title      = '',
+        $data       = '',
+        $name       = '',
+        $colClass   = '',
+        $dialogAttr = '',
+        $colWidth   = '',
+        $visible    = true,
+        $orderable  = true,
+        $searchable = true,
+        $choosen    = true,
+        $printable  = true
+    )
+    {
+        $this->each($this->langSupportedLocales, function (DataTableBuilder $table, $lang, $code, $index) use ($title, $data, $name, $colClass, $dialogAttr, $colWidth, $visible, $orderable, $searchable, $choosen, $printable) {
+            $table->relation($code, function (DataTableBuilder $table) use ($lang, $code, $index, $title, $data, $name, $colClass, $dialogAttr, $colWidth, $visible, $orderable, $searchable, $choosen, $printable) {
+                $table->addTextArea("{$title} [{$lang['native']}]", [
+                    'table' => "translations.{$index}.{$data}",
+                    'dialog' => "translations{.locale === '{$code}'}.{$data}",
+                ], $name, "{$code} {$colClass}", $dialogAttr, $colWidth, $visible, $orderable, $searchable, $choosen, $printable);
+            });
+        });
+        return $this;
+    }
+
     /**
      * @param array $cols
      * @param string $colClass
