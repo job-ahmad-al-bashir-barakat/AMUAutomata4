@@ -739,6 +739,13 @@ class DataTableBuilder
         return $this;
     }
 
+    public function can($policy, $func)
+    {
+        $this->when(auth()->user()->can($policy), $func);
+
+        return $this;
+    }
+
     function each($items, $func)
     {
         $index = 0;
@@ -1298,16 +1305,13 @@ class DataTableBuilder
         $printable  = true
     )
     {
-        $this->each($this->langSupportedLocales, function (DataTableBuilder $table, $lang, $code, $index) use ($title, $data, $name, $colClass, $dialogAttr, $colWidth, $visible, $orderable, $searchable, $choosen, $printable)
-        {
-            $table
-                ->startRelation($code)
-                ->addInputText("{$title} [{$lang['native']}]", [
+        $this->each($this->langSupportedLocales, function (DataTableBuilder $table, $lang, $code, $index) use ($title, $data, $name, $colClass, $dialogAttr, $colWidth, $visible, $orderable, $searchable, $choosen, $printable) {
+            $table->relation($code, function (DataTableBuilder $table) use ($lang, $code, $index, $title, $data, $name, $colClass, $dialogAttr, $colWidth, $visible, $orderable, $searchable, $choosen, $printable) {
+                $table->addInputText("{$title} [{$lang['native']}]", [
                     'table' => "translations.{$index}.{$data}",
                     'dialog' => "translations{.locale === '{$code}'}.{$data}",
-                ], $name, "{$code} {$colClass}", $dialogAttr, $colWidth, $visible, $orderable, $searchable, $choosen, $printable)
-                ->endRelation()
-            ;
+                ], $name, "{$code} {$colClass}", $dialogAttr, $colWidth, $visible, $orderable, $searchable, $choosen, $printable);
+            });
         });
         return $this;
     }
@@ -2332,18 +2336,17 @@ class DataTableBuilder
 
         $param['class_attr'] = $this->dialogClassAttr($param["class"] ,$param["attr"] ,$param["type"]);
 
+        if (is_array($param['data'])) {
+            $dialogData = $param['data']['dialog'];
+            $tableData = $param['data']['table'];
+            $param['data'] = $tableData;
+        }
+
         $data = empty($param['colLabel']) ? $param["data"] : $param['colLabel'];
         $data = empty($param['templete']) ? $data : $param['templete'];
 
-        if (!is_array($data)) {
-            $data = [
-                'table' => $data,
-                'dialog' => $data,
-            ];
-        }
-
         $column = collect();
-        $column->put('data'       ,$data['table']);
+        $column->put('data'       ,$data);
         $column->put('name'       ,$param["name"]);
         $column->put('class'      ,$param['class_attr']['class_table']);
         $column->put('width'      ,$param["width"]);
@@ -2361,9 +2364,8 @@ class DataTableBuilder
 
         $choosen = $param["choosen"] ? '' : $configChoosen;
 
-        $param['data'] = $data['table'];
         $this->FillTable($param ,$choosen);
-        $param['data'] = $data['dialog'];
+        $param['data'] = $dialogData ?? $param['data'];
         $this->FillDialogDatatable($param ,$choosen);
 
         $this->index += 1;

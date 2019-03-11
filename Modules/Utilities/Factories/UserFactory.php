@@ -43,22 +43,14 @@ class UserFactory extends GlobalFactory
             ->addMultiInputTextLangs(['name'], 'req required')
             ->addMultiTextareaLangs(['summary'], 'req required')
             ->relation('roles', function (DataTableBuilder $table) {
-                $table
-                    ->addMultiAutocomplete('autocomplete/roles', [
-                        'table' => "roles[ ,].lang_name.$this->lang.text",
-                        'dialog' => "roles.lang_name.$this->lang.id",
-                    ], trans('utilities::app.roles'), 'roles.id', "roles.lang_name.$this->lang.text", "roles.lang_name.$this->lang.text", '', 'multiple');
+                $table->addMultiAutocomplete('autocomplete/roles', "roles[,].lang_name.$this->lang.text", trans('utilities::app.roles'), 'roles.id', "roles.lang_name.$this->lang.text", "roles.lang_name.$this->lang.text", '', 'multiple');
             })
             ->relation('permissions', function (DataTableBuilder $table) {
-                $table
-                    ->addMultiAutocomplete('autocomplete/permissions', [
-                        'table' => "permissions[ ,].lang_name.$this->lang.text",
-                        'dialog' => "permissions.lang_name.$this->lang.id",
-                    ], trans('utilities::app.permissions'), 'permissions.id', "permissions.lang_name.$this->lang.text", "permissions.lang_name.$this->lang.text", '', 'multiple');
+                $table->addMultiAutocomplete('autocomplete/permissions', "permissions[,].lang_name.$this->lang.text", trans('utilities::app.permissions'), 'permissions.id', "permissions.lang_name.$this->lang.text", "permissions.lang_name.$this->lang.text", '', 'multiple');
             })
             ->addInputPassword(trans('utilities::app.password'), 'password', 'password', '', '', '', false, false, false, false)
             ->addActionButton(trans('utilities::app.upload_images'), 'upload_image', 'upload_image', 'center all', '100px')
-            ->when(auth()->user()->can('automata'), function (DataTableBuilder $table) {
+            ->can('automata', function (DataTableBuilder $table) {
                 $table->addActionButton(trans('utilities::app.login_as'), 'login_as', 'login_as', 'center all', '100px');
             })
             ->addActionButton($this->update, 'update', 'update')
