@@ -103,6 +103,7 @@ class LoadMoreController extends Controller
 
     private function getQueryBuilderLabs($model)
     {
+        $model = $model::query();
         $facultyId = request('facultyId', false);
         if ($facultyId) {
             $model = $model::whereFacultyId($facultyId);
