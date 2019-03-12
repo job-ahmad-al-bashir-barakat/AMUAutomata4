@@ -1,4 +1,6 @@
-@php($links = $footer->footerLinks->split(2))
+@if($footer)
+    @php($links = $footer->footerLinks->split(2))
+@endif
 <footer id="footer" class="footer pb-0" {{--data-bg-img="images/footer-bg.png"--}} data-bg-color="#25272e" style="{{--background-image: url(&quot;images/footer-bg.png&quot;);--}} background-position: initial !important; background-size: initial !important; background-repeat: initial !important; background-attachment: initial !important; background-origin: initial !important; background-clip: initial !important; background-color: rgb(37, 39, 46) !important;">
     @if($footer)
         <div class="container pt-70 pb-40">
