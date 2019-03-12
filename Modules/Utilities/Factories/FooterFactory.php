@@ -63,15 +63,14 @@ class FooterFactory extends GlobalFactory
                             ->addMultiTextareaLangs(['address'], 'none');
                     });
             }, 'fa fa-phone fa-2x')
-            ->tab(trans('admin::app.social_media'), function (DataTableBuilder $table) {
-                $table
-                    ->each($socialNetworks, function (DataTableBuilder $table, $item) {
-                        $table->relation("contact[social][{$item->id}]", function (DataTableBuilder $table) use ($item) {
-                            $table
-                                ->setDefaultValue('#')
-                                ->addInputText($item->lang_name[$this->lang]['text'], 'contact.social.' . $item->code . '.pivot.url', 'contact.social.' . $item->code . '.pivot.url', 'none', '', '', true, false, true, false);
-                        });
+            ->tab(trans('admin::app.social_media'), function (DataTableBuilder $table) use($socialNetworks) {
+                $table->each($socialNetworks, function (DataTableBuilder $table, $item) {
+                    $table->relation("contact[social][{$item->id}]", function (DataTableBuilder $table) use ($item) {
+                        $table
+                            ->setDefaultValue('#')
+                            ->addInputText($item->lang_name[$this->lang]['text'], 'contact.social.' . $item->code . '.pivot.url', 'contact.social.' . $item->code . '.pivot.url', 'none', '', '', true, false, true, false);
                     });
+                });
             }, 'fa fa-facebook fa-2x')
             ->addActionButton(trans('utilities::app.upload_logo'), 'upload_image', 'upload_image', 'center all', '100px')
             ->addActionButton(trans('utilities::app.footer_links'), 'links', 'links')
