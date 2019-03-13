@@ -101,6 +101,7 @@ return [
     'roles' => 'Roles',
     'permissions' => 'Permissions',
     'pages' => 'Pages',
+    'activity_log' => 'Activity Log',
     'pages-content' => 'Pages Content',
     'page' => 'Page',
     'icon' => 'Icon',

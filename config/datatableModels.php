@@ -34,6 +34,11 @@ return [
         'factory'       => Modules\Utilities\Factories\RoleFactory::class,
     ],
 
+    'activity-log' => [
+        'model'         => Modules\Utilities\Entities\ActivityLog::class,
+        'factory'       => Modules\Utilities\Factories\ActivityLogFactory::class,
+    ],
+
     'langs' => [
         'model'         => Modules\Utilities\Entities\Lang::class,
         'factory'       => Modules\Utilities\Factories\LangFactory::class,

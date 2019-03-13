@@ -20,6 +20,13 @@
         </a>
         <ul id="global" class="nav sidebar-subnav collapse">
             <li class="sidebar-subnav-header">{{ trans('utilities::app.global') }}</li>
+            @can('automata')
+                <li class="">
+                    <a href="{{ RouteUrls::activityLog() }}" class="ajax" title="{{ trans('utilities::app.activity_log') }}">
+                        <span>{{ trans('utilities::app.activity_log') }}</span>
+                    </a>
+                </li>
+            @endcan
             @can('languages')
             <li class="">
                 <a href="{{ RouteUrls::langs() }}" class="ajax" title="{{ trans('utilities::app.langs') }}">

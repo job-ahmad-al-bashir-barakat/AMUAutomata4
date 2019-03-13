@@ -80,6 +80,7 @@ function () {
     Route::get('modules/show', 'UtilitiesController@showModules')->middleware('permission:show-modules')->name('show.modules');
     Route::get('modules', 'UtilitiesController@table')->middleware('permission:modules')->name('table.modules');
 
+    Route::get('activity-log', 'UtilitiesController@table')->middleware('permission:automata')->name('table.activity-log');
     Route::get('langs', 'UtilitiesController@table')->middleware('permission:languages')->name('table.langs');
     Route::get('icons', 'UtilitiesController@table')->middleware('permission:icons')->name('table.icons');
     Route::get('pages', 'UtilitiesController@table')->middleware('permission:pages')->name('table.pages');

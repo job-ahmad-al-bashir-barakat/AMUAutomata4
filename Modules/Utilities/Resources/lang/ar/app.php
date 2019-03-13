@@ -100,6 +100,7 @@ return [
     'roles' => 'الادوار',
     'permissions' => 'سماحيات',
     'pages' => 'الصفحات',
+    'activity_log' => 'تغير البيانات',
     'pages-content' => 'محتوى الصفحات',
     'page' => 'صفحة',
     'icon' => 'ايقونة',

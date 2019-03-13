@@ -107,6 +107,11 @@ class RouteUrls
         return $this->localizeUrl('pages', 'utilities');
     }
 
+    public function activityLog()
+    {
+        return $this->localizeUrl('activity-log', 'utilities');
+    }
+
     public function icons()
     {
         return $this->localizeUrl('icons', 'utilities');

@@ -5,7 +5,7 @@ Route::get('test', function () {
         )->delete();
     return view('test');
     return \Modules\Utilities\Entities\SchemaLanguageTable::with(['languageTable'])->tablesOf('users')->get();*/
-
+    return \Modules\Utilities\Entities\ActivityLog::with(['subject', 'causer'])->get();
     return ['empty' => 'there is nothing set to do'];
 });
 

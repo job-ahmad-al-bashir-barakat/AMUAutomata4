@@ -6,10 +6,13 @@ use Modules\Utilities\Traits\LangInfo;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Aut\Eloquent\Collections\LangModelCollection;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 abstract class LangModel extends Model
 {
-    use SoftDeletes, LangInfo;
+    use SoftDeletes, LangInfo, LogsActivity;
+
+    protected static $logFillable = true;
 
     /**
      * Create a new Eloquent Collection instance.

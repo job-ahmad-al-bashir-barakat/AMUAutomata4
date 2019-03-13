@@ -56,29 +56,29 @@ class PersonFactory extends GlobalFactory
             ->gridSystemConfig(false)
             ->setGridNormalCol(12, 'lg')
             ->tab(trans('admin::app.personal_Info'), function (DataTableBuilder $table) use ($type) {
-                $table
-                    ->startHorizontalTab()
-                    ->when(Person::PERSON_STAFF == \Route::input('model'), function ($table) {
-                        $table->addAutocomplete('autocomplete/faculty', trans('admin::app.faculty'), 'faculty_id', "faculty.transName.text", "faculty.lang_name.$this->lang.text", 'req');
-                    })
-                    ->horizontalTab("name-$type", $this->name, function (DataTableBuilder $table) {
-                        $table->addMultiInputTextLangs(['name'], 'req required');
-                    }, 'req', true)
-                    ->horizontalTab("summary-$type", $this->summary, function (DataTableBuilder $table) {
-                        $table->addMultiTextareaLangs(['summary'], 'req required none text-editor');
-                    }, 'req')
-                    ->horizontalTab("experience-$type", trans('admin::app.experience'), function (DataTableBuilder $table) {
-                        $table->addMultiTextareaLangs(['experience'], 'none text-editor');
-                    })
-                    ->horizontalTab("extra-$type", trans('admin::app.extra_info'), function (DataTableBuilder $table) {
-                        $table
-                            ->addAutocomplete('autocomplete/gender', trans('admin::app.gender'), 'gender_id', "gender.transName.text", "gender.lang_name.$this->lang.text", 'req required none', '', '', true, false, true, false)
-                            ->addAutocomplete('autocomplete/position', trans('utilities::app.position'), 'position_id', "position.transName.text", "position.lang_name.$this->lang.text", 'req required none', '', '', true, false, true, false)
-                            ->relation('jobTitle', function (DataTableBuilder $table) {
-                                $table->addMultiAutocomplete('autocomplete/job-title', "job_title[,].lang_name.$this->lang.text", trans('utilities::app.job_title'), 'job_title.id', "job_title.transName.text", "job_title.lang_name.$this->lang.text", 'req required none', '', '', true, false, false, false);
-                            });
-                    }, 'req')
-                    ->endHorizontalTab();
+                $table->horizontalTabCont(function (DataTableBuilder $table) use ($type) {
+                    $table
+                        ->when(Person::PERSON_STAFF == \Route::input('model'), function ($table) {
+                            $table->addAutocomplete('autocomplete/faculty', trans('admin::app.faculty'), 'faculty_id', "faculty.transName.text", "faculty.lang_name.$this->lang.text", 'req');
+                        })
+                        ->horizontalTab("name-$type", $this->name, function (DataTableBuilder $table) {
+                            $table->addMultiInputTextLangs(['name'], 'req required');
+                        }, 'req', true)
+                        ->horizontalTab("summary-$type", $this->summary, function (DataTableBuilder $table) {
+                            $table->addMultiTextareaLangs(['summary'], 'req required none text-editor');
+                        }, 'req')
+                        ->horizontalTab("experience-$type", trans('admin::app.experience'), function (DataTableBuilder $table) {
+                            $table->addMultiTextareaLangs(['experience'], 'none text-editor');
+                        })
+                        ->horizontalTab("extra-$type", trans('admin::app.extra_info'), function (DataTableBuilder $table) {
+                            $table
+                                ->addAutocomplete('autocomplete/gender', trans('admin::app.gender'), 'gender_id', "gender.transName.text", "gender.lang_name.$this->lang.text", 'req required none', '', '', true, false, true, false)
+                                ->addAutocomplete('autocomplete/position', trans('utilities::app.position'), 'position_id', "position.transName.text", "position.lang_name.$this->lang.text", 'req required none', '', '', true, false, true, false)
+                                ->relation('jobTitle', function (DataTableBuilder $table) {
+                                    $table->addMultiAutocomplete('autocomplete/job-title', "job_title[,].lang_name.$this->lang.text", trans('utilities::app.job_title'), 'job_title.id', "job_title.transName.text", "job_title.lang_name.$this->lang.text", 'req required none', '', '', true, false, false, false);
+                                });
+                        }, 'req');
+                });
             }, 'fa fa-user fa-2x')
             ->tab(trans('admin::app.contact'), function (DataTableBuilder $table) use ($type) {
                 $table->relation('contact', function (DataTableBuilder $table) use ($type) {

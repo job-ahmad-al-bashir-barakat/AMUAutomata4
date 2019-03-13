@@ -3,7 +3,7 @@
 
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.7.14 on 2019-03-10 13:00:26.
+ * Generated for Laravel 5.7.14 on 2019-03-11 13:24:24.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -16134,7 +16134,7 @@ namespace Aut\DataTable {
          *
          * @static 
          */ 
-        public static function tap($title, $func, $icon = '', $class = '', $attr = '')
+        public static function tab($title, $func, $icon = '', $class = '', $attr = '')
         {
             return \Aut\DataTable\DataTableBuilder::tab($title, $func, $icon, $class, $attr);
         }
@@ -16318,6 +16318,16 @@ namespace Aut\DataTable {
         public static function when($condition, $func)
         {
             return \Aut\DataTable\DataTableBuilder::when($condition, $func);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function can($policy, $func)
+        {
+            return \Aut\DataTable\DataTableBuilder::can($policy, $func);
         }
         
         /**
@@ -16595,6 +16605,16 @@ namespace Aut\DataTable {
         public static function addTranslationsInputText($title = '', $data = '', $name = '', $colClass = '', $dialogAttr = '', $colWidth = '', $visible = true, $orderable = true, $searchable = true, $choosen = true, $printable = true)
         {
             return \Aut\DataTable\DataTableBuilder::addTranslationsInputText($title, $data, $name, $colClass, $dialogAttr, $colWidth, $visible, $orderable, $searchable, $choosen, $printable);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function addTranslationsTextarea($title = '', $data = '', $name = '', $colClass = '', $dialogAttr = '', $colWidth = '', $visible = true, $orderable = true, $searchable = true, $choosen = true, $printable = true)
+        {
+            return \Aut\DataTable\DataTableBuilder::addTranslationsTextarea($title, $data, $name, $colClass, $dialogAttr, $colWidth, $visible, $orderable, $searchable, $choosen, $printable);
         }
         
         /**
@@ -17984,6 +18004,16 @@ namespace App\Library\Url\Facades {
         public static function pages()
         {
             return \App\Library\Url\RouteUrls::pages();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function activityLog()
+        {
+            return \App\Library\Url\RouteUrls::activityLog();
         }
         
         /**
