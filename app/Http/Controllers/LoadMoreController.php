@@ -106,7 +106,7 @@ class LoadMoreController extends Controller
         $model = $model::query();
         $facultyId = request('facultyId', false);
         if ($facultyId) {
-            $model = $model::whereFacultyId($facultyId);
+            $model = $model->whereFacultyId($facultyId);
         }
         return $model->paginate(8);
     }
