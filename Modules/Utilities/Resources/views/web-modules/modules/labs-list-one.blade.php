@@ -2,6 +2,9 @@
 @if(request()->route())
     @php(list($type, $typeId, $facultyId) = explode('.', request()->route()->getName()))
 @endif
+@if($data['faculty'] ?? false)
+    @php($facultyId = $data['faculty']->id)
+@endif
 <div class="col-md-{{ $data['width'] }}">
     <div id="labs_list" class="row mtli-row-clearfix">
 
