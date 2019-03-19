@@ -57,5 +57,6 @@ class BasicsSeeder extends Seeder
 
         $this->call(StatusesTableSeeder::class);
         $this->call(StatusNameLangsTableSeeder::class);
+		$this->call(ModuleDescriptionLangsTableSeeder::class);
     }
 }
