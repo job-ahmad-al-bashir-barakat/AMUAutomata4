@@ -174,3 +174,7 @@ td.center {
     float: right;
     font-size: 25px;
 }
+
+.dd3-handle {
+    min-height: 42px;
+}

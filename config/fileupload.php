@@ -281,6 +281,24 @@ return [
         'relationName' => 'image',
     ],
 
+    'book_cover' => [
+        'model' => \Modules\Admin\Entities\Book::class,
+        'ratio' => [
+            'news' => ['width' => '570', 'height' => '390'],
+        ],
+        'thumps' => [
+            'small' => ['width' => '280', 'height' => '160'],
+        ],
+        'relationType' => 'one',
+        'relationName' => 'image',
+    ],
+
+    'book' => [
+        'model' => \Modules\Admin\Entities\Book::class,
+        'relationType' => 'one',
+        'relationId'   => 'file_id',
+    ],
+
     'events' => [
         'model' => \Modules\Utilities\Entities\Event::class,
         'ratio' => [

@@ -231,11 +231,14 @@ mix.copy('Modules/Admin/Assets/vendor/ckeditor', 'public/ckeditor' ,false);
 mix.copy('Modules/Admin/Assets/vendor/app/css/theme-*.css', 'public/css');
 mix.copy('Modules/Admin/Assets/theme-custom.css', 'public');
 mix.copy('node_modules/leaflet/dist/leaflet.css', 'public/css');
+mix.copy('node_modules/leaflet-fullscreen/dist/leaflet.fullscreen.css', 'public/css');
 mix.copy('node_modules/leaflet/dist/leaflet.js', 'public/js');
+mix.copy('node_modules/leaflet-fullscreen/dist/leaflet.fullscreen.js', 'public/js');
 
 mix.copy('Aut/GoogleMap/src/Assets/plugin/jQuery-gMap/marker_red.png', 'public/images' ,false);
 mix.copy('Aut/GoogleMap/src/Assets/plugin/jQuery-gMap/marker_red.png', 'public/css/images/marker-icon.png' ,false);
 mix.copy('node_modules/leaflet/dist/images/marker-shadow.png', 'public/css/images/' ,false);
+mix.copy('node_modules/leaflet-fullscreen/dist/fullscreen.png', 'public/css/' ,false);
 mix.copy('Modules/Admin/Assets/vendor/app/i18n', 'public/i18n');
 
 // mix.copy('Modules/Admin/Assets/vendor/jquery-ui/themes/smoothness/images', 'public/css/images');

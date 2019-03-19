@@ -126,6 +126,70 @@
         </ul>
     </li>
     @endif
+    @if(auth()->user()->hasAnyPermission([
+        'students',
+        'top-students',
+        'top-student-rank',
+    ]))
+        <li class="">
+            <a href="#students" title="Students" data-toggle="collapse">
+                <em class="icon-graduation"></em>
+                <span>{{ trans('admin::app.students') }}</span>
+            </a>
+            <ul id="students" class="nav sidebar-subnav collapse">
+                <li class="sidebar-subnav-header">{{ trans('admin::app.person') }}</li>
+                @can('students')
+                    <li class="">
+                        <a href="{{ RouteUrls::student() }}" class="ajax" title="{{ trans('admin::app.student') }}">
+                            <span>{{ trans('admin::app.student') }}</span>
+                        </a>
+                    </li>
+                @endcan
+                @can('top-student-rank')
+                    <li class="">
+                        <a href="{{ RouteUrls::topStudentRank() }}" class="ajax" title="{{ trans('admin::app.top_student_rank') }}">
+                            <span>{{ trans('admin::app.top_student_rank') }}</span>
+                        </a>
+                    </li>
+                @endcan
+                @can('top-students')
+                    <li class="">
+                        <a href="{{ RouteUrls::topStudent() }}" class="ajax" title="{{ trans('admin::app.top_students') }}">
+                            <span>{{ trans('admin::app.top_students') }}</span>
+                        </a>
+                    </li>
+                @endcan
+            </ul>
+        </li>
+    @endif
+    @if(auth()->user()->hasAnyPermission([
+        'authors',
+        'books',
+    ]))
+        <li class="">
+            <a href="#library" title="Library" data-toggle="collapse">
+                <em class="icon-book-open"></em>
+                <span>{{ trans('admin::app.library') }}</span>
+            </a>
+            <ul id="library" class="nav sidebar-subnav collapse">
+                <li class="sidebar-subnav-header">{{ trans('admin::app.authors') }}</li>
+                @can('authors')
+                    <li class="">
+                        <a href="{{ RouteUrls::authors() }}" class="ajax" title="{{ trans('admin::app.authors') }}">
+                            <span>{{ trans('admin::app.authors') }}</span>
+                        </a>
+                    </li>
+                @endcan
+                @can('books')
+                    <li class="">
+                        <a href="{{ RouteUrls::books() }}" class="ajax" title="{{ trans('admin::app.books') }}">
+                            <span>{{ trans('admin::app.books') }}</span>
+                        </a>
+                    </li>
+                @endcan
+            </ul>
+        </li>
+    @endif
     @can('tenders')
         <li class="">
             <a href="{{ RouteUrls::tenders() }}" class="ajax" title="{{ trans('admin::app.tenders') }}">
@@ -164,6 +228,13 @@
 @endsection
 
 @section('_aside_setting_admin')
+    @can('study-semester')
+        <li class="">
+            <a href="{{ RouteUrls::studySemesters() }}" class="ajax" title="{{ trans('admin::app.study_semester') }}">
+                <span>{{ trans('admin::app.study_semester') }}</span>
+            </a>
+        </li>
+    @endcan
     @can('study-year')
     <li class="">
         <a href="{{ RouteUrls::studyYear() }}" class="ajax" title="{{ trans('admin::app.study_year') }}">

@@ -88,6 +88,13 @@ return array(
     'logo' => 'الشعار',
     'all' => 'الكل',
     'until' => 'حتى',
+    'year' => 'سنة',
+    'semester' => 'فصل',
+    'semester_code' => 'رمز الفصل',
+    'study_semester_types' => 'نوقع الفصل الدراسي',
+    'rank' => 'المركز',
+    'iban' => 'ايبان',
+    'author' => 'مؤلف',
     /*
      * 404
      */

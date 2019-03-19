@@ -7,7 +7,7 @@
                         <div class="item user-block">
                             <div class="user-block-picture">
                                 <div class="user-block-status">
-                                    <img src="{{ asset(Auth::user()->image_path) }}" alt="{{ 'Avatar' }}" width="60" height="60"
+                                    <img src="{{ asset(Auth::user()->image_path ?: 'img/user/02.jpg') }}" alt="{{ 'Avatar' }}" width="60" height="60"
                                          class="img-thumbnail img-circle">
                                 </div>
                             </div>

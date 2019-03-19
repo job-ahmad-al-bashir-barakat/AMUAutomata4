@@ -3,7 +3,7 @@
 
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.7.14 on 2019-03-13 13:05:40.
+ * Generated for Laravel 5.7.14 on 2019-03-19 11:37:43.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -18462,6 +18462,56 @@ namespace App\Library\Url\Facades {
          *
          * @static 
          */ 
+        public static function student()
+        {
+            return \App\Library\Url\RouteUrls::student();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function topStudentRank()
+        {
+            return \App\Library\Url\RouteUrls::topStudentRank();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function topStudent()
+        {
+            return \App\Library\Url\RouteUrls::topStudent();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function authors()
+        {
+            return \App\Library\Url\RouteUrls::authors();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function books()
+        {
+            return \App\Library\Url\RouteUrls::books();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
         public static function managementStaff()
         {
             return \App\Library\Url\RouteUrls::managementStaff();
@@ -18495,6 +18545,16 @@ namespace App\Library\Url\Facades {
         public static function status()
         {
             return \App\Library\Url\RouteUrls::status();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function studySemesters()
+        {
+            return \App\Library\Url\RouteUrls::studySemesters();
         }
         
         /**

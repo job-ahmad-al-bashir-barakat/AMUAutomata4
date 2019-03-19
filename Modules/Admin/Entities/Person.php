@@ -21,9 +21,11 @@ class Person extends Model
     const IMAGE_PATH = 'storage/upload/image/';
 
     const PERSON_UNIVERSITY_COUNCIL = 'university-council';
-    const PERSON_BOARD_OF_TRUSTEES  = 'board-of-trustees';
-    const MANAGEMENT_STAFF          = 'management-staff';
-    const PERSON_STAFF              = 'staff';
+    const PERSON_BOARD_OF_TRUSTEES = 'board-of-trustees';
+    const MANAGEMENT_STAFF = 'management-staff';
+    const PERSON_STAFF = 'staff';
+    const STUDENT = 'student';
+    const AUTHOR = 'author';
 
     protected $fillable = ['type' ,'image_260_id','image_360_id' ,'gender_id' ,'position_id' ,'contact_id', 'faculty_id'];
 
@@ -124,6 +126,11 @@ class Person extends Model
     function contact()
     {
         return $this->belongsTo(Contact::class);
+    }
+
+    function academic()
+    {
+        return $this->hasOne(StudentAcademicInfo::class, 'person_id');
     }
 
     function faculty()

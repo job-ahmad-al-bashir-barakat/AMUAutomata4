@@ -12,9 +12,8 @@
   "devDependencies": {
     "cross-env": "^5.1",
     "laravel-mix": "^2.0",
-    "lodash": "^4.17.5"
-  },
-  "dependencies": {
+    "leaflet-fullscreen": "^1.0.2",
+    "lodash": "^4.17.5",
     "jquery-validation": "^1.16.0",
     "jspath": "^0.4.0",
     "leaflet": "^1.4.0",

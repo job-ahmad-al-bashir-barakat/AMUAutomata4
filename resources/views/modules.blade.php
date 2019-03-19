@@ -35,6 +35,7 @@
     <link href="{{ asset("css/colors/theme-skin-color-set-{$color}.css") }}" rel="stylesheet" type="text/css">
     <!-- <link href="css/style.css" rel="stylesheet" type="text/css"> -->
     <link href="{{ asset('css/leaflet.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('css/leaflet.fullscreen.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('theme-custom.css') }}" rel="stylesheet" type="text/css">
 </head>
 <body class="">
@@ -53,6 +54,7 @@
 </script>
 <script src="{{ asset(mix('js/main.js')) }}"></script>
 <script src="{{ asset(mix('js/leaflet.js')) }}"></script>
+<script src="{{ asset(mix('js/leaflet.fullscreen.js')) }}"></script>
 <script src="{{ asset(mix('js/revolution-slider/js/revolution-slider.js')) }}"></script>
 <script src="{{ asset(mix('js/revolution-slider/js/extensions/revolution-slider-extensions.js')) }}"></script>
 <!--[if lt IE 9]>
@@ -213,7 +215,8 @@
                     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 }).addTo(map);
 
-                L.marker(geolocation).addTo(map)
+                L.marker(geolocation).addTo(map);
+                map.addControl(new L.Control.Fullscreen());
                 /*.bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
                 .openPopup()*/;
             }

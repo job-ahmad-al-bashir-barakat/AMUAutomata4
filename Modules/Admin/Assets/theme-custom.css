@@ -270,3 +270,7 @@ a {
     text-decoration: none;
     line-height: 1.6;
 }
+
+.leaflet-top, .leaflet-bottom, leaflet-right, leaflet-left {
+    z-index: 400;
+}

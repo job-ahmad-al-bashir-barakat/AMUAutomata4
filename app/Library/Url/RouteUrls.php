@@ -335,6 +335,31 @@ class RouteUrls
         return $this->localizeUrl('staff', 'admin');
     }
 
+    public function student()
+    {
+        return $this->localizeUrl('student', 'admin');
+    }
+
+    public function topStudentRank()
+    {
+        return $this->localizeUrl('top-student-rank', 'admin');
+    }
+
+    public function topStudent()
+    {
+        return $this->localizeUrl('top-student', 'admin');
+    }
+
+    public function authors()
+    {
+        return $this->localizeUrl('author', 'admin');
+    }
+
+    public function books()
+    {
+        return $this->localizeUrl('books', 'admin');
+    }
+
     public function managementStaff()
     {
         return $this->localizeUrl('management-staff', 'admin');
@@ -353,6 +378,11 @@ class RouteUrls
     public function status()
     {
         return $this->localizeUrl('status', 'admin');
+    }
+
+    public function studySemesters()
+    {
+        return $this->localizeUrl('study-semester', 'admin');
     }
 
     public function studyYear()

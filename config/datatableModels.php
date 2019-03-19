@@ -262,6 +262,28 @@ return [
         'stopOperation' => ['store']
     ],
 
+    'student' => [
+        'model'         => Modules\Admin\Entities\Person::class,
+        'factory'       => Modules\Admin\Factories\PersonFactory::class,
+        'stopOperation' => ['store']
+    ],
+
+    'author' => [
+        'model'         => Modules\Admin\Entities\Person::class,
+        'factory'       => Modules\Admin\Factories\PersonFactory::class,
+        'stopOperation' => ['store']
+    ],
+
+    'top-student-rank' => [
+        'model'         => Modules\Admin\Entities\TopStudentRank::class,
+        'factory'       => Modules\Admin\Factories\TopStudentRankFactory::class,
+    ],
+
+    'top-students' => [
+        'model'         => Modules\Admin\Entities\TopStudent::class,
+        'factory'       => Modules\Admin\Factories\TopStudentFactory::class,
+    ],
+
     'researches' => [
         'model'         => Modules\Admin\Entities\Research::class,
         'factory'       => Modules\Admin\Factories\ResearchFactory::class,
@@ -301,6 +323,11 @@ return [
         'factory' => \Modules\Admin\Factories\StudyYearFactory::class,
     ],
 
+    'study-semester' => [
+        'model'   => \Modules\Admin\Entities\StudySemester::class,
+        'factory' => \Modules\Admin\Factories\StudySemesterFactory::class,
+    ],
+
     'hierarchy-type' => [
         'model'   => \Modules\Admin\Entities\HierarchyType::class,
         'factory' => \Modules\Admin\Factories\HierarchyTypeFactory::class,
@@ -319,6 +346,11 @@ return [
     'tenders' => [
         'model'   => \Modules\Admin\Entities\Tender::class,
         'factory' => \Modules\Admin\Factories\TendersFactory::class,
+    ],
+
+    'books' => [
+        'model'   => \Modules\Admin\Entities\Book::class,
+        'factory' => \Modules\Admin\Factories\BookFactory::class,
     ],
 
     'list' => [

@@ -200,6 +200,24 @@ return [
         'model' => \Modules\Admin\Entities\Person::class,
     ],
 
+    'students' => [
+        'model' => \Modules\Admin\Entities\Person::class,
+        'conditions' => [
+            ['type' ,'=' ,'student'],
+        ],
+    ],
+
+    'authors' => [
+        'model' => \Modules\Admin\Entities\Person::class,
+        'conditions' => [
+            ['type' ,'=' ,'author'],
+        ],
+    ],
+
+    'top-ranks' => [
+        'model' => \Modules\Admin\Entities\TopStudentRank::class,
+    ],
+
     'gender' => [
         'model' => \Modules\Utilities\Entities\Gender::class,
     ],
@@ -226,6 +244,10 @@ return [
         'q'       => false,
         'colName' => 'title_autocomplete',
         'colId'   => 'id',
+    ],
+
+    'study-semester' => [
+        'model'       => \Modules\Admin\Entities\StudySemester::class,
     ],
 
     'study-year' => [

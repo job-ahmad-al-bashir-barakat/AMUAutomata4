@@ -88,6 +88,13 @@ return array(
     'logo' => 'Logo',
     'all' => 'All',
     'until' => 'Until',
+    'year' => 'Year',
+    'semester' => 'Semester',
+    'semester_code' => 'Semester Code',
+    'study_semester_types' => 'Study Semester Type',
+    'rank' => 'Rank',
+    'iban' => 'IBAN',
+    'author' => 'Author',
     /*
     * 404
     */

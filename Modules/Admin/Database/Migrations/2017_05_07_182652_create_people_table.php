@@ -20,8 +20,8 @@ class CreatePeopleTable extends Migration
             $table->integer('image_260_id')->nullable()->unsigned();
             $table->integer('image_360_id')->nullable()->unsigned();
             $table->integer('gender_id')->unsigned();
-            $table->integer('position_id')->unsigned();
-            $table->integer('contact_id')->unsigned();
+            $table->integer('position_id')->unsigned()->nullable();
+            $table->integer('contact_id')->unsigned()->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
