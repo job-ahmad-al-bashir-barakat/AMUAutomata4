@@ -46,6 +46,14 @@
         @include('utilities::web-modules.modules.modules')
     </div>
     @include('theme.footer')
+    <aside id="sticky-social">
+        <ul>
+            <li><a target="_blank" class="fa fa-facebook" href="{{setting('facebook_page')->value}}"><span>Facebook</span></a></li>
+            <li><a target="_blank" class="fa fa-wikipedia-w" href="{{setting('wiki_page')->value}}"><span>Wiki</span></a></li>
+            <li><a target="_blank" class="fa fa-google-plus" href="{{setting('google_account')->value}}"><span>Google+</span></a></li>
+            <li><a target="_blank" class="fa fa-youtube" href="{{setting('youtube_channel')->value}}"><span>Youtube</span></a></li>
+        </ul>
+    </aside>
 </div>
 <script>
     DIR = '{{ $dir }}';
