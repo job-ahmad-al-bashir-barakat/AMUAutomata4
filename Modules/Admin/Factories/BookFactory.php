@@ -34,7 +34,7 @@ class BookFactory extends GlobalFactory
             ->config('datatable-books' ,trans('admin::app.books'))
             ->addPrimaryKey('id','id')
             ->addMultiInputTextLangs(['name'], 'req required')
-            ->addInputText(trans('app.iban'), 'iban', 'iban')
+            ->addInputText(trans('app.isbn'), 'isbn', 'isbn')
             ->addAutocomplete('autocomplete/authors', trans('app.author'), 'author_id', 'author.transName.text', "author.lang_name.$this->lang.text")
             ->addActionButton(trans('admin::app.upload_image'), 'upload_image', 'upload_image', 'center all', '60px')
             ->addActionButton(trans('admin::app.upload_file'), 'upload_file', 'upload_file', 'center all', '60px')

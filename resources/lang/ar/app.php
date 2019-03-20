@@ -93,7 +93,7 @@ return array(
     'semester_code' => 'رمز الفصل',
     'study_semester_types' => 'نوقع الفصل الدراسي',
     'rank' => 'المركز',
-    'iban' => 'ISBN',
+    'isbn' => 'ISBN',
     'author' => 'مؤلف',
     /*
      * 404

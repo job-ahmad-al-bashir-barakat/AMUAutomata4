@@ -13,7 +13,7 @@ class Book extends Model
 {
     use SoftDeletes ,MultiLangs;
 
-    protected $fillable = ['author_id', 'iban', 'image_id', 'file_id'];
+    protected $fillable = ['author_id', 'isbn', 'image_id', 'file_id'];
 
     protected $appends = ['lang_name'];
 

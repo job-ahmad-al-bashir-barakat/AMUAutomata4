@@ -15,7 +15,7 @@ class CreateBooksTable extends Migration
     {
         Schema::create('books', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('iban');
+            $table->string('isbn');
             $table->unsignedInteger('author_id');
             $table->unsignedInteger('image_id')->nullable();
             $table->unsignedInteger('file_id')->nullable();

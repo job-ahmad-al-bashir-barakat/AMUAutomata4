@@ -93,7 +93,7 @@ return array(
     'semester_code' => 'Semester Code',
     'study_semester_types' => 'Study Semester Type',
     'rank' => 'Rank',
-    'iban' => 'ISBN',
+    'isbn' => 'ISBN',
     'author' => 'Author',
     /*
     * 404
