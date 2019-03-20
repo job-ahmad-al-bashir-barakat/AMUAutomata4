@@ -22,7 +22,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="widget no-border m-0 mr-15 pull-right flip sm-pull-none sm-text-center">
+                    <div class="widget no-border m-0 mr-15 pull-right sm-pull-none sm-text-center">
                         <ul class="styled-icons icon-circled icon-sm pull-right flip sm-pull-none sm-text-center mt-sm-15">
                             <li><a target="_blank" href="{{setting('facebook_page')->value}}"><i class="fa fa-facebook text-white"></i></a></li>
                             <li><a target="_blank" href="{{setting('wiki_page')->value}}"><i class="fa fa-wikipedia-w text-white"></i></a></li>
@@ -45,7 +45,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4">
+                {{--<div class="col-xs-12 col-sm-4 col-md-4">
                     <div class="widget no-border pull-right sm-pull-none sm-text-center" style="{{setting('hot_line_style')->value}}">
                         <ul class="list-inline">
                             <li><i class="fa fa-phone-square text-theme-colored font-36 mt-5 sm-display-block"></i></li>
@@ -55,8 +55,8 @@
                             </li>
                         </ul>
                     </div>
-                </div>
-                <div class="col-xs-12 col-sm-4 col-md-3">
+                </div>--}}
+                <div class="col-xs-12 col-sm-4 col-md-3 pull-{{ $dir == 'rtl' ? 'left' : 'right' }}">
                     <div class="widget no-border m-0">
                         <a class="menuzord-brand pull-left flip xs-pull-center mb-15" href="javascript:void(0)">
                             <img  style="{{setting('moto_style')->value}}" src="{{ asset('images/university-moto-'.$lang.'.png') }}" alt="">
@@ -65,7 +65,7 @@
                             <a rel="alternate" hreflang="{{ $localeCode }}" href="{{ RouteUrls::translatedCurrentRoute($localeCode) }}">
                                 {{ $properties['native'] }}
                             </a>
-                            @if($localeCode <> 'ar')
+                            @if(!$loop->last)
                                 <span> - </span>
                             @endif
                         @endforeach
