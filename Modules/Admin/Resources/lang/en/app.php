@@ -62,6 +62,8 @@ return [
     'gpa'                => 'GPA',
     'top_student_rank'                => 'Top Student Rank',
     'study_level'                => 'Study Level',
+    'authors'                => 'Authors',
+    'library'                => 'Library',
 
     'responsible_person' => 'Responsible Person',
     'address1'           => 'First Address',
