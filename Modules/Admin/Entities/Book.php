@@ -58,6 +58,6 @@ class Book extends Model
         if (!$this->file) {
             return '';
         }
-        return  self::FILE_PATH . 'pdf/books/' . $this->file->hash_name;
+        return  self::FILE_PATH . "{$this->file->type}/books/{$this->file->hash_name}";
     }
 }
