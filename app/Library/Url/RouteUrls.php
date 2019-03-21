@@ -250,6 +250,11 @@ class RouteUrls
         return $this->localizeUrl('load-more/labs');
     }
 
+    public function booksListHtml()
+    {
+        return $this->localizeUrl('load-more/books');
+    }
+
     public function newsListHtml()
     {
         return $this->localizeUrl('load-more/news');

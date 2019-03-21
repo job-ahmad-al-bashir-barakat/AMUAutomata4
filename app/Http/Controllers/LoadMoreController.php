@@ -41,6 +41,13 @@ class LoadMoreController extends Controller
             'var' => 'labs',
         ],
 
+        'books' => [
+            'model' => \Modules\Admin\Entities\Book::class,
+            'view' => 'utilities::web-modules.modules.sub.books-card-1',
+            'func' => 'books',
+            'var' => 'books',
+        ],
+
         'offices' => [
             'model' => \Modules\Admin\Entities\UniversityOffice::class,
             'view' => 'utilities::web-modules.modules.sub.offices-card-1',
@@ -108,6 +115,12 @@ class LoadMoreController extends Controller
         if ($facultyId) {
             $model = $model->whereFacultyId($facultyId);
         }
+        return $model->paginate(8);
+    }
+
+    private function getQueryBuilderBooks($model)
+    {
+        $model = $model::with(['image', 'file', 'author']);
         return $model->paginate(8);
     }
 

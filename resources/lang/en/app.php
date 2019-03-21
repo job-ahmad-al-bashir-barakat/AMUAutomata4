@@ -95,6 +95,8 @@ return array(
     'rank' => 'Rank',
     'isbn' => 'ISBN',
     'author' => 'Author',
+    'download' => 'Download',
+
     /*
     * 404
     */

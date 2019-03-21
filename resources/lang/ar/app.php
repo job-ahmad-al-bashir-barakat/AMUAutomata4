@@ -94,7 +94,9 @@ return array(
     'study_semester_types' => 'نوقع الفصل الدراسي',
     'rank' => 'المركز',
     'isbn' => 'ISBN',
-    'author' => 'مؤلف',
+    'author' => 'المؤلف',
+    'download' => 'تحميل',
+
     /*
      * 404
      */

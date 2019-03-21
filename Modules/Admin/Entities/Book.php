@@ -13,9 +13,12 @@ class Book extends Model
 {
     use SoftDeletes ,MultiLangs;
 
+    const IMAGE_PATH = 'storage/upload/image/';
+    const FILE_PATH = 'storage/upload/';
+
     protected $fillable = ['author_id', 'isbn', 'image_id', 'file_id'];
 
-    protected $appends = ['lang_name'];
+    protected $appends = ['lang_name', 'image_path', 'file_path'];
 
     public function transName()
     {
@@ -40,5 +43,21 @@ class Book extends Model
     public function author()
     {
         return $this->belongsTo(Person::class, 'author_id')->where('type', 'author');
+    }
+
+    public function getImagePathAttribute()
+    {
+        if (!$this->image) {
+            return '';
+        }
+        return  self::IMAGE_PATH . 'book_covers/' . $this->image->hash_name;
+    }
+
+    public function getFilePathAttribute()
+    {
+        if (!$this->file) {
+            return '';
+        }
+        return  self::FILE_PATH . 'pdf/books/' . $this->file->hash_name;
     }
 }

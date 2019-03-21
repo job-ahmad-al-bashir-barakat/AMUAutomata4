@@ -116,6 +116,8 @@ trait ModuleTrait
                 return new LinkListModule();
             case 48:
                 return new EventsListModule();
+            case 49:
+                return new BooksListOneModule();
             default:
                 throw new \Exception("Undefined Web Module [id:$moduleId]");
         }
