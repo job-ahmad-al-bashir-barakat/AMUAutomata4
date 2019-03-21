@@ -96,6 +96,8 @@ return array(
     'isbn' => 'ISBN',
     'author' => 'المؤلف',
     'download' => 'تحميل',
+    'graduate_semester' => 'فصل التخرج',
+    'graduated_student' => 'الخريجين',
 
     /*
      * 404

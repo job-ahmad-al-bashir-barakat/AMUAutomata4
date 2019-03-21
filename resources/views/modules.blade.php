@@ -71,6 +71,16 @@
 <script type="text/javascript">
     $(document).ready(function(e) {
 
+        $(document).on('click', '[data-filter]', function () {
+            var $this = $(this);
+            var filter = $this.data('filter');
+            $('.filters').addClass('hide');
+            $(filter).removeClass('hide');
+            $('#title').html($this.find('#title_text').html());
+        });
+
+        $('[data-filter]:first').click();
+
         $(document).on('click', 'a.ajax-link-module', function (e) {
             e.preventDefault();
             var $this = $(this);

@@ -118,6 +118,8 @@ trait ModuleTrait
                 return new EventsListModule();
             case 49:
                 return new BooksListOneModule();
+            case 50:
+                return new GraduatedStudentsModule();
             default:
                 throw new \Exception("Undefined Web Module [id:$moduleId]");
         }
@@ -229,6 +231,10 @@ trait ModuleTrait
                 return new LinkListModule();
             case 'events_list':
                 return new EventsListModule();
+            case 'books_list_1':
+                return new BooksListOneModule();
+            case 'graduated_students':
+                return new GraduatedStudentsModule();
             default:
                 throw new \Exception("Undefined Web Module [$moduleCode]");
         }

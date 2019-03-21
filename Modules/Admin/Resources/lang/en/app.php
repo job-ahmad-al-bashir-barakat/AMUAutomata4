@@ -28,7 +28,8 @@ return [
     'publish_date'       => 'Publish Date',
     'books'              => 'Books',
     'book'               => 'Book',
-    'tenders'               => 'Tenders',
+    'tenders'            => 'Tenders',
+    'academic_info'           => 'Academic',
 
     'name'               => 'Name',
     'type'               => 'Type',

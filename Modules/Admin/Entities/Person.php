@@ -71,6 +71,11 @@ class Person extends Model
         return $query->where('type', self::PERSON_STAFF);
     }
 
+    public function scopeStudent($query)
+    {
+        return $query->where('type', self::STUDENT);
+    }
+
     /*
      * translate
      */

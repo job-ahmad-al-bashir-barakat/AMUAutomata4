@@ -103,8 +103,8 @@ class PersonFactory extends GlobalFactory
         }
 
         if ($request->get('academic')) {
-            request()->merge(['academic' => ['graduate_semester_id' => request('academic.graduate_semester_id')]]);
             $academic = $request->get('academic');
+            $academic['graduate_semester_id'] = request('academic.graduate_semester_id');
             $person->academic()->updateOrCreate(['person_id' => $person->id], $academic);
         }
 
@@ -118,10 +118,11 @@ class PersonFactory extends GlobalFactory
 
         $result->contact->socialNetwork()->sync($request->input('contact.social'));
 
-        request()->merge(['academic' => ['graduate_semester_id' => request('academic.graduate_semester_id')]]);
+        if ($request->get('academic')) {
+            $academic = $request->get('academic');
+            $academic['graduate_semester_id'] = request('academic.graduate_semester_id');
+            $result->academic()->updateOrCreate(['person_id' => $result->id], $academic);
+        }
 
-        $academic = $request->get('academic');
-
-        $result->academic()->updateOrCreate(['person_id' => $result->id], $academic);
     }
 }

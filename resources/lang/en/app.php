@@ -96,6 +96,8 @@ return array(
     'isbn' => 'ISBN',
     'author' => 'Author',
     'download' => 'Download',
+    'graduate_semester' => 'Graduate Semester',
+    'graduated_student' => 'Graduated',
 
     /*
     * 404

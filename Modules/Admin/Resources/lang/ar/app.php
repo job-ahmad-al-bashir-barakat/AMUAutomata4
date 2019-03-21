@@ -62,6 +62,7 @@ return [
     'books'              => 'تحميل كتب',
     'book'               => 'كناب',
     'tenders'               => 'المناقصات',
+    'academic_info'           => 'الاكاديمية',
     'graduation_year'    => 'سنة التخرج',
     'graduate_semester'    => 'فصل التخرج',
     'gpa'                => 'المعدل',
