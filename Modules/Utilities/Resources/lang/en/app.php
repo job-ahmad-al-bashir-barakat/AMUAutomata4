@@ -76,6 +76,7 @@ return [
     'page-menu' => 'Page Menu',
     'prefix' => 'Prefix',
     'galleries' => 'Galleries',
+    'videos' => 'Videos',
 
     'automata4_utilities' => 'Automata4 Utilities',
     'global' => 'Global',
@@ -138,6 +139,8 @@ return [
     'white' => 'white',
     'sky' => 'sky',
     'red' => 'red',
+    'upload_files' => 'Upload Files',
+    'upload_videos' => 'Upload Videos',
 
     'parent' => 'Parent',
     'url_path' => 'Url Path',

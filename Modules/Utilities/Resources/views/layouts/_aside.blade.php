@@ -171,6 +171,7 @@
         'steps',
         'text-cards',
         'galleries',
+        'videos',
         'calendar',
         'footer',
         'custom-modules',
@@ -236,6 +237,13 @@
             <li class="">
                 <a href="{{ RouteUrls::galleries() }}" class="ajax" title="{{ trans('utilities::app.galleries') }}">
                     <span>{{ trans('utilities::app.galleries') }}</span>
+                </a>
+            </li>
+            @endcan
+            @can('videos')
+            <li class="">
+                <a href="{{ RouteUrls::videos() }}" class="ajax" title="{{ trans('utilities::app.videos') }}">
+                    <span>{{ trans('utilities::app.videos') }}</span>
                 </a>
             </li>
             @endcan

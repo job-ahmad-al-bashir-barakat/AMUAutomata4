@@ -76,6 +76,13 @@ return [
         ],
     ],
 
+    'videos' => [
+        'model' => \Modules\Utilities\Entities\Video::class,
+        'relationType' => 'many',
+        'relationName' => 'file',
+        'relationId'   => 'file_id',
+    ],
+
     'lang' => [
         'model' => \Modules\Utilities\Entities\Lang::class,
         'ratio' => [

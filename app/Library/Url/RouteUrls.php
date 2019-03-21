@@ -72,6 +72,11 @@ class RouteUrls
         return $this->localizeUrl('builder/galleries', 'utilities');
     }
 
+    public function videos()
+    {
+        return $this->localizeUrl('builder/videos', 'utilities');
+    }
+
     public function eventGroups()
     {
         return $this->localizeUrl('builder/event-groups', 'utilities');

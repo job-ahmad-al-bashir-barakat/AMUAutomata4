@@ -79,6 +79,11 @@ return [
         'factory'       => Modules\Utilities\Factories\GalleryFactory::class
     ],
 
+    'videos' => [
+        'model'         => Modules\Utilities\Entities\Video::class,
+        'factory'       => Modules\Utilities\Factories\VideoFactory::class
+    ],
+
     'event-groups' => [
         'model'         => Modules\Utilities\Entities\EventGroup::class,
         'factory'       => Modules\Utilities\Factories\EventGroupFactory::class

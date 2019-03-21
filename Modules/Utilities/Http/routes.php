@@ -19,9 +19,10 @@ Route::group(
 function () {
 
     Route::get('test', function (){
+        /*
         $api = new \Aut\Google\Firebase\DynamicLinks\DynamicLinks();
-
         $api->getShortLink('http://emedbay.com/en/products/31663.313-Antipulp');
+        */
 
     });
 
@@ -58,6 +59,7 @@ function () {
         Route::get('text-cards', 'BuilderController@textCards')->middleware('permission:text-cards')->name('text-cards');
 
         Route::get('galleries', 'BuilderController@galleries')->middleware('permission:galleries')->name('galleries');
+        Route::get('videos', 'BuilderController@videos')->middleware('permission:videos')->name('videos');
         Route::get('event-groups', 'BuilderController@eventGroups')->middleware('permission:calendar')->name('event_groups');
 
         Route::get('footers', 'BuilderController@footers')->middleware('permission:footer')->name('footers');

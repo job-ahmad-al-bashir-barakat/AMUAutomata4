@@ -355,6 +355,22 @@ class BuilderController extends Controller
     }
 
     /**
+     * Videos
+     */
+    public function videos()
+    {
+        $view = 'videos';
+        $subPage = \View::exists("utilities::page.table-sub.$view") ? "utilities::page.table-sub.$view" : false;
+
+        return view('utilities::page.table',[
+            'table' => 'videos',
+            'param' => '',
+            'title' => trans('utilities::app.videos'),
+            'subPage' => $subPage,
+        ]);
+    }
+
+    /**
      * Calender
      */
     public function eventGroups()

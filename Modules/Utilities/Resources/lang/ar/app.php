@@ -71,6 +71,7 @@ return [
     'page-menu' => 'قائمة الصفحة',
     'prefix' => 'لاحقة الرابط',
     'galleries' => 'معرض الصور',
+    'videos' => 'فيديوهات',
 
     'automata4_utilities' => 'أدوات أتوماتا 4',
     'reload_page' => 'تحديث الصفحة',
@@ -137,6 +138,8 @@ return [
     'white' => 'الابيض',
     'sky' => 'السماوي',
     'red' => 'الأحمر',
+    'upload_files' => 'رفع الملفات',
+    'upload_videos' => 'رفع فيديوهات',
 
     'parent' => 'الأب',
     'url_path' => 'عنوان الرابط',
