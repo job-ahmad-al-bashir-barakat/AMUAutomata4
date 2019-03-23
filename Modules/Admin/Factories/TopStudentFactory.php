@@ -31,11 +31,11 @@ class TopStudentFactory extends GlobalFactory
         $this->table
             ->config('datatable-top-student', trans('admin::app.top_students'))
             ->addPrimaryKey('id', 'id')
-            ->addAutocomplete('autocomplete/study-semester', trans('admin::app.semester'), 'study_semester_id', 'study_semester.transName.text', "study_semester.lang_name.$this->lang.text")
-            ->addAutocomplete('autocomplete/study-year', trans('admin::app.study_level'), 'study_year_id', 'study_year.transName.text', "study_year.lang_name.$this->lang.text")
-            ->addAutocomplete('autocomplete/students', trans('admin::app.student'), 'student_id', 'student.transName.text', "student.lang_name.$this->lang.text")
-            ->addAutocomplete('autocomplete/top-ranks', trans('admin::app.top_student_rank'), 'rank_id', 'rank.transName.text', "rank.lang_name.$this->lang.text")
-            ->addInputNumber(trans('admin::app.gpa'), 'gpa', 'gpa')
+            ->addAutocomplete('autocomplete/study-semester', trans('admin::app.semester'), 'study_semester_id', 'study_semester.transName.text', "study_semester.lang_name.$this->lang.text","req required")
+            ->addAutocomplete('autocomplete/study-year', trans('admin::app.study_level'), 'study_year_id', 'study_year.transName.text', "study_year.lang_name.$this->lang.text","req required")
+            ->addAutocomplete('autocomplete/students', trans('admin::app.student'), 'student_id', 'student.transName.text', "student.lang_name.$this->lang.text","req required")
+            ->addAutocomplete('autocomplete/top-ranks', trans('admin::app.top_student_rank'), 'rank_id', 'rank.transName.text', "rank.lang_name.$this->lang.text","req required")
+            ->addInputNumber(trans('admin::app.gpa'), 'gpa', 'gpa',"req required")
             ->addActionButton($this->update, 'update', 'update')
             ->addActionButton($this->delete, 'delete', 'delete')
             ->addNavButton();
