@@ -120,6 +120,8 @@ trait ModuleTrait
                 return new BooksListOneModule();
             case 50:
                 return new GraduatedStudentsModule();
+            case 51:
+                return new TopStudentsModule();
             default:
                 throw new \Exception("Undefined Web Module [id:$moduleId]");
         }
@@ -235,8 +237,10 @@ trait ModuleTrait
                 return new BooksListOneModule();
             case 'graduated_students':
                 return new GraduatedStudentsModule();
+            case 'top_students':
+                return new TopStudentsModule();
             default:
-                throw new \Exception("Undefined Web Module [$moduleCode]");
+                throw new \Exception("Undefined Web Module [Code:$moduleCode]");
         }
     }
 }

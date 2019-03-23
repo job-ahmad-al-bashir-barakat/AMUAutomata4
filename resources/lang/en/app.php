@@ -98,6 +98,10 @@ return array(
     'download' => 'Download',
     'graduate_semester' => 'Graduate Semester',
     'graduated_student' => 'Graduated',
+    'study_level' => 'Study Level',
+    'study_semester' => 'Study Semester',
+    'graduate_gpa' => 'Graduate GPA',
+
 
     /*
     * 404

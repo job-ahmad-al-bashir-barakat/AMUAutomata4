@@ -98,6 +98,9 @@ return array(
     'download' => 'تحميل',
     'graduate_semester' => 'فصل التخرج',
     'graduated_student' => 'الخريجين',
+    'study_level' => 'المستوى الدراسي',
+    'study_semester' => 'الفصل الدراسي',
+    'graduate_gpa' => 'المعدل الفصلي',
 
     /*
      * 404

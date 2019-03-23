@@ -71,15 +71,25 @@
 <script type="text/javascript">
     $(document).ready(function(e) {
 
-        $(document).on('click', '[data-filter]', function () {
+        $(document).on('click', '[data-custom-filter]', function () {
             var $this = $(this);
-            var filter = $this.data('filter');
+            var filter = $this.data('customFilter');
             $('.filters').addClass('hide');
             $(filter).removeClass('hide');
             $('#title').html($this.find('#title_text').html());
+            var checkhide = $this.data('checkEmptyHide');
+            var checkhidecont = $this.data('checkEmptyCont');
+            if (checkhide) {
+                $(checkhide).addClass('hide');
+                $conts = $(checkhidecont).find('.filters:not(.hide)');
+                if ($conts.length) {
+                    $conts.closest(checkhide).removeClass('hide');
+                }
+
+            }
         });
 
-        $('[data-filter]:first').click();
+        $('[data-custom-filter]:first').click();
 
         $(document).on('click', 'a.ajax-link-module', function (e) {
             e.preventDefault();
