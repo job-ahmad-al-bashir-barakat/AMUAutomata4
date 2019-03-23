@@ -19,7 +19,7 @@ class CreateTopStudentsTable extends Migration
             $table->unsignedInteger('study_year_id');
             $table->unsignedInteger('student_id');
             $table->unsignedInteger('rank_id');
-            $table->float('gpa', '2');
+            $table->float('gpa', '4', '2');
             $table->timestamps();
             $table->softDeletes();
         });

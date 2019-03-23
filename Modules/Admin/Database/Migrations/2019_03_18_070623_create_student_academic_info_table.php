@@ -18,7 +18,7 @@ class CreateStudentAcademicInfoTable extends Migration
             $table->unsignedInteger('person_id');
             $table->unsignedInteger('faculty_id');
             $table->unsignedInteger('graduate_semester_id')->nullable();
-            $table->unsignedInteger('gpa');
+            $table->float('gpa', '4', '2');
             $table->timestamps();
             $table->softDeletes();
         });
