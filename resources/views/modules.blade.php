@@ -77,8 +77,8 @@
             $('.filters').addClass('hide');
             $(filter).removeClass('hide');
             $('#title').html($this.find('#title_text').html());
-            var checkhide = $this.data('checkEmptyHide');
-            var checkhidecont = $this.data('checkEmptyCont');
+            var checkhide = $this.data('checkEmptyHide') || false;
+            var checkhidecont = $this.data('checkEmptyCont') || false;
             if (checkhide) {
                 $(checkhide).addClass('hide');
                 $conts = $(checkhidecont).find('.filters:not(.hide)');

@@ -2,9 +2,7 @@
 
 namespace Modules\Admin\Factories\PersonFactoryStructure;
 
-
 use Aut\DataTable\DataTableBuilder;
-use Modules\Admin\Entities\Person;
 
 class AcademicInfo
 {

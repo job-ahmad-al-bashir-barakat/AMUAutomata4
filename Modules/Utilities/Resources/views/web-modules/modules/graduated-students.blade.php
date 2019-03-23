@@ -15,19 +15,21 @@
     </div>
     <hr>
     <div class="row">
-        @foreach($data['semesters'] as $semester)
-        <div id="#graduate_semester_{{ $semester->id }}"
-             data-custom-filter=".filter_graduate_semester_{{ $semester->id }}"
-             class="col-sm-6 col-md-3 wow fadeInLeft hand"
-             data-wow-duration="1s"
-             data-wow-delay="0.3s"
-             style="visibility: visible;animation-duration: 1s;animation-delay: 0.3s;"
-        >
-            <div class="text-center content border-1px border-bottom-theme-color-2-2px p-15 bg-light clearfix">
-                <h4 class="name text-theme-color-2 mt-0">@lang('app.graduated_student')</h4>
-                <small id="title_text">{{ $semester->lang_name[app()->getLocale()]->text }}</small>
+        <div class="owl-carousel-4col owl-nav-top" data-nav="true">
+            @foreach($data['semesters'] as $semester)
+            <div id="#graduate_semester_{{ $semester->id }}"
+                 data-custom-filter=".filter_graduate_semester_{{ $semester->id }}"
+                 class="wow fadeInLeft hand item"
+                 data-wow-duration="1s"
+                 data-wow-delay="0.3s"
+                 style="visibility: visible;animation-duration: 1s;animation-delay: 0.3s;"
+            >
+                <div class="text-center content border-1px border-bottom-theme-color-2-2px p-15 bg-light clearfix">
+                    <h4 class="name text-theme-color-2 mt-0">@lang('app.graduated_student')</h4>
+                    <small id="title_text">{{ $semester->lang_name[app()->getLocale()]->text }}</small>
+                </div>
             </div>
+            @endforeach
         </div>
-        @endforeach
     </div>
 </div>
