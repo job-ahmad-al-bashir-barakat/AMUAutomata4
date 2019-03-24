@@ -80,6 +80,8 @@ trait AttributeTrait
                 return new CardsAttribute();
             case '30':
                 return new LinksAttribute();
+            case '31':
+                return new VideoAttribute();
             default:
                 throw new \Exception('Undefined Attributes');
         }
@@ -155,6 +157,8 @@ trait AttributeTrait
                 return new CardsAttribute();
             case 'links':
                 return new LinksAttribute();
+            case 'video':
+                return new VideoAttribute();
             default:
                 throw new \Exception('Undefined Attributes');
         }

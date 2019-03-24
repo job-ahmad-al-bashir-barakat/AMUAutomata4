@@ -29,6 +29,7 @@ return [
     'height' => 'Height',
     'cards' => 'Cards',
     'links' => 'Links',
+    'video' => 'Video',
 
     'degrees' => 'Degrees',
     'faculty' => 'Faculty',

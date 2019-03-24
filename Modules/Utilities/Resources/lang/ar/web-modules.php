@@ -29,6 +29,7 @@ return [
     'image_limit' => 'حدود الصور',
     'cards' => 'بطاقات',
     'links' => 'روابط',
+    'video' => 'فيديو',
 
     'degrees' => 'الشهادات',
     'faculty' => 'الكلية',

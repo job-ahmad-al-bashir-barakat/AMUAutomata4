@@ -124,6 +124,8 @@ trait ModuleTrait
                 return new TopStudentsModule();
             case 52:
                 return new EventsCarouselModule();
+            case 53:
+                return new VideoModule();
             default:
                 throw new \Exception("Undefined Web Module [id:$moduleId]");
         }
@@ -243,6 +245,8 @@ trait ModuleTrait
                 return new TopStudentsModule();
             case 'events_carousel':
                 return new EventsCarouselModule();
+            case 'video':
+                return new VideoModule();
             default:
                 throw new \Exception("Undefined Web Module [Code:$moduleCode]");
         }

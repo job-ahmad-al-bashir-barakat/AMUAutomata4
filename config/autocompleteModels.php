@@ -150,6 +150,10 @@ return [
         ],
     ],
 
+    'video' => [
+        'model' => \Modules\Utilities\Entities\Video::class,
+    ],
+
     'event-groups' => [
         'model' => \Modules\Utilities\Entities\EventGroup::class,
         /*'colName'  => 'transTitle->text',
