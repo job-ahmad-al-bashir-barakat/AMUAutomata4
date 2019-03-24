@@ -37,6 +37,10 @@ class Upload
     protected $ratioType = false;
     protected $resizeImage = null;
 
+    protected $mapMinType = [
+        'msword' => 'doc',
+    ];
+
     function init()
     {
         if (Route::getCurrentRoute() !== null) {
@@ -71,10 +75,14 @@ class Upload
             $file = request()->file($this->model);
             $this->file = is_array($file) ? $file[0] : $file;
             $type = $file ? $file->getMimeType() : request()->input('mime_type');
+
             if(preg_match('/application/',$type))
                 $this->fileMimeType = preg_replace('/application\//', '', $type);
             else
                 $this->fileMimeType = preg_replace('/\/.+$/', '', $type);
+
+            $this->fileMimeType = $this->mapMinType[$this->fileMimeType] ?? $this->fileMimeType;
+
             $this->isImage = $this->fileMimeType === 'image';
             $this->isFile = $this->fileMimeType !== 'image';
 
