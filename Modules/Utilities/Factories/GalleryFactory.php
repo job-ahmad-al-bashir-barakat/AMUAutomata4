@@ -30,12 +30,12 @@ class GalleryFactory extends GlobalFactory
     public function buildDatatable($gallery, $request)
     {
         return $this->table
-            ->config('datatable-galleries',trans('utilities::app.galleries'))
-            ->addPrimaryKey('id','id')
-            ->addMultiInputTextLangs(['title'] ,'req required')
+            ->config('datatable-galleries', trans('utilities::app.galleries'))
+            ->addPrimaryKey('id', 'id')
+            ->addMultiInputTextLangs(['title'])
             ->addActionButton(trans('utilities::app.upload_images'), 'upload_image', 'id', 'center all')
-            ->addActionButton($this->update,'update','update')
-            ->addActionButton($this->delete,'delete','delete')
+            ->addActionButton($this->update, 'update', 'update')
+            ->addActionButton($this->delete, 'delete', 'delete')
             ->addNavButton()
             ->render();
     }
@@ -43,7 +43,7 @@ class GalleryFactory extends GlobalFactory
     /**
      *  store action for save relation
      */
-    public function storeDatatable($model = null ,$request = null ,$result = null)
+    public function storeDatatable($model = null, $request = null, $result = null)
     {
         //
     }
@@ -51,7 +51,7 @@ class GalleryFactory extends GlobalFactory
     /**
      *  store action for update relation
      */
-    public function updateDatatable($model = null ,$request = null ,$result = null)
+    public function updateDatatable($model = null, $request = null, $result = null)
     {
         //
     }
@@ -59,7 +59,7 @@ class GalleryFactory extends GlobalFactory
     /**
      *  store action for destroy relation
      */
-    public function destroyDatatable($model = null ,$request = null ,$result = null)
+    public function destroyDatatable($model = null, $request = null, $result = null)
     {
         //
     }

@@ -29,14 +29,14 @@ class LinkFactory extends GlobalFactory
     public function buildDatatable($attribute, $request)
     {
         return $this->table
-            ->config('datatable-links',trans('utilities::app.links'))
-            ->addPrimaryKey('id','id')
+            ->config('datatable-links', trans('utilities::app.links'))
+            ->addPrimaryKey('id', 'id')
             ->addAutocomplete('autocomplete/icons', trans('utilities::app.icon'), 'icon_id', 'icon.code', 'icon.icon_html')
             ->addMultiInputTextLangs(['url'])
             ->addInputColor(trans('utilities::app.bg_color'), 'bg_color', 'bg_color')
             ->addMultiTextareaLangs(['text'])
-            ->addActionButton($this->update,'update','update')
-            ->addActionButton($this->delete,'delete','delete')
+            ->addActionButton($this->update, 'update', 'update')
+            ->addActionButton($this->delete, 'delete', 'delete')
             ->addNavButton()
             ->render();
     }
@@ -44,7 +44,7 @@ class LinkFactory extends GlobalFactory
     /**
      *  store action for save relation
      */
-    public function storeDatatable($model = null ,$request = null ,$result = null)
+    public function storeDatatable($model = null, $request = null, $result = null)
     {
         //
     }
@@ -52,7 +52,7 @@ class LinkFactory extends GlobalFactory
     /**
      *  store action for update relation
      */
-    public function updateDatatable($model = null ,$request = null ,$result = null)
+    public function updateDatatable($model = null, $request = null, $result = null)
     {
         //
     }
@@ -60,7 +60,7 @@ class LinkFactory extends GlobalFactory
     /**
      *  store action for destroy relation
      */
-    public function destroyDatatable($model = null ,$request = null ,$result = null)
+    public function destroyDatatable($model = null, $request = null, $result = null)
     {
         //
     }

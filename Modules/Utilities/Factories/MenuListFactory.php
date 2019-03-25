@@ -11,7 +11,7 @@ class MenuListFactory extends GlobalFactory
     /**
      *  get datatable query
      */
-    public function getDatatable($model ,$request)
+    public function getDatatable($model, $request)
     {
         $query = MenuList::allLangs();
 
@@ -19,8 +19,8 @@ class MenuListFactory extends GlobalFactory
             ->queryConfig('datatable-menu-list')
             ->queryDatatable($query)
             ->queryMultiLang(['name'])
-            ->queryCustomButton('general-menu-tree','id','fa fa-list','','href='.\RouteUrls::generalMenu("{id}"))
-            ->queryAddColumn('is_default_active' ,function ($item){
+            ->queryCustomButton('general-menu-tree', 'id', 'fa fa-list', '', 'href=' . \RouteUrls::generalMenu("{id}"))
+            ->queryAddColumn('is_default_active', function ($item) {
                 return $item->is_default ? trans('utilities::app.yes') : trans('utilities::app.no');
             })
             ->queryUpdateButton('id')
@@ -31,16 +31,16 @@ class MenuListFactory extends GlobalFactory
     /**
      *  build datatable modal and table
      */
-    public function buildDatatable($model ,$request)
+    public function buildDatatable($model, $request)
     {
         $table = $this->table
-            ->config('datatable-menu-list',trans('utilities::app.list'))
-            ->addPrimaryKey('id' ,'id')
-            ->addMultiInputTextLangs(['name'] ,'req required')
-            ->addSelect([0 => trans('utilities::app.no') ,1 => trans('utilities::app.yes')],trans('utilities::app.active') ,'is_default' ,'is_default' ,'is_default_active')
-            ->addActionButton(trans('utilities::app.general'),'general-menu-tree','general-menu-tree')
-            ->addActionButton($this->update,'update','update')
-            ->addActionButton($this->delete,'delete','delete')
+            ->config('datatable-menu-list', trans('utilities::app.list'))
+            ->addPrimaryKey('id', 'id')
+            ->addMultiInputTextLangs(['name'])
+            ->addSelect([0 => trans('utilities::app.no'), 1 => trans('utilities::app.yes')], trans('utilities::app.active'), 'is_default', 'is_default', 'is_default_active')
+            ->addActionButton(trans('utilities::app.general'), 'general-menu-tree', 'general-menu-tree')
+            ->addActionButton($this->update, 'update', 'update')
+            ->addActionButton($this->delete, 'delete', 'delete')
             ->addNavButton()
             ->render();
 

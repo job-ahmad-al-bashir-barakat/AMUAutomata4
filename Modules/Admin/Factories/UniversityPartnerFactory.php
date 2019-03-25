@@ -15,25 +15,25 @@ class UniversityPartnerFactory extends GlobalFactory
     /**
      *  get datatable query
      */
-    public function getDatatable($model ,$request)
+    public function getDatatable($model, $request)
     {
-        $query = Partner::with(['image_small', 'image_large' ,'contact.socialNetwork'])->allLangs();
+        $query = Partner::with(['image_small', 'image_large', 'contact.socialNetwork'])->allLangs();
 
         return $this->table
             ->queryConfig('datatable-partner')
             ->queryDatatable($query)
-            ->queryMultiLang(['name' ,'description'])
+            ->queryMultiLang(['name', 'description'])
             ->queryUpdateButton('id')
             ->queryDeleteButton('id')
-            ->queryCustomButton('upload_image_large' ,'id' ,'fa fa-image' ,'' ,'onclick="showFileUploadModal(this)" data-modal="#partner-larg-image-upload"')
-            ->queryCustomButton('upload_image_small' ,'id' ,'fa fa-image' ,'' ,'onclick="showFileUploadModal(this)" data-modal="#partner-small-image-upload"')
+            ->queryCustomButton('upload_image_large', 'id', 'fa fa-image', '', 'onclick="showFileUploadModal(this)" data-modal="#partner-larg-image-upload"')
+            ->queryCustomButton('upload_image_small', 'id', 'fa fa-image', '', 'onclick="showFileUploadModal(this)" data-modal="#partner-small-image-upload"')
             ->queryRender(true);
     }
 
     /**
      *  build datatable modal and table
      */
-    public function buildDatatable($model ,$request)
+    public function buildDatatable($model, $request)
     {
         $socialNetworks = SocialNetwork::all();
 
@@ -42,7 +42,7 @@ class UniversityPartnerFactory extends GlobalFactory
             ->tab(trans('admin::app.personal_Info'), function (DataTableBuilder $table) {
                 $table
                     ->addPrimaryKey('id', 'id')
-                    ->addMultiInputTextLangs(['name'], 'req required')
+                    ->addMultiInputTextLangs(['name'])
                     ->addMultiTextareaLangs(['description'])
                     ->relation('contact', function (DataTableBuilder $table) {
                         $table
@@ -68,7 +68,7 @@ class UniversityPartnerFactory extends GlobalFactory
         return $table->render();
     }
 
-    public function storeDatatable($model ,$request ,$result)
+    public function storeDatatable($model, $request, $result)
     {
         $request->request->add(['transSaveOper' => false]);
 
@@ -78,10 +78,10 @@ class UniversityPartnerFactory extends GlobalFactory
 
         $request->request->add(['transSaveOper' => true]);
 
-        Partner::create(array_merge($request->input(),['contact_id' => $contact->id]));
+        Partner::create(array_merge($request->input(), ['contact_id' => $contact->id]));
     }
 
-    public function updateDatatable($model ,$request ,$result)
+    public function updateDatatable($model, $request, $result)
     {
         $request->request->add(['transSaveOper' => false]);
 

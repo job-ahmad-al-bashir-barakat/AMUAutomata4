@@ -38,7 +38,7 @@ class ModuleFactory extends GlobalFactory
             ->filterWay('client')
             ->addPrimaryKey('id', 'id')
             ->addInputText(trans('utilities::app.code'), 'code', 'code', 'required req')
-            ->addMultiInputTextLangs(['name'], 'req required')
+            ->addMultiInputTextLangs(['name'])
             ->addMultiTextareaLangs(['description'])
             ->can('automata', function (DataTableBuilder $table) {
                 $table->addSelect([1 => trans('utilities::app.yes'), 0 => trans('utilities::app.no')], trans('utilities::app.customized'), 'customized', 'customized', 'customized_show');
@@ -59,7 +59,7 @@ class ModuleFactory extends GlobalFactory
     /**
      *  store action for save relation
      */
-    public function storeDatatable($model = null ,$request = null ,$result = null)
+    public function storeDatatable($model = null, $request = null, $result = null)
     {
         //
         $attributeIds = $request->input('attributes.id');
@@ -69,7 +69,7 @@ class ModuleFactory extends GlobalFactory
     /**
      *  store action for update relation
      */
-    public function updateDatatable($model = null ,$request = null ,$result = null)
+    public function updateDatatable($model = null, $request = null, $result = null)
     {
         //
         $attributeIds = $request->input('attributes.id');
@@ -79,7 +79,7 @@ class ModuleFactory extends GlobalFactory
     /**
      *  store action for destroy relation
      */
-    public function destroyDatatable($model = null ,$request = null ,$result = null)
+    public function destroyDatatable($model = null, $request = null, $result = null)
     {
         //
         dd($request);

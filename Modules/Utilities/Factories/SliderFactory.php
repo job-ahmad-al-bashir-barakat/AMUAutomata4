@@ -32,11 +32,11 @@ class SliderFactory extends GlobalFactory
     public function buildDatatable($model, $request)
     {
         return $this->table
-            ->config('datatable-sliders',trans('utilities::app.sliders'))
-            ->addPrimaryKey('id','id')
-            ->addMultiInputTextLangs(['name'], 'req required')
-            ->addActionButton($this->update,'update','update')
-            ->addActionButton($this->delete,'delete','delete')
+            ->config('datatable-sliders', trans('utilities::app.sliders'))
+            ->addPrimaryKey('id', 'id')
+            ->addMultiInputTextLangs(['name'])
+            ->addActionButton($this->update, 'update', 'update')
+            ->addActionButton($this->delete, 'delete', 'delete')
             ->addActionButton(trans('utilities::app.details'), 'slider_detail', 'slider_detail')
             ->addNavButton()
             ->render();
@@ -45,7 +45,7 @@ class SliderFactory extends GlobalFactory
     /**
      *  store action for save relation
      */
-    public function storeDatatable($model = null ,$request = null ,$result = null)
+    public function storeDatatable($model = null, $request = null, $result = null)
     {
         //
     }
@@ -53,7 +53,7 @@ class SliderFactory extends GlobalFactory
     /**
      *  store action for update relation
      */
-    public function updateDatatable($model = null ,$request = null ,$result = null)
+    public function updateDatatable($model = null, $request = null, $result = null)
     {
         //
     }
@@ -61,7 +61,7 @@ class SliderFactory extends GlobalFactory
     /**
      *  store action for destroy relation
      */
-    public function destroyDatatable($model = null ,$request = null ,$result = null)
+    public function destroyDatatable($model = null, $request = null, $result = null)
     {
         //
     }

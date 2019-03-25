@@ -23,16 +23,16 @@ class SchemaLanguageTableFactory extends GlobalFactory
             ->queryConfig('datatable-schema-language-tables')
             ->queryDatatable($query)
             ->queryAddColumn('id', function ($item) {
-                if($item->languageTable)
+                if ($item->languageTable)
                     return $item->languageTable->id;
             })
             ->queryAddColumn('namespace', function ($item) {
-                if($item->languageTable)
+                if ($item->languageTable)
                     return $item->languageTable->namespace;
             })
-            ->queryAddColumn('inserted', function ($item){
+            ->queryAddColumn('inserted', function ($item) {
                 $class = 'fa-ban text-danger';
-                if($item->languageTable){
+                if ($item->languageTable) {
                     $class = 'fa-check-circle text-success';
                 }
                 return "<span class='fa {$class}'></span>";
@@ -64,7 +64,7 @@ class SchemaLanguageTableFactory extends GlobalFactory
     /**
      *  store action for save relation
      */
-    public function storeDatatable($model = null ,$request = null ,$result = null)
+    public function storeDatatable($model = null, $request = null, $result = null)
     {
         //
     }
@@ -72,7 +72,7 @@ class SchemaLanguageTableFactory extends GlobalFactory
     /**
      *  store action for update relation
      */
-    public function updateDatatable($model = null ,$request = null ,$result = null)
+    public function updateDatatable($model = null, $request = null, $result = null)
     {
         //
     }
@@ -80,7 +80,7 @@ class SchemaLanguageTableFactory extends GlobalFactory
     /**
      *  store action for destroy relation
      */
-    public function destroyDatatable($model = null ,$request = null ,$result = null)
+    public function destroyDatatable($model = null, $request = null, $result = null)
     {
         //
     }

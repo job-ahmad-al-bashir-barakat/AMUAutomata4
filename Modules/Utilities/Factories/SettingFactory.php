@@ -32,7 +32,7 @@ class SettingFactory extends GlobalFactory
         $this->table
             ->config('datatable-settings', trans('utilities::app.settings'))
             ->addPrimaryKey('id', 'id')
-            ->addMultiInputTextLangs(['name'], 'req required')
+            ->addMultiInputTextLangs(['name'])
             ->addInputText(trans('utilities::app.code'), 'code', 'code', 'required req')
             ->addInputText(trans('utilities::app.value'), 'value', 'value', 'required req')
             ->can('automata', function (DataTableBuilder $table) {

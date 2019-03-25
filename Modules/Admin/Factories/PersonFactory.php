@@ -26,13 +26,13 @@ class PersonFactory extends GlobalFactory
     /**
      *  get datatable query
      */
-    public function getDatatable($model ,$request)
+    public function getDatatable($model, $request)
     {
-        $query = Person::with(['contact' => function($query) {
+        $query = Person::with(['contact' => function ($query) {
             return $query->allLangs();
-        },'faculty.transName', 'academic.graduate'])->allLangs()->type();
+        }, 'faculty.transName', 'academic.graduate'])->allLangs()->type();
 
-        $tableId = 'datatable-persons-'.Str::snake(\Route::input('model'));
+        $tableId = 'datatable-persons-' . Str::snake(\Route::input('model'));
 
         $type = Str::snake(\Route::input('model'));
 
@@ -53,7 +53,7 @@ class PersonFactory extends GlobalFactory
     /**
      *  build datatable modal and table
      */
-    public function buildDatatable($model ,$request)
+    public function buildDatatable($model, $request)
     {
         $socialNetworks = SocialNetwork::all();
         $type = Str::snake(\Route::input('model'));
@@ -64,7 +64,6 @@ class PersonFactory extends GlobalFactory
             ->addHiddenInput('type', 'type', $type, false, true)
             ->gridSystemConfig(false)
             ->setGridNormalCol(12, 'lg')
-
             ->when(in_array($type, $this->allowedPersonal), function (DataTableBuilder $table) use ($type) {
                 $table->tab(trans('admin::app.personal_Info'), new PersonalInfo($type, $this->name, $this->summary, $this->lang), 'fa fa-user fa-2x');
             })
@@ -80,7 +79,6 @@ class PersonFactory extends GlobalFactory
             ->when(in_array($type, $this->allowedResearches), function (DataTableBuilder $table) {
                 $table->addActionButton(trans('admin::app.researches'), 'btn-researches', 'btn-researches', 'center all', '80px');
             })
-
             ->addActionButton(trans('admin::app.upload_images'), 'upload_image', 'upload_image', 'center all', '100px')
             ->addActionButton($this->update, 'update', 'update')
             ->addActionButton($this->delete, 'delete', 'delete')
@@ -89,14 +87,14 @@ class PersonFactory extends GlobalFactory
         return $table->render();
     }
 
-    public function storeDatatable($model ,$request ,$result)
+    public function storeDatatable($model, $request, $result)
     {
         if ($request->input('contact')) {
             $contact = Contact::create($request->input('contact'));
             $contact->socialNetwork()->sync($request->input('contact.social'));
         }
 
-        $person = Person::create(array_merge($request->input(),['contact_id' => $contact->id ?? null]));
+        $person = Person::create(array_merge($request->input(), ['contact_id' => $contact->id ?? null]));
 
         if (request()->input('jobTitle.id')) {
             $person->jobTitle()->sync(request()->input('jobTitle.id'));
@@ -110,7 +108,7 @@ class PersonFactory extends GlobalFactory
 
     }
 
-    public function updateDatatable($model ,$request ,$result)
+    public function updateDatatable($model, $request, $result)
     {
         $result->jobTitle()->sync(request()->input('jobTitle.id'));
 

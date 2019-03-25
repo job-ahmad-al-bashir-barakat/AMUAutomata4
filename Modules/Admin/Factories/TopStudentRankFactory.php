@@ -13,7 +13,7 @@ class TopStudentRankFactory extends GlobalFactory
     /**
      *  get datatable query
      */
-    public function getDatatable($model ,$request)
+    public function getDatatable($model, $request)
     {
         $query = TopStudentRank::allLangs();
 
@@ -29,25 +29,25 @@ class TopStudentRankFactory extends GlobalFactory
     /**
      *  build datatable modal and table
      */
-    public function buildDatatable($model ,$request)
+    public function buildDatatable($model, $request)
     {
         return $this->table
-            ->config('datatable-top-student-rank' ,trans('admin::app.top_student_rank'))
-            ->addPrimaryKey('id','id')
+            ->config('datatable-top-student-rank', trans('admin::app.top_student_rank'))
+            ->addPrimaryKey('id', 'id')
             ->addInputNumber(trans('app.rank'), 'rank', 'rank', 'req required')
             ->addMultiInputTextLangs(['name'])
-            ->addActionButton($this->update,'update','update')
-            ->addActionButton($this->delete,'delete','delete')
+            ->addActionButton($this->update, 'update', 'update')
+            ->addActionButton($this->delete, 'delete', 'delete')
             ->addNavButton()
             ->render();
     }
 
-    public function storeDatatable($model ,$request ,$result)
+    public function storeDatatable($model, $request, $result)
     {
 
     }
 
-    public function updateDatatable($model ,$request ,$result)
+    public function updateDatatable($model, $request, $result)
     {
 
     }

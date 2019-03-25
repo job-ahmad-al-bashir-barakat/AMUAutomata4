@@ -30,13 +30,13 @@ class TextCardFactory extends GlobalFactory
         $blockId = request('blockId');
 
         return $this->table
-            ->config('datatable-text-cards',trans('utilities::app.text-cards'))
-            ->addPrimaryKey('id','id')
-            ->addMultiInputTextLangs(['title'], 'req required')
+            ->config('datatable-text-cards', trans('utilities::app.text-cards'))
+            ->addPrimaryKey('id', 'id')
+            ->addMultiInputTextLangs(['title'])
             ->addInputText(trans('utilities::app.url'), 'url', 'url', 'req required')
             ->addAutocomplete('autocomplete/icons', 'Icon', 'icon_id', 'icon.code', 'icon.icon_html', 'req required')
-            ->addActionButton($this->update,'update','update')
-            ->addActionButton($this->delete,'delete','delete')
+            ->addActionButton($this->update, 'update', 'update')
+            ->addActionButton($this->delete, 'delete', 'delete')
             ->addNavButton()
             ->render();
     }
@@ -44,7 +44,7 @@ class TextCardFactory extends GlobalFactory
     /**
      *  store action for save relation
      */
-    public function storeDatatable($model = null ,$request = null ,$result = null)
+    public function storeDatatable($model = null, $request = null, $result = null)
     {
         //
     }
@@ -52,7 +52,7 @@ class TextCardFactory extends GlobalFactory
     /**
      *  store action for update relation
      */
-    public function updateDatatable($model = null ,$request = null ,$result = null)
+    public function updateDatatable($model = null, $request = null, $result = null)
     {
         //
     }
@@ -60,7 +60,7 @@ class TextCardFactory extends GlobalFactory
     /**
      *  store action for destroy relation
      */
-    public function destroyDatatable($model = null ,$request = null ,$result = null)
+    public function destroyDatatable($model = null, $request = null, $result = null)
     {
         //
     }

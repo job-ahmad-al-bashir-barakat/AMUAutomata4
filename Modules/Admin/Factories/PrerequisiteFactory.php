@@ -13,37 +13,37 @@ class PrerequisiteFactory extends GlobalFactory
     /**
      *  get datatable query
      */
-    public function getDatatable($model ,$request)
+    public function getDatatable($model, $request)
     {
-        $query = PrerequisiteGroup::with(['courses'])->where('course_id','=' ,request('course'));
+        $query = PrerequisiteGroup::with(['courses'])->where('course_id', '=', request('course'));
 
         return $this->table
             ->queryConfig('datatable-prerequisite')
             ->queryDatatable($query)
             ->queryUpdateButton('id')
             ->queryDeleteButton('id')
-            ->queryMultiAutocompleteTemplete('courses_temp' ,'courses' , 'code')
+            ->queryMultiAutocompleteTemplete('courses_temp', 'courses', 'code')
             ->queryRender();
     }
 
     /**
      *  build datatable modal and table
      */
-    public function buildDatatable($model ,$request)
+    public function buildDatatable($model, $request)
     {
         $course = request('course');
         $faculty = request('parent');
 
         return $this->table
-            ->config('datatable-prerequisite',trans('admin::app.prerequisite'))
-            ->addPrimaryKey('id' ,'id')
-            ->addHiddenInput('course_id' ,'course_id' ,$course ,'' ,true)
-            ->relation('courses', function (DataTableBuilder $table) use ($faculty, $course){
+            ->config('datatable-prerequisite', trans('admin::app.prerequisite'))
+            ->addPrimaryKey('id', 'id')
+            ->addHiddenInput('course_id', 'course_id', $course, '', true)
+            ->relation('courses', function (DataTableBuilder $table) use ($faculty, $course) {
                 $table->addMultiAutocomplete('autocomplete/course', 'courses_temp', trans('admin::app.courses'), 'courses.id', "courses.lang_name.$this->lang.text", "courses.lang_name.$this->lang.text", 'req required', ["data-remote-param" => "course=$course,faculty=$faculty"]);
             })
-            ->addInputText(trans('admin::app.code') ,'code' ,'code' ,'req required')
-            ->addActionButton($this->update,'update','update')
-            ->addActionButton($this->delete,'delete','delete')
+            ->addInputText(trans('admin::app.code'), 'code', 'code', 'req required')
+            ->addActionButton($this->update, 'update', 'update')
+            ->addActionButton($this->delete, 'delete', 'delete')
             ->addNavButton()
             ->render();
     }
@@ -80,7 +80,7 @@ class PrerequisiteFactory extends GlobalFactory
         $id = request('id');
 
         $put = "";
-        if(request()->method() == 'PUT')
+        if (request()->method() == 'PUT')
             $put = ",code,$id,id";
 
         return [

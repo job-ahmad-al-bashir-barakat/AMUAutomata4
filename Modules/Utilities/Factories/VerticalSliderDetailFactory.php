@@ -34,13 +34,13 @@ class VerticalSliderDetailFactory extends GlobalFactory
         $sliderId = request('verticalSliderId');
 
         return $this->table
-            ->config('datatable-vertical-slider',trans('utilities::app.slider'))
-            ->addPrimaryKey('id','id')
-            ->addHiddenInput('vertical_slider_id','vertical_slider_id', $sliderId, false, true)
-            ->addMultiInputTextLangs(['text', 'sub_text', 'small_text'], 'req required')
-            ->addActionButton(trans('utilities::app.upload_images'), 'upload_image', 'id', 'center all' ,'100px')
-            ->addActionButton($this->update,'update','update')
-            ->addActionButton($this->delete,'delete','delete')
+            ->config('datatable-vertical-slider', trans('utilities::app.slider'))
+            ->addPrimaryKey('id', 'id')
+            ->addHiddenInput('vertical_slider_id', 'vertical_slider_id', $sliderId, false, true)
+            ->addMultiInputTextLangs(['text', 'sub_text', 'small_text'])
+            ->addActionButton(trans('utilities::app.upload_images'), 'upload_image', 'id', 'center all', '100px')
+            ->addActionButton($this->update, 'update', 'update')
+            ->addActionButton($this->delete, 'delete', 'delete')
             ->addNavButton()
             ->render();
     }
@@ -48,7 +48,7 @@ class VerticalSliderDetailFactory extends GlobalFactory
     /**
      *  store action for save relation
      */
-    public function storeDatatable($model = null ,$request = null ,$result = null)
+    public function storeDatatable($model = null, $request = null, $result = null)
     {
         //
     }
@@ -56,7 +56,7 @@ class VerticalSliderDetailFactory extends GlobalFactory
     /**
      *  store action for update relation
      */
-    public function updateDatatable($model = null ,$request = null ,$result = null)
+    public function updateDatatable($model = null, $request = null, $result = null)
     {
         //
     }
@@ -64,7 +64,7 @@ class VerticalSliderDetailFactory extends GlobalFactory
     /**
      *  store action for destroy relation
      */
-    public function destroyDatatable($model = null ,$request = null ,$result = null)
+    public function destroyDatatable($model = null, $request = null, $result = null)
     {
         //
     }

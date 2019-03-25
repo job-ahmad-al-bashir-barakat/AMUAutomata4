@@ -20,11 +20,11 @@ class PermissionFactory extends GlobalFactory
             ->queryConfig('datatable-permissions')
             ->queryDatatable($query)
             ->queryMultiLang(['name'])
-            ->queryAddColumn('to_automata', function ($item){
-                return Role::find(1)->hasPermissionTo($item->id)?'Y':'N';
+            ->queryAddColumn('to_automata', function ($item) {
+                return Role::find(1)->hasPermissionTo($item->id) ? 'Y' : 'N';
             })
-            ->queryAddColumn('to_admin', function ($item){
-                return Role::find(2)->hasPermissionTo($item->id)?'Y':'N';
+            ->queryAddColumn('to_admin', function ($item) {
+                return Role::find(2)->hasPermissionTo($item->id) ? 'Y' : 'N';
             })
             ->queryUpdateButton()
             ->queryDeleteButton()
@@ -39,7 +39,7 @@ class PermissionFactory extends GlobalFactory
         return $this->table
             ->config('datatable-permissions', trans('utilities::app.permissions'))
             ->addPrimaryKey('id', 'id')
-            ->addMultiInputTextLangs(['name'], 'req required')
+            ->addMultiInputTextLangs(['name'])
             ->addInputText(trans('utilities::app.name'), 'name', 'name', 'required req')
             ->addInputText(trans('utilities::app.guard_name'), 'guard_name', 'guard_name')
             ->addSelect(['Y' => 'Yes', 'N' => 'No'], trans('utilities::app.hidden'), 'hidden', 'hidden')
@@ -57,7 +57,7 @@ class PermissionFactory extends GlobalFactory
     /**
      *  store action for save relation
      */
-    public function storeDatatable($model = null ,$request = null ,$result = null)
+    public function storeDatatable($model = null, $request = null, $result = null)
     {
         list ($automata, $admin) = Role::whereIn('id', [1, 2])->get();
 
@@ -73,7 +73,7 @@ class PermissionFactory extends GlobalFactory
     /**
      *  store action for update relation
      */
-    public function updateDatatable($model = null ,$request = null ,$result = null)
+    public function updateDatatable($model = null, $request = null, $result = null)
     {
         list ($automata, $admin) = Role::whereIn('id', [1, 2])->get();
 
@@ -93,7 +93,7 @@ class PermissionFactory extends GlobalFactory
     /**
      *  store action for destroy relation
      */
-    public function destroyDatatable($model = null ,$request = null ,$result = null)
+    public function destroyDatatable($model = null, $request = null, $result = null)
     {
         //
     }

@@ -16,7 +16,7 @@ class ContactAddressesFactory extends GlobalFactory
     {
         $query = Contact::with(['addresses' => function ($query) {
             return $query->allLangs();
-        }])->where('id' ,'=' ,$request->input('id'))->first()->addresses;
+        }])->where('id', '=', $request->input('id'))->first()->addresses;
 
         return $this->table
             ->queryConfig('datatable-addresses')
@@ -34,12 +34,12 @@ class ContactAddressesFactory extends GlobalFactory
     public function buildDatatable($model, $request)
     {
         return $this->table
-            ->config('datatable-addresses' ,trans('admin::app.addresses'))
-            ->addPrimaryKey('id','id')
-            ->addHiddenInput('contact_id','contact_id' ,$request->get('id') ,false ,true)
-            ->addMultiTextareaLangs(['location'], 'req required')
-            ->addActionButton($this->update,'update','update')
-            ->addActionButton($this->delete,'delete','delete')
+            ->config('datatable-addresses', trans('admin::app.addresses'))
+            ->addPrimaryKey('id', 'id')
+            ->addHiddenInput('contact_id', 'contact_id', $request->get('id'), false, true)
+            ->addMultiTextareaLangs(['location'])
+            ->addActionButton($this->update, 'update', 'update')
+            ->addActionButton($this->delete, 'delete', 'delete')
             ->addNavButton()
             ->render();
     }

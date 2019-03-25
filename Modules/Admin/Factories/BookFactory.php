@@ -10,7 +10,7 @@ class BookFactory extends GlobalFactory
     /**
      *  get datatable query
      */
-    public function getDatatable($model ,$request)
+    public function getDatatable($model, $request)
     {
         $query = $model::allLangs()->with(['image', 'author', 'file']);
 
@@ -28,18 +28,18 @@ class BookFactory extends GlobalFactory
     /**
      *  build datatable modal and table
      */
-    public function buildDatatable($model ,$request)
+    public function buildDatatable($model, $request)
     {
         return $this->table
-            ->config('datatable-books' ,trans('admin::app.books'))
-            ->addPrimaryKey('id','id')
-            ->addMultiInputTextLangs(['name'], 'req required')
+            ->config('datatable-books', trans('admin::app.books'))
+            ->addPrimaryKey('id', 'id')
+            ->addMultiInputTextLangs(['name'])
             ->addInputText(trans('app.isbn'), 'isbn', 'isbn')
             ->addAutocomplete('autocomplete/authors', trans('app.author'), 'author_id', 'author.transName.text', "author.lang_name.$this->lang.text")
             ->addActionButton(trans('admin::app.upload_image'), 'upload_image', 'upload_image', 'center all', '60px')
             ->addActionButton(trans('admin::app.upload_file'), 'upload_file', 'upload_file', 'center all', '60px')
-            ->addActionButton($this->update,'update','update')
-            ->addActionButton($this->delete,'delete','delete')
+            ->addActionButton($this->update, 'update', 'update')
+            ->addActionButton($this->delete, 'delete', 'delete')
             ->addNavButton()
             ->render();
     }

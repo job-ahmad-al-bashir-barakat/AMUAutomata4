@@ -19,9 +19,9 @@ class LanguageTableFactory extends GlobalFactory
         return $this->table
             ->queryConfig('datatable-language-tables')
             ->queryDatatable($query)
-            ->queryAddColumn('created', function ($item){
+            ->queryAddColumn('created', function ($item) {
                 $class = 'fa-ban text-danger';
-                if($item->schemaLanguageTable){
+                if ($item->schemaLanguageTable) {
                     $class = 'fa-check-circle text-success';
                 }
                 return "<span class='fa {$class}'></span>";
@@ -53,7 +53,7 @@ class LanguageTableFactory extends GlobalFactory
     /**
      *  store action for save relation
      */
-    public function storeDatatable($model = null ,$request = null ,$result = null)
+    public function storeDatatable($model = null, $request = null, $result = null)
     {
         //
     }
@@ -61,7 +61,7 @@ class LanguageTableFactory extends GlobalFactory
     /**
      *  store action for update relation
      */
-    public function updateDatatable($model = null ,$request = null ,$result = null)
+    public function updateDatatable($model = null, $request = null, $result = null)
     {
         //
     }
@@ -69,7 +69,7 @@ class LanguageTableFactory extends GlobalFactory
     /**
      *  store action for destroy relation
      */
-    public function destroyDatatable($model = null ,$request = null ,$result = null)
+    public function destroyDatatable($model = null, $request = null, $result = null)
     {
         //
     }

@@ -30,14 +30,14 @@ class TableFactory extends GlobalFactory
             ->queryAddColumn('isDynamic', function ($item) {
                 return $item->dynamic ? trans('utilities::app.yes') : trans('utilities::app.no');
             })
-            ->queryAddColumn('created', function ($item){
+            ->queryAddColumn('created', function ($item) {
                 $class = 'fa-ban text-danger';
-                if($item->schemaTable){
+                if ($item->schemaTable) {
                     $class = 'fa-check-circle text-success';
                 }
                 return "<span class='fa {$class}'></span>";
             })
-            ->queryAddColumn('has_lang_table', function ($item){
+            ->queryAddColumn('has_lang_table', function ($item) {
                 return $item->languageTables->count() ? trans('utilities::app.yes') : trans('utilities::app.no');
             })
             ->queryCustomButton('language_tables', 'table_name', 'fa fa-language', 'language_tables', "href='javascript:void(0);' onclick='languageTablesModal(this)'")
@@ -55,7 +55,7 @@ class TableFactory extends GlobalFactory
             ->config('datatable-tables', trans('utilities::app.tables'))
             ->addPrimaryKey('id', 'id')
             ->addInputText(trans('utilities::app.table_name'), 'table_name', 'table_name', 'required req')
-            ->addMultiInputTextLangs(['name'],'none')
+            ->addMultiInputTextLangs(['name'], 'none')
             ->addInputText(trans('utilities::app.namespace'), 'namespace', 'namespace', 'required req')
             ->addSelect([0 => trans('utilities::app.no'), 1 => trans('utilities::app.yes')], trans('utilities::app.pageable'), 'pageable', 'pageable', 'isPageable')
             ->addInputText(trans('utilities::app.pageable_column'), 'pageable_column', 'pageable_column')
@@ -75,7 +75,7 @@ class TableFactory extends GlobalFactory
     /**
      *  store action for save relation
      */
-    public function storeDatatable($model = null ,$request = null ,$result = null)
+    public function storeDatatable($model = null, $request = null, $result = null)
     {
         //
     }
@@ -83,7 +83,7 @@ class TableFactory extends GlobalFactory
     /**
      *  store action for update relation
      */
-    public function updateDatatable($model = null ,$request = null ,$result = null)
+    public function updateDatatable($model = null, $request = null, $result = null)
     {
         //
     }
@@ -91,7 +91,7 @@ class TableFactory extends GlobalFactory
     /**
      *  store action for destroy relation
      */
-    public function destroyDatatable($model = null ,$request = null ,$result = null)
+    public function destroyDatatable($model = null, $request = null, $result = null)
     {
         //
     }

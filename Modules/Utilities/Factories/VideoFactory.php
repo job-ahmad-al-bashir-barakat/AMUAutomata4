@@ -31,12 +31,12 @@ class VideoFactory extends GlobalFactory
     public function buildDatatable($gallery, $request)
     {
         return $this->table
-            ->config('datatable-video',trans('utilities::app.videos'))
-            ->addPrimaryKey('id','id')
-            ->addMultiInputTextLangs(['name'] ,'req required')
+            ->config('datatable-video', trans('utilities::app.videos'))
+            ->addPrimaryKey('id', 'id')
+            ->addMultiInputTextLangs(['name'])
             ->addActionButton(trans('utilities::app.upload_videos'), 'upload_videos', 'id', 'center all')
-            ->addActionButton($this->update,'update','update')
-            ->addActionButton($this->delete,'delete','delete')
+            ->addActionButton($this->update, 'update', 'update')
+            ->addActionButton($this->delete, 'delete', 'delete')
             ->addNavButton()
             ->render();
     }
@@ -44,7 +44,7 @@ class VideoFactory extends GlobalFactory
     /**
      *  store action for save relation
      */
-    public function storeDatatable($model = null ,$request = null ,$result = null)
+    public function storeDatatable($model = null, $request = null, $result = null)
     {
         //
     }
@@ -52,7 +52,7 @@ class VideoFactory extends GlobalFactory
     /**
      *  store action for update relation
      */
-    public function updateDatatable($model = null ,$request = null ,$result = null)
+    public function updateDatatable($model = null, $request = null, $result = null)
     {
         //
     }
@@ -60,7 +60,7 @@ class VideoFactory extends GlobalFactory
     /**
      *  store action for destroy relation
      */
-    public function destroyDatatable($model = null ,$request = null ,$result = null)
+    public function destroyDatatable($model = null, $request = null, $result = null)
     {
         //
     }

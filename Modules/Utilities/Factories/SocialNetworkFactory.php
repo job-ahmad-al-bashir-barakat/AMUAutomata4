@@ -11,7 +11,7 @@ class SocialNetworkFactory extends GlobalFactory
     /**
      *  get datatable query
      */
-    public function getDatatable($model ,$request)
+    public function getDatatable($model, $request)
     {
         $query = SocialNetwork::allLangs();
 
@@ -27,15 +27,15 @@ class SocialNetworkFactory extends GlobalFactory
     /**
      *  build datatable modal and table
      */
-    public function buildDatatable($model ,$request)
+    public function buildDatatable($model, $request)
     {
         return $this->table
-            ->config('datatable-social-network',trans('utilities::app.social_network'))
-            ->addPrimaryKey('id','id')
-            ->addMultiInputTextLangs(['name'] ,'req required')
-            ->addInputText(trans('utilities::app.code'),'code' ,'code' ,'req required')
-            ->addActionButton($this->update,'update','update')
-            ->addActionButton($this->delete,'delete','delete')
+            ->config('datatable-social-network', trans('utilities::app.social_network'))
+            ->addPrimaryKey('id', 'id')
+            ->addMultiInputTextLangs(['name'])
+            ->addInputText(trans('utilities::app.code'), 'code', 'code', 'req required')
+            ->addActionButton($this->update, 'update', 'update')
+            ->addActionButton($this->delete, 'delete', 'delete')
             ->addNavButton()
             ->render();
     }

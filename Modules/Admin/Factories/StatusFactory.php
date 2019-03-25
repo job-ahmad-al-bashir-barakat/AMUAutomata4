@@ -10,7 +10,7 @@ class StatusFactory extends GlobalFactory
     /**
      *  get datatable query
      */
-    public function getDatatable($model ,$request)
+    public function getDatatable($model, $request)
     {
         $query = Status::allLangs();
 
@@ -26,14 +26,14 @@ class StatusFactory extends GlobalFactory
     /**
      *  build datatable modal and table
      */
-    public function buildDatatable($model ,$request)
+    public function buildDatatable($model, $request)
     {
         return $this->table
-            ->config('datatable-status',trans('admin::app.status'))
-            ->addPrimaryKey('id','id')
-            ->addMultiInputTextLangs(['name'] ,'req required')
-            ->addActionButton($this->update,'update','update')
-            ->addActionButton($this->delete,'delete','delete')
+            ->config('datatable-status', trans('admin::app.status'))
+            ->addPrimaryKey('id', 'id')
+            ->addMultiInputTextLangs(['name'])
+            ->addActionButton($this->update, 'update', 'update')
+            ->addActionButton($this->delete, 'delete', 'delete')
             ->addNavButton()
             ->render();
     }

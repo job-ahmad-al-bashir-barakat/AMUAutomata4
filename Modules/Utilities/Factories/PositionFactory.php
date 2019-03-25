@@ -11,7 +11,7 @@ class PositionFactory extends GlobalFactory
     /**
      *  get datatable query
      */
-    public function getDatatable($model ,$request)
+    public function getDatatable($model, $request)
     {
         $query = Position::allLangs();
 
@@ -27,14 +27,14 @@ class PositionFactory extends GlobalFactory
     /**
      *  build datatable modal and table
      */
-    public function buildDatatable($model ,$request)
+    public function buildDatatable($model, $request)
     {
         return $this->table
-            ->config('datatable-position',trans('utilities::app.position'))
-            ->addPrimaryKey('id','id')
-            ->addMultiInputTextLangs(['name'] ,'req required')
-            ->addActionButton($this->update,'update','update')
-            ->addActionButton($this->delete,'delete','delete')
+            ->config('datatable-position', trans('utilities::app.position'))
+            ->addPrimaryKey('id', 'id')
+            ->addMultiInputTextLangs(['name'])
+            ->addActionButton($this->update, 'update', 'update')
+            ->addActionButton($this->delete, 'delete', 'delete')
             ->addNavButton()
             ->render();
     }

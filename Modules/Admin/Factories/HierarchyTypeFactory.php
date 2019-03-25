@@ -10,7 +10,7 @@ class HierarchyTypeFactory extends GlobalFactory
     /**
      *  get datatable query
      */
-    public function getDatatable($model ,$request)
+    public function getDatatable($model, $request)
     {
         $query = HierarchyType::allLangs();
 
@@ -26,15 +26,15 @@ class HierarchyTypeFactory extends GlobalFactory
     /**
      *  build datatable modal and table
      */
-    public function buildDatatable($model ,$request)
+    public function buildDatatable($model, $request)
     {
         return $this->table
-            ->config('datatable-hierarchy-type',trans('admin::app.hierarchy_type'))
-            ->addPrimaryKey('id','id')
-            ->addMultiInputTextLangs(['name'] ,'req required')
-            ->addInputText($this->code,'code','code','req required')
-            ->addActionButton($this->update,'update','update')
-            ->addActionButton($this->delete,'delete','delete')
+            ->config('datatable-hierarchy-type', trans('admin::app.hierarchy_type'))
+            ->addPrimaryKey('id', 'id')
+            ->addMultiInputTextLangs(['name'])
+            ->addInputText($this->code, 'code', 'code', 'req required')
+            ->addActionButton($this->update, 'update', 'update')
+            ->addActionButton($this->delete, 'delete', 'delete')
             ->addNavButton()
             ->render();
     }

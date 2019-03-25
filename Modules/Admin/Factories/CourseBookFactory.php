@@ -11,9 +11,9 @@ class CourseBookFactory extends GlobalFactory
     /**
      *  get datatable query
      */
-    public function getDatatable($model ,$request)
+    public function getDatatable($model, $request)
     {
-        $query = CourseBook::where('course_id' ,'=' ,$request->get('course'))
+        $query = CourseBook::where('course_id', '=', $request->get('course'))
             ->with(['file'])
             ->allLangs();
 
@@ -22,7 +22,7 @@ class CourseBookFactory extends GlobalFactory
             ->queryDatatable($query)
             ->queryUpdateButton('id')
             ->queryDeleteButton('id')
-            ->queryCustomButton('upload_file' ,'id' ,'fa fa-file-pdf-o' ,'' ,'onclick="showCourseBookFileUploadModal(this)"')
+            ->queryCustomButton('upload_file', 'id', 'fa fa-file-pdf-o', '', 'onclick="showCourseBookFileUploadModal(this)"')
             ->queryMultiLang(['name'])
             ->queryRender();
     }
@@ -30,16 +30,16 @@ class CourseBookFactory extends GlobalFactory
     /**
      *  build datatable modal and table
      */
-    public function buildDatatable($model ,$request)
+    public function buildDatatable($model, $request)
     {
         return $this->table
-            ->config('datatable-course-books',trans('admin::app.book'),['gridSystem' => true ,'dialogWidth' => '70%'])
-            ->addPrimaryKey('id','id')
-            ->addHiddenInput('course_id','course_id',$request->get('course'),false,true)
-            ->addMultiInputTextLangs(['name'] ,'req required')
-            ->addActionButton(trans('admin::app.upload_file'),'upload_file','upload_file' ,'center all' ,'60px')
-            ->addActionButton($this->update,'update','update')
-            ->addActionButton($this->delete,'delete','delete')
+            ->config('datatable-course-books', trans('admin::app.book'), ['gridSystem' => true, 'dialogWidth' => '70%'])
+            ->addPrimaryKey('id', 'id')
+            ->addHiddenInput('course_id', 'course_id', $request->get('course'), false, true)
+            ->addMultiInputTextLangs(['name'])
+            ->addActionButton(trans('admin::app.upload_file'), 'upload_file', 'upload_file', 'center all', '60px')
+            ->addActionButton($this->update, 'update', 'update')
+            ->addActionButton($this->delete, 'delete', 'delete')
             ->addNavButton()
             ->render();
     }

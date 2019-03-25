@@ -14,18 +14,24 @@ class ContactNumbersFactory extends GlobalFactory
      */
     public function getDatatable($model, $request)
     {
-        $query = PhoneNumbers::where('contact_id' ,'=' ,request()->get('id'));
+        $query = PhoneNumbers::where('contact_id', '=', request()->get('id'));
 
         return $this->table
             ->queryConfig('datatable-phone-numbers')
             ->queryDatatable($query)
             ->queryUpdateButton('id')
             ->queryDeleteButton('id')
-            ->queryAddColumn('type_selected' ,function ($item) {
+            ->queryAddColumn('type_selected', function ($item) {
                 switch ($item->type) {
-                    case 'P' : return trans('admin::app.phone'); break;
-                    case 'M' : return trans('admin::app.mobile'); break;
-                    case 'F' : return trans('admin::app.fax'); break;
+                    case 'P' :
+                        return trans('admin::app.phone');
+                        break;
+                    case 'M' :
+                        return trans('admin::app.mobile');
+                        break;
+                    case 'F' :
+                        return trans('admin::app.fax');
+                        break;
                 }
             })
             ->queryRender();
@@ -37,13 +43,13 @@ class ContactNumbersFactory extends GlobalFactory
     public function buildDatatable($model, $request)
     {
         return $this->table
-            ->config('datatable-phone-numbers',trans('admin::app.numbers'))
-            ->addPrimaryKey('id','id')
-            ->addHiddenInput('contact_id','contact_id' ,$request->get('id') ,false ,true)
-            ->addInputText(trans('admin::app.number') ,'number' ,'number' ,'req required' ,['data-masked' , 'data-inputmask-type' => "phone"])
-            ->addSelect(['P' => ['title' =>  trans('admin::app.phone') ,'selected' => true] ,'M' => trans('admin::app.mobile') ,'F' => trans('admin::app.fax')] ,trans('admin::app.type') ,'type' ,'type' ,'type_selected' ,'req required')
-            ->addActionButton($this->update,'update','update')
-            ->addActionButton($this->delete,'delete','delete')
+            ->config('datatable-phone-numbers', trans('admin::app.numbers'))
+            ->addPrimaryKey('id', 'id')
+            ->addHiddenInput('contact_id', 'contact_id', $request->get('id'), false, true)
+            ->addInputText(trans('admin::app.number'), 'number', 'number', 'req required', ['data-masked', 'data-inputmask-type' => "phone"])
+            ->addSelect(['P' => ['title' => trans('admin::app.phone'), 'selected' => true], 'M' => trans('admin::app.mobile'), 'F' => trans('admin::app.fax')], trans('admin::app.type'), 'type', 'type', 'type_selected', 'req required')
+            ->addActionButton($this->update, 'update', 'update')
+            ->addActionButton($this->delete, 'delete', 'delete')
             ->onTableCreate("<script>
 
                   $(document).off('change').on('change' ,'#type' ,function () {

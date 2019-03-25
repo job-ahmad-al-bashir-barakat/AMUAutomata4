@@ -30,15 +30,15 @@ class RoleFactory extends GlobalFactory
     public function buildDatatable($role, $request)
     {
         return $this->table
-            ->config('datatable-roles',trans('utilities::app.roles'))
-            ->addPrimaryKey('id','id')
-            ->addMultiInputTextLangs(['name'] ,'req required')
-            ->addInputText(trans('utilities::app.name'),'name','name', 'required req')
-            ->relation('permissions', function (DataTableBuilder $table){
+            ->config('datatable-roles', trans('utilities::app.roles'))
+            ->addPrimaryKey('id', 'id')
+            ->addMultiInputTextLangs(['name'])
+            ->addInputText(trans('utilities::app.name'), 'name', 'name', 'required req')
+            ->relation('permissions', function (DataTableBuilder $table) {
                 $table->addMultiAutocomplete('autocomplete/permissions', "permissions[,].lang_name.$this->lang.text", trans('utilities::app.permissions'), 'permissions.id', "permissions.lang_name.$this->lang.text", "permissions.lang_name.$this->lang.text", 'req required', 'multiple');
             })
-            ->addActionButton($this->update,'update','update')
-            ->addActionButton($this->delete,'delete','delete')
+            ->addActionButton($this->update, 'update', 'update')
+            ->addActionButton($this->delete, 'delete', 'delete')
             ->addNavButton()
             ->render();
     }
@@ -46,7 +46,7 @@ class RoleFactory extends GlobalFactory
     /**
      *  store action for save relation
      */
-    public function storeDatatable($role = null ,$request = null ,$result = null)
+    public function storeDatatable($role = null, $request = null, $result = null)
     {
         $request->request->add(['transSaveOper' => false]);
         $result->givePermissionTo($request->input('permissions.id'));
@@ -64,7 +64,7 @@ class RoleFactory extends GlobalFactory
     /**
      *  store action for destroy relation
      */
-    public function destroyDatatable($model = null ,$request = null ,$result = null)
+    public function destroyDatatable($model = null, $request = null, $result = null)
     {
         dd($request->input(), $result);
     }

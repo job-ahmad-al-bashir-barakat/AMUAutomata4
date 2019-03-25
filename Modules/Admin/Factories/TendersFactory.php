@@ -10,7 +10,7 @@ class TendersFactory extends GlobalFactory
     /**
      *  get datatable query
      */
-    public function getDatatable($model ,$request)
+    public function getDatatable($model, $request)
     {
         $query = $model::allLangs()->with(['image']);
 
@@ -27,15 +27,15 @@ class TendersFactory extends GlobalFactory
     /**
      *  build datatable modal and table
      */
-    public function buildDatatable($model ,$request)
+    public function buildDatatable($model, $request)
     {
         return $this->table
-            ->config('datatable-tenders' ,trans('admin::app.tenders'))
-            ->addPrimaryKey('id','id')
-            ->addMultiTextareaLangs(['text'], 'req required')
+            ->config('datatable-tenders', trans('admin::app.tenders'))
+            ->addPrimaryKey('id', 'id')
+            ->addMultiTextareaLangs(['text'])
             ->addActionButton(trans('admin::app.upload_image'), 'upload_image', 'upload_image', 'center all', '60px')
-            ->addActionButton($this->update,'update','update')
-            ->addActionButton($this->delete,'delete','delete')
+            ->addActionButton($this->update, 'update', 'update')
+            ->addActionButton($this->delete, 'delete', 'delete')
             ->addNavButton()
             ->render();
     }

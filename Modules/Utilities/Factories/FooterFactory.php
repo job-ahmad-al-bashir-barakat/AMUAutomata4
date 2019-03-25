@@ -48,7 +48,7 @@ class FooterFactory extends GlobalFactory
             ->setGridNormalCol(12, 'lg')
             ->tab(trans('utilities::app.basic_info'), function (DataTableBuilder $table) {
                 $table
-                    ->addMultiInputTextLangs(['name'], 'req required')
+                    ->addMultiInputTextLangs(['name'])
                     ->addMultiTextareaLangs(['text'])
                     ->addSelect([0 => trans('utilities::app.no'), 1 => trans('utilities::app.yes')], trans('utilities::app.active')/*trans('utilities::app.default')*/, 'is_default', 'is_default', 'is_default_active');
             }, 'fa fa-file fa-2x')
@@ -63,7 +63,7 @@ class FooterFactory extends GlobalFactory
                             ->addMultiTextareaLangs(['address'], 'none');
                     });
             }, 'fa fa-phone fa-2x')
-            ->tab(trans('admin::app.social_media'), function (DataTableBuilder $table) use($socialNetworks) {
+            ->tab(trans('admin::app.social_media'), function (DataTableBuilder $table) use ($socialNetworks) {
                 $table->each($socialNetworks, function (DataTableBuilder $table, $item) {
                     $table->relation("contact[social][{$item->id}]", function (DataTableBuilder $table) use ($item) {
                         $table
@@ -83,7 +83,7 @@ class FooterFactory extends GlobalFactory
     /**
      *  store action for save relation
      */
-    public function storeDatatable($model = null ,$request = null ,$result = null)
+    public function storeDatatable($model = null, $request = null, $result = null)
     {
         $contact = Contact::create($request->input('contact'));
 
@@ -98,7 +98,7 @@ class FooterFactory extends GlobalFactory
     /**
      *  store action for update relation
      */
-    public function updateDatatable($model = null ,$request = null ,$result = null)
+    public function updateDatatable($model = null, $request = null, $result = null)
     {
         $result->contact()->update($request->input('contact'));
 
@@ -108,7 +108,7 @@ class FooterFactory extends GlobalFactory
     /**
      *  store action for destroy relation
      */
-    public function destroyDatatable($model = null ,$request = null ,$result = null)
+    public function destroyDatatable($model = null, $request = null, $result = null)
     {
         //
     }

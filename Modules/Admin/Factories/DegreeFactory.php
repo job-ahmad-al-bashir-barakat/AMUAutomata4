@@ -10,7 +10,7 @@ class DegreeFactory extends GlobalFactory
     /**
      *  get datatable query
      */
-    public function getDatatable($model ,$request)
+    public function getDatatable($model, $request)
     {
         $query = Degree::with('faculty')->allLangs();
 
@@ -26,15 +26,15 @@ class DegreeFactory extends GlobalFactory
     /**
      *  build datatable modal and table
      */
-    public function buildDatatable($model ,$request)
+    public function buildDatatable($model, $request)
     {
         return $this->table
-            ->config('datatable-degree',trans('admin::app.degree'))
-            ->addPrimaryKey('id','id')
-            ->addAutocomplete('autocomplete/faculty',trans('admin::app.faculty') ,'faculty_id' ,'faculty_id','faculty.lang_name.'.$this->lang.'.text' ,'req required')
-            ->addMultiInputTextLangs(['name'] ,'req required')
-            ->addActionButton($this->update,'update','update')
-            ->addActionButton($this->delete,'delete','delete')
+            ->config('datatable-degree', trans('admin::app.degree'))
+            ->addPrimaryKey('id', 'id')
+            ->addAutocomplete('autocomplete/faculty', trans('admin::app.faculty'), 'faculty_id', 'faculty_id', 'faculty.lang_name.' . $this->lang . '.text', 'req required')
+            ->addMultiInputTextLangs(['name'])
+            ->addActionButton($this->update, 'update', 'update')
+            ->addActionButton($this->delete, 'delete', 'delete')
             ->addNavButton()
             ->render();
     }

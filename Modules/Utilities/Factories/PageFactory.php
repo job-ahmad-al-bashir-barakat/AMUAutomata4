@@ -28,13 +28,13 @@ class PageFactory extends GlobalFactory
     public function buildDatatable($model, $request)
     {
         return $this->table
-            ->config('datatable-pages',trans('utilities::app.pages'))
-            ->addPrimaryKey('id','id')
-            ->addMultiInputTextLangs(['name'], 'req required')
-            ->addInputText(trans('utilities::app.page_route'),'route','route','required req')
-            ->addInputText(trans('utilities::app.page_code'),'page_code','page_code')
-            ->addActionButton($this->update,'update','update')
-            ->addActionButton($this->delete,'delete','delete')
+            ->config('datatable-pages', trans('utilities::app.pages'))
+            ->addPrimaryKey('id', 'id')
+            ->addMultiInputTextLangs(['name'])
+            ->addInputText(trans('utilities::app.page_route'), 'route', 'route', 'required req')
+            ->addInputText(trans('utilities::app.page_code'), 'page_code', 'page_code')
+            ->addActionButton($this->update, 'update', 'update')
+            ->addActionButton($this->delete, 'delete', 'delete')
             ->addNavButton()
             ->render();
     }
@@ -42,7 +42,7 @@ class PageFactory extends GlobalFactory
     /**
      *  store action for save relation
      */
-    public function storeDatatable($model = null ,$request = null ,$result = null)
+    public function storeDatatable($model = null, $request = null, $result = null)
     {
         //
     }
@@ -50,7 +50,7 @@ class PageFactory extends GlobalFactory
     /**
      *  store action for update relation
      */
-    public function updateDatatable($model = null ,$request = null ,$result = null)
+    public function updateDatatable($model = null, $request = null, $result = null)
     {
         //
     }
@@ -58,7 +58,7 @@ class PageFactory extends GlobalFactory
     /**
      *  store action for destroy relation
      */
-    public function destroyDatatable($model = null ,$request = null ,$result = null)
+    public function destroyDatatable($model = null, $request = null, $result = null)
     {
         //
     }

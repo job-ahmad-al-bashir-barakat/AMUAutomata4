@@ -29,12 +29,12 @@ class AttributeFactory extends GlobalFactory
     public function buildDatatable($attribute, $request)
     {
         return $this->table
-            ->config('datatable-attributes',trans('utilities::app.attributes'))
-            ->addPrimaryKey('id','id')
-            ->addInputText(trans('utilities::app.code'),'code','code','required req')
-            ->addMultiInputTextLangs(['name'] ,'req required')
-            ->addActionButton($this->update,'update','update')
-            ->addActionButton($this->delete,'delete','delete')
+            ->config('datatable-attributes', trans('utilities::app.attributes'))
+            ->addPrimaryKey('id', 'id')
+            ->addInputText(trans('utilities::app.code'), 'code', 'code')
+            ->addMultiInputTextLangs(['name'], 'req required')
+            ->addActionButton($this->update, 'update', 'update')
+            ->addActionButton($this->delete, 'delete', 'delete')
             ->addNavButton()
             ->render();
     }

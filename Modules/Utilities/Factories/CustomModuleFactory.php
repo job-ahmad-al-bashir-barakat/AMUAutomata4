@@ -35,7 +35,7 @@ class CustomModuleFactory extends GlobalFactory
         return $this->table
             ->config('datatable-custom-modules',trans('utilities::app.custom-modules'),['usedComponent' => true])
             ->addPrimaryKey('id','id')
-            ->addMultiInputTextLangs(['name'] ,'req required')
+            ->addMultiInputTextLangs(['name'])
             ->addAutocomplete('autocomplete/modules' ,trans('utilities::app.modules'), 'module_id', "modules.transName.text", "modules.lang_name.$this->lang.text" ,'req required'/*,'onChange=""'*/)
             ->addActionButton($this->update,'update','update')
             ->addActionButton($this->delete,'delete','delete')

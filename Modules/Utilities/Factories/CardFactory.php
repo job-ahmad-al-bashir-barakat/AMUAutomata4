@@ -31,7 +31,7 @@ class CardFactory extends GlobalFactory
         return $this->table
             ->config('datatable-cards', trans('utilities::app.cards'))
             ->addPrimaryKey('id', 'id')
-            ->addMultiInputTextLangs(['name'], 'req required')
+            ->addMultiInputTextLangs(['name'])
             ->addMultiInputTextLangs(['title'])
             ->addMultiTextareaLangs(['text'])
             ->addMultiInputTextLangs(['url', 'link'])

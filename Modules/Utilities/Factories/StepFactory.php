@@ -29,13 +29,13 @@ class StepFactory extends GlobalFactory
     public function buildDatatable($model, $request)
     {
         return $this->table
-            ->config('datatable-steps',trans('utilities::app.steps'))
-            ->addPrimaryKey('id','id')
-            ->addMultiInputTextLangs(['title'], 'req required')
-            ->addMultiTextareaLangs(['text'], 'req required')
+            ->config('datatable-steps', trans('utilities::app.steps'))
+            ->addPrimaryKey('id', 'id')
+            ->addMultiInputTextLangs(['title'])
+            ->addMultiTextareaLangs(['text'])
             ->addMultiInputTextLangs(['url'])
-            ->addActionButton($this->update,'update','update')
-            ->addActionButton($this->delete,'delete','delete')
+            ->addActionButton($this->update, 'update', 'update')
+            ->addActionButton($this->delete, 'delete', 'delete')
             ->addNavButton()
             ->render();
     }
@@ -43,7 +43,7 @@ class StepFactory extends GlobalFactory
     /**
      *  store action for save relation
      */
-    public function storeDatatable($model = null ,$request = null ,$result = null)
+    public function storeDatatable($model = null, $request = null, $result = null)
     {
         //
     }
@@ -51,7 +51,7 @@ class StepFactory extends GlobalFactory
     /**
      *  store action for update relation
      */
-    public function updateDatatable($model = null ,$request = null ,$result = null)
+    public function updateDatatable($model = null, $request = null, $result = null)
     {
         //
     }
@@ -59,7 +59,7 @@ class StepFactory extends GlobalFactory
     /**
      *  store action for destroy relation
      */
-    public function destroyDatatable($model = null ,$request = null ,$result = null)
+    public function destroyDatatable($model = null, $request = null, $result = null)
     {
         //
     }

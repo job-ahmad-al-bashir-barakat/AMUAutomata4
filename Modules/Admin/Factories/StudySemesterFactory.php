@@ -19,7 +19,7 @@ class StudySemesterFactory extends GlobalFactory
             ->queryConfig('datatable-study-semester')
             ->queryDatatable($query)
             ->queryMultiLang(['name'])
-            ->queryAddColumn('semester_type' ,function ($item){
+            ->queryAddColumn('semester_type', function ($item) {
                 return $item->type == 'y' ? trans('app.year') : trans('app.semester');
             })
             ->queryUpdateButton('id')

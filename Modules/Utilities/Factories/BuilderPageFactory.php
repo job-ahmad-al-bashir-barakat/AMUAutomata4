@@ -36,7 +36,7 @@ class BuilderPageFactory extends GlobalFactory
         $builderPage = $this->builderModel;
         $hasSubPages = false;
 
-        if(!$objectId) {
+        if (!$objectId) {
             $menuId = SiteMenu::where('dynamic', $this->builderMorphCode)->first();
             if ($menuId) {
                 $hasSubPages = (bool)SiteMenu::where('parent_id', $menuId->id)->count();
@@ -113,7 +113,7 @@ class BuilderPageFactory extends GlobalFactory
     /**
      *  store action for save relation
      */
-    public function storeDatatable($model = null ,$request = null ,$result = null)
+    public function storeDatatable($model = null, $request = null, $result = null)
     {
         //
     }
@@ -121,7 +121,7 @@ class BuilderPageFactory extends GlobalFactory
     /**
      *  store action for update relation
      */
-    public function updateDatatable($model = null ,$request = null ,$result = null)
+    public function updateDatatable($model = null, $request = null, $result = null)
     {
         //
     }
@@ -129,7 +129,7 @@ class BuilderPageFactory extends GlobalFactory
     /**
      *  store action for destroy relation
      */
-    public function destroyDatatable($model = null ,$request = null ,$result = null)
+    public function destroyDatatable($model = null, $request = null, $result = null)
     {
         //
     }

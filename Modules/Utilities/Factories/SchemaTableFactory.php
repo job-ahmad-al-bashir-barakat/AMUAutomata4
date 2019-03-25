@@ -23,31 +23,31 @@ class SchemaTableFactory extends GlobalFactory
             ->queryDatatable($query)
             ->queryMultiLang(['name'])
             ->queryAddColumn('id', function ($item) {
-                if($item->table)
+                if ($item->table)
                     return $item->table->id;
             })
             ->queryAddColumn('namespace', function ($item) {
-                if($item->table)
+                if ($item->table)
                     return $item->table->namespace;
             })
             ->queryAddColumn('pageable', function ($item) {
-                if($item->table)
+                if ($item->table)
                     return $item->table->pageable;
             })->queryAddColumn('pageable_column', function ($item) {
-                if($item->table)
+                if ($item->table)
                     return $item->table->pageable_column;
             })
             ->queryAddColumn('menuable', function ($item) {
-                if($item->table)
+                if ($item->table)
                     return $item->table->menuable;
             })
             ->queryAddColumn('morph_code', function ($item) {
-                if($item->table)
+                if ($item->table)
                     return $item->table->morph_code;
             })
-            ->queryAddColumn('inserted', function ($item){
+            ->queryAddColumn('inserted', function ($item) {
                 $class = 'fa-ban text-danger';
-                if($item->table){
+                if ($item->table) {
                     $class = 'fa-check-circle text-success';
                 }
                 return "<span class='fa {$class}'></span>";
@@ -67,7 +67,7 @@ class SchemaTableFactory extends GlobalFactory
             ->addPrimaryKey('id', 'id')
             ->setName('table_name')
             ->addInputText(trans('utilities::app.table_name'), 'TABLE_NAME', 'TABLE_NAME', 'required req')
-            ->addMultiInputTextLangs(['name'],'none')
+            ->addMultiInputTextLangs(['name'], 'none')
             ->addInputText(trans('utilities::app.namespace'), 'namespace', 'namespace', 'required req none'/*, '', '', false*/)
             ->addSelect([0 => trans('utilities::app.no'), 1 => trans('utilities::app.yes')], trans('utilities::app.pageable'), 'pageable', 'pageable', 'pageable', 'none', '', '', false)
             ->addInputText(trans('utilities::app.pageable_column'), 'pageable_column', 'pageable_column', 'none')
@@ -83,7 +83,7 @@ class SchemaTableFactory extends GlobalFactory
     /**
      *  store action for save relation
      */
-    public function storeDatatable($model = null ,$request = null ,$result = null)
+    public function storeDatatable($model = null, $request = null, $result = null)
     {
         //
     }
@@ -91,7 +91,7 @@ class SchemaTableFactory extends GlobalFactory
     /**
      *  store action for update relation
      */
-    public function updateDatatable($model = null ,$request = null ,$result = null)
+    public function updateDatatable($model = null, $request = null, $result = null)
     {
         //
     }
@@ -99,7 +99,7 @@ class SchemaTableFactory extends GlobalFactory
     /**
      *  store action for destroy relation
      */
-    public function destroyDatatable($model = null ,$request = null ,$result = null)
+    public function destroyDatatable($model = null, $request = null, $result = null)
     {
         //
     }

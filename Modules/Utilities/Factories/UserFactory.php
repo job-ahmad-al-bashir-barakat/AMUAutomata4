@@ -40,8 +40,8 @@ class UserFactory extends GlobalFactory
             ->addPrimaryKey('id', 'id')
             ->addInputText(trans('utilities::app.user_name'), 'name', 'name', 'required req')
             ->addInputText(trans('utilities::app.email'), 'email', 'email', 'required req d:email')
-            ->addMultiInputTextLangs(['name'], 'req required')
-            ->addMultiTextareaLangs(['summary'], 'req required')
+            ->addMultiInputTextLangs(['name'])
+            ->addMultiTextareaLangs(['summary'])
             ->relation('roles', function (DataTableBuilder $table) {
                 $table->addMultiAutocomplete('autocomplete/roles', "roles[,].lang_name.$this->lang.text", trans('utilities::app.roles'), 'roles.id', "roles.lang_name.$this->lang.text", "roles.lang_name.$this->lang.text", '', 'multiple');
             })
@@ -63,7 +63,7 @@ class UserFactory extends GlobalFactory
     /**
      *  store action for save relation
      */
-    public function storeDatatable($model = null ,$request = null ,$result = null)
+    public function storeDatatable($model = null, $request = null, $result = null)
     {
         $request->request->add(['transSaveOper' => false]);
         $result->givePermissionTo($request->input('permissions.id', []));
@@ -73,7 +73,7 @@ class UserFactory extends GlobalFactory
     /**
      *  store action for update relation
      */
-    public function updateDatatable($model = null ,$request = null ,$result = null)
+    public function updateDatatable($model = null, $request = null, $result = null)
     {
         $request->request->add(['transSaveOper' => false]);
         $result->syncPermissions($request->input('permissions.id', []));
@@ -83,7 +83,7 @@ class UserFactory extends GlobalFactory
     /**
      *  store action for destroy relation
      */
-    public function destroyDatatable($model = null ,$request = null ,$result = null)
+    public function destroyDatatable($model = null, $request = null, $result = null)
     {
         //
     }
