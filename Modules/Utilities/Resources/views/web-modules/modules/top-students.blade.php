@@ -7,7 +7,7 @@
             <div class="row multi-row-clearfix top-student-cont">
                 @foreach($level as $topStudent)
                     @php($student = $topStudent->student)
-                    <div class="col-sm-6 col-md-3 sm-text-center mb-sm-30 filters  filter_top_student_{{ $student->academic->graduate->id }}">
+                    <div class="col-sm-6 col-md-3 sm-text-center mb-sm-30 filters  filter_top_student_{{ $topStudent->study_semester_id }}">
                         <div class="team maxwidth400">
                             <div class="thumb"><img class="img-fullwidth" src="{{ asset($student->image_path['sm']) }}" alt=""></div>
                             <div class="content border-1px border-bottom-theme-color-2-2px p-15 bg-light clearfix">
