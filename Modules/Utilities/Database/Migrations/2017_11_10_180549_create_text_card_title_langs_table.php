@@ -17,7 +17,7 @@ class CreateTextCardTitleLangsTable extends Migration {
 			$table->increments('id');
 			$table->integer('text_card_id')->unsigned()->index('text_card_id');
 			$table->integer('lang_id')->unsigned()->index('lang_id');
-			$table->string('text', 600);
+			$table->string('text', '512')->nullable();
 			$table->timestamps();
 			$table->softDeletes();
 		});

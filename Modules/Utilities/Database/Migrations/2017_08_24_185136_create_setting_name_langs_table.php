@@ -17,7 +17,7 @@ class CreateSettingNameLangsTable extends Migration {
 			$table->increments('id');
 			$table->integer('setting_id')->unsigned()->nullable()->index('setting_id');
 			$table->integer('lang_id')->unsigned()->nullable()->index('lang_id');
-			$table->string('text', 191)->nullable();
+			$table->string('text', '512')->nullable();
 			$table->timestamps();
 			$table->softDeletes();
 		});

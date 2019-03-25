@@ -17,7 +17,7 @@ class CreateSeoDescriptionLangsTable extends Migration {
 			$table->integer('id', true);
 			$table->integer('seo_id')->index('seo_id');
 			$table->integer('lang_id')->index('lang_id');
-			$table->string('text', 191);
+            $table->string('text', '512')->nullable();
 			$table->timestamps();
 			$table->softDeletes();
 		});

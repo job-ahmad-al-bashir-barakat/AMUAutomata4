@@ -17,7 +17,7 @@ class CreateAddressesAddressLangsTable extends Migration
             $table->increments('id')->unsigned();
             $table->integer('lang_id');
             $table->integer('address_id');
-            $table->string('text' ,500);
+            $table->string('text', '512')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

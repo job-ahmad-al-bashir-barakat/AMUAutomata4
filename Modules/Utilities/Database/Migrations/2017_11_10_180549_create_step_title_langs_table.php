@@ -17,7 +17,7 @@ class CreateStepTitleLangsTable extends Migration {
 			$table->increments('id');
 			$table->integer('step_id')->unsigned()->index('step_id');
 			$table->integer('lang_id')->unsigned()->index('lang_id');
-			$table->string('text', 200);
+			$table->string('text', '512')->nullable();
 			$table->timestamps();
 			$table->softDeletes();
 		});

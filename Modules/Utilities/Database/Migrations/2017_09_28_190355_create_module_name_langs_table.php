@@ -17,7 +17,7 @@ class CreateModuleNameLangsTable extends Migration {
 			$table->increments('id');
 			$table->integer('module_id')->nullable()->index('module_id');
 			$table->integer('lang_id')->nullable()->index('lang_id');
-			$table->string('text', 191)->nullable();
+			$table->string('text', '512')->nullable();
 			$table->timestamps();
 			$table->softDeletes();
 		});

@@ -17,7 +17,7 @@ class CreateBlockDetailBtnLangsTable extends Migration {
 			$table->increments('id');
 			$table->integer('block_detail_id')->unsigned()->index('block_detail_id');
 			$table->integer('lang_id')->unsigned()->index('lang_id');
-			$table->string('text', 100);
+			$table->string('text', '512')->nullable();
 			$table->timestamps();
 			$table->softDeletes();
 		});

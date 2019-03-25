@@ -17,7 +17,7 @@ class CreateVideoNameLangsTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('video_id')->index();
             $table->unsignedInteger('lang_id')->index();
-            $table->string('text', 191);
+            $table->string('text', '512')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

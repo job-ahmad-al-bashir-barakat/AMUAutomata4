@@ -17,7 +17,7 @@ class CreateSeoBookTagLangsTable extends Migration {
 			$table->increments('id');
 			$table->integer('seo_id')->unsigned()->index('seo_id');
 			$table->integer('lang_id')->unsigned()->index('lang_id');
-			$table->string('text', 191);
+			$table->string('text', '512')->nullable();
 			$table->timestamps();
 			$table->softDeletes();
 		});

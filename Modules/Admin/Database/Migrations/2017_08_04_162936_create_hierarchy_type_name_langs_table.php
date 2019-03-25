@@ -17,7 +17,7 @@ class CreateHierarchyTypeNameLangsTable extends Migration
             $table->increments('id')->unsigned();
             $table->integer('hierarchy_type_id')->unsigned()->nullable()->index('hierarchy_type_id');
             $table->integer('lang_id')->unsigned()->nullable()->index('lang_id');
-            $table->string('text')->nullable();
+            $table->string('text', '512')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

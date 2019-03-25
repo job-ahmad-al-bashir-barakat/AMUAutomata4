@@ -17,7 +17,7 @@ class CreateStepTextLangsTable extends Migration {
 			$table->integer('id', true);
 			$table->integer('step_id')->index('step_id');
 			$table->integer('lang_id')->index('lang_id');
-			$table->string('text', 500);
+			$table->string('text', '512')->nullable();
 			$table->timestamps();
 			$table->softDeletes();
 		});

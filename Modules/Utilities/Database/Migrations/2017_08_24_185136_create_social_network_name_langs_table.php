@@ -17,7 +17,7 @@ class CreateSocialNetworkNameLangsTable extends Migration {
 			$table->increments('id');
 			$table->integer('social_network_id')->nullable()->index('social_network_id');
 			$table->integer('lang_id')->nullable()->index('lang_id');
-			$table->string('text', 191)->nullable();
+			$table->string('text', '512')->nullable();
 			$table->timestamps();
 			$table->softDeletes();
 		});

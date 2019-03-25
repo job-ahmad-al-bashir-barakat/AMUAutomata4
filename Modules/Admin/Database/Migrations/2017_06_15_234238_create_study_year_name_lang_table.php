@@ -17,7 +17,7 @@ class CreateStudyYearNameLangTable extends Migration
             $table->increments('id')->unsigned();
             $table->integer('study_year_id')->unsigned()->nullable()->index('study_year_id');
             $table->integer('lang_id')->unsigned()->nullable()->index('lang_id');
-            $table->string('text')->nullable();
+            $table->string('text', '512')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

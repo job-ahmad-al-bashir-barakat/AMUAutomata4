@@ -17,7 +17,7 @@ class CreateStatusNameLangsTable extends Migration {
 			$table->increments('id');
 			$table->integer('status_id')->unsigned()->index('status_id');
 			$table->integer('lang_id')->unsigned()->index('lang_id');
-			$table->string('text', 191);
+			$table->string('text', '512')->nullable();
 			$table->timestamps();
 			$table->softDeletes();
 		});

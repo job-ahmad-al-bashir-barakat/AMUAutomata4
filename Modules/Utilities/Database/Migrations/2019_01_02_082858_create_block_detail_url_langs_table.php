@@ -17,7 +17,7 @@ class CreateBlockDetailUrlLangsTable extends Migration
             $table->increments('id');
             $table->integer('block_detail_id')->unsigned()->index();
             $table->integer('lang_id')->unsigned()->index();
-            $table->string('text', 512);
+            $table->string('text', '512')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

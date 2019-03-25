@@ -17,7 +17,7 @@ class CreateLabNameLangTable extends Migration
             $table->increments('id')->unsigned();
             $table->integer('lab_id')->nullable()->index('lap_id');
             $table->integer('lang_id')->nullable()->index('lang_id');
-            $table->string('text')->nullable();
+            $table->string('text', '512')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

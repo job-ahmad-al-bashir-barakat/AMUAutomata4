@@ -17,7 +17,7 @@ class CreateTenderTextLangsTable extends Migration
             $table->increments('id')->unsigned();
             $table->integer('tender_id')->nullable()->index();
             $table->integer('lang_id')->nullable()->index();
-            $table->string('text')->nullable();
+            $table->string('text', '512')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

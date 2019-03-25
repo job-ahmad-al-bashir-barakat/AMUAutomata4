@@ -17,7 +17,7 @@ class CreateFacultyNameLangsTable extends Migration
             $table->increments('id')->unsigned();
             $table->integer('faculty_id')->nullable()->index('faculty_id');
             $table->integer('lang_id')->nullable()->index('lang_id');
-            $table->string('text')->nullable();
+            $table->string('text', '512')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

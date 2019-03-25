@@ -17,7 +17,7 @@ class CreateFooterLinkTextLangsTable extends Migration
             $table->increments('id');
             $table->integer('footer_link_id')->nullable()->index();
             $table->integer('lang_id')->nullable()->index();
-            $table->string('text')->nullable();
+            $table->string('text', '512')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

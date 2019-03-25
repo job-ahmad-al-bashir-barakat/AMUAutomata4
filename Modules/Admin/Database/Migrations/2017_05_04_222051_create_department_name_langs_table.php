@@ -17,7 +17,7 @@ class CreateDepartmentNameLangsTable extends Migration
             $table->increments('id')->unsigned();
             $table->integer('department_id')->nullable()->index('department_id');
             $table->integer('lang_id')->nullable()->index('lang_id');
-            $table->string('text')->nullable();
+            $table->string('text', '512')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

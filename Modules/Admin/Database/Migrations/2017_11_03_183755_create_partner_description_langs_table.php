@@ -17,7 +17,7 @@ class CreatePartnerDescriptionLangsTable extends Migration
             $table->increments('id')->unsigned();
             $table->integer('partner_id')->unsigned();
             $table->integer('lang_id')->unsigned();
-            $table->longText('text');
+            $table->longText('text')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

@@ -17,7 +17,7 @@ class CreateFileAltLangsTable extends Migration
             $table->increments('id');
             $table->integer('file_id')->nullable()->index('file_id');
             $table->integer('lang_id')->nullable()->index('lang_id');
-            $table->string('text', 191)->nullable();
+            $table->string('text', '512')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

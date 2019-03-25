@@ -17,7 +17,7 @@ class CreateVerticalSliderNameLangsTable extends Migration {
 			$table->increments('id');
 			$table->integer('vertical_slider_id')->unsigned()->index('vertical_slider_id');
 			$table->integer('lang_id')->unsigned()->index('lang_id');
-			$table->string('text', 200);
+			$table->string('text', '512')->nullable();
 			$table->timestamps();
 			$table->softDeletes();
 		});

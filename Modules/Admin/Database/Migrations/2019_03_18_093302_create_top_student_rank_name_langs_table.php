@@ -17,7 +17,7 @@ class CreateTopStudentRankNameLangsTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('top_student_rank_id')->index();
             $table->unsignedInteger('lang_id')->index();
-            $table->string('text')->nullable();
+            $table->string('text', '512')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

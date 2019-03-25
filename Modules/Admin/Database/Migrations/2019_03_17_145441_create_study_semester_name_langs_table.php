@@ -17,7 +17,7 @@ class CreateStudySemesterNameLangsTable extends Migration
             $table->increments('id')->unsigned();
             $table->integer('study_semester_id')->index();
             $table->integer('lang_id')->index();
-            $table->string('text')->nullable();
+            $table->string('text', '512')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
