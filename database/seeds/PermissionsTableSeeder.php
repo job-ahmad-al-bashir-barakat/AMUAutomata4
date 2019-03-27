@@ -503,8 +503,8 @@ class PermissionsTableSeeder extends Seeder
                 'name' => 'cards',
                 'guard_name' => 'web',
                 'hidden' => 'N',
-                'created_at' => '2019-01-22 05:14:31',
-                'updated_at' => '2019-01-22 05:14:31',
+                'created_at' => '2019-01-22 03:14:31',
+                'updated_at' => '2019-01-22 03:14:31',
                 'deleted_at' => NULL,
             ),
             49 => 
@@ -513,8 +513,8 @@ class PermissionsTableSeeder extends Seeder
                 'name' => 'tenders',
                 'guard_name' => 'web',
                 'hidden' => 'Y',
-                'created_at' => '2019-01-26 12:01:55',
-                'updated_at' => '2019-01-26 12:01:55',
+                'created_at' => '2019-01-26 10:01:55',
+                'updated_at' => '2019-01-26 10:01:55',
                 'deleted_at' => NULL,
             ),
             50 => 
@@ -523,8 +523,78 @@ class PermissionsTableSeeder extends Seeder
                 'name' => 'links',
                 'guard_name' => 'web',
                 'hidden' => 'N',
-                'created_at' => '2019-01-28 10:15:58',
-                'updated_at' => '2019-01-28 10:15:58',
+                'created_at' => '2019-01-28 08:15:58',
+                'updated_at' => '2019-01-28 08:15:58',
+                'deleted_at' => NULL,
+            ),
+            51 => 
+            array (
+                'id' => 52,
+                'name' => 'students',
+                'guard_name' => 'web',
+                'hidden' => 'N',
+                'created_at' => '2019-03-14 05:59:45',
+                'updated_at' => '2019-03-14 06:01:00',
+                'deleted_at' => NULL,
+            ),
+            52 => 
+            array (
+                'id' => 53,
+                'name' => 'top-students',
+                'guard_name' => 'web',
+                'hidden' => 'N',
+                'created_at' => '2019-03-17 13:53:27',
+                'updated_at' => '2019-03-17 13:53:27',
+                'deleted_at' => NULL,
+            ),
+            53 => 
+            array (
+                'id' => 54,
+                'name' => 'study-semester',
+                'guard_name' => 'web',
+                'hidden' => 'N',
+                'created_at' => '2019-03-17 14:43:11',
+                'updated_at' => '2019-03-17 14:43:11',
+                'deleted_at' => NULL,
+            ),
+            54 => 
+            array (
+                'id' => 55,
+                'name' => 'top-student-rank',
+                'guard_name' => 'web',
+                'hidden' => 'N',
+                'created_at' => '2019-03-18 09:17:33',
+                'updated_at' => '2019-03-18 09:17:33',
+                'deleted_at' => NULL,
+            ),
+            55 => 
+            array (
+                'id' => 56,
+                'name' => 'authors',
+                'guard_name' => 'web',
+                'hidden' => 'N',
+                'created_at' => '2019-03-19 10:04:33',
+                'updated_at' => '2019-03-19 10:04:33',
+                'deleted_at' => NULL,
+            ),
+            56 => 
+            array (
+                'id' => 57,
+                'name' => 'books',
+                'guard_name' => 'web',
+                'hidden' => 'N',
+                'created_at' => '2019-03-19 10:05:04',
+                'updated_at' => '2019-03-19 10:05:04',
+                'deleted_at' => NULL,
+            ),
+            57 => 
+            array (
+                'id' => 58,
+                'name' => 'videos',
+                'guard_name' => 'web',
+                'hidden' => 'N',
+                'created_at' => '2019-03-20 12:37:34',
+                'updated_at' => '2019-03-20 12:37:34',
                 'deleted_at' => NULL,
             ),
         ));

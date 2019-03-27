@@ -1232,6 +1232,168 @@ class ModuleAttributeTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
+            135 => 
+            array (
+                'id' => 146,
+                'module_id' => 49,
+                'attribute_id' => 1,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+                'deleted_at' => NULL,
+            ),
+            136 => 
+            array (
+                'id' => 147,
+                'module_id' => 49,
+                'attribute_id' => 2,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+                'deleted_at' => NULL,
+            ),
+            137 => 
+            array (
+                'id' => 148,
+                'module_id' => 50,
+                'attribute_id' => 1,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+                'deleted_at' => NULL,
+            ),
+            138 => 
+            array (
+                'id' => 149,
+                'module_id' => 50,
+                'attribute_id' => 2,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+                'deleted_at' => NULL,
+            ),
+            139 => 
+            array (
+                'id' => 150,
+                'module_id' => 50,
+                'attribute_id' => 25,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+                'deleted_at' => NULL,
+            ),
+            140 => 
+            array (
+                'id' => 151,
+                'module_id' => 51,
+                'attribute_id' => 1,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+                'deleted_at' => NULL,
+            ),
+            141 => 
+            array (
+                'id' => 152,
+                'module_id' => 51,
+                'attribute_id' => 2,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+                'deleted_at' => NULL,
+            ),
+            142 => 
+            array (
+                'id' => 153,
+                'module_id' => 51,
+                'attribute_id' => 25,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+                'deleted_at' => NULL,
+            ),
+            143 => 
+            array (
+                'id' => 154,
+                'module_id' => 52,
+                'attribute_id' => 1,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+                'deleted_at' => NULL,
+            ),
+            144 => 
+            array (
+                'id' => 155,
+                'module_id' => 52,
+                'attribute_id' => 2,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+                'deleted_at' => NULL,
+            ),
+            145 => 
+            array (
+                'id' => 156,
+                'module_id' => 52,
+                'attribute_id' => 3,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+                'deleted_at' => NULL,
+            ),
+            146 => 
+            array (
+                'id' => 157,
+                'module_id' => 52,
+                'attribute_id' => 8,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+                'deleted_at' => NULL,
+            ),
+            147 => 
+            array (
+                'id' => 158,
+                'module_id' => 52,
+                'attribute_id' => 10,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+                'deleted_at' => NULL,
+            ),
+            148 => 
+            array (
+                'id' => 159,
+                'module_id' => 52,
+                'attribute_id' => 26,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+                'deleted_at' => NULL,
+            ),
+            149 => 
+            array (
+                'id' => 160,
+                'module_id' => 53,
+                'attribute_id' => 1,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+                'deleted_at' => NULL,
+            ),
+            150 => 
+            array (
+                'id' => 161,
+                'module_id' => 53,
+                'attribute_id' => 2,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+                'deleted_at' => NULL,
+            ),
+            151 => 
+            array (
+                'id' => 162,
+                'module_id' => 53,
+                'attribute_id' => 10,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+                'deleted_at' => NULL,
+            ),
+            152 => 
+            array (
+                'id' => 163,
+                'module_id' => 53,
+                'attribute_id' => 31,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+                'deleted_at' => NULL,
+            ),
         ));
         
         

@@ -493,8 +493,58 @@ class ModulesTableSeeder extends Seeder
                 'image_id' => NULL,
                 'code' => 'events_list',
                 'customized' => '1',
-                'created_at' => '2019-01-30 06:16:15',
-                'updated_at' => '2019-01-30 06:16:15',
+                'created_at' => '2019-01-30 04:16:15',
+                'updated_at' => '2019-01-30 04:16:15',
+                'deleted_at' => NULL,
+            ),
+            48 => 
+            array (
+                'id' => 49,
+                'image_id' => NULL,
+                'code' => 'books_list_1',
+                'customized' => '1',
+                'created_at' => '2019-03-21 08:39:28',
+                'updated_at' => '2019-03-21 08:42:59',
+                'deleted_at' => NULL,
+            ),
+            49 => 
+            array (
+                'id' => 50,
+                'image_id' => NULL,
+                'code' => 'graduated_students',
+                'customized' => '1',
+                'created_at' => '2019-03-21 10:58:03',
+                'updated_at' => '2019-03-21 10:58:03',
+                'deleted_at' => NULL,
+            ),
+            50 => 
+            array (
+                'id' => 51,
+                'image_id' => NULL,
+                'code' => 'top_students',
+                'customized' => '1',
+                'created_at' => '2019-03-22 03:53:37',
+                'updated_at' => '2019-03-22 03:53:37',
+                'deleted_at' => NULL,
+            ),
+            51 => 
+            array (
+                'id' => 52,
+                'image_id' => NULL,
+                'code' => 'events_carousel',
+                'customized' => '1',
+                'created_at' => '2019-03-23 11:41:31',
+                'updated_at' => '2019-03-23 11:41:31',
+                'deleted_at' => NULL,
+            ),
+            52 => 
+            array (
+                'id' => 53,
+                'image_id' => NULL,
+                'code' => 'video',
+                'customized' => '1',
+                'created_at' => '2019-03-23 13:41:52',
+                'updated_at' => '2019-03-23 13:41:52',
                 'deleted_at' => NULL,
             ),
         ));

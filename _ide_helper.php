@@ -3,7 +3,7 @@
 
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.7.14 on 2019-03-20 13:29:35.
+ * Generated for Laravel 5.7.14 on 2019-03-27 06:27:19.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -18285,6 +18285,16 @@ namespace App\Library\Url\Facades {
         public static function labsListHtml()
         {
             return \App\Library\Url\RouteUrls::labsListHtml();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function booksListHtml()
+        {
+            return \App\Library\Url\RouteUrls::booksListHtml();
         }
         
         /**

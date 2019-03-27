@@ -963,8 +963,8 @@ class ModuleNameLangsTableSeeder extends Seeder
                 'module_id' => 48,
                 'lang_id' => 1,
                 'text' => 'Events List',
-                'created_at' => '2019-01-30 06:16:15',
-                'updated_at' => '2019-01-30 06:16:15',
+                'created_at' => '2019-01-30 04:16:15',
+                'updated_at' => '2019-01-30 04:16:15',
                 'deleted_at' => NULL,
             ),
             95 => 
@@ -973,8 +973,108 @@ class ModuleNameLangsTableSeeder extends Seeder
                 'module_id' => 48,
                 'lang_id' => 2,
                 'text' => 'قائمة الاحداث',
-                'created_at' => '2019-01-30 06:16:15',
-                'updated_at' => '2019-01-30 06:16:15',
+                'created_at' => '2019-01-30 04:16:15',
+                'updated_at' => '2019-01-30 04:16:15',
+                'deleted_at' => NULL,
+            ),
+            96 => 
+            array (
+                'id' => 117,
+                'module_id' => 49,
+                'lang_id' => 1,
+                'text' => 'Books List #1',
+                'created_at' => '2019-03-21 08:39:29',
+                'updated_at' => '2019-03-21 08:43:00',
+                'deleted_at' => NULL,
+            ),
+            97 => 
+            array (
+                'id' => 118,
+                'module_id' => 49,
+                'lang_id' => 2,
+                'text' => 'قائمة الكتب #1',
+                'created_at' => '2019-03-21 08:39:29',
+                'updated_at' => '2019-03-21 08:39:29',
+                'deleted_at' => NULL,
+            ),
+            98 => 
+            array (
+                'id' => 119,
+                'module_id' => 50,
+                'lang_id' => 1,
+                'text' => 'Graduated Students',
+                'created_at' => '2019-03-21 10:58:04',
+                'updated_at' => '2019-03-21 10:58:04',
+                'deleted_at' => NULL,
+            ),
+            99 => 
+            array (
+                'id' => 120,
+                'module_id' => 50,
+                'lang_id' => 2,
+                'text' => 'الطلاب الخريجون',
+                'created_at' => '2019-03-21 10:58:04',
+                'updated_at' => '2019-03-21 10:58:04',
+                'deleted_at' => NULL,
+            ),
+            100 => 
+            array (
+                'id' => 121,
+                'module_id' => 51,
+                'lang_id' => 1,
+                'text' => 'Top Students',
+                'created_at' => '2019-03-22 03:53:38',
+                'updated_at' => '2019-03-22 03:53:38',
+                'deleted_at' => NULL,
+            ),
+            101 => 
+            array (
+                'id' => 122,
+                'module_id' => 51,
+                'lang_id' => 2,
+                'text' => 'الطلاب الاوائل',
+                'created_at' => '2019-03-22 03:53:38',
+                'updated_at' => '2019-03-22 03:53:38',
+                'deleted_at' => NULL,
+            ),
+            102 => 
+            array (
+                'id' => 123,
+                'module_id' => 52,
+                'lang_id' => 1,
+            'text' => 'Events (Carousel)',
+                'created_at' => '2019-03-23 11:41:32',
+                'updated_at' => '2019-03-23 11:41:32',
+                'deleted_at' => NULL,
+            ),
+            103 => 
+            array (
+                'id' => 124,
+                'module_id' => 52,
+                'lang_id' => 2,
+            'text' => 'الاحداث (شرائح)',
+                'created_at' => '2019-03-23 11:41:32',
+                'updated_at' => '2019-03-23 11:41:32',
+                'deleted_at' => NULL,
+            ),
+            104 => 
+            array (
+                'id' => 125,
+                'module_id' => 53,
+                'lang_id' => 1,
+                'text' => 'Video',
+                'created_at' => '2019-03-23 13:41:52',
+                'updated_at' => '2019-03-23 13:41:52',
+                'deleted_at' => NULL,
+            ),
+            105 => 
+            array (
+                'id' => 126,
+                'module_id' => 53,
+                'lang_id' => 2,
+                'text' => 'فيديو',
+                'created_at' => '2019-03-23 13:41:53',
+                'updated_at' => '2019-03-23 13:41:53',
                 'deleted_at' => NULL,
             ),
         ));
