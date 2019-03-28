@@ -1,7 +1,7 @@
 @php($lab = $data['lab'])
 <div class="col-md-{{ $data['width'] }}">
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-8">
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="icon-box left media bg-deep p-30 mb-20"> <a class="media-left pull-left" href="#"> <i class="pe-7s-pin text-theme-colored"></i></a>
@@ -13,7 +13,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-4">
             <img src="{{ asset($lab->main_image_path) }}" alt="">
         </div>
     </div>
