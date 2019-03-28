@@ -33,7 +33,7 @@
                     <ul class="styled-icons icon-dark mt-20 icon-circled">
                         <li><a target="_blank" href="{{setting('facebook_page')->value}}" data-bg-color="#3B5998" style="background: rgb(59, 89, 152) !important;"><i class="fa fa-facebook"></i></a></li>
                         <li><a target="_blank" href="{{setting('wiki_page')->value}}"><i class="fa fa-wikipedia-w"></i></a></li>
-                        <li><a target="_blank" href="{{setting('google_account')->value}}" data-bg-color="#A11312" style="background: rgb(161, 19, 18) !important;"><i class="fa fa-google-plus"></i></a></li>
+                        <li><a title="{{ setting('hot_line')->value }}" data-bg-color="#39a824" style="background: rgb(161, 19, 18) !important;"><i class="fa fa-phone"></i></a></li>
                         <li><a target="_blank" href="{{setting('youtube_channel')->value}}" data-bg-color="#C22E2A" style="background: rgb(194, 46, 42) !important;"><i class="fa fa-youtube"></i></a></li>
                     </ul>
                 </div>
