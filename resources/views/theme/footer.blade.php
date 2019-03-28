@@ -53,7 +53,7 @@
                         </div>
                         <div class="col-sm-12 col-sm-4 mt-sm-50">
                             <div class="each-widget"> <i class="pe-7s-mail font-36 mb-10"></i>
-                                <p><a href="mailto:{{ $footer->contact->email ?? '' }}">{{ $footer->contact->email ?? '' }}</a></p>
+                                <p><a href="mailto:{{ $footer->contact->email ?? '' }}" >{{ $footer->contact->email ?? '' }}</a></p>
                             </div>
                         </div>
                     </div>
