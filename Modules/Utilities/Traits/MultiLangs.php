@@ -43,34 +43,26 @@ trait MultiLangs
                 } elseif(isset($input[$attribute])) {
                     $data = $input[$attribute];
                 }
-                $createArr = [];
                 $relations = $object->{$method};
 
-                if($relations->count())
-                {
-                    foreach ($relations as $relation)
-                    {
+                foreach ($supportedLocale as $key => $lang) {
+                    $relation = $relations->where('lang_code', '=', $lang)->first();
+                    //dd($relation->toArray());
+                    if ($relation) {
                         if (isset($data["{$inputName}_{$relation->lang_code}"]) || is_null($data["{$inputName}_{$relation->lang_code}"])) {
                             $relation->text = $data["{$inputName}_{$relation->lang_code}"];
                             $status = $relation->save();
                         }
-                    }
-                }
-                else
-                {
-                    foreach ($supportedLocale as $key => $lang)// each lang in current trans username -> en, ar ,...
-                    {
+                    } else {
                         if (isset($data["{$inputName}_{$lang}"])) {
-                            $createArr[] = ['lang_id' => $key + 1, 'text' => $data["{$inputName}_{$lang}"]];
+                            $object->$method()->create(['lang_id' => $key + 1, 'text' => $data["{$inputName}_{$lang}"]]);
                         }
-                    }
-
-                    if (count($createArr)) {
-                        $object->$method()->createMany($createArr);
                     }
                 }
             }
         }
+
+        return $status;
     }
 
     public function delete()
