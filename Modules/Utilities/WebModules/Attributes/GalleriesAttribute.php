@@ -24,7 +24,7 @@ class GalleriesAttribute extends Attribute
     public function getAttributeValue($customModuleId, $forceQuery = false)
     {
         parent::getAttributeValue($customModuleId, $forceQuery);
-        $this->data = Gallery::whereIn('id', $this->data)->get();
+        $this->data = Gallery::whereIn('id', $this->data)->orderBy('created_at', 'desc')->get();
     }
 
 }
