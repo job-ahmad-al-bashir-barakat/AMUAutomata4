@@ -4,7 +4,7 @@ return array(
     'dashboard' => 'Dashboard',
     'setting' => 'Setting',
     'general_section' => 'General Section',
-    'automata4_group' => 'Copyrights © ' . date("Y") . ' All Rights Reserved - Automata4 Group4',
+    'automata4_group' => 'Copyrights © ' . date("Y") . ' All Rights Reserved - Automata4 Group',
     'back_to_home' => 'Back To Home',
     'logout' => 'Logout',
     'add' => 'Add',

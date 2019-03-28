@@ -50,8 +50,9 @@
         <ul>
             <li><a target="_blank" class="fa fa-facebook" href="{{setting('facebook_page')->value}}"><span>Facebook</span></a></li>
             <li><a target="_blank" class="fa fa-wikipedia-w" href="{{setting('wiki_page')->value}}"><span>Wiki</span></a></li>
-            <li><a target="_blank" class="fa fa-google-plus" href="{{setting('google_account')->value}}"><span>Google+</span></a></li>
+            <li><a target="_blank" class="fa fa-phone" href="{{setting('hot_line')->value}}"><span>{{setting('hot_line')->value}}</span></a></li>
             <li><a target="_blank" class="fa fa-youtube" href="{{setting('youtube_channel')->value}}"><span>Youtube</span></a></li>
+            <li><a target="_blank" class="fa fa-linkedin" href="{{setting('linked_in')->value}}"><span>Linkedin</span></a></li>
         </ul>
     </aside>
 </div>

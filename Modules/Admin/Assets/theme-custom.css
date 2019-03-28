@@ -360,3 +360,7 @@ html[dir="rtl"] #sticky-social a span {
 #sticky-social a[class*="wiki"],
 #sticky-social a[class*="wiki"]:hover,
 #sticky-social a[class*="wiki"] span { background: #333333; }
+
+#sticky-social a[class*="phone"],
+#sticky-social a[class*="phone"]:hover,
+#sticky-social a[class*="phone"] span { background: #39a824; }
