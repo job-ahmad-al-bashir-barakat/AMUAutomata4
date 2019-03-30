@@ -35,6 +35,7 @@
                         <li><a target="_blank" href="{{setting('wiki_page')->value}}"><i class="fa fa-wikipedia-w"></i></a></li>
                         <li><a title="{{ setting('hot_line')->value }}" data-bg-color="#39a824" style="background: rgb(161, 19, 18) !important;"><i class="fa fa-phone"></i></a></li>
                         <li><a target="_blank" href="{{setting('youtube_channel')->value}}" data-bg-color="#C22E2A" style="background: rgb(194, 46, 42) !important;"><i class="fa fa-youtube"></i></a></li>
+                        <li><a target="_blank" href="{{setting('linked_in')->value}}" data-bg-color="#007bb6" style="background: rgb(194, 46, 42) !important;"><i class="fa fa-linkedin"></i></a></li>
                     </ul>
                 </div>
             </div>
