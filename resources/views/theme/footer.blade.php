@@ -40,7 +40,7 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <div class="horizontal-contact-widget mt-30 pt-30 text-center">
+                    <div class="horizontal-contact-widget mt-30 pt-30 text-center" >
                         <div class="col-sm-12 col-sm-4">
                             <div class="each-widget"> <i class="pe-7s-phone font-36 mb-10"></i>
                                 <p style="direction: ltr;"><a href="tel:{{ $footer->contact->phone ?? '' }}">{{ $footer->contact->phone ?? '' }}</a></p>
