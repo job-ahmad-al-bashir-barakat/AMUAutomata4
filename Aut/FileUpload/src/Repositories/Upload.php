@@ -34,6 +34,7 @@ class Upload
     protected $name = '';
     protected $hashName = '';
     protected $ratio = [];
+    protected $stopResize = [];
     protected $ratioType = false;
     protected $resizeImage = null;
 
@@ -102,6 +103,8 @@ class Upload
             $this->stopRelationSave = isset($this->fileLocalConfig['stopRelationSave'])
                 ? $this->fileLocalConfig['stopRelationSave']
                 : false;
+
+            $this->stopResize = $this->fileLocalConfig['stopResize'] ?? false;
 
             $folderUpload = isset($this->fileLocalConfig['folderName'])
                 ? $this->fileLocalConfig['folderName']
@@ -176,7 +179,7 @@ class Upload
     {
         // move with intervention
         $imgRezise = \Image::make($this->file->getRealPath());
-        if($this->ratio) {
+        if($this->ratio && !$this->stopResize) {
             $imgRezise->resize($this->ratio['width'], $this->ratio['height']);
         }
         $imgRezise->save("$this->uploadDirectoryPath/$this->hashName");

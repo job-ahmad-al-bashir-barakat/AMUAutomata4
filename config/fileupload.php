@@ -231,6 +231,7 @@ return [
         'ratio' => [
             'block_front' => ['width' => '250', 'height' => '250'],
         ],
+        'stopResize' => true,
         'relationType' => 'one',
         'relationName' => 'image',
         'relationId' => 'front_image_id',
