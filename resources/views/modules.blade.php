@@ -199,7 +199,7 @@
             responsiveLevels: [1240, 1024, 778],
             visibilityLevels: [1240, 1024, 778],
             gridwidth: [1170, 1024, 778, 480],
-            gridheight: [620, 768, 960, 720],
+            gridheight: [420, 568, 760, 520],
             lazyType: "none",
             parallax:"mouse",
             parallaxBgFreeze:"off",
