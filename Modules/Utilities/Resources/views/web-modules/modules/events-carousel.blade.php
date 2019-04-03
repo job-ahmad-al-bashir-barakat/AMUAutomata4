@@ -19,7 +19,9 @@
                                 </div>
                             </div>
                         </div>--}}
-                        <p class="mt-5">{!! $event->lang_title[app()->getLocale()]->text !!}{{--<a class="text-theme-color-2 font-12 ml-5" href="{{  }}"> @lang('app.read_more')</a>--}}</p>
+                        <p class="mt-5">{!! $event->lang_title[app()->getLocale()]->text !!}
+                            @if($event->lang_url[app()->getLocale()])<a class="text-theme-color-2 font-12 ml-5" href="{{ $event->lang_url[app()->getLocale()]->text }}"> @lang('app.read_more')</a>@endif
+                        </p>
                     </div>
                 </article>
             </div>

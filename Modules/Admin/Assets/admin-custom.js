@@ -591,7 +591,9 @@ var AUTOMATA_APP = {
             var keys = key.split('.');
             var val = arr;
             for(var i = 0; i < keys.length; i++) {
-                val = val[keys[i]];
+                if (val) {
+                    val = val[keys[i]] || null;
+                }
             }
             return val;
         }
