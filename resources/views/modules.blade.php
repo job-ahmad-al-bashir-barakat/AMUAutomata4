@@ -1,3 +1,4 @@
+@php($localConfig = LaravelLocalization::getSupportedLocales()[app()->getLocale()])
 @php($dir = LaravelLocalization::getCurrentLocaleDirection())
 <!DOCTYPE html>
 <html dir="{{ $dir }}" lang="{{ app()->getLocale()}}">
@@ -37,6 +38,10 @@
     <link href="{{ asset('css/leaflet.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/leaflet.fullscreen.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('theme-custom.css') }}" rel="stylesheet" type="text/css">
+    @include('theme.font', [
+        'url' => $localConfig['font_url'],
+        'family' => $localConfig['font_family'],
+    ])
 </head>
 <body class="">
 <div id="wrapper" class="clearfix">
@@ -46,7 +51,7 @@
         @include('utilities::web-modules.modules.modules')
     </div>
     @include('theme.footer')
-    <aside id="sticky-social">
+    <aside id="sticky-social" style="z-index: 1">
         <ul>
             <li><a target="_blank" class="fa fa-facebook" href="{{setting('facebook_page')->value}}"><span>Facebook</span></a></li>
             <li><a target="_blank" class="fa fa-wikipedia-w" href="{{setting('wiki_page')->value}}"><span>Wiki</span></a></li>

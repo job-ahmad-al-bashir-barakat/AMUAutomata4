@@ -32,6 +32,8 @@ return [
     'link' => 'Link',
     'links' => 'Links',
     'bg_color' => 'Background Color',
+    'font_url' => 'Font Url',
+    'font_family' => 'Font Family',
 
     'tables' => 'Tables',
     'table_name' => 'Table Name',

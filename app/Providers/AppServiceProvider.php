@@ -65,6 +65,8 @@ class AppServiceProvider extends ServiceProvider
                         'script' => is_null($value->script) ? '' : $value->script,
                         'native' => $value->native,
                         'regional' => is_null($value->regional) ? '' : $value->regional,
+                        'font_url' => $value->font_url,
+                        'font_family' => $value->font_family,
                     ];
 
                 })->toArray());

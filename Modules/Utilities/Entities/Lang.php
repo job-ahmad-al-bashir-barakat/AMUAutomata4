@@ -14,7 +14,7 @@ class Lang extends Model
 
     protected $appends = ['image_path'];
 
-    protected $fillable = ['lang_code', 'short_code', 'name', 'script', 'native', 'regional', 'is_default', 'image_id'];
+    protected $fillable = ['lang_code', 'short_code', 'name', 'script', 'native', 'regional', 'font_url', 'font_family', 'is_default', 'image_id'];
 
     public function scopeWithoutLocal($query)
     {
