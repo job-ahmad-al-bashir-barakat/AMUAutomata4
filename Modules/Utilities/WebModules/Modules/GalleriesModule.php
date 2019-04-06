@@ -21,6 +21,7 @@ class GalleriesModule extends Module
                     if ($limit) {
                         $query->limit($limit);
                     }
+                    $query->orderBy('created_at', 'desc');
                 }]);
             }
         }
