@@ -120,7 +120,7 @@ class BuilderController extends Controller
 
         $seo = (new Seo($data))->save();
 
-        return $seo;
+        return ['success' => true];
     }
 
     public function updateSeo(Request $request, Seo $seo)
