@@ -9,7 +9,7 @@
                                 <div class="p-20">
                                     <h3 class="text-white ">{{ $card->lang_title[app()->getLocale()]->text }}</h3>
                                     <div class="clearfix"></div>
-                                    <p class="text-white-f1 mt-10">{!! $card->lang_text[app()->getLocale()]->text !!}</p>
+                                    <p style="min-height:  4.9em;" class="text-white-f1 mt-10">{!! $card->lang_text[app()->getLocale()]->text !!}</p>
                                     <a href="{{ $card->lang_url[app()->getLocale()]->text }}" class="btn btn-default font-14 btn-theme-colored mt-10 hvr-bounce-to-left no-border">{{ $card->lang_link[app()->getLocale()]->text }}</a>
                                 </div>
                             </div>
