@@ -13,7 +13,7 @@
                         {!! $firstStep->lang_text[$lang]->text !!}
                         @if($firstStep->lang_url[$lang]->text ?? false)
                         <br>
-                        <a href="{{ $firstStep->lang_url[$lang]->text }}" class="btn btn-gray btn-xs ">@lang('app.read_more')</a>
+                        <a href="{{ fixLinkUrl($firstStep->lang_url[$lang]->text) }}" class="btn btn-gray btn-xs ">@lang('app.read_more')</a>
                         @endif
                     </div>
                 </div>
@@ -27,7 +27,7 @@
                         {!! $step->lang_text[$lang]->text !!}
                         @if($step->lang_url[$lang]->text ?? false)
                             <br>
-                            <a href="{{ $step->lang_url[$lang]->text }}" class="btn btn-gray btn-xs ">@lang('app.read_more')</a>
+                            <a href="{{ fixLinkUrl($step->lang_url[$lang]->text) }}" class="btn btn-gray btn-xs ">@lang('app.read_more')</a>
                         @endif
                     </div>
                 </div>

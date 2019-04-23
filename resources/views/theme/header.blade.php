@@ -45,17 +45,6 @@
                         </a>
                     </div>
                 </div>
-                {{--<div class="col-xs-12 col-sm-4 col-md-4">
-                    <div class="widget no-border pull-right sm-pull-none sm-text-center" style="{{setting('hot_line_style')->value}}">
-                        <ul class="list-inline">
-                            <li><i class="fa fa-phone-square text-theme-colored font-36 mt-5 sm-display-block"></i></li>
-                            <li>
-                                <a href="#" class="font-12 text-gray text-uppercase">{{trans('app.hot_line')}}</a>
-                                <h5 class="font-14 m-0" style="direction: ltr;">{{setting('hot_line')->value}}</h5>
-                            </li>
-                        </ul>
-                    </div>
-                </div>--}}
                 <div class="col-xs-12 col-sm-4 col-md-3 pull-{{ $dir == 'rtl' ? 'left' : 'right' }}">
                     <div class="widget no-border m-0">
                         <a class="menuzord-brand pull-left flip xs-pull-center mb-15" href="javascript:void(0)">

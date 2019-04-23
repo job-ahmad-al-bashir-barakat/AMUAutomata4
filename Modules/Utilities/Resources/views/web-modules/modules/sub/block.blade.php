@@ -25,7 +25,7 @@
                         <div class="display-table-cell">
                             <h3 class="text-theme-color-2">{{ $block->lang_title[$lang]->text }}</h3>
                             <p class="text-gray-lightgray">{{ $block->lang_text[$lang]->text }}</p>
-                            <a href="{{ $block->lang_url[$lang]->text }}" class="btn btn-default mt-10">{{ $block->lang_btn[$lang]->text }}</a>
+                            <a href="{{ fixLinkUrl($block->lang_url[$lang]->text) }}" class="btn btn-default mt-10">{{ $block->lang_btn[$lang]->text }}</a>
                         </div>
                     </div>
                 </div>

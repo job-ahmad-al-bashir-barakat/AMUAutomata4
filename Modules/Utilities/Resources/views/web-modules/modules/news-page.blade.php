@@ -15,8 +15,6 @@
             <div class="entry-meta pl-15">
                 <ul class="list-inline">
                     <li>{{trans('admin::app.publish_date')}}:<span class="text-theme-color-2"> {{ $news->publish_date->format('d/m/Y') }}</span></li>
-                    {{--<li>By: <span class="text-theme-color-2">Admin</span></li>--}}
-                    {{--<li><i class="fa fa-comments-o ml-5 mr-5"></i> 5 comments</li>--}}
                 </ul>
             </div>
             <div class="entry-content mt-10">
@@ -39,7 +37,7 @@
 </div>
 <script>
     $(document).ready(function() {
-        $.getScript('https://connect.facebook.net/en_US/sdk.js', function(){
+        /*$.getScript('https://connect.facebook.net/en_US/sdk.js', function(){
             FB.init({
                 appId: '{your-app-id}',
                 version: 'v2.7' // or v2.1, v2.2, v2.3, ...
@@ -48,6 +46,6 @@
             FB.getLoginStatus(function (){
                 console.log('test fb share buttons');
             });
-        });
+        });*/
     });
 </script>

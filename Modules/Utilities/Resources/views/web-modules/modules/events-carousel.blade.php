@@ -12,15 +12,8 @@
                         </div>
                     </div>
                     <div class="entry-content p-15 pt-10 pb-10">
-                        {{--<div class="entry-meta media no-bg no-border mt-0 mb-10">
-                            <div class="media-body pl-0">
-                                <div class="event-content pull-left flip">
-                                    <h4 class="entry-title text-white text-uppercase font-weight-600 m-0 mt-5"><a href="blog-single-left-sidebar.html">Post title here</a></h4>
-                                </div>
-                            </div>
-                        </div>--}}
                         <p class="mt-5">{!! $event->lang_title[app()->getLocale()]->text !!}
-                            @if($event->lang_url[app()->getLocale()])<a class="text-theme-color-2 font-12 ml-5" href="{{ $event->lang_url[app()->getLocale()]->text }}"> @lang('app.read_more')</a>@endif
+                            @if($event->lang_url[app()->getLocale()])<a class="text-theme-color-2 font-12 ml-5" href="{{ fixLinkUrl($event->lang_url[app()->getLocale()]->text) }}"> @lang('app.read_more')</a>@endif
                         </p>
                     </div>
                 </article>

@@ -10,7 +10,7 @@
                     <div class="widget dark">
                         <div class="tags">
                             @foreach($links->get('0', []) as $link)
-                                <a href="{{ $link->lang_url[$lang]->text }}">{{ $link->lang_text[$lang]->text }}</a>
+                                <a href="{{ fixLinkUrl($link->lang_url[$lang]->text) }}">{{ $link->lang_text[$lang]->text }}</a>
                             @endforeach
                         </div>
                     </div>
@@ -24,7 +24,7 @@
                     <div class="widget dark">
                         <div class="tags">
                             @foreach($links->get('1', []) as $link)
-                                <a href="{{ $link->lang_url[$lang]->text }}">{{ $link->lang_text[$lang]->text }}</a>
+                                <a href="{{ fixLinkUrl($link->lang_url[$lang]->text) }}">{{ $link->lang_text[$lang]->text }}</a>
                             @endforeach
                         </div>
                     </div>
