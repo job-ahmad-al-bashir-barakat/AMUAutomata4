@@ -7,7 +7,7 @@
         <div class="col-md-8">
             <h4 class="name font-24 mt-0 mb-0">{{ $person->lang_name[$lang]->text }}</h4>
             <h5 class="mt-5 text-theme-color-2">{{ $person->position->lang_name[$lang]->text }}</h5>
-            {!! $person->lang_summary[$lang]->text !!}
+            {!! fixFileManagerSrc($person->lang_summary[$lang]->text) !!}
             <ul class="styled-icons icon-dark icon-theme-colored icon-sm mt-15 mb-0">
                 @if($person->contact && $person->contact->socialNetwork)
                     @include('utilities::web-modules.modules.sub.social-network', ['socialNetworks' => $person->contact->socialNetwork])
