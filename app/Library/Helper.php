@@ -406,7 +406,7 @@ if (!function_exists('fixFileManagerSrc')) {
     function fixFileManagerSrc($text)
     {
         $fixed = $text;
-        $find = preg_match_all("'(http:\/\/[a-z\/]*?)laravel-filemanager'si", $text, $matches);
+        $find = preg_match_all("'(http:\/\/.*?)laravel-filemanager'si", $text, $matches);
 
         for ($i = 0; $i < $find; $i++) {
             $fixed = str_replace($matches[0][$i], asset('laravel-filemanager'), $fixed);
