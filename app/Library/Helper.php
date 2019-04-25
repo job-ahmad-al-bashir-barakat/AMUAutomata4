@@ -420,7 +420,7 @@ if (!function_exists('fixLinkUrl')) {
     function fixLinkUrl($text)
     {
         $fixed = $text;
-        $find = preg_match_all("'(http:\/\/[a-z\/]*?)/'si", $text, $matches);
+        $find = preg_match_all("'(http:\/\/.*?)/'si", $text, $matches);
 
         for ($i = 0; $i < $find; $i++) {
             $fixed = str_replace($matches[1][$i], url(''), $fixed);
