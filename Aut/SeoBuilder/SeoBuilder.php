@@ -59,7 +59,7 @@ class SeoBuilder
         }
         if ($this->seo && $this->seo->graph_image_path) {
             $this->seoHelper->og()->addProperty('image', asset($this->seo->graph_image_path));
-            $this->seoHelper->og()->addProperty('image:alt', $this->seo->graphImage->lang_alt[$this->lang]->text);
+            $this->seoHelper->og()->addProperty('image:alt', $this->seo->graphImage->lang_alt[$this->lang]->text ?? '');
             $this->seoHelper->og()->addProperty('image:type', $this->seo->graphImage->ext);
             $this->seoHelper->og()->addProperty('image:width', $this->seo->graphImage->width);
             $this->seoHelper->og()->addProperty('image:height', $this->seo->graphImage->height);
@@ -73,7 +73,7 @@ class SeoBuilder
 
         if ($this->seo && $this->seo->card_image_path) {
             $this->seoHelper->twitter()->addMeta('image', asset($this->seo->card_image_path));
-            $this->seoHelper->twitter()->addMeta('image:alt', $this->seo->cardImage->lang_alt[$this->lang]->text);
+            $this->seoHelper->twitter()->addMeta('image:alt', $this->seo->cardImage->lang_alt[$this->lang]->text ?? '');
             $this->seoHelper->twitter()->addMeta('image:width', $this->seo->cardImage->width);
             $this->seoHelper->twitter()->addMeta('image:height', $this->seo->cardImage->height);
         }
@@ -98,7 +98,7 @@ class SeoBuilder
                 continue;
             }
             if ($input['multi_lang']) {
-                $content = $this->seo->{"lang_{$input['name']}"}[$this->lang]->text;
+                $content = $this->seo->{"lang_{$input['name']}"}[$this->lang]->text ?? '';
             } else{
                 $content = $this->seo->{$input['name']};
             }
