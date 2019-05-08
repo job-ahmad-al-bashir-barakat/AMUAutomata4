@@ -1,4 +1,4 @@
-<div class="gallery-item">
+<div class="gallery-item col-md-6">
     <article class="post clearfix mb-30 bg-lighter">
         <div class="entry-header">
             <div class="post-thumb thumb">
@@ -19,10 +19,10 @@
                     </div>
                 </div>
             </div>
-            <p class="mt-10">
+            <p class="mt-10" style="min-height: 60px;">
                 {{ $news->lang_description[$lang]->text }}
             </p>
-            <a href="{{ RouteUrls::newsPage(getSlug($news->id, $news->lang_title[$lang]->text)) }}" class="btn-read-more">{{trans('utilities::web-modules.read_more')}}</a>
+            <a href="{{ RouteUrls::newsPage(getSlug($news->id, $news->lang_title[$lang]->text)) }}" class="btn-read-more"> {{trans('utilities::web-modules.read_more')}}</a>
             <div class="clearfix"></div>
         </div>
     </article>

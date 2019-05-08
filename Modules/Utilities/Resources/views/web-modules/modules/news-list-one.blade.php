@@ -1,7 +1,7 @@
 <div class="col-md-{{ $data['width'] }}">
     <div class="row blog-posts">
         <div class="col-md-12">
-            <div id="news_list_1" class="gallery-isotope grid-2 masonry gutter-30 clearfix">
+            <div id="news_list_1" class="{{--gallery-isotope masonry --}}grid-2 gutter-30 clearfix">
 
             </div>
         </div>
