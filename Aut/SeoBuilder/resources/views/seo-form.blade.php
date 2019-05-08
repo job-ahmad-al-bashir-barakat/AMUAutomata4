@@ -95,7 +95,8 @@
             var $element = $(this);
             var value = $element.val();
             var linkedWith = $element.attr('select-filter-with');
-            var disabled = $element.attr('select-filter-disabled');
+            var disabled = $element.attr('select-filter-disabled') || true;
+            console.log(disabled);
             var $container = $(linkedWith);
             var $activeElements = $container.find('[select-filter-item="' + value + '"]');
             if ($activeElements.length) {
