@@ -11,12 +11,12 @@
   },
   "devDependencies": {
     "cross-env": "^5.1",
-    "laravel-mix": "^2.0",
-    "leaflet-fullscreen": "^1.0.2",
-    "lodash": "^4.17.5",
     "jquery-validation": "^1.16.0",
     "jspath": "^0.4.0",
+    "laravel-mix": "^2.0",
     "leaflet": "^1.4.0",
-    "loaders.css": "^0.1.2"
+    "leaflet-fullscreen": "^1.0.2",
+    "loaders.css": "^0.1.2",
+    "lodash": "^4.17.5"
   }
 }
