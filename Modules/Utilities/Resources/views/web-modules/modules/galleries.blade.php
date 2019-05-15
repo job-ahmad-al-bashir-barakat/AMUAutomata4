@@ -4,9 +4,6 @@
         @php($z = 1)
         @for($i = 0; $i < $data['total']->lastPage(); $i++)
             <a href="#gallery_page_{{ $i + 1 }}" class="@if($i == 0){{ 'active' }}@endif" data-filter=".filter_gallery_page_{{ $i + 1 }}">{{ $i + 1 }}</a>
-            {{--@if($i % $data['total']->perPage() == 0)
-                @php($z++)
-            @endif--}}
         @endfor
         {{-- this for make gallery depends on groups
         <br>
