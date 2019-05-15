@@ -3,6 +3,8 @@
 namespace Modules\Utilities\WebModules\Modules;
 
 
+use Illuminate\Pagination\LengthAwarePaginator;
+
 class GalleriesModule extends Module
 {
     public $id = '30';
@@ -11,6 +13,7 @@ class GalleriesModule extends Module
 
     public function getModuleData($data)
     {
+        $total = 0;
         $data['image_limit'] = $data['image_limit'] ?? '';
         $imageLimits = explode(',', $data['image_limit']);
 
@@ -23,8 +26,11 @@ class GalleriesModule extends Module
                     }
                     $query->orderBy('created_at', 'desc');
                 }]);
+                $total = $total + $data['galleries'][$i]->image->count();
             }
         }
+        $paginator = new LengthAwarePaginator([], $total, 12);
+        $data['total'] = $paginator;
         return $data;
     }
 }
