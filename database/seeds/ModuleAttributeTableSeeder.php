@@ -1394,6 +1394,15 @@ class ModuleAttributeTableSeeder extends Seeder
                 'updated_at' => NULL,
                 'deleted_at' => NULL,
             ),
+            153 => 
+            array (
+                'id' => 164,
+                'module_id' => 20,
+                'attribute_id' => 32,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+                'deleted_at' => NULL,
+            ),
         ));
         
         

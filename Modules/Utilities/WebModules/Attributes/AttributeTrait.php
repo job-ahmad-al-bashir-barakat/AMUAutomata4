@@ -2,6 +2,8 @@
 
 namespace Modules\Utilities\WebModules\Attributes;
 
+use Exception;
+
 /**
  * This Trait was built to make the functions changeable outside the package
  *
@@ -15,7 +17,7 @@ trait AttributeTrait
      *
      * @param $attributeId
      * @return Attribute
-     * @throws \Exception
+     * @throws Exception
      */
     public static function setAttribute($attributeId)
     {
@@ -82,8 +84,10 @@ trait AttributeTrait
                 return new LinksAttribute();
             case '31':
                 return new VideoAttribute();
+            case '32':
+                return new OfficeAttribute();
             default:
-                throw new \Exception('Undefined Attributes');
+                throw new Exception("Undefined Attributes [${$attributeId}]");
         }
     }
 
@@ -92,7 +96,7 @@ trait AttributeTrait
      *
      * @param $attributeCode
      * @return Attribute
-     * @throws \Exception
+     * @throws Exception
      */
     public static function setByAttributeCode($attributeCode)
     {
@@ -159,8 +163,10 @@ trait AttributeTrait
                 return new LinksAttribute();
             case 'video':
                 return new VideoAttribute();
+            case 'office':
+                return new OfficeAttribute();
             default:
-                throw new \Exception('Undefined Attributes');
+                throw new Exception("Undefined Attributes [${$attributeCode}]");
         }
     }
 }

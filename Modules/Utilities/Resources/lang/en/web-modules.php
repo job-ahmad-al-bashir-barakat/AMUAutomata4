@@ -31,6 +31,7 @@ return [
     'links' => 'Links',
     'video' => 'Video',
 
+    'office' => 'Office',
     'degrees' => 'Degrees',
     'faculty' => 'Faculty',
     'name' => 'Name',

@@ -12,4 +12,9 @@ class OfficePageModule extends Module
 
     public $viewName = 'office-page';
 
+    public function getModuleData($data)
+    {
+        $data['office']->load(['person', 'contact.phoneNumbers']);
+        return $data;
+    }
 }

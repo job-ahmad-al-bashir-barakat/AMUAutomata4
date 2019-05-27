@@ -1,3 +1,4 @@
+@php($id = '1')
 @php($localConfig = LaravelLocalization::getSupportedLocales()[app()->getLocale()])
 @php($dir = LaravelLocalization::getCurrentLocaleDirection())
 <!DOCTYPE html>
@@ -10,23 +11,23 @@
     <link href="{{ asset('images/apple-touch-icon-114x114.png') }}" rel="apple-touch-icon" sizes="114x114">
     <link href="{{ asset('images/apple-touch-icon-144x144.png') }}" rel="apple-touch-icon" sizes="144x144">
     {{-- <link href="{{ asset(mix('css/theme-ltr.css')) }}" rel="stylesheet" type="text/css"> --}}
-    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset("css/bootstrap.min.css?id={$id}") }}" rel="stylesheet" type="text/css">
     @if($dir == 'rtl')
-        <link href="{{ asset('css/bootstrap-rtl.min.css') }}" rel="stylesheet" type="text/css">
+        <link href="{{ asset("css/bootstrap-rtl.min.css?id={$id}") }}" rel="stylesheet" type="text/css">
     @endif
-    <link href="{{ asset('css/jquery-ui.min.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ asset('css/animate.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ asset('css/simple-line-icons.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ asset('css/css-plugin-collections.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset("css/jquery-ui.min.css?id={$id}") }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset("css/animate.css?id={$id}") }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset("css/simple-line-icons.css?id={$id}") }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset("css/font-awesome.min.css?id={$id}") }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset("css/css-plugin-collections.css?id={$id}") }}" rel="stylesheet" type="text/css">
     @if($dir == 'rtl')
-        <link href="{{ asset('css/css-plugin-collections-rtl.css') }}" rel="stylesheet" type="text/css">
+        <link href="{{ asset("css/css-plugin-collections-rtl.css?id={$id}") }}" rel="stylesheet" type="text/css">
     @endif
-    <link href="{{ asset('css/menuzord-skins/menuzord-rounded-boxed.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ asset('css/style-main.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset("css/menuzord-skins/menuzord-rounded-boxed.css?id={$id}") }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset("css/style-main.css?id={$id}") }}" rel="stylesheet" type="text/css">
     @if($dir == 'rtl')
-        <link href="{{ asset('css/style-main-rtl.css') }}" rel="stylesheet" type="text/css">
-        <link href="{{ asset('css/style-main-rtl-extra.css') }}" rel="stylesheet" type="text/css">
+        <link href="{{ asset("css/style-main-rtl.css?id={$id}") }}" rel="stylesheet" type="text/css">
+        <link href="{{ asset("css/style-main-rtl-extra.css?id={$id}") }}" rel="stylesheet" type="text/css">
     @endif
     <link href="{{ asset('css/preloader.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/custom-bootstrap-margin-padding.css') }}" rel="stylesheet" type="text/css">
@@ -37,7 +38,7 @@
     <!-- <link href="css/style.css" rel="stylesheet" type="text/css"> -->
     <link href="{{ asset('css/leaflet.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/leaflet.fullscreen.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ asset('theme-custom.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset("theme-custom.css?id={$id}") }}" rel="stylesheet" type="text/css">
     @include('theme.font', [
         'url' => $localConfig['font_url'],
         'family' => $localConfig['font_family'],
@@ -66,7 +67,7 @@
     isRtl = DIR === 'rtl';
     isLtr = !isRtl;
 </script>
-<script src="{{ asset(mix('js/main.js')) }}"></script>
+<script src="{{ asset(mix("js/main.js")) }}"></script>
 <script src="{{ asset(mix('js/leaflet.js')) }}"></script>
 <script src="{{ asset(mix('js/leaflet.fullscreen.js')) }}"></script>
 <script src="{{ asset(mix('js/revolution-slider/js/revolution-slider.js')) }}"></script>

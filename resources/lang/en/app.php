@@ -101,6 +101,10 @@ return array(
     'study_level' => 'Study Level',
     'study_semester' => 'Study Semester',
     'graduate_gpa' => 'Graduate GPA',
+    'person' => 'Person',
+    'email' => 'Email',
+    'contact' => 'Contact',
+    'share' => 'Share',
 
 
     /*

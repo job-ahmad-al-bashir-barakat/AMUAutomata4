@@ -200,6 +200,10 @@ return [
         ],
     ],
 
+    'office' => [
+        'model' => \Modules\Admin\Entities\UniversityOffice::class,
+    ],
+
     'person' => [
         'model' => \Modules\Admin\Entities\Person::class,
     ],
