@@ -18,7 +18,7 @@ class BuilderPageFactory extends GlobalFactory
     protected $builderMorphCode;
     protected $builderColumnWithLang = [];
     protected $builderColumnFirst;
-    protected $allowGeneralContent = ['news', 'people', 'faculties'];
+    protected $allowGeneralContent = ['news', 'people', 'faculties', 'university_offices'];
     protected $with = [];
 
     public function __construct(DataTableBuilder $table)

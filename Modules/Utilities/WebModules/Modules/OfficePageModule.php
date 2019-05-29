@@ -2,6 +2,8 @@
 
 namespace Modules\Utilities\WebModules\Modules;
 
+use Route;
+use Modules\Admin\Entities\UniversityOffice;
 
 class OfficePageModule extends Module
 {
@@ -14,7 +16,15 @@ class OfficePageModule extends Module
 
     public function getModuleData($data)
     {
+        if (!$data->get('office', false)) {
+            $officeSlug = Route::input('office');
+            $officeId = getIdFromSlug($officeSlug);
+            if ($officeId) {
+                $data['office'] = UniversityOffice::find($officeId);
+            }
+        }
         $data['office']->load(['person', 'contact.phoneNumbers']);
+
         return $data;
     }
 }

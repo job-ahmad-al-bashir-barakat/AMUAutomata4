@@ -38,6 +38,10 @@ Route::group(
             return returnPageModule($slug, 'news');
         });
 
+        Route::get('university-office/{office}', function ($slug) {
+            return returnPageModule($slug, 'university-office');
+        });
+
         if (!function_exists('call')) {
 
             function call($hierarchy)

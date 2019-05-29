@@ -482,7 +482,7 @@ class RouteUrls
 
     public function officePage($staff)
     {
-        return $this->localizeUrl("office/$staff");
+        return $this->localizeUrl("university-office/$staff");
     }
 
     public function newsPage($news)
