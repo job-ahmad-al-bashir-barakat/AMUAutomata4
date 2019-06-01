@@ -23,7 +23,7 @@ class OfficePageModule extends Module
                 $data['office'] = UniversityOffice::find($officeId);
             }
         }
-        $data['office']->load(['person', 'contact.phoneNumbers']);
+        $data['office']->load(['person', 'contact.phoneNumbers', 'image']);
 
         return $data;
     }

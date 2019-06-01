@@ -9,7 +9,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-8">
                 <ul>
                     <li>
                         <h5>@lang('app.person'):</h5>
@@ -47,7 +47,13 @@
                     </li>
                 </ul>
             </div>
-            <div class="col-md-8">
+            <div class="col-md-4">
+                <img src="{{ asset($office->image_path) }}" alt="">
+            </div>
+        </div>
+        <div class="row mt-60">
+            <div class="col-md-6">
+                <h4 class="mt-0">@lang('admin::app.gelocation'): </h4>
                 <div
                         id="leaflet-office-map-{{ $data['id'] }}"
                         class="leaflet-map"
@@ -58,17 +64,5 @@
                 ></div>
             </div>
         </div>
-        {{--<div class="row mt-60">
-            <div class="col-md-6">
-                <h4 class="mt-0">Project Description</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi id perspiciatis facilis nulla possimus quasi, amet qui. Ea rerum officia, aspernatur nulla neque nesciunt alias repudiandae doloremque, dolor, quam nostrum laudantium earum illum odio quasi excepturi mollitia corporis quas ipsa modi nihil, ad ex tempore.</p>
-            </div>
-            <div class="col-md-6">
-                <blockquote>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                    <footer>Someone famous in <cite title="Source Title">Source Title</cite></footer>
-                </blockquote>
-            </div>
-        </div>--}}
     </div>
 </section>

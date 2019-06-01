@@ -226,6 +226,16 @@ return [
         'relationId'   => 'file_id',
     ],
 
+    'university-office' => [
+        'model' => \Modules\Admin\Entities\UniversityOffice::class,
+        'ratio' => [
+            'office' => ['width' => '265', 'height' => '250'],
+        ],
+        'stopResize' => true,
+        'relationType' => 'one',
+        'relationName' => 'image',
+    ],
+
     'block-front' => [
         'model' => \Modules\Utilities\Entities\BlockDetail::class,
         'ratio' => [

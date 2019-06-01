@@ -3,6 +3,7 @@
 namespace Modules\Admin\Entities;
 
 use Aut\Eloquent\Models\Model;
+use Aut\FileUpload\Entities\Image;
 use Modules\Utilities\Traits\MultiLangs;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Modules\Admin\Entities\LangModels\UniversityOfficeNameLang;
@@ -11,9 +12,11 @@ class UniversityOffice extends Model
 {
     use SoftDeletes ,MultiLangs;
 
-    protected $fillable = ['person_id' ,'contact_id'];
+    const IMAGE_PATH = 'storage/upload/image/';
 
-    protected $appends = ['lang_name'];
+    protected $fillable = ['person_id' ,'contact_id', 'image_id'];
+
+    protected $appends = ['lang_name', 'image_path'];
 
     protected static function boot() {
 
@@ -48,9 +51,24 @@ class UniversityOffice extends Model
     {
         return $this->belongsTo(Contact::class);
     }
+    function image()
+    {
+        return $this->belongsTo(Image::class);
+    }
 
     function person()
     {
         return $this->belongsTo(Person::class);
+    }
+
+    public function getImagePathAttribute()
+    {
+        $path = null;
+
+        if ($this->image) {
+            $path = self::IMAGE_PATH . 'university-offices/' . $this->image->hash_name;
+        }
+
+        return $path;
     }
 }

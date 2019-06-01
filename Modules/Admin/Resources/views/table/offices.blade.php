@@ -18,9 +18,23 @@
     {!! datatable('contact-numbers' ,'' ,'false') !!}
 @endcomponent
 
-    {!! autGoogleMap('university-office',trans('admin::app.university_office_gelocation'),'',10,setting('UGL')->value,'#datatable-university-office-modal .input-location input') !!}
+{!! autGoogleMap('university-office',trans('admin::app.university_office_gelocation'),'',10,setting('UGL')->value,'#datatable-university-office-modal .input-location input') !!}
+
+{!!
+    FileUpload::FileUpload('university-office' ,'university-office' ,'' ,'' ,'' ,'' ,[
+       'modalId'    => 'office-image-upload',
+       'modalTitle' => trans('admin::app.upload_image')
+    ] ,'#datatable-university-office',true,'.image',['autoReplace' => true, 'maxFileCount' => 1])
+!!}
+
+{{ FileUpload::ImageUploadCropper('90%' ,false ,true,false ,false ,false ,true) }}
 
 <script>
+
+    function showFileUploadModal($this) {
+        AUT_UPLOAD.initFileUploadWithDatatable($this,'#office-image-upload','#datatable-university-office');
+    }
+
     function openAddressesModal($this)
     {
         _aut_datatable_custom_merge_datatable_url_open_modal_refresh_datatable('#office-addresses-custom', "?id=" + $($this).data('contact'));

@@ -126,7 +126,8 @@ class LoadMoreController extends Controller
 
     private function getQueryBuilderOffices($model)
     {
-        return $model::paginate(8);
+        $model = $model::with(['image']);
+        return $model->paginate(8);
     }
 
     private function getQueryBuilderNews($model)

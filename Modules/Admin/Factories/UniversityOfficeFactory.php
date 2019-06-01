@@ -28,6 +28,7 @@ class UniversityOfficeFactory extends GlobalFactory
             ->queryDeleteButton('id')
             ->queryCustomButton('addresses', 'id', 'icon-direction', '', 'onclick="openAddressesModal(this)" data-contact={contact->id}')
             ->queryCustomButton('numbers', 'id', 'icon-phone', '', 'onclick="openNumbersModal(this)" data-contact={contact->id}')
+            ->queryCustomButton('upload_image', 'id', 'fa fa-image', '', 'onclick="showFileUploadModal(this)"')
             ->queryRender(true);
     }
 
@@ -53,6 +54,7 @@ class UniversityOfficeFactory extends GlobalFactory
             })
             ->addActionButton(trans('admin::app.addresses'), 'addresses', 'addresses', 'center all', '60px')
             ->addActionButton(trans('admin::app.numbers'), 'numbers', 'numbers', 'center all', '60px')
+            ->addActionButton(trans('admin::app.upload_image'), 'upload_image', 'upload_image', 'center all', '60px')
             ->addActionButton($this->update, 'update', 'update')
             ->addActionButton($this->delete, 'delete', 'delete')
             ->addNavButton()
