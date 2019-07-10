@@ -18,7 +18,7 @@ class CreateSliderDetailsTable extends Migration {
 			$table->integer('slider_id')->index('slider_id');
 			$table->integer('image_id')->nullable()->index('image_id');
 			$table->integer('page_id')->index('page_id');
-			$table->string('position', 1);
+			$table->string('position', 1)->nullable();
 			$table->timestamps();
 			$table->softDeletes();
 		});

@@ -101,7 +101,7 @@ return array(
     'study_level' => 'المستوى الدراسي',
     'study_semester' => 'الفصل الدراسي',
     'graduate_gpa' => 'المعدل الفصلي',
-    'person' => 'المسوال',
+    'person' => 'المسؤول',
     'email' => 'الايميل',
     'contact' => 'الاتصال',
     'share' => 'مشاركة',

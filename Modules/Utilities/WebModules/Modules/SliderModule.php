@@ -43,6 +43,25 @@ class SliderModule extends Module
      * @return array
      * @throws \Exception
      */
+    private function positionSettingsEduLight($position)
+    {
+        switch ($position) {
+            case 'L':
+                return ['bgposition' => 'left'];
+            case 'C':
+                return ['bgposition' => 'center'];
+            case 'R':
+                return ['bgposition' => 'right'];
+            default:
+                throw new \Exception("Undefined position [{$position}]");
+        }
+    }
+
+    /**
+     * @param $position
+     * @return array
+     * @throws \Exception
+     */
     private function positionSettings($position)
     {
         switch ($position) {

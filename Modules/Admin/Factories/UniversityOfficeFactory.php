@@ -45,12 +45,12 @@ class UniversityOfficeFactory extends GlobalFactory
             ->addMultiInputTextLangs(['name'])
             ->relation('contact', function (DataTableBuilder $table) {
                 $table
-                    ->addInputEmail(trans('admin::app.email'), 'contact.email', 'contact.email', 'required req none')
-                    ->addInputText(trans('admin::app.phone'), 'contact.phone', 'contact.phone', 'required req none', ['data-masked', 'data-inputmask-type' => "phone"])
-                    ->addInputText(trans('admin::app.mobile'), 'contact.mobile', 'contact.mobile', 'required req none', ['data-masked', 'data-inputmask-type' => "mobile"])
+                    ->addInputEmail(trans('admin::app.email'), 'contact.email', 'contact.email', 'none')
+                    ->addInputText(trans('admin::app.phone'), 'contact.phone', 'contact.phone', 'none', ['data-masked', 'data-inputmask-type' => "phone"])
+                    ->addInputText(trans('admin::app.mobile'), 'contact.mobile', 'contact.mobile', 'none', ['data-masked', 'data-inputmask-type' => "mobile"])
                     ->addInputText(trans('admin::app.fax'), 'contact.fax', 'contact.fax', 'none', ['data-masked', 'data-inputmask-type' => "fax"])
                     ->addMultiTextareaLangs(['address'])
-                    ->addInputGroup(trans('admin::app.gelocation'), 'contact.gelocation', 'contact.gelocation', 'req required none', 'icon-location-pin', 'input-location hand', ['data-modal' => '#modal-university-office-input-location'], '', true, false, false, false, false);
+                    ->addInputGroup(trans('admin::app.gelocation'), 'contact.gelocation', 'contact.gelocation', 'none', 'icon-location-pin', 'input-location hand', ['data-modal' => '#modal-university-office-input-location'], '', true, false, false, false, false);
             })
             ->addActionButton(trans('admin::app.addresses'), 'addresses', 'addresses', 'center all', '60px')
             ->addActionButton(trans('admin::app.numbers'), 'numbers', 'numbers', 'center all', '60px')

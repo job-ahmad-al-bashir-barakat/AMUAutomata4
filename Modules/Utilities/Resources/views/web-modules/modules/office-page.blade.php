@@ -15,14 +15,19 @@
                         <h5>@lang('app.person'):</h5>
                         <a href="{{ RouteUrls::universityStaff(getSlug($office->person->id, $office->person->lang_name[$lang]->text)) }}">{{ $office->person->lang_name[app()->getLocale()]->text }}</a>
                     </li>
+                    @if($office->contact->lang_address[app()->getLocale()]->text)
                     <li>
                         <h5>@lang('app.address'):</h5>
                         <p>{{ $office->contact->lang_address[app()->getLocale()]->text }}</p>
                     </li>
+                    @endif
+                    @if($office->contact->email)
                     <li>
                         <h5>@lang('app.email'):</h5>
                         <a href="mailto:{{ $office->contact->email }}">{{ $office->contact->email }}</a>
                     </li>
+                    @endif
+                    @if($office->contact->phoneNumbers->count())
                     <li>
                         <h5>@lang('app.contact'):</h5>
                         <ul style="direction: ltr">
@@ -37,6 +42,7 @@
                         @endforeach
                         </ul>
                     </li>
+                    @endif
                     <li>
                         <h5>@lang('app.share'):</h5>
                         <div class="styled-icons icon-sm icon-gray icon-circled">
@@ -51,6 +57,7 @@
                 <img src="{{ asset($office->image_path) }}" alt="">
             </div>
         </div>
+        @if($office->contact->geolocation)
         <div class="row mt-60">
             <div class="col-md-6">
                 <h4 class="mt-0">@lang('admin::app.gelocation'): </h4>
@@ -64,5 +71,6 @@
                 ></div>
             </div>
         </div>
+        @endif
     </div>
 </section>
