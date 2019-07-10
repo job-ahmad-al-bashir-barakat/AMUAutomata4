@@ -267,6 +267,6 @@ return [
         'RouteUrls'     => App\Library\Url\Facades\RouteUrls::class,
         'FormComponent' => Aut\FormComponent\FormComponentFacade::class,
         'FileUpload'    => Aut\FileUpload\FileUploadFacade::class,
-    ],
+    ]
 
 ];

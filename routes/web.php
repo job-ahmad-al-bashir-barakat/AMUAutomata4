@@ -1,14 +1,4 @@
 <?php
-Route::get('test', function () {
-    /*return \Modules\Utilities\Entities\CustomModule::whereIn('module_id',
-            \Modules\Utilities\Entities\Module::where('customized', true)->pluck('id')
-        )->delete();
-    return view('test');
-    return \Modules\Utilities\Entities\SchemaLanguageTable::with(['languageTable'])->tablesOf('users')->get();*/
-    return \Modules\Utilities\Entities\ActivityLog::with(['subject', 'causer'])->get();
-    return ['empty' => 'there is nothing set to do'];
-});
-
 Route::group(
     [
         'middleware' => ['web', 'localeSessionRedirect', 'localizationRedirect', 'translateDynamicRoute'],
@@ -16,12 +6,11 @@ Route::group(
     ],
     function () {
         Route::get('load-more/{model}', 'LoadMoreController@getHtml');
-
         Route::get('/', function () {
             $lang = app()->getLocale();
             return redirect("{$lang}/home");
         });
-
+        Route::post('check-certificate','SecurityLabelController@checkCertificate')->name('check-certificate');
         Route::get('courses/{course}', function ($slug) {
             return returnPageModule($slug, 'course');
         });

@@ -1,11 +1,13 @@
 <?php
+/**
+ *
+ * */
 
 use Illuminate\Support\Str;
 
 if(! function_exists('localizeURL'))
 {
-    /**
-     *
+/*
      * Return locale url
      *
      * @param $url

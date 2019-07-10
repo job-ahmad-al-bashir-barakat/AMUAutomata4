@@ -18,7 +18,7 @@ return [
     'setting' => [
 
         'image' => [
-            'validate'         => 'required|mimes:jpeg,jpg,png,gif,bmp,png|ratio',
+            'validate'         => 'required|mimes:jpeg,jpg,png,gif,bmp,png,webp|ratio',
             'upload_directory' => 'upload\image',
         ],
 
@@ -28,7 +28,7 @@ return [
         ],
 
         'image-video' => [
-            'validate'         => 'required|mimes:jpeg,jpg,png,gif,bmp,png,flv,avi,mov,mp4,mpg,wmv,3gp,asf,rm,swf,mkv|ratio',
+            'validate'         => 'required|mimes:jpeg,jpg,png,gif,bmp,png,flv,avi,mov,mp4,mpg,wmv,3gp,asf,rm,swf,mkv,webp|ratio',
             'upload_directory' => 'upload\{type}',
         ],
 
