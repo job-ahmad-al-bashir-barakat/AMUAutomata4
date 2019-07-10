@@ -39,4 +39,18 @@ return [
     'news' => 'الأخبار',
     'read_more' => 'إقرأ المزيد',
     'share' => 'مشاركة',
+
+
+    'label_number' => 'رقم اللصاقة',
+    'check' => 'تحقق',
+
+    'degree' => 'الاختصاص',
+    'student_name' => 'اسم الطالب',
+    'father_name' => 'اسم الأب',
+    'mother_name' => 'اسم الأم',
+    'birth_date' => 'تاريخ الميلاد',
+    'avg' => 'المعدل',
+    'evaluation' => 'التقدير',
+    'check_certificate' => 'التحقق من الشهادات',
+
 ];

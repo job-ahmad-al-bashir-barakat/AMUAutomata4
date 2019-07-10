@@ -43,6 +43,7 @@
         'url' => $localConfig['font_url'],
         'family' => $localConfig['font_family'],
     ])
+    <script src="{{ asset(mix("js/main.js")) }}"></script>
 </head>
 <body class="">
 <div id="wrapper" class="clearfix">
@@ -67,7 +68,6 @@
     isRtl = DIR === 'rtl';
     isLtr = !isRtl;
 </script>
-<script src="{{ asset(mix("js/main.js")) }}"></script>
 <script src="{{ asset(mix('js/leaflet.js')) }}"></script>
 <script src="{{ asset(mix('js/leaflet.fullscreen.js')) }}"></script>
 <script src="{{ asset(mix('js/revolution-slider/js/revolution-slider.js')) }}"></script>

@@ -126,6 +126,8 @@ trait ModuleTrait
                 return new EventsCarouselModule();
             case 53:
                 return new VideoModule();
+            case 54:
+                return new SecurityLabelModule();
             default:
                 throw new \Exception("Undefined Web Module [id:$moduleId]");
         }
@@ -247,6 +249,8 @@ trait ModuleTrait
                 return new EventsCarouselModule();
             case 'video':
                 return new VideoModule();
+            case 'security_label':
+                return new SecurityLabelModule();
             default:
                 throw new \Exception("Undefined Web Module [Code:$moduleCode]");
         }

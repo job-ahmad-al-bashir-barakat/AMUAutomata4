@@ -113,5 +113,7 @@ return array(
             'time' => 'الوقت',
             'available' => 'مُتاح',
             'size' => 'الحجم',
+            'label_number' => 'رقم اللصاقة',
+            'g-recaptcha-response' => 'لست روبوت',
         ),
 );

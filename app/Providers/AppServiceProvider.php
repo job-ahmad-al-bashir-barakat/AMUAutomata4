@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Relations\Relation;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use Modules\Utilities\Entities\Lang;
 use Modules\Utilities\Entities\Table;
+use Illuminate\Support\Facades\Validator;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -21,6 +22,7 @@ class AppServiceProvider extends ServiceProvider
         $this->setDefaultSchemaStringLength();
         $this->setMorphMap();
         $this->setLaravelLocalizationConfig();
+        Validator::extend('recaptcha', 'App\\Validators\\ReCaptcha@validate');
     }
 
     /**

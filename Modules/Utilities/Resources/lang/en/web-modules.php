@@ -40,4 +40,17 @@ return [
     'read_more' => 'Read More',
     'share' => 'Share',
     'image_limit' => 'Image Limits',
+    'label_number' => 'Label Number',
+    'check' => 'Check',
+
+    'degree' => 'Degree',
+    'student_name' => 'Student Name',
+    'father_name' => 'Father Name',
+    'mother_name' => 'Mother Name',
+    'birth_date' => 'Birth Date',
+    'avg' => 'Average',
+    'evaluation' => 'Evaluation',
+
+
+    'check_certificate' => 'Check Certificate',
 ];
