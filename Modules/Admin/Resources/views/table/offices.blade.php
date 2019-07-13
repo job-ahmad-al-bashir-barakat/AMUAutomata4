@@ -21,7 +21,7 @@
 {!! autGoogleMap('university-office',trans('admin::app.university_office_gelocation'),'',10,setting('UGL')->value,'#datatable-university-office-modal .input-location input') !!}
 
 {!!
-    FileUpload::FileUpload('university-office' ,'university-office' ,'' ,'' ,'' ,'' ,[
+    FileUpload::FileUpload('university-office' ,'university-office' ,'' ,'' ,'250' ,'265' ,[
        'modalId'    => 'office-image-upload',
        'modalTitle' => trans('admin::app.upload_image')
     ] ,'#datatable-university-office',true,'.image',['autoReplace' => true, 'maxFileCount' => 1])
