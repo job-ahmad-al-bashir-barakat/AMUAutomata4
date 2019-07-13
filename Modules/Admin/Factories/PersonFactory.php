@@ -32,9 +32,8 @@ class PersonFactory extends GlobalFactory
             return $query->allLangs();
         }, 'faculty.transName', 'academic.graduate'])->allLangs()->type();
 
-        $tableId = 'datatable-persons-' . Str::snake(\Route::input('model'));
-
         $type = Str::snake(\Route::input('model'));
+        $tableId = "datatable-persons-{$type}";
 
         $this->table
             ->queryConfig($tableId)

@@ -27,6 +27,6 @@
     }
 
     function showFileUploadModal($this) {
-        AUT_UPLOAD.initFileUploadWithDatatable($this,'#person-image-upload',$($this).data('tableid'));
+        AUT_UPLOAD.initFileUploadWithDatatable($this,'#person-image-upload', $($this).data('tableid'));
     }
 </script>
