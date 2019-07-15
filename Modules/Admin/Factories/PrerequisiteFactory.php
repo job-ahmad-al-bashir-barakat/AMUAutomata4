@@ -22,7 +22,7 @@ class PrerequisiteFactory extends GlobalFactory
             ->queryDatatable($query)
             ->queryUpdateButton('id')
             ->queryDeleteButton('id')
-            ->queryMultiAutocompleteTemplete('courses_temp', 'courses', 'code')
+            ->queryMultiAutocompleteTemplete('courses_temp', 'courses', "lang_name->{$this->lang}->text")
             ->queryRender();
     }
 
