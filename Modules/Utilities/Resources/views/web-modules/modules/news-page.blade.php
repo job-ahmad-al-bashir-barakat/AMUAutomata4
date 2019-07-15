@@ -18,7 +18,7 @@
                 </ul>
             </div>
             <div class="entry-content mt-10">
-                {!! $news->lang_content[$lang]->text !!}
+                {!! fixFileManagerSrc($news->lang_content[$lang]->text) !!}
             </div>
             <div class="mt-30 mb-0">
                 <h5 class="pull-{{$left}} mt-10 mr-20 text-theme-color-2">{{trans('utilities::web-modules.share')}}: &nbsp</h5>
