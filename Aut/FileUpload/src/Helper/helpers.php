@@ -38,7 +38,7 @@ if(! function_exists('fileUploadPosition'))
 if(! function_exists('getFileUploadStorage'))
 {
     /**
-     * @return string
+     * @return string|array
      */
     function getFileUploadStorage($folderPath = 'public/upload/{type}/{model}',$objectId = '')
     {
@@ -65,4 +65,19 @@ if(! function_exists('getFileUploadStorage'))
     }
 }
 
+if (!function_exists('supportsWebp')) {
+    function supportsWebp() {
+        return strpos($_SERVER['HTTP_ACCEPT'], 'image/webp') !== false;
+    }
+}
 
+if (!function_exists('getWebpSrc')) {
+    function getWebpSrc($image)
+    {
+        $webp = str_replace(File::extension($image), 'webp', $image);
+        if (supportsWebp() && File::exists($webp)) {
+            return $webp;
+        }
+        return $image;
+    }
+}

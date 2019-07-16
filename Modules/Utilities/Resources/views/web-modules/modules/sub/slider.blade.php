@@ -1,5 +1,5 @@
 <li data-index="rs-{{ $i }}" data-transition="slidingoverlayhorizontal" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="default" data-thumb="{{ $imageThumb }}" data-rotate="0" data-saveperformance="off" data-title="Web Show" data-description="">
-    <img src="{{ $image }}"  alt=""  data-bgposition="center {{ $bgposition }}" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-bgparallax="6" data-no-retina>
+    <img src="{{ getWebpSrc($image) }}"  alt=""  data-bgposition="center {{ $bgposition }}" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-bgparallax="6" data-no-retina>
     <!-- LAYER NR. 1 -->
     <div class="{{ $layers['1']['class'] }}"
          id="rs-{{ $i }}-layer-1"

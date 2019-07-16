@@ -2,7 +2,7 @@
     <article class="post clearfix mb-30 bg-lighter">
         <div class="entry-header">
             <div class="post-thumb thumb">
-                <img src="{{ asset($news->image_path['sm']) }}" alt="" class="img-responsive img-fullwidth">
+                <img src="{{ asset(getWebpSrc($news->image_path['sm'])) }}" alt="" class="img-responsive img-fullwidth">
             </div>
         </div>
         <div class="entry-content border-1px p-20 pr-10">

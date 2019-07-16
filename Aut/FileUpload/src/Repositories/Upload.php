@@ -3,8 +3,6 @@
 namespace Aut\FileUpload\Repositories;
 
 use Aut\FileUpload\Entities\File;
-use Illuminate\Filesystem\Filesystem;
-use Illuminate\Filesystem\FilesystemManager;
 use Illuminate\Support\Str;
 use Storage;
 use Route;
@@ -157,7 +155,7 @@ class Upload
         if ($this->ratioType)
             $getRatio = collect($this->fileLocalConfig['ratio'])->get($this->ratioType);
         else {
-            if(isset($this->fileLocalConfig['ratio']))
+            if(isset($this->fileLocalConfig['ratio'])) {
                 foreach ($this->fileLocalConfig['ratio'] as $index => $currentRatio) {
 
                     $loopRatio = number_format($currentRatio['width'] / $currentRatio['height'], 1);
@@ -169,9 +167,8 @@ class Upload
                         break;
                     }
                 }
+            }
         }
-
-
         $this->ratio = $getRatio;
     }
 
@@ -182,7 +179,12 @@ class Upload
         if($this->ratio && !$this->stopResize) {
             $imgRezise->resize($this->ratio['width'], $this->ratio['height']);
         }
+
         $imgRezise->save("$this->uploadDirectoryPath/$this->hashName");
+        if ($this->file->getClientOriginalExtension()) {
+            $webp = str_replace(".{$this->file->getClientOriginalExtension()}", '.webp', $this->hashName);
+            $imgRezise->save("$this->uploadDirectoryPath/$webp", 70, 'webp');
+        }
         $this->resizeImage = $imgRezise;
     }
 

@@ -1,7 +1,7 @@
 <div class="col-xs-12 col-sm-6 col-md-3 sm-text-center mb-30 mb-sm-30">
     <div class="team-members maxwidth400">
         <div class="team-thumb">
-            <img src="{{ asset($office->image_path) }}" alt="">
+            <img src="{{ asset(getWebpSrc($office->image_path)) }}" alt="">
             {{--<div
                     style="min-height: 250px;"
                     id="leaflet-map-office-{{ $office->id }}"

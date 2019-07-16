@@ -1,7 +1,7 @@
 <div class="col-md-12">
     <div class="service-block bg-white">
         <div class="thumb">
-            <img alt="{{ $course->lang_name[$lang]->text }}" src="{{ asset($course->image_path['sm']) }}" class="img-fullwidth">
+            <img alt="{{ $course->lang_name[$lang]->text }}" src="{{ getWebpSrc(asset($course->image_path['sm'])) }}" class="img-fullwidth">
         </div>
         <div class="content text-left flip p-25 pt-0">
             <h4 class="line-bottom mb-10">{{ $course->lang_name[$lang]->text }}</h4>

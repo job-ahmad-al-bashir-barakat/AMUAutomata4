@@ -9,7 +9,7 @@
                     <div class="item">
                         <div class="overlay-zoom">
                             <div class="overlay-zoom-item">
-                                <img src="{{ asset($partner->small_image_path) }}" alt="">
+                                <img src="{{ getWebpSrc(asset($partner->small_image_path)) }}" alt="">
                                 <a href="#owl_1" >
                                     <div class="caption">
                                         <div class="caption-text">

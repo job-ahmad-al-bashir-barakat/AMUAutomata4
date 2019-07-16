@@ -54,7 +54,7 @@
                 </ul>
             </div>
             <div class="col-md-4">
-                <img src="{{ asset($office->image_path) }}" alt="">
+                <img src="{{ getWebpSrc(asset($office->image_path)) }}" alt="">
             </div>
         </div>
         @if($office->contact->geolocation)

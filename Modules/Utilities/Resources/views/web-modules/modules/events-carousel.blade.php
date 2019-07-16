@@ -8,7 +8,7 @@
                 <article class="post clearfix bg-lighter">
                     <div class="entry-header">
                         <div class="post-thumb thumb">
-                            <img src="{{ asset($event->image_path) }}" alt="" class="img-responsive img-fullwidth">
+                            <img src="{{ asset(getWebpSrc($event->image_path)) }}" alt="" class="img-responsive img-fullwidth">
                         </div>
                     </div>
                     <div class="entry-content p-15 pt-10 pb-10">

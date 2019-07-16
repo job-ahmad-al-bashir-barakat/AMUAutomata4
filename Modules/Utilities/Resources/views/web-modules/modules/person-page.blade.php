@@ -18,7 +18,7 @@
         </div>
         <div class="col-md-4">
             <div class="thumb">
-                <img src="{{ asset($person->image_path['lg']) }}" alt="">
+                <img src="{{ getWebpSrc(asset($person->image_path['lg'])) }}" alt="">
             </div>
         </div>
     </div>

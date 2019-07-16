@@ -1,7 +1,7 @@
 <div class="item">
     <article class="post clearfix maxwidth600 mb-sm-30">
         <div class="entry-header">
-            <div class="post-thumb thumb"> <img src="{{asset($news->image_path['sm'])}}" alt="" class="img-responsive img-fullwidth"> </div>
+            <div class="post-thumb thumb"> <img src="{{ getWebpSrc(asset($news->image_path['sm'])) }}" alt="" class="img-responsive img-fullwidth"> </div>
         </div>
         <div class="entry-content border-1px p-20">
             <h4 class="entry-title mt-0 pt-0"><a href="{{ RouteUrls::newsPage(getSlug($news->id, $news->lang_title[$lang]->text)) }}">{{$news->lang_title[$lang]->text}}</a></h4>

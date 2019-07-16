@@ -14,7 +14,7 @@
             </div>
         </div>
         <div class="col-md-4">
-            <img src="{{ asset($lab->main_image_path) }}" alt="">
+            <img src="{{ getWebpSrc(asset($lab->main_image_path)) }}" alt="">
         </div>
     </div>
     <div class="row mt-30">
@@ -22,7 +22,7 @@
             <h4 class="mb-20">@lang('app.labs.photo')</h4>
             <div class="owl-carousel-6col">
                 @foreach($lab->images_path as $imagePath)
-                <div class="item"><img src="{{ asset($imagePath) }}" alt=""></div>
+                <div class="item"><img src="{{ getWebpSrc(asset($imagePath)) }}" alt=""></div>
                 @endforeach
             </div>
         </div>

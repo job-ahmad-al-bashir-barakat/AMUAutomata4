@@ -6,12 +6,12 @@
         @foreach($data['images'] as $image)
             <div class="gallery-item">
                 <div class="thumb">
-                    <img class="img-fullwidth" src="{{ str_replace('{folder}', 'galleries/thumps/small', $image->image_url) }}" alt="{{ $image->lang_title[$lang]->text ?? '' }}">
+                    <img class="img-fullwidth" src="{{ str_replace('{folder}', 'galleries/thumps/small', getWebpSrc($image->image_url)) }}" alt="{{ $image->lang_title[$lang]->text ?? '' }}">
                     <div class="overlay-shade"></div>
                     <div class="icons-holder">
                         <div class="icons-holder-inner">
                             <div class="styled-icons icon-sm icon-dark icon-circled icon-theme-colored">
-                                <a data-lightbox="image" href="{{ str_replace('{folder}', 'galleries', $image->image_url) }}"><i class="fa fa-plus"></i></a>
+                                <a data-lightbox="image" href="{{ str_replace('{folder}', 'galleries', getWebpSrc($image->image_url)) }}"><i class="fa fa-plus"></i></a>
                             </div>
                         </div>
                     </div>

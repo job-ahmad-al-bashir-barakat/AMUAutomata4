@@ -3,7 +3,7 @@
 
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.7.14 on 2019-07-10 09:46:36.
+ * Generated for Laravel 5.7.14 on 2019-07-13 13:08:11.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -17503,6 +17503,10 @@ namespace Intervention\Image\Facades {
     /**
      * 
      *
+     * @method static \Intervention\Image\Image make(mixed $data)
+     * @method static self configure(array $config)
+     * @method static \Intervention\Image\Image canvas(int $width, int $height, mixed $background = null)
+     * @method static \Intervention\Image\Image cache(\Closure $callback, int $lifetime = null, boolean $returnObj = false)
      */ 
     class Image {
         

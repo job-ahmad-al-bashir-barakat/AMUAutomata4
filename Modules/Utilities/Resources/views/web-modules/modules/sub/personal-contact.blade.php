@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-md-8 pull-right">
-        <img src="{{ asset($partner->large_image_path) }}" alt="">
+        <img src="{{ asset(getWebpSrc($partner->large_image_path)) }}" alt="">
     </div>
     <div class="col-md-4 pull-left">
         <ul>

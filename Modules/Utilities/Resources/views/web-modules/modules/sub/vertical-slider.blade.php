@@ -2,7 +2,7 @@
     <div class="testimonial pt-10">
         @isset($imagePath)
         <div class="thumb pull-left mb-0 mr-0 pr-20">
-            <img width="75" class="img-circle" alt="" src="{{ $imagePath }}">
+            <img width="75" class="img-circle" alt="" src="{{ getWebpSrc($imagePath) }}">
         </div>
         @endisset
         <div class="@isset($imagePath){{ 'ml-100' }}@endisset">

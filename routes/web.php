@@ -1,4 +1,29 @@
 <?php
+
+Route::get('test', function () {
+    set_time_limit(0);
+    $images = Storage::allFiles('public/upload/image');
+
+    foreach ($images as $image) {
+        try {
+            if (File::extension($image) == 'gif') {
+                continue;
+            }
+            $webp = str_replace(File::extension($image), 'webp', $image);
+            if (!Storage::exists($webp)) {
+
+                    $file = Image::make(Storage::get($image));
+                    Storage::put($webp, $file->encode('webp'));
+
+            }
+        } catch (Exception $exception) {
+            continue;
+        }
+    }
+
+    return Storage::allFiles('public/upload/image');
+});
+
 Route::group(
     [
         'middleware' => ['web', 'localeSessionRedirect', 'localizationRedirect', 'translateDynamicRoute'],
